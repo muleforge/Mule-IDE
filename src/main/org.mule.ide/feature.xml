@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.mule.ide"
+      label="%featureName"
+      version="1.4.3.0"
+      provider-name="MuleSource, Inc."
+      plugin="org.mule.ide.core">
+
+   <description url="http://mule.mulesource.org">
+      Eclipse feature for working with the Mule ESB.
+   </description>
+
+   <copyright url="http://www.mulesource.com/products/licensing.php">
+     %copyright
+   </copyright>
+
+   <license url="http://www.mulesource.com/products/licensing.php">
+     %license
+   </license>
+
+   <url>
+      <discovery label="Mule IDE Update Site" url="http://dist.codehaus.org/mule/muleide/updates/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.jdt.launching"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+   </requires>
+
+   <plugin
+         id="org.mule.ide.core"
+         download-size="0"
+         install-size="0"
+         version="1.4.3.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mule.ide.launching"
+         download-size="0"
+         install-size="0"
+         version="1.4.3.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mule.ide.launching.ui"
+         download-size="0"
+         install-size="0"
+         version="1.4.3.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mule.ide.ui"
+         download-size="0"
+         install-size="0"
+         version="1.4.3.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mule.ide.emf"
+         download-size="0"
+         install-size="0"
+         version="1.4.3.0"
+         unpack="false"/>
+
+</feature>

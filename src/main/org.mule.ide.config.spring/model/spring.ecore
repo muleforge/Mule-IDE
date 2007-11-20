@@ -1,0 +1,1907 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spring"
+    nsURI="http://www.springframework.org/schema/beans" nsPrefix="spring">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Spring XML Beans Schema, version 2.0&#xD;&#xA;&#x9;Authors: Rob Harrop, Juergen Hoeller&#xD;&#xA;&#xD;&#xA;&#x9;This defines a simple and consistent way of creating a namespace&#xD;&#xA;&#x9;of JavaBeans objects, managed by a Spring BeanFactory, read by&#xD;&#xA;&#x9;XmlBeanDefinitionReader (with DefaultBeanDefinitionDocumentReader).&#xD;&#xA;&#xD;&#xA;&#x9;This document type is used by most Spring functionality, including&#xD;&#xA;&#x9;web application contexts, which are based on bean factories.&#xD;&#xA;&#xD;&#xA;&#x9;Each &quot;bean&quot; element in this document defines a JavaBean.&#xD;&#xA;&#x9;Typically the bean class is specified, along with JavaBean properties&#xD;&#xA;&#x9;and/or constructor arguments.&#xD;&#xA;&#xD;&#xA;&#x9;A bean instance can be a &quot;singleton&quot; (shared instance) or a &quot;prototype&quot;&#xD;&#xA;&#x9;(independent instance). Further scopes can be provided by extended&#xD;&#xA;&#x9;bean factories, for example in a web environment.&#xD;&#xA;&#xD;&#xA;&#x9;References among beans are supported, that is, setting a JavaBean property&#xD;&#xA;&#x9;or a constructor argument to refer to another bean in the same factory&#xD;&#xA;&#x9;(or an ancestor factory).&#xD;&#xA;&#xD;&#xA;&#x9;As alternative to bean references, &quot;inner bean definitions&quot; can be used.&#xD;&#xA;&#x9;Singleton flags of such inner bean definitions are effectively ignored:&#xD;&#xA;&#x9;inner beans are typically anonymous prototypes.&#xD;&#xA;&#xD;&#xA;&#x9;There is also support for lists, sets, maps, and java.util.Properties&#xD;&#xA;&#x9;as bean property types or constructor argument types.&#xD;&#xA;&#x9;&#x9;]]>"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="AliasType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="alias_._type"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The alias name to define for the bean.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="alias"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the bean to define an alias for.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="name"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArgTypeType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="arg-type_._type"/>
+      <details key="kind" value="mixed"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="match" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Specification of the type of an overloaded method argument as a String.&#xD;&#xA;&#x9;For convenience, this may be a substring of the FQN. E.g. all the&#xD;&#xA;&#x9;following would match &quot;java.lang.String&quot;:&#xD;&#xA;&#x9;- java.lang.String&#xD;&#xA;&#x9;- String&#xD;&#xA;&#x9;- Str&#xD;&#xA;&#xD;&#xA;&#x9;As the number of arguments will be checked also, this convenience&#xD;&#xA;&#x9;can often be used to save typing.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="match"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AutowireType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="autowire_._type"/>
+    </eAnnotations>
+    <eLiterals name="default"/>
+    <eLiterals name="no" value="1"/>
+    <eLiterals name="byName" value="2"/>
+    <eLiterals name="byType" value="3"/>
+    <eLiterals name="constructor" value="4"/>
+    <eLiterals name="autodetect" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="AutowireTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="autowire_._type:Object"/>
+      <details key="baseType" value="autowire_._type"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseCollectionType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="baseCollectionType"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="merge" eType="#//DefaultableBoolean"
+        defaultValueLiteral="default" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Enables/disables merging for collections when using parent/child beans.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="merge"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BeansType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="beans_._type"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DescriptionType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Contains informative text describing the purpose of the enclosing&#xD;&#xA;&#x9;element.&#xD;&#xA;&#x9;Used primarily for user documentation of XML bean definition documents.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="description"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="import" upperBound="-1"
+        eType="#//ImportType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Specifies an XML bean definition resource to import.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="import"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alias" upperBound="-1"
+        eType="#//AliasType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines an alias for a bean (which can reside in a different definition&#xD;&#xA;&#x9;resource).&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="alias"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bean" upperBound="-1" eType="#//BeanType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a single (usually named) bean.&#xD;&#xA;&#xD;&#xA;&#x9;A bean definition may contain nested tags for constructor arguments,&#xD;&#xA;&#x9;property values, lookup methods, and replaced methods. Mixing constructor&#xD;&#xA;&#x9;injection and setter injection on the same bean is explicitly supported.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="bean"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="wildcards" value="##other"/>
+        <details key="name" value=":5"/>
+        <details key="processing" value="strict"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultAutowire" eType="#//DefaultAutowireType"
+        defaultValueLiteral="no" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The default 'autowire' value; see the documentation for the&#xD;&#xA;&#x9;'autowire' attribute of the '&lt;bean>/' element. &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="default-autowire"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultDependencyCheck"
+        eType="#//DefaultDependencyCheckType" defaultValueLiteral="none" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The default 'dependency-check' value; see the documentation for the&#xD;&#xA;&#x9;'dependency-check' attribute of the '&lt;bean>/' element. &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="default-dependency-check"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultDestroyMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The default 'destroy-method' value; see the documentation for the&#xD;&#xA;&#x9;'destroy-method' attribute of the '&lt;bean>/' element. &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="default-destroy-method"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultInitMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The default 'init-method' value; see the documentation for the&#xD;&#xA;&#x9;'init-method' attribute of the '&lt;bean>/' element. &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="default-init-method"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultLazyInit" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="false" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The default 'lazy-init' value; see the documentation for the&#xD;&#xA;&#x9;'lazy-init' attribute of the '&lt;bean>/' element. &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="default-lazy-init"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultMerge" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="false" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The default 'merge' value; see the documentation for the&#xD;&#xA;&#x9;'merge' attribute of the various collection elements. &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="default-merge"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BeanType" eSuperTypes="#//IdentifiedType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="bean_._type"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DescriptionType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Contains informative text describing the purpose of the enclosing&#xD;&#xA;&#x9;element.&#xD;&#xA;&#x9;Used primarily for user documentation of XML bean definition documents.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="description"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="meta" upperBound="-1" eType="#//MetaType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Arbitrary metadata attached to a bean definition.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="meta"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constructorArg" upperBound="-1"
+        eType="#//ConstructorArgType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;![CDATA[&#xD;&#xA;&#x9;Bean definitions can specify zero or more constructor arguments.&#xD;&#xA;&#x9;This is an alternative to &quot;autowire constructor&quot;.&#xD;&#xA;&#x9;Arguments correspond to either a specific index of the constructor&#xD;&#xA;&#x9;argument list or are supposed to be matched generically by type.&#xD;&#xA;&#xD;&#xA;&#x9;Note: A single generic argument value will just be used once, rather&#xD;&#xA;&#x9;than potentially matched multiple times (as of Spring 1.1).&#xD;&#xA;&#xD;&#xA;&#x9;constructor-arg elements are also used in conjunction with the&#xD;&#xA;&#x9;factory-method element to construct beans using static or instance&#xD;&#xA;&#x9;factory methods.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="constructor-arg"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//PropertyType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Bean definitions can have zero or more properties.&#xD;&#xA;&#x9;Property elements correspond to JavaBean setter methods exposed&#xD;&#xA;&#x9;by the bean classes. Spring supports primitives, references to other&#xD;&#xA;&#x9;beans in the same or related factories, lists, maps and properties.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="property"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lookupMethod" upperBound="-1"
+        eType="#//LookupMethodType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A lookup method causes the IoC container to override the given method&#xD;&#xA;&#x9;and return the bean with the name given in the bean attribute. This is&#xD;&#xA;&#x9;a form of Method Injection. It is particularly useful as an alternative&#xD;&#xA;&#x9;to implementing the BeanFactoryAware interface, in order to be able to&#xD;&#xA;&#x9;make getBean() calls for non-singleton instances at runtime. In this&#xD;&#xA;&#x9;case, Method Injection is a less invasive alternative.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="lookup-method"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="replacedMethod" upperBound="-1"
+        eType="#//ReplacedMethodType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Similar to the lookup method mechanism, the replaced-method element&#xD;&#xA;&#x9;is used to control IoC container method overriding: Method Injection.&#xD;&#xA;&#x9;This mechanism allows the overriding of a method with arbitrary code.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="replaced-method"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="wildcards" value="##other"/>
+        <details key="name" value=":8"/>
+        <details key="processing" value="strict"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Is this bean &quot;abstract&quot;, that is, not meant to be instantiated itself&#xD;&#xA;&#x9;but rather just serving as parent for concrete child bean definitions?&#xD;&#xA;&#x9;The default is &quot;false&quot;. Specify &quot;true&quot; to tell the bean factory to not&#xD;&#xA;&#x9;try to instantiate that particular bean in any case.&#xD;&#xA;&#xD;&#xA;&#x9;Note: This attribute will not be inherited by child bean definitions.&#xD;&#xA;&#x9;Hence, it needs to be specified per abstract bean definition.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="abstract"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autowire" eType="#//AutowireType"
+        defaultValueLiteral="default" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Controls whether bean properties are &quot;autowired&quot;.&#xD;&#xA;&#x9;This is an automagical process in which bean references don't need&#xD;&#xA;&#x9;to be coded explicitly in the XML bean definition file, but rather the&#xD;&#xA;&#x9;Spring container works out dependencies.&#xD;&#xA;&#xD;&#xA;&#x9;There are 5 modes:&#xD;&#xA;&#xD;&#xA;&#x9;1. &quot;no&quot;&#xD;&#xA;&#x9;The traditional Spring default. No automagical wiring. Bean references&#xD;&#xA;&#x9;must be defined in the XML file via the &lt;ref/> element (or &quot;ref&quot;&#xD;&#xA;&#x9;attribute). We recommend this in most cases as it makes documentation&#xD;&#xA;&#x9;more explicit.&#xD;&#xA;&#xD;&#xA;&#x9;2. &quot;byName&quot;&#xD;&#xA;&#x9;Autowiring by property name. If a bean of class Cat exposes a dog&#xD;&#xA;&#x9;property, Spring will try to set this to the value of the bean &quot;dog&quot;&#xD;&#xA;&#x9;in the current container. If there is no matching bean by name, nothing&#xD;&#xA;&#x9;special happens; use dependency-check=&quot;objects&quot; to raise an error in&#xD;&#xA;&#x9;that case.&#xD;&#xA;&#xD;&#xA;&#x9;3. &quot;byType&quot;&#xD;&#xA;&#x9;Autowiring if there is exactly one bean of the property type in the&#xD;&#xA;&#x9;container. If there is more than one, a fatal error is raised, and&#xD;&#xA;&#x9;you cannot use byType autowiring for that bean. If there is none,&#xD;&#xA;&#x9;nothing special happens; use dependency-check=&quot;objects&quot; to raise an&#xD;&#xA;&#x9;error in that case.&#xD;&#xA;&#xD;&#xA;&#x9;4. &quot;constructor&quot;&#xD;&#xA;&#x9;Analogous to &quot;byType&quot; for constructor arguments. If there is not exactly&#xD;&#xA;&#x9;one bean of the constructor argument type in the bean factory, a fatal&#xD;&#xA;&#x9;error is raised.&#xD;&#xA;&#xD;&#xA;&#x9;5. &quot;autodetect&quot;&#xD;&#xA;&#x9;Chooses &quot;constructor&quot; or &quot;byType&quot; through introspection of the bean&#xD;&#xA;&#x9;class. If a default constructor is found, &quot;byType&quot; gets applied.&#xD;&#xA;&#xD;&#xA;&#x9;Note that explicit dependencies, i.e. &quot;property&quot; and &quot;constructor-arg&quot;&#xD;&#xA;&#x9;elements, always override autowiring. Autowire behavior can be combined&#xD;&#xA;&#x9;with dependency checking, which will be performed after all autowiring&#xD;&#xA;&#x9;has been completed.&#xD;&#xA;&#xD;&#xA;&#x9;Note: This attribute will not be inherited by child bean definitions.&#xD;&#xA;&#x9;Hence, it needs to be specified per concrete bean definition.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="autowire"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autowireCandidate" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Indicates whether or not this bean should be considered when looking&#xD;&#xA;&#x9;for candidates to satisfy another bean's autowiring requirements.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="autowire-candidate"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The fully qualified name of the bean's class, except if it pure serves as parent for child bean definitions.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="class"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependencyCheck" eType="#//DependencyCheckType"
+        defaultValueLiteral="default" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Controls whether or not to check whether all of this&#xD;&#xA;&#x9;beans dependencies, expressed in its properties, are satisfied.&#xD;&#xA;&#x9;The default is to perform no dependency checking.&#xD;&#xA;&#xD;&#xA;&#x9;&quot;simple&quot; type dependency checking includes primitives and String&#xD;&#xA;&#x9;&quot;object&quot; includes collaborators (other beans in the factory)&#xD;&#xA;&#x9;&quot;all&quot; includes both types of dependency checking&#xD;&#xA;&#xD;&#xA;&#x9;Note: This attribute will not be inherited by child bean definitions.&#xD;&#xA;&#x9;Hence, it needs to be specified per concrete bean definition.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="dependency-check"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependsOn" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The names of the beans that this bean depends on being initialized.&#xD;&#xA;&#x9;The bean factory will guarantee that these beans get initialized&#xD;&#xA;&#x9;before this bean.&#xD;&#xA;&#xD;&#xA;&#x9;Note that dependencies are normally expressed through bean properties&#xD;&#xA;&#x9;or constructor arguments. This property should just be necessary for&#xD;&#xA;&#x9;other kinds of dependencies like statics (*ugh*) or database preparation&#xD;&#xA;&#x9;on startup.&#xD;&#xA;&#xD;&#xA;&#x9;Note: This attribute will not be inherited by child bean definitions.&#xD;&#xA;&#x9;Hence, it needs to be specified per concrete bean definition.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="depends-on"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="destroyMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the custom destroy method to invoke on bean factory&#xD;&#xA;&#x9;shutdown. The method must have no arguments, but may throw any&#xD;&#xA;&#x9;exception.&#xD;&#xA;&#xD;&#xA;&#x9;Note: Only invoked on beans whose lifecycle is under the full&#xD;&#xA;&#x9;control of the factory - which is always the case for singletons,&#xD;&#xA;&#x9;but not guaranteed for any other scope.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="destroy-method"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factoryBean" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Alternative to class attribute for factory-method usage.&#xD;&#xA;&#x9;If this is specified, no class attribute should be used.&#xD;&#xA;&#x9;This must be set to the name of a bean in the current or&#xD;&#xA;&#x9;ancestor factories that contains the relevant factory method.&#xD;&#xA;&#x9;This allows the factory itself to be configured using Dependency&#xD;&#xA;&#x9;Injection, and an instance (rather than static) method to be used.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="factory-bean"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factoryMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of a factory method to use to create this object. Use&#xD;&#xA;&#x9;constructor-arg elements to specify arguments to the factory method,&#xD;&#xA;&#x9;if it takes arguments. Autowiring does not apply to factory methods.&#xD;&#xA;&#xD;&#xA;&#x9;If the &quot;class&quot; attribute is present, the factory method will be a static&#xD;&#xA;&#x9;method on the class specified by the &quot;class&quot; attribute on this bean&#xD;&#xA;&#x9;definition. Often this will be the same class as that of the constructed&#xD;&#xA;&#x9;object - for example, when the factory method is used as an alternative&#xD;&#xA;&#x9;to a constructor. However, it may be on a different class. In that case,&#xD;&#xA;&#x9;the created object will *not* be of the class specified in the &quot;class&quot;&#xD;&#xA;&#x9;attribute. This is analogous to FactoryBean behavior.&#xD;&#xA;&#xD;&#xA;&#x9;If the &quot;factory-bean&quot; attribute is present, the &quot;class&quot; attribute is not&#xD;&#xA;&#x9;used, and the factory method will be an instance method on the object&#xD;&#xA;&#x9;returned from a getBean call with the specified bean name. The factory&#xD;&#xA;&#x9;bean may be defined as a singleton or a prototype.&#xD;&#xA;&#xD;&#xA;&#x9;The factory method can have any number of arguments. Autowiring is not&#xD;&#xA;&#x9;supported. Use indexed constructor-arg elements in conjunction with the&#xD;&#xA;&#x9;factory-method attribute.&#xD;&#xA;&#xD;&#xA;&#x9;Setter Injection can be used in conjunction with a factory method.&#xD;&#xA;&#x9;Method Injection cannot, as the factory method returns an instance,&#xD;&#xA;&#x9;which will be used when the container creates the bean.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="factory-method"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the custom initialization method to invoke after setting&#xD;&#xA;&#x9;bean properties. The method must have no arguments, but may throw any&#xD;&#xA;&#x9;exception.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="init-method"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lazyInit" eType="#//DefaultableBoolean"
+        defaultValueLiteral="default" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Indicates whether or not this bean is to be lazily initialized.&#xD;&#xA;&#x9;If false, it will be instantiated on startup by bean factories&#xD;&#xA;&#x9;that perform eager initialization of singletons. The default is&#xD;&#xA;&#x9;&quot;false&quot;.&#xD;&#xA;&#xD;&#xA;&#x9;Note: This attribute will not be inherited by child bean definitions.&#xD;&#xA;&#x9;Hence, it needs to be specified per concrete bean definition.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="lazy-init"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Can be used to create one or more aliases illegal in an (XML) id.&#xD;&#xA;&#x9;Multiple aliases can be separated by any number of spaces, commas,&#xD;&#xA;&#x9;or semi-colons (or indeed any mixture of the three).&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="name"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parent" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the parent bean definition.&#xD;&#xA;&#xD;&#xA;&#x9;Will use the bean class of the parent if none is specified, but can&#xD;&#xA;&#x9;also override it. In the latter case, the child bean class must be&#xD;&#xA;&#x9;compatible with the parent, i.e. accept the parent's property values&#xD;&#xA;&#x9;and constructor argument values, if any.&#xD;&#xA;&#xD;&#xA;&#x9;A child bean definition will inherit constructor argument values,&#xD;&#xA;&#x9;property values and method overrides from the parent, with the option&#xD;&#xA;&#x9;to add new values. If init method, destroy method, factory bean and/or&#xD;&#xA;&#x9;factory method are specified, they will override the corresponding&#xD;&#xA;&#x9;parent settings.&#xD;&#xA;&#xD;&#xA;&#x9;The remaining settings will always be taken from the child definition:&#xD;&#xA;&#x9;depends on, autowire mode, dependency check, scope, lazy init.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="parent"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The scope of this bean: typically &quot;singleton&quot; (one shared instance,&#xD;&#xA;&#x9;which will be returned by all calls to getBean with the given id), or&#xD;&#xA;&#x9;&quot;prototype&quot; (independent instance resulting from each call to getBean).&#xD;&#xA;&#x9;Default is &quot;singleton&quot;.&#xD;&#xA;&#xD;&#xA;&#x9;Singletons are most commonly used, and are ideal for multi-threaded&#xD;&#xA;&#x9;service objects. Further scopes, such as &quot;request&quot; or &quot;session&quot;, might&#xD;&#xA;&#x9;be supported by extended bean factories (e.g. in a web environment).&#xD;&#xA;&#xD;&#xA;&#x9;Note: This attribute will not be inherited by child bean definitions.&#xD;&#xA;&#x9;Hence, it needs to be specified per concrete bean definition.&#xD;&#xA;&#xD;&#xA;&#x9;Inner bean definitions inherit the singleton status of their containing&#xD;&#xA;&#x9;bean definition, unless explicitly specified: The inner bean will be a&#xD;&#xA;&#x9;singleton if the containing bean is a singleton, and a prototype if&#xD;&#xA;&#x9;the containing bean has any other scope.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="scope"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="anyAttribute" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attributeWildcard"/>
+        <details key="wildcards" value="##other"/>
+        <details key="name" value=":23"/>
+        <details key="processing" value="lax"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstructorArgType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="constructor-arg_._type"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DescriptionType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Contains informative text describing the purpose of the enclosing&#xD;&#xA;&#x9;element.&#xD;&#xA;&#x9;Used primarily for user documentation of XML bean definition documents.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="description"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bean" eType="#//BeanType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a single (usually named) bean.&#xD;&#xA;&#xD;&#xA;&#x9;A bean definition may contain nested tags for constructor arguments,&#xD;&#xA;&#x9;property values, lookup methods, and replaced methods. Mixing constructor&#xD;&#xA;&#x9;injection and setter injection on the same bean is explicitly supported.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="bean"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//RefType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a reference to another bean in this factory or an external&#xD;&#xA;&#x9;factory (parent or included factory).&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="ref"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="idref" eType="#//IdrefType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The id of another bean in this factory or an external factory&#xD;&#xA;&#x9;(parent or included factory).&#xD;&#xA;&#x9;While a regular 'value' element could instead be used for the&#xD;&#xA;&#x9;same effect, using idref in this case allows validation of local&#xD;&#xA;&#x9;bean ids by the XML parser, and name completion by supporting tools.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="idref"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ValueType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Contains a string representation of a property value.&#xD;&#xA;&#x9;The property may be a string, or may be converted to the required&#xD;&#xA;&#x9;type using the JavaBeans PropertyEditor machinery. This makes it&#xD;&#xA;&#x9;possible for application developers to write custom PropertyEditor&#xD;&#xA;&#x9;implementations that can convert strings to arbitrary target objects.&#xD;&#xA;&#xD;&#xA;&#x9;Note that this is recommended for simple objects only. Configure&#xD;&#xA;&#x9;more complex objects by populating JavaBean properties with&#xD;&#xA;&#x9;references to other beans.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="value"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="null" eType="#//NullType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Denotes a Java null value. Necessary because an empty &quot;value&quot; tag&#xD;&#xA;&#x9;will resolve to an empty String, which will not be resolved to a&#xD;&#xA;&#x9;null value unless a special PropertyEditor does so.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="null"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//ListOrSetType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A list can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java lists are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed. A list can also map to&#xD;&#xA;&#x9;an array type. The necessary conversion is automatically performed&#xD;&#xA;&#x9;by the BeanFactory.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="list"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="set" eType="#//ListOrSetType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A set can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java sets are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="set"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="map" eType="#//MapType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A mapping from a key to an object. Maps may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="map"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="props" eType="#//PropsType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Props elements differ from map elements in that values must be strings.&#xD;&#xA;&#x9;Props may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="props"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="wildcards" value="##other"/>
+        <details key="name" value=":10"/>
+        <details key="processing" value="strict"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The exact index of thr argument in the constructor argument list.&#xD;&#xA;&#x9;Only needed to avoid ambiguities, e.g. in case of 2 arguments of&#xD;&#xA;&#x9;the exact same type.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="index"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A short-cut alternative to a nested &quot;&lt;ref bean='...'/>&quot; element.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="ref"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The exact type of the constructor argument. Only needed to avoid&#xD;&#xA;&#x9;ambiguities, e.g. in case of 2 single argument constructors&#xD;&#xA;&#x9;that can both be converted from a String.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A short-cut alternative to a nested &quot;&lt;value>...&lt;value/>&quot;&#xD;&#xA;&#x9;element.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="value"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DefaultableBoolean">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="defaultable-boolean"/>
+    </eAnnotations>
+    <eLiterals name="default"/>
+    <eLiterals name="true" value="1"/>
+    <eLiterals name="false" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="DefaultableBooleanObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="defaultable-boolean:Object"/>
+      <details key="baseType" value="defaultable-boolean"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DefaultAutowireType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="default-autowire_._type"/>
+    </eAnnotations>
+    <eLiterals name="no"/>
+    <eLiterals name="byName" value="1"/>
+    <eLiterals name="byType" value="2"/>
+    <eLiterals name="constructor" value="3"/>
+    <eLiterals name="autodetect" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="DefaultAutowireTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="default-autowire_._type:Object"/>
+      <details key="baseType" value="default-autowire_._type"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DefaultDependencyCheckType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="default-dependency-check_._type"/>
+    </eAnnotations>
+    <eLiterals name="none"/>
+    <eLiterals name="simple" value="1"/>
+    <eLiterals name="objects" value="2"/>
+    <eLiterals name="all" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="DefaultDependencyCheckTypeObject"
+      instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="default-dependency-check_._type:Object"/>
+      <details key="baseType" value="default-dependency-check_._type"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DependencyCheckType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="dependency-check_._type"/>
+    </eAnnotations>
+    <eLiterals name="default"/>
+    <eLiterals name="none" value="1"/>
+    <eLiterals name="simple" value="2"/>
+    <eLiterals name="objects" value="3"/>
+    <eLiterals name="all" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="DependencyCheckTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="dependency-check_._type:Object"/>
+      <details key="baseType" value="dependency-check_._type"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DescriptionType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="description_._type"/>
+      <details key="kind" value="mixed"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentRoot">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value=""/>
+      <details key="kind" value="mixed"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xMLNSPrefixMap" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="xmlns:prefix"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xSISchemaLocation" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="xsi:schemaLocation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alias" upperBound="-2"
+        eType="#//AliasType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines an alias for a bean (which can reside in a different definition&#xD;&#xA;&#x9;resource).&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="alias"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="argType" upperBound="-2"
+        eType="#//ArgTypeType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Identifies an argument for a replaced method in the event of&#xD;&#xA;&#x9;method overloading.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="arg-type"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bean" upperBound="-2" eType="#//BeanType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a single (usually named) bean.&#xD;&#xA;&#xD;&#xA;&#x9;A bean definition may contain nested tags for constructor arguments,&#xD;&#xA;&#x9;property values, lookup methods, and replaced methods. Mixing constructor&#xD;&#xA;&#x9;injection and setter injection on the same bean is explicitly supported.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="bean"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beans" upperBound="-2"
+        eType="#//BeansType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The top level (typically root) element. Allows the definition&#xD;&#xA;&#x9;of default values for all nested bean definitions.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="beans"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constructorArg" upperBound="-2"
+        eType="#//ConstructorArgType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;![CDATA[&#xD;&#xA;&#x9;Bean definitions can specify zero or more constructor arguments.&#xD;&#xA;&#x9;This is an alternative to &quot;autowire constructor&quot;.&#xD;&#xA;&#x9;Arguments correspond to either a specific index of the constructor&#xD;&#xA;&#x9;argument list or are supposed to be matched generically by type.&#xD;&#xA;&#xD;&#xA;&#x9;Note: A single generic argument value will just be used once, rather&#xD;&#xA;&#x9;than potentially matched multiple times (as of Spring 1.1).&#xD;&#xA;&#xD;&#xA;&#x9;constructor-arg elements are also used in conjunction with the&#xD;&#xA;&#x9;factory-method element to construct beans using static or instance&#xD;&#xA;&#x9;factory methods.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="constructor-arg"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" upperBound="-2"
+        eType="#//DescriptionType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Contains informative text describing the purpose of the enclosing&#xD;&#xA;&#x9;element.&#xD;&#xA;&#x9;Used primarily for user documentation of XML bean definition documents.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="description"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entry" upperBound="-2"
+        eType="#//EntryType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A map entry can be an inner bean, ref, value, or collection.&#xD;&#xA;&#x9;The key of the entry is given by the &quot;key&quot; attribute or child element.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="entry"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="idref" upperBound="-2"
+        eType="#//IdrefType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The id of another bean in this factory or an external factory&#xD;&#xA;&#x9;(parent or included factory).&#xD;&#xA;&#x9;While a regular 'value' element could instead be used for the&#xD;&#xA;&#x9;same effect, using idref in this case allows validation of local&#xD;&#xA;&#x9;bean ids by the XML parser, and name completion by supporting tools.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="idref"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="import" upperBound="-2"
+        eType="#//ImportType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Specifies an XML bean definition resource to import.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="import"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" upperBound="-2" eType="#//KeyType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A key element can contain an inner bean, ref, value, or collection.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="key"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" upperBound="-2" eType="#//ListOrSetType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A list can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java lists are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed. A list can also map to&#xD;&#xA;&#x9;an array type. The necessary conversion is automatically performed&#xD;&#xA;&#x9;by the BeanFactory.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="list"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lookupMethod" upperBound="-2"
+        eType="#//LookupMethodType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A lookup method causes the IoC container to override the given method&#xD;&#xA;&#x9;and return the bean with the name given in the bean attribute. This is&#xD;&#xA;&#x9;a form of Method Injection. It is particularly useful as an alternative&#xD;&#xA;&#x9;to implementing the BeanFactoryAware interface, in order to be able to&#xD;&#xA;&#x9;make getBean() calls for non-singleton instances at runtime. In this&#xD;&#xA;&#x9;case, Method Injection is a less invasive alternative.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="lookup-method"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="map" upperBound="-2" eType="#//MapType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A mapping from a key to an object. Maps may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="map"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="meta" upperBound="-2" eType="#//MetaType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Arbitrary metadata attached to a bean definition.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="meta"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="null" upperBound="-2" eType="#//NullType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Denotes a Java null value. Necessary because an empty &quot;value&quot; tag&#xD;&#xA;&#x9;will resolve to an empty String, which will not be resolved to a&#xD;&#xA;&#x9;null value unless a special PropertyEditor does so.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="null"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop" upperBound="-2" eType="#//PropType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The string value of the property. Note that whitespace is trimmed&#xD;&#xA;&#x9;off to avoid unwanted whitespace caused by typical XML formatting.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="prop"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-2"
+        eType="#//PropertyType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Bean definitions can have zero or more properties.&#xD;&#xA;&#x9;Property elements correspond to JavaBean setter methods exposed&#xD;&#xA;&#x9;by the bean classes. Spring supports primitives, references to other&#xD;&#xA;&#x9;beans in the same or related factories, lists, maps and properties.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="property"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="props" upperBound="-2"
+        eType="#//PropsType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Props elements differ from map elements in that values must be strings.&#xD;&#xA;&#x9;Props may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="props"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" upperBound="-2" eType="#//RefType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a reference to another bean in this factory or an external&#xD;&#xA;&#x9;factory (parent or included factory).&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="ref"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="replacedMethod" upperBound="-2"
+        eType="#//ReplacedMethodType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Similar to the lookup method mechanism, the replaced-method element&#xD;&#xA;&#x9;is used to control IoC container method overriding: Method Injection.&#xD;&#xA;&#x9;This mechanism allows the overriding of a method with arbitrary code.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="replaced-method"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="set" upperBound="-2" eType="#//ListOrSetType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A set can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java sets are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="set"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-2"
+        eType="#//ValueType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Contains a string representation of a property value.&#xD;&#xA;&#x9;The property may be a string, or may be converted to the required&#xD;&#xA;&#x9;type using the JavaBeans PropertyEditor machinery. This makes it&#xD;&#xA;&#x9;possible for application developers to write custom PropertyEditor&#xD;&#xA;&#x9;implementations that can convert strings to arbitrary target objects.&#xD;&#xA;&#xD;&#xA;&#x9;Note that this is recommended for simple objects only. Configure&#xD;&#xA;&#x9;more complex objects by populating JavaBean properties with&#xD;&#xA;&#x9;references to other beans.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="value"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntryType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="entryType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="#//KeyType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A key element can contain an inner bean, ref, value, or collection.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="key"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bean" upperBound="-1" eType="#//BeanType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a single (usually named) bean.&#xD;&#xA;&#xD;&#xA;&#x9;A bean definition may contain nested tags for constructor arguments,&#xD;&#xA;&#x9;property values, lookup methods, and replaced methods. Mixing constructor&#xD;&#xA;&#x9;injection and setter injection on the same bean is explicitly supported.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="bean"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" upperBound="-1" eType="#//RefType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a reference to another bean in this factory or an external&#xD;&#xA;&#x9;factory (parent or included factory).&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="ref"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="idref" upperBound="-1"
+        eType="#//IdrefType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The id of another bean in this factory or an external factory&#xD;&#xA;&#x9;(parent or included factory).&#xD;&#xA;&#x9;While a regular 'value' element could instead be used for the&#xD;&#xA;&#x9;same effect, using idref in this case allows validation of local&#xD;&#xA;&#x9;bean ids by the XML parser, and name completion by supporting tools.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="idref"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
+        eType="#//ValueType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Contains a string representation of a property value.&#xD;&#xA;&#x9;The property may be a string, or may be converted to the required&#xD;&#xA;&#x9;type using the JavaBeans PropertyEditor machinery. This makes it&#xD;&#xA;&#x9;possible for application developers to write custom PropertyEditor&#xD;&#xA;&#x9;implementations that can convert strings to arbitrary target objects.&#xD;&#xA;&#xD;&#xA;&#x9;Note that this is recommended for simple objects only. Configure&#xD;&#xA;&#x9;more complex objects by populating JavaBean properties with&#xD;&#xA;&#x9;references to other beans.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="value"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="null" upperBound="-1" eType="#//NullType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Denotes a Java null value. Necessary because an empty &quot;value&quot; tag&#xD;&#xA;&#x9;will resolve to an empty String, which will not be resolved to a&#xD;&#xA;&#x9;null value unless a special PropertyEditor does so.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="null"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" upperBound="-1" eType="#//ListOrSetType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A list can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java lists are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed. A list can also map to&#xD;&#xA;&#x9;an array type. The necessary conversion is automatically performed&#xD;&#xA;&#x9;by the BeanFactory.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="list"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="set" upperBound="-1" eType="#//ListOrSetType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A set can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java sets are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="set"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="map" upperBound="-1" eType="#//MapType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A mapping from a key to an object. Maps may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="map"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="props" upperBound="-1"
+        eType="#//PropsType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Props elements differ from map elements in that values must be strings.&#xD;&#xA;&#x9;Props may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="props"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="wildcards" value="##other"/>
+        <details key="name" value=":11"/>
+        <details key="processing" value="strict"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Each map element must specify its key as attribute or as child element.&#xD;&#xA;&#x9;A key attribute is always a String value.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="key"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyRef" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A short-cut alternative to a to a &quot;key&quot; element with a nested&#xD;&#xA;&#x9;&quot;&lt;ref bean='...'/>&quot;.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="key-ref"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A short-cut alternative to a nested &quot;&lt;value>...&lt;/value>&quot;&#xD;&#xA;&#x9;element.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="value"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueRef" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A short-cut alternative to a nested &quot;&lt;ref bean='...'/>&quot;.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="value-ref"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IdentifiedType" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The unique identifier for a bean. The scope of the identifier&#xD;&#xA;&#x9;is the enclosing bean factory.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+    </eAnnotations>
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="identifiedType"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//ID"
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The unique identifier for a bean.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="id"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IdrefType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="idref_._type"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bean" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the referenced bean.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="bean"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="local" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IDREF">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the referenced bean. The value must be a bean ID,&#xD;&#xA;&#x9;and thus can be checked by the XML parser, thus should be preferred&#xD;&#xA;&#x9;for references within the same bean factory XML file.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="local"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImportType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="import_._type"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resource" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The relative resource location of the XML (bean definition) file to import,&#xD;&#xA;&#x9;for example &quot;myImport.xml&quot; or &quot;includes/myImport.xml&quot; or &quot;../myImport.xml&quot;.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="resource"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="key_._type"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bean" upperBound="-1" eType="#//BeanType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a single (usually named) bean.&#xD;&#xA;&#xD;&#xA;&#x9;A bean definition may contain nested tags for constructor arguments,&#xD;&#xA;&#x9;property values, lookup methods, and replaced methods. Mixing constructor&#xD;&#xA;&#x9;injection and setter injection on the same bean is explicitly supported.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="bean"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" upperBound="-1" eType="#//RefType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a reference to another bean in this factory or an external&#xD;&#xA;&#x9;factory (parent or included factory).&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="ref"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="idref" upperBound="-1"
+        eType="#//IdrefType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The id of another bean in this factory or an external factory&#xD;&#xA;&#x9;(parent or included factory).&#xD;&#xA;&#x9;While a regular 'value' element could instead be used for the&#xD;&#xA;&#x9;same effect, using idref in this case allows validation of local&#xD;&#xA;&#x9;bean ids by the XML parser, and name completion by supporting tools.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="idref"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
+        eType="#//ValueType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Contains a string representation of a property value.&#xD;&#xA;&#x9;The property may be a string, or may be converted to the required&#xD;&#xA;&#x9;type using the JavaBeans PropertyEditor machinery. This makes it&#xD;&#xA;&#x9;possible for application developers to write custom PropertyEditor&#xD;&#xA;&#x9;implementations that can convert strings to arbitrary target objects.&#xD;&#xA;&#xD;&#xA;&#x9;Note that this is recommended for simple objects only. Configure&#xD;&#xA;&#x9;more complex objects by populating JavaBean properties with&#xD;&#xA;&#x9;references to other beans.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="value"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="null" upperBound="-1" eType="#//NullType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Denotes a Java null value. Necessary because an empty &quot;value&quot; tag&#xD;&#xA;&#x9;will resolve to an empty String, which will not be resolved to a&#xD;&#xA;&#x9;null value unless a special PropertyEditor does so.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="null"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" upperBound="-1" eType="#//ListOrSetType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A list can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java lists are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed. A list can also map to&#xD;&#xA;&#x9;an array type. The necessary conversion is automatically performed&#xD;&#xA;&#x9;by the BeanFactory.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="list"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="set" upperBound="-1" eType="#//ListOrSetType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A set can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java sets are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="set"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="map" upperBound="-1" eType="#//MapType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A mapping from a key to an object. Maps may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="map"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="props" upperBound="-1"
+        eType="#//PropsType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Props elements differ from map elements in that values must be strings.&#xD;&#xA;&#x9;Props may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="props"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="wildcards" value="##other"/>
+        <details key="name" value=":10"/>
+        <details key="processing" value="strict"/>
+        <details key="group" value="#group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListOrSetType" eSuperTypes="#//TypedCollectionType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="listOrSetType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bean" upperBound="-1" eType="#//BeanType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a single (usually named) bean.&#xD;&#xA;&#xD;&#xA;&#x9;A bean definition may contain nested tags for constructor arguments,&#xD;&#xA;&#x9;property values, lookup methods, and replaced methods. Mixing constructor&#xD;&#xA;&#x9;injection and setter injection on the same bean is explicitly supported.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="bean"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" upperBound="-1" eType="#//RefType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a reference to another bean in this factory or an external&#xD;&#xA;&#x9;factory (parent or included factory).&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="ref"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="idref" upperBound="-1"
+        eType="#//IdrefType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The id of another bean in this factory or an external factory&#xD;&#xA;&#x9;(parent or included factory).&#xD;&#xA;&#x9;While a regular 'value' element could instead be used for the&#xD;&#xA;&#x9;same effect, using idref in this case allows validation of local&#xD;&#xA;&#x9;bean ids by the XML parser, and name completion by supporting tools.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="idref"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
+        eType="#//ValueType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Contains a string representation of a property value.&#xD;&#xA;&#x9;The property may be a string, or may be converted to the required&#xD;&#xA;&#x9;type using the JavaBeans PropertyEditor machinery. This makes it&#xD;&#xA;&#x9;possible for application developers to write custom PropertyEditor&#xD;&#xA;&#x9;implementations that can convert strings to arbitrary target objects.&#xD;&#xA;&#xD;&#xA;&#x9;Note that this is recommended for simple objects only. Configure&#xD;&#xA;&#x9;more complex objects by populating JavaBean properties with&#xD;&#xA;&#x9;references to other beans.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="value"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="null" upperBound="-1" eType="#//NullType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Denotes a Java null value. Necessary because an empty &quot;value&quot; tag&#xD;&#xA;&#x9;will resolve to an empty String, which will not be resolved to a&#xD;&#xA;&#x9;null value unless a special PropertyEditor does so.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="null"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" upperBound="-1" eType="#//ListOrSetType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A list can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java lists are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed. A list can also map to&#xD;&#xA;&#x9;an array type. The necessary conversion is automatically performed&#xD;&#xA;&#x9;by the BeanFactory.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="list"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="set" upperBound="-1" eType="#//ListOrSetType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A set can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java sets are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="set"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="map" upperBound="-1" eType="#//MapType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A mapping from a key to an object. Maps may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="map"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="props" upperBound="-1"
+        eType="#//PropsType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Props elements differ from map elements in that values must be strings.&#xD;&#xA;&#x9;Props may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="props"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="wildcards" value="##other"/>
+        <details key="name" value=":12"/>
+        <details key="processing" value="strict"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LookupMethodType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="lookup-method_._type"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bean" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the bean in the current or ancestor factories that&#xD;&#xA;&#x9;the lookup method should resolve to. Often this bean will be a&#xD;&#xA;&#x9;prototype, in which case the lookup method will return a distinct&#xD;&#xA;&#x9;instance on every invocation. This is useful for single-threaded objects.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="bean"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the lookup method. This method must take no arguments.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="name"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MapType" eSuperTypes="#//TypedCollectionType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="mapType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entry" upperBound="-1"
+        eType="#//EntryType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A map entry can be an inner bean, ref, value, or collection.&#xD;&#xA;&#x9;The key of the entry is given by the &quot;key&quot; attribute or child element.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="entry"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyType" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The default Java type for nested entry keys. Must be a fully qualified&#xD;&#xA;&#x9;class name. &#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="key-type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MetaType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="metaType"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The key name of the metadata parameter being defined.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="key"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The value of the metadata parameter being defined (as a simple String).&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="value"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NullType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="null_._type"/>
+      <details key="kind" value="mixed"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="propertyType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DescriptionType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Contains informative text describing the purpose of the enclosing&#xD;&#xA;&#x9;element.&#xD;&#xA;&#x9;Used primarily for user documentation of XML bean definition documents.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="description"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="meta" eType="#//MetaType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Arbitrary metadata attached to a bean definition.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="meta"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bean" eType="#//BeanType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a single (usually named) bean.&#xD;&#xA;&#xD;&#xA;&#x9;A bean definition may contain nested tags for constructor arguments,&#xD;&#xA;&#x9;property values, lookup methods, and replaced methods. Mixing constructor&#xD;&#xA;&#x9;injection and setter injection on the same bean is explicitly supported.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="bean"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//RefType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Defines a reference to another bean in this factory or an external&#xD;&#xA;&#x9;factory (parent or included factory).&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="ref"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="idref" eType="#//IdrefType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The id of another bean in this factory or an external factory&#xD;&#xA;&#x9;(parent or included factory).&#xD;&#xA;&#x9;While a regular 'value' element could instead be used for the&#xD;&#xA;&#x9;same effect, using idref in this case allows validation of local&#xD;&#xA;&#x9;bean ids by the XML parser, and name completion by supporting tools.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="idref"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ValueType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Contains a string representation of a property value.&#xD;&#xA;&#x9;The property may be a string, or may be converted to the required&#xD;&#xA;&#x9;type using the JavaBeans PropertyEditor machinery. This makes it&#xD;&#xA;&#x9;possible for application developers to write custom PropertyEditor&#xD;&#xA;&#x9;implementations that can convert strings to arbitrary target objects.&#xD;&#xA;&#xD;&#xA;&#x9;Note that this is recommended for simple objects only. Configure&#xD;&#xA;&#x9;more complex objects by populating JavaBean properties with&#xD;&#xA;&#x9;references to other beans.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="value"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="null" eType="#//NullType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Denotes a Java null value. Necessary because an empty &quot;value&quot; tag&#xD;&#xA;&#x9;will resolve to an empty String, which will not be resolved to a&#xD;&#xA;&#x9;null value unless a special PropertyEditor does so.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="null"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//ListOrSetType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A list can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java lists are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed. A list can also map to&#xD;&#xA;&#x9;an array type. The necessary conversion is automatically performed&#xD;&#xA;&#x9;by the BeanFactory.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="list"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="set" eType="#//ListOrSetType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A set can contain multiple inner bean, ref, collection, or value&#xD;&#xA;&#x9;elements. Java sets are untyped, pending generics support in Java5,&#xD;&#xA;&#x9;although references will be strongly typed.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="set"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="map" eType="#//MapType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A mapping from a key to an object. Maps may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="map"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="props" eType="#//PropsType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Props elements differ from map elements in that values must be strings.&#xD;&#xA;&#x9;Props may be empty.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="props"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="wildcards" value="##other"/>
+        <details key="name" value=":11"/>
+        <details key="processing" value="strict"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the property, following JavaBean naming conventions.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="name"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A short-cut alternative to a nested &quot;&lt;ref bean='...'/>&quot;.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="ref"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;A short-cut alternative to a nested &quot;&lt;value>...&lt;/value>&quot;&#xD;&#xA;&#x9;element.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="value"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropsType" eSuperTypes="#//BaseCollectionType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="propsType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop" upperBound="-1" eType="#//PropType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The string value of the property. Note that whitespace is trimmed&#xD;&#xA;&#x9;off to avoid unwanted whitespace caused by typical XML formatting.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="prop"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="prop_._type"/>
+      <details key="kind" value="mixed"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The key of the property entry.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="key"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RefType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="ref_._type"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bean" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the referenced bean.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="bean"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="local" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IDREF">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the referenced bean. The value must be a bean ID,&#xD;&#xA;&#x9;and thus can be checked by the XML parser, thus should be preferred&#xD;&#xA;&#x9;for references within the same bean factory XML file.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="local"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parent" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the referenced bean *in a parent factory*.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="parent"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReplacedMethodType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="replaced-method_._type"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="argType" upperBound="-1"
+        eType="#//ArgTypeType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Identifies an argument for a replaced method in the event of&#xD;&#xA;&#x9;method overloading.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="arg-type"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="#group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The name of the method whose implementation must be replaced by the&#xD;&#xA;&#x9;IoC container. If this method is not overloaded, there is no need&#xD;&#xA;&#x9;to use arg-type subelements. If this method is overloaded, arg-type&#xD;&#xA;&#x9;subelements must be used for all override definitions for the method.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="name"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replacer" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Bean name of an implementation of the MethodReplacer interface in the&#xD;&#xA;&#x9;current or ancestor factories. This may be a singleton or prototype&#xD;&#xA;&#x9;bean. If it is a prototype, a new instance will be used for each&#xD;&#xA;&#x9;method replacement. Singleton usage is the norm.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="replacer"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedCollectionType" eSuperTypes="#//BaseCollectionType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="typedCollectionType"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The default Java type for nested values. Must be a fully qualified&#xD;&#xA;&#x9;class name.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="value-type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="value_._type"/>
+      <details key="kind" value="mixed"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;The exact type that the value should be converted to. Only needed&#xD;&#xA;&#x9;if the type of the target property or constructor argument is&#xD;&#xA;&#x9;too generic: for example, in case of a collection element.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

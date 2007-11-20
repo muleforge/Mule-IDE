@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.springframework.org/schema/beans" 
+       class = "org.mule.ide.config.spring.SpringPackage"
+       genModel = "model/spring-beans-2.0.genmodel" /> 
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.extension_parser">
+    <parser 
+       type="spring" 
+       class="org.mule.ide.config.spring.util.SpringResourceFactoryImpl" />
+  </extension>
+
+</plugin>

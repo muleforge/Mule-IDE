@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfmap:Mapping xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:gmfmap="http://www.eclipse.org/gmf/2006/mappings">
+  <diagram>
+    <diagramCanvas
+        href="config.gmfgraph#core"/>
+    <domainModel
+        href="../../org.mule.ide.config.core/model/core.ecore#/"/>
+    <domainMetaElement
+        href="../../org.mule.ide.config.core/model/core.ecore#//DefaultModelType"/>
+    <palette
+        href="config.gmftool#//@palette"/>
+  </diagram>
+</gmfmap:Mapping>

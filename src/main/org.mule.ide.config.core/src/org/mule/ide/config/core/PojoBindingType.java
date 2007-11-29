@@ -12,24 +12,28 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Nested Binding Type</b></em>'.
+ * A representation of the model object '<em><b>Pojo Binding Type</b></em>'.
  * <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * Binding between the pojo component and endpoints.
+ * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.NestedBindingType#getAbstractOutboundEndpointGroup <em>Abstract Outbound Endpoint Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.NestedBindingType#getAbstractOutboundEndpoint <em>Abstract Outbound Endpoint</em>}</li>
- *   <li>{@link org.mule.ide.config.core.NestedBindingType#getInterface <em>Interface</em>}</li>
- *   <li>{@link org.mule.ide.config.core.NestedBindingType#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.PojoBindingType#getAbstractOutboundEndpointGroup <em>Abstract Outbound Endpoint Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.PojoBindingType#getAbstractOutboundEndpoint <em>Abstract Outbound Endpoint</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.PojoBindingType#getInterface <em>Interface</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.PojoBindingType#getMethod <em>Method</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.mule.ide.config.core.CorePackage#getNestedBindingType()
- * @model extendedMetaData="name='nestedBindingType' kind='elementOnly'"
+ * @see org.mule.ide.config.core.CorePackage#getPojoBindingType()
+ * @model extendedMetaData="name='pojoBindingType' kind='elementOnly'"
  * @generated
  */
-public interface NestedBindingType extends AbstractBindingType {
+public interface PojoBindingType extends AbstractBindingType {
 	/**
 	 * Returns the value of the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
@@ -40,7 +44,7 @@ public interface NestedBindingType extends AbstractBindingType {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Abstract Outbound Endpoint Group</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getNestedBindingType_AbstractOutboundEndpointGroup()
+	 * @see org.mule.ide.config.core.CorePackage#getPojoBindingType_AbstractOutboundEndpointGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
 	 *        extendedMetaData="kind='group' name='abstract-outbound-endpoint:group' namespace='##targetNamespace'"
 	 * @generated
@@ -57,7 +61,7 @@ public interface NestedBindingType extends AbstractBindingType {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Abstract Outbound Endpoint</em>' containment reference list.
-	 * @see org.mule.ide.config.core.CorePackage#getNestedBindingType_AbstractOutboundEndpoint()
+	 * @see org.mule.ide.config.core.CorePackage#getPojoBindingType_AbstractOutboundEndpoint()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='abstract-outbound-endpoint' namespace='##targetNamespace' group='abstract-outbound-endpoint:group'"
 	 * @generated
@@ -74,7 +78,7 @@ public interface NestedBindingType extends AbstractBindingType {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interface</em>' attribute.
 	 * @see #setInterface(Object)
-	 * @see org.mule.ide.config.core.CorePackage#getNestedBindingType_Interface()
+	 * @see org.mule.ide.config.core.CorePackage#getPojoBindingType_Interface()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnySimpleType" required="true"
 	 *        extendedMetaData="kind='attribute' name='interface'"
 	 * @generated
@@ -82,7 +86,7 @@ public interface NestedBindingType extends AbstractBindingType {
 	Object getInterface();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.NestedBindingType#getInterface <em>Interface</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.PojoBindingType#getInterface <em>Interface</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Interface</em>' attribute.
@@ -101,7 +105,7 @@ public interface NestedBindingType extends AbstractBindingType {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Method</em>' attribute.
 	 * @see #setMethod(Object)
-	 * @see org.mule.ide.config.core.CorePackage#getNestedBindingType_Method()
+	 * @see org.mule.ide.config.core.CorePackage#getPojoBindingType_Method()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnySimpleType"
 	 *        extendedMetaData="kind='attribute' name='method'"
 	 * @generated
@@ -109,7 +113,7 @@ public interface NestedBindingType extends AbstractBindingType {
 	Object getMethod();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.NestedBindingType#getMethod <em>Method</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.PojoBindingType#getMethod <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Method</em>' attribute.
@@ -118,4 +122,4 @@ public interface NestedBindingType extends AbstractBindingType {
 	 */
 	void setMethod(Object value);
 
-} // NestedBindingType
+} // PojoBindingType

@@ -115,6 +115,12 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.ABSTRACT_COMPONENT_TYPE: {
+				AbstractComponentType abstractComponentType = (AbstractComponentType)theEObject;
+				T result = caseAbstractComponentType(abstractComponentType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.ABSTRACT_CONNECTION_STRATEGY_TYPE: {
 				AbstractConnectionStrategyType abstractConnectionStrategyType = (AbstractConnectionStrategyType)theEObject;
 				T result = caseAbstractConnectionStrategyType(abstractConnectionStrategyType);
@@ -473,8 +479,7 @@ public class CoreSwitch<T> {
 			case CorePackage.DEFAULT_COMPONENT_TYPE: {
 				DefaultComponentType defaultComponentType = (DefaultComponentType)theEObject;
 				T result = caseDefaultComponentType(defaultComponentType);
-				if (result == null) result = casePooledObjectFactoryType(defaultComponentType);
-				if (result == null) result = caseAbstractObjectFactoryType(defaultComponentType);
+				if (result == null) result = caseAbstractComponentType(defaultComponentType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -701,19 +706,6 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.NESTED_BINDING_TYPE: {
-				NestedBindingType nestedBindingType = (NestedBindingType)theEObject;
-				T result = caseNestedBindingType(nestedBindingType);
-				if (result == null) result = caseAbstractBindingType(nestedBindingType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE: {
-				NestedRouterCollectionType nestedRouterCollectionType = (NestedRouterCollectionType)theEObject;
-				T result = caseNestedRouterCollectionType(nestedRouterCollectionType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE: {
 				NoArgsCallDelegateClassType noArgsCallDelegateClassType = (NoArgsCallDelegateClassType)theEObject;
 				T result = caseNoArgsCallDelegateClassType(noArgsCallDelegateClassType);
@@ -730,8 +722,7 @@ public class CoreSwitch<T> {
 				NoArgsCallWrapperType noArgsCallWrapperType = (NoArgsCallWrapperType)theEObject;
 				T result = caseNoArgsCallWrapperType(noArgsCallWrapperType);
 				if (result == null) result = caseDefaultComponentType(noArgsCallWrapperType);
-				if (result == null) result = casePooledObjectFactoryType(noArgsCallWrapperType);
-				if (result == null) result = caseAbstractObjectFactoryType(noArgsCallWrapperType);
+				if (result == null) result = caseAbstractComponentType(noArgsCallWrapperType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -766,6 +757,20 @@ public class CoreSwitch<T> {
 				PatternFilterType patternFilterType = (PatternFilterType)theEObject;
 				T result = casePatternFilterType(patternFilterType);
 				if (result == null) result = caseAbstractFilterType(patternFilterType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.POJO_BINDING_TYPE: {
+				PojoBindingType pojoBindingType = (PojoBindingType)theEObject;
+				T result = casePojoBindingType(pojoBindingType);
+				if (result == null) result = caseAbstractBindingType(pojoBindingType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.POJO_COMPONENT_TYPE: {
+				PojoComponentType pojoComponentType = (PojoComponentType)theEObject;
+				T result = casePojoComponentType(pojoComponentType);
+				if (result == null) result = caseAbstractComponentType(pojoComponentType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -832,6 +837,12 @@ public class CoreSwitch<T> {
 				ResponseRouterType responseRouterType = (ResponseRouterType)theEObject;
 				T result = caseResponseRouterType(responseRouterType);
 				if (result == null) result = caseAbstractResponseRouterType(responseRouterType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.RESPONSE_TRANSFORMERS_TYPE: {
+				ResponseTransformersType responseTransformersType = (ResponseTransformersType)theEObject;
+				T result = caseResponseTransformersType(responseTransformersType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -988,6 +999,12 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.TRANSFORMERS_TYPE: {
+				TransformersType transformersType = (TransformersType)theEObject;
+				T result = caseTransformersType(transformersType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.TYPE_FILTER_TYPE: {
 				TypeFilterType typeFilterType = (TypeFilterType)theEObject;
 				T result = caseTypeFilterType(typeFilterType);
@@ -1079,6 +1096,21 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseAbstractComponentThreadingProfileType(AbstractComponentThreadingProfileType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Component Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractComponentType(AbstractComponentType object) {
 		return null;
 	}
 
@@ -2358,36 +2390,6 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Nested Binding Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Nested Binding Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNestedBindingType(NestedBindingType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Nested Router Collection Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Nested Router Collection Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNestedRouterCollectionType(NestedRouterCollectionType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>No Args Call Delegate Class Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2504,6 +2506,36 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T casePatternFilterType(PatternFilterType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pojo Binding Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pojo Binding Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePojoBindingType(PojoBindingType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pojo Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pojo Component Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePojoComponentType(PojoComponentType object) {
 		return null;
 	}
 
@@ -2654,6 +2686,21 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseResponseRouterType(ResponseRouterType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Response Transformers Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Response Transformers Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResponseTransformersType(ResponseTransformersType object) {
 		return null;
 	}
 
@@ -2984,6 +3031,21 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseTransformerRefType(TransformerRefType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transformers Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transformers Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransformersType(TransformersType object) {
 		return null;
 	}
 

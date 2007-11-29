@@ -70,6 +70,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.ABSTRACT_BINDING_TYPE: return createAbstractBindingType();
 			case CorePackage.ABSTRACT_CATCH_ALL_STRATEGY_TYPE: return createAbstractCatchAllStrategyType();
 			case CorePackage.ABSTRACT_COMPONENT_THREADING_PROFILE_TYPE: return createAbstractComponentThreadingProfileType();
+			case CorePackage.ABSTRACT_COMPONENT_TYPE: return createAbstractComponentType();
 			case CorePackage.ABSTRACT_CONNECTION_STRATEGY_TYPE: return createAbstractConnectionStrategyType();
 			case CorePackage.ABSTRACT_CONNECTOR_TYPE: return createAbstractConnectorType();
 			case CorePackage.ABSTRACT_ENTRYPOINT_RESOLVER_TYPE: return createAbstractEntrypointResolverType();
@@ -155,8 +156,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE: return createMuleManagementContextType();
 			case CorePackage.MULE_TYPE: return createMuleType();
 			case CorePackage.MULE_UNSAFE_TYPE: return createMuleUnsafeType();
-			case CorePackage.NESTED_BINDING_TYPE: return createNestedBindingType();
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE: return createNestedRouterCollectionType();
 			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE: return createNoArgsCallDelegateClassType();
 			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE: return createNoArgsCallDelegateInstanceType();
 			case CorePackage.NO_ARGS_CALL_WRAPPER_TYPE: return createNoArgsCallWrapperType();
@@ -165,6 +164,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.OUTBOUND_ROUTER_TYPE: return createOutboundRouterType();
 			case CorePackage.PASSWORD_ENCRYPTION_STRATEGY_TYPE: return createPasswordEncryptionStrategyType();
 			case CorePackage.PATTERN_FILTER_TYPE: return createPatternFilterType();
+			case CorePackage.POJO_BINDING_TYPE: return createPojoBindingType();
+			case CorePackage.POJO_COMPONENT_TYPE: return createPojoComponentType();
 			case CorePackage.POOLED_OBJECT_FACTORY_TYPE: return createPooledObjectFactoryType();
 			case CorePackage.POOLING_PROFILE_TYPE: return createPoolingProfileType();
 			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE: return createPropertiesContainerContextType();
@@ -175,6 +176,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.RESPONSE_ENDPOINT_TYPE: return createResponseEndpointType();
 			case CorePackage.RESPONSE_ROUTER_COLLECTION_TYPE: return createResponseRouterCollectionType();
 			case CorePackage.RESPONSE_ROUTER_TYPE: return createResponseRouterType();
+			case CorePackage.RESPONSE_TRANSFORMERS_TYPE: return createResponseTransformersType();
 			case CorePackage.RETRY_CONNECTION_STRATEGY_TYPE: return createRetryConnectionStrategyType();
 			case CorePackage.RMI_CONTAINER_CONTEXT_TYPE: return createRmiContainerContextType();
 			case CorePackage.SECRET_KEY_ENCRYPTION_STRATEGY_TYPE: return createSecretKeyEncryptionStrategyType();
@@ -197,6 +199,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.TRANSACTION_TYPE: return createTransactionType();
 			case CorePackage.TRANSFORMER_APPEND_STRING_TYPE: return createTransformerAppendStringType();
 			case CorePackage.TRANSFORMER_REF_TYPE: return createTransformerRefType();
+			case CorePackage.TRANSFORMERS_TYPE: return createTransformersType();
 			case CorePackage.TYPE_FILTER_TYPE: return createTypeFilterType();
 			case CorePackage.UNITARY_FILTER_TYPE: return createUnitaryFilterType();
 			case CorePackage.WILDCARD_FILTER_TYPE: return createWildcardFilterType();
@@ -410,6 +413,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public AbstractComponentThreadingProfileType createAbstractComponentThreadingProfileType() {
 		AbstractComponentThreadingProfileTypeImpl abstractComponentThreadingProfileType = new AbstractComponentThreadingProfileTypeImpl();
 		return abstractComponentThreadingProfileType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractComponentType createAbstractComponentType() {
+		AbstractComponentTypeImpl abstractComponentType = new AbstractComponentTypeImpl();
+		return abstractComponentType;
 	}
 
 	/**
@@ -1267,26 +1280,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NestedBindingType createNestedBindingType() {
-		NestedBindingTypeImpl nestedBindingType = new NestedBindingTypeImpl();
-		return nestedBindingType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NestedRouterCollectionType createNestedRouterCollectionType() {
-		NestedRouterCollectionTypeImpl nestedRouterCollectionType = new NestedRouterCollectionTypeImpl();
-		return nestedRouterCollectionType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public NoArgsCallDelegateClassType createNoArgsCallDelegateClassType() {
 		NoArgsCallDelegateClassTypeImpl noArgsCallDelegateClassType = new NoArgsCallDelegateClassTypeImpl();
 		return noArgsCallDelegateClassType;
@@ -1360,6 +1353,26 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public PatternFilterType createPatternFilterType() {
 		PatternFilterTypeImpl patternFilterType = new PatternFilterTypeImpl();
 		return patternFilterType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PojoBindingType createPojoBindingType() {
+		PojoBindingTypeImpl pojoBindingType = new PojoBindingTypeImpl();
+		return pojoBindingType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PojoComponentType createPojoComponentType() {
+		PojoComponentTypeImpl pojoComponentType = new PojoComponentTypeImpl();
+		return pojoComponentType;
 	}
 
 	/**
@@ -1460,6 +1473,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public ResponseRouterType createResponseRouterType() {
 		ResponseRouterTypeImpl responseRouterType = new ResponseRouterTypeImpl();
 		return responseRouterType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResponseTransformersType createResponseTransformersType() {
+		ResponseTransformersTypeImpl responseTransformersType = new ResponseTransformersTypeImpl();
+		return responseTransformersType;
 	}
 
 	/**
@@ -1680,6 +1703,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public TransformerRefType createTransformerRefType() {
 		TransformerRefTypeImpl transformerRefType = new TransformerRefTypeImpl();
 		return transformerRefType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TransformersType createTransformersType() {
+		TransformersTypeImpl transformersType = new TransformersTypeImpl();
+		return transformersType;
 	}
 
 	/**

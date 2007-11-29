@@ -8,25 +8,27 @@ package org.mule.ide.config.core.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.mule.ide.config.core.AbstractComponentType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.DefaultComponentType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Default Component Type</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Component Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class DefaultComponentTypeImpl extends AbstractComponentTypeImpl implements DefaultComponentType {
+public class AbstractComponentTypeImpl extends EObjectImpl implements AbstractComponentType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DefaultComponentTypeImpl() {
+	protected AbstractComponentTypeImpl() {
 		super();
 	}
 
@@ -37,7 +39,7 @@ public class DefaultComponentTypeImpl extends AbstractComponentTypeImpl implemen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.eINSTANCE.getDefaultComponentType();
+		return CorePackage.eINSTANCE.getAbstractComponentType();
 	}
 
-} //DefaultComponentTypeImpl
+} //AbstractComponentTypeImpl

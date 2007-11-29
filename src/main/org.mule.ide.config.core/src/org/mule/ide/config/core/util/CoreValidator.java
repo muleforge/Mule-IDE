@@ -110,6 +110,8 @@ public class CoreValidator extends EObjectValidator {
 				return validateAbstractCatchAllStrategyType((AbstractCatchAllStrategyType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_COMPONENT_THREADING_PROFILE_TYPE:
 				return validateAbstractComponentThreadingProfileType((AbstractComponentThreadingProfileType)value, diagnostics, context);
+			case CorePackage.ABSTRACT_COMPONENT_TYPE:
+				return validateAbstractComponentType((AbstractComponentType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_CONNECTION_STRATEGY_TYPE:
 				return validateAbstractConnectionStrategyType((AbstractConnectionStrategyType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_CONNECTOR_TYPE:
@@ -280,10 +282,6 @@ public class CoreValidator extends EObjectValidator {
 				return validateMuleType((MuleType)value, diagnostics, context);
 			case CorePackage.MULE_UNSAFE_TYPE:
 				return validateMuleUnsafeType((MuleUnsafeType)value, diagnostics, context);
-			case CorePackage.NESTED_BINDING_TYPE:
-				return validateNestedBindingType((NestedBindingType)value, diagnostics, context);
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE:
-				return validateNestedRouterCollectionType((NestedRouterCollectionType)value, diagnostics, context);
 			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE:
 				return validateNoArgsCallDelegateClassType((NoArgsCallDelegateClassType)value, diagnostics, context);
 			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE:
@@ -300,6 +298,10 @@ public class CoreValidator extends EObjectValidator {
 				return validatePasswordEncryptionStrategyType((PasswordEncryptionStrategyType)value, diagnostics, context);
 			case CorePackage.PATTERN_FILTER_TYPE:
 				return validatePatternFilterType((PatternFilterType)value, diagnostics, context);
+			case CorePackage.POJO_BINDING_TYPE:
+				return validatePojoBindingType((PojoBindingType)value, diagnostics, context);
+			case CorePackage.POJO_COMPONENT_TYPE:
+				return validatePojoComponentType((PojoComponentType)value, diagnostics, context);
 			case CorePackage.POOLED_OBJECT_FACTORY_TYPE:
 				return validatePooledObjectFactoryType((PooledObjectFactoryType)value, diagnostics, context);
 			case CorePackage.POOLING_PROFILE_TYPE:
@@ -320,6 +322,8 @@ public class CoreValidator extends EObjectValidator {
 				return validateResponseRouterCollectionType((ResponseRouterCollectionType)value, diagnostics, context);
 			case CorePackage.RESPONSE_ROUTER_TYPE:
 				return validateResponseRouterType((ResponseRouterType)value, diagnostics, context);
+			case CorePackage.RESPONSE_TRANSFORMERS_TYPE:
+				return validateResponseTransformersType((ResponseTransformersType)value, diagnostics, context);
 			case CorePackage.RETRY_CONNECTION_STRATEGY_TYPE:
 				return validateRetryConnectionStrategyType((RetryConnectionStrategyType)value, diagnostics, context);
 			case CorePackage.RMI_CONTAINER_CONTEXT_TYPE:
@@ -364,6 +368,8 @@ public class CoreValidator extends EObjectValidator {
 				return validateTransformerAppendStringType((TransformerAppendStringType)value, diagnostics, context);
 			case CorePackage.TRANSFORMER_REF_TYPE:
 				return validateTransformerRefType((TransformerRefType)value, diagnostics, context);
+			case CorePackage.TRANSFORMERS_TYPE:
+				return validateTransformersType((TransformersType)value, diagnostics, context);
 			case CorePackage.TYPE_FILTER_TYPE:
 				return validateTypeFilterType((TypeFilterType)value, diagnostics, context);
 			case CorePackage.UNITARY_FILTER_TYPE:
@@ -481,6 +487,15 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateAbstractComponentThreadingProfileType(AbstractComponentThreadingProfileType abstractComponentThreadingProfileType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(abstractComponentThreadingProfileType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractComponentType(AbstractComponentType abstractComponentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractComponentType, diagnostics, context);
 	}
 
 	/**
@@ -1253,24 +1268,6 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateNestedBindingType(NestedBindingType nestedBindingType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(nestedBindingType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNestedRouterCollectionType(NestedRouterCollectionType nestedRouterCollectionType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(nestedRouterCollectionType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateNoArgsCallDelegateClassType(NoArgsCallDelegateClassType noArgsCallDelegateClassType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(noArgsCallDelegateClassType, diagnostics, context);
 	}
@@ -1336,6 +1333,24 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validatePatternFilterType(PatternFilterType patternFilterType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(patternFilterType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePojoBindingType(PojoBindingType pojoBindingType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(pojoBindingType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePojoComponentType(PojoComponentType pojoComponentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(pojoComponentType, diagnostics, context);
 	}
 
 	/**
@@ -1426,6 +1441,15 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateResponseRouterType(ResponseRouterType responseRouterType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(responseRouterType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResponseTransformersType(ResponseTransformersType responseTransformersType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(responseTransformersType, diagnostics, context);
 	}
 
 	/**
@@ -1624,6 +1648,15 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateTransformerRefType(TransformerRefType transformerRefType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(transformerRefType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTransformersType(TransformersType transformersType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(transformersType, diagnostics, context);
 	}
 
 	/**

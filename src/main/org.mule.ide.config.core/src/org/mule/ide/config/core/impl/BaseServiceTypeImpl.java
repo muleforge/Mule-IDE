@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.mule.ide.config.core.AbstractComponentType;
 import org.mule.ide.config.core.AbstractExceptionStrategyType;
 import org.mule.ide.config.core.AbstractObjectFactoryType;
 import org.mule.ide.config.core.BaseServiceType;
@@ -25,7 +26,6 @@ import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.InboundRouterCollectionType;
 import org.mule.ide.config.core.InitialStateType;
 import org.mule.ide.config.core.MapType;
-import org.mule.ide.config.core.NestedRouterCollectionType;
 import org.mule.ide.config.core.OutboundRouterCollectionType;
 import org.mule.ide.config.core.ResponseRouterCollectionType;
 
@@ -36,11 +36,9 @@ import org.mule.ide.config.core.ResponseRouterCollectionType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAbstractObjectFactoryGroup <em>Abstract Object Factory Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAbstractObjectFactory <em>Abstract Object Factory</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getInboundRouter <em>Inbound Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getNestedRouter <em>Nested Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAbstractComponentGroup <em>Abstract Component Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAbstractComponent <em>Abstract Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getOutboundRouter <em>Outbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getResponseRouter <em>Response Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAbstractExceptionStrategyGroup <em>Abstract Exception Strategy Group</em>}</li>
@@ -54,26 +52,6 @@ import org.mule.ide.config.core.ResponseRouterCollectionType;
  */
 public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements BaseServiceType {
 	/**
-	 * The cached value of the '{@link #getAbstractObjectFactoryGroup() <em>Abstract Object Factory Group</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAbstractObjectFactoryGroup()
-	 * @generated
-	 * @ordered
-	 */
-	protected FeatureMap abstractObjectFactoryGroup;
-
-	/**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProperties()
-	 * @generated
-	 * @ordered
-	 */
-	protected MapType properties;
-
-	/**
 	 * The cached value of the '{@link #getInboundRouter() <em>Inbound Router</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,14 +62,14 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	protected InboundRouterCollectionType inboundRouter;
 
 	/**
-	 * The cached value of the '{@link #getNestedRouter() <em>Nested Router</em>}' containment reference.
+	 * The cached value of the '{@link #getAbstractComponentGroup() <em>Abstract Component Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNestedRouter()
+	 * @see #getAbstractComponentGroup()
 	 * @generated
 	 * @ordered
 	 */
-	protected NestedRouterCollectionType nestedRouter;
+	protected FeatureMap abstractComponentGroup;
 
 	/**
 	 * The cached value of the '{@link #getOutboundRouter() <em>Outbound Router</em>}' containment reference.
@@ -196,79 +174,6 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getAbstractObjectFactoryGroup() {
-		if (abstractObjectFactoryGroup == null) {
-			abstractObjectFactoryGroup = new BasicFeatureMap(this, CorePackage.BASE_SERVICE_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP);
-		}
-		return abstractObjectFactoryGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractObjectFactoryType getAbstractObjectFactory() {
-		return (AbstractObjectFactoryType)getAbstractObjectFactoryGroup().get(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactory(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAbstractObjectFactory(AbstractObjectFactoryType newAbstractObjectFactory, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getAbstractObjectFactoryGroup()).basicAdd(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactory(), newAbstractObjectFactory, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MapType getProperties() {
-		return properties;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProperties(MapType newProperties, NotificationChain msgs) {
-		MapType oldProperties = properties;
-		properties = newProperties;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__PROPERTIES, oldProperties, newProperties);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProperties(MapType newProperties) {
-		if (newProperties != properties) {
-			NotificationChain msgs = null;
-			if (properties != null)
-				msgs = ((InternalEObject)properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__PROPERTIES, null, msgs);
-			if (newProperties != null)
-				msgs = ((InternalEObject)newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__PROPERTIES, null, msgs);
-			msgs = basicSetProperties(newProperties, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__PROPERTIES, newProperties, newProperties));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public InboundRouterCollectionType getInboundRouter() {
 		return inboundRouter;
 	}
@@ -312,8 +217,11 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NestedRouterCollectionType getNestedRouter() {
-		return nestedRouter;
+	public FeatureMap getAbstractComponentGroup() {
+		if (abstractComponentGroup == null) {
+			abstractComponentGroup = new BasicFeatureMap(this, CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP);
+		}
+		return abstractComponentGroup;
 	}
 
 	/**
@@ -321,14 +229,8 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNestedRouter(NestedRouterCollectionType newNestedRouter, NotificationChain msgs) {
-		NestedRouterCollectionType oldNestedRouter = nestedRouter;
-		nestedRouter = newNestedRouter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__NESTED_ROUTER, oldNestedRouter, newNestedRouter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public AbstractComponentType getAbstractComponent() {
+		return (AbstractComponentType)getAbstractComponentGroup().get(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponent(), true);
 	}
 
 	/**
@@ -336,18 +238,8 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNestedRouter(NestedRouterCollectionType newNestedRouter) {
-		if (newNestedRouter != nestedRouter) {
-			NotificationChain msgs = null;
-			if (nestedRouter != null)
-				msgs = ((InternalEObject)nestedRouter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__NESTED_ROUTER, null, msgs);
-			if (newNestedRouter != null)
-				msgs = ((InternalEObject)newNestedRouter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__NESTED_ROUTER, null, msgs);
-			msgs = basicSetNestedRouter(newNestedRouter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__NESTED_ROUTER, newNestedRouter, newNestedRouter));
+	public NotificationChain basicSetAbstractComponent(AbstractComponentType newAbstractComponent, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getAbstractComponentGroup()).basicAdd(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponent(), newAbstractComponent, msgs);
 	}
 
 	/**
@@ -541,16 +433,12 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
-				return ((InternalEList<?>)getAbstractObjectFactoryGroup()).basicRemove(otherEnd, msgs);
-			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_OBJECT_FACTORY:
-				return basicSetAbstractObjectFactory(null, msgs);
-			case CorePackage.BASE_SERVICE_TYPE__PROPERTIES:
-				return basicSetProperties(null, msgs);
 			case CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER:
 				return basicSetInboundRouter(null, msgs);
-			case CorePackage.BASE_SERVICE_TYPE__NESTED_ROUTER:
-				return basicSetNestedRouter(null, msgs);
+			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP:
+				return ((InternalEList<?>)getAbstractComponentGroup()).basicRemove(otherEnd, msgs);
+			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT:
+				return basicSetAbstractComponent(null, msgs);
 			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER:
 				return basicSetOutboundRouter(null, msgs);
 			case CorePackage.BASE_SERVICE_TYPE__RESPONSE_ROUTER:
@@ -571,17 +459,13 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
-				if (coreType) return getAbstractObjectFactoryGroup();
-				return ((FeatureMap.Internal)getAbstractObjectFactoryGroup()).getWrapper();
-			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_OBJECT_FACTORY:
-				return getAbstractObjectFactory();
-			case CorePackage.BASE_SERVICE_TYPE__PROPERTIES:
-				return getProperties();
 			case CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER:
 				return getInboundRouter();
-			case CorePackage.BASE_SERVICE_TYPE__NESTED_ROUTER:
-				return getNestedRouter();
+			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP:
+				if (coreType) return getAbstractComponentGroup();
+				return ((FeatureMap.Internal)getAbstractComponentGroup()).getWrapper();
+			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT:
+				return getAbstractComponent();
 			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER:
 				return getOutboundRouter();
 			case CorePackage.BASE_SERVICE_TYPE__RESPONSE_ROUTER:
@@ -607,17 +491,11 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
-				((FeatureMap.Internal)getAbstractObjectFactoryGroup()).set(newValue);
-				return;
-			case CorePackage.BASE_SERVICE_TYPE__PROPERTIES:
-				setProperties((MapType)newValue);
-				return;
 			case CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER:
 				setInboundRouter((InboundRouterCollectionType)newValue);
 				return;
-			case CorePackage.BASE_SERVICE_TYPE__NESTED_ROUTER:
-				setNestedRouter((NestedRouterCollectionType)newValue);
+			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP:
+				((FeatureMap.Internal)getAbstractComponentGroup()).set(newValue);
 				return;
 			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER:
 				setOutboundRouter((OutboundRouterCollectionType)newValue);
@@ -646,17 +524,11 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
-				getAbstractObjectFactoryGroup().clear();
-				return;
-			case CorePackage.BASE_SERVICE_TYPE__PROPERTIES:
-				setProperties((MapType)null);
-				return;
 			case CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER:
 				setInboundRouter((InboundRouterCollectionType)null);
 				return;
-			case CorePackage.BASE_SERVICE_TYPE__NESTED_ROUTER:
-				setNestedRouter((NestedRouterCollectionType)null);
+			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP:
+				getAbstractComponentGroup().clear();
 				return;
 			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER:
 				setOutboundRouter((OutboundRouterCollectionType)null);
@@ -685,16 +557,12 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
-				return abstractObjectFactoryGroup != null && !abstractObjectFactoryGroup.isEmpty();
-			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_OBJECT_FACTORY:
-				return getAbstractObjectFactory() != null;
-			case CorePackage.BASE_SERVICE_TYPE__PROPERTIES:
-				return properties != null;
 			case CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER:
 				return inboundRouter != null;
-			case CorePackage.BASE_SERVICE_TYPE__NESTED_ROUTER:
-				return nestedRouter != null;
+			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP:
+				return abstractComponentGroup != null && !abstractComponentGroup.isEmpty();
+			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT:
+				return getAbstractComponent() != null;
 			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER:
 				return outboundRouter != null;
 			case CorePackage.BASE_SERVICE_TYPE__RESPONSE_ROUTER:
@@ -721,8 +589,8 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (abstractObjectFactoryGroup: ");
-		result.append(abstractObjectFactoryGroup);
+		result.append(" (abstractComponentGroup: ");
+		result.append(abstractComponentGroup);
 		result.append(", abstractExceptionStrategyGroup: ");
 		result.append(abstractExceptionStrategyGroup);
 		result.append(", class: ");

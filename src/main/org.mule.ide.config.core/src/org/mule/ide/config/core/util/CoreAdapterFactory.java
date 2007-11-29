@@ -91,6 +91,10 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractComponentThreadingProfileTypeAdapter();
 			}
 			@Override
+			public Adapter caseAbstractComponentType(AbstractComponentType object) {
+				return createAbstractComponentTypeAdapter();
+			}
+			@Override
 			public Adapter caseAbstractConnectionStrategyType(AbstractConnectionStrategyType object) {
 				return createAbstractConnectionStrategyTypeAdapter();
 			}
@@ -431,14 +435,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createMuleUnsafeTypeAdapter();
 			}
 			@Override
-			public Adapter caseNestedBindingType(NestedBindingType object) {
-				return createNestedBindingTypeAdapter();
-			}
-			@Override
-			public Adapter caseNestedRouterCollectionType(NestedRouterCollectionType object) {
-				return createNestedRouterCollectionTypeAdapter();
-			}
-			@Override
 			public Adapter caseNoArgsCallDelegateClassType(NoArgsCallDelegateClassType object) {
 				return createNoArgsCallDelegateClassTypeAdapter();
 			}
@@ -469,6 +465,14 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePatternFilterType(PatternFilterType object) {
 				return createPatternFilterTypeAdapter();
+			}
+			@Override
+			public Adapter casePojoBindingType(PojoBindingType object) {
+				return createPojoBindingTypeAdapter();
+			}
+			@Override
+			public Adapter casePojoComponentType(PojoComponentType object) {
+				return createPojoComponentTypeAdapter();
 			}
 			@Override
 			public Adapter casePooledObjectFactoryType(PooledObjectFactoryType object) {
@@ -509,6 +513,10 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseResponseRouterType(ResponseRouterType object) {
 				return createResponseRouterTypeAdapter();
+			}
+			@Override
+			public Adapter caseResponseTransformersType(ResponseTransformersType object) {
+				return createResponseTransformersTypeAdapter();
 			}
 			@Override
 			public Adapter caseRetryConnectionStrategyType(RetryConnectionStrategyType object) {
@@ -597,6 +605,10 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTransformerRefType(TransformerRefType object) {
 				return createTransformerRefTypeAdapter();
+			}
+			@Override
+			public Adapter caseTransformersType(TransformersType object) {
+				return createTransformersTypeAdapter();
 			}
 			@Override
 			public Adapter caseTypeFilterType(TypeFilterType object) {
@@ -703,6 +715,20 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractComponentThreadingProfileTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.AbstractComponentType <em>Abstract Component Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.AbstractComponentType
+	 * @generated
+	 */
+	public Adapter createAbstractComponentTypeAdapter() {
 		return null;
 	}
 
@@ -1897,34 +1923,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.NestedBindingType <em>Nested Binding Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.NestedBindingType
-	 * @generated
-	 */
-	public Adapter createNestedBindingTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.NestedRouterCollectionType <em>Nested Router Collection Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.NestedRouterCollectionType
-	 * @generated
-	 */
-	public Adapter createNestedRouterCollectionTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.NoArgsCallDelegateClassType <em>No Args Call Delegate Class Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2033,6 +2031,34 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPatternFilterTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.PojoBindingType <em>Pojo Binding Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.PojoBindingType
+	 * @generated
+	 */
+	public Adapter createPojoBindingTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.PojoComponentType <em>Pojo Component Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.PojoComponentType
+	 * @generated
+	 */
+	public Adapter createPojoComponentTypeAdapter() {
 		return null;
 	}
 
@@ -2173,6 +2199,20 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResponseRouterTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.ResponseTransformersType <em>Response Transformers Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.ResponseTransformersType
+	 * @generated
+	 */
+	public Adapter createResponseTransformersTypeAdapter() {
 		return null;
 	}
 
@@ -2481,6 +2521,20 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTransformerRefTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.TransformersType <em>Transformers Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.TransformersType
+	 * @generated
+	 */
+	public Adapter createTransformersTypeAdapter() {
 		return null;
 	}
 

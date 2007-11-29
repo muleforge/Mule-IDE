@@ -2,8 +2,9 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.mule.ide.config.core/src"
-    modelPluginID="org.mule.ide.config.core" modelName="Core" importerID="org.eclipse.xsd.ecore.importer"
-    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.mule.ide.config.spring/model/spring-beans-2.0.genmodel#//spring platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+    creationIcons="false" modelPluginID="org.mule.ide.config.core" modelName="Core"
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="../../org.mule.ide.config.spring/model/spring-beans-2.0.genmodel#//spring platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
   <foreignModel>mule.xsd</foreignModel>
   <genPackages prefix="Core" basePackage="org.mule.ide.config" resource="XML" disposableProviderFactory="true"
       loadInitialization="true" literalsInterface="false" ecorePackage="core.ecore#/">
@@ -85,6 +86,7 @@
     <genClasses ecoreClass="core.ecore#//AbstractBindingType"/>
     <genClasses ecoreClass="core.ecore#//AbstractCatchAllStrategyType"/>
     <genClasses ecoreClass="core.ecore#//AbstractComponentThreadingProfileType"/>
+    <genClasses ecoreClass="core.ecore#//AbstractComponentType"/>
     <genClasses ecoreClass="core.ecore#//AbstractConnectionStrategyType"/>
     <genClasses ecoreClass="core.ecore#//AbstractConnectorType"/>
     <genClasses ecoreClass="core.ecore#//AbstractEntrypointResolverType"/>
@@ -148,11 +150,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//BaseContainerContextType/any"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//BaseServiceType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//BaseServiceType/abstractObjectFactoryGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//BaseServiceType/abstractObjectFactory"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//BaseServiceType/properties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//BaseServiceType/inboundRouter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//BaseServiceType/nestedRouter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//BaseServiceType/abstractComponentGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//BaseServiceType/abstractComponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//BaseServiceType/outboundRouter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//BaseServiceType/responseRouter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//BaseServiceType/abstractExceptionStrategyGroup"/>
@@ -282,6 +282,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/xSISchemaLocation"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractBinding"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractCatchAllStrategy"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractComponent"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractComponentThreadingProfile"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractConnectionStrategy"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractConnector"/>
@@ -311,7 +312,6 @@
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/andFilter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/beanPropertyExtractor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/binding"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/bridgeComponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/callableEntrypointResolver"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/chainingRouter"/>
@@ -486,6 +486,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//GlobalEndpointType/group"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//GlobalEndpointType/abstractTransformerGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//GlobalEndpointType/abstractTransformer"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//GlobalEndpointType/transformers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//GlobalEndpointType/responseTransformers"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//GlobalEndpointType/abstractTransactionGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//GlobalEndpointType/abstractTransaction"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//GlobalEndpointType/abstractFilterGroup"/>
@@ -514,6 +516,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//InboundEndpointType/group"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//InboundEndpointType/abstractTransformerGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//InboundEndpointType/abstractTransformer"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//InboundEndpointType/transformers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//InboundEndpointType/responseTransformers"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//InboundEndpointType/abstractTransactionGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//InboundEndpointType/abstractTransaction"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//InboundEndpointType/abstractFilterGroup"/>
@@ -645,16 +649,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//MuleUnsafeType/any"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//MuleUnsafeType/name"/>
     </genClasses>
-    <genClasses ecoreClass="core.ecore#//NestedBindingType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//NestedBindingType/abstractOutboundEndpointGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//NestedBindingType/abstractOutboundEndpoint"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//NestedBindingType/interface"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//NestedBindingType/method"/>
-    </genClasses>
-    <genClasses ecoreClass="core.ecore#//NestedRouterCollectionType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//NestedRouterCollectionType/abstractBindingGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//NestedRouterCollectionType/abstractBinding"/>
-    </genClasses>
     <genClasses ecoreClass="core.ecore#//NoArgsCallDelegateClassType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//NoArgsCallDelegateClassType/delegateClass"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//NoArgsCallDelegateClassType/delegateMethod"/>
@@ -671,6 +665,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//OutboundEndpointType/group"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//OutboundEndpointType/abstractTransformerGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//OutboundEndpointType/abstractTransformer"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//OutboundEndpointType/transformers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//OutboundEndpointType/responseTransformers"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//OutboundEndpointType/abstractTransactionGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//OutboundEndpointType/abstractTransaction"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//OutboundEndpointType/abstractFilterGroup"/>
@@ -717,6 +713,18 @@
     <genClasses ecoreClass="core.ecore#//PatternFilterType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PatternFilterType/pattern"/>
     </genClasses>
+    <genClasses ecoreClass="core.ecore#//PojoBindingType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//PojoBindingType/abstractOutboundEndpointGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//PojoBindingType/abstractOutboundEndpoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PojoBindingType/interface"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PojoBindingType/method"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//PojoComponentType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//PojoComponentType/abstractObjectFactoryGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//PojoComponentType/abstractObjectFactory"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//PojoComponentType/binding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PojoComponentType/class"/>
+    </genClasses>
     <genClasses ecoreClass="core.ecore#//PooledObjectFactoryType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//PooledObjectFactoryType/abstractPoolingProfileGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//PooledObjectFactoryType/abstractPoolingProfile"/>
@@ -752,6 +760,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//ResponseEndpointType/group"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ResponseEndpointType/abstractTransformerGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//ResponseEndpointType/abstractTransformer"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//ResponseEndpointType/transformers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//ResponseEndpointType/responseTransformers"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ResponseEndpointType/abstractTransactionGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//ResponseEndpointType/abstractTransaction"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ResponseEndpointType/abstractFilterGroup"/>
@@ -788,6 +798,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//ResponseRouterType/abstractPropertyExtractorGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//ResponseRouterType/abstractPropertyExtractor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ResponseRouterType/customPropertyExtractor"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//ResponseTransformersType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//ResponseTransformersType/abstractTransformerGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//ResponseTransformersType/abstractTransformer"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//RetryConnectionStrategyType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//RetryConnectionStrategyType/retryCount"/>
@@ -903,6 +917,10 @@
     </genClasses>
     <genClasses ecoreClass="core.ecore#//TransformerRefType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TransformerRefType/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//TransformersType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//TransformersType/abstractTransformerGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//TransformersType/abstractTransformer"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//TypeFilterType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TypeFilterType/expectedType"/>

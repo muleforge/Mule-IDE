@@ -22,25 +22,25 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mule.ide.config.core.AbstractOutboundEndpointType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.NestedBindingType;
+import org.mule.ide.config.core.PojoBindingType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Nested Binding Type</b></em>'.
+ * An implementation of the model object '<em><b>Pojo Binding Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.NestedBindingTypeImpl#getAbstractOutboundEndpointGroup <em>Abstract Outbound Endpoint Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.NestedBindingTypeImpl#getAbstractOutboundEndpoint <em>Abstract Outbound Endpoint</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.NestedBindingTypeImpl#getInterface <em>Interface</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.NestedBindingTypeImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.PojoBindingTypeImpl#getAbstractOutboundEndpointGroup <em>Abstract Outbound Endpoint Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.PojoBindingTypeImpl#getAbstractOutboundEndpoint <em>Abstract Outbound Endpoint</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.PojoBindingTypeImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.PojoBindingTypeImpl#getMethod <em>Method</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements NestedBindingType {
+public class PojoBindingTypeImpl extends AbstractBindingTypeImpl implements PojoBindingType {
 	/**
 	 * The cached value of the '{@link #getAbstractOutboundEndpointGroup() <em>Abstract Outbound Endpoint Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -96,7 +96,7 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NestedBindingTypeImpl() {
+	protected PojoBindingTypeImpl() {
 		super();
 	}
 
@@ -107,7 +107,7 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.eINSTANCE.getNestedBindingType();
+		return CorePackage.eINSTANCE.getPojoBindingType();
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 	 */
 	public FeatureMap getAbstractOutboundEndpointGroup() {
 		if (abstractOutboundEndpointGroup == null) {
-			abstractOutboundEndpointGroup = new BasicFeatureMap(this, CorePackage.NESTED_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP);
+			abstractOutboundEndpointGroup = new BasicFeatureMap(this, CorePackage.POJO_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP);
 		}
 		return abstractOutboundEndpointGroup;
 	}
@@ -128,7 +128,7 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 	 * @generated
 	 */
 	public EList<AbstractOutboundEndpointType> getAbstractOutboundEndpoint() {
-		return getAbstractOutboundEndpointGroup().list(CorePackage.eINSTANCE.getNestedBindingType_AbstractOutboundEndpoint());
+		return getAbstractOutboundEndpointGroup().list(CorePackage.eINSTANCE.getPojoBindingType_AbstractOutboundEndpoint());
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 		Object oldInterface = interface_;
 		interface_ = newInterface;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NESTED_BINDING_TYPE__INTERFACE, oldInterface, interface_));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.POJO_BINDING_TYPE__INTERFACE, oldInterface, interface_));
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 		Object oldMethod = method;
 		method = newMethod;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NESTED_BINDING_TYPE__METHOD, oldMethod, method));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.POJO_BINDING_TYPE__METHOD, oldMethod, method));
 	}
 
 	/**
@@ -181,9 +181,9 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.NESTED_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
+			case CorePackage.POJO_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
 				return ((InternalEList<?>)getAbstractOutboundEndpointGroup()).basicRemove(otherEnd, msgs);
-			case CorePackage.NESTED_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT:
+			case CorePackage.POJO_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT:
 				return ((InternalEList<?>)getAbstractOutboundEndpoint()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -197,14 +197,14 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.NESTED_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
+			case CorePackage.POJO_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
 				if (coreType) return getAbstractOutboundEndpointGroup();
 				return ((FeatureMap.Internal)getAbstractOutboundEndpointGroup()).getWrapper();
-			case CorePackage.NESTED_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT:
+			case CorePackage.POJO_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT:
 				return getAbstractOutboundEndpoint();
-			case CorePackage.NESTED_BINDING_TYPE__INTERFACE:
+			case CorePackage.POJO_BINDING_TYPE__INTERFACE:
 				return getInterface();
-			case CorePackage.NESTED_BINDING_TYPE__METHOD:
+			case CorePackage.POJO_BINDING_TYPE__METHOD:
 				return getMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -218,13 +218,13 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.NESTED_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
+			case CorePackage.POJO_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
 				((FeatureMap.Internal)getAbstractOutboundEndpointGroup()).set(newValue);
 				return;
-			case CorePackage.NESTED_BINDING_TYPE__INTERFACE:
+			case CorePackage.POJO_BINDING_TYPE__INTERFACE:
 				setInterface(newValue);
 				return;
-			case CorePackage.NESTED_BINDING_TYPE__METHOD:
+			case CorePackage.POJO_BINDING_TYPE__METHOD:
 				setMethod(newValue);
 				return;
 		}
@@ -239,13 +239,13 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.NESTED_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
+			case CorePackage.POJO_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
 				getAbstractOutboundEndpointGroup().clear();
 				return;
-			case CorePackage.NESTED_BINDING_TYPE__INTERFACE:
+			case CorePackage.POJO_BINDING_TYPE__INTERFACE:
 				setInterface(INTERFACE_EDEFAULT);
 				return;
-			case CorePackage.NESTED_BINDING_TYPE__METHOD:
+			case CorePackage.POJO_BINDING_TYPE__METHOD:
 				setMethod(METHOD_EDEFAULT);
 				return;
 		}
@@ -260,13 +260,13 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.NESTED_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
+			case CorePackage.POJO_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
 				return abstractOutboundEndpointGroup != null && !abstractOutboundEndpointGroup.isEmpty();
-			case CorePackage.NESTED_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT:
+			case CorePackage.POJO_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT:
 				return !getAbstractOutboundEndpoint().isEmpty();
-			case CorePackage.NESTED_BINDING_TYPE__INTERFACE:
+			case CorePackage.POJO_BINDING_TYPE__INTERFACE:
 				return INTERFACE_EDEFAULT == null ? interface_ != null : !INTERFACE_EDEFAULT.equals(interface_);
-			case CorePackage.NESTED_BINDING_TYPE__METHOD:
+			case CorePackage.POJO_BINDING_TYPE__METHOD:
 				return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
 		}
 		return super.eIsSet(featureID);
@@ -292,4 +292,4 @@ public class NestedBindingTypeImpl extends AbstractBindingTypeImpl implements Ne
 		return result.toString();
 	}
 
-} //NestedBindingTypeImpl
+} //PojoBindingTypeImpl

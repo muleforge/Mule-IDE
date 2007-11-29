@@ -21,11 +21,9 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAbstractObjectFactoryGroup <em>Abstract Object Factory Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAbstractObjectFactory <em>Abstract Object Factory</em>}</li>
- *   <li>{@link org.mule.ide.config.core.BaseServiceType#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getInboundRouter <em>Inbound Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.BaseServiceType#getNestedRouter <em>Nested Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAbstractComponentGroup <em>Abstract Component Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAbstractComponent <em>Abstract Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getOutboundRouter <em>Outbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getResponseRouter <em>Response Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAbstractExceptionStrategyGroup <em>Abstract Exception Strategy Group</em>}</li>
@@ -40,64 +38,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @generated
  */
 public interface BaseServiceType extends AbstractServiceType {
-	/**
-	 * Returns the value of the '<em><b>Abstract Object Factory Group</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Factory to create the user's POJO service
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Abstract Object Factory Group</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_AbstractObjectFactoryGroup()
-	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
-	 *        extendedMetaData="kind='group' name='abstract-object-factory:group' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	FeatureMap getAbstractObjectFactoryGroup();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Object Factory</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Factory to create the user's POJO service
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Abstract Object Factory</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_AbstractObjectFactory()
-	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-object-factory' namespace='##targetNamespace' group='abstract-object-factory:group'"
-	 * @generated
-	 */
-	AbstractObjectFactoryType getAbstractObjectFactory();
-
-	/**
-	 * Returns the value of the '<em><b>Properties</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Properties</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties</em>' containment reference.
-	 * @see #setProperties(MapType)
-	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_Properties()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='properties' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	MapType getProperties();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.BaseServiceType#getProperties <em>Properties</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Properties</em>' containment reference.
-	 * @see #getProperties()
-	 * @generated
-	 */
-	void setProperties(MapType value);
-
 	/**
 	 * Returns the value of the '<em><b>Inbound Router</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -126,31 +66,37 @@ public interface BaseServiceType extends AbstractServiceType {
 	void setInboundRouter(InboundRouterCollectionType value);
 
 	/**
-	 * Returns the value of the '<em><b>Nested Router</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Abstract Component Group</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Nested Router</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Abstract Component Group</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nested Router</em>' containment reference.
-	 * @see #setNestedRouter(NestedRouterCollectionType)
-	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_NestedRouter()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='nested-router' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Abstract Component Group</em>' attribute list.
+	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_AbstractComponentGroup()
+	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
+	 *        extendedMetaData="kind='group' name='abstract-component:group' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	NestedRouterCollectionType getNestedRouter();
+	FeatureMap getAbstractComponentGroup();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.BaseServiceType#getNestedRouter <em>Nested Router</em>}' containment reference.
+	 * Returns the value of the '<em><b>Abstract Component</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract Component</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nested Router</em>' containment reference.
-	 * @see #getNestedRouter()
+	 * @return the value of the '<em>Abstract Component</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_AbstractComponent()
+	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='abstract-component' namespace='##targetNamespace' group='abstract-component:group'"
 	 * @generated
 	 */
-	void setNestedRouter(NestedRouterCollectionType value);
+	AbstractComponentType getAbstractComponent();
 
 	/**
 	 * Returns the value of the '<em><b>Outbound Router</b></em>' containment reference.

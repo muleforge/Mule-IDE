@@ -32,6 +32,8 @@ import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CreateConnectorType;
 import org.mule.ide.config.core.MapType;
 import org.mule.ide.config.core.OutboundEndpointType;
+import org.mule.ide.config.core.ResponseTransformersType;
+import org.mule.ide.config.core.TransformersType;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +45,8 @@ import org.mule.ide.config.core.OutboundEndpointType;
  *   <li>{@link org.mule.ide.config.core.impl.OutboundEndpointTypeImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.OutboundEndpointTypeImpl#getAbstractTransformerGroup <em>Abstract Transformer Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.OutboundEndpointTypeImpl#getAbstractTransformer <em>Abstract Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.OutboundEndpointTypeImpl#getTransformers <em>Transformers</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.OutboundEndpointTypeImpl#getResponseTransformers <em>Response Transformers</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.OutboundEndpointTypeImpl#getAbstractTransactionGroup <em>Abstract Transaction Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.OutboundEndpointTypeImpl#getAbstractTransaction <em>Abstract Transaction</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.OutboundEndpointTypeImpl#getAbstractFilterGroup <em>Abstract Filter Group</em>}</li>
@@ -352,6 +356,24 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 	 */
 	public EList<AbstractTransformerType> getAbstractTransformer() {
 		return getAbstractTransformerGroup().list(CorePackage.eINSTANCE.getOutboundEndpointType_AbstractTransformer());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TransformersType> getTransformers() {
+		return getGroup().list(CorePackage.eINSTANCE.getOutboundEndpointType_Transformers());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ResponseTransformersType> getResponseTransformers() {
+		return getGroup().list(CorePackage.eINSTANCE.getOutboundEndpointType_ResponseTransformers());
 	}
 
 	/**
@@ -734,6 +756,10 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 				return ((InternalEList<?>)getAbstractTransformerGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSFORMER:
 				return ((InternalEList<?>)getAbstractTransformer()).basicRemove(otherEnd, msgs);
+			case CorePackage.OUTBOUND_ENDPOINT_TYPE__TRANSFORMERS:
+				return ((InternalEList<?>)getTransformers()).basicRemove(otherEnd, msgs);
+			case CorePackage.OUTBOUND_ENDPOINT_TYPE__RESPONSE_TRANSFORMERS:
+				return ((InternalEList<?>)getResponseTransformers()).basicRemove(otherEnd, msgs);
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSACTION_GROUP:
 				return ((InternalEList<?>)getAbstractTransactionGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSACTION:
@@ -772,6 +798,10 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 				return ((FeatureMap.Internal)getAbstractTransformerGroup()).getWrapper();
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSFORMER:
 				return getAbstractTransformer();
+			case CorePackage.OUTBOUND_ENDPOINT_TYPE__TRANSFORMERS:
+				return getTransformers();
+			case CorePackage.OUTBOUND_ENDPOINT_TYPE__RESPONSE_TRANSFORMERS:
+				return getResponseTransformers();
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSACTION_GROUP:
 				if (coreType) return getAbstractTransactionGroup();
 				return ((FeatureMap.Internal)getAbstractTransactionGroup()).getWrapper();
@@ -832,6 +862,14 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 				return;
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSFORMER_GROUP:
 				((FeatureMap.Internal)getAbstractTransformerGroup()).set(newValue);
+				return;
+			case CorePackage.OUTBOUND_ENDPOINT_TYPE__TRANSFORMERS:
+				getTransformers().clear();
+				getTransformers().addAll((Collection<? extends TransformersType>)newValue);
+				return;
+			case CorePackage.OUTBOUND_ENDPOINT_TYPE__RESPONSE_TRANSFORMERS:
+				getResponseTransformers().clear();
+				getResponseTransformers().addAll((Collection<? extends ResponseTransformersType>)newValue);
 				return;
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSACTION_GROUP:
 				((FeatureMap.Internal)getAbstractTransactionGroup()).set(newValue);
@@ -897,6 +935,12 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSFORMER_GROUP:
 				getAbstractTransformerGroup().clear();
 				return;
+			case CorePackage.OUTBOUND_ENDPOINT_TYPE__TRANSFORMERS:
+				getTransformers().clear();
+				return;
+			case CorePackage.OUTBOUND_ENDPOINT_TYPE__RESPONSE_TRANSFORMERS:
+				getResponseTransformers().clear();
+				return;
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSACTION_GROUP:
 				getAbstractTransactionGroup().clear();
 				return;
@@ -960,6 +1004,10 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 				return !getAbstractTransformerGroup().isEmpty();
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSFORMER:
 				return !getAbstractTransformer().isEmpty();
+			case CorePackage.OUTBOUND_ENDPOINT_TYPE__TRANSFORMERS:
+				return !getTransformers().isEmpty();
+			case CorePackage.OUTBOUND_ENDPOINT_TYPE__RESPONSE_TRANSFORMERS:
+				return !getResponseTransformers().isEmpty();
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSACTION_GROUP:
 				return !getAbstractTransactionGroup().isEmpty();
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSACTION:

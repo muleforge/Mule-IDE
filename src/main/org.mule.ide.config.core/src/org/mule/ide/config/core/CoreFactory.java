@@ -62,6 +62,15 @@ public interface CoreFactory extends EFactory {
 	AbstractComponentThreadingProfileType createAbstractComponentThreadingProfileType();
 
 	/**
+	 * Returns a new object of class '<em>Abstract Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Abstract Component Type</em>'.
+	 * @generated
+	 */
+	AbstractComponentType createAbstractComponentType();
+
+	/**
 	 * Returns a new object of class '<em>Abstract Connection Strategy Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -827,24 +836,6 @@ public interface CoreFactory extends EFactory {
 	MuleUnsafeType createMuleUnsafeType();
 
 	/**
-	 * Returns a new object of class '<em>Nested Binding Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Nested Binding Type</em>'.
-	 * @generated
-	 */
-	NestedBindingType createNestedBindingType();
-
-	/**
-	 * Returns a new object of class '<em>Nested Router Collection Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Nested Router Collection Type</em>'.
-	 * @generated
-	 */
-	NestedRouterCollectionType createNestedRouterCollectionType();
-
-	/**
 	 * Returns a new object of class '<em>No Args Call Delegate Class Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -915,6 +906,24 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	PatternFilterType createPatternFilterType();
+
+	/**
+	 * Returns a new object of class '<em>Pojo Binding Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pojo Binding Type</em>'.
+	 * @generated
+	 */
+	PojoBindingType createPojoBindingType();
+
+	/**
+	 * Returns a new object of class '<em>Pojo Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pojo Component Type</em>'.
+	 * @generated
+	 */
+	PojoComponentType createPojoComponentType();
 
 	/**
 	 * Returns a new object of class '<em>Pooled Object Factory Type</em>'.
@@ -1005,6 +1014,15 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	ResponseRouterType createResponseRouterType();
+
+	/**
+	 * Returns a new object of class '<em>Response Transformers Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Response Transformers Type</em>'.
+	 * @generated
+	 */
+	ResponseTransformersType createResponseTransformersType();
 
 	/**
 	 * Returns a new object of class '<em>Retry Connection Strategy Type</em>'.
@@ -1203,6 +1221,15 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	TransformerRefType createTransformerRefType();
+
+	/**
+	 * Returns a new object of class '<em>Transformers Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transformers Type</em>'.
+	 * @generated
+	 */
+	TransformersType createTransformersType();
 
 	/**
 	 * Returns a new object of class '<em>Type Filter Type</em>'.

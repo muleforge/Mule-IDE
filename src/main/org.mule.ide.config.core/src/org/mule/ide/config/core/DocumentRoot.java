@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractBinding <em>Abstract Binding</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractCatchAllStrategy <em>Abstract Catch All Strategy</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractComponent <em>Abstract Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractComponentThreadingProfile <em>Abstract Component Threading Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractConnector <em>Abstract Connector</em>}</li>
@@ -54,7 +55,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractTransformer <em>Abstract Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAndFilter <em>And Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getBeanPropertyExtractor <em>Bean Property Extractor</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getBinding <em>Binding</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getBridgeComponent <em>Bridge Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCallableEntrypointResolver <em>Callable Entrypoint Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getChainingRouter <em>Chaining Router</em>}</li>
@@ -266,6 +266,22 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	AbstractCatchAllStrategyType getAbstractCatchAllStrategy();
+
+	/**
+	 * Returns the value of the '<em><b>Abstract Component</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract Component</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Component</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractComponent()
+	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='abstract-component' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	AbstractComponentType getAbstractComponent();
 
 	/**
 	 * Returns the value of the '<em><b>Abstract Component Threading Profile</b></em>' containment reference.
@@ -759,33 +775,6 @@ public interface DocumentRoot extends EObject {
 	void setBeanPropertyExtractor(AbstractPropertyExtractorType value);
 
 	/**
-	 * Returns the value of the '<em><b>Binding</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Binding</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Binding</em>' containment reference.
-	 * @see #setBinding(NestedBindingType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Binding()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='binding' namespace='##targetNamespace' affiliation='abstract-binding'"
-	 * @generated
-	 */
-	NestedBindingType getBinding();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getBinding <em>Binding</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Binding</em>' containment reference.
-	 * @see #getBinding()
-	 * @generated
-	 */
-	void setBinding(NestedBindingType value);
-
-	/**
 	 * Returns the value of the '<em><b>Bridge Component</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -798,7 +787,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #setBridgeComponent(DefaultComponentType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_BridgeComponent()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='bridge-component' namespace='##targetNamespace' affiliation='abstract-object-factory'"
+	 *        extendedMetaData="kind='element' name='bridge-component' namespace='##targetNamespace' affiliation='abstract-component'"
 	 * @generated
 	 */
 	DefaultComponentType getBridgeComponent();
@@ -876,13 +865,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Component</em>' containment reference.
-	 * @see #setComponent(DefaultComponentType)
+	 * @see #setComponent(PojoComponentType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Component()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='component' namespace='##targetNamespace' affiliation='abstract-object-factory'"
+	 *        extendedMetaData="kind='element' name='component' namespace='##targetNamespace' affiliation='abstract-component'"
 	 * @generated
 	 */
-	DefaultComponentType getComponent();
+	PojoComponentType getComponent();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getComponent <em>Component</em>}' containment reference.
@@ -892,7 +881,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getComponent()
 	 * @generated
 	 */
-	void setComponent(DefaultComponentType value);
+	void setComponent(PojoComponentType value);
 
 	/**
 	 * Returns the value of the '<em><b>Component Threading Profile</b></em>' containment reference.
@@ -1504,7 +1493,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #setEchoComponent(DefaultComponentType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_EchoComponent()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='echo-component' namespace='##targetNamespace' affiliation='abstract-object-factory'"
+	 *        extendedMetaData="kind='element' name='echo-component' namespace='##targetNamespace' affiliation='abstract-component'"
 	 * @generated
 	 */
 	DefaultComponentType getEchoComponent();
@@ -1992,7 +1981,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #setLogComponent(DefaultComponentType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_LogComponent()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='log-component' namespace='##targetNamespace' affiliation='abstract-object-factory'"
+	 *        extendedMetaData="kind='element' name='log-component' namespace='##targetNamespace' affiliation='abstract-component'"
 	 * @generated
 	 */
 	DefaultComponentType getLogComponent();
@@ -2296,7 +2285,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #setNoArgsCallComponent(NoArgsCallWrapperType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_NoArgsCallComponent()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='no-args-call-component' namespace='##targetNamespace' affiliation='abstract-object-factory'"
+	 *        extendedMetaData="kind='element' name='no-args-call-component' namespace='##targetNamespace' affiliation='abstract-component'"
 	 * @generated
 	 */
 	NoArgsCallWrapperType getNoArgsCallComponent();
@@ -2351,7 +2340,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #setNullComponent(DefaultComponentType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_NullComponent()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='null-component' namespace='##targetNamespace' affiliation='abstract-object-factory'"
+	 *        extendedMetaData="kind='element' name='null-component' namespace='##targetNamespace' affiliation='abstract-component'"
 	 * @generated
 	 */
 	DefaultComponentType getNullComponent();
@@ -2462,7 +2451,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #setPassThroughComponent(DefaultComponentType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_PassThroughComponent()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='pass-through-component' namespace='##targetNamespace' affiliation='abstract-object-factory'"
+	 *        extendedMetaData="kind='element' name='pass-through-component' namespace='##targetNamespace' affiliation='abstract-component'"
 	 * @generated
 	 */
 	DefaultComponentType getPassThroughComponent();
@@ -2946,13 +2935,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Service</em>' containment reference.
-	 * @see #setService(SedaServiceType)
+	 * @see #setService(DefaultServiceType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Service()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='service' namespace='##targetNamespace' affiliation='abstract-service'"
 	 * @generated
 	 */
-	SedaServiceType getService();
+	DefaultServiceType getService();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getService <em>Service</em>}' containment reference.
@@ -2962,7 +2951,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getService()
 	 * @generated
 	 */
-	void setService(SedaServiceType value);
+	void setService(DefaultServiceType value);
 
 	/**
 	 * Returns the value of the '<em><b>Single Response Router</b></em>' containment reference.

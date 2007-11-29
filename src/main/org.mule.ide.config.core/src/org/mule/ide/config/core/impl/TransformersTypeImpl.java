@@ -19,41 +19,41 @@ import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.mule.ide.config.core.AbstractBindingType;
+import org.mule.ide.config.core.AbstractTransformerType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.NestedRouterCollectionType;
+import org.mule.ide.config.core.TransformersType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Nested Router Collection Type</b></em>'.
+ * An implementation of the model object '<em><b>Transformers Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.NestedRouterCollectionTypeImpl#getAbstractBindingGroup <em>Abstract Binding Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.NestedRouterCollectionTypeImpl#getAbstractBinding <em>Abstract Binding</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TransformersTypeImpl#getAbstractTransformerGroup <em>Abstract Transformer Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TransformersTypeImpl#getAbstractTransformer <em>Abstract Transformer</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class NestedRouterCollectionTypeImpl extends EObjectImpl implements NestedRouterCollectionType {
+public class TransformersTypeImpl extends EObjectImpl implements TransformersType {
 	/**
-	 * The cached value of the '{@link #getAbstractBindingGroup() <em>Abstract Binding Group</em>}' attribute list.
+	 * The cached value of the '{@link #getAbstractTransformerGroup() <em>Abstract Transformer Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbstractBindingGroup()
+	 * @see #getAbstractTransformerGroup()
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap abstractBindingGroup;
+	protected FeatureMap abstractTransformerGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NestedRouterCollectionTypeImpl() {
+	protected TransformersTypeImpl() {
 		super();
 	}
 
@@ -64,7 +64,7 @@ public class NestedRouterCollectionTypeImpl extends EObjectImpl implements Neste
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.eINSTANCE.getNestedRouterCollectionType();
+		return CorePackage.eINSTANCE.getTransformersType();
 	}
 
 	/**
@@ -72,11 +72,11 @@ public class NestedRouterCollectionTypeImpl extends EObjectImpl implements Neste
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getAbstractBindingGroup() {
-		if (abstractBindingGroup == null) {
-			abstractBindingGroup = new BasicFeatureMap(this, CorePackage.NESTED_ROUTER_COLLECTION_TYPE__ABSTRACT_BINDING_GROUP);
+	public FeatureMap getAbstractTransformerGroup() {
+		if (abstractTransformerGroup == null) {
+			abstractTransformerGroup = new BasicFeatureMap(this, CorePackage.TRANSFORMERS_TYPE__ABSTRACT_TRANSFORMER_GROUP);
 		}
-		return abstractBindingGroup;
+		return abstractTransformerGroup;
 	}
 
 	/**
@@ -84,8 +84,8 @@ public class NestedRouterCollectionTypeImpl extends EObjectImpl implements Neste
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AbstractBindingType> getAbstractBinding() {
-		return getAbstractBindingGroup().list(CorePackage.eINSTANCE.getNestedRouterCollectionType_AbstractBinding());
+	public EList<AbstractTransformerType> getAbstractTransformer() {
+		return getAbstractTransformerGroup().list(CorePackage.eINSTANCE.getTransformersType_AbstractTransformer());
 	}
 
 	/**
@@ -96,10 +96,10 @@ public class NestedRouterCollectionTypeImpl extends EObjectImpl implements Neste
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE__ABSTRACT_BINDING_GROUP:
-				return ((InternalEList<?>)getAbstractBindingGroup()).basicRemove(otherEnd, msgs);
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE__ABSTRACT_BINDING:
-				return ((InternalEList<?>)getAbstractBinding()).basicRemove(otherEnd, msgs);
+			case CorePackage.TRANSFORMERS_TYPE__ABSTRACT_TRANSFORMER_GROUP:
+				return ((InternalEList<?>)getAbstractTransformerGroup()).basicRemove(otherEnd, msgs);
+			case CorePackage.TRANSFORMERS_TYPE__ABSTRACT_TRANSFORMER:
+				return ((InternalEList<?>)getAbstractTransformer()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -112,11 +112,11 @@ public class NestedRouterCollectionTypeImpl extends EObjectImpl implements Neste
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE__ABSTRACT_BINDING_GROUP:
-				if (coreType) return getAbstractBindingGroup();
-				return ((FeatureMap.Internal)getAbstractBindingGroup()).getWrapper();
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE__ABSTRACT_BINDING:
-				return getAbstractBinding();
+			case CorePackage.TRANSFORMERS_TYPE__ABSTRACT_TRANSFORMER_GROUP:
+				if (coreType) return getAbstractTransformerGroup();
+				return ((FeatureMap.Internal)getAbstractTransformerGroup()).getWrapper();
+			case CorePackage.TRANSFORMERS_TYPE__ABSTRACT_TRANSFORMER:
+				return getAbstractTransformer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -129,8 +129,8 @@ public class NestedRouterCollectionTypeImpl extends EObjectImpl implements Neste
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE__ABSTRACT_BINDING_GROUP:
-				((FeatureMap.Internal)getAbstractBindingGroup()).set(newValue);
+			case CorePackage.TRANSFORMERS_TYPE__ABSTRACT_TRANSFORMER_GROUP:
+				((FeatureMap.Internal)getAbstractTransformerGroup()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -144,8 +144,8 @@ public class NestedRouterCollectionTypeImpl extends EObjectImpl implements Neste
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE__ABSTRACT_BINDING_GROUP:
-				getAbstractBindingGroup().clear();
+			case CorePackage.TRANSFORMERS_TYPE__ABSTRACT_TRANSFORMER_GROUP:
+				getAbstractTransformerGroup().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -159,10 +159,10 @@ public class NestedRouterCollectionTypeImpl extends EObjectImpl implements Neste
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE__ABSTRACT_BINDING_GROUP:
-				return abstractBindingGroup != null && !abstractBindingGroup.isEmpty();
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE__ABSTRACT_BINDING:
-				return !getAbstractBinding().isEmpty();
+			case CorePackage.TRANSFORMERS_TYPE__ABSTRACT_TRANSFORMER_GROUP:
+				return abstractTransformerGroup != null && !abstractTransformerGroup.isEmpty();
+			case CorePackage.TRANSFORMERS_TYPE__ABSTRACT_TRANSFORMER:
+				return !getAbstractTransformer().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -177,10 +177,10 @@ public class NestedRouterCollectionTypeImpl extends EObjectImpl implements Neste
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (abstractBindingGroup: ");
-		result.append(abstractBindingGroup);
+		result.append(" (abstractTransformerGroup: ");
+		result.append(abstractTransformerGroup);
 		result.append(')');
 		return result.toString();
 	}
 
-} //NestedRouterCollectionTypeImpl
+} //TransformersTypeImpl

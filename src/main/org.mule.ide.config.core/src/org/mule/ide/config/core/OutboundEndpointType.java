@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.OutboundEndpointType#getGroup <em>Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.OutboundEndpointType#getAbstractTransformerGroup <em>Abstract Transformer Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.OutboundEndpointType#getAbstractTransformer <em>Abstract Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.OutboundEndpointType#getTransformers <em>Transformers</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.OutboundEndpointType#getResponseTransformers <em>Response Transformers</em>}</li>
  *   <li>{@link org.mule.ide.config.core.OutboundEndpointType#getAbstractTransactionGroup <em>Abstract Transaction Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.OutboundEndpointType#getAbstractTransaction <em>Abstract Transaction</em>}</li>
  *   <li>{@link org.mule.ide.config.core.OutboundEndpointType#getAbstractFilterGroup <em>Abstract Filter Group</em>}</li>
@@ -100,6 +102,40 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * @generated
 	 */
 	EList<AbstractTransformerType> getAbstractTransformer();
+
+	/**
+	 * Returns the value of the '<em><b>Transformers</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.core.TransformersType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Transformers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Transformers</em>' containment reference list.
+	 * @see org.mule.ide.config.core.CorePackage#getOutboundEndpointType_Transformers()
+	 * @model containment="true" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='transformers' namespace='##targetNamespace' group='#group:1'"
+	 * @generated
+	 */
+	EList<TransformersType> getTransformers();
+
+	/**
+	 * Returns the value of the '<em><b>Response Transformers</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.core.ResponseTransformersType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Response Transformers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Response Transformers</em>' containment reference list.
+	 * @see org.mule.ide.config.core.CorePackage#getOutboundEndpointType_ResponseTransformers()
+	 * @model containment="true" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='responseTransformers' namespace='##targetNamespace' group='#group:1'"
+	 * @generated
+	 */
+	EList<ResponseTransformersType> getResponseTransformers();
 
 	/**
 	 * Returns the value of the '<em><b>Abstract Transaction Group</b></em>' attribute list.

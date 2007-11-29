@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.mule.ide.config.core.AbstractBindingType;
 import org.mule.ide.config.core.AbstractCatchAllStrategyType;
 import org.mule.ide.config.core.AbstractComponentThreadingProfileType;
+import org.mule.ide.config.core.AbstractComponentType;
 import org.mule.ide.config.core.AbstractConnectionStrategyType;
 import org.mule.ide.config.core.AbstractConnectorType;
 import org.mule.ide.config.core.AbstractEntrypointResolverType;
@@ -76,6 +77,7 @@ import org.mule.ide.config.core.CustomTransactionManagerType;
 import org.mule.ide.config.core.CustomTransformerType;
 import org.mule.ide.config.core.DefaultComponentType;
 import org.mule.ide.config.core.DefaultModelType;
+import org.mule.ide.config.core.DefaultServiceType;
 import org.mule.ide.config.core.DescriptionType;
 import org.mule.ide.config.core.DocumentRoot;
 import org.mule.ide.config.core.EncryptionSecurityFilterType;
@@ -97,11 +99,11 @@ import org.mule.ide.config.core.MessagePropertiesTransformerType;
 import org.mule.ide.config.core.MessageSplitterOutboundRouterType;
 import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.core.MuleUnsafeType;
-import org.mule.ide.config.core.NestedBindingType;
 import org.mule.ide.config.core.NoArgsCallWrapperType;
 import org.mule.ide.config.core.OutboundEndpointType;
 import org.mule.ide.config.core.OutboundRouterType;
 import org.mule.ide.config.core.PatternFilterType;
+import org.mule.ide.config.core.PojoComponentType;
 import org.mule.ide.config.core.PooledObjectFactoryType;
 import org.mule.ide.config.core.PoolingProfileType;
 import org.mule.ide.config.core.PropertiesContainerContextType;
@@ -140,6 +142,7 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractBinding <em>Abstract Binding</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractCatchAllStrategy <em>Abstract Catch All Strategy</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractComponent <em>Abstract Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractComponentThreadingProfile <em>Abstract Component Threading Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractConnector <em>Abstract Connector</em>}</li>
@@ -169,7 +172,6 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractTransformer <em>Abstract Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAndFilter <em>And Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getBeanPropertyExtractor <em>Bean Property Extractor</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getBinding <em>Binding</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getBridgeComponent <em>Bridge Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCallableEntrypointResolver <em>Callable Entrypoint Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getChainingRouter <em>Chaining Router</em>}</li>
@@ -414,6 +416,24 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public NotificationChain basicSetAbstractCatchAllStrategy(AbstractCatchAllStrategyType newAbstractCatchAllStrategy, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AbstractCatchAllStrategy(), newAbstractCatchAllStrategy, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractComponentType getAbstractComponent() {
+		return (AbstractComponentType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_AbstractComponent(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAbstractComponent(AbstractComponentType newAbstractComponent, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AbstractComponent(), newAbstractComponent, msgs);
 	}
 
 	/**
@@ -961,33 +981,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NestedBindingType getBinding() {
-		return (NestedBindingType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Binding(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBinding(NestedBindingType newBinding, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_Binding(), newBinding, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBinding(NestedBindingType newBinding) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_Binding(), newBinding);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DefaultComponentType getBridgeComponent() {
 		return (DefaultComponentType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent(), true);
 	}
@@ -1069,8 +1062,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DefaultComponentType getComponent() {
-		return (DefaultComponentType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Component(), true);
+	public PojoComponentType getComponent() {
+		return (PojoComponentType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Component(), true);
 	}
 
 	/**
@@ -1078,7 +1071,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetComponent(DefaultComponentType newComponent, NotificationChain msgs) {
+	public NotificationChain basicSetComponent(PojoComponentType newComponent, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_Component(), newComponent, msgs);
 	}
 
@@ -1087,7 +1080,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setComponent(DefaultComponentType newComponent) {
+	public void setComponent(PojoComponentType newComponent) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_Component(), newComponent);
 	}
 
@@ -3121,8 +3114,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SedaServiceType getService() {
-		return (SedaServiceType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Service(), true);
+	public DefaultServiceType getService() {
+		return (DefaultServiceType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Service(), true);
 	}
 
 	/**
@@ -3130,7 +3123,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetService(SedaServiceType newService, NotificationChain msgs) {
+	public NotificationChain basicSetService(DefaultServiceType newService, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_Service(), newService, msgs);
 	}
 
@@ -3139,7 +3132,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setService(SedaServiceType newService) {
+	public void setService(DefaultServiceType newService) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_Service(), newService);
 	}
 
@@ -4214,6 +4207,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetAbstractBinding(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CATCH_ALL_STRATEGY:
 				return basicSetAbstractCatchAllStrategy(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT:
+				return basicSetAbstractComponent(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT_THREADING_PROFILE:
 				return basicSetAbstractComponentThreadingProfile(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTION_STRATEGY:
@@ -4272,8 +4267,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetAndFilter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
 				return basicSetBeanPropertyExtractor(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__BINDING:
-				return basicSetBinding(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 				return basicSetBridgeComponent(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRYPOINT_RESOLVER:
@@ -4537,6 +4530,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractBinding();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CATCH_ALL_STRATEGY:
 				return getAbstractCatchAllStrategy();
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT:
+				return getAbstractComponent();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT_THREADING_PROFILE:
 				return getAbstractComponentThreadingProfile();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTION_STRATEGY:
@@ -4595,8 +4590,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAndFilter();
 			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
 				return getBeanPropertyExtractor();
-			case CorePackage.DOCUMENT_ROOT__BINDING:
-				return getBinding();
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 				return getBridgeComponent();
 			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRYPOINT_RESOLVER:
@@ -4862,9 +4855,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
 				setBeanPropertyExtractor((AbstractPropertyExtractorType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__BINDING:
-				setBinding((NestedBindingType)newValue);
-				return;
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 				setBridgeComponent((DefaultComponentType)newValue);
 				return;
@@ -4875,7 +4865,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setChainingRouter((FilteringOutboundRouterType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT:
-				setComponent((DefaultComponentType)newValue);
+				setComponent((PojoComponentType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				setComponentThreadingProfile((ThreadingProfileType)newValue);
@@ -5103,7 +5093,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setSelectiveConsumerRouter((SelectiveConsumerRouterType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__SERVICE:
-				setService((SedaServiceType)newValue);
+				setService((DefaultServiceType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__SINGLE_RESPONSE_ROUTER:
 				setSingleResponseRouter((ResponseRouterType)newValue);
@@ -5249,9 +5239,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
 				setBeanPropertyExtractor((AbstractPropertyExtractorType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__BINDING:
-				setBinding((NestedBindingType)null);
-				return;
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 				setBridgeComponent((DefaultComponentType)null);
 				return;
@@ -5262,7 +5249,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setChainingRouter((FilteringOutboundRouterType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT:
-				setComponent((DefaultComponentType)null);
+				setComponent((PojoComponentType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				setComponentThreadingProfile((ThreadingProfileType)null);
@@ -5490,7 +5477,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setSelectiveConsumerRouter((SelectiveConsumerRouterType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__SERVICE:
-				setService((SedaServiceType)null);
+				setService((DefaultServiceType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__SINGLE_RESPONSE_ROUTER:
 				setSingleResponseRouter((ResponseRouterType)null);
@@ -5631,6 +5618,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractBinding() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CATCH_ALL_STRATEGY:
 				return getAbstractCatchAllStrategy() != null;
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT:
+				return getAbstractComponent() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT_THREADING_PROFILE:
 				return getAbstractComponentThreadingProfile() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTION_STRATEGY:
@@ -5689,8 +5678,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAndFilter() != null;
 			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
 				return getBeanPropertyExtractor() != null;
-			case CorePackage.DOCUMENT_ROOT__BINDING:
-				return getBinding() != null;
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 				return getBridgeComponent() != null;
 			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRYPOINT_RESOLVER:

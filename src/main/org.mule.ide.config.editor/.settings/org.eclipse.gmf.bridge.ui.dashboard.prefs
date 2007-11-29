@@ -1,0 +1,8 @@
+#Wed Nov 28 18:01:29 PST 2007
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/org.mule.ide.config.core/model/core.genmodel
+gmf_dashboard/domainModel=platform\:/resource/org.mule.ide.config.core/model/core.ecore
+gmf_dashboard/generationModel=platform\:/resource/org.mule.ide.config.editor/model/services.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/org.mule.ide.config.editor/model/services.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/org.mule.ide.config.editor/model/services.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/org.mule.ide.config.editor/model/services.gmftool

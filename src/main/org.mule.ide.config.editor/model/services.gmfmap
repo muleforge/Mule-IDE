@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfmap:Mapping xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmfmap="http://www.eclipse.org/gmf/2006/mappings"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <nodes>
+    <containmentFeature
+        href="../../org.mule.ide.config.core/model/core.ecore#//AbstractModelType/abstractService"/>
+    <ownedChild>
+      <domainMetaElement
+          href="../../org.mule.ide.config.core/model/core.ecore#//DefaultServiceType"/>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="services.gmftool#//@palette/@tools.0/@tools.0"/>
+      <diagramNode
+          href="services.gmfgraph#DefaultServiceType"/>
+    </ownedChild>
+  </nodes>
+  <diagram>
+    <diagramCanvas
+        href="services.gmfgraph#core"/>
+    <domainModel
+        href="../../org.mule.ide.config.core/model/core.ecore#/"/>
+    <domainMetaElement
+        href="../../org.mule.ide.config.core/model/core.ecore#//DefaultModelType"/>
+    <palette
+        href="services.gmftool#//@palette"/>
+  </diagram>
+</gmfmap:Mapping>

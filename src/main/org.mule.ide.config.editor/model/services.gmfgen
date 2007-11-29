@@ -93,7 +93,11 @@
           kind="Pathmaps"/>
     </preferencePages>
   </diagram>
-  <plugin/>
+  <plugin
+      iD="org.mule.ide.config.editor.services"
+      name="Services Editor Plugin"
+      provider="MuleSource"
+      activatorClassName="ServicesEditorPlugin"/>
   <editor/>
   <navigator>
     <childReferences

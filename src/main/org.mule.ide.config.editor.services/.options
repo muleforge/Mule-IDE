@@ -1,0 +1,7 @@
+# Tracing options for the org.mule.ide.config.core.diagram plug-in
+
+# Common issues
+org.mule.ide.config.core.diagram/debug=false
+
+# Visual IDs
+org.mule.ide.config.core.diagram/debug/visualID=false

@@ -15,8 +15,12 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
 
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -87,6 +91,7 @@ public class DocumentRootItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractBinding());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractCatchAllStrategy());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractComponent());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractComponentThreadingProfile());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractConnectionStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractConnector());
@@ -116,7 +121,6 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AndFilter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Binding());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CallableEntrypointResolver());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ChainingRouter());
@@ -289,6 +293,7 @@ public class DocumentRootItemProvider
 		switch (notification.getFeatureID(DocumentRoot.class)) {
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_BINDING:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CATCH_ALL_STRATEGY:
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT_THREADING_PROFILE:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTION_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTOR:
@@ -318,7 +323,6 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__AND_FILTER:
 			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
-			case CorePackage.DOCUMENT_ROOT__BINDING:
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRYPOINT_RESOLVER:
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
@@ -467,11 +471,6 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_Binding(),
-				 CoreFactory.eINSTANCE.createNestedBindingType()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent(),
 				 CoreFactory.eINSTANCE.createDefaultComponentType()));
 
@@ -518,12 +517,7 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_Component(),
-				 CoreFactory.eINSTANCE.createDefaultComponentType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_Component(),
-				 CoreFactory.eINSTANCE.createNoArgsCallWrapperType()));
+				 CoreFactory.eINSTANCE.createPojoComponentType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -624,6 +618,11 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
 				 CoreFactory.eINSTANCE.createAbstractComponentThreadingProfileType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createAbstractComponentType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -933,11 +932,6 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createPooledObjectFactoryType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
 				 CoreFactory.eINSTANCE.createDefaultComponentType()));
 
 		newChildDescriptors.add
@@ -1073,16 +1067,6 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createNestedBindingType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createNestedRouterCollectionType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
 				 CoreFactory.eINSTANCE.createNoArgsCallDelegateClassType()));
 
 		newChildDescriptors.add
@@ -1114,6 +1098,21 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
 				 CoreFactory.eINSTANCE.createPatternFilterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createPojoBindingType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createPojoComponentType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createPooledObjectFactoryType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1787,16 +1786,6 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_PooledObject(),
-				 CoreFactory.eINSTANCE.createDefaultComponentType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_PooledObject(),
-				 CoreFactory.eINSTANCE.createNoArgsCallWrapperType()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_PoolingProfile(),
 				 CoreFactory.eINSTANCE.createPoolingProfileType()));
 
@@ -1864,11 +1853,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_SelectiveConsumerRouter(),
 				 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_Service(),
-				 CoreFactory.eINSTANCE.createSedaServiceType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -2456,14 +2440,11 @@ public class DocumentRootItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Binding() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Component() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EchoComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_LogComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NullComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PooledObject() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NoArgsCallComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CallableEntrypointResolver() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ChainingRouter() ||
@@ -2477,6 +2458,7 @@ public class DocumentRootItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EndpointSelectorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ListMessageSplitterRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_StaticRecipientListRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Component() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ComponentThreadingProfile() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationAggregatorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter() ||
@@ -2545,6 +2527,7 @@ public class DocumentRootItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OutboundEndpoint() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PooledObject() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PoolingProfile() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PropertiesContainer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PrototypeObject() ||
@@ -2576,6 +2559,34 @@ public class DocumentRootItemProvider
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
+	}
+
+	/**
+	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)child;
+			feature = entry.getEStructuralFeature();
+			child = entry.getValue();        
+		}
+
+		if (feature instanceof EReference && child instanceof EObject) {
+			String name = "full/obj16/" + ((EObject)child).eClass().getName();
+
+			try {
+				return getResourceLocator().getImage(name);
+			}
+			catch (Exception e) {
+				CoreEditPlugin.INSTANCE.log(e);
+			}
+		}
+
+		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

@@ -15,8 +15,11 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -26,19 +29,14 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.mule.ide.config.core.CoreFactory;
-import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.NestedRouterCollectionType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.NestedRouterCollectionType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.AbstractComponentType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NestedRouterCollectionTypeItemProvider
+public class AbstractComponentTypeItemProvider
 	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
@@ -52,7 +50,7 @@ public class NestedRouterCollectionTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NestedRouterCollectionTypeItemProvider(AdapterFactory adapterFactory) {
+	public AbstractComponentTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,44 +70,14 @@ public class NestedRouterCollectionTypeItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getNestedRouterCollectionType_AbstractBindingGroup());
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns NestedRouterCollectionType.gif.
+	 * This returns AbstractComponentType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NestedRouterCollectionType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AbstractComponentType"));
 	}
 
 	/**
@@ -120,7 +88,7 @@ public class NestedRouterCollectionTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NestedRouterCollectionType_type");
+		return getString("_UI_AbstractComponentType_type");
 	}
 
 	/**
@@ -133,12 +101,6 @@ public class NestedRouterCollectionTypeItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(NestedRouterCollectionType.class)) {
-			case CorePackage.NESTED_ROUTER_COLLECTION_TYPE__ABSTRACT_BINDING_GROUP:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -152,13 +114,34 @@ public class NestedRouterCollectionTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getNestedRouterCollectionType_AbstractBindingGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_Binding(),
-					 CoreFactory.eINSTANCE.createNestedBindingType())));
+	/**
+	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)child;
+			feature = entry.getEStructuralFeature();
+			child = entry.getValue();        
+		}
+
+		if (feature instanceof EReference && child instanceof EObject) {
+			String name = "full/obj16/" + ((EObject)child).eClass().getName();
+
+			try {
+				return getResourceLocator().getImage(name);
+			}
+			catch (Exception e) {
+				CoreEditPlugin.INSTANCE.log(e);
+			}
+		}
+
+		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

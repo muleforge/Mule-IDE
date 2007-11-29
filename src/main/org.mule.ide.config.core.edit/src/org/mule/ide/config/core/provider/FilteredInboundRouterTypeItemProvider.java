@@ -308,6 +308,11 @@ public class FilteredInboundRouterTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createAbstractComponentType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
 				 CoreFactory.eINSTANCE.createAbstractConnectionStrategyType()));
 
 		newChildDescriptors.add
@@ -613,11 +618,6 @@ public class FilteredInboundRouterTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createPooledObjectFactoryType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
 				 CoreFactory.eINSTANCE.createDefaultComponentType()));
 
 		newChildDescriptors.add
@@ -753,16 +753,6 @@ public class FilteredInboundRouterTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createNestedBindingType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createNestedRouterCollectionType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
 				 CoreFactory.eINSTANCE.createNoArgsCallDelegateClassType()));
 
 		newChildDescriptors.add
@@ -794,6 +784,21 @@ public class FilteredInboundRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
 				 CoreFactory.eINSTANCE.createPatternFilterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createPojoBindingType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createPojoComponentType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createPooledObjectFactoryType()));
 
 		newChildDescriptors.add
 			(createChildParameter

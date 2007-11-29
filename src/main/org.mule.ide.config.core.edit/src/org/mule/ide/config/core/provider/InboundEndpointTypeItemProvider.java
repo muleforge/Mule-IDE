@@ -1048,6 +1048,20 @@ public class InboundEndpointTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getInboundEndpointType_Group(),
 				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getInboundEndpointType_Transformers(),
+					 CoreFactory.eINSTANCE.createTransformersType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getInboundEndpointType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getInboundEndpointType_ResponseTransformers(),
+					 CoreFactory.eINSTANCE.createResponseTransformersType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getInboundEndpointType_Group(),
+				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Transaction(),
 					 CoreFactory.eINSTANCE.createTransactionType())));
 

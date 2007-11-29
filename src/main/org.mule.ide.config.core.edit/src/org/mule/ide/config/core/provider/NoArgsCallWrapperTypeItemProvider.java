@@ -118,10 +118,7 @@ public class NoArgsCallWrapperTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NoArgsCallWrapperType)object).getClass_();
-		return label == null || label.length() == 0 ?
-			getString("_UI_NoArgsCallWrapperType_type") :
-			getString("_UI_NoArgsCallWrapperType_type") + " " + label;
+		return getString("_UI_NoArgsCallWrapperType_type");
 	}
 
 	/**

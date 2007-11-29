@@ -1048,6 +1048,20 @@ public class GlobalEndpointTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getGlobalEndpointType_Group(),
 				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getGlobalEndpointType_Transformers(),
+					 CoreFactory.eINSTANCE.createTransformersType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getGlobalEndpointType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getGlobalEndpointType_ResponseTransformers(),
+					 CoreFactory.eINSTANCE.createResponseTransformersType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getGlobalEndpointType_Group(),
+				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Transaction(),
 					 CoreFactory.eINSTANCE.createTransactionType())));
 

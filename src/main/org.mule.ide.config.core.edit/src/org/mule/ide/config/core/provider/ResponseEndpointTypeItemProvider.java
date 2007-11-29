@@ -1048,6 +1048,20 @@ public class ResponseEndpointTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getResponseEndpointType_Group(),
 				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getResponseEndpointType_Transformers(),
+					 CoreFactory.eINSTANCE.createTransformersType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getResponseEndpointType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getResponseEndpointType_ResponseTransformers(),
+					 CoreFactory.eINSTANCE.createResponseTransformersType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getResponseEndpointType_Group(),
+				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Transaction(),
 					 CoreFactory.eINSTANCE.createTransactionType())));
 

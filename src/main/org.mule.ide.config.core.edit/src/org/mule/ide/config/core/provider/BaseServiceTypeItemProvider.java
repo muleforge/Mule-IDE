@@ -131,10 +131,8 @@ public class BaseServiceTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getBaseServiceType_Properties());
 			childrenFeatures.add(CorePackage.eINSTANCE.getBaseServiceType_InboundRouter());
-			childrenFeatures.add(CorePackage.eINSTANCE.getBaseServiceType_NestedRouter());
+			childrenFeatures.add(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup());
 			childrenFeatures.add(CorePackage.eINSTANCE.getBaseServiceType_OutboundRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getBaseServiceType_ResponseRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getBaseServiceType_AbstractExceptionStrategyGroup());
@@ -196,10 +194,8 @@ public class BaseServiceTypeItemProvider
 			case CorePackage.BASE_SERVICE_TYPE__INITIAL_STATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
-			case CorePackage.BASE_SERVICE_TYPE__PROPERTIES:
 			case CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER:
-			case CorePackage.BASE_SERVICE_TYPE__NESTED_ROUTER:
+			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP:
 			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER:
 			case CorePackage.BASE_SERVICE_TYPE__RESPONSE_ROUTER:
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
@@ -222,144 +218,92 @@ public class BaseServiceTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_InboundRouter(),
+				 CoreFactory.eINSTANCE.createInboundRouterCollectionType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent(),
 					 CoreFactory.eINSTANCE.createDefaultComponentType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent(),
 					 CoreFactory.eINSTANCE.createNoArgsCallWrapperType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Component(),
-					 CoreFactory.eINSTANCE.createDefaultComponentType())));
+					 CoreFactory.eINSTANCE.createPojoComponentType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_Component(),
-					 CoreFactory.eINSTANCE.createNoArgsCallWrapperType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_EchoComponent(),
 					 CoreFactory.eINSTANCE.createDefaultComponentType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_EchoComponent(),
 					 CoreFactory.eINSTANCE.createNoArgsCallWrapperType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_LogComponent(),
 					 CoreFactory.eINSTANCE.createDefaultComponentType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_LogComponent(),
 					 CoreFactory.eINSTANCE.createNoArgsCallWrapperType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_NoArgsCallComponent(),
 					 CoreFactory.eINSTANCE.createNoArgsCallWrapperType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_NullComponent(),
 					 CoreFactory.eINSTANCE.createDefaultComponentType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_NullComponent(),
 					 CoreFactory.eINSTANCE.createNoArgsCallWrapperType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent(),
 					 CoreFactory.eINSTANCE.createDefaultComponentType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent(),
 					 CoreFactory.eINSTANCE.createNoArgsCallWrapperType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_PooledObject(),
-					 CoreFactory.eINSTANCE.createPooledObjectFactoryType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_PooledObject(),
-					 CoreFactory.eINSTANCE.createDefaultComponentType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_PooledObject(),
-					 CoreFactory.eINSTANCE.createNoArgsCallWrapperType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_PrototypeObject(),
-					 CoreFactory.eINSTANCE.createPrototypeObjectFactoryType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_AbstractObjectFactoryGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_SingletonObject(),
-					 CoreFactory.eINSTANCE.createSingletonObjectFactoryType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_Properties(),
-				 CoreFactory.eINSTANCE.createMapType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_InboundRouter(),
-				 CoreFactory.eINSTANCE.createInboundRouterCollectionType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getBaseServiceType_NestedRouter(),
-				 CoreFactory.eINSTANCE.createNestedRouterCollectionType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -426,12 +370,10 @@ public class BaseServiceTypeItemProvider
 
 		boolean qualify =
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Component() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EchoComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_LogComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NullComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PooledObject() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NoArgsCallComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomExceptionStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy() ||

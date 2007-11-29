@@ -31,15 +31,15 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.NestedBindingType;
+import org.mule.ide.config.core.PojoBindingType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.NestedBindingType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.PojoBindingType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NestedBindingTypeItemProvider
+public class PojoBindingTypeItemProvider
 	extends AbstractBindingTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
@@ -53,7 +53,7 @@ public class NestedBindingTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NestedBindingTypeItemProvider(AdapterFactory adapterFactory) {
+	public PojoBindingTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -85,9 +85,9 @@ public class NestedBindingTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NestedBindingType_interface_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NestedBindingType_interface_feature", "_UI_NestedBindingType_type"),
-				 CorePackage.eINSTANCE.getNestedBindingType_Interface(),
+				 getString("_UI_PojoBindingType_interface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PojoBindingType_interface_feature", "_UI_PojoBindingType_type"),
+				 CorePackage.eINSTANCE.getPojoBindingType_Interface(),
 				 true,
 				 false,
 				 false,
@@ -107,9 +107,9 @@ public class NestedBindingTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NestedBindingType_method_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NestedBindingType_method_feature", "_UI_NestedBindingType_type"),
-				 CorePackage.eINSTANCE.getNestedBindingType_Method(),
+				 getString("_UI_PojoBindingType_method_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PojoBindingType_method_feature", "_UI_PojoBindingType_type"),
+				 CorePackage.eINSTANCE.getPojoBindingType_Method(),
 				 true,
 				 false,
 				 false,
@@ -130,7 +130,7 @@ public class NestedBindingTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getNestedBindingType_AbstractOutboundEndpointGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getPojoBindingType_AbstractOutboundEndpointGroup());
 		}
 		return childrenFeatures;
 	}
@@ -149,14 +149,14 @@ public class NestedBindingTypeItemProvider
 	}
 
 	/**
-	 * This returns NestedBindingType.gif.
+	 * This returns PojoBindingType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NestedBindingType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PojoBindingType"));
 	}
 
 	/**
@@ -167,11 +167,11 @@ public class NestedBindingTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((NestedBindingType)object).getInterface();
+		Object labelValue = ((PojoBindingType)object).getInterface();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NestedBindingType_type") :
-			getString("_UI_NestedBindingType_type") + " " + label;
+			getString("_UI_PojoBindingType_type") :
+			getString("_UI_PojoBindingType_type") + " " + label;
 	}
 
 	/**
@@ -185,12 +185,12 @@ public class NestedBindingTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(NestedBindingType.class)) {
-			case CorePackage.NESTED_BINDING_TYPE__INTERFACE:
-			case CorePackage.NESTED_BINDING_TYPE__METHOD:
+		switch (notification.getFeatureID(PojoBindingType.class)) {
+			case CorePackage.POJO_BINDING_TYPE__INTERFACE:
+			case CorePackage.POJO_BINDING_TYPE__METHOD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.NESTED_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
+			case CorePackage.POJO_BINDING_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -210,7 +210,7 @@ public class NestedBindingTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getNestedBindingType_AbstractOutboundEndpointGroup(),
+				(CorePackage.eINSTANCE.getPojoBindingType_AbstractOutboundEndpointGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_OutboundEndpoint(),
 					 CoreFactory.eINSTANCE.createOutboundEndpointType())));

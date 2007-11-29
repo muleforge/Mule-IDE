@@ -31,7 +31,7 @@ import org.mule.ide.config.core.DefaultComponentType;
  * @generated
  */
 public class DefaultComponentTypeItemProvider
-	extends PooledObjectFactoryTypeItemProvider
+	extends AbstractComponentTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -82,10 +82,7 @@ public class DefaultComponentTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DefaultComponentType)object).getClass_();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DefaultComponentType_type") :
-			getString("_UI_DefaultComponentType_type") + " " + label;
+		return getString("_UI_DefaultComponentType_type");
 	}
 
 	/**

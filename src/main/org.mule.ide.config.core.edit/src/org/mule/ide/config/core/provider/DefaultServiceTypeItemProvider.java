@@ -138,12 +138,10 @@ public class DefaultServiceTypeItemProvider
 
 		boolean qualify =
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Component() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EchoComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_LogComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NullComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PooledObject() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NoArgsCallComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomExceptionStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy() ||

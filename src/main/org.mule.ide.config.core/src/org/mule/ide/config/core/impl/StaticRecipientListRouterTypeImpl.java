@@ -8,11 +8,14 @@ package org.mule.ide.config.core.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.ListOrSetType;
 import org.mule.ide.config.core.StaticRecipientListRouterType;
 
 /**
@@ -22,6 +25,7 @@ import org.mule.ide.config.core.StaticRecipientListRouterType;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.mule.ide.config.core.impl.StaticRecipientListRouterTypeImpl#getRecipients <em>Recipients</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.StaticRecipientListRouterTypeImpl#getRecipientsDelimiter <em>Recipients Delimiter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.StaticRecipientListRouterTypeImpl#getRecipientsProperty <em>Recipients Property</em>}</li>
  * </ul>
@@ -30,6 +34,16 @@ import org.mule.ide.config.core.StaticRecipientListRouterType;
  * @generated
  */
 public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTypeImpl implements StaticRecipientListRouterType {
+	/**
+	 * The cached value of the '{@link #getRecipients() <em>Recipients</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecipients()
+	 * @generated
+	 * @ordered
+	 */
+	protected ListOrSetType recipients;
+
 	/**
 	 * The default value of the '{@link #getRecipientsDelimiter() <em>Recipients Delimiter</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -94,6 +108,49 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ListOrSetType getRecipients() {
+		return recipients;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRecipients(ListOrSetType newRecipients, NotificationChain msgs) {
+		ListOrSetType oldRecipients = recipients;
+		recipients = newRecipients;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS, oldRecipients, newRecipients);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRecipients(ListOrSetType newRecipients) {
+		if (newRecipients != recipients) {
+			NotificationChain msgs = null;
+			if (recipients != null)
+				msgs = ((InternalEObject)recipients).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS, null, msgs);
+			if (newRecipients != null)
+				msgs = ((InternalEObject)newRecipients).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS, null, msgs);
+			msgs = basicSetRecipients(newRecipients, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS, newRecipients, newRecipients));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getRecipientsDelimiter() {
 		return recipientsDelimiter;
 	}
@@ -137,8 +194,24 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS:
+				return basicSetRecipients(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS:
+				return getRecipients();
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_DELIMITER:
 				return getRecipientsDelimiter();
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_PROPERTY:
@@ -155,6 +228,9 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS:
+				setRecipients((ListOrSetType)newValue);
+				return;
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_DELIMITER:
 				setRecipientsDelimiter((String)newValue);
 				return;
@@ -173,6 +249,9 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS:
+				setRecipients((ListOrSetType)null);
+				return;
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_DELIMITER:
 				setRecipientsDelimiter(RECIPIENTS_DELIMITER_EDEFAULT);
 				return;
@@ -191,6 +270,8 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS:
+				return recipients != null;
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_DELIMITER:
 				return RECIPIENTS_DELIMITER_EDEFAULT == null ? recipientsDelimiter != null : !RECIPIENTS_DELIMITER_EDEFAULT.equals(recipientsDelimiter);
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_PROPERTY:

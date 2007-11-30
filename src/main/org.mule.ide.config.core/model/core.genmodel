@@ -860,6 +860,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//SingletonObjectFactoryType/instanceRef"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//StaticRecipientListRouterType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//StaticRecipientListRouterType/recipients"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//StaticRecipientListRouterType/recipientsDelimiter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//StaticRecipientListRouterType/recipientsProperty"/>
     </genClasses>

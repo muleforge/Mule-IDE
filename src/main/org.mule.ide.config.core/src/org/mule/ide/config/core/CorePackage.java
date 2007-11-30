@@ -9497,13 +9497,22 @@ public interface CorePackage extends EPackage {
 	int STATIC_RECIPIENT_LIST_ROUTER_TYPE__TRANSFORMER_REFS = FILTERING_OUTBOUND_ROUTER_TYPE__TRANSFORMER_REFS;
 
 	/**
+	 * The feature id for the '<em><b>Recipients</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS = FILTERING_OUTBOUND_ROUTER_TYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Recipients Delimiter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_DELIMITER = FILTERING_OUTBOUND_ROUTER_TYPE_FEATURE_COUNT + 0;
+	int STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_DELIMITER = FILTERING_OUTBOUND_ROUTER_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Recipients Property</b></em>' attribute.
@@ -9512,7 +9521,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_PROPERTY = FILTERING_OUTBOUND_ROUTER_TYPE_FEATURE_COUNT + 1;
+	int STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_PROPERTY = FILTERING_OUTBOUND_ROUTER_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Static Recipient List Router Type</em>' class.
@@ -9521,7 +9530,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATIC_RECIPIENT_LIST_ROUTER_TYPE_FEATURE_COUNT = FILTERING_OUTBOUND_ROUTER_TYPE_FEATURE_COUNT + 2;
+	int STATIC_RECIPIENT_LIST_ROUTER_TYPE_FEATURE_COUNT = FILTERING_OUTBOUND_ROUTER_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.impl.ThreadingProfileTypeImpl <em>Threading Profile Type</em>}' class.
@@ -18142,6 +18151,17 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getStaticRecipientListRouterType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.mule.ide.config.core.StaticRecipientListRouterType#getRecipients <em>Recipients</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Recipients</em>'.
+	 * @see org.mule.ide.config.core.StaticRecipientListRouterType#getRecipients()
+	 * @see #getStaticRecipientListRouterType()
+	 * @generated
+	 */
+	EReference getStaticRecipientListRouterType_Recipients();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.mule.ide.config.core.StaticRecipientListRouterType#getRecipientsDelimiter <em>Recipients Delimiter</em>}'.

@@ -3114,8 +3114,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DefaultServiceType getService() {
-		return (DefaultServiceType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Service(), true);
+	public SedaServiceType getService() {
+		return (SedaServiceType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Service(), true);
 	}
 
 	/**
@@ -3123,7 +3123,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetService(DefaultServiceType newService, NotificationChain msgs) {
+	public NotificationChain basicSetService(SedaServiceType newService, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_Service(), newService, msgs);
 	}
 
@@ -3132,7 +3132,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setService(DefaultServiceType newService) {
+	public void setService(SedaServiceType newService) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_Service(), newService);
 	}
 
@@ -5093,7 +5093,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setSelectiveConsumerRouter((SelectiveConsumerRouterType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__SERVICE:
-				setService((DefaultServiceType)newValue);
+				setService((SedaServiceType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__SINGLE_RESPONSE_ROUTER:
 				setSingleResponseRouter((ResponseRouterType)newValue);
@@ -5477,7 +5477,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setSelectiveConsumerRouter((SelectiveConsumerRouterType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__SERVICE:
-				setService((DefaultServiceType)null);
+				setService((SedaServiceType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__SINGLE_RESPONSE_ROUTER:
 				setSingleResponseRouter((ResponseRouterType)null);

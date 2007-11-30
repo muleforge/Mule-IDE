@@ -2935,13 +2935,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Service</em>' containment reference.
-	 * @see #setService(DefaultServiceType)
+	 * @see #setService(SedaServiceType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Service()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='service' namespace='##targetNamespace' affiliation='abstract-service'"
 	 * @generated
 	 */
-	DefaultServiceType getService();
+	SedaServiceType getService();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getService <em>Service</em>}' containment reference.
@@ -2951,7 +2951,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getService()
 	 * @generated
 	 */
-	void setService(DefaultServiceType value);
+	void setService(SedaServiceType value);
 
 	/**
 	 * Returns the value of the '<em><b>Single Response Router</b></em>' containment reference.

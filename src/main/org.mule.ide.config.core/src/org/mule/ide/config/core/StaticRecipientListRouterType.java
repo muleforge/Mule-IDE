@@ -15,6 +15,7 @@ package org.mule.ide.config.core;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.mule.ide.config.core.StaticRecipientListRouterType#getRecipients <em>Recipients</em>}</li>
  *   <li>{@link org.mule.ide.config.core.StaticRecipientListRouterType#getRecipientsDelimiter <em>Recipients Delimiter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.StaticRecipientListRouterType#getRecipientsProperty <em>Recipients Property</em>}</li>
  * </ul>
@@ -25,6 +26,33 @@ package org.mule.ide.config.core;
  * @generated
  */
 public interface StaticRecipientListRouterType extends FilteringOutboundRouterType {
+	/**
+	 * Returns the value of the '<em><b>Recipients</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Recipients</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Recipients</em>' containment reference.
+	 * @see #setRecipients(ListOrSetType)
+	 * @see org.mule.ide.config.core.CorePackage#getStaticRecipientListRouterType_Recipients()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='recipients' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ListOrSetType getRecipients();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.StaticRecipientListRouterType#getRecipients <em>Recipients</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Recipients</em>' containment reference.
+	 * @see #getRecipients()
+	 * @generated
+	 */
+	void setRecipients(ListOrSetType value);
+
 	/**
 	 * Returns the value of the '<em><b>Recipients Delimiter</b></em>' attribute.
 	 * <!-- begin-user-doc -->

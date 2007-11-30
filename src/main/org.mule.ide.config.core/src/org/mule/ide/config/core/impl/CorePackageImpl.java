@@ -7889,8 +7889,17 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStaticRecipientListRouterType_Recipients() {
+        return (EReference)getStaticRecipientListRouterType().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getStaticRecipientListRouterType_RecipientsDelimiter() {
-        return (EAttribute)getStaticRecipientListRouterType().getEStructuralFeatures().get(0);
+        return (EAttribute)getStaticRecipientListRouterType().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -7899,7 +7908,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EAttribute getStaticRecipientListRouterType_RecipientsProperty() {
-        return (EAttribute)getStaticRecipientListRouterType().getEStructuralFeatures().get(1);
+        return (EAttribute)getStaticRecipientListRouterType().getEStructuralFeatures().get(2);
 	}
 
 	/**

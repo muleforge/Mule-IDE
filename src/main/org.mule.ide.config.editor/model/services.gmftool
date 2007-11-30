@@ -10,8 +10,8 @@
         title="core">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="DefaultServiceType"
-          description="Create new DefaultServiceType">
+          title="SedaModelType"
+          description="Create new SedaModelType">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

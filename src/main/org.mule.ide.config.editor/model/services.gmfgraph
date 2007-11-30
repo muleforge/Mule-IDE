@@ -6,15 +6,15 @@
   <figures
       name="Default">
     <descriptors
-        name="DefaultServiceTypeFigure">
+        name="SedaModelTypeFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="DefaultServiceTypeFigure">
+          name="SedaModelTypeFigure">
         <layout
             xsi:type="gmfgraph:FlowLayout"/>
         <children
             xsi:type="gmfgraph:Label"
-            name="DefaultServiceTypeNameFigure"
+            name="SedaModelTypeNameFigure"
             text="&lt;...>"/>
       </actualFigure>
       <accessors
@@ -22,10 +22,10 @@
     </descriptors>
   </figures>
   <nodes
-      name="DefaultServiceType"
-      figure="DefaultServiceTypeFigure"/>
+      name="SedaModelType"
+      figure="SedaModelTypeFigure"/>
   <labels
-      name="DefaultServiceTypeName"
-      figure="DefaultServiceTypeFigure"
+      name="SedaModelTypeName"
+      figure="SedaModelTypeFigure"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
 </gmfgraph:Canvas>

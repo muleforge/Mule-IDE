@@ -9,12 +9,12 @@
         href="../../org.mule.ide.config.core/model/core.ecore#//AbstractModelType/abstractService"/>
     <ownedChild>
       <domainMetaElement
-          href="../../org.mule.ide.config.core/model/core.ecore#//DefaultServiceType"/>
+          href="../../org.mule.ide.config.core/model/core.ecore#//SedaServiceType"/>
       <tool
           xsi:type="gmftool:CreationTool"
           href="services.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
-          href="services.gmfgraph#DefaultServiceType"/>
+          href="services.gmfgraph#SedaModelType"/>
     </ownedChild>
   </nodes>
   <diagram>

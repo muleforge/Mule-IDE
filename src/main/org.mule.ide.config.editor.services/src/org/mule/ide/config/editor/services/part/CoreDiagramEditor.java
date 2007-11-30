@@ -84,14 +84,14 @@ public class CoreDiagramEditor extends DiagramDocumentEditor implements
 	 * @generated
 	 */
 	protected PreferencesHint getPreferencesHint() {
-		return CoreDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
+		return ServicesEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 	}
 
 	/**
 	 * @generated
 	 */
 	public String getContributorId() {
-		return CoreDiagramEditorPlugin.ID;
+		return ServicesEditorPlugin.ID;
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class CoreDiagramEditor extends DiagramDocumentEditor implements
 	protected IDocumentProvider getDocumentProvider(IEditorInput input) {
 		if (input instanceof IFileEditorInput
 				|| input instanceof URIEditorInput) {
-			return CoreDiagramEditorPlugin.getInstance().getDocumentProvider();
+			return ServicesEditorPlugin.getInstance().getDocumentProvider();
 		}
 		return super.getDocumentProvider(input);
 	}
@@ -137,7 +137,7 @@ public class CoreDiagramEditor extends DiagramDocumentEditor implements
 	protected void setDocumentProvider(IEditorInput input) {
 		if (input instanceof IFileEditorInput
 				|| input instanceof URIEditorInput) {
-			setDocumentProvider(CoreDiagramEditorPlugin.getInstance()
+			setDocumentProvider(ServicesEditorPlugin.getInstance()
 					.getDocumentProvider());
 		} else {
 			super.setDocumentProvider(input);

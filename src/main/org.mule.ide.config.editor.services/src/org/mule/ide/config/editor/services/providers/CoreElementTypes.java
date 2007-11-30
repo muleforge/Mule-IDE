@@ -17,6 +17,7 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
+import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 
 /**
  * @generated
@@ -47,11 +48,11 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType DefaultModelType_79 = getElementType("org.mule.ide.config.core.diagram.DefaultModelType_79"); //$NON-NLS-1$
+	public static final IElementType DefaultModelType_79 = getElementType("org.mule.ide.config.editor.services.DefaultModelType_79"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType DefaultServiceType_1001 = getElementType("org.mule.ide.config.core.diagram.DefaultServiceType_1001"); //$NON-NLS-1$
+	public static final IElementType SedaServiceType_1001 = getElementType("org.mule.ide.config.editor.services.SedaServiceType_1001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -89,7 +90,7 @@ public class CoreElementTypes extends ElementInitializers {
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return CoreDiagramEditorPlugin.getInstance()
+				return ServicesEditorPlugin.getInstance()
 						.getItemImageDescriptor(
 								eClass.getEPackage().getEFactoryInstance()
 										.create(eClass));
@@ -167,8 +168,8 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(DefaultModelType_79, CorePackage.eINSTANCE
 					.getDefaultModelType());
 
-			elements.put(DefaultServiceType_1001, CorePackage.eINSTANCE
-					.getDefaultServiceType());
+			elements.put(SedaServiceType_1001, CorePackage.eINSTANCE
+					.getSedaServiceType());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -187,7 +188,7 @@ public class CoreElementTypes extends ElementInitializers {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet();
 			KNOWN_ELEMENT_TYPES.add(DefaultModelType_79);
-			KNOWN_ELEMENT_TYPES.add(DefaultServiceType_1001);
+			KNOWN_ELEMENT_TYPES.add(SedaServiceType_1001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

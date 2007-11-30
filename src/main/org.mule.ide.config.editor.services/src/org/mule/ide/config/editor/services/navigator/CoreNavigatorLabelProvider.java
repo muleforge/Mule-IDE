@@ -14,10 +14,12 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.DefaultServiceType;
+import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
+import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
 /**
@@ -30,12 +32,12 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	static {
-		CoreDiagramEditorPlugin
+		ServicesEditorPlugin
 				.getInstance()
 				.getImageRegistry()
 				.put(
 						"Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
-		CoreDiagramEditorPlugin
+		ServicesEditorPlugin
 				.getInstance()
 				.getImageRegistry()
 				.put(
@@ -61,7 +63,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	public Image getImage(Object element) {
 		if (element instanceof CoreNavigatorGroup) {
 			CoreNavigatorGroup group = (CoreNavigatorGroup) element;
-			return CoreDiagramEditorPlugin.getInstance().getBundledImage(
+			return ServicesEditorPlugin.getInstance().getBundledImage(
 					group.getIcon());
 		}
 
@@ -84,9 +86,9 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://www.mulesource.org/schema/mule/core/2.0?DefaultModelType", CoreElementTypes.DefaultModelType_79); //$NON-NLS-1$
-		case DefaultServiceTypeEditPart.VISUAL_ID:
+		case SedaServiceTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.mulesource.org/schema/mule/core/2.0?DefaultServiceType", CoreElementTypes.DefaultServiceType_1001); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.mulesource.org/schema/mule/core/2.0?SedaServiceType", CoreElementTypes.SedaServiceType_1001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -95,7 +97,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private Image getImage(String key, IElementType elementType) {
-		ImageRegistry imageRegistry = CoreDiagramEditorPlugin.getInstance()
+		ImageRegistry imageRegistry = ServicesEditorPlugin.getInstance()
 				.getImageRegistry();
 		Image image = imageRegistry.get(key);
 		if (image == null && elementType != null
@@ -141,8 +143,8 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		switch (CoreVisualIDRegistry.getVisualID(view)) {
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			return getDefaultModelType_79Text(view);
-		case DefaultServiceTypeEditPart.VISUAL_ID:
-			return getDefaultServiceType_1001Text(view);
+		case SedaServiceTypeEditPart.VISUAL_ID:
+			return getSedaServiceType_1001Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -156,7 +158,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		if (domainModelElement != null) {
 			return String.valueOf(domainModelElement.getName());
 		} else {
-			CoreDiagramEditorPlugin.getInstance().logError(
+			ServicesEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 79); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
@@ -165,13 +167,13 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getDefaultServiceType_1001Text(View view) {
-		DefaultServiceType domainModelElement = (DefaultServiceType) view
+	private String getSedaServiceType_1001Text(View view) {
+		SedaServiceType domainModelElement = (SedaServiceType) view
 				.getElement();
 		if (domainModelElement != null) {
 			return String.valueOf(domainModelElement.getName());
 		} else {
-			CoreDiagramEditorPlugin.getInstance().logError(
+			ServicesEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}

@@ -24,6 +24,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.navigator.ILinkHelper;
 import org.eclipse.ui.part.FileEditorInput;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
+import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 
 /**
  * @generated
@@ -57,7 +58,7 @@ public class CoreNavigatorLinkHelper implements ILinkHelper {
 	 * @generated
 	 */
 	public IStructuredSelection findSelection(IEditorInput anInput) {
-		IDiagramDocument document = CoreDiagramEditorPlugin.getInstance()
+		IDiagramDocument document = ServicesEditorPlugin.getInstance()
 				.getDocumentProvider().getDiagramDocument(anInput);
 		if (document == null) {
 			return StructuredSelection.EMPTY;

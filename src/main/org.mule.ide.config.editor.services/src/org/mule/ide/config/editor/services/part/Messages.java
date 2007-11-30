@@ -248,12 +248,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DefaultServiceType1CreationTool_title;
+	public static String SedaModelType1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String DefaultServiceType1CreationTool_desc;
+	public static String SedaModelType1CreationTool_desc;
 
 	/**
 	 * @generated

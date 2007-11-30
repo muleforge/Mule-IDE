@@ -9,7 +9,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.AbstractServiceType;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 
 /**
  * @generated
@@ -41,7 +41,7 @@ public class CoreDiagramUpdater {
 			AbstractServiceType childElement = (AbstractServiceType) it.next();
 			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == DefaultServiceTypeEditPart.VISUAL_ID) {
+			if (visualID == SedaServiceTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -56,8 +56,8 @@ public class CoreDiagramUpdater {
 		switch (CoreVisualIDRegistry.getVisualID(view)) {
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			return getDefaultModelType_79ContainedLinks(view);
-		case DefaultServiceTypeEditPart.VISUAL_ID:
-			return getDefaultServiceType_1001ContainedLinks(view);
+		case SedaServiceTypeEditPart.VISUAL_ID:
+			return getSedaServiceType_1001ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -67,8 +67,8 @@ public class CoreDiagramUpdater {
 	 */
 	public static List getIncomingLinks(View view) {
 		switch (CoreVisualIDRegistry.getVisualID(view)) {
-		case DefaultServiceTypeEditPart.VISUAL_ID:
-			return getDefaultServiceType_1001IncomingLinks(view);
+		case SedaServiceTypeEditPart.VISUAL_ID:
+			return getSedaServiceType_1001IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -78,8 +78,8 @@ public class CoreDiagramUpdater {
 	 */
 	public static List getOutgoingLinks(View view) {
 		switch (CoreVisualIDRegistry.getVisualID(view)) {
-		case DefaultServiceTypeEditPart.VISUAL_ID:
-			return getDefaultServiceType_1001OutgoingLinks(view);
+		case SedaServiceTypeEditPart.VISUAL_ID:
+			return getSedaServiceType_1001OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -94,21 +94,21 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getDefaultServiceType_1001ContainedLinks(View view) {
+	public static List getSedaServiceType_1001ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getDefaultServiceType_1001IncomingLinks(View view) {
+	public static List getSedaServiceType_1001IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getDefaultServiceType_1001OutgoingLinks(View view) {
+	public static List getSedaServiceType_1001OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

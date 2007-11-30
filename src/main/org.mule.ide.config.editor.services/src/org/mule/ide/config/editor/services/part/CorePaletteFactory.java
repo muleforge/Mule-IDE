@@ -30,21 +30,21 @@ public class CorePaletteFactory {
 	private PaletteContainer createCore1Group() {
 		PaletteGroup paletteContainer = new PaletteGroup(
 				Messages.Core1Group_title);
-		paletteContainer.add(createDefaultServiceType1CreationTool());
+		paletteContainer.add(createSedaModelType1CreationTool());
 		return paletteContainer;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDefaultServiceType1CreationTool() {
+	private ToolEntry createSedaModelType1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.DefaultServiceType_1001);
+		types.add(CoreElementTypes.SedaServiceType_1001);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DefaultServiceType1CreationTool_title,
-				Messages.DefaultServiceType1CreationTool_desc, types);
+				Messages.SedaModelType1CreationTool_title,
+				Messages.SedaModelType1CreationTool_desc, types);
 		entry.setSmallIcon(CoreElementTypes
-				.getImageDescriptor(CoreElementTypes.DefaultServiceType_1001));
+				.getImageDescriptor(CoreElementTypes.SedaServiceType_1001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

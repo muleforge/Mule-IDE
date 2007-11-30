@@ -23,6 +23,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.Messages;
+import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 
 /**
  * @generated
@@ -37,7 +38,7 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof DefaultModelTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.DefaultServiceType_1001);
+			types.add(CoreElementTypes.SedaServiceType_1001);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
@@ -153,7 +154,7 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 	protected EObject selectElement(EObject[] elements) {
 		Shell shell = Display.getCurrent().getActiveShell();
 		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(
-				CoreDiagramEditorPlugin.getInstance()
+				ServicesEditorPlugin.getInstance()
 						.getItemProvidersAdapterFactory());
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(
 				shell, labelProvider);

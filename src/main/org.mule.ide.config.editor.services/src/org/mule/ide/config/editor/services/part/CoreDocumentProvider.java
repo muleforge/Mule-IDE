@@ -70,7 +70,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 			throw new CoreException(
 					new Status(
 							IStatus.ERROR,
-							CoreDiagramEditorPlugin.ID,
+							ServicesEditorPlugin.ID,
 							0,
 							NLS
 									.bind(
@@ -98,7 +98,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 			throw new CoreException(
 					new Status(
 							IStatus.ERROR,
-							CoreDiagramEditorPlugin.ID,
+							ServicesEditorPlugin.ID,
 							0,
 							NLS
 									.bind(
@@ -162,7 +162,8 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 	private TransactionalEditingDomain createEditingDomain() {
 		TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory
 				.getInstance().createEditingDomain();
-		editingDomain.setID("org.mule.ide.config.core.diagram.EditingDomain"); //$NON-NLS-1$
+		editingDomain
+				.setID("org.mule.ide.config.editor.services.EditingDomain"); //$NON-NLS-1$
 		final NotificationFilter diagramResourceModifiedFilter = NotificationFilter
 				.createNotifierFilter(editingDomain.getResourceSet()).and(
 						NotificationFilter
@@ -261,7 +262,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 					thrownExcp = new CoreException(
 							new Status(
 									IStatus.ERROR,
-									CoreDiagramEditorPlugin.ID,
+									ServicesEditorPlugin.ID,
 									0,
 									msg != null ? msg
 											: Messages.CoreDocumentProvider_DiagramLoadingError,
@@ -273,7 +274,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 			throw new CoreException(
 					new Status(
 							IStatus.ERROR,
-							CoreDiagramEditorPlugin.ID,
+							ServicesEditorPlugin.ID,
 							0,
 							NLS
 									.bind(
@@ -364,7 +365,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 				try {
 					updateCache(element);
 				} catch (CoreException ex) {
-					CoreDiagramEditorPlugin.getInstance().logError(
+					ServicesEditorPlugin.getInstance().logError(
 							Messages.CoreDocumentProvider_isModifiable, ex);
 					// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
 				}
@@ -390,7 +391,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 				try {
 					updateCache(element);
 				} catch (CoreException ex) {
-					CoreDiagramEditorPlugin.getInstance().logError(
+					ServicesEditorPlugin.getInstance().logError(
 							Messages.CoreDocumentProvider_isModifiable, ex);
 					// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
 				}
@@ -583,7 +584,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 				throw new CoreException(
 						new Status(
 								IStatus.ERROR,
-								CoreDiagramEditorPlugin.ID,
+								ServicesEditorPlugin.ID,
 								IResourceStatus.OUT_OF_SYNC_LOCAL,
 								Messages.CoreDocumentProvider_UnsynchronizedFileSaveError,
 								null));
@@ -609,7 +610,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 						} catch (IOException e) {
 							fireElementStateChangeFailed(element);
 							throw new CoreException(new Status(IStatus.ERROR,
-									CoreDiagramEditorPlugin.ID,
+									ServicesEditorPlugin.ID,
 									EditorStatusCodes.RESOURCE_FAILURE, e
 											.getLocalizedMessage(), null));
 						}
@@ -639,7 +640,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 				throw new CoreException(
 						new Status(
 								IStatus.ERROR,
-								CoreDiagramEditorPlugin.ID,
+								ServicesEditorPlugin.ID,
 								0,
 								NLS
 										.bind(
@@ -654,7 +655,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 				throw new CoreException(
 						new Status(
 								IStatus.ERROR,
-								CoreDiagramEditorPlugin.ID,
+								ServicesEditorPlugin.ID,
 								0,
 								"Incorrect document used: " + document + " instead of org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument", null)); //$NON-NLS-1$ //$NON-NLS-2$
 			}
@@ -679,12 +680,12 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 			} catch (ExecutionException e) {
 				fireElementStateChangeFailed(element);
 				throw new CoreException(new Status(IStatus.ERROR,
-						CoreDiagramEditorPlugin.ID, 0, e.getLocalizedMessage(),
+						ServicesEditorPlugin.ID, 0, e.getLocalizedMessage(),
 						null));
 			} catch (IOException e) {
 				fireElementStateChangeFailed(element);
 				throw new CoreException(new Status(IStatus.ERROR,
-						CoreDiagramEditorPlugin.ID, 0, e.getLocalizedMessage(),
+						ServicesEditorPlugin.ID, 0, e.getLocalizedMessage(),
 						null));
 			}
 			newResource.unload();
@@ -701,7 +702,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 			try {
 				file.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 			} catch (CoreException ex) {
-				CoreDiagramEditorPlugin
+				ServicesEditorPlugin
 						.getInstance()
 						.logError(
 								Messages.CoreDocumentProvider_handleElementContentChanged,

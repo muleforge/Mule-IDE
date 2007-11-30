@@ -31,8 +31,8 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case DefaultModelTypeEditPart.VISUAL_ID:
 				return new DefaultModelTypeEditPart(view);
 
-			case DefaultServiceTypeEditPart.VISUAL_ID:
-				return new DefaultServiceTypeEditPart(view);
+			case SedaServiceTypeEditPart.VISUAL_ID:
+				return new SedaServiceTypeEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

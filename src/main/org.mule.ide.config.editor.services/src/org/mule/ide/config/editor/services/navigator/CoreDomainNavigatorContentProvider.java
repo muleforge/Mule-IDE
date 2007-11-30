@@ -19,6 +19,7 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
+import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 
 /**
  * @generated
@@ -61,7 +62,7 @@ public class CoreDomainNavigatorContentProvider implements
 	 */
 	public CoreDomainNavigatorContentProvider() {
 		myAdapterFctoryContentProvier = new AdapterFactoryContentProvider(
-				CoreDiagramEditorPlugin.getInstance()
+				ServicesEditorPlugin.getInstance()
 						.getItemProvidersAdapterFactory());
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();

@@ -92,7 +92,7 @@ public class CoreCreationWizard extends Wizard implements INewWizard {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(Messages.CoreCreationWizardTitle);
-		setDefaultPageImageDescriptor(CoreDiagramEditorPlugin
+		setDefaultPageImageDescriptor(ServicesEditorPlugin
 				.getBundledImageDescriptor("icons/wizban/NewCoreWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);
 	}
@@ -150,7 +150,7 @@ public class CoreCreationWizard extends Wizard implements INewWizard {
 						Messages.CoreCreationWizardCreationError, null,
 						((CoreException) e.getTargetException()).getStatus());
 			} else {
-				CoreDiagramEditorPlugin.getInstance().logError(
+				ServicesEditorPlugin.getInstance().logError(
 						"Error creating diagram", e.getTargetException()); //$NON-NLS-1$
 			}
 			return false;

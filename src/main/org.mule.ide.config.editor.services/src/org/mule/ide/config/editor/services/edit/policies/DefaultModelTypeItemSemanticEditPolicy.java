@@ -7,7 +7,7 @@ import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsComma
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.editor.services.edit.commands.DefaultServiceTypeCreateCommand;
+import org.mule.ide.config.editor.services.edit.commands.SedaServiceTypeCreateCommand;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
 /**
@@ -20,12 +20,12 @@ public class DefaultModelTypeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.DefaultServiceType_1001 == req.getElementType()) {
+		if (CoreElementTypes.SedaServiceType_1001 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getAbstractModelType_AbstractService());
 			}
-			return getGEFWrapper(new DefaultServiceTypeCreateCommand(req));
+			return getGEFWrapper(new SedaServiceTypeCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

@@ -1,7 +1,7 @@
-# Tracing options for the org.mule.ide.config.core.diagram plug-in
+# Tracing options for the org.mule.ide.config.editor.services plug-in
 
 # Common issues
-org.mule.ide.config.core.diagram/debug=false
+org.mule.ide.config.editor.services/debug=false
 
 # Visual IDs
-org.mule.ide.config.core.diagram/debug/visualID=false
+org.mule.ide.config.editor.services/debug/visualID=false

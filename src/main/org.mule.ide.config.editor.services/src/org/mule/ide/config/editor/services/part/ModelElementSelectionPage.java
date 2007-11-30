@@ -89,10 +89,10 @@ public class ModelElementSelectionPage extends WizardPage {
 		layoutData.widthHint = 300;
 		modelVewer.getTree().setLayoutData(layoutData);
 		modelVewer.setContentProvider(new AdapterFactoryContentProvider(
-				CoreDiagramEditorPlugin.getInstance()
+				ServicesEditorPlugin.getInstance()
 						.getItemProvidersAdapterFactory()));
 		modelVewer.setLabelProvider(new AdapterFactoryLabelProvider(
-				CoreDiagramEditorPlugin.getInstance()
+				ServicesEditorPlugin.getInstance()
 						.getItemProvidersAdapterFactory()));
 		if (selectedModelElement != null) {
 			modelVewer.setInput(selectedModelElement.eResource());

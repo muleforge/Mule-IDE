@@ -133,7 +133,7 @@ public class CoreNewDiagramFileWizard extends Wizard {
 				Diagram diagram = ViewService.createDiagram(
 						diagramRootElementSelectionPage.getModelElement(),
 						DefaultModelTypeEditPart.MODEL_ID,
-						CoreDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
+						ServicesEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
 				return CommandResult.newOKCommandResult();
 			}
@@ -144,13 +144,13 @@ public class CoreNewDiagramFileWizard extends Wizard {
 			diagramResource.save(CoreDiagramEditorUtil.getSaveOptions());
 			CoreDiagramEditorUtil.openDiagram(diagramResource);
 		} catch (ExecutionException e) {
-			CoreDiagramEditorPlugin.getInstance().logError(
+			ServicesEditorPlugin.getInstance().logError(
 					"Unable to create model and diagram", e); //$NON-NLS-1$
 		} catch (IOException ex) {
-			CoreDiagramEditorPlugin.getInstance().logError(
+			ServicesEditorPlugin.getInstance().logError(
 					"Save operation failed for: " + diagramModelURI, ex); //$NON-NLS-1$
 		} catch (PartInitException ex) {
-			CoreDiagramEditorPlugin.getInstance().logError(
+			ServicesEditorPlugin.getInstance().logError(
 					"Unable to open editor", ex); //$NON-NLS-1$
 		}
 		return true;
@@ -188,7 +188,7 @@ public class CoreNewDiagramFileWizard extends Wizard {
 					new CreateDiagramViewOperation(new EObjectAdapter(
 							selectedModelElement),
 							DefaultModelTypeEditPart.MODEL_ID,
-							CoreDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
+							ServicesEditorPlugin.DIAGRAM_PREFERENCES_HINT));
 			setErrorMessage(result ? null
 					: Messages.CoreNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);
 			return result;

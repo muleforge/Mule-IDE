@@ -7,10 +7,10 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.view.factories.DefaultModelTypeViewFactory;
-import org.mule.ide.config.editor.services.view.factories.DefaultServiceTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeViewFactory;
 
 /**
  * @generated
@@ -81,7 +81,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					return null; // foreign diagram
 				}
 				switch (visualID) {
-				case DefaultServiceTypeEditPart.VISUAL_ID:
+				case SedaServiceTypeEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != CoreVisualIDRegistry
 									.getNodeVisualID(containerView,
@@ -106,8 +106,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return null;
 		}
 		switch (visualID) {
-		case DefaultServiceTypeEditPart.VISUAL_ID:
-			return DefaultServiceTypeViewFactory.class;
+		case SedaServiceTypeEditPart.VISUAL_ID:
+			return SedaServiceTypeViewFactory.class;
 		}
 		return null;
 	}

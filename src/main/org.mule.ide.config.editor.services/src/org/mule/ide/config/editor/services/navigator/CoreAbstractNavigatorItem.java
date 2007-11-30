@@ -17,7 +17,7 @@ public abstract class CoreAbstractNavigatorItem extends PlatformObject {
 		final Class[] supportedTypes = new Class[] { ITabbedPropertySheetPageContributor.class };
 		final ITabbedPropertySheetPageContributor propertySheetPageContributor = new ITabbedPropertySheetPageContributor() {
 			public String getContributorId() {
-				return "org.mule.ide.config.core.diagram"; //$NON-NLS-1$
+				return "org.mule.ide.config.editor.services"; //$NON-NLS-1$
 			}
 		};
 		Platform.getAdapterManager().registerAdapters(

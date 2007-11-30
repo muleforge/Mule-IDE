@@ -77,7 +77,7 @@ public class CoreInitDiagramFileAction implements IObjectActionDelegate {
 			Resource resource = resourceSet.getResource(domainModelURI, true);
 			diagramRoot = (EObject) resource.getContents().get(0);
 		} catch (WrappedException ex) {
-			CoreDiagramEditorPlugin.getInstance().logError(
+			ServicesEditorPlugin.getInstance().logError(
 					"Unable to load resource: " + domainModelURI, ex); //$NON-NLS-1$
 		}
 		if (diagramRoot == null) {

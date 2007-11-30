@@ -3,6 +3,7 @@ package org.mule.ide.config.editor.services.preferences;
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
+import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 
 /**
  * @generated
@@ -25,6 +26,6 @@ public class DiagramPreferenceInitializer extends AbstractPreferenceInitializer 
 	 * @generated
 	 */
 	protected IPreferenceStore getPreferenceStore() {
-		return CoreDiagramEditorPlugin.getInstance().getPreferenceStore();
+		return ServicesEditorPlugin.getInstance().getPreferenceStore();
 	}
 }

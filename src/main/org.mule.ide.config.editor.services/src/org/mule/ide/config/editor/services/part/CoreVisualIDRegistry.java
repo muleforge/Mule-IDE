@@ -8,7 +8,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -22,8 +22,8 @@ public class CoreVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final String DEBUG_KEY = CoreDiagramEditorPlugin
-			.getInstance().getBundle().getSymbolicName()
+	private static final String DEBUG_KEY = ServicesEditorPlugin.getInstance()
+			.getBundle().getSymbolicName()
 			+ "/debug/visualID"; //$NON-NLS-1$
 
 	/**
@@ -65,7 +65,7 @@ public class CoreVisualIDRegistry {
 		} catch (NumberFormatException e) {
 			if (Boolean.TRUE.toString().equalsIgnoreCase(
 					Platform.getDebugOption(DEBUG_KEY))) {
-				CoreDiagramEditorPlugin.getInstance().logError(
+				ServicesEditorPlugin.getInstance().logError(
 						"Unable to parse view type as a visualID number: "
 								+ type);
 			}
@@ -120,9 +120,9 @@ public class CoreVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case DefaultModelTypeEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getDefaultServiceType().isSuperTypeOf(
+			if (CorePackage.eINSTANCE.getSedaServiceType().isSuperTypeOf(
 					domainElement.eClass())) {
-				return DefaultServiceTypeEditPart.VISUAL_ID;
+				return SedaServiceTypeEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -151,7 +151,7 @@ public class CoreVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case DefaultModelTypeEditPart.VISUAL_ID:
-			if (DefaultServiceTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (SedaServiceTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

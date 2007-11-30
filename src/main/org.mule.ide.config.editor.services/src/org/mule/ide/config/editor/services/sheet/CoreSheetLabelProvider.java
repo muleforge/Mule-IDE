@@ -9,6 +9,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.Image;
 import org.mule.ide.config.editor.services.navigator.CoreNavigatorGroup;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
+import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 
 /**
  * @generated
@@ -19,7 +20,7 @@ public class CoreSheetLabelProvider extends DecoratingLabelProvider {
 	 * @generated
 	 */
 	public CoreSheetLabelProvider() {
-		super(new AdapterFactoryLabelProvider(CoreDiagramEditorPlugin
+		super(new AdapterFactoryLabelProvider(ServicesEditorPlugin
 				.getInstance().getItemProvidersAdapterFactory()), null);
 	}
 

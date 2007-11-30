@@ -27,6 +27,7 @@ import org.mule.ide.config.editor.services.part.CoreDiagramEditor;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.Messages;
+import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 
 /**
  * @generated
@@ -146,7 +147,7 @@ public class CoreNavigatorActionProvider extends CommonActionProvider {
 			try {
 				page.openEditor(editorInput, CoreDiagramEditor.ID);
 			} catch (PartInitException e) {
-				CoreDiagramEditorPlugin.getInstance().logError(
+				ServicesEditorPlugin.getInstance().logError(
 						"Exception while openning diagram", e); //$NON-NLS-1$
 			}
 		}

@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.EnableCorrelationType;
 import org.mule.ide.config.core.StaticRecipientListRouterType;
@@ -120,6 +121,36 @@ public class StaticRecipientListRouterTypeItemProvider
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(CorePackage.eINSTANCE.getStaticRecipientListRouterType_Recipients());
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns StaticRecipientListRouterType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,6 +192,9 @@ public class StaticRecipientListRouterTypeItemProvider
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_PROPERTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -175,6 +209,11 @@ public class StaticRecipientListRouterTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getStaticRecipientListRouterType_Recipients(),
+				 CoreFactory.eINSTANCE.createListOrSetType()));
 	}
 
 	/**
@@ -231,6 +270,7 @@ public class StaticRecipientListRouterTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Filter() ||
+			childFeature == CorePackage.eINSTANCE.getStaticRecipientListRouterType_Recipients() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerMessageProperties() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||

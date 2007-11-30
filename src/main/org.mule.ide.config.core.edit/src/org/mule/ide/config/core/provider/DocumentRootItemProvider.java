@@ -1857,6 +1857,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_Service(),
+				 CoreFactory.eINSTANCE.createSedaServiceType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_Service(),
 				 CoreFactory.eINSTANCE.createDefaultServiceType()));
 
 		newChildDescriptors.add

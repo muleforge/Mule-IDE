@@ -35,7 +35,7 @@ public class SedaServiceTypeCreateCommand extends CreateElementCommand {
 		if (element != null)
 			return createSubstitutionElement(element, eClass);
 
-		return null;	
+		return null;
 	}
 
 	/**
@@ -56,13 +56,13 @@ public class SedaServiceTypeCreateCommand extends CreateElementCommand {
 	protected EClass getEClassToEdit() {
 		return CorePackage.eINSTANCE.getAbstractModelType();
 	}
-	
+
 	private EObject createSubstitutionElement(EObject container, EClass eClass) {
 
 		EObject result = null;
 
 		IResourceHelper helper = Util.getHelper(container.eResource());
-		
+
 		if (helper != null) {
 
 			result = helper.create(eClass);
@@ -70,10 +70,11 @@ public class SedaServiceTypeCreateCommand extends CreateElementCommand {
 		} else {
 			result = eClass.getEPackage().getEFactoryInstance().create(eClass);
 		}
-		
-		FeatureMap map = ((AbstractModelType) container).getAbstractServiceGroup();
+
+		FeatureMap map = ((AbstractModelType) container)
+				.getAbstractServiceGroup();
 		map.add(CorePackage.eINSTANCE.getDocumentRoot_Service(), result);
-		
+
 		return result;
 	}
 }

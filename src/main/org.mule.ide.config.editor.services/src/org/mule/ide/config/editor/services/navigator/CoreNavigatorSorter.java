@@ -11,7 +11,7 @@ public class CoreNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 1003;
+	private static final int GROUP_CATEGORY = 2005;
 
 	/**
 	 * @generated

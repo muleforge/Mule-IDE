@@ -1,5 +1,9 @@
 package org.mule.ide.config.editor.services.navigator;
 
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
+import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
+import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -16,11 +20,19 @@ import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.DefaultServiceType;
 import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
+import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 
 /**
  * @generated
@@ -89,6 +101,15 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case SedaServiceTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://www.mulesource.org/schema/mule/core/2.0?SedaServiceType", CoreElementTypes.SedaServiceType_1001); //$NON-NLS-1$
+		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?InboundRouterCollectionType", CoreElementTypes.InboundRouterCollectionType_2001); //$NON-NLS-1$
+		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterCollectionType", CoreElementTypes.OutboundRouterCollectionType_2002); //$NON-NLS-1$
+		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ResponseRouterCollectionType", CoreElementTypes.ResponseRouterCollectionType_2003); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -145,6 +166,12 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getDefaultModelType_79Text(view);
 		case SedaServiceTypeEditPart.VISUAL_ID:
 			return getSedaServiceType_1001Text(view);
+		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+			return getInboundRouterCollectionType_2001Text(view);
+		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+			return getOutboundRouterCollectionType_2002Text(view);
+		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
+			return getResponseRouterCollectionType_2003Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -168,15 +195,79 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getSedaServiceType_1001Text(View view) {
-		SedaServiceType domainModelElement = (SedaServiceType) view
-				.getElement();
-		if (domainModelElement != null) {
-			return String.valueOf(domainModelElement.getName());
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.SedaServiceType_1001,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry
+						.getType(SedaServiceTypeNameEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1001); //$NON-NLS-1$
+					"Parser was not found for label " + 4004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getInboundRouterCollectionType_2001Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.InboundRouterCollectionType_2001, (view
+						.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry.getType(WrapLabelEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getOutboundRouterCollectionType_2002Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.OutboundRouterCollectionType_2002, (view
+						.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry.getType(WrapLabel2EditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getResponseRouterCollectionType_2003Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.ResponseRouterCollectionType_2003, (view
+						.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry.getType(WrapLabel3EditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+
 	}
 
 	/**

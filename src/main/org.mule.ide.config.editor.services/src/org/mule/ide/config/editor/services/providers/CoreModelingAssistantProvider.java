@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.Messages;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
@@ -36,6 +37,13 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
+		if (editPart instanceof SedaServiceTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.InboundRouterCollectionType_2001);
+			types.add(CoreElementTypes.OutboundRouterCollectionType_2002);
+			types.add(CoreElementTypes.ResponseRouterCollectionType_2003);
+			return types;
+		}
 		if (editPart instanceof DefaultModelTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.SedaServiceType_1001);

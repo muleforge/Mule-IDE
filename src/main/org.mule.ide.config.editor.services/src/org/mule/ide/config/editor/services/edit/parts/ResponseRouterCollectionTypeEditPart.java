@@ -1,24 +1,17 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
-import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
-import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.ToolbarLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.editpolicies.FlowLayoutEditPolicy;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
@@ -28,20 +21,18 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
-import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeCanonicalEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.ResponseRouterCollectionTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
  * @generated
  */
-public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
+public class ResponseRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1001;
+	public static final int VISUAL_ID = 2003;
 
 	/**
 	 * @generated
@@ -56,7 +47,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public SedaServiceTypeEditPart(View view) {
+	public ResponseRouterCollectionTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -64,16 +55,10 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SedaServiceTypeItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new SedaServiceTypeCanonicalEditPolicy());
+				new ResponseRouterCollectionTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -83,16 +68,23 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-
-		ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
+		LayoutEditPolicy lep = new LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
-					if (child instanceof ITextAwareEditPart) {
-						return new CoreTextSelectionEditPolicy();
-					}
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				if (result == null) {
+					result = new NonResizableEditPolicy();
 				}
-				return super.createChildEditPolicy(child);
+				return result;
+			}
+
+			protected Command getMoveChildrenCommand(Request request) {
+				return null;
+			}
+
+			protected Command getCreateCommand(CreateRequest request) {
+				return null;
 			}
 		};
 		return lep;
@@ -102,24 +94,24 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		RoundedServiceFigure figure = new RoundedServiceFigure();
+		ResponseRouterCollectionFigure figure = new ResponseRouterCollectionFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public RoundedServiceFigure getPrimaryShape() {
-		return (RoundedServiceFigure) primaryShape;
+	public ResponseRouterCollectionFigure getPrimaryShape() {
+		return (ResponseRouterCollectionFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SedaServiceTypeNameEditPart) {
-			((SedaServiceTypeNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureServiceNameFigure());
+		if (childEditPart instanceof WrapLabel3EditPart) {
+			((WrapLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureResponseRouterCollectionLabelFigure());
 			return true;
 		}
 		return false;
@@ -217,39 +209,23 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(SedaServiceTypeNameEditPart.VISUAL_ID));
+				.getType(WrapLabel3EditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class RoundedServiceFigure extends RoundedRectangle {
+	public class ResponseRouterCollectionFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureServiceNameFigure;
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fFigureServiceItems;
+		private WrapLabel fFigureResponseRouterCollectionLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public RoundedServiceFigure() {
-
-			ToolbarLayout layoutThis = new ToolbarLayout();
-			layoutThis.setStretchMinorAxis(true);
-			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
-
-			layoutThis.setSpacing(0);
-			layoutThis.setVertical(true);
-
-			this.setLayoutManager(layoutThis);
-
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+		public ResponseRouterCollectionFigure() {
 			createContents();
 		}
 
@@ -258,18 +234,14 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureServiceNameFigure = new WrapLabel();
-			fFigureServiceNameFigure.setText("");
+			fFigureResponseRouterCollectionLabelFigure = new WrapLabel();
+			fFigureResponseRouterCollectionLabelFigure
+					.setText("RESPONSE ROUTERS");
 
-			fFigureServiceNameFigure.setFont(FFIGURESERVICENAMEFIGURE_FONT);
+			fFigureResponseRouterCollectionLabelFigure
+					.setFont(FFIGURERESPONSEROUTERCOLLECTIONLABELFIGURE_FONT);
 
-			this.add(fFigureServiceNameFigure);
-
-			fFigureServiceItems = new RectangleFigure();
-
-			this.add(fFigureServiceItems);
-
-			fFigureServiceItems.setLayoutManager(new StackLayout());
+			this.add(fFigureResponseRouterCollectionLabelFigure);
 
 		}
 
@@ -295,15 +267,8 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureServiceNameFigure() {
-			return fFigureServiceNameFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getFigureServiceItems() {
-			return fFigureServiceItems;
+		public WrapLabel getFigureResponseRouterCollectionLabelFigure() {
+			return fFigureResponseRouterCollectionLabelFigure;
 		}
 
 	}
@@ -311,9 +276,8 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGURESERVICENAMEFIGURE_FONT = new Font(Display
-			.getCurrent(),
-			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9,
-			SWT.BOLD);
+	static final Font FFIGURERESPONSEROUTERCOLLECTIONLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 7, SWT.ITALIC);
 
 }

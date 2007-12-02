@@ -57,6 +57,21 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType InboundRouterCollectionType_2001 = getElementType("org.mule.ide.config.editor.services.InboundRouterCollectionType_2001"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType OutboundRouterCollectionType_2002 = getElementType("org.mule.ide.config.editor.services.OutboundRouterCollectionType_2002"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ResponseRouterCollectionType_2003 = getElementType("org.mule.ide.config.editor.services.ResponseRouterCollectionType_2003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	private static ImageRegistry getImageRegistry() {
 		if (imageRegistry == null) {
 			imageRegistry = new ImageRegistry();
@@ -170,6 +185,15 @@ public class CoreElementTypes extends ElementInitializers {
 
 			elements.put(SedaServiceType_1001, CorePackage.eINSTANCE
 					.getSedaServiceType());
+
+			elements.put(InboundRouterCollectionType_2001,
+					CorePackage.eINSTANCE.getInboundRouterCollectionType());
+
+			elements.put(OutboundRouterCollectionType_2002,
+					CorePackage.eINSTANCE.getOutboundRouterCollectionType());
+
+			elements.put(ResponseRouterCollectionType_2003,
+					CorePackage.eINSTANCE.getResponseRouterCollectionType());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -189,6 +213,9 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES = new HashSet();
 			KNOWN_ELEMENT_TYPES.add(DefaultModelType_79);
 			KNOWN_ELEMENT_TYPES.add(SedaServiceType_1001);
+			KNOWN_ELEMENT_TYPES.add(InboundRouterCollectionType_2001);
+			KNOWN_ELEMENT_TYPES.add(OutboundRouterCollectionType_2002);
+			KNOWN_ELEMENT_TYPES.add(ResponseRouterCollectionType_2003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

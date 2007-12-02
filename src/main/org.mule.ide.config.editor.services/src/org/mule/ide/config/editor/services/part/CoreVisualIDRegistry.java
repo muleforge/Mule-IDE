@@ -8,7 +8,14 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -119,6 +126,20 @@ public class CoreVisualIDRegistry {
 			}
 		}
 		switch (containerVisualID) {
+		case SedaServiceTypeEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getInboundRouterCollectionType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return InboundRouterCollectionTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getOutboundRouterCollectionType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return OutboundRouterCollectionTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getResponseRouterCollectionType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ResponseRouterCollectionTypeEditPart.VISUAL_ID;
+			}
+			break;
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getSedaServiceType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -150,6 +171,35 @@ public class CoreVisualIDRegistry {
 			}
 		}
 		switch (containerVisualID) {
+		case SedaServiceTypeEditPart.VISUAL_ID:
+			if (SedaServiceTypeNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (InboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (OutboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResponseRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+			if (WrapLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
+			if (WrapLabel3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			if (SedaServiceTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;

@@ -7,10 +7,24 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.view.factories.DefaultModelTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.OutboundRouterCollectionTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.ResponseRouterCollectionTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeNameViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.WrapLabel2ViewFactory;
+import org.mule.ide.config.editor.services.view.factories.WrapLabel3ViewFactory;
+import org.mule.ide.config.editor.services.view.factories.WrapLabelViewFactory;
 
 /**
  * @generated
@@ -82,11 +96,42 @@ public class CoreViewProvider extends AbstractViewProvider {
 				}
 				switch (visualID) {
 				case SedaServiceTypeEditPart.VISUAL_ID:
+				case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+				case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+				case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != CoreVisualIDRegistry
 									.getNodeVisualID(containerView,
 											domainElement)) {
 						return null; // visual id in semantic hint should match visual id for domain element
+					}
+					break;
+				case SedaServiceTypeNameEditPart.VISUAL_ID:
+					if (SedaServiceTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case WrapLabelEditPart.VISUAL_ID:
+					if (InboundRouterCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case WrapLabel2EditPart.VISUAL_ID:
+					if (OutboundRouterCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case WrapLabel3EditPart.VISUAL_ID:
+					if (ResponseRouterCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
 					}
 					break;
 				default:
@@ -108,6 +153,20 @@ public class CoreViewProvider extends AbstractViewProvider {
 		switch (visualID) {
 		case SedaServiceTypeEditPart.VISUAL_ID:
 			return SedaServiceTypeViewFactory.class;
+		case SedaServiceTypeNameEditPart.VISUAL_ID:
+			return SedaServiceTypeNameViewFactory.class;
+		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+			return InboundRouterCollectionTypeViewFactory.class;
+		case WrapLabelEditPart.VISUAL_ID:
+			return WrapLabelViewFactory.class;
+		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+			return OutboundRouterCollectionTypeViewFactory.class;
+		case WrapLabel2EditPart.VISUAL_ID:
+			return WrapLabel2ViewFactory.class;
+		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
+			return ResponseRouterCollectionTypeViewFactory.class;
+		case WrapLabel3EditPart.VISUAL_ID:
+			return WrapLabel3ViewFactory.class;
 		}
 		return null;
 	}

@@ -33,6 +33,27 @@ public class CoreEditPartFactory implements EditPartFactory {
 
 			case SedaServiceTypeEditPart.VISUAL_ID:
 				return new SedaServiceTypeEditPart(view);
+
+			case SedaServiceTypeNameEditPart.VISUAL_ID:
+				return new SedaServiceTypeNameEditPart(view);
+
+			case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+				return new InboundRouterCollectionTypeEditPart(view);
+
+			case WrapLabelEditPart.VISUAL_ID:
+				return new WrapLabelEditPart(view);
+
+			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+				return new OutboundRouterCollectionTypeEditPart(view);
+
+			case WrapLabel2EditPart.VISUAL_ID:
+				return new WrapLabel2EditPart(view);
+
+			case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
+				return new ResponseRouterCollectionTypeEditPart(view);
+
+			case WrapLabel3EditPart.VISUAL_ID:
+				return new WrapLabel3EditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

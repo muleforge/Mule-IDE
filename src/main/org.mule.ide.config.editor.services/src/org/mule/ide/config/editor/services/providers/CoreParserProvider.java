@@ -1,6 +1,7 @@
 package org.mule.ide.config.editor.services.providers;
 
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
@@ -10,6 +11,9 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
+import org.mule.ide.config.editor.services.parsers.MessageFormatParser;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
@@ -21,8 +25,35 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser sedaServiceTypeName_4004Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSedaServiceTypeName_4004Parser() {
+		if (sedaServiceTypeName_4004Parser == null) {
+			sedaServiceTypeName_4004Parser = createSedaServiceTypeName_4004Parser();
+		}
+		return sedaServiceTypeName_4004Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createSedaServiceTypeName_4004Parser() {
+		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+				.getAbstractServiceType_Name(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
+		case SedaServiceTypeNameEditPart.VISUAL_ID:
+			return getSedaServiceTypeName_4004Parser();
 		}
 		return null;
 	}

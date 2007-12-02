@@ -10,11 +10,74 @@
     <ownedChild>
       <domainMetaElement
           href="../../org.mule.ide.config.core/model/core.ecore#//SedaServiceType"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          editorPattern=""
+          editPattern="">
+        <diagramLabel
+            href="services.gmfgraph#ServiceName"/>
+        <features
+            href="../../org.mule.ide.config.core/model/core.ecore#//AbstractServiceType/name"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="services.gmftool#//@palette/@tools.0/@tools.0"/>
+          href="services.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
-          href="services.gmfgraph#SedaModelType"/>
+          href="services.gmfgraph#SedaServiceType"/>
+      <children>
+        <containmentFeature
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/inboundRouter"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#InboundRouterCollectionLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="services.gmftool#//@palette/@tools.0/@tools.0"/>
+          <diagramNode
+              href="services.gmfgraph#InboundRouterCollectionType"/>
+        </ownedChild>
+      </children>
+      <children>
+        <containmentFeature
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/outboundRouter"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#OutboundRouterCollectionLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="services.gmftool#//@palette/@tools.0/@tools.1"/>
+          <diagramNode
+              href="services.gmfgraph#OutboundRouterCollectionType"/>
+        </ownedChild>
+      </children>
+      <children>
+        <containmentFeature
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/responseRouter"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.mule.ide.config.core/model/core.ecore#//ResponseRouterCollectionType"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#ResponseRouterCollectionLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="services.gmftool#//@palette/@tools.0/@tools.2"/>
+          <diagramNode
+              href="services.gmfgraph#ResponseRouterCollectionType"/>
+        </ownedChild>
+      </children>
     </ownedChild>
   </nodes>
   <diagram>

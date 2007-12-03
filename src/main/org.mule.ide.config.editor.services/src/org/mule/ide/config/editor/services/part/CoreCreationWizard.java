@@ -110,7 +110,7 @@ public class CoreCreationWizard extends Wizard implements INewWizard {
 		addPage(diagramModelFilePage);
 
 		domainModelFilePage = new CoreCreationWizardPage(
-				"DomainModelFile", getSelection(), "mule"); //$NON-NLS-1$ //$NON-NLS-2$
+				"DomainModelFile", getSelection(), "xml"); //$NON-NLS-1$ //$NON-NLS-2$
 		domainModelFilePage
 				.setTitle(Messages.CoreCreationWizard_DomainModelFilePageTitle);
 		domainModelFilePage

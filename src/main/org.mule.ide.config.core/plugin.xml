@@ -19,7 +19,7 @@
 
   <extension point="org.eclipse.emf.ecore.extension_parser">
     <parser 
-       type="core" 
+       type="xml" 
        class="org.mule.ide.config.core.util.CoreResourceFactoryImpl" />
   </extension>
 

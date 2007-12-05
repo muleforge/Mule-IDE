@@ -232,17 +232,9 @@
               faceName=""
               style="BOLD"/>
         </children>
-        <children
-            xsi:type="gmfgraph:Rectangle"
-            name="ServiceItems">
-          <layout
-              xsi:type="gmfgraph:StackLayout"/>
-        </children>
       </actualFigure>
       <accessors
           figure="//@figures.1/@descriptors.0/@actualFigure/@children.0"/>
-      <accessors
-          figure="//@figures.1/@descriptors.0/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="InboundRouterCollectionFigure">
@@ -395,11 +387,6 @@
   <nodes
       name="WireTapRouterType"
       figure="WireTapRouterTypeFigure"/>
-  <compartments
-      name="ServiceCompartment"
-      figure="RoundedServiceFigure"
-      collapsible="true"
-      accessor="//@figures.1/@descriptors.0/@accessors.1"/>
   <labels
       name="ServiceName"
       figure="RoundedServiceFigure"

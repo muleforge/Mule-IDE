@@ -229,10 +229,6 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrapLabel fFigureServiceNameFigure;
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fFigureServiceItems;
 
 		/**
 		 * @generated
@@ -265,12 +261,6 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureServiceNameFigure);
 
-			fFigureServiceItems = new RectangleFigure();
-
-			this.add(fFigureServiceItems);
-
-			fFigureServiceItems.setLayoutManager(new StackLayout());
-
 		}
 
 		/**
@@ -297,13 +287,6 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 		 */
 		public WrapLabel getFigureServiceNameFigure() {
 			return fFigureServiceNameFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getFigureServiceItems() {
-			return fFigureServiceItems;
 		}
 
 	}

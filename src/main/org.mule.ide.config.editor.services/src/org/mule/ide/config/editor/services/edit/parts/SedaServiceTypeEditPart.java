@@ -1,5 +1,6 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
@@ -246,6 +247,10 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
+			this.setForegroundColor(ColorConstants.black);
+
+			this.setFont(THIS_FONT);
+
 			createContents();
 		}
 
@@ -290,6 +295,13 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Font THIS_FONT = new Font(Display.getCurrent(), Display
+			.getDefault().getSystemFont().getFontData()[0].getName(), 7,
+			SWT.ITALIC);
 
 	/**
 	 * @generated

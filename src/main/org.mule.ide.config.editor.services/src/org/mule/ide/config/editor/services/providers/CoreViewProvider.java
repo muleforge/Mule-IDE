@@ -10,7 +10,9 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
@@ -20,6 +22,8 @@ import org.mule.ide.config.editor.services.view.factories.DefaultModelTypeViewFa
 import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundRouterCollectionTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.ResponseRouterCollectionTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeCOMPONENTViewFactory;
+import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeINBOUNDROUTERSViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeNameViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.WrapLabel2ViewFactory;
@@ -107,6 +111,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case SedaServiceTypeNameEditPart.VISUAL_ID:
+				case SedaServiceTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+				case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 					if (SedaServiceTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -167,6 +173,10 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return ResponseRouterCollectionTypeViewFactory.class;
 		case WrapLabel3EditPart.VISUAL_ID:
 			return WrapLabel3ViewFactory.class;
+		case SedaServiceTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+			return SedaServiceTypeINBOUNDROUTERSViewFactory.class;
+		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
+			return SedaServiceTypeCOMPONENTViewFactory.class;
 		}
 		return null;
 	}

@@ -11,7 +11,9 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
@@ -173,6 +175,12 @@ public class CoreVisualIDRegistry {
 		switch (containerVisualID) {
 		case SedaServiceTypeEditPart.VISUAL_ID:
 			if (SedaServiceTypeNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SedaServiceTypeINBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SedaServiceTypeCOMPONENTEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (InboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {

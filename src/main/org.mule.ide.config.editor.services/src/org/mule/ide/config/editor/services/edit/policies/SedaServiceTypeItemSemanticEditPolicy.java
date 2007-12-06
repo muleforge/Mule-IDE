@@ -16,6 +16,8 @@ import org.mule.ide.config.editor.services.edit.commands.ResponseRouterCollectio
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
@@ -94,6 +96,22 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 				break;
 			case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 				cmd.add(getDestroyElementCommand(node));
+				break;
+			case SedaServiceTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
+					}
+				}
+				break;
+			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
+					}
+				}
 				break;
 			}
 		}

@@ -618,6 +618,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String SedaServiceTypeINBOUNDROUTERSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SedaServiceTypeCOMPONENTEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**

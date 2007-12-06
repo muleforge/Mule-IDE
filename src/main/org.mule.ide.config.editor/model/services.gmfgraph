@@ -224,6 +224,14 @@
             forceSingleLine="true"
             majorSpacing="0"
             minorSpacing="0"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName=""
+            height="7"
+            style="ITALIC"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ServiceNameFigure">
@@ -289,6 +297,11 @@
       </actualFigure>
       <accessors
           figure="//@figures.1/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ServicePartContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:LabeledContainer"/>
     </descriptors>
   </figures>
   <nodes
@@ -387,6 +400,16 @@
   <nodes
       name="WireTapRouterType"
       figure="WireTapRouterTypeFigure"/>
+  <compartments
+      name="COMPONENT"
+      figure="ServicePartContainerFigure"
+      collapsible="true"
+      needsTitle="true"/>
+  <compartments
+      name="INBOUND ROUTERS"
+      figure="ServicePartContainerFigure"
+      collapsible="true"
+      needsTitle="true"/>
   <labels
       name="ServiceName"
       figure="RoundedServiceFigure"

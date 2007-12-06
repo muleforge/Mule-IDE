@@ -78,6 +78,14 @@
               href="services.gmfgraph#ResponseRouterCollectionType"/>
         </ownedChild>
       </children>
+      <compartments>
+        <compartment
+            href="services.gmfgraph#INBOUND ROUTERS"/>
+      </compartments>
+      <compartments>
+        <compartment
+            href="services.gmfgraph#COMPONENT"/>
+      </compartments>
     </ownedChild>
   </nodes>
   <diagram>

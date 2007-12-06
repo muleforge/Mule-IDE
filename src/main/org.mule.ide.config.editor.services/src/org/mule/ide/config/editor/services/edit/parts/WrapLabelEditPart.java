@@ -196,7 +196,11 @@ public class WrapLabelEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		return null;
+		EObject parserElement = getParserElement();
+		if (parserElement == null) {
+			return null;
+		}
+		return CoreElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**
@@ -304,7 +308,7 @@ public class WrapLabelEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.InboundRouterCollectionType_2001,
+					CoreElementTypes.WireTapRouterType_2002,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
@@ -509,7 +513,7 @@ public class WrapLabelEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
-		return (View) getModel();
+		return getPrimaryView();
 	}
 
 	/**

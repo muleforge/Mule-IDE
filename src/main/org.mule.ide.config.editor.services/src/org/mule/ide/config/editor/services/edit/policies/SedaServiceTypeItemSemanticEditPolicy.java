@@ -15,9 +15,9 @@ import org.mule.ide.config.editor.services.edit.commands.OutboundRouterCollectio
 import org.mule.ide.config.editor.services.edit.commands.ResponseRouterCollectionTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
@@ -40,7 +40,7 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 			return getGEFWrapper(new InboundRouterCollectionTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.OutboundRouterCollectionType_2002 == req
+		if (CoreElementTypes.OutboundRouterCollectionType_2003 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -49,7 +49,7 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 			return getGEFWrapper(new OutboundRouterCollectionTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.ResponseRouterCollectionType_2003 == req
+		if (CoreElementTypes.ResponseRouterCollectionType_2004 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -97,19 +97,14 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 			case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 				cmd.add(getDestroyElementCommand(node));
 				break;
-			case SedaServiceTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-				for (Iterator cit = node.getChildren().iterator(); cit
-						.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
-					}
-				}
-				break;
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
+					case PojoComponentTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
 					}
 				}
 				break;

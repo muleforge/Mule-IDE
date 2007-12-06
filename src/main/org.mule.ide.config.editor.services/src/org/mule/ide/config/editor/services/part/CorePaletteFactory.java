@@ -168,13 +168,13 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createOutboundRouterCollectionType2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.OutboundRouterCollectionType_2002);
+		types.add(CoreElementTypes.OutboundRouterCollectionType_2003);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.OutboundRouterCollectionType2CreationTool_title,
 				Messages.OutboundRouterCollectionType2CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.OutboundRouterCollectionType_2002));
+						.getImageDescriptor(CoreElementTypes.OutboundRouterCollectionType_2003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -184,13 +184,13 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createResponseRouterCollectionType3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.ResponseRouterCollectionType_2003);
+		types.add(CoreElementTypes.ResponseRouterCollectionType_2004);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ResponseRouterCollectionType3CreationTool_title,
 				Messages.ResponseRouterCollectionType3CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.ResponseRouterCollectionType_2003));
+						.getImageDescriptor(CoreElementTypes.ResponseRouterCollectionType_2004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -214,10 +214,14 @@ public class CorePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createWireTapRouter1CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.WireTapRouterType_2002);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.WireTapRouter1CreationTool_title,
-				Messages.WireTapRouter1CreationTool_desc, null, null) {
-		};
+				Messages.WireTapRouter1CreationTool_desc, types);
+		entry.setSmallIcon(CoreElementTypes
+				.getImageDescriptor(CoreElementTypes.WireTapRouterType_2002));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -337,10 +341,14 @@ public class CorePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPojoComponent1CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.PojoComponentType_2005);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.PojoComponent1CreationTool_title,
-				Messages.PojoComponent1CreationTool_desc, null, null) {
-		};
+				Messages.PojoComponent1CreationTool_desc, types);
+		entry.setSmallIcon(CoreElementTypes
+				.getImageDescriptor(CoreElementTypes.PojoComponentType_2005));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

@@ -8,26 +8,32 @@ import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabel4EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.view.factories.DefaultModelTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeINBOUNDROUTERSViewFactory;
 import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundRouterCollectionTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.PojoComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.ResponseRouterCollectionTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeCOMPONENTViewFactory;
-import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeINBOUNDROUTERSViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeNameViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.WireTapRouterTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.WrapLabel2ViewFactory;
 import org.mule.ide.config.editor.services.view.factories.WrapLabel3ViewFactory;
+import org.mule.ide.config.editor.services.view.factories.WrapLabel4ViewFactory;
 import org.mule.ide.config.editor.services.view.factories.WrapLabelViewFactory;
 
 /**
@@ -101,8 +107,10 @@ public class CoreViewProvider extends AbstractViewProvider {
 				switch (visualID) {
 				case SedaServiceTypeEditPart.VISUAL_ID:
 				case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+				case WireTapRouterTypeEditPart.VISUAL_ID:
 				case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 				case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
+				case PojoComponentTypeEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != CoreVisualIDRegistry
 									.getNodeVisualID(containerView,
@@ -111,7 +119,6 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case SedaServiceTypeNameEditPart.VISUAL_ID:
-				case SedaServiceTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 				case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 					if (SedaServiceTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
@@ -119,8 +126,15 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case WrapLabelEditPart.VISUAL_ID:
+				case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 					if (InboundRouterCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case WrapLabelEditPart.VISUAL_ID:
+					if (WireTapRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -135,6 +149,13 @@ public class CoreViewProvider extends AbstractViewProvider {
 					break;
 				case WrapLabel3EditPart.VISUAL_ID:
 					if (ResponseRouterCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case WrapLabel4EditPart.VISUAL_ID:
+					if (PojoComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -163,6 +184,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return SedaServiceTypeNameViewFactory.class;
 		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return InboundRouterCollectionTypeViewFactory.class;
+		case WireTapRouterTypeEditPart.VISUAL_ID:
+			return WireTapRouterTypeViewFactory.class;
 		case WrapLabelEditPart.VISUAL_ID:
 			return WrapLabelViewFactory.class;
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
@@ -173,10 +196,14 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return ResponseRouterCollectionTypeViewFactory.class;
 		case WrapLabel3EditPart.VISUAL_ID:
 			return WrapLabel3ViewFactory.class;
-		case SedaServiceTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-			return SedaServiceTypeINBOUNDROUTERSViewFactory.class;
+		case PojoComponentTypeEditPart.VISUAL_ID:
+			return PojoComponentTypeViewFactory.class;
+		case WrapLabel4EditPart.VISUAL_ID:
+			return WrapLabel4ViewFactory.class;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			return SedaServiceTypeCOMPONENTViewFactory.class;
+		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+			return InboundRouterCollectionTypeINBOUNDROUTERSViewFactory.class;
 		}
 		return null;
 	}

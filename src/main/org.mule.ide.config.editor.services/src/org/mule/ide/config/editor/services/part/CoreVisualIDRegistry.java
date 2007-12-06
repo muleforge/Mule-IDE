@@ -9,14 +9,17 @@ import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabel4EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 
 /**
@@ -142,6 +145,18 @@ public class CoreVisualIDRegistry {
 				return ResponseRouterCollectionTypeEditPart.VISUAL_ID;
 			}
 			break;
+		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getPojoComponentType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return PojoComponentTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getWireTapRouterType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return WireTapRouterTypeEditPart.VISUAL_ID;
+			}
+			break;
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getSedaServiceType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -177,9 +192,6 @@ public class CoreVisualIDRegistry {
 			if (SedaServiceTypeNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SedaServiceTypeINBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (SedaServiceTypeCOMPONENTEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -194,6 +206,11 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+			if (InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case WireTapRouterTypeEditPart.VISUAL_ID:
 			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -205,6 +222,21 @@ public class CoreVisualIDRegistry {
 			break;
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 			if (WrapLabel3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case PojoComponentTypeEditPart.VISUAL_ID:
+			if (WrapLabel4EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
+			if (PojoComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+			if (WireTapRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

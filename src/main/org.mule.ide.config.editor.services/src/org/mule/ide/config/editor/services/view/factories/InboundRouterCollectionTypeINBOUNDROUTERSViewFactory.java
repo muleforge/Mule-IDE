@@ -10,13 +10,13 @@ import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.TitleStyle;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDROUTERSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
  * @generated
  */
-public class SedaServiceTypeINBOUNDROUTERSViewFactory extends
+public class InboundRouterCollectionTypeINBOUNDROUTERSViewFactory extends
 		BasicNodeViewFactory {
 
 	/**
@@ -39,7 +39,7 @@ public class SedaServiceTypeINBOUNDROUTERSViewFactory extends
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = CoreVisualIDRegistry
-					.getType(SedaServiceTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+					.getType(InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,

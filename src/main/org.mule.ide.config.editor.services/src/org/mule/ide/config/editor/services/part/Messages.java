@@ -618,12 +618,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String SedaServiceTypeINBOUNDROUTERSEditPart_title;
+	public static String SedaServiceTypeCOMPONENTEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SedaServiceTypeCOMPONENTEditPart_title;
+	public static String InboundRouterCollectionTypeINBOUNDROUTERSEditPart_title;
 
 	/**
 	 * @generated

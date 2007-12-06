@@ -32,7 +32,7 @@ public class ResponseRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2003;
+	public static final int VISUAL_ID = 2004;
 
 	/**
 	 * @generated

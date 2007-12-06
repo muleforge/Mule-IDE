@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.Messages;
@@ -40,8 +41,14 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof SedaServiceTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.InboundRouterCollectionType_2001);
-			types.add(CoreElementTypes.OutboundRouterCollectionType_2002);
-			types.add(CoreElementTypes.ResponseRouterCollectionType_2003);
+			types.add(CoreElementTypes.OutboundRouterCollectionType_2003);
+			types.add(CoreElementTypes.ResponseRouterCollectionType_2004);
+			types.add(CoreElementTypes.PojoComponentType_2005);
+			return types;
+		}
+		if (editPart instanceof InboundRouterCollectionTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.WireTapRouterType_2002);
 			return types;
 		}
 		if (editPart instanceof DefaultModelTypeEditPart) {

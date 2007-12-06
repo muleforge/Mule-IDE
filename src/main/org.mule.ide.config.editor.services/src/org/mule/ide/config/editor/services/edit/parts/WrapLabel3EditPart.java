@@ -304,7 +304,7 @@ public class WrapLabel3EditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.ResponseRouterCollectionType_2003,
+					CoreElementTypes.ResponseRouterCollectionType_2004,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

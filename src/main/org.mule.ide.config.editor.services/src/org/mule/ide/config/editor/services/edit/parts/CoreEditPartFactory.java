@@ -40,6 +40,9 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case InboundRouterCollectionTypeEditPart.VISUAL_ID:
 				return new InboundRouterCollectionTypeEditPart(view);
 
+			case WireTapRouterTypeEditPart.VISUAL_ID:
+				return new WireTapRouterTypeEditPart(view);
+
 			case WrapLabelEditPart.VISUAL_ID:
 				return new WrapLabelEditPart(view);
 
@@ -55,11 +58,18 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case WrapLabel3EditPart.VISUAL_ID:
 				return new WrapLabel3EditPart(view);
 
-			case SedaServiceTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-				return new SedaServiceTypeINBOUNDROUTERSEditPart(view);
+			case PojoComponentTypeEditPart.VISUAL_ID:
+				return new PojoComponentTypeEditPart(view);
+
+			case WrapLabel4EditPart.VISUAL_ID:
+				return new WrapLabel4EditPart(view);
 
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				return new SedaServiceTypeCOMPONENTEditPart(view);
+
+			case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+				return new InboundRouterCollectionTypeINBOUNDROUTERSEditPart(
+						view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

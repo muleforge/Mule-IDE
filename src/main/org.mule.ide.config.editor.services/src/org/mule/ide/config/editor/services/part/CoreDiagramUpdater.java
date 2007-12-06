@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.AbstractComponentType;
+import org.mule.ide.config.core.AbstractInboundRouterType;
 import org.mule.ide.config.core.AbstractServiceType;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.InboundRouterCollectionType;
@@ -14,9 +16,13 @@ import org.mule.ide.config.core.ResponseRouterCollectionType;
 import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 
 /**
  * @generated
@@ -30,6 +36,10 @@ public class CoreDiagramUpdater {
 		switch (CoreVisualIDRegistry.getVisualID(view)) {
 		case SedaServiceTypeEditPart.VISUAL_ID:
 			return getSedaServiceType_1001SemanticChildren(view);
+		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
+			return getSedaServiceTypeCOMPONENT_5001SemanticChildren(view);
+		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+			return getInboundRouterCollectionTypeINBOUNDROUTERS_5002SemanticChildren(view);
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			return getDefaultModelType_79SemanticChildren(view);
 		}
@@ -78,6 +88,62 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getSedaServiceTypeCOMPONENT_5001SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		SedaServiceType modelElement = (SedaServiceType) containerView
+				.getElement();
+		List result = new LinkedList();
+		{
+			AbstractComponentType childElement = modelElement
+					.getAbstractComponent();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == PojoComponentTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getInboundRouterCollectionTypeINBOUNDROUTERS_5002SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		InboundRouterCollectionType modelElement = (InboundRouterCollectionType) containerView
+				.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getAbstractInboundRouter().iterator(); it
+				.hasNext();) {
+			AbstractInboundRouterType childElement = (AbstractInboundRouterType) it
+					.next();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == WireTapRouterTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getDefaultModelType_79SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.EMPTY_LIST;
@@ -108,10 +174,14 @@ public class CoreDiagramUpdater {
 			return getSedaServiceType_1001ContainedLinks(view);
 		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getInboundRouterCollectionType_2001ContainedLinks(view);
+		case WireTapRouterTypeEditPart.VISUAL_ID:
+			return getWireTapRouterType_2002ContainedLinks(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundRouterCollectionType_2002ContainedLinks(view);
+			return getOutboundRouterCollectionType_2003ContainedLinks(view);
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-			return getResponseRouterCollectionType_2003ContainedLinks(view);
+			return getResponseRouterCollectionType_2004ContainedLinks(view);
+		case PojoComponentTypeEditPart.VISUAL_ID:
+			return getPojoComponentType_2005ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -125,10 +195,14 @@ public class CoreDiagramUpdater {
 			return getSedaServiceType_1001IncomingLinks(view);
 		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getInboundRouterCollectionType_2001IncomingLinks(view);
+		case WireTapRouterTypeEditPart.VISUAL_ID:
+			return getWireTapRouterType_2002IncomingLinks(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundRouterCollectionType_2002IncomingLinks(view);
+			return getOutboundRouterCollectionType_2003IncomingLinks(view);
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-			return getResponseRouterCollectionType_2003IncomingLinks(view);
+			return getResponseRouterCollectionType_2004IncomingLinks(view);
+		case PojoComponentTypeEditPart.VISUAL_ID:
+			return getPojoComponentType_2005IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -142,10 +216,14 @@ public class CoreDiagramUpdater {
 			return getSedaServiceType_1001OutgoingLinks(view);
 		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getInboundRouterCollectionType_2001OutgoingLinks(view);
+		case WireTapRouterTypeEditPart.VISUAL_ID:
+			return getWireTapRouterType_2002OutgoingLinks(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundRouterCollectionType_2002OutgoingLinks(view);
+			return getOutboundRouterCollectionType_2003OutgoingLinks(view);
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-			return getResponseRouterCollectionType_2003OutgoingLinks(view);
+			return getResponseRouterCollectionType_2004OutgoingLinks(view);
+		case PojoComponentTypeEditPart.VISUAL_ID:
+			return getPojoComponentType_2005OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -175,7 +253,14 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundRouterCollectionType_2002ContainedLinks(
+	public static List getWireTapRouterType_2002ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getOutboundRouterCollectionType_2003ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -183,8 +268,15 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResponseRouterCollectionType_2003ContainedLinks(
+	public static List getResponseRouterCollectionType_2004ContainedLinks(
 			View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getPojoComponentType_2005ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -206,7 +298,14 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundRouterCollectionType_2002IncomingLinks(
+	public static List getWireTapRouterType_2002IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getOutboundRouterCollectionType_2003IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -214,8 +313,15 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResponseRouterCollectionType_2003IncomingLinks(
+	public static List getResponseRouterCollectionType_2004IncomingLinks(
 			View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getPojoComponentType_2005IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -237,7 +343,14 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundRouterCollectionType_2002OutgoingLinks(
+	public static List getWireTapRouterType_2002OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getOutboundRouterCollectionType_2003OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -245,8 +358,15 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResponseRouterCollectionType_2003OutgoingLinks(
+	public static List getResponseRouterCollectionType_2004OutgoingLinks(
 			View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getPojoComponentType_2005OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

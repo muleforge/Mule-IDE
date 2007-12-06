@@ -25,22 +25,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser sedaServiceTypeName_4004Parser;
+	private IParser sedaServiceTypeName_4005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSedaServiceTypeName_4004Parser() {
-		if (sedaServiceTypeName_4004Parser == null) {
-			sedaServiceTypeName_4004Parser = createSedaServiceTypeName_4004Parser();
+	private IParser getSedaServiceTypeName_4005Parser() {
+		if (sedaServiceTypeName_4005Parser == null) {
+			sedaServiceTypeName_4005Parser = createSedaServiceTypeName_4005Parser();
 		}
-		return sedaServiceTypeName_4004Parser;
+		return sedaServiceTypeName_4005Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSedaServiceTypeName_4004Parser() {
+	protected IParser createSedaServiceTypeName_4005Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getAbstractServiceType_Name(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -53,7 +53,7 @@ public class CoreParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case SedaServiceTypeNameEditPart.VISUAL_ID:
-			return getSedaServiceTypeName_4004Parser();
+			return getSedaServiceTypeName_4005Parser();
 		}
 		return null;
 	}

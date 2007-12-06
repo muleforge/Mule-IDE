@@ -18,15 +18,19 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.DefaultServiceType;
+import org.mule.ide.config.core.InboundRouterCollectionType;
 import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabel4EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
@@ -104,12 +108,18 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?InboundRouterCollectionType", CoreElementTypes.InboundRouterCollectionType_2001); //$NON-NLS-1$
+		case WireTapRouterTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?WireTapRouterType", CoreElementTypes.WireTapRouterType_2002); //$NON-NLS-1$
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterCollectionType", CoreElementTypes.OutboundRouterCollectionType_2002); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterCollectionType", CoreElementTypes.OutboundRouterCollectionType_2003); //$NON-NLS-1$
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ResponseRouterCollectionType", CoreElementTypes.ResponseRouterCollectionType_2003); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ResponseRouterCollectionType", CoreElementTypes.ResponseRouterCollectionType_2004); //$NON-NLS-1$
+		case PojoComponentTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?PojoComponentType", CoreElementTypes.PojoComponentType_2005); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -168,10 +178,14 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getSedaServiceType_1001Text(view);
 		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getInboundRouterCollectionType_2001Text(view);
+		case WireTapRouterTypeEditPart.VISUAL_ID:
+			return getWireTapRouterType_2002Text(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundRouterCollectionType_2002Text(view);
+			return getOutboundRouterCollectionType_2003Text(view);
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-			return getResponseRouterCollectionType_2003Text(view);
+			return getResponseRouterCollectionType_2004Text(view);
+		case PojoComponentTypeEditPart.VISUAL_ID:
+			return getPojoComponentType_2005Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -207,7 +221,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4004); //$NON-NLS-1$
+					"Parser was not found for label " + 4005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -217,10 +231,25 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getInboundRouterCollectionType_2001Text(View view) {
+		InboundRouterCollectionType domainModelElement = (InboundRouterCollectionType) view
+				.getElement();
+		if (domainModelElement != null) {
+			return String.valueOf(domainModelElement.isMatchAll());
+		} else {
+			ServicesEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 2001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getWireTapRouterType_2002Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.InboundRouterCollectionType_2001, (view
-						.getElement() != null ? view.getElement() : view),
+				CoreElementTypes.WireTapRouterType_2002,
+				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry.getType(WrapLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
@@ -235,10 +264,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getOutboundRouterCollectionType_2002Text(View view) {
+	private String getOutboundRouterCollectionType_2003Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.OutboundRouterCollectionType_2002, (view
+				CoreElementTypes.OutboundRouterCollectionType_2003, (view
 						.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry.getType(WrapLabel2EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
@@ -254,12 +283,31 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getResponseRouterCollectionType_2003Text(View view) {
+	private String getResponseRouterCollectionType_2004Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.ResponseRouterCollectionType_2003, (view
+				CoreElementTypes.ResponseRouterCollectionType_2004, (view
 						.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry.getType(WrapLabel3EditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getPojoComponentType_2005Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.PojoComponentType_2005,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry.getType(WrapLabel4EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE

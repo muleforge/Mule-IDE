@@ -12,24 +12,25 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.diagram.ui.internal.figures.NestedResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeCOMPONENTCanonicalEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeCOMPONENTItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.InboundRouterCollectionTypeINBOUNDROUTERSCanonicalEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.InboundRouterCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * @generated
  */
-public class SedaServiceTypeCOMPONENTEditPart extends ListCompartmentEditPart {
+public class InboundRouterCollectionTypeINBOUNDROUTERSEditPart extends
+		ListCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 5002;
 
 	/**
 	 * @generated
 	 */
-	public SedaServiceTypeCOMPONENTEditPart(View view) {
+	public InboundRouterCollectionTypeINBOUNDROUTERSEditPart(View view) {
 		super(view);
 	}
 
@@ -44,7 +45,7 @@ public class SedaServiceTypeCOMPONENTEditPart extends ListCompartmentEditPart {
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.SedaServiceTypeCOMPONENTEditPart_title;
+		return Messages.InboundRouterCollectionTypeINBOUNDROUTERSEditPart_title;
 	}
 
 	/**
@@ -54,22 +55,25 @@ public class SedaServiceTypeCOMPONENTEditPart extends ListCompartmentEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SedaServiceTypeCOMPONENTItemSemanticEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
+				new InboundRouterCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new SedaServiceTypeCOMPONENTCanonicalEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
+				new InboundRouterCollectionTypeINBOUNDROUTERSCanonicalEditPolicy());
 	}
 
 	/**
 	 * @generated
 	 */
 	protected void setRatio(Double ratio) {
-		// nothing to do -- parent layout does not accept Double constraints as ratio
-		// super.setRatio(ratio); 
+		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
+			super.setRatio(ratio);
+		}
 	}
 
 	public IFigure createFigure() {

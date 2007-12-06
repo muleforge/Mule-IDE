@@ -1,8 +1,7 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
-import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RectangleFigure;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
@@ -12,34 +11,26 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Font;
-import org.eclipse.swt.widgets.Display;
-import org.mule.ide.config.editor.services.edit.policies.InboundRouterCollectionTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.WireTapRouterTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
-import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
 /**
  * @generated
  */
-public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
+public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 2002;
 
 	/**
 	 * @generated
@@ -54,7 +45,7 @@ public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public InboundRouterCollectionTypeEditPart(View view) {
+	public WireTapRouterTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -62,33 +53,10 @@ public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == CoreElementTypes.WireTapRouterType_2002) {
-									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new InboundRouterCollectionTypeItemSemanticEditPolicy());
+				new WireTapRouterTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -124,15 +92,63 @@ public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		CollectionFigure figure = new CollectionFigure();
+		ServiceItemFigure figure = new ServiceItemFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public CollectionFigure getPrimaryShape() {
-		return (CollectionFigure) primaryShape;
+	public ServiceItemFigure getPrimaryShape() {
+		return (ServiceItemFigure) primaryShape;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof WrapLabelEditPart) {
+			((WrapLabelEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureServiceItemTypeLabel());
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+
+		return super.getContentPaneFor(editPart);
 	}
 
 	/**
@@ -189,19 +205,49 @@ public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class CollectionFigure extends RectangleFigure {
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(CoreVisualIDRegistry
+				.getType(WrapLabelEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	public class ServiceItemFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		public CollectionFigure() {
-			this.setLineWidth(0);
-			this.setForegroundColor(ColorConstants.black);
+		private WrapLabel fFigureServiceItemTypeLabel;
+		/**
+		 * @generated
+		 */
+		private WrapLabel fFigureServiceItemLabel;
 
-			this.setFont(THIS_FONT);
+		/**
+		 * @generated
+		 */
+		public ServiceItemFigure() {
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
+					getMapMode().DPtoLP(8)));
+			createContents();
+		}
 
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(2),
-					getMapMode().DPtoLP(2)));
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			fFigureServiceItemTypeLabel = new WrapLabel();
+			fFigureServiceItemTypeLabel.setText("type");
+
+			this.add(fFigureServiceItemTypeLabel);
+
+			fFigureServiceItemLabel = new WrapLabel();
+			fFigureServiceItemLabel.setText("");
+
+			this.add(fFigureServiceItemLabel);
+
 		}
 
 		/**
@@ -223,13 +269,20 @@ public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
-	}
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureServiceItemTypeLabel() {
+			return fFigureServiceItemTypeLabel;
+		}
 
-	/**
-	 * @generated
-	 */
-	static final Font THIS_FONT = new Font(Display.getCurrent(), Display
-			.getDefault().getSystemFont().getFontData()[0].getName(), 7,
-			SWT.ITALIC);
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureServiceItemLabel() {
+			return fFigureServiceItemLabel;
+		}
+
+	}
 
 }

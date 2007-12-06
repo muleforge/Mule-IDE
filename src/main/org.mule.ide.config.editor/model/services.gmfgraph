@@ -303,6 +303,42 @@
       <actualFigure
           xsi:type="gmfgraph:LabeledContainer"/>
     </descriptors>
+    <descriptors
+        name="CollectionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="CollectionFigure"
+          lineWidth="0">
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <minimumSize
+            dx="2"
+            dy="2"/>
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            height="7"
+            style="ITALIC"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ServiceItemFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ServiceItemFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ServiceItemTypeLabel"
+            text="type"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ServiceItemLabel"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.1/@descriptors.6/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.1/@descriptors.6/@actualFigure/@children.1"/>
+    </descriptors>
   </figures>
   <nodes
       name="ChunkingRouterType"
@@ -357,7 +393,7 @@
       figure="InboundEndpointTypeFigure"/>
   <nodes
       name="InboundRouterCollectionType"
-      figure="InboundRouterCollectionFigure"/>
+      figure="CollectionFigure"/>
   <nodes
       name="LoggingCatchAllStrategyType"
       figure="LoggingCatchAllStrategyTypeFigure"/>
@@ -378,7 +414,7 @@
       figure="OutboundRouterTypeFigure"/>
   <nodes
       name="PojoComponentType"
-      figure="PojoComponentTypeFigure"/>
+      figure="ServiceItemFigure"/>
   <nodes
       name="ResponseEndpointType"
       figure="ResponseEndpointTypeFigure"/>
@@ -399,7 +435,7 @@
       figure="StaticRecipientListRouterTypeFigure"/>
   <nodes
       name="WireTapRouterType"
-      figure="WireTapRouterTypeFigure"/>
+      figure="ServiceItemFigure"/>
   <compartments
       name="COMPONENT"
       figure="ServicePartContainerFigure"
@@ -445,4 +481,13 @@
       figure="ResponseRouterCollectionFigure"
       elementIcon="false"
       accessor="//@figures.1/@descriptors.3/@accessors.0"/>
+  <labels
+      name="ServiceItemTypeLabel"
+      figure="ServiceItemFigure"
+      accessor="//@figures.1/@descriptors.6/@accessors.0"/>
+  <labels
+      name="ServiceItemLabel"
+      figure="ServiceItemFigure"
+      elementIcon="false"
+      accessor="//@figures.1/@descriptors.6/@accessors.1"/>
 </gmfgraph:Canvas>

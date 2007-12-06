@@ -30,16 +30,35 @@
         <ownedChild>
           <domainMetaElement
               href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType"/>
-          <labelMappings
-              readOnly="true">
-            <diagramLabel
-                href="services.gmfgraph#InboundRouterCollectionLabel"/>
-          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="services.gmftool#//@palette/@tools.0/@tools.0"/>
           <diagramNode
               href="services.gmfgraph#InboundRouterCollectionType"/>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundRouter"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.mule.ide.config.core/model/core.ecore#//WireTapRouterType"/>
+              <labelMappings
+                  readOnly="true">
+                <diagramLabel
+                    href="services.gmfgraph#ServiceItemTypeLabel"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="services.gmftool#//@palette/@tools.1/@tools.0"/>
+              <diagramNode
+                  href="services.gmfgraph#WireTapRouterType"/>
+            </ownedChild>
+          </children>
+          <compartments
+              children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0">
+            <compartment
+                href="services.gmfgraph#INBOUND ROUTERS"/>
+          </compartments>
         </ownedChild>
       </children>
       <children>
@@ -78,11 +97,27 @@
               href="services.gmfgraph#ResponseRouterCollectionType"/>
         </ownedChild>
       </children>
-      <compartments>
-        <compartment
-            href="services.gmfgraph#INBOUND ROUTERS"/>
-      </compartments>
-      <compartments>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractComponent"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.mule.ide.config.core/model/core.ecore#//PojoComponentType"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#ServiceItemTypeLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="services.gmftool#//@palette/@tools.2/@tools.0"/>
+          <diagramNode
+              href="services.gmfgraph#PojoComponentType"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.3">
         <compartment
             href="services.gmfgraph#COMPONENT"/>
       </compartments>

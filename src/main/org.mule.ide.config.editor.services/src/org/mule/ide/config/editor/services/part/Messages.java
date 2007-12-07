@@ -248,192 +248,77 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String InboundRouters2Group_title;
+	public static String Components2Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Components3Group_title;
+	public static String ExceptionStrategies3Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutboundRouters4Group_title;
+	public static String Inbound4Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ResponseRouters5Group_title;
+	public static String Outbound5Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ExceptionStrategies6Group_title;
+	public static String Response6Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Endpoints7Group_title;
+	public static String CatchAllStrategies7Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CatchAllStrategies8Group_title;
+	public static String CatchAllStrategies7Group_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CatchAllStrategies8Group_desc;
+	public static String SedaService1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InboundRouterCollectionType1CreationTool_title;
+	public static String SedaService1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InboundRouterCollectionType1CreationTool_desc;
+	public static String InboundRouterCollectionType2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutboundRouterCollectionType2CreationTool_title;
+	public static String InboundRouterCollectionType2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String OutboundRouterCollectionType2CreationTool_desc;
+	public static String OutboundRouterCollectionType3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ResponseRouterCollectionType3CreationTool_title;
+	public static String OutboundRouterCollectionType3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ResponseRouterCollectionType3CreationTool_desc;
+	public static String ResponseRouterCollectionType4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SedaService4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String SedaService4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String WireTapRouter1CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String WireTapRouter1CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String StaticRecipientListRouter2CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String StaticRecipientListRouter2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String SelectiveConsumerRouter3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String SelectiveConsumerRouter3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String OutboundRouter4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String OutboundRouter4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ChunkingRouter5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ChunkingRouter5CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CorrelationRouter6CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CorrelationRouter6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String IdempotentReceiver7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String IdempotentReceiver7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ForwardingRouter8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ForwardingRouter8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String FilteredInboundRouter9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String FilteredInboundRouter9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomInboundRouter10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomInboundRouter10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CorrelationAggregatorRouter11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CorrelationAggregatorRouter11CreationTool_desc;
+	public static String ResponseRouterCollectionType4CreationTool_desc;
 
 	/**
 	 * @generated
@@ -454,76 +339,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NoArgsComponent2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String DefaultComponent3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String DefaultComponent3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String MessageSplitterOutboundRouter1CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String MessageSplitterOutboundRouter1CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String FilteringOutboundRouter2CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String FilteringOutboundRouter2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomOutboundRouter3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomOutboundRouter3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String EndpointSelectorRouter4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String EndpointSelectorRouter4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomResponseRouter1CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomResponseRouter1CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ResponseRouter2CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ResponseRouter2CreationTool_desc;
 
 	/**
 	 * @generated
@@ -558,22 +373,192 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String OutboundEndpoint2CreationTool_title;
+	public static String WireTapRouter2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutboundEndpoint2CreationTool_desc;
+	public static String WireTapRouter2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ResponseEndpoint3CreationTool_title;
+	public static String StaticRecipientListRouter3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ResponseEndpoint3CreationTool_desc;
+	public static String StaticRecipientListRouter3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String SelectiveConsumerRouter4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SelectiveConsumerRouter4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String OutboundRouter5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String OutboundRouter5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ChunkingRouter6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ChunkingRouter6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String CorrelationRouter7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CorrelationRouter7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String IdempotentReceiver8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String IdempotentReceiver8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ForwardingRouter9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ForwardingRouter9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String FilteredInboundRouter10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String FilteredInboundRouter10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String CustomInboundRouter11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CustomInboundRouter11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String CorrelationAggregatorRouter12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CorrelationAggregatorRouter12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String OutboundEndpoint1CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String OutboundEndpoint1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String MessageSplitterOutboundRouter2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MessageSplitterOutboundRouter2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String FilteringOutboundRouter3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String FilteringOutboundRouter3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String CustomOutboundRouter4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CustomOutboundRouter4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String EndpointSelectorRouter5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String EndpointSelectorRouter5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ResponseEndpoint1CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ResponseEndpoint1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String CustomResponseRouter2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CustomResponseRouter2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ResponseRouter3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ResponseRouter3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -623,7 +608,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String InboundRouterCollectionTypeINBOUNDROUTERSEditPart_title;
+	public static String SedaServiceTypeEXCEPTIONEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String InboundRouterCollectionTypeINBOUNDEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String OutboundRouterCollectionTypeOUTBOUNDEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ResponseRouterCollectionTypeRESPONSEEditPart_title;
 
 	/**
 	 * @generated

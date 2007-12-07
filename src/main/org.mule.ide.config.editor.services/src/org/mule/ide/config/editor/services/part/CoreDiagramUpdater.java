@@ -16,7 +16,7 @@ import org.mule.ide.config.core.ResponseRouterCollectionType;
 import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
@@ -38,8 +38,8 @@ public class CoreDiagramUpdater {
 			return getSedaServiceType_1001SemanticChildren(view);
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			return getSedaServiceTypeCOMPONENT_5001SemanticChildren(view);
-		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-			return getInboundRouterCollectionTypeINBOUNDROUTERS_5002SemanticChildren(view);
+		case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
+			return getInboundRouterCollectionTypeINBOUND_5003SemanticChildren(view);
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			return getDefaultModelType_79SemanticChildren(view);
 		}
@@ -115,7 +115,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getInboundRouterCollectionTypeINBOUNDROUTERS_5002SemanticChildren(
+	public static List getInboundRouterCollectionTypeINBOUND_5003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;

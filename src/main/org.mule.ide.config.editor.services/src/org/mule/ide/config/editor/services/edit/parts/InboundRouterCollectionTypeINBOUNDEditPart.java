@@ -12,25 +12,25 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.diagram.ui.internal.figures.NestedResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeCOMPONENTCanonicalEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeCOMPONENTItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.InboundRouterCollectionTypeINBOUNDCanonicalEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.InboundRouterCollectionTypeINBOUNDItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  *
  */
-public class SedaServiceTypeCOMPONENTEditPart extends
+public class InboundRouterCollectionTypeINBOUNDEditPart extends
 		CustomListCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 5003;
 
 	/**
 	 * @generated
 	 */
-	public SedaServiceTypeCOMPONENTEditPart(View view) {
+	public InboundRouterCollectionTypeINBOUNDEditPart(View view) {
 		super(view);
 	}
 
@@ -45,7 +45,7 @@ public class SedaServiceTypeCOMPONENTEditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.SedaServiceTypeCOMPONENTEditPart_title;
+		return Messages.InboundRouterCollectionTypeINBOUNDEditPart_title;
 	}
 
 	/**
@@ -56,13 +56,13 @@ public class SedaServiceTypeCOMPONENTEditPart extends
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SedaServiceTypeCOMPONENTItemSemanticEditPolicy());
+				new InboundRouterCollectionTypeINBOUNDItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new SedaServiceTypeCOMPONENTCanonicalEditPolicy());
+				new InboundRouterCollectionTypeINBOUNDCanonicalEditPolicy());
 	}
 
 	/**

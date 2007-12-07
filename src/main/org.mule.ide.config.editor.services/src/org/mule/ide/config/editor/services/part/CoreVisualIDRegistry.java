@@ -9,11 +9,15 @@ import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
@@ -151,7 +155,7 @@ public class CoreVisualIDRegistry {
 				return PojoComponentTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+		case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getWireTapRouterType().isSuperTypeOf(
 					domainElement.eClass())) {
 				return WireTapRouterTypeEditPart.VISUAL_ID;
@@ -195,6 +199,9 @@ public class CoreVisualIDRegistry {
 			if (SedaServiceTypeCOMPONENTEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (InboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -206,7 +213,7 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
-			if (InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+			if (InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -216,17 +223,20 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			if (WrapLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (OutboundRouterCollectionTypeOUTBOUNDEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-			if (WrapLabel3EditPart.VISUAL_ID == nodeVisualID) {
+			if (ResponseRouterCollectionTypeRESPONSEEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case PojoComponentTypeEditPart.VISUAL_ID:
-			if (WrapLabel4EditPart.VISUAL_ID == nodeVisualID) {
+			if (WrapLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (PojoComponentTypeClassEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -235,7 +245,7 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+		case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
 			if (WireTapRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

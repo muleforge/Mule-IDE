@@ -1,8 +1,11 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -12,13 +15,19 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
+import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.PojoComponentTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
@@ -66,23 +75,16 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		LayoutEditPolicy lep = new LayoutEditPolicy() {
+
+		ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
+				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
+					if (child instanceof ITextAwareEditPart) {
+						return new CoreTextSelectionEditPolicy();
+					}
 				}
-				return result;
-			}
-
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
-
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
+				return super.createChildEditPolicy(child);
 			}
 		};
 		return lep;
@@ -107,9 +109,14 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrapLabel4EditPart) {
-			((WrapLabel4EditPart) childEditPart).setLabel(getPrimaryShape()
+		if (childEditPart instanceof WrapLabel2EditPart) {
+			((WrapLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
 					.getFigureServiceItemTypeLabel());
+			return true;
+		}
+		if (childEditPart instanceof PojoComponentTypeClassEditPart) {
+			((PojoComponentTypeClassEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureServiceItemLabel());
 			return true;
 		}
 		return false;
@@ -207,7 +214,7 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(WrapLabel4EditPart.VISUAL_ID));
+				.getType(WrapLabel2EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -228,6 +235,16 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public ServiceItemFigure() {
+
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
+
+			layoutThis.setSpacing(3);
+			layoutThis.setVertical(true);
+
+			this.setLayoutManager(layoutThis);
+
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			createContents();
@@ -240,11 +257,21 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 
 			fFigureServiceItemTypeLabel = new WrapLabel();
 			fFigureServiceItemTypeLabel.setText("type");
+			fFigureServiceItemTypeLabel.setForegroundColor(ColorConstants.gray);
+
+			fFigureServiceItemTypeLabel
+					.setFont(FFIGURESERVICEITEMTYPELABEL_FONT);
 
 			this.add(fFigureServiceItemTypeLabel);
 
 			fFigureServiceItemLabel = new WrapLabel();
 			fFigureServiceItemLabel.setText("");
+
+			fFigureServiceItemLabel.setFont(FFIGURESERVICEITEMLABEL_FONT);
+
+			fFigureServiceItemLabel.setBorder(new MarginBorder(getMapMode()
+					.DPtoLP(0), getMapMode().DPtoLP(10),
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 
 			this.add(fFigureServiceItemLabel);
 
@@ -284,5 +311,21 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGURESERVICEITEMTYPELABEL_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 7,
+			SWT.ITALIC);
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGURESERVICEITEMLABEL_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9,
+			SWT.BOLD);
 
 }

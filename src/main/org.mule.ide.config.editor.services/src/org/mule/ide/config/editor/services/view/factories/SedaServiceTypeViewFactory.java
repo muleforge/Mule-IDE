@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
@@ -72,6 +73,12 @@ public class SedaServiceTypeViewFactory extends AbstractShapeViewFactory {
 				view,
 				CoreVisualIDRegistry
 						.getType(SedaServiceTypeCOMPONENTEditPart.VISUAL_ID),
+				ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService().createNode(
+				eObjectAdapter,
+				view,
+				CoreVisualIDRegistry
+						.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

@@ -52,13 +52,13 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * @generated
  */
-public class WrapLabel2EditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class PojoComponentTypeClassEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4002;
+	public static final int VISUAL_ID = 4003;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class WrapLabel2EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public WrapLabel2EditPart(View view) {
+	public PojoComponentTypeClassEditPart(View view) {
 		super(view);
 	}
 
@@ -187,20 +187,14 @@ public class WrapLabel2EditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-
-		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
+		return resolveSemanticElement();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return CoreElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -247,7 +241,7 @@ public class WrapLabel2EditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**

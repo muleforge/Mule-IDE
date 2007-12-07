@@ -18,8 +18,8 @@ import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 /**
  * @generated
  */
-public class InboundRouterCollectionTypeINBOUNDROUTERSCanonicalEditPolicy
-		extends CanonicalEditPolicy {
+public class InboundRouterCollectionTypeINBOUNDCanonicalEditPolicy extends
+		CanonicalEditPolicy {
 
 	/**
 	 * @generated
@@ -33,7 +33,7 @@ public class InboundRouterCollectionTypeINBOUNDROUTERSCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getInboundRouterCollectionTypeINBOUNDROUTERS_5002SemanticChildren(
+				.getInboundRouterCollectionTypeINBOUND_5003SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}

@@ -19,6 +19,9 @@ import org.eclipse.ui.navigator.ICommonLabelProvider;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.DefaultServiceType;
 import org.mule.ide.config.core.InboundRouterCollectionType;
+import org.mule.ide.config.core.OutboundRouterCollectionType;
+import org.mule.ide.config.core.PojoComponentType;
+import org.mule.ide.config.core.ResponseRouterCollectionType;
 import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
@@ -221,7 +224,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4005); //$NON-NLS-1$
+					"Parser was not found for label " + 4004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -265,38 +268,30 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getOutboundRouterCollectionType_2003Text(View view) {
-
-		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.OutboundRouterCollectionType_2003, (view
-						.getElement() != null ? view.getElement() : view),
-				CoreVisualIDRegistry.getType(WrapLabel2EditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+		OutboundRouterCollectionType domainModelElement = (OutboundRouterCollectionType) view
+				.getElement();
+		if (domainModelElement != null) {
+			return String.valueOf(domainModelElement.isMatchAll());
 		} else {
+			ServicesEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 2003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getResponseRouterCollectionType_2004Text(View view) {
-
-		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.ResponseRouterCollectionType_2004, (view
-						.getElement() != null ? view.getElement() : view),
-				CoreVisualIDRegistry.getType(WrapLabel3EditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+		ResponseRouterCollectionType domainModelElement = (ResponseRouterCollectionType) view
+				.getElement();
+		if (domainModelElement != null) {
+			return String.valueOf(domainModelElement.getTimeout());
 		} else {
+			ServicesEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 2004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
@@ -307,7 +302,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
 				CoreElementTypes.PojoComponentType_2005,
 				(view.getElement() != null ? view.getElement() : view),
-				CoreVisualIDRegistry.getType(WrapLabel4EditPart.VISUAL_ID));
+				CoreVisualIDRegistry.getType(WrapLabel2EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE

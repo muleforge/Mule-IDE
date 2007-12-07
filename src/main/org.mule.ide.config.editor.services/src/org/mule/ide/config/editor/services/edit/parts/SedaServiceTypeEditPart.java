@@ -277,6 +277,8 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 
 			this.setFont(THIS_FONT);
 
+			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(100),
+					getMapMode().DPtoLP(10)));
 			createContents();
 		}
 

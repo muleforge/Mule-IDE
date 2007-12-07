@@ -22,7 +22,7 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
@@ -254,7 +254,7 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 			Collection result = new ArrayList();
 			Collection connectedViews = getChildrenByType(Collections
 					.singleton(view),
-					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+					InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					WireTapRouterTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,

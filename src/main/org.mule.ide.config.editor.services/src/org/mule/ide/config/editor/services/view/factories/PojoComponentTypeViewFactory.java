@@ -10,7 +10,9 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactor
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel4EditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
@@ -47,7 +49,13 @@ public class PojoComponentTypeViewFactory extends AbstractShapeViewFactory {
 			eObjectAdapter = new EObjectAdapter(eObject);
 		}
 		getViewService().createNode(eObjectAdapter, view,
-				CoreVisualIDRegistry.getType(WrapLabel4EditPart.VISUAL_ID),
+				CoreVisualIDRegistry.getType(WrapLabel2EditPart.VISUAL_ID),
+				ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService().createNode(
+				eObjectAdapter,
+				view,
+				CoreVisualIDRegistry
+						.getType(PojoComponentTypeClassEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

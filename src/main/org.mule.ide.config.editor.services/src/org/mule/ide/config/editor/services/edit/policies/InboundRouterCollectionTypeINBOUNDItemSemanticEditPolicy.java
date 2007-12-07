@@ -9,8 +9,8 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 /**
  * @generated
  */
-public class InboundRouterCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy
-		extends CoreBaseItemSemanticEditPolicy {
+public class InboundRouterCollectionTypeINBOUNDItemSemanticEditPolicy extends
+		CoreBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

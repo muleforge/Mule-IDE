@@ -1,8 +1,11 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -11,7 +14,9 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
@@ -21,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
+import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.ResponseRouterCollectionTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
@@ -68,23 +74,16 @@ public class ResponseRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		LayoutEditPolicy lep = new LayoutEditPolicy() {
+
+		ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
+				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
+					if (child instanceof ITextAwareEditPart) {
+						return new CoreTextSelectionEditPolicy();
+					}
 				}
-				return result;
-			}
-
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
-
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
+				return super.createChildEditPolicy(child);
 			}
 		};
 		return lep;
@@ -94,63 +93,15 @@ public class ResponseRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		ResponseRouterCollectionFigure figure = new ResponseRouterCollectionFigure();
+		CollectionFigure figure = new CollectionFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public ResponseRouterCollectionFigure getPrimaryShape() {
-		return (ResponseRouterCollectionFigure) primaryShape;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrapLabel3EditPart) {
-			((WrapLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureResponseRouterCollectionLabelFigure());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean removeFixedChild(EditPart childEditPart) {
-
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void removeChildVisual(EditPart childEditPart) {
-		if (removeFixedChild(childEditPart)) {
-			return;
-		}
-		super.removeChildVisual(childEditPart);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-
-		return super.getContentPaneFor(editPart);
+	public CollectionFigure getPrimaryShape() {
+		return (CollectionFigure) primaryShape;
 	}
 
 	/**
@@ -158,7 +109,7 @@ public class ResponseRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(40), getMapMode().DPtoLP(40));
+				.DPtoLP(20), getMapMode().DPtoLP(4));
 		return result;
 	}
 
@@ -207,41 +158,26 @@ public class ResponseRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(WrapLabel3EditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public class ResponseRouterCollectionFigure extends RectangleFigure {
+	public class CollectionFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureResponseRouterCollectionLabelFigure;
+		public CollectionFigure() {
 
-		/**
-		 * @generated
-		 */
-		public ResponseRouterCollectionFigure() {
-			createContents();
-		}
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
-		/**
-		 * @generated
-		 */
-		private void createContents() {
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(true);
 
-			fFigureResponseRouterCollectionLabelFigure = new WrapLabel();
-			fFigureResponseRouterCollectionLabelFigure
-					.setText("RESPONSE ROUTERS");
+			this.setLayoutManager(layoutThis);
 
-			fFigureResponseRouterCollectionLabelFigure
-					.setFont(FFIGURERESPONSEROUTERCOLLECTIONLABELFIGURE_FONT);
+			this.setLineWidth(0);
+			this.setForegroundColor(ColorConstants.black);
 
-			this.add(fFigureResponseRouterCollectionLabelFigure);
+			this.setFont(THIS_FONT);
 
 		}
 
@@ -264,20 +200,13 @@ public class ResponseRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureResponseRouterCollectionLabelFigure() {
-			return fFigureResponseRouterCollectionLabelFigure;
-		}
-
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Font FFIGURERESPONSEROUTERCOLLECTIONLABELFIGURE_FONT = new Font(
-			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 7, SWT.ITALIC);
+	static final Font THIS_FONT = new Font(Display.getCurrent(), Display
+			.getDefault().getSystemFont().getFontData()[0].getName(), 7,
+			SWT.ITALIC);
 
 }

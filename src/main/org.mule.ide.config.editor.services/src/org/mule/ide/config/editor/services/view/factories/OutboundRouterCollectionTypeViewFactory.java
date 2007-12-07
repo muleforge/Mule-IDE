@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
@@ -26,7 +27,9 @@ public class OutboundRouterCollectionTypeViewFactory extends
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
-		styles.add(NotationFactory.eINSTANCE.createShapeStyle());
+		styles.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		styles.add(NotationFactory.eINSTANCE.createFillStyle());
+		styles.add(NotationFactory.eINSTANCE.createLineStyle());
 		return styles;
 	}
 
@@ -48,8 +51,12 @@ public class OutboundRouterCollectionTypeViewFactory extends
 		if (eObject != null) {
 			eObjectAdapter = new EObjectAdapter(eObject);
 		}
-		getViewService().createNode(eObjectAdapter, view,
-				CoreVisualIDRegistry.getType(WrapLabel2EditPart.VISUAL_ID),
-				ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						eObjectAdapter,
+						view,
+						CoreVisualIDRegistry
+								.getType(OutboundRouterCollectionTypeOUTBOUNDEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

@@ -11,7 +11,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
@@ -55,7 +55,7 @@ public class InboundRouterCollectionTypeViewFactory extends
 						eObjectAdapter,
 						view,
 						CoreVisualIDRegistry
-								.getType(InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID),
+								.getType(InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

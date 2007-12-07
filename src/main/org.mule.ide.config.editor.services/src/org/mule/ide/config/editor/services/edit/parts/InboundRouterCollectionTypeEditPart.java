@@ -1,9 +1,11 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -14,7 +16,9 @@ import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
@@ -27,6 +31,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
+import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.InboundRouterCollectionTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
@@ -74,7 +79,7 @@ public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 										.getAdapter(IElementType.class);
 								if (type == CoreElementTypes.WireTapRouterType_2002) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
+											.getType(InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
@@ -98,23 +103,16 @@ public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		LayoutEditPolicy lep = new LayoutEditPolicy() {
+
+		ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
+				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
+					if (child instanceof ITextAwareEditPart) {
+						return new CoreTextSelectionEditPolicy();
+					}
 				}
-				return result;
-			}
-
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
-
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
+				return super.createChildEditPolicy(child);
 			}
 		};
 		return lep;
@@ -136,11 +134,11 @@ public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 *
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(40), getMapMode().DPtoLP(40));
+				.DPtoLP(20), getMapMode().DPtoLP(4));
 		return result;
 	}
 
@@ -195,13 +193,21 @@ public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public CollectionFigure() {
+
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
+
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(true);
+
+			this.setLayoutManager(layoutThis);
+
 			this.setLineWidth(0);
 			this.setForegroundColor(ColorConstants.black);
 
 			this.setFont(THIS_FONT);
 
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(2),
-					getMapMode().DPtoLP(2)));
 		}
 
 		/**

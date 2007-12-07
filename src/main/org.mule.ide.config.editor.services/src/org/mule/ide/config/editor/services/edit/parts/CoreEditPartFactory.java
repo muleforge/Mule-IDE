@@ -49,27 +49,32 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 				return new OutboundRouterCollectionTypeEditPart(view);
 
-			case WrapLabel2EditPart.VISUAL_ID:
-				return new WrapLabel2EditPart(view);
-
 			case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 				return new ResponseRouterCollectionTypeEditPart(view);
-
-			case WrapLabel3EditPart.VISUAL_ID:
-				return new WrapLabel3EditPart(view);
 
 			case PojoComponentTypeEditPart.VISUAL_ID:
 				return new PojoComponentTypeEditPart(view);
 
-			case WrapLabel4EditPart.VISUAL_ID:
-				return new WrapLabel4EditPart(view);
+			case WrapLabel2EditPart.VISUAL_ID:
+				return new WrapLabel2EditPart(view);
+
+			case PojoComponentTypeClassEditPart.VISUAL_ID:
+				return new PojoComponentTypeClassEditPart(view);
 
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				return new SedaServiceTypeCOMPONENTEditPart(view);
 
-			case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-				return new InboundRouterCollectionTypeINBOUNDROUTERSEditPart(
-						view);
+			case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:
+				return new SedaServiceTypeEXCEPTIONEditPart(view);
+
+			case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
+				return new InboundRouterCollectionTypeINBOUNDEditPart(view);
+
+			case OutboundRouterCollectionTypeOUTBOUNDEditPart.VISUAL_ID:
+				return new OutboundRouterCollectionTypeOUTBOUNDEditPart(view);
+
+			case ResponseRouterCollectionTypeRESPONSEEditPart.VISUAL_ID:
+				return new ResponseRouterCollectionTypeRESPONSEEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

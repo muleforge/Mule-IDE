@@ -248,6 +248,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String Services1Group_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String Components2Group_title;
 
 	/**
@@ -289,36 +294,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String SedaService1CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String InboundRouterCollectionType2CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String InboundRouterCollectionType2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String OutboundRouterCollectionType3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String OutboundRouterCollectionType3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ResponseRouterCollectionType4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ResponseRouterCollectionType4CreationTool_desc;
 
 	/**
 	 * @generated

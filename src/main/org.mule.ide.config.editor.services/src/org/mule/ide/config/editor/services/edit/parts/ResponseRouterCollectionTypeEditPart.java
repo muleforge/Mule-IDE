@@ -174,6 +174,9 @@ public class ResponseRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
+			this.setFill(false);
+			this.setOutline(false);
+			this.setOutlineXOR(true);
 			this.setLineWidth(0);
 			this.setForegroundColor(ColorConstants.black);
 

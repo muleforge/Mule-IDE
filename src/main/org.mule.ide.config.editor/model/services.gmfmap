@@ -21,7 +21,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="services.gmftool#//@palette/@tools.0/@tools.3"/>
+          href="services.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="services.gmfgraph#SedaServiceType"/>
       <children>
@@ -32,7 +32,7 @@
               href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="services.gmftool#//@palette/@tools.0/@tools.0"/>
+              href="services.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="services.gmfgraph#InboundRouterCollectionType"/>
           <children
@@ -49,7 +49,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.1/@tools.0"/>
+                  href="services.gmftool#//@palette/@tools.3/@tools.1"/>
               <diagramNode
                   href="services.gmfgraph#WireTapRouterType"/>
             </ownedChild>
@@ -57,7 +57,7 @@
           <compartments
               children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0">
             <compartment
-                href="services.gmfgraph#INBOUND ROUTERS"/>
+                href="services.gmfgraph#INBOUND"/>
           </compartments>
         </ownedChild>
       </children>
@@ -67,16 +67,15 @@
         <ownedChild>
           <domainMetaElement
               href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType"/>
-          <labelMappings
-              readOnly="true">
-            <diagramLabel
-                href="services.gmfgraph#OutboundRouterCollectionLabel"/>
-          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="services.gmftool#//@palette/@tools.0/@tools.1"/>
+              href="services.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="services.gmfgraph#OutboundRouterCollectionType"/>
+          <compartments>
+            <compartment
+                href="services.gmfgraph#OUTBOUND"/>
+          </compartments>
         </ownedChild>
       </children>
       <children>
@@ -85,16 +84,15 @@
         <ownedChild>
           <domainMetaElement
               href="../../org.mule.ide.config.core/model/core.ecore#//ResponseRouterCollectionType"/>
-          <labelMappings
-              readOnly="true">
-            <diagramLabel
-                href="services.gmfgraph#ResponseRouterCollectionLabel"/>
-          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="services.gmftool#//@palette/@tools.0/@tools.2"/>
+              href="services.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="services.gmfgraph#ResponseRouterCollectionType"/>
+          <compartments>
+            <compartment
+                href="services.gmfgraph#RESPONSE"/>
+          </compartments>
         </ownedChild>
       </children>
       <children
@@ -109,9 +107,16 @@
             <diagramLabel
                 href="services.gmfgraph#ServiceItemTypeLabel"/>
           </labelMappings>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="services.gmfgraph#ServiceItemLabel"/>
+            <features
+                href="../../org.mule.ide.config.core/model/core.ecore#//PojoComponentType/class"/>
+          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="services.gmftool#//@palette/@tools.2/@tools.0"/>
+              href="services.gmftool#//@palette/@tools.1/@tools.0"/>
           <diagramNode
               href="services.gmfgraph#PojoComponentType"/>
         </ownedChild>
@@ -120,6 +125,10 @@
           children="//@nodes.0/@ownedChild/@children.3">
         <compartment
             href="services.gmfgraph#COMPONENT"/>
+      </compartments>
+      <compartments>
+        <compartment
+            href="services.gmfgraph#EXCEPTION"/>
       </compartments>
     </ownedChild>
   </nodes>

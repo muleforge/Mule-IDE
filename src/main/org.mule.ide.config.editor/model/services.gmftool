@@ -11,6 +11,15 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
+          title="Seda Service"
+          description="Create new Seda Service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="InboundRouterCollectionType"
           description="Create new InboundRouterCollectionType">
         <smallIcon
@@ -36,10 +45,24 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Components"
+        collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Seda Service"
-          description="Create new Seda Service">
+          title="Pojo Component"
+          description="Create new Pojo Component">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="No Args Component"
+          description="Create new No Args Component">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -48,8 +71,40 @@
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Inbound Routers"
+        title="Exception Strategies"
         collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Custom Exception Strategy"
+          description="Create new Custom Exception Strategy">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Exception Strategy"
+          description="Create new Exception Strategy">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Inbound"
+        collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Inbound Endpoint"
+          description="Create new Inbound Endpoint">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Wire Tap Router"
@@ -152,40 +207,17 @@
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Components"
+        title="Outbound"
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Pojo Component"
-          description="Create new Pojo Component">
+          title="Outbound Endpoint"
+          description="Create new Outbound Endpoint">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="No Args Component"
-          description="Create new No Args Component">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Default Component"
-          description="Create new Default Component">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-    </tools>
-    <tools
-        xsi:type="gmftool:ToolGroup"
-        title="Outbound Routers"
-        collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
           title="Message Splitter Outbound Router"
@@ -225,8 +257,17 @@
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Response Routers"
+        title="Response"
         collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Response Endpoint"
+          description="Create new Response Endpoint">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Custom Response Router"
@@ -240,61 +281,6 @@
           xsi:type="gmftool:CreationTool"
           title="Response Router"
           description="Create new Response Router">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-    </tools>
-    <tools
-        xsi:type="gmftool:ToolGroup"
-        title="Exception Strategies"
-        collapsible="true">
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Custom Exception Strategy"
-          description="Create new Custom Exception Strategy">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Exception Strategy"
-          description="Create new Exception Strategy">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-    </tools>
-    <tools
-        xsi:type="gmftool:ToolGroup"
-        title="Endpoints"
-        collapsible="true">
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Inbound Endpoint"
-          description="Create new Inbound Endpoint">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Outbound Endpoint"
-          description="Create new Outbound Endpoint">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Response Endpoint"
-          description="Create new Response Endpoint">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

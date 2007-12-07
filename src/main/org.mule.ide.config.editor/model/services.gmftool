@@ -8,38 +8,12 @@
     <tools
         xsi:type="gmftool:ToolGroup"
         title="Services"
+        description=""
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
           title="Seda Service"
           description="Create new Seda Service">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="InboundRouterCollectionType"
-          description="Create new InboundRouterCollectionType">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="OutboundRouterCollectionType"
-          description="Create new OutboundRouterCollectionType">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ResponseRouterCollectionType"
-          description="Create new ResponseRouterCollectionType">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

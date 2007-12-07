@@ -30,9 +30,6 @@
         <ownedChild>
           <domainMetaElement
               href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType"/>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="services.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="services.gmfgraph#InboundRouterCollectionType"/>
           <children
@@ -67,9 +64,6 @@
         <ownedChild>
           <domainMetaElement
               href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType"/>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="services.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="services.gmfgraph#OutboundRouterCollectionType"/>
           <compartments>
@@ -84,9 +78,6 @@
         <ownedChild>
           <domainMetaElement
               href="../../org.mule.ide.config.core/model/core.ecore#//ResponseRouterCollectionType"/>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="services.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="services.gmfgraph#ResponseRouterCollectionType"/>
           <compartments>

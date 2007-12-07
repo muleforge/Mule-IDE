@@ -311,7 +311,10 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="CollectionFigure"
-          lineWidth="0">
+          outline="false"
+          fill="false"
+          lineWidth="0"
+          xorOutline="true">
         <layout
             xsi:type="gmfgraph:FlowLayout"
             vertical="true"

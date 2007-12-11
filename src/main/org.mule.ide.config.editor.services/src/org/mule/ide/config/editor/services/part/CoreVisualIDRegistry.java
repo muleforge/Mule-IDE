@@ -10,6 +10,8 @@ import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
@@ -23,7 +25,6 @@ import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPar
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabel4EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 
 /**
@@ -154,6 +155,10 @@ public class CoreVisualIDRegistry {
 					domainElement.eClass())) {
 				return PojoComponentTypeEditPart.VISUAL_ID;
 			}
+			if (CorePackage.eINSTANCE.getNoArgsCallWrapperType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return NoArgsCallWrapperTypeEditPart.VISUAL_ID;
+			}
 			break;
 		case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getWireTapRouterType().isSuperTypeOf(
@@ -240,8 +245,19 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
+		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
+			if (WrapLabel3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (NoArgsCallWrapperTypeClassEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			if (PojoComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (NoArgsCallWrapperTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

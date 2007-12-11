@@ -23,6 +23,7 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
@@ -245,6 +246,12 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 					SedaServiceTypeCOMPONENTEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					PojoComponentTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					SedaServiceTypeCOMPONENTEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					NoArgsCallWrapperTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

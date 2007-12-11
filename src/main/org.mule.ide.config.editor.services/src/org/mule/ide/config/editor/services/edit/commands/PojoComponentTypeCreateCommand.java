@@ -10,7 +10,8 @@ import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.CorePackage;
 
 /**
- *
+ * customization
+ *   - subclass SubstitutionElementCreateCommand
  */
 public class PojoComponentTypeCreateCommand extends
 		SubstitutionElementCreateCommand {

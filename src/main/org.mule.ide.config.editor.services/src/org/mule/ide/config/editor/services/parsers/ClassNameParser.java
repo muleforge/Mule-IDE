@@ -16,9 +16,18 @@ public class ClassNameParser extends MessageFormatParser {
 		EObject element = (EObject) adapter.getAdapter(EObject.class);
 		Object[] values = getValues(element);
 		if (values.length == 0) return ""; //$NON-NLS-1$
-		String classname = (String) values[0];
+		return (parseName((String) values[0]));
+		//String classname = (String) values[0];
+		//String[] parts = classname.split("\\.");
+		//if (parts.length == 0) return ""; //$NON-NLS-1$
+		//return parts[parts.length-1];
+	}
+	
+	private String parseName(String classname) {
+		if (classname == null || classname.length() == 0) {
+			return "<undefined>";
+		}
 		String[] parts = classname.split("\\.");
-		if (parts.length == 0) return ""; //$NON-NLS-1$
 		return parts[parts.length-1];
 	}
 	

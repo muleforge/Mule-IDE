@@ -10,15 +10,15 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactor
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
  * @generated
  */
-public class PojoComponentTypeViewFactory extends AbstractShapeViewFactory {
+public class NoArgsCallWrapperTypeViewFactory extends AbstractShapeViewFactory {
 
 	/**
 	 * @generated
@@ -37,7 +37,7 @@ public class PojoComponentTypeViewFactory extends AbstractShapeViewFactory {
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = CoreVisualIDRegistry
-					.getType(PojoComponentTypeEditPart.VISUAL_ID);
+					.getType(NoArgsCallWrapperTypeEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
@@ -48,13 +48,13 @@ public class PojoComponentTypeViewFactory extends AbstractShapeViewFactory {
 			eObjectAdapter = new EObjectAdapter(eObject);
 		}
 		getViewService().createNode(eObjectAdapter, view,
-				CoreVisualIDRegistry.getType(WrapLabel2EditPart.VISUAL_ID),
+				CoreVisualIDRegistry.getType(WrapLabel3EditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService().createNode(
 				eObjectAdapter,
 				view,
 				CoreVisualIDRegistry
-						.getType(PojoComponentTypeClassEditPart.VISUAL_ID),
+						.getType(NoArgsCallWrapperTypeClassEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

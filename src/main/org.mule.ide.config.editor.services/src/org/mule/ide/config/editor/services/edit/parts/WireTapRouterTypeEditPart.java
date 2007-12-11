@@ -94,15 +94,15 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		ServiceItemFigure figure = new ServiceItemFigure();
+		PojoComponentFigure figure = new PojoComponentFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public ServiceItemFigure getPrimaryShape() {
-		return (ServiceItemFigure) primaryShape;
+	public PojoComponentFigure getPrimaryShape() {
+		return (PojoComponentFigure) primaryShape;
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof WrapLabelEditPart) {
 			((WrapLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureServiceItemTypeLabel());
+					.getFigurePojoComponentTypeNameFigure());
 			return true;
 		}
 		return false;
@@ -215,21 +215,21 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class ServiceItemFigure extends RoundedRectangle {
+	public class PojoComponentFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureServiceItemTypeLabel;
+		private WrapLabel fFigurePojoComponentTypeNameFigure;
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureServiceItemLabel;
+		private WrapLabel fFigurePojoClassNameFigure;
 
 		/**
 		 * @generated
 		 */
-		public ServiceItemFigure() {
+		public PojoComponentFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
@@ -250,25 +250,26 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureServiceItemTypeLabel = new WrapLabel();
-			fFigureServiceItemTypeLabel.setText("type");
-			fFigureServiceItemTypeLabel.setForegroundColor(ColorConstants.gray);
+			fFigurePojoComponentTypeNameFigure = new WrapLabel();
+			fFigurePojoComponentTypeNameFigure.setText("type");
+			fFigurePojoComponentTypeNameFigure
+					.setForegroundColor(ColorConstants.gray);
 
-			fFigureServiceItemTypeLabel
-					.setFont(FFIGURESERVICEITEMTYPELABEL_FONT);
+			fFigurePojoComponentTypeNameFigure
+					.setFont(FFIGUREPOJOCOMPONENTTYPENAMEFIGURE_FONT);
 
-			this.add(fFigureServiceItemTypeLabel);
+			this.add(fFigurePojoComponentTypeNameFigure);
 
-			fFigureServiceItemLabel = new WrapLabel();
-			fFigureServiceItemLabel.setText("");
+			fFigurePojoClassNameFigure = new WrapLabel();
+			fFigurePojoClassNameFigure.setText("");
 
-			fFigureServiceItemLabel.setFont(FFIGURESERVICEITEMLABEL_FONT);
+			fFigurePojoClassNameFigure.setFont(FFIGUREPOJOCLASSNAMEFIGURE_FONT);
 
-			fFigureServiceItemLabel.setBorder(new MarginBorder(getMapMode()
+			fFigurePojoClassNameFigure.setBorder(new MarginBorder(getMapMode()
 					.DPtoLP(0), getMapMode().DPtoLP(10),
 					getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureServiceItemLabel);
+			this.add(fFigurePojoClassNameFigure);
 
 		}
 
@@ -294,15 +295,15 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureServiceItemTypeLabel() {
-			return fFigureServiceItemTypeLabel;
+		public WrapLabel getFigurePojoComponentTypeNameFigure() {
+			return fFigurePojoComponentTypeNameFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureServiceItemLabel() {
-			return fFigureServiceItemLabel;
+		public WrapLabel getFigurePojoClassNameFigure() {
+			return fFigurePojoClassNameFigure;
 		}
 
 	}
@@ -310,15 +311,14 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGURESERVICEITEMTYPELABEL_FONT = new Font(Display
-			.getCurrent(),
-			Display.getDefault().getSystemFont().getFontData()[0].getName(), 7,
-			SWT.ITALIC);
+	static final Font FFIGUREPOJOCOMPONENTTYPENAMEFIGURE_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 7, SWT.ITALIC);
 
 	/**
 	 * @generated
 	 */
-	static final Font FFIGURESERVICEITEMLABEL_FONT = new Font(Display
+	static final Font FFIGUREPOJOCLASSNAMEFIGURE_FONT = new Font(Display
 			.getCurrent(),
 			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9,
 			SWT.BOLD);

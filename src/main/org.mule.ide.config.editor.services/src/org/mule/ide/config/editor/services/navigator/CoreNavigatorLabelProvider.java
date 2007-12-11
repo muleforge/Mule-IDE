@@ -25,6 +25,7 @@ import org.mule.ide.config.core.ResponseRouterCollectionType;
 import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
@@ -33,7 +34,6 @@ import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPar
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabel4EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
@@ -123,6 +123,9 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?PojoComponentType", CoreElementTypes.PojoComponentType_2005); //$NON-NLS-1$
+		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?NoArgsCallWrapperType", CoreElementTypes.NoArgsCallWrapperType_2006); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -189,6 +192,8 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getResponseRouterCollectionType_2004Text(view);
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2005Text(view);
+		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
+			return getNoArgsCallWrapperType_2006Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -224,7 +229,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4004); //$NON-NLS-1$
+					"Parser was not found for label " + 4006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -303,6 +308,25 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 				CoreElementTypes.PojoComponentType_2005,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry.getType(WrapLabel2EditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getNoArgsCallWrapperType_2006Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.NoArgsCallWrapperType_2006,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry.getType(WrapLabel3EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE

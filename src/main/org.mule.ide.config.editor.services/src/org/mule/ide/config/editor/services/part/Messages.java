@@ -641,4 +641,13 @@ public class Messages extends NLS {
 	public static String CoreModelingAssistantProviderMessage;
 
 	//TODO: put accessor fields manually	
+	/**
+	 * 
+	 */
+	public static String PojoComponentTypeLabel;
+	
+	/**
+	 * 
+	 */
+	public static String NoArgsCallWrapperTypeLabel;
 }

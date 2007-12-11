@@ -14,6 +14,7 @@ import org.mule.ide.config.editor.services.edit.commands.InboundRouterCollection
 import org.mule.ide.config.editor.services.edit.commands.OutboundRouterCollectionTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.ResponseRouterCollectionTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
@@ -104,6 +105,9 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 					Node cnode = (Node) cit.next();
 					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
 					case PojoComponentTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					}

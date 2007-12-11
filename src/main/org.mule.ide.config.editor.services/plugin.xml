@@ -351,6 +351,16 @@
             <param name="semanticHint" value="2005"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.NoArgsCallWrapperType_2006"
+               name="%metatype.name.NoArgsCallWrapperType_2006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="NoArgsCallWrapperType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.NoArgsCallWrapperTypeEditHelper">
+            <param name="semanticHint" value="2006"/>
+         </metamodelType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
@@ -370,6 +380,7 @@
          <elementType ref="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2003"/>
          <elementType ref="org.mule.ide.config.editor.services.ResponseRouterCollectionType_2004"/>
          <elementType ref="org.mule.ide.config.editor.services.PojoComponentType_2005"/>
+         <elementType ref="org.mule.ide.config.editor.services.NoArgsCallWrapperType_2006"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

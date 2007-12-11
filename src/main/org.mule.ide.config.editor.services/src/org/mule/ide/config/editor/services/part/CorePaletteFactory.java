@@ -51,7 +51,6 @@ public class CorePaletteFactory {
 				Messages.Components2Group_title);
 		paletteContainer.add(createPojoComponent1CreationTool());
 		paletteContainer.add(createNoArgsComponent2CreationTool());
-		paletteContainer.setInitialState(PaletteDrawer.INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
@@ -64,7 +63,6 @@ public class CorePaletteFactory {
 				Messages.ExceptionStrategies3Group_title);
 		paletteContainer.add(createCustomExceptionStrategy1CreationTool());
 		paletteContainer.add(createExceptionStrategy2CreationTool());
-		paletteContainer.setInitialState(PaletteDrawer.INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
@@ -87,7 +85,6 @@ public class CorePaletteFactory {
 		paletteContainer.add(createFilteredInboundRouter10CreationTool());
 		paletteContainer.add(createCustomInboundRouter11CreationTool());
 		paletteContainer.add(createCorrelationAggregatorRouter12CreationTool());
-		paletteContainer.setInitialState(PaletteDrawer.INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
@@ -104,7 +101,6 @@ public class CorePaletteFactory {
 		paletteContainer.add(createFilteringOutboundRouter3CreationTool());
 		paletteContainer.add(createCustomOutboundRouter4CreationTool());
 		paletteContainer.add(createEndpointSelectorRouter5CreationTool());
-		paletteContainer.setInitialState(PaletteDrawer.INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
@@ -118,7 +114,6 @@ public class CorePaletteFactory {
 		paletteContainer.add(createResponseEndpoint1CreationTool());
 		paletteContainer.add(createCustomResponseRouter2CreationTool());
 		paletteContainer.add(createResponseRouter3CreationTool());
-		paletteContainer.setInitialState(PaletteDrawer.INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
@@ -135,7 +130,6 @@ public class CorePaletteFactory {
 		paletteContainer.add(createCustomCatchAllStrategy3CreationTool());
 		paletteContainer
 				.add(createCustomForwardingCatchAllStrategyType4CreationTool());
-		paletteContainer.setInitialState(PaletteDrawer.INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
@@ -173,10 +167,15 @@ public class CorePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createNoArgsComponent2CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.NoArgsCallWrapperType_2006);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.NoArgsComponent2CreationTool_title,
-				Messages.NoArgsComponent2CreationTool_desc, null, null) {
-		};
+				Messages.NoArgsComponent2CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.NoArgsCallWrapperType_2006));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

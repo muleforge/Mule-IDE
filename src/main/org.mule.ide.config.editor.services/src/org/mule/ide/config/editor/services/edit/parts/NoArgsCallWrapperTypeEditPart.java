@@ -1,32 +1,22 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RectangleFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.Request;
-import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.editpolicies.FlowLayoutEditPolicy;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -34,20 +24,19 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeCanonicalEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.NoArgsCallWrapperTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
-import org.mule.ide.config.editor.services.providers.CoreElementTypes;
+import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * @generated
  */
-public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
+public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1001;
+	public static final int VISUAL_ID = 2006;
 
 	/**
 	 * @generated
@@ -62,7 +51,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public SedaServiceTypeEditPart(View view) {
+	public NoArgsCallWrapperTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -70,44 +59,10 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == CoreElementTypes.PojoComponentType_2005) {
-									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(SedaServiceTypeCOMPONENTEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == CoreElementTypes.NoArgsCallWrapperType_2006) {
-									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(SedaServiceTypeCOMPONENTEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SedaServiceTypeItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new SedaServiceTypeCanonicalEditPolicy());
+				new NoArgsCallWrapperTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -136,24 +91,30 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		RoundedServiceFigure figure = new RoundedServiceFigure();
+		NoArgsComponentFigure figure = new NoArgsComponentFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public RoundedServiceFigure getPrimaryShape() {
-		return (RoundedServiceFigure) primaryShape;
+	public NoArgsComponentFigure getPrimaryShape() {
+		return (NoArgsComponentFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SedaServiceTypeNameEditPart) {
-			((SedaServiceTypeNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureServiceNameFigure());
+		if (childEditPart instanceof WrapLabel3EditPart) {
+			((WrapLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureNoArgsComponentTypeNameFigure());
+			return true;
+		}
+		if (childEditPart instanceof NoArgsCallWrapperTypeClassEditPart) {
+			((NoArgsCallWrapperTypeClassEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureNoArgsClassNameFigure());
 			return true;
 		}
 		return false;
@@ -251,55 +212,69 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(SedaServiceTypeNameEditPart.VISUAL_ID));
+				.getType(WrapLabel3EditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class RoundedServiceFigure extends RoundedRectangle {
+	public class NoArgsComponentFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureServiceNameFigure;
+		private WrapLabel fFigureNoArgsComponentTypeNameFigure;
+		/**
+		 * @generated
+		 */
+		private WrapLabel fFigureNoArgsClassNameFigure;
 
 		/**
 		 * @generated
 		 */
-		public RoundedServiceFigure() {
+		public NoArgsComponentFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
-			layoutThis.setSpacing(0);
+			layoutThis.setSpacing(3);
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setForegroundColor(ColorConstants.black);
-
-			this.setFont(THIS_FONT);
-
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(100),
-					getMapMode().DPtoLP(10)));
 			createContents();
 		}
 
 		/**
-		 * @generated
+		 * customization
+		 *   - fFigurePojoComponentTypeNameFigure.setText
 		 */
 		private void createContents() {
 
-			fFigureServiceNameFigure = new WrapLabel();
-			fFigureServiceNameFigure.setText("");
+			fFigureNoArgsComponentTypeNameFigure = new WrapLabel();
+			fFigureNoArgsComponentTypeNameFigure.setText(Messages.NoArgsCallWrapperTypeLabel);
+			fFigureNoArgsComponentTypeNameFigure
+					.setForegroundColor(ColorConstants.gray);
 
-			fFigureServiceNameFigure.setFont(FFIGURESERVICENAMEFIGURE_FONT);
+			fFigureNoArgsComponentTypeNameFigure
+					.setFont(FFIGURENOARGSCOMPONENTTYPENAMEFIGURE_FONT);
 
-			this.add(fFigureServiceNameFigure);
+			this.add(fFigureNoArgsComponentTypeNameFigure);
+
+			fFigureNoArgsClassNameFigure = new WrapLabel();
+			fFigureNoArgsClassNameFigure.setText("");
+
+			fFigureNoArgsClassNameFigure
+					.setFont(FFIGURENOARGSCLASSNAMEFIGURE_FONT);
+
+			fFigureNoArgsClassNameFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(10),
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
+
+			this.add(fFigureNoArgsClassNameFigure);
 
 		}
 
@@ -325,8 +300,15 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureServiceNameFigure() {
-			return fFigureServiceNameFigure;
+		public WrapLabel getFigureNoArgsComponentTypeNameFigure() {
+			return fFigureNoArgsComponentTypeNameFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureNoArgsClassNameFigure() {
+			return fFigureNoArgsClassNameFigure;
 		}
 
 	}
@@ -334,14 +316,14 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font THIS_FONT = new Font(Display.getCurrent(), Display
-			.getDefault().getSystemFont().getFontData()[0].getName(), 7,
-			SWT.ITALIC);
+	static final Font FFIGURENOARGSCOMPONENTTYPENAMEFIGURE_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 7, SWT.ITALIC);
 
 	/**
 	 * @generated
 	 */
-	static final Font FFIGURESERVICENAMEFIGURE_FONT = new Font(Display
+	static final Font FFIGURENOARGSCLASSNAMEFIGURE_FONT = new Font(Display
 			.getCurrent(),
 			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9,
 			SWT.BOLD);

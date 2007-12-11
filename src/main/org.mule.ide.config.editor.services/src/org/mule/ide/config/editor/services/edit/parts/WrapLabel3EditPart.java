@@ -58,7 +58,7 @@ public class WrapLabel3EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4003;
+	public static final int VISUAL_ID = 4004;
 
 	/**
 	 * @generated
@@ -196,7 +196,11 @@ public class WrapLabel3EditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		return null;
+		EObject parserElement = getParserElement();
+		if (parserElement == null) {
+			return null;
+		}
+		return CoreElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**
@@ -304,7 +308,7 @@ public class WrapLabel3EditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.ResponseRouterCollectionType_2004,
+					CoreElementTypes.NoArgsCallWrapperType_2006,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

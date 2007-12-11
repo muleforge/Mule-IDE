@@ -52,13 +52,13 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * @generated
  */
-public class WrapLabel4EditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class NoArgsCallWrapperTypeClassEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4004;
+	public static final int VISUAL_ID = 4005;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class WrapLabel4EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public WrapLabel4EditPart(View view) {
+	public NoArgsCallWrapperTypeClassEditPart(View view) {
 		super(view);
 	}
 
@@ -196,11 +196,7 @@ public class WrapLabel4EditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return CoreElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -308,7 +304,7 @@ public class WrapLabel4EditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.PojoComponentType_2005,
+					CoreElementTypes.NoArgsCallWrapperType_2006,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
@@ -513,7 +509,7 @@ public class WrapLabel4EditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
-		return getPrimaryView();
+		return (View) getModel();
 	}
 
 	/**

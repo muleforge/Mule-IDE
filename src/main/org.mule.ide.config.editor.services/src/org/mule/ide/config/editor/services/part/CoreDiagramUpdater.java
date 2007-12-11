@@ -17,6 +17,7 @@ import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
@@ -108,6 +109,9 @@ public class CoreDiagramUpdater {
 			if (visualID == PojoComponentTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 			}
+			if (visualID == NoArgsCallWrapperTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+			}
 		}
 		return result;
 	}
@@ -182,6 +186,8 @@ public class CoreDiagramUpdater {
 			return getResponseRouterCollectionType_2004ContainedLinks(view);
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2005ContainedLinks(view);
+		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
+			return getNoArgsCallWrapperType_2006ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -203,6 +209,8 @@ public class CoreDiagramUpdater {
 			return getResponseRouterCollectionType_2004IncomingLinks(view);
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2005IncomingLinks(view);
+		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
+			return getNoArgsCallWrapperType_2006IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -224,6 +232,8 @@ public class CoreDiagramUpdater {
 			return getResponseRouterCollectionType_2004OutgoingLinks(view);
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2005OutgoingLinks(view);
+		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
+			return getNoArgsCallWrapperType_2006OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -283,6 +293,13 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getNoArgsCallWrapperType_2006ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getSedaServiceType_1001IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -328,6 +345,13 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getNoArgsCallWrapperType_2006IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getSedaServiceType_1001OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -367,6 +391,13 @@ public class CoreDiagramUpdater {
 	 * @generated
 	 */
 	public static List getPojoComponentType_2005OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getNoArgsCallWrapperType_2006OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

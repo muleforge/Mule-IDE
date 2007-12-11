@@ -44,6 +44,7 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.OutboundRouterCollectionType_2003);
 			types.add(CoreElementTypes.ResponseRouterCollectionType_2004);
 			types.add(CoreElementTypes.PojoComponentType_2005);
+			types.add(CoreElementTypes.NoArgsCallWrapperType_2006);
 			return types;
 		}
 		if (editPart instanceof InboundRouterCollectionTypeEditPart) {

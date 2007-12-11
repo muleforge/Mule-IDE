@@ -82,6 +82,11 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType NoArgsCallWrapperType_2006 = getElementType("org.mule.ide.config.editor.services.NoArgsCallWrapperType_2006"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	private static ImageRegistry getImageRegistry() {
 		if (imageRegistry == null) {
 			imageRegistry = new ImageRegistry();
@@ -210,6 +215,9 @@ public class CoreElementTypes extends ElementInitializers {
 
 			elements.put(PojoComponentType_2005, CorePackage.eINSTANCE
 					.getPojoComponentType());
+
+			elements.put(NoArgsCallWrapperType_2006, CorePackage.eINSTANCE
+					.getNoArgsCallWrapperType());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -234,6 +242,7 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(OutboundRouterCollectionType_2003);
 			KNOWN_ELEMENT_TYPES.add(ResponseRouterCollectionType_2004);
 			KNOWN_ELEMENT_TYPES.add(PojoComponentType_2005);
+			KNOWN_ELEMENT_TYPES.add(NoArgsCallWrapperType_2006);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

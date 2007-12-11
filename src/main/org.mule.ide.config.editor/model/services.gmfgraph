@@ -248,60 +248,6 @@
           figure="//@figures.1/@descriptors.0/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="InboundRouterCollectionFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="InboundRouterCollectionFigure">
-        <children
-            xsi:type="gmfgraph:Label"
-            name="InboundRouterCollectionLabelFigure"
-            text="INBOUND ROUTERS">
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              height="7"
-              style="ITALIC"/>
-        </children>
-      </actualFigure>
-      <accessors
-          figure="//@figures.1/@descriptors.1/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="OutboundRouterCollectionFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="OutboundRouterCollectionFigure">
-        <children
-            xsi:type="gmfgraph:Label"
-            name="OutboundRouterCollectionLabelFigure"
-            text="OUTBOUND ROUTERS">
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              height="7"
-              style="ITALIC"/>
-        </children>
-      </actualFigure>
-      <accessors
-          figure="//@figures.1/@descriptors.2/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="ResponseRouterCollectionFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="ResponseRouterCollectionFigure">
-        <children
-            xsi:type="gmfgraph:Label"
-            name="ResponseRouterCollectionLabelFigure"
-            text="RESPONSE ROUTERS">
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              height="7"
-              style="ITALIC"/>
-        </children>
-      </actualFigure>
-      <accessors
-          figure="//@figures.1/@descriptors.3/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
         name="LabeledCompartmentFigure">
       <actualFigure
           xsi:type="gmfgraph:LabeledContainer"/>
@@ -332,10 +278,10 @@
       </actualFigure>
     </descriptors>
     <descriptors
-        name="ServiceItemFigure">
+        name="PojoComponentFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
-          name="ServiceItemFigure">
+          name="PojoComponentFigure">
         <layout
             xsi:type="gmfgraph:FlowLayout"
             vertical="true"
@@ -345,7 +291,7 @@
             minorSpacing="3"/>
         <children
             xsi:type="gmfgraph:Label"
-            name="ServiceItemTypeLabel"
+            name="PojoComponentTypeNameFigure"
             text="type">
           <foregroundColor
               xsi:type="gmfgraph:ConstantColor"
@@ -357,7 +303,7 @@
         </children>
         <children
             xsi:type="gmfgraph:Label"
-            name="ServiceItemLabel">
+            name="PojoClassNameFigure">
           <font
               xsi:type="gmfgraph:BasicFont"
               style="BOLD"/>
@@ -366,9 +312,48 @@
         </children>
       </actualFigure>
       <accessors
-          figure="//@figures.1/@descriptors.6/@actualFigure/@children.0"/>
+          figure="//@figures.1/@descriptors.3/@actualFigure/@children.0"/>
       <accessors
-          figure="//@figures.1/@descriptors.6/@actualFigure/@children.1"/>
+          figure="//@figures.1/@descriptors.3/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="NoArgsComponentFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="NoArgsComponentFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            majorSpacing="3"
+            minorSpacing="3"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="NoArgsComponentTypeNameFigure"
+            text="type">
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="gray"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="7"
+              style="ITALIC"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="NoArgsClassNameFigure">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              style="BOLD"/>
+          <insets
+              left="10"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.1/@descriptors.4/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.1/@descriptors.4/@actualFigure/@children.1"/>
     </descriptors>
   </figures>
   <nodes
@@ -433,7 +418,7 @@
       figure="MessageSplitterOutboundRouterTypeFigure"/>
   <nodes
       name="NoArgsCallWrapperType"
-      figure="NoArgsCallWrapperTypeFigure"/>
+      figure="NoArgsComponentFigure"/>
   <nodes
       name="OutboundEndpointType"
       figure="OutboundEndpointTypeFigure"/>
@@ -445,7 +430,7 @@
       figure="OutboundRouterTypeFigure"/>
   <nodes
       name="PojoComponentType"
-      figure="ServiceItemFigure"/>
+      figure="PojoComponentFigure"/>
   <nodes
       name="ResponseEndpointType"
       figure="ResponseEndpointTypeFigure"/>
@@ -466,7 +451,7 @@
       figure="StaticRecipientListRouterTypeFigure"/>
   <nodes
       name="WireTapRouterType"
-      figure="ServiceItemFigure"/>
+      figure="PojoComponentFigure"/>
   <compartments
       name="COMPONENT"
       figure="LabeledCompartmentFigure"
@@ -497,43 +482,21 @@
       figure="RoundedServiceFigure"
       accessor="//@figures.1/@descriptors.0/@accessors.0"/>
   <labels
-      name="ForwardingCatchAllStrategyTypeAbstractOutboundEndpointGroup"
-      figure="ForwardingCatchAllStrategyTypeFigure"
-      accessor="//@figures.0/@descriptors.13/@accessors.0"/>
-  <labels
-      name="InboundEndpointTypeName"
-      figure="InboundEndpointTypeFigure"
-      accessor="//@figures.0/@descriptors.16/@accessors.0"/>
-  <labels
-      name="OutboundEndpointTypeName"
-      figure="OutboundEndpointTypeFigure"
-      accessor="//@figures.0/@descriptors.20/@accessors.0"/>
-  <labels
-      name="ResponseEndpointTypeName"
-      figure="ResponseEndpointTypeFigure"
-      accessor="//@figures.0/@descriptors.23/@accessors.0"/>
-  <labels
-      name="InboundRouterCollectionLabel"
-      figure="InboundRouterCollectionFigure"
-      elementIcon="false"
-      accessor="//@figures.1/@descriptors.1/@accessors.0"/>
-  <labels
-      name="OutboundRouterCollectionLabel"
-      figure="OutboundRouterCollectionFigure"
-      elementIcon="false"
-      accessor="//@figures.1/@descriptors.2/@accessors.0"/>
-  <labels
-      name="ResponseRouterCollectionLabel"
-      figure="ResponseRouterCollectionFigure"
-      elementIcon="false"
+      name="PojoComponentTypeName"
+      figure="PojoComponentFigure"
       accessor="//@figures.1/@descriptors.3/@accessors.0"/>
   <labels
-      name="ServiceItemTypeLabel"
-      figure="ServiceItemFigure"
-      accessor="//@figures.1/@descriptors.6/@accessors.0"/>
-  <labels
-      name="ServiceItemLabel"
-      figure="ServiceItemFigure"
+      name="PojoClassName"
+      figure="PojoComponentFigure"
       elementIcon="false"
-      accessor="//@figures.1/@descriptors.6/@accessors.1"/>
+      accessor="//@figures.1/@descriptors.3/@accessors.1"/>
+  <labels
+      name="NoArgsComponentTypeName"
+      figure="NoArgsComponentFigure"
+      accessor="//@figures.1/@descriptors.4/@accessors.0"/>
+  <labels
+      name="NoArgsClassName"
+      figure="NoArgsComponentFigure"
+      elementIcon="false"
+      accessor="//@figures.1/@descriptors.4/@accessors.1"/>
 </gmfgraph:Canvas>

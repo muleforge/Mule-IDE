@@ -42,7 +42,7 @@
               <labelMappings
                   readOnly="true">
                 <diagramLabel
-                    href="services.gmfgraph#ServiceItemTypeLabel"/>
+                    href="services.gmfgraph#PojoComponentTypeName"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
@@ -96,12 +96,12 @@
           <labelMappings
               readOnly="true">
             <diagramLabel
-                href="services.gmfgraph#ServiceItemTypeLabel"/>
+                href="services.gmfgraph#PojoComponentTypeName"/>
           </labelMappings>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="services.gmfgraph#ServiceItemLabel"/>
+                href="services.gmfgraph#PojoClassName"/>
             <features
                 href="../../org.mule.ide.config.core/model/core.ecore#//PojoComponentType/class"/>
           </labelMappings>
@@ -112,8 +112,32 @@
               href="services.gmfgraph#PojoComponentType"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractComponent"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.mule.ide.config.core/model/core.ecore#//NoArgsCallWrapperType"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#NoArgsComponentTypeName"/>
+          </labelMappings>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#NoArgsClassName"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="services.gmftool#//@palette/@tools.1/@tools.1"/>
+          <diagramNode
+              href="services.gmfgraph#NoArgsCallWrapperType"/>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.3">
+          children="//@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.4">
         <compartment
             href="services.gmfgraph#COMPONENT"/>
       </compartments>

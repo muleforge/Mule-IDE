@@ -104,7 +104,8 @@ public class CoreParserProvider extends AbstractProvider implements
 	}
 
 	/**
-	 * @generated
+	 * customization
+	 *   - add custom parsers
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {

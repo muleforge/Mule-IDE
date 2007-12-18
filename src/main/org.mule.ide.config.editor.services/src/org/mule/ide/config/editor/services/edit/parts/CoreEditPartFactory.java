@@ -88,6 +88,24 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case EchoComponentTypeLabelEditPart.VISUAL_ID:
 				return new EchoComponentTypeLabelEditPart(view);
 
+			case LogComponentTypeEditPart.VISUAL_ID:
+				return new LogComponentTypeEditPart(view);
+
+			case LogComponentTypeLabelEditPart.VISUAL_ID:
+				return new LogComponentTypeLabelEditPart(view);
+
+			case NullComponentTypeEditPart.VISUAL_ID:
+				return new NullComponentTypeEditPart(view);
+
+			case NullComponentTypeLabelEditPart.VISUAL_ID:
+				return new NullComponentTypeLabelEditPart(view);
+
+			case PassThroughComponentTypeEditPart.VISUAL_ID:
+				return new PassThroughComponentTypeEditPart(view);
+
+			case PassThroughComponentTypeLabelEditPart.VISUAL_ID:
+				return new PassThroughComponentTypeLabelEditPart(view);
+
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				return new SedaServiceTypeCOMPONENTEditPart(view);
 

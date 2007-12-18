@@ -23,19 +23,19 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.EchoComponentTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.PassThroughComponentTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * @generated
  */
-public class EchoComponentTypeEditPart extends ShapeNodeEditPart {
+public class PassThroughComponentTypeEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2009;
+	public static final int VISUAL_ID = 2012;
 
 	/**
 	 * @generated
@@ -50,7 +50,7 @@ public class EchoComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public EchoComponentTypeEditPart(View view) {
+	public PassThroughComponentTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -61,7 +61,7 @@ public class EchoComponentTypeEditPart extends ShapeNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new EchoComponentTypeItemSemanticEditPolicy());
+				new PassThroughComponentTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -105,8 +105,8 @@ public class EchoComponentTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof EchoComponentTypeLabelEditPart) {
-			((EchoComponentTypeLabelEditPart) childEditPart)
+		if (childEditPart instanceof PassThroughComponentTypeLabelEditPart) {
+			((PassThroughComponentTypeLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureDefaultComponentTypeNameFigure());
 			return true;
@@ -206,7 +206,7 @@ public class EchoComponentTypeEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(EchoComponentTypeLabelEditPart.VISUAL_ID));
+				.getType(PassThroughComponentTypeLabelEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -246,7 +246,7 @@ public class EchoComponentTypeEditPart extends ShapeNodeEditPart {
 
 			fFigureDefaultComponentTypeNameFigure = new WrapLabel();
 			fFigureDefaultComponentTypeNameFigure
-					.setText(Messages.EchoComponentTypeLabel);
+				.setText(Messages.PassThroughComponentTypeLabel);
 			fFigureDefaultComponentTypeNameFigure
 					.setForegroundColor(ColorConstants.gray);
 

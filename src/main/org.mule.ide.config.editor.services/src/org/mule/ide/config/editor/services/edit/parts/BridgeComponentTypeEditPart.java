@@ -245,7 +245,8 @@ public class BridgeComponentTypeEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureDefaultComponentTypeNameFigure = new WrapLabel();
-			fFigureDefaultComponentTypeNameFigure.setText(Messages.BridgeComponentTypeLabel);
+			fFigureDefaultComponentTypeNameFigure
+					.setText(Messages.BridgeComponentTypeLabel);
 			fFigureDefaultComponentTypeNameFigure
 					.setForegroundColor(ColorConstants.gray);
 

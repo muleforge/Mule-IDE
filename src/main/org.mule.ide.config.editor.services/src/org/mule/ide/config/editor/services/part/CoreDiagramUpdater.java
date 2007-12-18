@@ -20,8 +20,11 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
@@ -124,6 +127,15 @@ public class CoreDiagramUpdater {
 			if (visualID == EchoComponentTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 			}
+			if (visualID == LogComponentTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == NullComponentTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == PassThroughComponentTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+			}
 		}
 		return result;
 	}
@@ -206,6 +218,12 @@ public class CoreDiagramUpdater {
 			return getDefaultComponentType_2008ContainedLinks(view);
 		case EchoComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2009ContainedLinks(view);
+		case LogComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2010ContainedLinks(view);
+		case NullComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2011ContainedLinks(view);
+		case PassThroughComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2012ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -235,6 +253,12 @@ public class CoreDiagramUpdater {
 			return getDefaultComponentType_2008IncomingLinks(view);
 		case EchoComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2009IncomingLinks(view);
+		case LogComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2010IncomingLinks(view);
+		case NullComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2011IncomingLinks(view);
+		case PassThroughComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2012IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -264,6 +288,12 @@ public class CoreDiagramUpdater {
 			return getDefaultComponentType_2008OutgoingLinks(view);
 		case EchoComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2009OutgoingLinks(view);
+		case LogComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2010OutgoingLinks(view);
+		case NullComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2011OutgoingLinks(view);
+		case PassThroughComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2012OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -351,6 +381,27 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getDefaultComponentType_2010ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getDefaultComponentType_2011ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getDefaultComponentType_2012ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getSedaServiceType_1001IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -424,6 +475,27 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getDefaultComponentType_2010IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getDefaultComponentType_2011IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getDefaultComponentType_2012IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getSedaServiceType_1001OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -491,6 +563,27 @@ public class CoreDiagramUpdater {
 	 * @generated
 	 */
 	public static List getDefaultComponentType_2009OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getDefaultComponentType_2010OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getDefaultComponentType_2011OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getDefaultComponentType_2012OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

@@ -13,13 +13,13 @@ import org.mule.ide.config.core.CorePackage;
  * customization
  *   - subclass SubstitutionElementCreateCommand
  */
-public class EchoComponentTypeCreateCommand extends
+public class PassThroughComponentTypeCreateCommand extends
 		SubstitutionElementCreateCommand {
 
 	/**
 	 * @generated
 	 */
-	public EchoComponentTypeCreateCommand(CreateElementRequest req) {
+	public PassThroughComponentTypeCreateCommand(CreateElementRequest req) {
 		super(req);
 	}
 
@@ -58,6 +58,7 @@ public class EchoComponentTypeCreateCommand extends
 			EObject element) {
 		FeatureMap map = ((BaseServiceType) container)
 				.getAbstractComponentGroup();
-		map.add(CorePackage.eINSTANCE.getDocumentRoot_EchoComponent(), element);
+		map.add(CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent(),
+				element);
 	}
 }

@@ -13,7 +13,10 @@ import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramUpdater;
 import org.mule.ide.config.editor.services.part.CoreNodeDescriptor;
@@ -55,6 +58,9 @@ public class SedaServiceTypeCOMPONENTCanonicalEditPolicy extends
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 		case BridgeComponentTypeEditPart.VISUAL_ID:
 		case EchoComponentTypeEditPart.VISUAL_ID:
+		case LogComponentTypeEditPart.VISUAL_ID:
+		case NullComponentTypeEditPart.VISUAL_ID:
+		case PassThroughComponentTypeEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())
 					|| visualID != CoreVisualIDRegistry.getNodeVisualID(
 							(View) getHost().getModel(), view.getElement());

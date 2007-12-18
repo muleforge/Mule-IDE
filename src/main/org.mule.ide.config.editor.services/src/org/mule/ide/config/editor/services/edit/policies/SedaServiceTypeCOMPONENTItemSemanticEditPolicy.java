@@ -6,7 +6,10 @@ import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.commands.BridgeComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.DefaultComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.EchoComponentTypeCreateCommand;
+import org.mule.ide.config.editor.services.edit.commands.LogComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.NoArgsCallWrapperTypeCreateCommand;
+import org.mule.ide.config.editor.services.edit.commands.NullComponentTypeCreateCommand;
+import org.mule.ide.config.editor.services.edit.commands.PassThroughComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.PojoComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
@@ -54,6 +57,27 @@ public class SedaServiceTypeCOMPONENTItemSemanticEditPolicy extends
 						.getBaseServiceType_AbstractComponent());
 			}
 			return getGEFWrapper(new EchoComponentTypeCreateCommand(req));
+		}
+		if (CoreElementTypes.DefaultComponentType_2010 == req.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(CorePackage.eINSTANCE
+						.getBaseServiceType_AbstractComponent());
+			}
+			return getGEFWrapper(new LogComponentTypeCreateCommand(req));
+		}
+		if (CoreElementTypes.DefaultComponentType_2011 == req.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(CorePackage.eINSTANCE
+						.getBaseServiceType_AbstractComponent());
+			}
+			return getGEFWrapper(new NullComponentTypeCreateCommand(req));
+		}
+		if (CoreElementTypes.DefaultComponentType_2012 == req.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(CorePackage.eINSTANCE
+						.getBaseServiceType_AbstractComponent());
+			}
+			return getGEFWrapper(new PassThroughComponentTypeCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

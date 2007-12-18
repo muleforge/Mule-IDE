@@ -205,10 +205,15 @@ public class CorePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createLogComponent4CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.DefaultComponentType_2010);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.LogComponent4CreationTool_title,
-				Messages.LogComponent4CreationTool_desc, null, null) {
-		};
+				Messages.LogComponent4CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.DefaultComponentType_2010));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -216,10 +221,15 @@ public class CorePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createNullComponent5CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.DefaultComponentType_2011);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.NullComponent5CreationTool_title,
-				Messages.NullComponent5CreationTool_desc, null, null) {
-		};
+				Messages.NullComponent5CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.DefaultComponentType_2011));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -227,10 +237,15 @@ public class CorePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPassThroughComponent6CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.DefaultComponentType_2012);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.PassThroughComponent6CreationTool_title,
-				Messages.PassThroughComponent6CreationTool_desc, null, null) {
-		};
+				Messages.PassThroughComponent6CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.DefaultComponentType_2012));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

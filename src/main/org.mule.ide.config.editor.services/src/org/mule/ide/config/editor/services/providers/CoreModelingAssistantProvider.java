@@ -48,6 +48,9 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.DefaultComponentType_2007);
 			types.add(CoreElementTypes.DefaultComponentType_2008);
 			types.add(CoreElementTypes.DefaultComponentType_2009);
+			types.add(CoreElementTypes.DefaultComponentType_2010);
+			types.add(CoreElementTypes.DefaultComponentType_2011);
+			types.add(CoreElementTypes.DefaultComponentType_2012);
 			return types;
 		}
 		if (editPart instanceof InboundRouterCollectionTypeEditPart) {

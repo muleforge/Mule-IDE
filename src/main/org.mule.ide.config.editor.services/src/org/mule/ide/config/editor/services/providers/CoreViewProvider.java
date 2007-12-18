@@ -15,11 +15,17 @@ import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEditPart;
@@ -41,11 +47,17 @@ import org.mule.ide.config.editor.services.view.factories.EchoComponentTypeLabel
 import org.mule.ide.config.editor.services.view.factories.EchoComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeINBOUNDViewFactory;
 import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.LogComponentTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.LogComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeClassViewFactory;
 import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.NullComponentTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.NullComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundRouterCollectionTypeOUTBOUNDViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundRouterCollectionTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.PassThroughComponentTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.PassThroughComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PojoComponentTypeClassViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PojoComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PojoComponentTypeViewFactory;
@@ -137,6 +149,9 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case DefaultComponentTypeEditPart.VISUAL_ID:
 				case BridgeComponentTypeEditPart.VISUAL_ID:
 				case EchoComponentTypeEditPart.VISUAL_ID:
+				case LogComponentTypeEditPart.VISUAL_ID:
+				case NullComponentTypeEditPart.VISUAL_ID:
+				case PassThroughComponentTypeEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != CoreVisualIDRegistry
 									.getNodeVisualID(containerView,
@@ -218,6 +233,27 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
+				case LogComponentTypeLabelEditPart.VISUAL_ID:
+					if (LogComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case NullComponentTypeLabelEditPart.VISUAL_ID:
+					if (NullComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case PassThroughComponentTypeLabelEditPart.VISUAL_ID:
+					if (PassThroughComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
 				default:
 					return null;
 				}
@@ -273,6 +309,18 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return EchoComponentTypeViewFactory.class;
 		case EchoComponentTypeLabelEditPart.VISUAL_ID:
 			return EchoComponentTypeLabelViewFactory.class;
+		case LogComponentTypeEditPart.VISUAL_ID:
+			return LogComponentTypeViewFactory.class;
+		case LogComponentTypeLabelEditPart.VISUAL_ID:
+			return LogComponentTypeLabelViewFactory.class;
+		case NullComponentTypeEditPart.VISUAL_ID:
+			return NullComponentTypeViewFactory.class;
+		case NullComponentTypeLabelEditPart.VISUAL_ID:
+			return NullComponentTypeLabelViewFactory.class;
+		case PassThroughComponentTypeEditPart.VISUAL_ID:
+			return PassThroughComponentTypeViewFactory.class;
+		case PassThroughComponentTypeLabelEditPart.VISUAL_ID:
+			return PassThroughComponentTypeLabelViewFactory.class;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			return SedaServiceTypeCOMPONENTViewFactory.class;
 		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:

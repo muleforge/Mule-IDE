@@ -710,4 +710,19 @@ public class Messages extends NLS {
 	 * 
 	 */
 	public static String EchoComponentTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String LogComponentTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String NullComponentTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String PassThroughComponentTypeLabel;
 }

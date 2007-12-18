@@ -102,6 +102,21 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType DefaultComponentType_2010 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2010"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DefaultComponentType_2011 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2011"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DefaultComponentType_2012 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2012"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	private static ImageRegistry getImageRegistry() {
 		if (imageRegistry == null) {
 			imageRegistry = new ImageRegistry();
@@ -242,6 +257,15 @@ public class CoreElementTypes extends ElementInitializers {
 
 			elements.put(DefaultComponentType_2009, CorePackage.eINSTANCE
 					.getDefaultComponentType());
+
+			elements.put(DefaultComponentType_2010, CorePackage.eINSTANCE
+					.getDefaultComponentType());
+
+			elements.put(DefaultComponentType_2011, CorePackage.eINSTANCE
+					.getDefaultComponentType());
+
+			elements.put(DefaultComponentType_2012, CorePackage.eINSTANCE
+					.getDefaultComponentType());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -270,6 +294,9 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2007);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2008);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2009);
+			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2010);
+			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2011);
+			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2012);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

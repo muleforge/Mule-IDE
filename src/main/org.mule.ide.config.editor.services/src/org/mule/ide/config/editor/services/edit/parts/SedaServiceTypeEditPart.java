@@ -94,6 +94,20 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
+								if (type == CoreElementTypes.DefaultComponentType_2007) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(SedaServiceTypeCOMPONENTEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+								if (type == CoreElementTypes.DefaultComponentType_2008) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(SedaServiceTypeCOMPONENTEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
 							}
 							return super.getCommand(request);
 						}
@@ -296,6 +310,8 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 
 			fFigureServiceNameFigure = new WrapLabel();
 			fFigureServiceNameFigure.setText("");
+			fFigureServiceNameFigure
+					.setBackgroundColor(ColorConstants.lightBlue);
 
 			fFigureServiceNameFigure.setFont(FFIGURESERVICENAMEFIGURE_FONT);
 

@@ -52,13 +52,13 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * @generated
  */
-public class WrapLabel2EditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class DefaultComponentTypeLabelEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4002;
+	public static final int VISUAL_ID = 4006;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class WrapLabel2EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public WrapLabel2EditPart(View view) {
+	public DefaultComponentTypeLabelEditPart(View view) {
 		super(view);
 	}
 
@@ -308,7 +308,7 @@ public class WrapLabel2EditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.PojoComponentType_2005,
+					CoreElementTypes.DefaultComponentType_2007,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

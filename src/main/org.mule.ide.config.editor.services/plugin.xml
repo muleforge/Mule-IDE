@@ -361,6 +361,25 @@
             <param name="semanticHint" value="2006"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.DefaultComponentType_2007"
+               name="%metatype.name.DefaultComponentType_2007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DefaultComponentType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.DefaultComponentTypeEditHelper">
+            <param name="semanticHint" value="2007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <specializationType
+               id="org.mule.ide.config.editor.services.DefaultComponentType_2008"
+               name="%metatype.name.DefaultComponentType_2008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2007"/>
+            <param name="semanticHint" value="2008"/>
+         </specializationType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
@@ -381,6 +400,8 @@
          <elementType ref="org.mule.ide.config.editor.services.ResponseRouterCollectionType_2004"/>
          <elementType ref="org.mule.ide.config.editor.services.PojoComponentType_2005"/>
          <elementType ref="org.mule.ide.config.editor.services.NoArgsCallWrapperType_2006"/>
+         <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2007"/>
+         <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2008"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

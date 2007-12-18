@@ -10,6 +10,8 @@ import java.util.Set;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramUpdater;
@@ -49,6 +51,8 @@ public class SedaServiceTypeCOMPONENTCanonicalEditPolicy extends
 		switch (visualID) {
 		case PojoComponentTypeEditPart.VISUAL_ID:
 		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
+		case DefaultComponentTypeEditPart.VISUAL_ID:
+		case BridgeComponentTypeEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())
 					|| visualID != CoreVisualIDRegistry.getNodeVisualID(
 							(View) getHost().getModel(), view.getElement());

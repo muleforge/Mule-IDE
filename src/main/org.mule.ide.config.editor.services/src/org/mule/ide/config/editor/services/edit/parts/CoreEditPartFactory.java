@@ -55,8 +55,8 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case PojoComponentTypeEditPart.VISUAL_ID:
 				return new PojoComponentTypeEditPart(view);
 
-			case WrapLabel2EditPart.VISUAL_ID:
-				return new WrapLabel2EditPart(view);
+			case PojoComponentTypeLabelEditPart.VISUAL_ID:
+				return new PojoComponentTypeLabelEditPart(view);
 
 			case PojoComponentTypeClassEditPart.VISUAL_ID:
 				return new PojoComponentTypeClassEditPart(view);
@@ -64,11 +64,23 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
 				return new NoArgsCallWrapperTypeEditPart(view);
 
-			case WrapLabel3EditPart.VISUAL_ID:
-				return new WrapLabel3EditPart(view);
+			case NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID:
+				return new NoArgsCallWrapperTypeLabelEditPart(view);
 
 			case NoArgsCallWrapperTypeClassEditPart.VISUAL_ID:
 				return new NoArgsCallWrapperTypeClassEditPart(view);
+
+			case DefaultComponentTypeEditPart.VISUAL_ID:
+				return new DefaultComponentTypeEditPart(view);
+
+			case DefaultComponentTypeLabelEditPart.VISUAL_ID:
+				return new DefaultComponentTypeLabelEditPart(view);
+
+			case BridgeComponentTypeEditPart.VISUAL_ID:
+				return new BridgeComponentTypeEditPart(view);
+
+			case BridgeComponentTypeLabelEditPart.VISUAL_ID:
+				return new BridgeComponentTypeLabelEditPart(view);
 
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				return new SedaServiceTypeCOMPONENTEditPart(view);

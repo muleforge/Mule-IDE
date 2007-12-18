@@ -14,6 +14,8 @@ import org.mule.ide.config.core.InboundRouterCollectionType;
 import org.mule.ide.config.core.OutboundRouterCollectionType;
 import org.mule.ide.config.core.ResponseRouterCollectionType;
 import org.mule.ide.config.core.SedaServiceType;
+import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
@@ -112,6 +114,12 @@ public class CoreDiagramUpdater {
 			if (visualID == NoArgsCallWrapperTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 			}
+			if (visualID == DefaultComponentTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == BridgeComponentTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+			}
 		}
 		return result;
 	}
@@ -188,6 +196,10 @@ public class CoreDiagramUpdater {
 			return getPojoComponentType_2005ContainedLinks(view);
 		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
 			return getNoArgsCallWrapperType_2006ContainedLinks(view);
+		case DefaultComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2007ContainedLinks(view);
+		case BridgeComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2008ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -211,6 +223,10 @@ public class CoreDiagramUpdater {
 			return getPojoComponentType_2005IncomingLinks(view);
 		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
 			return getNoArgsCallWrapperType_2006IncomingLinks(view);
+		case DefaultComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2007IncomingLinks(view);
+		case BridgeComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2008IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -234,6 +250,10 @@ public class CoreDiagramUpdater {
 			return getPojoComponentType_2005OutgoingLinks(view);
 		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
 			return getNoArgsCallWrapperType_2006OutgoingLinks(view);
+		case DefaultComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2007OutgoingLinks(view);
+		case BridgeComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2008OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -300,6 +320,20 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getDefaultComponentType_2007ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getDefaultComponentType_2008ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getSedaServiceType_1001IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -352,6 +386,20 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getDefaultComponentType_2007IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getDefaultComponentType_2008IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getSedaServiceType_1001OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -398,6 +446,20 @@ public class CoreDiagramUpdater {
 	 * @generated
 	 */
 	public static List getNoArgsCallWrapperType_2006OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getDefaultComponentType_2007OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getDefaultComponentType_2008OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

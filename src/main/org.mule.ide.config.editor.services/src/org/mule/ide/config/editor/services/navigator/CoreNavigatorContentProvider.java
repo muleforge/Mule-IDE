@@ -20,6 +20,8 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
+import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
@@ -252,6 +254,18 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 					SedaServiceTypeCOMPONENTEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					NoArgsCallWrapperTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					SedaServiceTypeCOMPONENTEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					DefaultComponentTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					SedaServiceTypeCOMPONENTEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BridgeComponentTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

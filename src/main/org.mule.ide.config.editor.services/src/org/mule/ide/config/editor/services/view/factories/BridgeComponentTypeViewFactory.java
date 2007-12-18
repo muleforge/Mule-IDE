@@ -10,15 +10,14 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactor
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
  * @generated
  */
-public class NoArgsCallWrapperTypeViewFactory extends AbstractShapeViewFactory {
+public class BridgeComponentTypeViewFactory extends AbstractShapeViewFactory {
 
 	/**
 	 * @generated
@@ -37,7 +36,7 @@ public class NoArgsCallWrapperTypeViewFactory extends AbstractShapeViewFactory {
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = CoreVisualIDRegistry
-					.getType(NoArgsCallWrapperTypeEditPart.VISUAL_ID);
+					.getType(BridgeComponentTypeEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
@@ -51,13 +50,7 @@ public class NoArgsCallWrapperTypeViewFactory extends AbstractShapeViewFactory {
 				eObjectAdapter,
 				view,
 				CoreVisualIDRegistry
-						.getType(NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID),
-				ViewUtil.APPEND, true, getPreferencesHint());
-		getViewService().createNode(
-				eObjectAdapter,
-				view,
-				CoreVisualIDRegistry
-						.getType(NoArgsCallWrapperTypeClassEditPart.VISUAL_ID),
+						.getType(BridgeComponentTypeLabelEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

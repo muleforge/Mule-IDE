@@ -12,7 +12,6 @@ import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 

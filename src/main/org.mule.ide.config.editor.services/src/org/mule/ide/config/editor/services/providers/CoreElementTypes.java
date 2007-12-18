@@ -87,6 +87,16 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType DefaultComponentType_2007 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2007"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DefaultComponentType_2008 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2008"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	private static ImageRegistry getImageRegistry() {
 		if (imageRegistry == null) {
 			imageRegistry = new ImageRegistry();
@@ -218,6 +228,12 @@ public class CoreElementTypes extends ElementInitializers {
 
 			elements.put(NoArgsCallWrapperType_2006, CorePackage.eINSTANCE
 					.getNoArgsCallWrapperType());
+
+			elements.put(DefaultComponentType_2007, CorePackage.eINSTANCE
+					.getDefaultComponentType());
+
+			elements.put(DefaultComponentType_2008, CorePackage.eINSTANCE
+					.getDefaultComponentType());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -243,6 +259,8 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(ResponseRouterCollectionType_2004);
 			KNOWN_ELEMENT_TYPES.add(PojoComponentType_2005);
 			KNOWN_ELEMENT_TYPES.add(NoArgsCallWrapperType_2006);
+			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2007);
+			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2008);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

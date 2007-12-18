@@ -3,19 +3,28 @@ package org.mule.ide.config.editor.services.part;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.DefaultComponentType;
 import org.mule.ide.config.core.DefaultModelType;
+import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
@@ -23,9 +32,8 @@ import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEd
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
+import org.mule.ide.config.editor.services.expressions.CoreAbstractExpression;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -159,6 +167,20 @@ public class CoreVisualIDRegistry {
 					domainElement.eClass())) {
 				return NoArgsCallWrapperTypeEditPart.VISUAL_ID;
 			}
+			if (CorePackage.eINSTANCE.getDefaultComponentType().isSuperTypeOf(
+					domainElement.eClass())
+					&& JavaConstraints.defaultComponentConstraint(
+							(DefaultComponentType) domainElement)
+							.booleanValue()) {
+				return DefaultComponentTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getDefaultComponentType().isSuperTypeOf(
+					domainElement.eClass())
+					&& JavaConstraints.bridgeComponentConstraint(
+							(DefaultComponentType) domainElement)
+							.booleanValue()) {
+				return BridgeComponentTypeEditPart.VISUAL_ID;
+			}
 			break;
 		case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getWireTapRouterType().isSuperTypeOf(
@@ -238,7 +260,7 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case PojoComponentTypeEditPart.VISUAL_ID:
-			if (WrapLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (PojoComponentTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (PojoComponentTypeClassEditPart.VISUAL_ID == nodeVisualID) {
@@ -246,10 +268,20 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
-			if (WrapLabel3EditPart.VISUAL_ID == nodeVisualID) {
+			if (NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (NoArgsCallWrapperTypeClassEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DefaultComponentTypeEditPart.VISUAL_ID:
+			if (DefaultComponentTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case BridgeComponentTypeEditPart.VISUAL_ID:
+			if (BridgeComponentTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -258,6 +290,12 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			if (NoArgsCallWrapperTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (DefaultComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (BridgeComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -293,6 +331,37 @@ public class CoreVisualIDRegistry {
 	 */
 	private static boolean isDiagram(DefaultModelType element) {
 		return true;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static class JavaConstraints {
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating DefaultComponentType elements
+		 */
+		private static java.lang.Boolean defaultComponentConstraint(
+				DefaultComponentType self) {
+			return false;
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating DefaultComponentType elements
+		 */
+		private static java.lang.Boolean bridgeComponentConstraint(
+				DefaultComponentType self) {
+			BaseServiceType container = (BaseServiceType) self.eContainer();
+			FeatureMap map = container.getAbstractComponentGroup();
+			// Since I know there can only be zero or one component in the container...
+			DefaultComponentType component = (DefaultComponentType) map.get(
+					CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent(),
+					false);
+			return self.equals(component);
+		}
+
 	}
 
 }

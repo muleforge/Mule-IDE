@@ -2,18 +2,13 @@ package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.Request;
-import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
@@ -28,19 +23,18 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.PojoComponentTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.DefaultComponentTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
-import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * @generated
  */
-public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
+public class DefaultComponentTypeEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2005;
+	public static final int VISUAL_ID = 2007;
 
 	/**
 	 * @generated
@@ -55,7 +49,7 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public PojoComponentTypeEditPart(View view) {
+	public DefaultComponentTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -66,7 +60,7 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new PojoComponentTypeItemSemanticEditPolicy());
+				new DefaultComponentTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -95,30 +89,25 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		PojoComponentFigure figure = new PojoComponentFigure();
+		DefaultComponentFigure figure = new DefaultComponentFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public PojoComponentFigure getPrimaryShape() {
-		return (PojoComponentFigure) primaryShape;
+	public DefaultComponentFigure getPrimaryShape() {
+		return (DefaultComponentFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof PojoComponentTypeLabelEditPart) {
-			((PojoComponentTypeLabelEditPart) childEditPart)
+		if (childEditPart instanceof DefaultComponentTypeLabelEditPart) {
+			((DefaultComponentTypeLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigurePojoComponentTypeNameFigure());
-			return true;
-		}
-		if (childEditPart instanceof PojoComponentTypeClassEditPart) {
-			((PojoComponentTypeClassEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigurePojoClassNameFigure());
+							.getFigureDefaultComponentTypeNameFigure());
 			return true;
 		}
 		return false;
@@ -216,27 +205,23 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(PojoComponentTypeLabelEditPart.VISUAL_ID));
+				.getType(DefaultComponentTypeLabelEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class PojoComponentFigure extends RoundedRectangle {
+	public class DefaultComponentFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigurePojoComponentTypeNameFigure;
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigurePojoClassNameFigure;
+		private WrapLabel fFigureDefaultComponentTypeNameFigure;
 
 		/**
 		 * @generated
 		 */
-		public PojoComponentFigure() {
+		public DefaultComponentFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
@@ -253,32 +238,19 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * customization
-		 *   - fFigurePojoComponentTypeNameFigure.setText
+		 * @generated
 		 */
 		private void createContents() {
 
-			fFigurePojoComponentTypeNameFigure = new WrapLabel();
-			fFigurePojoComponentTypeNameFigure
-					.setText(Messages.PojoComponentTypeLabel);
-			fFigurePojoComponentTypeNameFigure
+			fFigureDefaultComponentTypeNameFigure = new WrapLabel();
+			fFigureDefaultComponentTypeNameFigure.setText("type");
+			fFigureDefaultComponentTypeNameFigure
 					.setForegroundColor(ColorConstants.gray);
 
-			fFigurePojoComponentTypeNameFigure
-					.setFont(FFIGUREPOJOCOMPONENTTYPENAMEFIGURE_FONT);
+			fFigureDefaultComponentTypeNameFigure
+					.setFont(FFIGUREDEFAULTCOMPONENTTYPENAMEFIGURE_FONT);
 
-			this.add(fFigurePojoComponentTypeNameFigure);
-
-			fFigurePojoClassNameFigure = new WrapLabel();
-			fFigurePojoClassNameFigure.setText("");
-
-			fFigurePojoClassNameFigure.setFont(FFIGUREPOJOCLASSNAMEFIGURE_FONT);
-
-			fFigurePojoClassNameFigure.setBorder(new MarginBorder(getMapMode()
-					.DPtoLP(0), getMapMode().DPtoLP(10),
-					getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
-
-			this.add(fFigurePojoClassNameFigure);
+			this.add(fFigureDefaultComponentTypeNameFigure);
 
 		}
 
@@ -304,15 +276,8 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigurePojoComponentTypeNameFigure() {
-			return fFigurePojoComponentTypeNameFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigurePojoClassNameFigure() {
-			return fFigurePojoClassNameFigure;
+		public WrapLabel getFigureDefaultComponentTypeNameFigure() {
+			return fFigureDefaultComponentTypeNameFigure;
 		}
 
 	}
@@ -320,16 +285,8 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREPOJOCOMPONENTTYPENAMEFIGURE_FONT = new Font(
+	static final Font FFIGUREDEFAULTCOMPONENTTYPENAMEFIGURE_FONT = new Font(
 			Display.getCurrent(), Display.getDefault().getSystemFont()
 					.getFontData()[0].getName(), 7, SWT.ITALIC);
-
-	/**
-	 * @generated
-	 */
-	static final Font FFIGUREPOJOCLASSNAMEFIGURE_FONT = new Font(Display
-			.getCurrent(),
-			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9,
-			SWT.BOLD);
 
 }

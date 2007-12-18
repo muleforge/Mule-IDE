@@ -6,15 +6,21 @@ import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
@@ -22,18 +28,22 @@ import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEd
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabel2EditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabel3EditPart;
 import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
+import org.mule.ide.config.editor.services.view.factories.BridgeComponentTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.BridgeComponentTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.DefaultComponentTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.DefaultComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultModelTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeINBOUNDViewFactory;
 import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeClassViewFactory;
+import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundRouterCollectionTypeOUTBOUNDViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundRouterCollectionTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PojoComponentTypeClassViewFactory;
+import org.mule.ide.config.editor.services.view.factories.PojoComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PojoComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.ResponseRouterCollectionTypeRESPONSEViewFactory;
 import org.mule.ide.config.editor.services.view.factories.ResponseRouterCollectionTypeViewFactory;
@@ -42,8 +52,6 @@ import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeEXCEPTI
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeNameViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.WireTapRouterTypeViewFactory;
-import org.mule.ide.config.editor.services.view.factories.WrapLabel2ViewFactory;
-import org.mule.ide.config.editor.services.view.factories.WrapLabel3ViewFactory;
 import org.mule.ide.config.editor.services.view.factories.WrapLabelViewFactory;
 
 /**
@@ -122,6 +130,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 				case PojoComponentTypeEditPart.VISUAL_ID:
 				case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
+				case DefaultComponentTypeEditPart.VISUAL_ID:
+				case BridgeComponentTypeEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != CoreVisualIDRegistry
 									.getNodeVisualID(containerView,
@@ -166,7 +176,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case WrapLabel2EditPart.VISUAL_ID:
+				case PojoComponentTypeLabelEditPart.VISUAL_ID:
 				case PojoComponentTypeClassEditPart.VISUAL_ID:
 					if (PojoComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
@@ -174,9 +184,23 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case WrapLabel3EditPart.VISUAL_ID:
+				case NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID:
 				case NoArgsCallWrapperTypeClassEditPart.VISUAL_ID:
 					if (NoArgsCallWrapperTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case DefaultComponentTypeLabelEditPart.VISUAL_ID:
+					if (DefaultComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case BridgeComponentTypeLabelEditPart.VISUAL_ID:
+					if (BridgeComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -215,16 +239,24 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return ResponseRouterCollectionTypeViewFactory.class;
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return PojoComponentTypeViewFactory.class;
-		case WrapLabel2EditPart.VISUAL_ID:
-			return WrapLabel2ViewFactory.class;
+		case PojoComponentTypeLabelEditPart.VISUAL_ID:
+			return PojoComponentTypeLabelViewFactory.class;
 		case PojoComponentTypeClassEditPart.VISUAL_ID:
 			return PojoComponentTypeClassViewFactory.class;
 		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
 			return NoArgsCallWrapperTypeViewFactory.class;
-		case WrapLabel3EditPart.VISUAL_ID:
-			return WrapLabel3ViewFactory.class;
+		case NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID:
+			return NoArgsCallWrapperTypeLabelViewFactory.class;
 		case NoArgsCallWrapperTypeClassEditPart.VISUAL_ID:
 			return NoArgsCallWrapperTypeClassViewFactory.class;
+		case DefaultComponentTypeEditPart.VISUAL_ID:
+			return DefaultComponentTypeViewFactory.class;
+		case DefaultComponentTypeLabelEditPart.VISUAL_ID:
+			return DefaultComponentTypeLabelViewFactory.class;
+		case BridgeComponentTypeEditPart.VISUAL_ID:
+			return BridgeComponentTypeViewFactory.class;
+		case BridgeComponentTypeLabelEditPart.VISUAL_ID:
+			return BridgeComponentTypeLabelViewFactory.class;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			return SedaServiceTypeCOMPONENTViewFactory.class;
 		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:

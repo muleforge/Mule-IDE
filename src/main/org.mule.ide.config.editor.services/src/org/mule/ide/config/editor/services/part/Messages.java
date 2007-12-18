@@ -298,22 +298,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String PojoComponent1CreationTool_title;
+	public static String BridgeComponent1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PojoComponent1CreationTool_desc;
+	public static String BridgeComponent1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String NoArgsComponent2CreationTool_title;
+	public static String EchoComponent2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String NoArgsComponent2CreationTool_desc;
+	public static String EchoComponent2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String NoArgsCallComponent3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String NoArgsCallComponent3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String LogComponent4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String LogComponent4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String NullComponent5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String NullComponent5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String PassThroughComponent6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String PassThroughComponent6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String PojoComponent7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String PojoComponent7CreationTool_desc;
 
 	/**
 	 * @generated
@@ -645,7 +695,7 @@ public class Messages extends NLS {
 	 * 
 	 */
 	public static String PojoComponentTypeLabel;
-	
+
 	/**
 	 * 
 	 */

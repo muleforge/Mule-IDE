@@ -49,8 +49,13 @@ public class CorePaletteFactory {
 	private PaletteContainer createComponents2Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Components2Group_title);
-		paletteContainer.add(createPojoComponent1CreationTool());
-		paletteContainer.add(createNoArgsComponent2CreationTool());
+		paletteContainer.add(createBridgeComponent1CreationTool());
+		paletteContainer.add(createEchoComponent2CreationTool());
+		paletteContainer.add(createNoArgsCallComponent3CreationTool());
+		paletteContainer.add(createLogComponent4CreationTool());
+		paletteContainer.add(createNullComponent5CreationTool());
+		paletteContainer.add(createPassThroughComponent6CreationTool());
+		paletteContainer.add(createPojoComponent7CreationTool());
 		return paletteContainer;
 	}
 
@@ -151,14 +156,15 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPojoComponent1CreationTool() {
+	private ToolEntry createBridgeComponent1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.PojoComponentType_2005);
+		types.add(CoreElementTypes.DefaultComponentType_2008);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PojoComponent1CreationTool_title,
-				Messages.PojoComponent1CreationTool_desc, types);
-		entry.setSmallIcon(CoreElementTypes
-				.getImageDescriptor(CoreElementTypes.PojoComponentType_2005));
+				Messages.BridgeComponent1CreationTool_title,
+				Messages.BridgeComponent1CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.DefaultComponentType_2008));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -166,15 +172,74 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createNoArgsComponent2CreationTool() {
+	private ToolEntry createEchoComponent2CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.EchoComponent2CreationTool_title,
+				Messages.EchoComponent2CreationTool_desc, null, null) {
+		};
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createNoArgsCallComponent3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.NoArgsCallWrapperType_2006);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.NoArgsComponent2CreationTool_title,
-				Messages.NoArgsComponent2CreationTool_desc, types);
+				Messages.NoArgsCallComponent3CreationTool_title,
+				Messages.NoArgsCallComponent3CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.NoArgsCallWrapperType_2006));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createLogComponent4CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.LogComponent4CreationTool_title,
+				Messages.LogComponent4CreationTool_desc, null, null) {
+		};
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createNullComponent5CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.NullComponent5CreationTool_title,
+				Messages.NullComponent5CreationTool_desc, null, null) {
+		};
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createPassThroughComponent6CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.PassThroughComponent6CreationTool_title,
+				Messages.PassThroughComponent6CreationTool_desc, null, null) {
+		};
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createPojoComponent7CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.PojoComponentType_2005);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.PojoComponent7CreationTool_title,
+				Messages.PojoComponent7CreationTool_desc, types);
+		entry.setSmallIcon(CoreElementTypes
+				.getImageDescriptor(CoreElementTypes.PojoComponentType_2005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

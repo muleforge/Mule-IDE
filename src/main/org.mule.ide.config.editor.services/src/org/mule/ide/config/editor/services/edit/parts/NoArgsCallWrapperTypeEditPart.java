@@ -106,9 +106,10 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrapLabel3EditPart) {
-			((WrapLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureNoArgsComponentTypeNameFigure());
+		if (childEditPart instanceof NoArgsCallWrapperTypeLabelEditPart) {
+			((NoArgsCallWrapperTypeLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureNoArgsComponentTypeNameFigure());
 			return true;
 		}
 		if (childEditPart instanceof NoArgsCallWrapperTypeClassEditPart) {
@@ -212,7 +213,7 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(WrapLabel3EditPart.VISUAL_ID));
+				.getType(NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -255,7 +256,8 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureNoArgsComponentTypeNameFigure = new WrapLabel();
-			fFigureNoArgsComponentTypeNameFigure.setText(Messages.NoArgsCallWrapperTypeLabel);
+			fFigureNoArgsComponentTypeNameFigure
+					.setText(Messages.NoArgsCallWrapperTypeLabel);
 			fFigureNoArgsComponentTypeNameFigure
 					.setForegroundColor(ColorConstants.gray);
 

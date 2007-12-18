@@ -341,6 +341,17 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	 */
 	public static class LinkConstraints {
 
+		/**
+		 * @generated
+		 */
+		private static final String OPPOSITE_END_VAR = "oppositeEnd"; //$NON-NLS-1$
+
+		/**
+		 * @generated
+		 */
+		private static class JavaConstraints {
+		}
+
 	}
 
 }

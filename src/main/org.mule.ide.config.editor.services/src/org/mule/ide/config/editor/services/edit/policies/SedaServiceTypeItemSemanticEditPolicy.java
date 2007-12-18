@@ -15,6 +15,7 @@ import org.mule.ide.config.editor.services.edit.commands.OutboundRouterCollectio
 import org.mule.ide.config.editor.services.edit.commands.ResponseRouterCollectionTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
@@ -116,6 +117,9 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					case BridgeComponentTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					case EchoComponentTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					}

@@ -700,4 +700,14 @@ public class Messages extends NLS {
 	 * 
 	 */
 	public static String NoArgsCallWrapperTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String BridgeComponentTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String EchoComponentTypeLabel;
 }

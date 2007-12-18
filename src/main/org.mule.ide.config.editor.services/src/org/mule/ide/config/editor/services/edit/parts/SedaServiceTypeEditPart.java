@@ -108,6 +108,13 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
+								if (type == CoreElementTypes.DefaultComponentType_2009) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(SedaServiceTypeCOMPONENTEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
 							}
 							return super.getCommand(request);
 						}

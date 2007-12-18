@@ -82,6 +82,12 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case BridgeComponentTypeLabelEditPart.VISUAL_ID:
 				return new BridgeComponentTypeLabelEditPart(view);
 
+			case EchoComponentTypeEditPart.VISUAL_ID:
+				return new EchoComponentTypeEditPart(view);
+
+			case EchoComponentTypeLabelEditPart.VISUAL_ID:
+				return new EchoComponentTypeLabelEditPart(view);
+
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				return new SedaServiceTypeCOMPONENTEditPart(view);
 

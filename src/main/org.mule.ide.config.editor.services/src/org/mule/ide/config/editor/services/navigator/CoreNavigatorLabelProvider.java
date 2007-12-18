@@ -28,6 +28,8 @@ import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEd
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
@@ -136,6 +138,9 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case BridgeComponentTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2008); //$NON-NLS-1$
+		case EchoComponentTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2009); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -208,6 +213,8 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getDefaultComponentType_2007Text(view);
 		case BridgeComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2008Text(view);
+		case EchoComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2009Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -243,7 +250,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4008); //$NON-NLS-1$
+					"Parser was not found for label " + 4009); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -383,6 +390,26 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(BridgeComponentTypeLabelEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getDefaultComponentType_2009Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.DefaultComponentType_2009,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry
+						.getType(EchoComponentTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE

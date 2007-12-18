@@ -5,6 +5,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.commands.BridgeComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.DefaultComponentTypeCreateCommand;
+import org.mule.ide.config.editor.services.edit.commands.EchoComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.NoArgsCallWrapperTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.PojoComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
@@ -46,6 +47,13 @@ public class SedaServiceTypeCOMPONENTItemSemanticEditPolicy extends
 						.getBaseServiceType_AbstractComponent());
 			}
 			return getGEFWrapper(new BridgeComponentTypeCreateCommand(req));
+		}
+		if (CoreElementTypes.DefaultComponentType_2009 == req.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(CorePackage.eINSTANCE
+						.getBaseServiceType_AbstractComponent());
+			}
+			return getGEFWrapper(new EchoComponentTypeCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

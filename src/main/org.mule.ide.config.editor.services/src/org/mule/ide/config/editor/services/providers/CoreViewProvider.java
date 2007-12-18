@@ -11,6 +11,8 @@ import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEd
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
@@ -35,6 +37,8 @@ import org.mule.ide.config.editor.services.view.factories.BridgeComponentTypeVie
 import org.mule.ide.config.editor.services.view.factories.DefaultComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultModelTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.EchoComponentTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.EchoComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeINBOUNDViewFactory;
 import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeClassViewFactory;
@@ -132,6 +136,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
 				case DefaultComponentTypeEditPart.VISUAL_ID:
 				case BridgeComponentTypeEditPart.VISUAL_ID:
+				case EchoComponentTypeEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != CoreVisualIDRegistry
 									.getNodeVisualID(containerView,
@@ -206,6 +211,13 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
+				case EchoComponentTypeLabelEditPart.VISUAL_ID:
+					if (EchoComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
 				default:
 					return null;
 				}
@@ -257,6 +269,10 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return BridgeComponentTypeViewFactory.class;
 		case BridgeComponentTypeLabelEditPart.VISUAL_ID:
 			return BridgeComponentTypeLabelViewFactory.class;
+		case EchoComponentTypeEditPart.VISUAL_ID:
+			return EchoComponentTypeViewFactory.class;
+		case EchoComponentTypeLabelEditPart.VISUAL_ID:
+			return EchoComponentTypeLabelViewFactory.class;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			return SedaServiceTypeCOMPONENTViewFactory.class;
 		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:

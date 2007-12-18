@@ -15,6 +15,8 @@ import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEd
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
@@ -181,6 +183,13 @@ public class CoreVisualIDRegistry {
 							.booleanValue()) {
 				return BridgeComponentTypeEditPart.VISUAL_ID;
 			}
+			if (CorePackage.eINSTANCE.getDefaultComponentType().isSuperTypeOf(
+					domainElement.eClass())
+					&& JavaConstraints.echoComponentConstraint(
+							(DefaultComponentType) domainElement)
+							.booleanValue()) {
+				return EchoComponentTypeEditPart.VISUAL_ID;
+			}
 			break;
 		case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getWireTapRouterType().isSuperTypeOf(
@@ -285,6 +294,11 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
+		case EchoComponentTypeEditPart.VISUAL_ID:
+			if (EchoComponentTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			if (PojoComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -296,6 +310,9 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			if (BridgeComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (EchoComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -358,6 +375,21 @@ public class CoreVisualIDRegistry {
 			// Since I know there can only be zero or one component in the container...
 			DefaultComponentType component = (DefaultComponentType) map.get(
 					CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent(),
+					false);
+			return self.equals(component);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating DefaultComponentType elements
+		 */
+		private static java.lang.Boolean echoComponentConstraint(
+				DefaultComponentType self) {
+			BaseServiceType container = (BaseServiceType) self.eContainer();
+			FeatureMap map = container.getAbstractComponentGroup();
+			// Since I know there can only be zero or one component in the container...
+			DefaultComponentType component = (DefaultComponentType) map.get(
+					CorePackage.eINSTANCE.getDocumentRoot_EchoComponent(),
 					false);
 			return self.equals(component);
 		}

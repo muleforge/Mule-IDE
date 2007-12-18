@@ -22,20 +22,20 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
-import org.mule.ide.config.editor.services.edit.policies.BridgeComponentTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.EchoComponentTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * @generated
  */
-public class BridgeComponentTypeEditPart extends ShapeNodeEditPart {
+public class EchoComponentTypeEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2008;
+	public static final int VISUAL_ID = 2009;
 
 	/**
 	 * @generated
@@ -50,7 +50,7 @@ public class BridgeComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public BridgeComponentTypeEditPart(View view) {
+	public EchoComponentTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -61,7 +61,7 @@ public class BridgeComponentTypeEditPart extends ShapeNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new BridgeComponentTypeItemSemanticEditPolicy());
+				new EchoComponentTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -105,8 +105,8 @@ public class BridgeComponentTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof BridgeComponentTypeLabelEditPart) {
-			((BridgeComponentTypeLabelEditPart) childEditPart)
+		if (childEditPart instanceof EchoComponentTypeLabelEditPart) {
+			((EchoComponentTypeLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureDefaultComponentTypeNameFigure());
 			return true;
@@ -206,7 +206,7 @@ public class BridgeComponentTypeEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(BridgeComponentTypeLabelEditPart.VISUAL_ID));
+				.getType(EchoComponentTypeLabelEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -245,7 +245,7 @@ public class BridgeComponentTypeEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureDefaultComponentTypeNameFigure = new WrapLabel();
-			fFigureDefaultComponentTypeNameFigure.setText(Messages.BridgeComponentTypeLabel);
+			fFigureDefaultComponentTypeNameFigure.setText(Messages.EchoComponentTypeLabel);
 			fFigureDefaultComponentTypeNameFigure
 					.setForegroundColor(ColorConstants.gray);
 

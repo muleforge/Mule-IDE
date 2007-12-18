@@ -173,10 +173,15 @@ public class CorePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createEchoComponent2CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.DefaultComponentType_2009);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.EchoComponent2CreationTool_title,
-				Messages.EchoComponent2CreationTool_desc, null, null) {
-		};
+				Messages.EchoComponent2CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.DefaultComponentType_2009));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

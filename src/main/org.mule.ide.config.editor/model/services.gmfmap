@@ -199,8 +199,74 @@
               href="services.gmfgraph#DefaultComponentType"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractComponent"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.mule.ide.config.core/model/core.ecore#//DefaultComponentType"/>
+          <domainSpecialization
+              body="logComponentConstraint"
+              language="java"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#DefaultComponentTypeName"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="services.gmftool#//@palette/@tools.1/@tools.3"/>
+          <diagramNode
+              href="services.gmfgraph#DefaultComponentType"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractComponent"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.mule.ide.config.core/model/core.ecore#//DefaultComponentType"/>
+          <domainSpecialization
+              body="nullComponentConstraint"
+              language="java"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#DefaultComponentTypeName"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="services.gmftool#//@palette/@tools.1/@tools.4"/>
+          <diagramNode
+              href="services.gmfgraph#DefaultComponentType"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractComponent"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.mule.ide.config.core/model/core.ecore#//DefaultComponentType"/>
+          <domainSpecialization
+              body="passThroughComponentConstraint"
+              language="java"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#DefaultComponentTypeName"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="services.gmftool#//@palette/@tools.1/@tools.5"/>
+          <diagramNode
+              href="services.gmfgraph#DefaultComponentType"/>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.7">
+          children="//@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.10">
         <compartment
             href="services.gmfgraph#COMPONENT"/>
       </compartments>

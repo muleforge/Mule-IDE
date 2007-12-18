@@ -26,8 +26,8 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Pojo Component"
-          description="Create new Pojo Component">
+          title="Bridge Component"
+          description="Add a new Bridge Component to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -35,8 +35,53 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="No Args Component"
-          description="Create new No Args Component">
+          title="Echo Component"
+          description="Add a new Echo Component to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="No Args Call Component"
+          description="Add a new No Args Call Component to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Log Component"
+          description="Add a new Log Component to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Null Component"
+          description="Add a new Null Component to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Pass Through Component"
+          description="Add a new Pass Through Component to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Pojo Component"
+          description="Add a new Pojo Component to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

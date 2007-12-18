@@ -4,213 +4,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="core">
   <figures
-      name="Default">
-    <descriptors
-        name="ChunkingRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="ChunkingRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="CorrelationAggregatorRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="CorrelationAggregatorRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="CorrelationRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="CorrelationRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="CustomExceptionStrategyTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="CustomExceptionStrategyTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="CustomForwardingCatchAllStrategyTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="CustomForwardingCatchAllStrategyTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="CustomInboundRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="CustomInboundRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="CustomOutboundRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="CustomOutboundRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="CustomResponseRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="CustomResponseRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="DefaultComponentTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="DefaultComponentTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="EndpointSelectorRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="EndpointSelectorRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="ExceptionStrategyTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="ExceptionStrategyTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="FilteredInboundRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="FilteredInboundRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="FilteringOutboundRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="FilteringOutboundRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="ForwardingCatchAllStrategyTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="ForwardingCatchAllStrategyTypeFigure">
-        <layout
-            xsi:type="gmfgraph:FlowLayout"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="ForwardingCatchAllStrategyTypeAbstractOutboundEndpointGroupFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="ForwardingRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="ForwardingRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="IdempotentReceiverTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="IdempotentReceiverTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="InboundEndpointTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="InboundEndpointTypeFigure">
-        <layout
-            xsi:type="gmfgraph:FlowLayout"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="InboundEndpointTypeNameFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="LoggingCatchAllStrategyTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="LoggingCatchAllStrategyTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="MessageSplitterOutboundRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="MessageSplitterOutboundRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="NoArgsCallWrapperTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="NoArgsCallWrapperTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="OutboundEndpointTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="OutboundEndpointTypeFigure">
-        <layout
-            xsi:type="gmfgraph:FlowLayout"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="OutboundEndpointTypeNameFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.20/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="OutboundRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="OutboundRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="PojoComponentTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="PojoComponentTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="ResponseEndpointTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="ResponseEndpointTypeFigure">
-        <layout
-            xsi:type="gmfgraph:FlowLayout"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="ResponseEndpointTypeNameFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.23/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="ResponseRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="ResponseRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="SelectiveConsumerRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="SelectiveConsumerRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="StaticRecipientListRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="StaticRecipientListRouterTypeFigure"/>
-    </descriptors>
-    <descriptors
-        name="WireTapRouterTypeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="WireTapRouterTypeFigure"/>
-    </descriptors>
-  </figures>
-  <figures
       name="Services">
     <descriptors
         name="RoundedServiceFigure">
@@ -238,6 +31,9 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ServiceNameFigure">
+          <backgroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="lightBlue"/>
           <font
               xsi:type="gmfgraph:BasicFont"
               faceName=""
@@ -245,7 +41,7 @@
         </children>
       </actualFigure>
       <accessors
-          figure="//@figures.1/@descriptors.0/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="LabeledCompartmentFigure">
@@ -312,9 +108,9 @@
         </children>
       </actualFigure>
       <accessors
-          figure="//@figures.1/@descriptors.3/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
       <accessors
-          figure="//@figures.1/@descriptors.3/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="NoArgsComponentFigure">
@@ -351,107 +147,114 @@
         </children>
       </actualFigure>
       <accessors
-          figure="//@figures.1/@descriptors.4/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
       <accessors
-          figure="//@figures.1/@descriptors.4/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="DefaultComponentFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="DefaultComponentFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            majorSpacing="3"
+            minorSpacing="3"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DefaultComponentTypeNameFigure"
+            text="type">
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="gray"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="7"
+              style="ITALIC"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
     </descriptors>
   </figures>
   <nodes
-      name="ChunkingRouterType"
-      figure="ChunkingRouterTypeFigure"/>
+      name="ChunkingRouterType"/>
   <nodes
-      name="CorrelationAggregatorRouterType"
-      figure="CorrelationAggregatorRouterTypeFigure"/>
+      name="CorrelationAggregatorRouterType"/>
   <nodes
-      name="CorrelationRouterType"
-      figure="CorrelationRouterTypeFigure"/>
+      name="CorrelationRouterType"/>
   <nodes
-      name="CustomExceptionStrategyType"
-      figure="CustomExceptionStrategyTypeFigure"/>
+      name="CustomExceptionStrategyType"/>
   <nodes
-      name="CustomForwardingCatchAllStrategyType"
-      figure="CustomForwardingCatchAllStrategyTypeFigure"/>
+      name="CustomForwardingCatchAllStrategyType"/>
   <nodes
-      name="CustomInboundRouterType"
-      figure="CustomInboundRouterTypeFigure"/>
+      name="CustomInboundRouterType"/>
   <nodes
-      name="CustomOutboundRouterType"
-      figure="CustomOutboundRouterTypeFigure"/>
+      name="CustomOutboundRouterType"/>
   <nodes
-      name="CustomResponseRouterType"
-      figure="CustomResponseRouterTypeFigure"/>
+      name="CustomResponseRouterType"/>
   <nodes
       name="DefaultComponentType"
-      figure="DefaultComponentTypeFigure"/>
+      figure="DefaultComponentFigure"/>
   <nodes
-      name="EndpointSelectorRouterType"
-      figure="EndpointSelectorRouterTypeFigure"/>
+      name="EndpointSelectorRouterType"/>
   <nodes
-      name="ExceptionStrategyType"
-      figure="ExceptionStrategyTypeFigure"/>
+      name="ExceptionStrategyType"/>
   <nodes
-      name="FilteredInboundRouterType"
-      figure="FilteredInboundRouterTypeFigure"/>
+      name="FilteredInboundRouterType"/>
   <nodes
-      name="FilteringOutboundRouterType"
-      figure="FilteringOutboundRouterTypeFigure"/>
+      name="FilteringOutboundRouterType"/>
   <nodes
-      name="ForwardingCatchAllStrategyType"
-      figure="ForwardingCatchAllStrategyTypeFigure"/>
+      name="ForwardingCatchAllStrategyType"/>
   <nodes
-      name="ForwardingRouterType"
-      figure="ForwardingRouterTypeFigure"/>
+      name="ForwardingRouterType"/>
   <nodes
-      name="IdempotentReceiverType"
-      figure="IdempotentReceiverTypeFigure"/>
+      name="IdempotentReceiverType"/>
   <nodes
-      name="InboundEndpointType"
-      figure="InboundEndpointTypeFigure"/>
+      name="InboundEndpointType"/>
   <nodes
       name="InboundRouterCollectionType"
       figure="CollectionFigure"/>
   <nodes
-      name="LoggingCatchAllStrategyType"
-      figure="LoggingCatchAllStrategyTypeFigure"/>
+      name="LoggingCatchAllStrategyType"/>
   <nodes
-      name="MessageSplitterOutboundRouterType"
-      figure="MessageSplitterOutboundRouterTypeFigure"/>
+      name="MessageSplitterOutboundRouterType"/>
   <nodes
       name="NoArgsCallWrapperType"
       figure="NoArgsComponentFigure"/>
   <nodes
-      name="OutboundEndpointType"
-      figure="OutboundEndpointTypeFigure"/>
+      name="OutboundEndpointType"/>
   <nodes
       name="OutboundRouterCollectionType"
       figure="CollectionFigure"/>
   <nodes
-      name="OutboundRouterType"
-      figure="OutboundRouterTypeFigure"/>
+      name="OutboundRouterType"/>
   <nodes
       name="PojoComponentType"
       figure="PojoComponentFigure"/>
   <nodes
-      name="ResponseEndpointType"
-      figure="ResponseEndpointTypeFigure"/>
+      name="ResponseEndpointType"/>
   <nodes
       name="ResponseRouterCollectionType"
       figure="CollectionFigure"/>
   <nodes
-      name="ResponseRouterType"
-      figure="ResponseRouterTypeFigure"/>
+      name="ResponseRouterType"/>
   <nodes
       name="SedaServiceType"
       figure="RoundedServiceFigure"/>
   <nodes
-      name="SelectiveConsumerRouterType"
-      figure="SelectiveConsumerRouterTypeFigure"/>
+      name="SelectiveConsumerRouterType"/>
   <nodes
-      name="StaticRecipientListRouterType"
-      figure="StaticRecipientListRouterTypeFigure"/>
+      name="StaticRecipientListRouterType"/>
   <nodes
       name="WireTapRouterType"
       figure="PojoComponentFigure"/>
+  <nodes
+      name="PassThroughComponentType"
+      figure="DefaultComponentFigure"/>
   <compartments
       name="COMPONENT"
       figure="LabeledCompartmentFigure"
@@ -480,23 +283,27 @@
   <labels
       name="ServiceName"
       figure="RoundedServiceFigure"
-      accessor="//@figures.1/@descriptors.0/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels
       name="PojoComponentTypeName"
       figure="PojoComponentFigure"
-      accessor="//@figures.1/@descriptors.3/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <labels
       name="PojoClassName"
       figure="PojoComponentFigure"
       elementIcon="false"
-      accessor="//@figures.1/@descriptors.3/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.3/@accessors.1"/>
   <labels
       name="NoArgsComponentTypeName"
       figure="NoArgsComponentFigure"
-      accessor="//@figures.1/@descriptors.4/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels
       name="NoArgsClassName"
       figure="NoArgsComponentFigure"
       elementIcon="false"
-      accessor="//@figures.1/@descriptors.4/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+  <labels
+      name="DefaultComponentTypeName"
+      figure="DefaultComponentFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
 </gmfgraph:Canvas>

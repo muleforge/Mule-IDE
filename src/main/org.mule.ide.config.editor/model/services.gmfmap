@@ -15,7 +15,7 @@
           editorPattern=""
           editPattern="">
         <diagramLabel
-            href="services.gmfgraph#ServiceName"/>
+            href="services.gmfgraph#ServiceNameLabel"/>
         <features
             href="../../org.mule.ide.config.core/model/core.ecore#//AbstractServiceType/name"/>
       </labelMappings>
@@ -42,13 +42,13 @@
               <labelMappings
                   readOnly="true">
                 <diagramLabel
-                    href="services.gmfgraph#PojoComponentTypeName"/>
+                    href="services.gmfgraph#ServiceItemTypeLabel"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
                   href="services.gmftool#//@palette/@tools.3/@tools.1"/>
               <diagramNode
-                  href="services.gmfgraph#WireTapRouterType"/>
+                  href="services.gmfgraph#ServiceItem"/>
             </ownedChild>
           </children>
           <compartments

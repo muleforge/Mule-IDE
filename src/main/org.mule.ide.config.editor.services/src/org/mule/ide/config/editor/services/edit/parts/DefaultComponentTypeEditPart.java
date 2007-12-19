@@ -89,15 +89,15 @@ public class DefaultComponentTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		DefaultComponentFigure figure = new DefaultComponentFigure();
+		ServiceItemFigure figure = new ServiceItemFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public DefaultComponentFigure getPrimaryShape() {
-		return (DefaultComponentFigure) primaryShape;
+	public ServiceItemFigure getPrimaryShape() {
+		return (ServiceItemFigure) primaryShape;
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class DefaultComponentTypeEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof DefaultComponentTypeLabelEditPart) {
 			((DefaultComponentTypeLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigureDefaultComponentTypeNameFigure());
+							.getFigureServiceItemTypeLabelFigure());
 			return true;
 		}
 		return false;
@@ -154,7 +154,7 @@ public class DefaultComponentTypeEditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(40), getMapMode().DPtoLP(40));
+				.DPtoLP(40), getMapMode().DPtoLP(10));
 		return result;
 	}
 
@@ -211,23 +211,23 @@ public class DefaultComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class DefaultComponentFigure extends RoundedRectangle {
+	public class ServiceItemFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureDefaultComponentTypeNameFigure;
+		private WrapLabel fFigureServiceItemTypeLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public DefaultComponentFigure() {
+		public ServiceItemFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
-			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setStretchMinorAxis(false);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
-			layoutThis.setSpacing(3);
+			layoutThis.setSpacing(5);
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);
@@ -242,15 +242,15 @@ public class DefaultComponentTypeEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureDefaultComponentTypeNameFigure = new WrapLabel();
-			fFigureDefaultComponentTypeNameFigure.setText("type");
-			fFigureDefaultComponentTypeNameFigure
+			fFigureServiceItemTypeLabelFigure = new WrapLabel();
+			fFigureServiceItemTypeLabelFigure.setText("");
+			fFigureServiceItemTypeLabelFigure
 					.setForegroundColor(ColorConstants.gray);
 
-			fFigureDefaultComponentTypeNameFigure
-					.setFont(FFIGUREDEFAULTCOMPONENTTYPENAMEFIGURE_FONT);
+			fFigureServiceItemTypeLabelFigure
+					.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);
 
-			this.add(fFigureDefaultComponentTypeNameFigure);
+			this.add(fFigureServiceItemTypeLabelFigure);
 
 		}
 
@@ -276,8 +276,8 @@ public class DefaultComponentTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureDefaultComponentTypeNameFigure() {
-			return fFigureDefaultComponentTypeNameFigure;
+		public WrapLabel getFigureServiceItemTypeLabelFigure() {
+			return fFigureServiceItemTypeLabelFigure;
 		}
 
 	}
@@ -285,8 +285,9 @@ public class DefaultComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREDEFAULTCOMPONENTTYPENAMEFIGURE_FONT = new Font(
-			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 7, SWT.ITALIC);
+	static final Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 7,
+			SWT.ITALIC);
 
 }

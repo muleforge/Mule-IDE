@@ -95,15 +95,15 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		PojoComponentFigure figure = new PojoComponentFigure();
+		ClassServiceItemFigure figure = new ClassServiceItemFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public PojoComponentFigure getPrimaryShape() {
-		return (PojoComponentFigure) primaryShape;
+	public ClassServiceItemFigure getPrimaryShape() {
+		return (ClassServiceItemFigure) primaryShape;
 	}
 
 	/**
@@ -113,12 +113,13 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof PojoComponentTypeLabelEditPart) {
 			((PojoComponentTypeLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigurePojoComponentTypeNameFigure());
+							.getFigureClassServiceItemTypeLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof PojoComponentTypeClassEditPart) {
 			((PojoComponentTypeClassEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigurePojoClassNameFigure());
+					.setLabel(getPrimaryShape()
+							.getFigureClassServiceItemClassLabelFigure());
 			return true;
 		}
 		return false;
@@ -165,7 +166,7 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(40), getMapMode().DPtoLP(40));
+				.DPtoLP(40), getMapMode().DPtoLP(10));
 		return result;
 	}
 
@@ -175,7 +176,8 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * customization
+	 *   - special config of service item figure
 	 */
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
@@ -183,6 +185,8 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		ServiceEditPartUtil.configureServiceItemFigure(figure,
+				Messages.PojoComponentTypeLabel);
 		return figure;
 	}
 
@@ -222,27 +226,27 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class PojoComponentFigure extends RoundedRectangle {
+	public class ClassServiceItemFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigurePojoComponentTypeNameFigure;
+		private WrapLabel fFigureClassServiceItemTypeLabelFigure;
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigurePojoClassNameFigure;
+		private WrapLabel fFigureClassServiceItemClassLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public PojoComponentFigure() {
+		public ClassServiceItemFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
-			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setStretchMinorAxis(false);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
-			layoutThis.setSpacing(3);
+			layoutThis.setSpacing(5);
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);
@@ -253,32 +257,31 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * customization
-		 *   - fFigurePojoComponentTypeNameFigure.setText
+		 * @generated
 		 */
 		private void createContents() {
 
-			fFigurePojoComponentTypeNameFigure = new WrapLabel();
-			fFigurePojoComponentTypeNameFigure
-					.setText(Messages.PojoComponentTypeLabel);
-			fFigurePojoComponentTypeNameFigure
+			fFigureClassServiceItemTypeLabelFigure = new WrapLabel();
+			fFigureClassServiceItemTypeLabelFigure.setText("");
+			fFigureClassServiceItemTypeLabelFigure
 					.setForegroundColor(ColorConstants.gray);
 
-			fFigurePojoComponentTypeNameFigure
-					.setFont(FFIGUREPOJOCOMPONENTTYPENAMEFIGURE_FONT);
+			fFigureClassServiceItemTypeLabelFigure
+					.setFont(FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT);
 
-			this.add(fFigurePojoComponentTypeNameFigure);
+			this.add(fFigureClassServiceItemTypeLabelFigure);
 
-			fFigurePojoClassNameFigure = new WrapLabel();
-			fFigurePojoClassNameFigure.setText("");
+			fFigureClassServiceItemClassLabelFigure = new WrapLabel();
+			fFigureClassServiceItemClassLabelFigure.setText("");
 
-			fFigurePojoClassNameFigure.setFont(FFIGUREPOJOCLASSNAMEFIGURE_FONT);
+			fFigureClassServiceItemClassLabelFigure
+					.setFont(FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT);
 
-			fFigurePojoClassNameFigure.setBorder(new MarginBorder(getMapMode()
-					.DPtoLP(0), getMapMode().DPtoLP(10),
+			fFigureClassServiceItemClassLabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(10),
 					getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 
-			this.add(fFigurePojoClassNameFigure);
+			this.add(fFigureClassServiceItemClassLabelFigure);
 
 		}
 
@@ -304,15 +307,15 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigurePojoComponentTypeNameFigure() {
-			return fFigurePojoComponentTypeNameFigure;
+		public WrapLabel getFigureClassServiceItemTypeLabelFigure() {
+			return fFigureClassServiceItemTypeLabelFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigurePojoClassNameFigure() {
-			return fFigurePojoClassNameFigure;
+		public WrapLabel getFigureClassServiceItemClassLabelFigure() {
+			return fFigureClassServiceItemClassLabelFigure;
 		}
 
 	}
@@ -320,16 +323,15 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREPOJOCOMPONENTTYPENAMEFIGURE_FONT = new Font(
+	static final Font FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT = new Font(
 			Display.getCurrent(), Display.getDefault().getSystemFont()
 					.getFontData()[0].getName(), 7, SWT.ITALIC);
 
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREPOJOCLASSNAMEFIGURE_FONT = new Font(Display
-			.getCurrent(),
-			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9,
-			SWT.BOLD);
+	static final Font FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 9, SWT.BOLD);
 
 }

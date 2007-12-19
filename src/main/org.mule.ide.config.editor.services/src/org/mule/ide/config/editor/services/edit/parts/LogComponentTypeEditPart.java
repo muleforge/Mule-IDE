@@ -90,15 +90,15 @@ public class LogComponentTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		DefaultComponentFigure figure = new DefaultComponentFigure();
+		ServiceItemFigure figure = new ServiceItemFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public DefaultComponentFigure getPrimaryShape() {
-		return (DefaultComponentFigure) primaryShape;
+	public ServiceItemFigure getPrimaryShape() {
+		return (ServiceItemFigure) primaryShape;
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class LogComponentTypeEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof LogComponentTypeLabelEditPart) {
 			((LogComponentTypeLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigureDefaultComponentTypeNameFigure());
+							.getFigureServiceItemTypeLabelFigure());
 			return true;
 		}
 		return false;
@@ -155,7 +155,7 @@ public class LogComponentTypeEditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(40), getMapMode().DPtoLP(40));
+				.DPtoLP(40), getMapMode().DPtoLP(10));
 		return result;
 	}
 
@@ -165,7 +165,8 @@ public class LogComponentTypeEditPart extends ShapeNodeEditPart {
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * customization
+	 *   - special config of service item figure
 	 */
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
@@ -173,6 +174,8 @@ public class LogComponentTypeEditPart extends ShapeNodeEditPart {
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		ServiceEditPartUtil.configureServiceItemFigure(figure,
+				Messages.LogComponentTypeLabel);
 		return figure;
 	}
 
@@ -212,23 +215,23 @@ public class LogComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class DefaultComponentFigure extends RoundedRectangle {
+	public class ServiceItemFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureDefaultComponentTypeNameFigure;
+		private WrapLabel fFigureServiceItemTypeLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public DefaultComponentFigure() {
+		public ServiceItemFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
-			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setStretchMinorAxis(false);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
-			layoutThis.setSpacing(3);
+			layoutThis.setSpacing(5);
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);
@@ -239,21 +242,19 @@ public class LogComponentTypeEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * customization
-		 *   - fFigurePojoComponentTypeNameFigure.setText
+		 * @generated
 		 */
 		private void createContents() {
 
-			fFigureDefaultComponentTypeNameFigure = new WrapLabel();
-			fFigureDefaultComponentTypeNameFigure
-					.setText(Messages.LogComponentTypeLabel);
-			fFigureDefaultComponentTypeNameFigure
+			fFigureServiceItemTypeLabelFigure = new WrapLabel();
+			fFigureServiceItemTypeLabelFigure.setText("");
+			fFigureServiceItemTypeLabelFigure
 					.setForegroundColor(ColorConstants.gray);
 
-			fFigureDefaultComponentTypeNameFigure
-					.setFont(FFIGUREDEFAULTCOMPONENTTYPENAMEFIGURE_FONT);
+			fFigureServiceItemTypeLabelFigure
+					.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);
 
-			this.add(fFigureDefaultComponentTypeNameFigure);
+			this.add(fFigureServiceItemTypeLabelFigure);
 
 		}
 
@@ -279,8 +280,8 @@ public class LogComponentTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureDefaultComponentTypeNameFigure() {
-			return fFigureDefaultComponentTypeNameFigure;
+		public WrapLabel getFigureServiceItemTypeLabelFigure() {
+			return fFigureServiceItemTypeLabelFigure;
 		}
 
 	}
@@ -288,8 +289,9 @@ public class LogComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREDEFAULTCOMPONENTTYPENAMEFIGURE_FONT = new Font(
-			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 7, SWT.ITALIC);
+	static final Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 7,
+			SWT.ITALIC);
 
 }

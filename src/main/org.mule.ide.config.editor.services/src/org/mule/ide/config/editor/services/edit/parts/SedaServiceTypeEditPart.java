@@ -136,6 +136,27 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
+								if (type == CoreElementTypes.ExceptionStrategyType_2013) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+								if (type == CoreElementTypes.ExceptionStrategyType_2014) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+								if (type == CoreElementTypes.CustomExceptionStrategyType_2015) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
 							}
 							return super.getCommand(request);
 						}

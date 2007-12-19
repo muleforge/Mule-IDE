@@ -8,9 +8,16 @@ import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
@@ -40,9 +47,16 @@ import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.view.factories.BridgeComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.BridgeComponentTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrategyTypeClassViewFactory;
+import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrategyTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrategyTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultComponentTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.DefaultConnectorExceptionStrategyTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.DefaultConnectorExceptionStrategyTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultModelTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.DefaultServiceExceptionStrategyTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.DefaultServiceExceptionStrategyTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.EchoComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.EchoComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeINBOUNDViewFactory;
@@ -147,11 +161,14 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case PojoComponentTypeEditPart.VISUAL_ID:
 				case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
 				case DefaultComponentTypeEditPart.VISUAL_ID:
+				case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
+				case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
 				case BridgeComponentTypeEditPart.VISUAL_ID:
 				case EchoComponentTypeEditPart.VISUAL_ID:
 				case LogComponentTypeEditPart.VISUAL_ID:
 				case NullComponentTypeEditPart.VISUAL_ID:
 				case PassThroughComponentTypeEditPart.VISUAL_ID:
+				case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != CoreVisualIDRegistry
 									.getNodeVisualID(containerView,
@@ -254,6 +271,28 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
+				case DefaultServiceExceptionStrategyTypeLabelEditPart.VISUAL_ID:
+					if (DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case DefaultConnectorExceptionStrategyTypeLabelEditPart.VISUAL_ID:
+					if (DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case CustomExceptionStrategyTypeLabelEditPart.VISUAL_ID:
+				case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
+					if (CustomExceptionStrategyTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
 				default:
 					return null;
 				}
@@ -321,6 +360,20 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return PassThroughComponentTypeViewFactory.class;
 		case PassThroughComponentTypeLabelEditPart.VISUAL_ID:
 			return PassThroughComponentTypeLabelViewFactory.class;
+		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
+			return DefaultServiceExceptionStrategyTypeViewFactory.class;
+		case DefaultServiceExceptionStrategyTypeLabelEditPart.VISUAL_ID:
+			return DefaultServiceExceptionStrategyTypeLabelViewFactory.class;
+		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
+			return DefaultConnectorExceptionStrategyTypeViewFactory.class;
+		case DefaultConnectorExceptionStrategyTypeLabelEditPart.VISUAL_ID:
+			return DefaultConnectorExceptionStrategyTypeLabelViewFactory.class;
+		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
+			return CustomExceptionStrategyTypeViewFactory.class;
+		case CustomExceptionStrategyTypeLabelEditPart.VISUAL_ID:
+			return CustomExceptionStrategyTypeLabelViewFactory.class;
+		case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
+			return CustomExceptionStrategyTypeClassViewFactory.class;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			return SedaServiceTypeCOMPONENTViewFactory.class;
 		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:

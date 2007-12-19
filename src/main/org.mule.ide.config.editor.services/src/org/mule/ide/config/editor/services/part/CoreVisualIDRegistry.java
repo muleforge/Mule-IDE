@@ -10,11 +10,19 @@ import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DefaultComponentType;
 import org.mule.ide.config.core.DefaultModelType;
+import org.mule.ide.config.core.ExceptionStrategyType;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
@@ -218,6 +226,28 @@ public class CoreVisualIDRegistry {
 				return PassThroughComponentTypeEditPart.VISUAL_ID;
 			}
 			break;
+		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getExceptionStrategyType().isSuperTypeOf(
+					domainElement.eClass())
+					&& JavaConstraints
+							.defautServiceExceptionStrategyConstraint(
+									(ExceptionStrategyType) domainElement)
+							.booleanValue()) {
+				return DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getExceptionStrategyType().isSuperTypeOf(
+					domainElement.eClass())
+					&& JavaConstraints
+							.defautConnectorExceptionStrategyConstraint(
+									(ExceptionStrategyType) domainElement)
+							.booleanValue()) {
+				return DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getCustomExceptionStrategyType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return CustomExceptionStrategyTypeEditPart.VISUAL_ID;
+			}
+			break;
 		case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getWireTapRouterType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -341,6 +371,24 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
+		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
+			if (DefaultServiceExceptionStrategyTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
+			if (DefaultConnectorExceptionStrategyTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
+			if (CustomExceptionStrategyTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomExceptionStrategyTypeClassEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			if (PojoComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -364,6 +412,17 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			if (PassThroughComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:
+			if (DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomExceptionStrategyTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -469,9 +528,9 @@ public class CoreVisualIDRegistry {
 			BaseServiceType container = (BaseServiceType) self.eContainer();
 			FeatureMap map = container.getAbstractComponentGroup();
 			// Since I know there can only be zero or one component in the container...
-			DefaultComponentType component = (DefaultComponentType) map
-					.get(CorePackage.eINSTANCE.getDocumentRoot_NullComponent(),
-							false);
+			DefaultComponentType component = (DefaultComponentType) map.get(
+					CorePackage.eINSTANCE.getDocumentRoot_NullComponent(),
+					false);
 			return self.equals(component);
 		}
 
@@ -484,8 +543,41 @@ public class CoreVisualIDRegistry {
 			BaseServiceType container = (BaseServiceType) self.eContainer();
 			FeatureMap map = container.getAbstractComponentGroup();
 			// Since I know there can only be zero or one component in the container...
-			DefaultComponentType component = (DefaultComponentType) map
-					.get(CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent(),
+			DefaultComponentType component = (DefaultComponentType) map.get(
+					CorePackage.eINSTANCE
+							.getDocumentRoot_PassThroughComponent(), false);
+			return self.equals(component);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating ExceptionStrategyType elements
+		 */
+		private static java.lang.Boolean defautServiceExceptionStrategyConstraint(
+				ExceptionStrategyType self) {
+			BaseServiceType container = (BaseServiceType) self.eContainer();
+			FeatureMap map = container.getAbstractExceptionStrategyGroup();
+			// Since I know there can only be zero or one in the container...
+			ExceptionStrategyType component = (ExceptionStrategyType) map.get(
+					CorePackage.eINSTANCE
+							.getDocumentRoot_DefaultServiceExceptionStrategy(),
+					false);
+			return self.equals(component);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating ExceptionStrategyType elements
+		 */
+		private static java.lang.Boolean defautConnectorExceptionStrategyConstraint(
+				ExceptionStrategyType self) {
+			BaseServiceType container = (BaseServiceType) self.eContainer();
+			FeatureMap map = container.getAbstractExceptionStrategyGroup();
+			// Since I know there can only be zero or one in the container...
+			ExceptionStrategyType component = (ExceptionStrategyType) map
+					.get(
+							CorePackage.eINSTANCE
+									.getDocumentRoot_DefaultConnectorExceptionStrategy(),
 							false);
 			return self.equals(component);
 		}

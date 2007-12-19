@@ -2,6 +2,7 @@ package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
@@ -23,19 +24,20 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.NullComponentTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.DefaultServiceExceptionStrategyTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * @generated
  */
-public class NullComponentTypeEditPart extends ShapeNodeEditPart {
+public class DefaultServiceExceptionStrategyTypeEditPart extends
+		ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2011;
+	public static final int VISUAL_ID = 2013;
 
 	/**
 	 * @generated
@@ -50,7 +52,7 @@ public class NullComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public NullComponentTypeEditPart(View view) {
+	public DefaultServiceExceptionStrategyTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -61,7 +63,7 @@ public class NullComponentTypeEditPart extends ShapeNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new NullComponentTypeItemSemanticEditPolicy());
+				new DefaultServiceExceptionStrategyTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -90,25 +92,25 @@ public class NullComponentTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		DefaultComponentFigure figure = new DefaultComponentFigure();
+		ServiceItemFigure figure = new ServiceItemFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public DefaultComponentFigure getPrimaryShape() {
-		return (DefaultComponentFigure) primaryShape;
+	public ServiceItemFigure getPrimaryShape() {
+		return (ServiceItemFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof NullComponentTypeLabelEditPart) {
-			((NullComponentTypeLabelEditPart) childEditPart)
+		if (childEditPart instanceof DefaultServiceExceptionStrategyTypeLabelEditPart) {
+			((DefaultServiceExceptionStrategyTypeLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigureDefaultComponentTypeNameFigure());
+							.getFigureServiceItemTypeLabelFigure());
 			return true;
 		}
 		return false;
@@ -155,7 +157,7 @@ public class NullComponentTypeEditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(40), getMapMode().DPtoLP(40));
+				.DPtoLP(40), getMapMode().DPtoLP(10));
 		return result;
 	}
 
@@ -165,7 +167,8 @@ public class NullComponentTypeEditPart extends ShapeNodeEditPart {
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * customization
+	 *   - special config of service item figure
 	 */
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
@@ -173,6 +176,8 @@ public class NullComponentTypeEditPart extends ShapeNodeEditPart {
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		ServiceEditPartUtil.configureServiceItemFigure(figure,
+				Messages.DefaultServiceExceptionStrategyTypeLabel);
 		return figure;
 	}
 
@@ -206,29 +211,29 @@ public class NullComponentTypeEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(NullComponentTypeLabelEditPart.VISUAL_ID));
+				.getType(DefaultServiceExceptionStrategyTypeLabelEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class DefaultComponentFigure extends RoundedRectangle {
+	public class ServiceItemFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureDefaultComponentTypeNameFigure;
+		private WrapLabel fFigureServiceItemTypeLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public DefaultComponentFigure() {
+		public ServiceItemFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
-			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setStretchMinorAxis(false);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
-			layoutThis.setSpacing(3);
+			layoutThis.setSpacing(5);
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);
@@ -239,21 +244,19 @@ public class NullComponentTypeEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * customization
-		 *   - fFigurePojoComponentTypeNameFigure.setText
+		 * @generated
 		 */
 		private void createContents() {
 
-			fFigureDefaultComponentTypeNameFigure = new WrapLabel();
-			fFigureDefaultComponentTypeNameFigure
-					.setText(Messages.NullComponentTypeLabel);
-			fFigureDefaultComponentTypeNameFigure
+			fFigureServiceItemTypeLabelFigure = new WrapLabel();
+			fFigureServiceItemTypeLabelFigure.setText("");
+			fFigureServiceItemTypeLabelFigure
 					.setForegroundColor(ColorConstants.gray);
 
-			fFigureDefaultComponentTypeNameFigure
-					.setFont(FFIGUREDEFAULTCOMPONENTTYPENAMEFIGURE_FONT);
+			fFigureServiceItemTypeLabelFigure
+					.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);
 
-			this.add(fFigureDefaultComponentTypeNameFigure);
+			this.add(fFigureServiceItemTypeLabelFigure);
 
 		}
 
@@ -279,8 +282,8 @@ public class NullComponentTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureDefaultComponentTypeNameFigure() {
-			return fFigureDefaultComponentTypeNameFigure;
+		public WrapLabel getFigureServiceItemTypeLabelFigure() {
+			return fFigureServiceItemTypeLabelFigure;
 		}
 
 	}
@@ -288,8 +291,9 @@ public class NullComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREDEFAULTCOMPONENTTYPENAMEFIGURE_FONT = new Font(
-			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 7, SWT.ITALIC);
+	static final Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 7,
+			SWT.ITALIC);
 
 }

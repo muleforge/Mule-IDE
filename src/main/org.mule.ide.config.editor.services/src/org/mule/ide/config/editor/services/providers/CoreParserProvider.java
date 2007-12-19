@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
@@ -30,22 +31,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser sedaServiceTypeName_4012Parser;
+	private IParser sedaServiceTypeName_4016Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSedaServiceTypeName_4012Parser() {
-		if (sedaServiceTypeName_4012Parser == null) {
-			sedaServiceTypeName_4012Parser = createSedaServiceTypeName_4012Parser();
+	private IParser getSedaServiceTypeName_4016Parser() {
+		if (sedaServiceTypeName_4016Parser == null) {
+			sedaServiceTypeName_4016Parser = createSedaServiceTypeName_4016Parser();
 		}
-		return sedaServiceTypeName_4012Parser;
+		return sedaServiceTypeName_4016Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSedaServiceTypeName_4012Parser() {
+	protected IParser createSedaServiceTypeName_4016Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getAbstractServiceType_Name(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -74,6 +75,32 @@ public class CoreParserProvider extends AbstractProvider implements
 	protected IParser createPojoComponentTypeClass_4003Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getPojoComponentType_Class(), };
+		MessageFormatParser parser = new ClassNameParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser customExceptionStrategyTypeClass_4015Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCustomExceptionStrategyTypeClass_4015Parser() {
+		if (customExceptionStrategyTypeClass_4015Parser == null) {
+			customExceptionStrategyTypeClass_4015Parser = createCustomExceptionStrategyTypeClass_4015Parser();
+		}
+		return customExceptionStrategyTypeClass_4015Parser;
+	}
+
+	/**
+	 * customization
+	 *   - use ClassNameParser
+	 */
+	protected IParser createCustomExceptionStrategyTypeClass_4015Parser() {
+		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+				.getCustomExceptionStrategyType_Class(), };
 		MessageFormatParser parser = new ClassNameParser(features);
 		return parser;
 	}
@@ -109,11 +136,13 @@ public class CoreParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case SedaServiceTypeNameEditPart.VISUAL_ID:
-			return getSedaServiceTypeName_4012Parser();
+			return getSedaServiceTypeName_4016Parser();
 		case PojoComponentTypeClassEditPart.VISUAL_ID:
 			return getPojoComponentTypeClass_4003Parser();
 		case NoArgsCallWrapperTypeClassEditPart.VISUAL_ID:
 			return getNoArgsCallWrapperTypeClass_4005Parser();
+		case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
+			return getCustomExceptionStrategyTypeClass_4015Parser();
 		}
 		return null;
 	}

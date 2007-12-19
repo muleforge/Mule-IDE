@@ -117,6 +117,21 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType ExceptionStrategyType_2013 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2013"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ExceptionStrategyType_2014 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2014"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CustomExceptionStrategyType_2015 = getElementType("org.mule.ide.config.editor.services.CustomExceptionStrategyType_2015"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	private static ImageRegistry getImageRegistry() {
 		if (imageRegistry == null) {
 			imageRegistry = new ImageRegistry();
@@ -266,6 +281,15 @@ public class CoreElementTypes extends ElementInitializers {
 
 			elements.put(DefaultComponentType_2012, CorePackage.eINSTANCE
 					.getDefaultComponentType());
+
+			elements.put(ExceptionStrategyType_2013, CorePackage.eINSTANCE
+					.getExceptionStrategyType());
+
+			elements.put(ExceptionStrategyType_2014, CorePackage.eINSTANCE
+					.getExceptionStrategyType());
+
+			elements.put(CustomExceptionStrategyType_2015,
+					CorePackage.eINSTANCE.getCustomExceptionStrategyType());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -297,6 +321,9 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2010);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2011);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2012);
+			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2013);
+			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2014);
+			KNOWN_ELEMENT_TYPES.add(CustomExceptionStrategyType_2015);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

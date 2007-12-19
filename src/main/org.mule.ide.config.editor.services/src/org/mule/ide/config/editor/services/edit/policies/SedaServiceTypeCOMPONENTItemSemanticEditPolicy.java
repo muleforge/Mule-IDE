@@ -5,6 +5,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.commands.BridgeComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.DefaultComponentTypeCreateCommand;
+import org.mule.ide.config.editor.services.edit.commands.DefaultConnectorExceptionStrategyTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.EchoComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.LogComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.NoArgsCallWrapperTypeCreateCommand;

@@ -368,22 +368,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CustomExceptionStrategy1CreationTool_title;
+	public static String ConnectorExceptionStrategy1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomExceptionStrategy1CreationTool_desc;
+	public static String ConnectorExceptionStrategy1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ExceptionStrategy2CreationTool_title;
+	public static String CustomExceptionStrategy2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ExceptionStrategy2CreationTool_desc;
+	public static String CustomExceptionStrategy2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ServiceExceptionStrategy3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ServiceExceptionStrategy3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -725,4 +735,20 @@ public class Messages extends NLS {
 	 * 
 	 */
 	public static String PassThroughComponentTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String DefaultServiceExceptionStrategyTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String DefaultConnectorExceptionStrategyTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String CustomExceptionStrategyTypeLabel;
+
 }

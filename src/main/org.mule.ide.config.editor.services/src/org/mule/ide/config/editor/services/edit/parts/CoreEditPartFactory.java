@@ -106,6 +106,29 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case PassThroughComponentTypeLabelEditPart.VISUAL_ID:
 				return new PassThroughComponentTypeLabelEditPart(view);
 
+			case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
+				return new DefaultServiceExceptionStrategyTypeEditPart(view);
+
+			case DefaultServiceExceptionStrategyTypeLabelEditPart.VISUAL_ID:
+				return new DefaultServiceExceptionStrategyTypeLabelEditPart(
+						view);
+
+			case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
+				return new DefaultConnectorExceptionStrategyTypeEditPart(view);
+
+			case DefaultConnectorExceptionStrategyTypeLabelEditPart.VISUAL_ID:
+				return new DefaultConnectorExceptionStrategyTypeLabelEditPart(
+						view);
+
+			case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
+				return new CustomExceptionStrategyTypeEditPart(view);
+
+			case CustomExceptionStrategyTypeLabelEditPart.VISUAL_ID:
+				return new CustomExceptionStrategyTypeLabelEditPart(view);
+
+			case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
+				return new CustomExceptionStrategyTypeClassEditPart(view);
+
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				return new SedaServiceTypeCOMPONENTEditPart(view);
 

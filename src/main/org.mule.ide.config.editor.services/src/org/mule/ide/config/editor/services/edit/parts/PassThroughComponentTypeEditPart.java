@@ -246,7 +246,7 @@ public class PassThroughComponentTypeEditPart extends ShapeNodeEditPart {
 
 			fFigureDefaultComponentTypeNameFigure = new WrapLabel();
 			fFigureDefaultComponentTypeNameFigure
-				.setText(Messages.PassThroughComponentTypeLabel);
+					.setText(Messages.PassThroughComponentTypeLabel);
 			fFigureDefaultComponentTypeNameFigure
 					.setForegroundColor(ColorConstants.gray);
 

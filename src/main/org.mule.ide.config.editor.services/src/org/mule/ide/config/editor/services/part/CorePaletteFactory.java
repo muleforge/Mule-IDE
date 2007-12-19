@@ -66,8 +66,9 @@ public class CorePaletteFactory {
 	private PaletteContainer createExceptionStrategies3Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.ExceptionStrategies3Group_title);
-		paletteContainer.add(createCustomExceptionStrategy1CreationTool());
-		paletteContainer.add(createExceptionStrategy2CreationTool());
+		paletteContainer.add(createConnectorExceptionStrategy1CreationTool());
+		paletteContainer.add(createCustomExceptionStrategy2CreationTool());
+		paletteContainer.add(createServiceExceptionStrategy3CreationTool());
 		return paletteContainer;
 	}
 
@@ -267,22 +268,48 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCustomExceptionStrategy1CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.CustomExceptionStrategy1CreationTool_title,
-				Messages.CustomExceptionStrategy1CreationTool_desc, null, null) {
-		};
+	private ToolEntry createConnectorExceptionStrategy1CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.ExceptionStrategyType_2014);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.ConnectorExceptionStrategy1CreationTool_title,
+				Messages.ConnectorExceptionStrategy1CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.ExceptionStrategyType_2014));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createExceptionStrategy2CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.ExceptionStrategy2CreationTool_title,
-				Messages.ExceptionStrategy2CreationTool_desc, null, null) {
-		};
+	private ToolEntry createCustomExceptionStrategy2CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.CustomExceptionStrategyType_2015);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.CustomExceptionStrategy2CreationTool_title,
+				Messages.CustomExceptionStrategy2CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.CustomExceptionStrategyType_2015));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createServiceExceptionStrategy3CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.ExceptionStrategyType_2013);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.ServiceExceptionStrategy3CreationTool_title,
+				Messages.ServiceExceptionStrategy3CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.ExceptionStrategyType_2013));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

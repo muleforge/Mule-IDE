@@ -14,7 +14,10 @@ import org.mule.ide.config.editor.services.edit.commands.InboundRouterCollection
 import org.mule.ide.config.editor.services.edit.commands.OutboundRouterCollectionTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.ResponseRouterCollectionTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
@@ -142,6 +145,15 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
+					case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
 					}
 				}
 				break;

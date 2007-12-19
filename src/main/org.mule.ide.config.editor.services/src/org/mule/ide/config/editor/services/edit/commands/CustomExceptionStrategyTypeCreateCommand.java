@@ -13,13 +13,13 @@ import org.mule.ide.config.core.CorePackage;
  * customization
  *   - subclass SubstitutionElementCreateCommand
  */
-public class NullComponentTypeCreateCommand extends
+public class CustomExceptionStrategyTypeCreateCommand extends
 		SubstitutionElementCreateCommand {
 
 	/**
 	 * @generated
 	 */
-	public NullComponentTypeCreateCommand(CreateElementRequest req) {
+	public CustomExceptionStrategyTypeCreateCommand(CreateElementRequest req) {
 		super(req);
 	}
 
@@ -47,7 +47,7 @@ public class NullComponentTypeCreateCommand extends
 	 */
 	public boolean canExecute() {
 		BaseServiceType container = (BaseServiceType) getElementToEdit();
-		if (container.getAbstractComponent() != null) {
+		if (container.getAbstractExceptionStrategy() != null) {
 			return false;
 		}
 		return true;
@@ -57,7 +57,9 @@ public class NullComponentTypeCreateCommand extends
 	protected void addSubstitutionElementReference(EObject container,
 			EObject element) {
 		FeatureMap map = ((BaseServiceType) container)
-				.getAbstractComponentGroup();
-		map.add(CorePackage.eINSTANCE.getDocumentRoot_NullComponent(), element);
+				.getAbstractExceptionStrategyGroup();
+		map
+				.add(CorePackage.eINSTANCE
+						.getDocumentRoot_CustomExceptionStrategy(), element);
 	}
 }

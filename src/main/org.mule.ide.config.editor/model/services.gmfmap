@@ -96,12 +96,12 @@
           <labelMappings
               readOnly="true">
             <diagramLabel
-                href="services.gmfgraph#PojoComponentTypeName"/>
+                href="services.gmfgraph#ClassServiceItemTypeLabel"/>
           </labelMappings>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="services.gmfgraph#PojoClassName"/>
+                href="services.gmfgraph#ClassServiceItemClassLabel"/>
             <features
                 href="../../org.mule.ide.config.core/model/core.ecore#//PojoComponentType/class"/>
           </labelMappings>
@@ -109,7 +109,7 @@
               xsi:type="gmftool:CreationTool"
               href="services.gmftool#//@palette/@tools.1/@tools.6"/>
           <diagramNode
-              href="services.gmfgraph#PojoComponentType"/>
+              href="services.gmfgraph#ClassServiceItem"/>
         </ownedChild>
       </children>
       <children
@@ -122,18 +122,18 @@
           <labelMappings
               readOnly="true">
             <diagramLabel
-                href="services.gmfgraph#NoArgsComponentTypeName"/>
+                href="services.gmfgraph#ClassServiceItemTypeLabel"/>
           </labelMappings>
           <labelMappings
               readOnly="true">
             <diagramLabel
-                href="services.gmfgraph#NoArgsClassName"/>
+                href="services.gmfgraph#ClassServiceItemClassLabel"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="services.gmftool#//@palette/@tools.1/@tools.2"/>
           <diagramNode
-              href="services.gmfgraph#NoArgsCallWrapperType"/>
+              href="services.gmfgraph#ClassServiceItem"/>
         </ownedChild>
       </children>
       <children
@@ -149,10 +149,10 @@
           <labelMappings
               readOnly="true">
             <diagramLabel
-                href="services.gmfgraph#DefaultComponentTypeName"/>
+                href="services.gmfgraph#ServiceItemTypeLabel"/>
           </labelMappings>
           <diagramNode
-              href="services.gmfgraph#DefaultComponentType"/>
+              href="services.gmfgraph#ServiceItem"/>
         </ownedChild>
       </children>
       <children
@@ -168,13 +168,13 @@
           <labelMappings
               readOnly="true">
             <diagramLabel
-                href="services.gmfgraph#DefaultComponentTypeName"/>
+                href="services.gmfgraph#ServiceItemTypeLabel"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="services.gmftool#//@palette/@tools.1/@tools.0"/>
           <diagramNode
-              href="services.gmfgraph#DefaultComponentType"/>
+              href="services.gmfgraph#ServiceItem"/>
         </ownedChild>
       </children>
       <children
@@ -190,13 +190,13 @@
           <labelMappings
               readOnly="true">
             <diagramLabel
-                href="services.gmfgraph#DefaultComponentTypeName"/>
+                href="services.gmfgraph#ServiceItemTypeLabel"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="services.gmftool#//@palette/@tools.1/@tools.1"/>
           <diagramNode
-              href="services.gmfgraph#DefaultComponentType"/>
+              href="services.gmfgraph#ServiceItem"/>
         </ownedChild>
       </children>
       <children
@@ -212,13 +212,13 @@
           <labelMappings
               readOnly="true">
             <diagramLabel
-                href="services.gmfgraph#DefaultComponentTypeName"/>
+                href="services.gmfgraph#ServiceItemTypeLabel"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="services.gmftool#//@palette/@tools.1/@tools.3"/>
           <diagramNode
-              href="services.gmfgraph#DefaultComponentType"/>
+              href="services.gmfgraph#ServiceItem"/>
         </ownedChild>
       </children>
       <children
@@ -234,13 +234,13 @@
           <labelMappings
               readOnly="true">
             <diagramLabel
-                href="services.gmfgraph#DefaultComponentTypeName"/>
+                href="services.gmfgraph#ServiceItemTypeLabel"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="services.gmftool#//@palette/@tools.1/@tools.4"/>
           <diagramNode
-              href="services.gmfgraph#DefaultComponentType"/>
+              href="services.gmfgraph#ServiceItem"/>
         </ownedChild>
       </children>
       <children
@@ -256,13 +256,13 @@
           <labelMappings
               readOnly="true">
             <diagramLabel
-                href="services.gmfgraph#DefaultComponentTypeName"/>
+                href="services.gmfgraph#ServiceItemTypeLabel"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="services.gmftool#//@palette/@tools.1/@tools.5"/>
           <diagramNode
-              href="services.gmfgraph#DefaultComponentType"/>
+              href="services.gmfgraph#ServiceItem"/>
         </ownedChild>
       </children>
       <children

@@ -199,15 +199,15 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		RoundedServiceFigure figure = new RoundedServiceFigure();
+		ServiceFigure figure = new ServiceFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public RoundedServiceFigure getPrimaryShape() {
-		return (RoundedServiceFigure) primaryShape;
+	public ServiceFigure getPrimaryShape() {
+		return (ServiceFigure) primaryShape;
 	}
 
 	/**
@@ -320,7 +320,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class RoundedServiceFigure extends RoundedRectangle {
+	public class ServiceFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
@@ -330,7 +330,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public RoundedServiceFigure() {
+		public ServiceFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);

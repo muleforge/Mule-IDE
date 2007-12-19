@@ -94,8 +94,8 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Custom Exception Strategy"
-          description="Create new Custom Exception Strategy">
+          title="Connector Exception Strategy"
+          description="Add a new Connector Exception Strategy to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -103,8 +103,17 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Exception Strategy"
-          description="Create new Exception Strategy">
+          title="Custom Exception Strategy"
+          description="Add a new Custom Exception Strategy to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Service Exception Strategy"
+          description="Add a new Service Exception Strategy to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

@@ -179,6 +179,65 @@
       <accessors
           figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="ServiceItemFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ServiceItemFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            forceSingleLine="true"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ServiceItemTypeLabelFigure">
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="gray"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="7"
+              style="ITALIC"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ClassServiceItemFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ClassServiceItemFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            forceSingleLine="true"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ClassServiceItemTypeLabelFigure">
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="gray"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="7"
+              style="ITALIC"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ClassServiceItemClassLabelFigure">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              style="BOLD"/>
+          <insets
+              left="10"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+    </descriptors>
   </figures>
   <nodes
       name="ChunkingRouterType"/>
@@ -202,7 +261,8 @@
   <nodes
       name="EndpointSelectorRouterType"/>
   <nodes
-      name="ExceptionStrategyType"/>
+      name="ExceptionStrategyType"
+      figure="ServiceItemFigure"/>
   <nodes
       name="FilteredInboundRouterType"/>
   <nodes
@@ -255,6 +315,26 @@
   <nodes
       name="PassThroughComponentType"
       figure="DefaultComponentFigure"/>
+  <nodes
+      name="ServiceItem"
+      figure="ServiceItemFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="40"
+          dy="10"/>
+    </facets>
+  </nodes>
+  <nodes
+      name="ClassServiceItem"
+      figure="ClassServiceItemFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="40"
+          dy="10"/>
+    </facets>
+  </nodes>
   <compartments
       name="COMPONENT"
       figure="LabeledCompartmentFigure"
@@ -306,4 +386,17 @@
       name="DefaultComponentTypeName"
       figure="DefaultComponentFigure"
       accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels
+      name="ServiceItemTypeLabel"
+      figure="ServiceItemFigure"
+      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels
+      name="ClassServiceItemTypeLabel"
+      figure="ClassServiceItemFigure"
+      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels
+      name="ClassServiceItemClassLabel"
+      figure="ClassServiceItemFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.7/@accessors.1"/>
 </gmfgraph:Canvas>

@@ -265,12 +265,83 @@
               href="services.gmfgraph#DefaultComponentType"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.1">
+        <containmentFeature
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractExceptionStrategy"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.mule.ide.config.core/model/core.ecore#//ExceptionStrategyType"/>
+          <domainSpecialization
+              body="defautServiceExceptionStrategyConstraint"
+              language="java"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#ServiceItemTypeLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="services.gmftool#//@palette/@tools.2/@tools.2"/>
+          <diagramNode
+              href="services.gmfgraph#ServiceItem"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.1">
+        <containmentFeature
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractExceptionStrategy"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.mule.ide.config.core/model/core.ecore#//ExceptionStrategyType"/>
+          <domainSpecialization
+              body="defautConnectorExceptionStrategyConstraint"
+              language="java"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#ServiceItemTypeLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="services.gmftool#//@palette/@tools.2/@tools.0"/>
+          <diagramNode
+              href="services.gmfgraph#ServiceItem"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.1">
+        <containmentFeature
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractExceptionStrategy"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.mule.ide.config.core/model/core.ecore#//CustomExceptionStrategyType"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="services.gmfgraph#ClassServiceItemTypeLabel"/>
+          </labelMappings>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="services.gmfgraph#ClassServiceItemClassLabel"/>
+            <features
+                href="../../org.mule.ide.config.core/model/core.ecore#//CustomExceptionStrategyType/class"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="services.gmftool#//@palette/@tools.2/@tools.1"/>
+          <diagramNode
+              href="services.gmfgraph#ClassServiceItem"/>
+        </ownedChild>
+      </children>
       <compartments
           children="//@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.10">
         <compartment
             href="services.gmfgraph#COMPONENT"/>
       </compartments>
-      <compartments>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.11 //@nodes.0/@ownedChild/@children.12 //@nodes.0/@ownedChild/@children.13">
         <compartment
             href="services.gmfgraph#EXCEPTION"/>
       </compartments>

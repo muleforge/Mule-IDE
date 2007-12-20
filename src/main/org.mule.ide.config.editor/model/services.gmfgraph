@@ -108,7 +108,10 @@
         <layout
             xsi:type="gmfgraph:FlowLayout"
             vertical="true"
-            forceSingleLine="true"/>
+            matchMinorSize="true"
+            forceSingleLine="true"
+            majorSpacing="0"
+            minorSpacing="0"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ClassServiceItemTypeLabelFigure">

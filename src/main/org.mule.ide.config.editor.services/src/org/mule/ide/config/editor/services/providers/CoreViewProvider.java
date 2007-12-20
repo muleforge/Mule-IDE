@@ -13,9 +13,11 @@ import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTyp
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
@@ -29,6 +31,8 @@ import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditP
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
@@ -52,9 +56,11 @@ import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrateg
 import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrategyTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultComponentTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.DefaultConnectorExceptionStrategyTypeENDPOINTSViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultConnectorExceptionStrategyTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultConnectorExceptionStrategyTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultModelTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.DefaultServiceExceptionStrategyTypeENDPOINTSViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultServiceExceptionStrategyTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultServiceExceptionStrategyTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.EchoComponentTypeLabelViewFactory;
@@ -68,6 +74,8 @@ import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeL
 import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.NullComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.NullComponentTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.OutboundEndpointTypeNameViewFactory;
+import org.mule.ide.config.editor.services.view.factories.OutboundEndpointTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundRouterCollectionTypeOUTBOUNDViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundRouterCollectionTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PassThroughComponentTypeLabelViewFactory;
@@ -162,6 +170,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
 				case DefaultComponentTypeEditPart.VISUAL_ID:
 				case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
+				case OutboundEndpointTypeEditPart.VISUAL_ID:
 				case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
 				case BridgeComponentTypeEditPart.VISUAL_ID:
 				case EchoComponentTypeEditPart.VISUAL_ID:
@@ -272,13 +281,22 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case DefaultServiceExceptionStrategyTypeLabelEditPart.VISUAL_ID:
+				case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 					if (DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
+				case OutboundEndpointTypeNameEditPart.VISUAL_ID:
+					if (OutboundEndpointTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
 				case DefaultConnectorExceptionStrategyTypeLabelEditPart.VISUAL_ID:
+				case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 					if (DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -364,6 +382,10 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return DefaultServiceExceptionStrategyTypeViewFactory.class;
 		case DefaultServiceExceptionStrategyTypeLabelEditPart.VISUAL_ID:
 			return DefaultServiceExceptionStrategyTypeLabelViewFactory.class;
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return OutboundEndpointTypeViewFactory.class;
+		case OutboundEndpointTypeNameEditPart.VISUAL_ID:
+			return OutboundEndpointTypeNameViewFactory.class;
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
 			return DefaultConnectorExceptionStrategyTypeViewFactory.class;
 		case DefaultConnectorExceptionStrategyTypeLabelEditPart.VISUAL_ID:
@@ -384,6 +406,10 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return OutboundRouterCollectionTypeOUTBOUNDViewFactory.class;
 		case ResponseRouterCollectionTypeRESPONSEEditPart.VISUAL_ID:
 			return ResponseRouterCollectionTypeRESPONSEViewFactory.class;
+		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			return DefaultServiceExceptionStrategyTypeENDPOINTSViewFactory.class;
+		case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			return DefaultConnectorExceptionStrategyTypeENDPOINTSViewFactory.class;
 		}
 		return null;
 	}

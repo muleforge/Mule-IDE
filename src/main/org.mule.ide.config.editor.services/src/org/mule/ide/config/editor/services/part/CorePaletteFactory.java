@@ -270,13 +270,13 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createConnectorExceptionStrategy1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.ExceptionStrategyType_2014);
+		types.add(CoreElementTypes.ExceptionStrategyType_2015);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ConnectorExceptionStrategy1CreationTool_title,
 				Messages.ConnectorExceptionStrategy1CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.ExceptionStrategyType_2014));
+						.getImageDescriptor(CoreElementTypes.ExceptionStrategyType_2015));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -286,13 +286,13 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createCustomExceptionStrategy2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.CustomExceptionStrategyType_2015);
+		types.add(CoreElementTypes.CustomExceptionStrategyType_2016);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.CustomExceptionStrategy2CreationTool_title,
 				Messages.CustomExceptionStrategy2CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.CustomExceptionStrategyType_2015));
+						.getImageDescriptor(CoreElementTypes.CustomExceptionStrategyType_2016));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -455,10 +455,15 @@ public class CorePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createOutboundEndpoint1CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.OutboundEndpointType_2014);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.OutboundEndpoint1CreationTool_title,
-				Messages.OutboundEndpoint1CreationTool_desc, null, null) {
-		};
+				Messages.OutboundEndpoint1CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.OutboundEndpointType_2014));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

@@ -1,19 +1,12 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
-import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.RoundedRectangle;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.Request;
-import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
@@ -24,22 +17,19 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Font;
-import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.WireTapRouterTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.OutboundEndpointTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
  * @generated
  */
-public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
+public class OutboundEndpointTypeEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2002;
+	public static final int VISUAL_ID = 2014;
 
 	/**
 	 * @generated
@@ -54,7 +44,7 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public WireTapRouterTypeEditPart(View view) {
+	public OutboundEndpointTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -65,7 +55,7 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new WireTapRouterTypeItemSemanticEditPolicy());
+				new OutboundEndpointTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -94,24 +84,24 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		ServiceItemFigure figure = new ServiceItemFigure();
+		EndpointFigure figure = new EndpointFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public ServiceItemFigure getPrimaryShape() {
-		return (ServiceItemFigure) primaryShape;
+	public EndpointFigure getPrimaryShape() {
+		return (EndpointFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrapLabelEditPart) {
-			((WrapLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureServiceItemTypeLabelFigure());
+		if (childEditPart instanceof OutboundEndpointTypeNameEditPart) {
+			((OutboundEndpointTypeNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureEndpointNameFigure());
 			return true;
 		}
 		return false;
@@ -209,23 +199,23 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(WrapLabelEditPart.VISUAL_ID));
+				.getType(OutboundEndpointTypeNameEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class ServiceItemFigure extends RoundedRectangle {
+	public class EndpointFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureServiceItemTypeLabelFigure;
+		private WrapLabel fFigureEndpointNameFigure;
 
 		/**
 		 * @generated
 		 */
-		public ServiceItemFigure() {
+		public EndpointFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
@@ -236,8 +226,7 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setOutline(false);
 			createContents();
 		}
 
@@ -246,15 +235,10 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureServiceItemTypeLabelFigure = new WrapLabel();
-			fFigureServiceItemTypeLabelFigure.setText("");
-			fFigureServiceItemTypeLabelFigure
-					.setForegroundColor(ColorConstants.gray);
+			fFigureEndpointNameFigure = new WrapLabel();
+			fFigureEndpointNameFigure.setText("");
 
-			fFigureServiceItemTypeLabelFigure
-					.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);
-
-			this.add(fFigureServiceItemTypeLabelFigure);
+			this.add(fFigureEndpointNameFigure);
 
 		}
 
@@ -280,18 +264,10 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureServiceItemTypeLabelFigure() {
-			return fFigureServiceItemTypeLabelFigure;
+		public WrapLabel getFigureEndpointNameFigure() {
+			return fFigureEndpointNameFigure;
 		}
 
 	}
-
-	/**
-	 * @generated
-	 */
-	static final Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new Font(Display
-			.getCurrent(),
-			Display.getDefault().getSystemFont().getFontData()[0].getName(), 7,
-			SWT.ITALIC);
 
 }

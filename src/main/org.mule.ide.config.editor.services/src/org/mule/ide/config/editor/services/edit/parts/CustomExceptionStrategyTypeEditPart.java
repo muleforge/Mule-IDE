@@ -36,7 +36,7 @@ public class CustomExceptionStrategyTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2015;
+	public static final int VISUAL_ID = 2016;
 
 	/**
 	 * @generated

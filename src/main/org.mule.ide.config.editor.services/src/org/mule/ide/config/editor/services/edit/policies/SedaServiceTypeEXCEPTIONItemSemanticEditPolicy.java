@@ -26,7 +26,7 @@ public class SedaServiceTypeEXCEPTIONItemSemanticEditPolicy extends
 			return getGEFWrapper(new DefaultServiceExceptionStrategyTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.ExceptionStrategyType_2014 == req.getElementType()) {
+		if (CoreElementTypes.ExceptionStrategyType_2015 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractExceptionStrategy());
@@ -34,7 +34,7 @@ public class SedaServiceTypeEXCEPTIONItemSemanticEditPolicy extends
 			return getGEFWrapper(new DefaultConnectorExceptionStrategyTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.CustomExceptionStrategyType_2015 == req
+		if (CoreElementTypes.CustomExceptionStrategyType_2016 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE

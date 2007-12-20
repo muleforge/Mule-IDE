@@ -7,28 +7,26 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
-import org.eclipse.gmf.runtime.diagram.ui.internal.figures.NestedResizableCompartmentFigure;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.policies.ResponseRouterCollectionTypeRESPONSEItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.DefaultConnectorExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * customization
  *  - subclass CustomListCompartmentEditPart
  */
-public class ResponseRouterCollectionTypeRESPONSEEditPart extends
+public class DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart extends
 		CustomListCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5005;
+	public static final int VISUAL_ID = 5007;
 
 	/**
 	 * @generated
 	 */
-	public ResponseRouterCollectionTypeRESPONSEEditPart(View view) {
+	public DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart(View view) {
 		super(view);
 	}
 
@@ -43,7 +41,19 @@ public class ResponseRouterCollectionTypeRESPONSEEditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.ResponseRouterCollectionTypeRESPONSEEditPart_title;
+		return Messages.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart_title;
+	}
+
+	/**
+	 * customization
+	 *  - no border
+	 */
+	public IFigure createFigure() {
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
+				.createFigure();
+		result.setTitleVisibility(false);
+		result.setBorder(null);
+		return result;
 	}
 
 	/**
@@ -55,7 +65,7 @@ public class ResponseRouterCollectionTypeRESPONSEEditPart extends
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new ResponseRouterCollectionTypeRESPONSEItemSemanticEditPolicy());
+				new DefaultConnectorExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy());
 	}
 
 	/**
@@ -66,20 +76,4 @@ public class ResponseRouterCollectionTypeRESPONSEEditPart extends
 		// super.setRatio(ratio); 
 	}
 
-	public IFigure createFigure() {
-		ResizableCompartmentFigure rcf;
-		if (getParent() == getTopGraphicEditPart()) {
-			rcf = (ResizableCompartmentFigure) super.createFigure();
-		} else {
-			rcf = new NestedResizableCompartmentFigure(getMapMode());
-		}
-
-		ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-		layout.setStretchMajorAxis(true);
-		layout.setStretchMinorAxis(true);
-		layout.setMinorAlignment(ConstrainedToolbarLayout.ALIGN_TOPLEFT);
-		rcf.getContentPane().setLayoutManager(layout);
-
-		return rcf;
-	}
 }

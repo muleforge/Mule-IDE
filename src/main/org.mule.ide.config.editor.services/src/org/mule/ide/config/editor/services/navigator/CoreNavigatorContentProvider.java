@@ -25,6 +25,7 @@ import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTyp
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
@@ -32,6 +33,7 @@ import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTyp
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
@@ -328,6 +330,18 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 					InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					WireTapRouterTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					OutboundEndpointTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

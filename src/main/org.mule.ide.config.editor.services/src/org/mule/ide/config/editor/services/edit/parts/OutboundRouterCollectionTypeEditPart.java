@@ -109,7 +109,7 @@ public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(4));
+				.DPtoLP(40), getMapMode().DPtoLP(10));
 		return result;
 	}
 

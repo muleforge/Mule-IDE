@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
@@ -52,13 +53,18 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.DefaultComponentType_2011);
 			types.add(CoreElementTypes.DefaultComponentType_2012);
 			types.add(CoreElementTypes.ExceptionStrategyType_2013);
-			types.add(CoreElementTypes.ExceptionStrategyType_2014);
-			types.add(CoreElementTypes.CustomExceptionStrategyType_2015);
+			types.add(CoreElementTypes.ExceptionStrategyType_2015);
+			types.add(CoreElementTypes.CustomExceptionStrategyType_2016);
 			return types;
 		}
 		if (editPart instanceof InboundRouterCollectionTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.WireTapRouterType_2002);
+			return types;
+		}
+		if (editPart instanceof DefaultServiceExceptionStrategyTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2014);
 			return types;
 		}
 		if (editPart instanceof DefaultModelTypeEditPart) {

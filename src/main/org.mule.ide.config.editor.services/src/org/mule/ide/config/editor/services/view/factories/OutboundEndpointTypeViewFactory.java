@@ -10,16 +10,14 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactor
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeENDPOINTSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
  * @generated
  */
-public class DefaultServiceExceptionStrategyTypeViewFactory extends
-		AbstractShapeViewFactory {
+public class OutboundEndpointTypeViewFactory extends AbstractShapeViewFactory {
 
 	/**
 	 * @generated
@@ -38,7 +36,7 @@ public class DefaultServiceExceptionStrategyTypeViewFactory extends
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = CoreVisualIDRegistry
-					.getType(DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID);
+					.getType(OutboundEndpointTypeEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
@@ -48,19 +46,11 @@ public class DefaultServiceExceptionStrategyTypeViewFactory extends
 		if (eObject != null) {
 			eObjectAdapter = new EObjectAdapter(eObject);
 		}
-		getViewService()
-				.createNode(
-						eObjectAdapter,
-						view,
-						CoreVisualIDRegistry
-								.getType(DefaultServiceExceptionStrategyTypeLabelEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
-		getViewService()
-				.createNode(
-						eObjectAdapter,
-						view,
-						CoreVisualIDRegistry
-								.getType(DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService().createNode(
+				eObjectAdapter,
+				view,
+				CoreVisualIDRegistry
+						.getType(OutboundEndpointTypeNameEditPart.VISUAL_ID),
+				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

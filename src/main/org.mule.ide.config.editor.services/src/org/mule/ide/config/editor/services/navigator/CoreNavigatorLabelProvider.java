@@ -43,6 +43,8 @@ import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditP
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeLabelEditPart;
@@ -165,12 +167,15 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ExceptionStrategyType", CoreElementTypes.ExceptionStrategyType_2013); //$NON-NLS-1$
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundEndpointType", CoreElementTypes.OutboundEndpointType_2014); //$NON-NLS-1$
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ExceptionStrategyType", CoreElementTypes.ExceptionStrategyType_2014); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ExceptionStrategyType", CoreElementTypes.ExceptionStrategyType_2015); //$NON-NLS-1$
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomExceptionStrategyType", CoreElementTypes.CustomExceptionStrategyType_2015); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomExceptionStrategyType", CoreElementTypes.CustomExceptionStrategyType_2016); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -253,10 +258,12 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getDefaultComponentType_2012Text(view);
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getExceptionStrategyType_2013Text(view);
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return getOutboundEndpointType_2014Text(view);
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2014Text(view);
+			return getExceptionStrategyType_2015Text(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyType_2015Text(view);
+			return getCustomExceptionStrategyType_2016Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -292,7 +299,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4016); //$NON-NLS-1$
+					"Parser was not found for label " + 4017); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -545,10 +552,32 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getExceptionStrategyType_2014Text(View view) {
+	private String getOutboundEndpointType_2014Text(View view) {
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.OutboundEndpointType_2014,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry
+						.getType(OutboundEndpointTypeNameEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			ServicesEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 4012); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getExceptionStrategyType_2015Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.ExceptionStrategyType_2014,
+				CoreElementTypes.ExceptionStrategyType_2015,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(DefaultConnectorExceptionStrategyTypeLabelEditPart.VISUAL_ID));
@@ -565,10 +594,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getCustomExceptionStrategyType_2015Text(View view) {
+	private String getCustomExceptionStrategyType_2016Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.CustomExceptionStrategyType_2015,
+				CoreElementTypes.CustomExceptionStrategyType_2016,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(CustomExceptionStrategyTypeLabelEditPart.VISUAL_ID));

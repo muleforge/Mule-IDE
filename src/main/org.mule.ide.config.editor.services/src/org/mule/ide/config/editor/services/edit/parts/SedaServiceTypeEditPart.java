@@ -143,14 +143,14 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.ExceptionStrategyType_2014) {
+								if (type == CoreElementTypes.ExceptionStrategyType_2015) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.CustomExceptionStrategyType_2015) {
+								if (type == CoreElementTypes.CustomExceptionStrategyType_2016) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

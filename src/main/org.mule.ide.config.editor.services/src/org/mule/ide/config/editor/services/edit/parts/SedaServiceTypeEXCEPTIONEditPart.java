@@ -17,7 +17,8 @@ import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeEXCEPTIO
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
- *
+ * customization
+ *  - subclass CustomListCompartmentEditPart
  */
 public class SedaServiceTypeEXCEPTIONEditPart extends
 		CustomListCompartmentEditPart {

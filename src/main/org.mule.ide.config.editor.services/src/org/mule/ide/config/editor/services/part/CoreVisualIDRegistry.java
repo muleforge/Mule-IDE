@@ -18,9 +18,11 @@ import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTyp
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
@@ -34,6 +36,8 @@ import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditP
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
@@ -254,6 +258,12 @@ public class CoreVisualIDRegistry {
 				return WireTapRouterTypeEditPart.VISUAL_ID;
 			}
 			break;
+		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getSedaServiceType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -375,9 +385,20 @@ public class CoreVisualIDRegistry {
 			if (DefaultServiceExceptionStrategyTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			if (OutboundEndpointTypeNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
 			if (DefaultConnectorExceptionStrategyTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -428,6 +449,11 @@ public class CoreVisualIDRegistry {
 			break;
 		case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
 			if (WireTapRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

@@ -9,14 +9,20 @@ import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
+import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -27,6 +33,7 @@ import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPo
 import org.mule.ide.config.editor.services.edit.policies.DefaultServiceExceptionStrategyTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.Messages;
+import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
 /**
  * @generated
@@ -60,6 +67,29 @@ public class DefaultServiceExceptionStrategyTypeEditPart extends
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy() {
+					public Command getCommand(Request request) {
+						if (understandsRequest(request)) {
+							if (request instanceof CreateViewAndElementRequest) {
+								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+										.getViewAndElementDescriptor()
+										.getCreateElementRequestAdapter();
+								IElementType type = (IElementType) adapter
+										.getAdapter(IElementType.class);
+								if (type == CoreElementTypes.OutboundEndpointType_2014) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+							}
+							return super.getCommand(request);
+						}
+						return null;
+					}
+				});
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
@@ -230,10 +260,10 @@ public class DefaultServiceExceptionStrategyTypeEditPart extends
 		public ServiceItemFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
-			layoutThis.setStretchMinorAxis(false);
+			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
-			layoutThis.setSpacing(5);
+			layoutThis.setSpacing(0);
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);

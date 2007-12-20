@@ -9,8 +9,10 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.AbstractComponentType;
 import org.mule.ide.config.core.AbstractExceptionStrategyType;
 import org.mule.ide.config.core.AbstractInboundRouterType;
+import org.mule.ide.config.core.AbstractOutboundEndpointType;
 import org.mule.ide.config.core.AbstractServiceType;
 import org.mule.ide.config.core.DefaultModelType;
+import org.mule.ide.config.core.ExceptionStrategyType;
 import org.mule.ide.config.core.InboundRouterCollectionType;
 import org.mule.ide.config.core.OutboundRouterCollectionType;
 import org.mule.ide.config.core.ResponseRouterCollectionType;
@@ -20,6 +22,7 @@ import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTyp
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
@@ -27,6 +30,7 @@ import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTyp
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
@@ -54,6 +58,8 @@ public class CoreDiagramUpdater {
 			return getSedaServiceTypeEXCEPTION_5002SemanticChildren(view);
 		case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
 			return getInboundRouterCollectionTypeINBOUND_5003SemanticChildren(view);
+		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			return getExceptionStrategyTypeENDPOINTS_5006SemanticChildren(view);
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			return getDefaultModelType_79SemanticChildren(view);
 		}
@@ -212,6 +218,35 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getExceptionStrategyTypeENDPOINTS_5006SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		ExceptionStrategyType modelElement = (ExceptionStrategyType) containerView
+				.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
+				.iterator(); it.hasNext();) {
+			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
+					.next();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == OutboundEndpointTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getDefaultModelType_79SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.EMPTY_LIST;
@@ -266,10 +301,12 @@ public class CoreDiagramUpdater {
 			return getDefaultComponentType_2012ContainedLinks(view);
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getExceptionStrategyType_2013ContainedLinks(view);
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return getOutboundEndpointType_2014ContainedLinks(view);
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2014ContainedLinks(view);
+			return getExceptionStrategyType_2015ContainedLinks(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyType_2015ContainedLinks(view);
+			return getCustomExceptionStrategyType_2016ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -307,10 +344,12 @@ public class CoreDiagramUpdater {
 			return getDefaultComponentType_2012IncomingLinks(view);
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getExceptionStrategyType_2013IncomingLinks(view);
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return getOutboundEndpointType_2014IncomingLinks(view);
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2014IncomingLinks(view);
+			return getExceptionStrategyType_2015IncomingLinks(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyType_2015IncomingLinks(view);
+			return getCustomExceptionStrategyType_2016IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -348,10 +387,12 @@ public class CoreDiagramUpdater {
 			return getDefaultComponentType_2012OutgoingLinks(view);
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getExceptionStrategyType_2013OutgoingLinks(view);
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return getOutboundEndpointType_2014OutgoingLinks(view);
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2014OutgoingLinks(view);
+			return getExceptionStrategyType_2015OutgoingLinks(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyType_2015OutgoingLinks(view);
+			return getCustomExceptionStrategyType_2016OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -467,14 +508,21 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2014ContainedLinks(View view) {
+	public static List getOutboundEndpointType_2014ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCustomExceptionStrategyType_2015ContainedLinks(
+	public static List getExceptionStrategyType_2015ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCustomExceptionStrategyType_2016ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -583,14 +631,21 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2014IncomingLinks(View view) {
+	public static List getOutboundEndpointType_2014IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCustomExceptionStrategyType_2015IncomingLinks(
+	public static List getExceptionStrategyType_2015IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCustomExceptionStrategyType_2016IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -699,14 +754,21 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2014OutgoingLinks(View view) {
+	public static List getOutboundEndpointType_2014OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCustomExceptionStrategyType_2015OutgoingLinks(
+	public static List getExceptionStrategyType_2015OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCustomExceptionStrategyType_2016OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}

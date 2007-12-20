@@ -663,6 +663,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String DefaultServiceExceptionStrategyTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**

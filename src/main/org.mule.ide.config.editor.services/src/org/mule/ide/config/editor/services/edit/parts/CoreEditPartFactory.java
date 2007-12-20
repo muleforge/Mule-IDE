@@ -113,6 +113,12 @@ public class CoreEditPartFactory implements EditPartFactory {
 				return new DefaultServiceExceptionStrategyTypeLabelEditPart(
 						view);
 
+			case OutboundEndpointTypeEditPart.VISUAL_ID:
+				return new OutboundEndpointTypeEditPart(view);
+
+			case OutboundEndpointTypeNameEditPart.VISUAL_ID:
+				return new OutboundEndpointTypeNameEditPart(view);
+
 			case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
 				return new DefaultConnectorExceptionStrategyTypeEditPart(view);
 
@@ -143,6 +149,14 @@ public class CoreEditPartFactory implements EditPartFactory {
 
 			case ResponseRouterCollectionTypeRESPONSEEditPart.VISUAL_ID:
 				return new ResponseRouterCollectionTypeRESPONSEEditPart(view);
+
+			case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+				return new DefaultServiceExceptionStrategyTypeENDPOINTSEditPart(
+						view);
+
+			case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+				return new DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart(
+						view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

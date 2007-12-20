@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.parsers.ClassNameParser;
@@ -31,22 +32,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser sedaServiceTypeName_4016Parser;
+	private IParser sedaServiceTypeName_4017Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSedaServiceTypeName_4016Parser() {
-		if (sedaServiceTypeName_4016Parser == null) {
-			sedaServiceTypeName_4016Parser = createSedaServiceTypeName_4016Parser();
+	private IParser getSedaServiceTypeName_4017Parser() {
+		if (sedaServiceTypeName_4017Parser == null) {
+			sedaServiceTypeName_4017Parser = createSedaServiceTypeName_4017Parser();
 		}
-		return sedaServiceTypeName_4016Parser;
+		return sedaServiceTypeName_4017Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSedaServiceTypeName_4016Parser() {
+	protected IParser createSedaServiceTypeName_4017Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getAbstractServiceType_Name(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -82,23 +83,48 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser customExceptionStrategyTypeClass_4015Parser;
+	private IParser outboundEndpointTypeName_4012Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCustomExceptionStrategyTypeClass_4015Parser() {
-		if (customExceptionStrategyTypeClass_4015Parser == null) {
-			customExceptionStrategyTypeClass_4015Parser = createCustomExceptionStrategyTypeClass_4015Parser();
+	private IParser getOutboundEndpointTypeName_4012Parser() {
+		if (outboundEndpointTypeName_4012Parser == null) {
+			outboundEndpointTypeName_4012Parser = createOutboundEndpointTypeName_4012Parser();
 		}
-		return customExceptionStrategyTypeClass_4015Parser;
+		return outboundEndpointTypeName_4012Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createOutboundEndpointTypeName_4012Parser() {
+		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+				.getAbstractOutboundEndpointType_Name(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser customExceptionStrategyTypeClass_4016Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCustomExceptionStrategyTypeClass_4016Parser() {
+		if (customExceptionStrategyTypeClass_4016Parser == null) {
+			customExceptionStrategyTypeClass_4016Parser = createCustomExceptionStrategyTypeClass_4016Parser();
+		}
+		return customExceptionStrategyTypeClass_4016Parser;
 	}
 
 	/**
 	 * customization
 	 *   - use ClassNameParser
 	 */
-	protected IParser createCustomExceptionStrategyTypeClass_4015Parser() {
+	protected IParser createCustomExceptionStrategyTypeClass_4016Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getCustomExceptionStrategyType_Class(), };
 		MessageFormatParser parser = new ClassNameParser(features);
@@ -136,13 +162,15 @@ public class CoreParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case SedaServiceTypeNameEditPart.VISUAL_ID:
-			return getSedaServiceTypeName_4016Parser();
+			return getSedaServiceTypeName_4017Parser();
 		case PojoComponentTypeClassEditPart.VISUAL_ID:
 			return getPojoComponentTypeClass_4003Parser();
 		case NoArgsCallWrapperTypeClassEditPart.VISUAL_ID:
 			return getNoArgsCallWrapperTypeClass_4005Parser();
+		case OutboundEndpointTypeNameEditPart.VISUAL_ID:
+			return getOutboundEndpointTypeName_4012Parser();
 		case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyTypeClass_4015Parser();
+			return getCustomExceptionStrategyTypeClass_4016Parser();
 		}
 		return null;
 	}

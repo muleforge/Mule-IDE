@@ -37,7 +37,7 @@ public class DefaultConnectorExceptionStrategyTypeEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2014;
+	public static final int VISUAL_ID = 2015;
 
 	/**
 	 * @generated
@@ -231,10 +231,10 @@ public class DefaultConnectorExceptionStrategyTypeEditPart extends
 		public ServiceItemFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
-			layoutThis.setStretchMinorAxis(false);
+			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
-			layoutThis.setSpacing(5);
+			layoutThis.setSpacing(0);
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);

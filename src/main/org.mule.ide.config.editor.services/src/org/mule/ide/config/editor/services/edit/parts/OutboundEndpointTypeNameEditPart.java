@@ -52,13 +52,13 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * @generated
  */
-public class DefaultServiceExceptionStrategyTypeLabelEditPart extends
-		CompartmentEditPart implements ITextAwareEditPart {
+public class OutboundEndpointTypeNameEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4013;
+	public static final int VISUAL_ID = 4012;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class DefaultServiceExceptionStrategyTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public DefaultServiceExceptionStrategyTypeLabelEditPart(View view) {
+	public OutboundEndpointTypeNameEditPart(View view) {
 		super(view);
 	}
 
@@ -187,20 +187,14 @@ public class DefaultServiceExceptionStrategyTypeLabelEditPart extends
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-
-		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
+		return resolveSemanticElement();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return CoreElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -247,7 +241,7 @@ public class DefaultServiceExceptionStrategyTypeLabelEditPart extends
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -308,7 +302,7 @@ public class DefaultServiceExceptionStrategyTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.ExceptionStrategyType_2013,
+					CoreElementTypes.OutboundEndpointType_2014,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
@@ -513,7 +507,7 @@ public class DefaultServiceExceptionStrategyTypeLabelEditPart extends
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
-		return (View) getModel();
+		return getPrimaryView();
 	}
 
 	/**

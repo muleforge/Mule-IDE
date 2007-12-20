@@ -122,12 +122,17 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExceptionStrategyType_2014 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2014"); //$NON-NLS-1$
+	public static final IElementType OutboundEndpointType_2014 = getElementType("org.mule.ide.config.editor.services.OutboundEndpointType_2014"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CustomExceptionStrategyType_2015 = getElementType("org.mule.ide.config.editor.services.CustomExceptionStrategyType_2015"); //$NON-NLS-1$
+	public static final IElementType ExceptionStrategyType_2015 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2015"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CustomExceptionStrategyType_2016 = getElementType("org.mule.ide.config.editor.services.CustomExceptionStrategyType_2016"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -285,10 +290,13 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(ExceptionStrategyType_2013, CorePackage.eINSTANCE
 					.getExceptionStrategyType());
 
-			elements.put(ExceptionStrategyType_2014, CorePackage.eINSTANCE
+			elements.put(OutboundEndpointType_2014, CorePackage.eINSTANCE
+					.getOutboundEndpointType());
+
+			elements.put(ExceptionStrategyType_2015, CorePackage.eINSTANCE
 					.getExceptionStrategyType());
 
-			elements.put(CustomExceptionStrategyType_2015,
+			elements.put(CustomExceptionStrategyType_2016,
 					CorePackage.eINSTANCE.getCustomExceptionStrategyType());
 		}
 		return (ENamedElement) elements.get(type);
@@ -322,8 +330,9 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2011);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2012);
 			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2013);
-			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2014);
-			KNOWN_ELEMENT_TYPES.add(CustomExceptionStrategyType_2015);
+			KNOWN_ELEMENT_TYPES.add(OutboundEndpointType_2014);
+			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2015);
+			KNOWN_ELEMENT_TYPES.add(CustomExceptionStrategyType_2016);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

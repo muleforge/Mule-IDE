@@ -44,7 +44,7 @@
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="LabeledCompartmentFigure">
+        name="CompartmentFigure">
       <actualFigure
           xsi:type="gmfgraph:LabeledContainer"/>
     </descriptors>
@@ -253,32 +253,32 @@
   </nodes>
   <compartments
       name="COMPONENT"
-      figure="LabeledCompartmentFigure"
+      figure="CompartmentFigure"
       collapsible="true"
       needsTitle="true"/>
   <compartments
       name="INBOUND"
-      figure="LabeledCompartmentFigure"
+      figure="CompartmentFigure"
       collapsible="true"
       needsTitle="true"/>
   <compartments
       name="EXCEPTION"
-      figure="LabeledCompartmentFigure"
+      figure="CompartmentFigure"
       collapsible="true"
       needsTitle="true"/>
   <compartments
       name="OUTBOUND"
-      figure="LabeledCompartmentFigure"
+      figure="CompartmentFigure"
       collapsible="true"
       needsTitle="true"/>
   <compartments
       name="RESPONSE"
-      figure="LabeledCompartmentFigure"
+      figure="CompartmentFigure"
       collapsible="true"
       needsTitle="true"/>
   <compartments
       name="ENDPOINTS"
-      figure="UnlabeledCompartmentFigure"
+      figure="CompartmentFigure"
       collapsible="true"/>
   <compartments
       name="TransformerCollection"

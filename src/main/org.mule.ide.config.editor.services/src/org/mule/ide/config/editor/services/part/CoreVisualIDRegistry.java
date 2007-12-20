@@ -14,6 +14,7 @@ import org.mule.ide.config.core.ExceptionStrategyType;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
@@ -264,6 +265,18 @@ public class CoreVisualIDRegistry {
 				return OutboundEndpointTypeEditPart.VISUAL_ID;
 			}
 			break;
+		case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getSedaServiceType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -409,6 +422,9 @@ public class CoreVisualIDRegistry {
 			if (CustomExceptionStrategyTypeClassEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			if (PojoComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
@@ -453,6 +469,16 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 			if (OutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

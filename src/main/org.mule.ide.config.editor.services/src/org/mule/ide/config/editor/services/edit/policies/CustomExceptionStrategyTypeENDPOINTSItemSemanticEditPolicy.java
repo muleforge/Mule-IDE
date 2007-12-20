@@ -9,8 +9,8 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 /**
  * @generated
  */
-public class DefaultConnectorExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy
-		extends CoreBaseItemSemanticEditPolicy {
+public class CustomExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy extends
+		CoreBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

@@ -20,6 +20,8 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
@@ -63,6 +65,16 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof DefaultServiceExceptionStrategyTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2014);
+			return types;
+		}
+		if (editPart instanceof DefaultConnectorExceptionStrategyTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2014);
+			return types;
+		}
+		if (editPart instanceof CustomExceptionStrategyTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.OutboundEndpointType_2014);
 			return types;

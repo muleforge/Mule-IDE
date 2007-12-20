@@ -157,6 +157,9 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 				return new DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart(
 						view);
+
+			case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+				return new CustomExceptionStrategyTypeENDPOINTSEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

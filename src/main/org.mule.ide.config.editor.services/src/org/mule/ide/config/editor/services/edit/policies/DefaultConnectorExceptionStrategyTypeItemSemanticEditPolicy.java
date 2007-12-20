@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
@@ -45,6 +46,9 @@ public class DefaultConnectorExceptionStrategyTypeItemSemanticEditPolicy extends
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
+					case OutboundEndpointTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
 					}
 				}
 				break;

@@ -21,8 +21,10 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeENDPOINTSEditPart;
@@ -340,6 +342,30 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					OutboundEndpointTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					OutboundEndpointTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CustomExceptionStrategyTypeEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			Collection connectedViews = getChildrenByType(Collections
+					.singleton(view),
+					CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					OutboundEndpointTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,

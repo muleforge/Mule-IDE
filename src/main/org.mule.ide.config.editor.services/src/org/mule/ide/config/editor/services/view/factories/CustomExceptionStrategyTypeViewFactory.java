@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
@@ -61,6 +62,13 @@ public class CustomExceptionStrategyTypeViewFactory extends
 						view,
 						CoreVisualIDRegistry
 								.getType(CustomExceptionStrategyTypeClassEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						eObjectAdapter,
+						view,
+						CoreVisualIDRegistry
+								.getType(CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

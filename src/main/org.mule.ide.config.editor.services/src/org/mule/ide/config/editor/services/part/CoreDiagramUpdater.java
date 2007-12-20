@@ -11,6 +11,7 @@ import org.mule.ide.config.core.AbstractExceptionStrategyType;
 import org.mule.ide.config.core.AbstractInboundRouterType;
 import org.mule.ide.config.core.AbstractOutboundEndpointType;
 import org.mule.ide.config.core.AbstractServiceType;
+import org.mule.ide.config.core.CustomExceptionStrategyType;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.ExceptionStrategyType;
 import org.mule.ide.config.core.InboundRouterCollectionType;
@@ -18,8 +19,10 @@ import org.mule.ide.config.core.OutboundRouterCollectionType;
 import org.mule.ide.config.core.ResponseRouterCollectionType;
 import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeENDPOINTSEditPart;
@@ -60,6 +63,10 @@ public class CoreDiagramUpdater {
 			return getInboundRouterCollectionTypeINBOUND_5003SemanticChildren(view);
 		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 			return getExceptionStrategyTypeENDPOINTS_5006SemanticChildren(view);
+		case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			return getExceptionStrategyTypeENDPOINTS_5007SemanticChildren(view);
+		case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			return getCustomExceptionStrategyTypeENDPOINTS_5008SemanticChildren(view);
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			return getDefaultModelType_79SemanticChildren(view);
 		}
@@ -228,6 +235,64 @@ public class CoreDiagramUpdater {
 			return Collections.EMPTY_LIST;
 		}
 		ExceptionStrategyType modelElement = (ExceptionStrategyType) containerView
+				.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
+				.iterator(); it.hasNext();) {
+			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
+					.next();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == OutboundEndpointTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getExceptionStrategyTypeENDPOINTS_5007SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		ExceptionStrategyType modelElement = (ExceptionStrategyType) containerView
+				.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
+				.iterator(); it.hasNext();) {
+			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
+					.next();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == OutboundEndpointTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCustomExceptionStrategyTypeENDPOINTS_5008SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		CustomExceptionStrategyType modelElement = (CustomExceptionStrategyType) containerView
 				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getAbstractOutboundEndpoint()

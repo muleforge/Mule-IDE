@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
@@ -52,6 +53,7 @@ import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.view.factories.BridgeComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.BridgeComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrategyTypeClassViewFactory;
+import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrategyTypeENDPOINTSViewFactory;
 import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrategyTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrategyTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultComponentTypeLabelViewFactory;
@@ -305,6 +307,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					break;
 				case CustomExceptionStrategyTypeLabelEditPart.VISUAL_ID:
 				case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
+				case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 					if (CustomExceptionStrategyTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -410,6 +413,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return DefaultServiceExceptionStrategyTypeENDPOINTSViewFactory.class;
 		case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 			return DefaultConnectorExceptionStrategyTypeENDPOINTSViewFactory.class;
+		case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			return CustomExceptionStrategyTypeENDPOINTSViewFactory.class;
 		}
 		return null;
 	}

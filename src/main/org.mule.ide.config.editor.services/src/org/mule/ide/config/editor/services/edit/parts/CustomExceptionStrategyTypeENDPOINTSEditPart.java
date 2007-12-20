@@ -10,26 +10,26 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.policies.DefaultConnectorExceptionStrategyTypeENDPOINTSCanonicalEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.DefaultConnectorExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.CustomExceptionStrategyTypeENDPOINTSCanonicalEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.CustomExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * customization
  *  - subclass CustomListCompartmentEditPart
  */
-public class DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart extends
+public class CustomExceptionStrategyTypeENDPOINTSEditPart extends
 		CustomListCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5007;
+	public static final int VISUAL_ID = 5008;
 
 	/**
 	 * @generated
 	 */
-	public DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart(View view) {
+	public CustomExceptionStrategyTypeENDPOINTSEditPart(View view) {
 		super(view);
 	}
 
@@ -44,7 +44,7 @@ public class DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart_title;
+		return Messages.CustomExceptionStrategyTypeENDPOINTSEditPart_title;
 	}
 
 	/**
@@ -68,14 +68,13 @@ public class DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart extends
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new DefaultConnectorExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy());
+				new CustomExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(
-				EditPolicyRoles.CANONICAL_ROLE,
-				new DefaultConnectorExceptionStrategyTypeENDPOINTSCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new CustomExceptionStrategyTypeENDPOINTSCanonicalEditPolicy());
 	}
 
 	/**

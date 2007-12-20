@@ -50,8 +50,7 @@
             fixedForeground="true"/>
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
-            width="20"
-            height="4"/>
+            height="10"/>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet>
@@ -81,7 +80,7 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
           className="ServiceItemFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             height="10"/>
@@ -141,8 +140,7 @@
             fixedForeground="true"/>
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
-            width="20"
-            height="4"/>
+            height="10"/>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet>
@@ -180,8 +178,7 @@
             fixedForeground="true"/>
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
-            width="20"
-            height="4"/>
+            height="10"/>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet>
@@ -353,7 +350,7 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
           className="ServiceItemFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             height="10"/>
@@ -408,7 +405,7 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
           className="ServiceItemFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             height="10"/>
@@ -463,7 +460,7 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
           className="ServiceItemFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             height="10"/>
@@ -518,7 +515,7 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
           className="ServiceItemFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             height="10"/>
@@ -573,7 +570,7 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
           className="ServiceItemFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             height="10"/>
@@ -628,7 +625,7 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
           className="ServiceItemFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             height="10"/>
@@ -671,6 +668,7 @@
         itemSemanticEditPolicyClassName="DefaultServiceExceptionStrategyTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="DefaultServiceExceptionStrategyTypeViewFactory"
         canonicalEditPolicyClassName="DefaultServiceExceptionStrategyTypeCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.5"
         graphicalNodeEditPolicyClassName="DefaultServiceExceptionStrategyTypeGraphicalNodeEditPolicy"
         createCommandClassName="DefaultServiceExceptionStrategyTypeCreateCommand"
         containers="//@diagram/@compartments.1">
@@ -683,7 +681,7 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
           className="ServiceItemFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             height="10"/>
@@ -701,7 +699,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4012"
+          visualID="4013"
           editPartClassName="DefaultServiceExceptionStrategyTypeLabelEditPart"
           itemSemanticEditPolicyClassName="DefaultServiceExceptionStrategyTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="DefaultServiceExceptionStrategyTypeLabelViewFactory"
@@ -722,10 +720,61 @@
     </childNodes>
     <childNodes
         visualID="2014"
+        editPartClassName="OutboundEndpointTypeEditPart"
+        itemSemanticEditPolicyClassName="OutboundEndpointTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="OutboundEndpointTypeViewFactory"
+        canonicalEditPolicyClassName="OutboundEndpointTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="OutboundEndpointTypeGraphicalNodeEditPolicy"
+        createCommandClassName="OutboundEndpointTypeCreateCommand"
+        containers="//@diagram/@compartments.5">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="OutboundEndpointTypeEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          layoutType="TOOLBAR_LAYOUT"
+          className="EndpointFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EndpointFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureEndpointNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EndpointFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setOutline(false);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEndpointNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureEndpointNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureEndpointNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureEndpointNameFigure() {&#xA;&#x9;&#x9;return fFigureEndpointNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            height="10"/>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundEndpointType"/>
+        <containmentMetaFeature
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType/abstractOutboundEndpoint"/>
+        <childMetaFeature
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType/abstractOutboundEndpoint"/>
+      </modelFacet>
+      <labels
+          visualID="4012"
+          editPartClassName="OutboundEndpointTypeNameEditPart"
+          itemSemanticEditPolicyClassName="OutboundEndpointTypeNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="OutboundEndpointTypeNameViewFactory">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureEndpointNameFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet">
+          <metaFeatures
+              href="../../org.mule.ide.config.core/model/core.genmodel#//core/AbstractOutboundEndpointType/name"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="2015"
         editPartClassName="DefaultConnectorExceptionStrategyTypeEditPart"
         itemSemanticEditPolicyClassName="DefaultConnectorExceptionStrategyTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="DefaultConnectorExceptionStrategyTypeViewFactory"
         canonicalEditPolicyClassName="DefaultConnectorExceptionStrategyTypeCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.6"
         graphicalNodeEditPolicyClassName="DefaultConnectorExceptionStrategyTypeGraphicalNodeEditPolicy"
         createCommandClassName="DefaultConnectorExceptionStrategyTypeCreateCommand"
         containers="//@diagram/@compartments.1">
@@ -738,7 +787,7 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
           className="ServiceItemFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             height="10"/>
@@ -756,7 +805,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4013"
+          visualID="4014"
           editPartClassName="DefaultConnectorExceptionStrategyTypeLabelEditPart"
           itemSemanticEditPolicyClassName="DefaultConnectorExceptionStrategyTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="DefaultConnectorExceptionStrategyTypeLabelViewFactory"
@@ -776,7 +825,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2015"
+        visualID="2016"
         editPartClassName="CustomExceptionStrategyTypeEditPart"
         itemSemanticEditPolicyClassName="CustomExceptionStrategyTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomExceptionStrategyTypeViewFactory"
@@ -808,7 +857,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractExceptionStrategy"/>
       </modelFacet>
       <labels
-          visualID="4014"
+          visualID="4015"
           editPartClassName="CustomExceptionStrategyTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CustomExceptionStrategyTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomExceptionStrategyTypeLabelViewFactory"
@@ -827,7 +876,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4015"
+          visualID="4016"
           editPartClassName="CustomExceptionStrategyTypeClassEditPart"
           itemSemanticEditPolicyClassName="CustomExceptionStrategyTypeClassItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomExceptionStrategyTypeClassViewFactory">
@@ -883,7 +932,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/AbstractModelType/abstractService"/>
       </modelFacet>
       <labels
-          visualID="4016"
+          visualID="4017"
           editPartClassName="SedaServiceTypeNameEditPart"
           itemSemanticEditPolicyClassName="SedaServiceTypeNameItemSemanticEditPolicy"
           notationViewFactoryClassName="SedaServiceTypeNameViewFactory"
@@ -931,7 +980,7 @@
         itemSemanticEditPolicyClassName="SedaServiceTypeEXCEPTIONItemSemanticEditPolicy"
         notationViewFactoryClassName="SedaServiceTypeEXCEPTIONViewFactory"
         canonicalEditPolicyClassName="SedaServiceTypeEXCEPTIONCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.12 //@diagram/@childNodes.13 //@diagram/@childNodes.14"
+        childNodes="//@diagram/@childNodes.12 //@diagram/@childNodes.14 //@diagram/@childNodes.15"
         title="EXCEPTION"
         node="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
@@ -988,6 +1037,43 @@
       <viewmap
           xsi:type="gmfgen:FigureViewmap"
           figureQualifiedClassName="org.eclipse.draw2d.LabeledContainer">
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+    </compartments>
+    <compartments
+        visualID="5006"
+        editPartClassName="DefaultServiceExceptionStrategyTypeENDPOINTSEditPart"
+        itemSemanticEditPolicyClassName="DefaultServiceExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy"
+        notationViewFactoryClassName="DefaultServiceExceptionStrategyTypeENDPOINTSViewFactory"
+        canonicalEditPolicyClassName="DefaultServiceExceptionStrategyTypeENDPOINTSCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.13"
+        title="ENDPOINTS"
+        needsTitle="false"
+        node="//@diagram/@childNodes.12">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="UnlabeledCompartmentFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class UnlabeledCompartmentFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public UnlabeledCompartmentFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setOutline(false);&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+    </compartments>
+    <compartments
+        visualID="5007"
+        editPartClassName="DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart"
+        itemSemanticEditPolicyClassName="DefaultConnectorExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy"
+        notationViewFactoryClassName="DefaultConnectorExceptionStrategyTypeENDPOINTSViewFactory"
+        canonicalEditPolicyClassName="ExceptionStrategyTypeENDPOINTSCanonicalEditPolicy"
+        title="ENDPOINTS"
+        needsTitle="false"
+        node="//@diagram/@childNodes.14">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="UnlabeledCompartmentFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class UnlabeledCompartmentFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public UnlabeledCompartmentFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setOutline(false);&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
     </compartments>
@@ -1048,12 +1134,12 @@
             xsi:type="gmfgen:ToolEntry"
             title="Connector Exception Strategy"
             description="Add a new Connector Exception Strategy to a service"
-            genNodes="//@diagram/@childNodes.13"/>
+            genNodes="//@diagram/@childNodes.14"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Custom Exception Strategy"
             description="Add a new Custom Exception Strategy to a service"
-            genNodes="//@diagram/@childNodes.14"/>
+            genNodes="//@diagram/@childNodes.15"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Service Exception Strategy"
@@ -1119,7 +1205,8 @@
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Outbound Endpoint"
-            description="Create new Outbound Endpoint"/>
+            description="Create new Outbound Endpoint"
+            genNodes="//@diagram/@childNodes.13"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Message Splitter Outbound Router"
@@ -1252,14 +1339,17 @@
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.11"/>
     <childReferences
+        parent="//@diagram/@childNodes.12"
+        child="//@diagram/@childNodes.13"/>
+    <childReferences
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.12"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.13"/>
+        child="//@diagram/@childNodes.14"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.14"/>
+        child="//@diagram/@childNodes.15"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
@@ -1289,6 +1379,6 @@
   <expressionProviders>
     <providers
         xsi:type="gmfgen:GenJavaExpressionProvider"
-        expressions="//@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.8/@modelFacet/@modelElementSelector //@diagram/@childNodes.9/@modelFacet/@modelElementSelector //@diagram/@childNodes.10/@modelFacet/@modelElementSelector //@diagram/@childNodes.11/@modelFacet/@modelElementSelector //@diagram/@childNodes.12/@modelFacet/@modelElementSelector //@diagram/@childNodes.13/@modelFacet/@modelElementSelector"/>
+        expressions="//@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.8/@modelFacet/@modelElementSelector //@diagram/@childNodes.9/@modelFacet/@modelElementSelector //@diagram/@childNodes.10/@modelFacet/@modelElementSelector //@diagram/@childNodes.11/@modelFacet/@modelElementSelector //@diagram/@childNodes.12/@modelFacet/@modelElementSelector //@diagram/@childNodes.14/@modelFacet/@modelElementSelector"/>
   </expressionProviders>
 </gmfgen:GenEditorGenerator>

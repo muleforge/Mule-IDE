@@ -81,7 +81,10 @@
         <layout
             xsi:type="gmfgraph:FlowLayout"
             vertical="true"
-            forceSingleLine="true"/>
+            matchMinorSize="true"
+            forceSingleLine="true"
+            majorSpacing="0"
+            minorSpacing="0"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ServiceItemTypeLabelFigure">
@@ -132,19 +135,86 @@
       <accessors
           figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
     </descriptors>
+    <descriptors
+        name="UnlabeledCompartmentFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="UnlabeledCompartmentFigure"
+          outline="false">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            forceSingleLine="true"
+            majorSpacing="0"
+            minorSpacing="0"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="EndpointFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="EndpointFigure"
+          outline="false">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            majorSpacing="0"
+            minorSpacing="0"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EndpointNameFigure"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="EndpointItemCollectionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="EndpointItemCollectionFigure"/>
+    </descriptors>
+    <descriptors
+        name="EndpointItemLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="EndpointItemLabelFigure"/>
+    </descriptors>
   </figures>
   <nodes
       name="ExceptionStrategyType"
       figure="ServiceItemFigure"/>
   <nodes
       name="InboundRouterCollectionType"
-      figure="CollectionFigure"/>
+      figure="CollectionFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="40"
+          dy="10"/>
+    </facets>
+  </nodes>
   <nodes
       name="OutboundRouterCollectionType"
-      figure="CollectionFigure"/>
+      figure="CollectionFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="40"
+          dy="10"/>
+    </facets>
+  </nodes>
   <nodes
       name="ResponseRouterCollectionType"
-      figure="CollectionFigure"/>
+      figure="CollectionFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="40"
+          dy="10"/>
+    </facets>
+  </nodes>
   <nodes
       name="SedaServiceType"
       figure="ServiceFigure"/>
@@ -161,6 +231,16 @@
   <nodes
       name="ClassServiceItem"
       figure="ClassServiceItemFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="40"
+          dy="10"/>
+    </facets>
+  </nodes>
+  <nodes
+      name="Endpoint"
+      figure="EndpointFigure">
     <facets
         xsi:type="gmfgraph:DefaultSizeFacet">
       <defaultSize
@@ -193,6 +273,18 @@
       figure="LabeledCompartmentFigure"
       collapsible="true"
       needsTitle="true"/>
+  <compartments
+      name="ENDPOINTS"
+      figure="UnlabeledCompartmentFigure"
+      collapsible="true"/>
+  <compartments
+      name="TransformerCollection"
+      figure="EndpointItemCollectionFigure"
+      collapsible="true"/>
+  <compartments
+      name="FilterCollection"
+      figure="EndpointItemCollectionFigure"
+      collapsible="true"/>
   <labels
       name="ServiceNameLabel"
       figure="ServiceFigure"
@@ -210,4 +302,13 @@
       figure="ClassServiceItemFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+  <labels
+      name="EndpointNameLabel"
+      figure="EndpointFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels
+      name="EndpointItemLabel"
+      figure="EndpointItemLabelFigure"
+      elementIcon="false"/>
 </gmfgraph:Canvas>

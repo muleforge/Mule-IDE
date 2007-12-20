@@ -285,6 +285,32 @@
               href="services.gmftool#//@palette/@tools.2/@tools.2"/>
           <diagramNode
               href="services.gmfgraph#ServiceItem"/>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="../../org.mule.ide.config.core/model/core.ecore#//ExceptionStrategyType/abstractOutboundEndpoint"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.mule.ide.config.core/model/core.ecore#//OutboundEndpointType"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="services.gmfgraph#EndpointNameLabel"/>
+                <features
+                    href="../../org.mule.ide.config.core/model/core.ecore#//AbstractOutboundEndpointType/name"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="services.gmftool#//@palette/@tools.4/@tools.0"/>
+              <diagramNode
+                  href="services.gmfgraph#Endpoint"/>
+            </ownedChild>
+          </children>
+          <compartments
+              children="//@nodes.0/@ownedChild/@children.11/@ownedChild/@children.0">
+            <compartment
+                href="services.gmfgraph#ENDPOINTS"/>
+          </compartments>
         </ownedChild>
       </children>
       <children
@@ -307,6 +333,10 @@
               href="services.gmftool#//@palette/@tools.2/@tools.0"/>
           <diagramNode
               href="services.gmfgraph#ServiceItem"/>
+          <compartments>
+            <compartment
+                href="services.gmfgraph#ENDPOINTS"/>
+          </compartments>
         </ownedChild>
       </children>
       <children

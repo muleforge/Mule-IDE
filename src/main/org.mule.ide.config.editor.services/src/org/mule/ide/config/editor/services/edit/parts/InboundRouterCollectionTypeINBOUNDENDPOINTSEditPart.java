@@ -13,7 +13,8 @@ import org.mule.ide.config.editor.services.edit.policies.InboundRouterCollection
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
- * @generated
+ * customization
+ *  - subclass CustomNonCollapsibleCompartmentEditPart
  */
 public class InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart extends
 		CustomNonCollapsibleCompartmentEditPart {

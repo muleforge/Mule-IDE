@@ -231,9 +231,6 @@
     </descriptors>
   </figures>
   <nodes
-      name="ExceptionStrategyType"
-      figure="ServiceItemFigure"/>
-  <nodes
       name="InboundRouterCollectionType"
       figure="CollectionFigure">
     <facets

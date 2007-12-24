@@ -36,6 +36,8 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStr
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeLabelEditPart;
@@ -54,7 +56,7 @@ import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTy
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
@@ -131,51 +133,54 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?InboundRouterCollectionType", CoreElementTypes.InboundRouterCollectionType_2001); //$NON-NLS-1$
+		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?InboundEndpointType", CoreElementTypes.InboundEndpointType_2002); //$NON-NLS-1$
 		case WireTapRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?WireTapRouterType", CoreElementTypes.WireTapRouterType_2002); //$NON-NLS-1$
-		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterCollectionType", CoreElementTypes.OutboundRouterCollectionType_2003); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?WireTapRouterType", CoreElementTypes.WireTapRouterType_2003); //$NON-NLS-1$
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ResponseRouterCollectionType", CoreElementTypes.ResponseRouterCollectionType_2004); //$NON-NLS-1$
+		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterCollectionType", CoreElementTypes.OutboundRouterCollectionType_2005); //$NON-NLS-1$
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?PojoComponentType", CoreElementTypes.PojoComponentType_2005); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?PojoComponentType", CoreElementTypes.PojoComponentType_2006); //$NON-NLS-1$
 		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?NoArgsCallWrapperType", CoreElementTypes.NoArgsCallWrapperType_2006); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?NoArgsCallWrapperType", CoreElementTypes.NoArgsCallWrapperType_2007); //$NON-NLS-1$
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2007); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2008); //$NON-NLS-1$
 		case BridgeComponentTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2008); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2009); //$NON-NLS-1$
 		case EchoComponentTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2009); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2010); //$NON-NLS-1$
 		case LogComponentTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2010); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2011); //$NON-NLS-1$
 		case NullComponentTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2011); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2012); //$NON-NLS-1$
 		case PassThroughComponentTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2012); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2013); //$NON-NLS-1$
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ExceptionStrategyType", CoreElementTypes.ExceptionStrategyType_2013); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ExceptionStrategyType", CoreElementTypes.ExceptionStrategyType_2014); //$NON-NLS-1$
 		case OutboundEndpointTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundEndpointType", CoreElementTypes.OutboundEndpointType_2014); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundEndpointType", CoreElementTypes.OutboundEndpointType_2015); //$NON-NLS-1$
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ExceptionStrategyType", CoreElementTypes.ExceptionStrategyType_2015); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ExceptionStrategyType", CoreElementTypes.ExceptionStrategyType_2016); //$NON-NLS-1$
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomExceptionStrategyType", CoreElementTypes.CustomExceptionStrategyType_2016); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomExceptionStrategyType", CoreElementTypes.CustomExceptionStrategyType_2017); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -234,36 +239,38 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getSedaServiceType_1001Text(view);
 		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getInboundRouterCollectionType_2001Text(view);
+		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+			return getInboundEndpointType_2002Text(view);
 		case WireTapRouterTypeEditPart.VISUAL_ID:
-			return getWireTapRouterType_2002Text(view);
-		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundRouterCollectionType_2003Text(view);
+			return getWireTapRouterType_2003Text(view);
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 			return getResponseRouterCollectionType_2004Text(view);
+		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+			return getOutboundRouterCollectionType_2005Text(view);
 		case PojoComponentTypeEditPart.VISUAL_ID:
-			return getPojoComponentType_2005Text(view);
+			return getPojoComponentType_2006Text(view);
 		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
-			return getNoArgsCallWrapperType_2006Text(view);
+			return getNoArgsCallWrapperType_2007Text(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2007Text(view);
-		case BridgeComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2008Text(view);
-		case EchoComponentTypeEditPart.VISUAL_ID:
+		case BridgeComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2009Text(view);
-		case LogComponentTypeEditPart.VISUAL_ID:
+		case EchoComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2010Text(view);
-		case NullComponentTypeEditPart.VISUAL_ID:
+		case LogComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2011Text(view);
-		case PassThroughComponentTypeEditPart.VISUAL_ID:
+		case NullComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2012Text(view);
+		case PassThroughComponentTypeEditPart.VISUAL_ID:
+			return getDefaultComponentType_2013Text(view);
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2013Text(view);
+			return getExceptionStrategyType_2014Text(view);
 		case OutboundEndpointTypeEditPart.VISUAL_ID:
-			return getOutboundEndpointType_2014Text(view);
+			return getOutboundEndpointType_2015Text(view);
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2015Text(view);
+			return getExceptionStrategyType_2016Text(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyType_2016Text(view);
+			return getCustomExceptionStrategyType_2017Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -299,7 +306,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4017); //$NON-NLS-1$
+					"Parser was not found for label " + 4018); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -323,12 +330,13 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getWireTapRouterType_2002Text(View view) {
+	private String getInboundEndpointType_2002Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.WireTapRouterType_2002,
+				CoreElementTypes.InboundEndpointType_2002,
 				(view.getElement() != null ? view.getElement() : view),
-				CoreVisualIDRegistry.getType(WrapLabelEditPart.VISUAL_ID));
+				CoreVisualIDRegistry
+						.getType(InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -342,16 +350,21 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getOutboundRouterCollectionType_2003Text(View view) {
-		OutboundRouterCollectionType domainModelElement = (OutboundRouterCollectionType) view
-				.getElement();
-		if (domainModelElement != null) {
-			return String.valueOf(domainModelElement.isMatchAll());
+	private String getWireTapRouterType_2003Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.WireTapRouterType_2003,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry
+						.getType(WireTapRouterTypeLabelEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
 		} else {
-			ServicesEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -372,10 +385,25 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getPojoComponentType_2005Text(View view) {
+	private String getOutboundRouterCollectionType_2005Text(View view) {
+		OutboundRouterCollectionType domainModelElement = (OutboundRouterCollectionType) view
+				.getElement();
+		if (domainModelElement != null) {
+			return String.valueOf(domainModelElement.isMatchAll());
+		} else {
+			ServicesEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 2005); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getPojoComponentType_2006Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.PojoComponentType_2005,
+				CoreElementTypes.PojoComponentType_2006,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(PojoComponentTypeLabelEditPart.VISUAL_ID));
@@ -392,33 +420,13 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getNoArgsCallWrapperType_2006Text(View view) {
+	private String getNoArgsCallWrapperType_2007Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.NoArgsCallWrapperType_2006,
+				CoreElementTypes.NoArgsCallWrapperType_2007,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
-		} else {
-			return ""; //$NON-NLS-1$
-		}
-
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getDefaultComponentType_2007Text(View view) {
-
-		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.DefaultComponentType_2007,
-				(view.getElement() != null ? view.getElement() : view),
-				CoreVisualIDRegistry
-						.getType(DefaultComponentTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -438,7 +446,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 				CoreElementTypes.DefaultComponentType_2008,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
-						.getType(BridgeComponentTypeLabelEditPart.VISUAL_ID));
+						.getType(DefaultComponentTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -458,7 +466,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 				CoreElementTypes.DefaultComponentType_2009,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
-						.getType(EchoComponentTypeLabelEditPart.VISUAL_ID));
+						.getType(BridgeComponentTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -478,7 +486,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 				CoreElementTypes.DefaultComponentType_2010,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
-						.getType(LogComponentTypeLabelEditPart.VISUAL_ID));
+						.getType(EchoComponentTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -498,7 +506,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 				CoreElementTypes.DefaultComponentType_2011,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
-						.getType(NullComponentTypeLabelEditPart.VISUAL_ID));
+						.getType(LogComponentTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -518,6 +526,26 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 				CoreElementTypes.DefaultComponentType_2012,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
+						.getType(NullComponentTypeLabelEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getDefaultComponentType_2013Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.DefaultComponentType_2013,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry
 						.getType(PassThroughComponentTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
@@ -532,10 +560,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getExceptionStrategyType_2013Text(View view) {
+	private String getExceptionStrategyType_2014Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.ExceptionStrategyType_2013,
+				CoreElementTypes.ExceptionStrategyType_2014,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(DefaultServiceExceptionStrategyTypeLabelEditPart.VISUAL_ID));
@@ -552,9 +580,9 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getOutboundEndpointType_2014Text(View view) {
+	private String getOutboundEndpointType_2015Text(View view) {
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.OutboundEndpointType_2014,
+				CoreElementTypes.OutboundEndpointType_2015,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(OutboundEndpointTypeNameEditPart.VISUAL_ID));
@@ -565,7 +593,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4012); //$NON-NLS-1$
+					"Parser was not found for label " + 4013); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -574,10 +602,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getExceptionStrategyType_2015Text(View view) {
+	private String getExceptionStrategyType_2016Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.ExceptionStrategyType_2015,
+				CoreElementTypes.ExceptionStrategyType_2016,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(DefaultConnectorExceptionStrategyTypeLabelEditPart.VISUAL_ID));
@@ -594,10 +622,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getCustomExceptionStrategyType_2016Text(View view) {
+	private String getCustomExceptionStrategyType_2017Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.CustomExceptionStrategyType_2016,
+				CoreElementTypes.CustomExceptionStrategyType_2017,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(CustomExceptionStrategyTypeLabelEditPart.VISUAL_ID));

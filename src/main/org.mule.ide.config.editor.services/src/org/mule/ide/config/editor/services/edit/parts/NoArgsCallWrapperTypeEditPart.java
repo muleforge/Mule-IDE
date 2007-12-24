@@ -36,7 +36,7 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2006;
+	public static final int VISUAL_ID = 2007;
 
 	/**
 	 * @generated

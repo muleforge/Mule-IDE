@@ -40,17 +40,23 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case InboundRouterCollectionTypeEditPart.VISUAL_ID:
 				return new InboundRouterCollectionTypeEditPart(view);
 
+			case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+				return new InboundEndpointServiceItemTypeEditPart(view);
+
+			case InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
+				return new InboundEndpointServiceItemTypeLabelEditPart(view);
+
 			case WireTapRouterTypeEditPart.VISUAL_ID:
 				return new WireTapRouterTypeEditPart(view);
 
-			case WrapLabelEditPart.VISUAL_ID:
-				return new WrapLabelEditPart(view);
-
-			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-				return new OutboundRouterCollectionTypeEditPart(view);
+			case WireTapRouterTypeLabelEditPart.VISUAL_ID:
+				return new WireTapRouterTypeLabelEditPart(view);
 
 			case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 				return new ResponseRouterCollectionTypeEditPart(view);
+
+			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+				return new OutboundRouterCollectionTypeEditPart(view);
 
 			case PojoComponentTypeEditPart.VISUAL_ID:
 				return new PojoComponentTypeEditPart(view);
@@ -141,14 +147,34 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:
 				return new SedaServiceTypeEXCEPTIONEditPart(view);
 
-			case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
-				return new InboundRouterCollectionTypeINBOUNDEditPart(view);
+			case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
+				return new SedaServiceTypeINBOUNDEditPart(view);
 
-			case OutboundRouterCollectionTypeOUTBOUNDEditPart.VISUAL_ID:
-				return new OutboundRouterCollectionTypeOUTBOUNDEditPart(view);
+			case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
+				return new SedaServiceTypeOUTBOUNDEditPart(view);
 
-			case ResponseRouterCollectionTypeRESPONSEEditPart.VISUAL_ID:
-				return new ResponseRouterCollectionTypeRESPONSEEditPart(view);
+			case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
+				return new SedaServiceTypeRESPONSEEditPart(view);
+
+			case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+				return new InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart(
+						view);
+
+			case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+				return new InboundRouterCollectionTypeINBOUNDROUTERSEditPart(
+						view);
+
+			case ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID:
+				return new ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart(
+						view);
+
+			case ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID:
+				return new ResponseRouterCollectionTypeRESPONSEROUTERSEditPart(
+						view);
+
+			case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
+				return new OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart(
+						view);
 
 			case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 				return new DefaultServiceExceptionStrategyTypeENDPOINTSEditPart(

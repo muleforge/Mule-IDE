@@ -10,7 +10,7 @@ import java.util.Set;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramUpdater;
 import org.mule.ide.config.editor.services.part.CoreNodeDescriptor;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
@@ -18,7 +18,7 @@ import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 /**
  * @generated
  */
-public class InboundRouterCollectionTypeINBOUNDCanonicalEditPolicy extends
+public class SedaServiceTypeRESPONSECanonicalEditPolicy extends
 		CanonicalEditPolicy {
 
 	/**
@@ -33,8 +33,8 @@ public class InboundRouterCollectionTypeINBOUNDCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getInboundRouterCollectionTypeINBOUND_5003SemanticChildren(
-						viewObject).iterator(); it.hasNext();) {
+				.getSedaServiceTypeRESPONSE_5005SemanticChildren(viewObject)
+				.iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}
 		return result;
@@ -46,7 +46,7 @@ public class InboundRouterCollectionTypeINBOUNDCanonicalEditPolicy extends
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = CoreVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
-		case WireTapRouterTypeEditPart.VISUAL_ID:
+		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())
 					|| visualID != CoreVisualIDRegistry.getNodeVisualID(
 							(View) getHost().getModel(), view.getElement());
@@ -68,7 +68,7 @@ public class InboundRouterCollectionTypeINBOUNDCanonicalEditPolicy extends
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
-					.getInboundRouterCollectionType_AbstractInboundRouter());
+					.getBaseServiceType_ResponseRouter());
 		}
 		return myFeaturesToSynchronize;
 	}

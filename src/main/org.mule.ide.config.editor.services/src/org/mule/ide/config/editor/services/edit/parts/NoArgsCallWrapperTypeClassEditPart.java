@@ -58,7 +58,7 @@ public class NoArgsCallWrapperTypeClassEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4005;
+	public static final int VISUAL_ID = 4006;
 
 	/**
 	 * @generated
@@ -304,7 +304,7 @@ public class NoArgsCallWrapperTypeClassEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.NoArgsCallWrapperType_2006,
+					CoreElementTypes.NoArgsCallWrapperType_2007,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

@@ -10,13 +10,13 @@ import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.TitleStyle;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
  * @generated
  */
-public class ResponseRouterCollectionTypeRESPONSEViewFactory extends
+public class InboundRouterCollectionTypeINBOUNDROUTERSViewFactory extends
 		BasicNodeViewFactory {
 
 	/**
@@ -24,8 +24,6 @@ public class ResponseRouterCollectionTypeRESPONSEViewFactory extends
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
-		styles.add(NotationFactory.eINSTANCE.createDrawerStyle());
-		styles.add(NotationFactory.eINSTANCE.createTitleStyle());
 		styles.add(NotationFactory.eINSTANCE.createSortingStyle());
 		styles.add(NotationFactory.eINSTANCE.createFilteringStyle());
 		return styles;
@@ -39,7 +37,7 @@ public class ResponseRouterCollectionTypeRESPONSEViewFactory extends
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = CoreVisualIDRegistry
-					.getType(ResponseRouterCollectionTypeRESPONSEEditPart.VISUAL_ID);
+					.getType(InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,

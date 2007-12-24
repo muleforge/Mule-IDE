@@ -16,7 +16,10 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeRESPONSEEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
@@ -79,6 +82,24 @@ public class SedaServiceTypeViewFactory extends AbstractShapeViewFactory {
 				view,
 				CoreVisualIDRegistry
 						.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID),
+				ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService().createNode(
+				eObjectAdapter,
+				view,
+				CoreVisualIDRegistry
+						.getType(SedaServiceTypeINBOUNDEditPart.VISUAL_ID),
+				ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService().createNode(
+				eObjectAdapter,
+				view,
+				CoreVisualIDRegistry
+						.getType(SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID),
+				ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService().createNode(
+				eObjectAdapter,
+				view,
+				CoreVisualIDRegistry
+						.getType(SedaServiceTypeRESPONSEEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

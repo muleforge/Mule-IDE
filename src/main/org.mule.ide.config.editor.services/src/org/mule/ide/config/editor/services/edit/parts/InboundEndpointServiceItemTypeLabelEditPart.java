@@ -52,8 +52,8 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * @generated
  */
-public class WrapLabelEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class InboundEndpointServiceItemTypeLabelEditPart extends
+		CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class WrapLabelEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public WrapLabelEditPart(View view) {
+	public InboundEndpointServiceItemTypeLabelEditPart(View view) {
 		super(view);
 	}
 
@@ -308,7 +308,7 @@ public class WrapLabelEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.WireTapRouterType_2002,
+					CoreElementTypes.InboundEndpointType_2002,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

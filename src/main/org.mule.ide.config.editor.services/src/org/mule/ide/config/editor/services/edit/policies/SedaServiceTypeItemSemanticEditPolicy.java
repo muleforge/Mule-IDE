@@ -29,6 +29,9 @@ import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeRESPONSEEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
@@ -37,40 +40,6 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
  */
 public class SedaServiceTypeItemSemanticEditPolicy extends
 		CoreBaseItemSemanticEditPolicy {
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.InboundRouterCollectionType_2001 == req
-				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(CorePackage.eINSTANCE
-						.getBaseServiceType_InboundRouter());
-			}
-			return getGEFWrapper(new InboundRouterCollectionTypeCreateCommand(
-					req));
-		}
-		if (CoreElementTypes.OutboundRouterCollectionType_2003 == req
-				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(CorePackage.eINSTANCE
-						.getBaseServiceType_OutboundRouter());
-			}
-			return getGEFWrapper(new OutboundRouterCollectionTypeCreateCommand(
-					req));
-		}
-		if (CoreElementTypes.ResponseRouterCollectionType_2004 == req
-				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(CorePackage.eINSTANCE
-						.getBaseServiceType_ResponseRouter());
-			}
-			return getGEFWrapper(new ResponseRouterCollectionTypeCreateCommand(
-					req));
-		}
-		return super.getCreateCommand(req);
-	}
 
 	/**
 	 * @generated
@@ -99,15 +68,6 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (CoreVisualIDRegistry.getVisualID(node)) {
-			case InboundRouterCollectionTypeEditPart.VISUAL_ID:
-				cmd.add(getDestroyElementCommand(node));
-				break;
-			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-				cmd.add(getDestroyElementCommand(node));
-				break;
-			case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-				cmd.add(getDestroyElementCommand(node));
-				break;
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
@@ -152,6 +112,39 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					}
+				}
+				break;
+			case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
+					case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					}
+				}
+				break;
+			case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
+					case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					}
+				}
+				break;
+			case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
+					case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					}

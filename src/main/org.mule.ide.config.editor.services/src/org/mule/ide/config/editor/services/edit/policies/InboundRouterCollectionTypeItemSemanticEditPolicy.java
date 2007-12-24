@@ -8,7 +8,9 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
@@ -41,7 +43,18 @@ public class InboundRouterCollectionTypeItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (CoreVisualIDRegistry.getVisualID(node)) {
-			case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
+			case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
+					case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					}
+				}
+				break;
+			case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

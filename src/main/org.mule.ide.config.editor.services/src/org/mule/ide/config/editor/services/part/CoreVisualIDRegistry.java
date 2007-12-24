@@ -28,8 +28,11 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStr
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
@@ -40,20 +43,24 @@ import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeLabelEdit
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeRESPONSEEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.expressions.CoreAbstractExpression;
 
 /**
@@ -165,20 +172,6 @@ public class CoreVisualIDRegistry {
 			}
 		}
 		switch (containerVisualID) {
-		case SedaServiceTypeEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getInboundRouterCollectionType()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return InboundRouterCollectionTypeEditPart.VISUAL_ID;
-			}
-			if (CorePackage.eINSTANCE.getOutboundRouterCollectionType()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return OutboundRouterCollectionTypeEditPart.VISUAL_ID;
-			}
-			if (CorePackage.eINSTANCE.getResponseRouterCollectionType()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return ResponseRouterCollectionTypeEditPart.VISUAL_ID;
-			}
-			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getPojoComponentType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -253,7 +246,31 @@ public class CoreVisualIDRegistry {
 				return CustomExceptionStrategyTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
+		case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getInboundRouterCollectionType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return InboundRouterCollectionTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundRouterCollectionType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return OutboundRouterCollectionTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getResponseRouterCollectionType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ResponseRouterCollectionTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getInboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return InboundEndpointServiceItemTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getWireTapRouterType().isSuperTypeOf(
 					domainElement.eClass())) {
 				return WireTapRouterTypeEditPart.VISUAL_ID;
@@ -318,33 +335,44 @@ public class CoreVisualIDRegistry {
 			if (SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (InboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (SedaServiceTypeINBOUNDEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (OutboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ResponseRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (SedaServiceTypeRESPONSEEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
-			if (InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID == nodeVisualID) {
+			if (InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+			if (InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case WireTapRouterTypeEditPart.VISUAL_ID:
-			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			if (OutboundRouterCollectionTypeOUTBOUNDEditPart.VISUAL_ID == nodeVisualID) {
+			if (WireTapRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-			if (ResponseRouterCollectionTypeRESPONSEEditPart.VISUAL_ID == nodeVisualID) {
+			if (ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+			if (OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -463,7 +491,27 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID:
+		case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
+			if (InboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
+			if (OutboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
+			if (ResponseRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+			if (InboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 			if (WireTapRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

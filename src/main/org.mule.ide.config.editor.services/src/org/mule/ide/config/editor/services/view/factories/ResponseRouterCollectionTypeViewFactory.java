@@ -11,7 +11,8 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEROUTERSEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
@@ -54,7 +55,14 @@ public class ResponseRouterCollectionTypeViewFactory extends
 						eObjectAdapter,
 						view,
 						CoreVisualIDRegistry
-								.getType(ResponseRouterCollectionTypeRESPONSEEditPart.VISUAL_ID),
+								.getType(ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						eObjectAdapter,
+						view,
+						CoreVisualIDRegistry
+								.getType(ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

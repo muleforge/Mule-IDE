@@ -2,36 +2,31 @@ package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
-import org.eclipse.gmf.runtime.diagram.ui.internal.figures.NestedResizableCompartmentFigure;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.policies.InboundRouterCollectionTypeINBOUNDCanonicalEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.InboundRouterCollectionTypeINBOUNDItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.InboundRouterCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.InboundRouterCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
- * customization
- *  - subclass CustomListCompartmentEditPart
+ * @generated
  */
-public class InboundRouterCollectionTypeINBOUNDEditPart extends
-		CustomListCompartmentEditPart {
+public class InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart extends
+		CustomNonCollapsibleCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5003;
+	public static final int VISUAL_ID = 5006;
 
 	/**
 	 * @generated
 	 */
-	public InboundRouterCollectionTypeINBOUNDEditPart(View view) {
+	public InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart(View view) {
 		super(view);
 	}
 
@@ -46,7 +41,17 @@ public class InboundRouterCollectionTypeINBOUNDEditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.InboundRouterCollectionTypeINBOUNDEditPart_title;
+		return Messages.InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart_title;
+	}
+
+	/**
+	 * @generated
+	 */
+	public IFigure createFigure() {
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
+				.createFigure();
+		result.setTitleVisibility(false);
+		return result;
 	}
 
 	/**
@@ -54,16 +59,16 @@ public class InboundRouterCollectionTypeINBOUNDEditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new ResizableCompartmentEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new InboundRouterCollectionTypeINBOUNDItemSemanticEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
+				new InboundRouterCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new InboundRouterCollectionTypeINBOUNDCanonicalEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
+				new InboundRouterCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy());
 	}
 
 	/**

@@ -58,7 +58,7 @@ public class NullComponentTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4010;
+	public static final int VISUAL_ID = 4011;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class NullComponentTypeLabelEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.DefaultComponentType_2011,
+					CoreElementTypes.DefaultComponentType_2012,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

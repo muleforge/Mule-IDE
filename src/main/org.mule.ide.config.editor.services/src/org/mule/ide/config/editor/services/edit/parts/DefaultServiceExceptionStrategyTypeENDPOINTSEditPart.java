@@ -24,7 +24,7 @@ public class DefaultServiceExceptionStrategyTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5006;
+	public static final int VISUAL_ID = 5011;
 
 	/**
 	 * @generated

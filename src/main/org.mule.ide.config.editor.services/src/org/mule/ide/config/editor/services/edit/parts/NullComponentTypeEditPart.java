@@ -35,7 +35,7 @@ public class NullComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2011;
+	public static final int VISUAL_ID = 2012;
 
 	/**
 	 * @generated

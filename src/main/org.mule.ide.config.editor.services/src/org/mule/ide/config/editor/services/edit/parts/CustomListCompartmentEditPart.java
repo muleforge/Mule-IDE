@@ -22,11 +22,10 @@ public abstract class CustomListCompartmentEditPart extends ListCompartmentEditP
 		}
 		
 		ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setStretchMajorAxis(true);
-			layout.setStretchMinorAxis(true);
-			layout.setMinorAlignment(ConstrainedToolbarLayout.ALIGN_TOPLEFT);
-			rcf.getContentPane().setLayoutManager(layout);
-		
+		layout.setStretchMajorAxis(true);
+		layout.setStretchMinorAxis(true);
+		layout.setMinorAlignment(ConstrainedToolbarLayout.ALIGN_TOPLEFT);
+		rcf.getContentPane().setLayoutManager(layout);
 		
 		return rcf;
 	}

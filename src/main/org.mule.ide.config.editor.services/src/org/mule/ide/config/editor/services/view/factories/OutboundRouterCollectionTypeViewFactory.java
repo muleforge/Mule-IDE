@@ -11,8 +11,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
@@ -55,7 +54,7 @@ public class OutboundRouterCollectionTypeViewFactory extends
 						eObjectAdapter,
 						view,
 						CoreVisualIDRegistry
-								.getType(OutboundRouterCollectionTypeOUTBOUNDEditPart.VISUAL_ID),
+								.getType(OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

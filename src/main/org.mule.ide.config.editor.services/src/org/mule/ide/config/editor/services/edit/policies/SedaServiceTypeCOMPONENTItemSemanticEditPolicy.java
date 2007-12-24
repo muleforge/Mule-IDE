@@ -24,56 +24,56 @@ public class SedaServiceTypeCOMPONENTItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.PojoComponentType_2005 == req.getElementType()) {
+		if (CoreElementTypes.PojoComponentType_2006 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());
 			}
 			return getGEFWrapper(new PojoComponentTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.NoArgsCallWrapperType_2006 == req.getElementType()) {
+		if (CoreElementTypes.NoArgsCallWrapperType_2007 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());
 			}
 			return getGEFWrapper(new NoArgsCallWrapperTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.DefaultComponentType_2007 == req.getElementType()) {
+		if (CoreElementTypes.DefaultComponentType_2008 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());
 			}
 			return getGEFWrapper(new DefaultComponentTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.DefaultComponentType_2008 == req.getElementType()) {
+		if (CoreElementTypes.DefaultComponentType_2009 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());
 			}
 			return getGEFWrapper(new BridgeComponentTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.DefaultComponentType_2009 == req.getElementType()) {
+		if (CoreElementTypes.DefaultComponentType_2010 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());
 			}
 			return getGEFWrapper(new EchoComponentTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.DefaultComponentType_2010 == req.getElementType()) {
+		if (CoreElementTypes.DefaultComponentType_2011 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());
 			}
 			return getGEFWrapper(new LogComponentTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.DefaultComponentType_2011 == req.getElementType()) {
+		if (CoreElementTypes.DefaultComponentType_2012 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());
 			}
 			return getGEFWrapper(new NullComponentTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.DefaultComponentType_2012 == req.getElementType()) {
+		if (CoreElementTypes.DefaultComponentType_2013 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());

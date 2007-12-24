@@ -58,7 +58,7 @@ public class PojoComponentTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4002;
+	public static final int VISUAL_ID = 4003;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class PojoComponentTypeLabelEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.PojoComponentType_2005,
+					CoreElementTypes.PojoComponentType_2006,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

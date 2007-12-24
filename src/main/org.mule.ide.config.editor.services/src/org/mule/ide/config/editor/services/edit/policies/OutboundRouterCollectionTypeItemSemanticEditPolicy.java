@@ -8,7 +8,7 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
@@ -40,7 +40,7 @@ public class OutboundRouterCollectionTypeItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (CoreVisualIDRegistry.getVisualID(node)) {
-			case OutboundRouterCollectionTypeOUTBOUNDEditPart.VISUAL_ID:
+			case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

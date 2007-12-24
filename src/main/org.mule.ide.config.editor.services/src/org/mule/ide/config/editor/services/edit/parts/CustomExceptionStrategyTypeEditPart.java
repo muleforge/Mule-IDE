@@ -43,7 +43,7 @@ public class CustomExceptionStrategyTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2016;
+	public static final int VISUAL_ID = 2017;
 
 	/**
 	 * @generated
@@ -76,7 +76,7 @@ public class CustomExceptionStrategyTypeEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == CoreElementTypes.OutboundEndpointType_2014) {
+								if (type == CoreElementTypes.OutboundEndpointType_2015) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

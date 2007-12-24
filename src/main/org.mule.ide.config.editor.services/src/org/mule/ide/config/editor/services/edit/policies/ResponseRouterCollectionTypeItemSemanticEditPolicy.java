@@ -8,7 +8,8 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEROUTERSEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
@@ -40,7 +41,15 @@ public class ResponseRouterCollectionTypeItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (CoreVisualIDRegistry.getVisualID(node)) {
-			case ResponseRouterCollectionTypeRESPONSEEditPart.VISUAL_ID:
+			case ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
+					}
+				}
+				break;
+			case ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

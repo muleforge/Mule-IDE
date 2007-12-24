@@ -408,112 +408,102 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String WireTapRouter2CreationTool_title;
+	public static String AggregatorRouter3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String WireTapRouter2CreationTool_desc;
+	public static String AggregatorRouter3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String StaticRecipientListRouter3CreationTool_title;
+	public static String InboundChunkingRouter4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String StaticRecipientListRouter3CreationTool_desc;
+	public static String InboundChunkingRouter4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String SelectiveConsumerRouter4CreationTool_title;
+	public static String InboundCustomRouter5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SelectiveConsumerRouter4CreationTool_desc;
+	public static String InboundCustomRouter5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String OutboundRouter5CreationTool_title;
+	public static String ForwardingRouter6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutboundRouter5CreationTool_desc;
+	public static String ForwardingRouter6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ChunkingRouter6CreationTool_title;
+	public static String IdempotentReceiverRouter7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ChunkingRouter6CreationTool_desc;
+	public static String IdempotentReceiverRouter7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CorrelationRouter7CreationTool_title;
+	public static String IdempotentSecureReceiverRouter8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CorrelationRouter7CreationTool_desc;
+	public static String IdempotentSecureReceiverRouter8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String IdempotentReceiver8CreationTool_title;
+	public static String InboundPassThroughRouter9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String IdempotentReceiver8CreationTool_desc;
+	public static String InboundPassThroughRouter9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ForwardingRouter9CreationTool_title;
+	public static String ResequencerRouter10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ForwardingRouter9CreationTool_desc;
+	public static String ResequencerRouter10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String FilteredInboundRouter10CreationTool_title;
+	public static String SelectiveConsumerRouter11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String FilteredInboundRouter10CreationTool_desc;
+	public static String SelectiveConsumerRouter11CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomInboundRouter11CreationTool_title;
+	public static String WireTapRouter12CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomInboundRouter11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CorrelationAggregatorRouter12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CorrelationAggregatorRouter12CreationTool_desc;
+	public static String WireTapRouter12CreationTool_desc;
 
 	/**
 	 * @generated
@@ -528,42 +518,112 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String MessageSplitterOutboundRouter2CreationTool_title;
+	public static String ChainingRouter3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String MessageSplitterOutboundRouter2CreationTool_desc;
+	public static String ChainingRouter3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String FilteringOutboundRouter3CreationTool_title;
+	public static String OutboundChunkingRouter4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String FilteringOutboundRouter3CreationTool_desc;
+	public static String OutboundChunkingRouter4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomOutboundRouter4CreationTool_title;
+	public static String OutboundCustomRouter5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomOutboundRouter4CreationTool_desc;
+	public static String OutboundCustomRouter5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EndpointSelectorRouter5CreationTool_title;
+	public static String EndpointSelectorRouter6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EndpointSelectorRouter5CreationTool_desc;
+	public static String EndpointSelectorRouter6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ExceptionRouter7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ExceptionRouter7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String FilteringRouter8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String FilteringRouter8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ListMessageSplitterRouter9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ListMessageSplitterRouter9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String MulticastingRouter10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MulticastingRouter10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String OutboundPassThroughRouter11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String OutboundPassThroughRouter11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String StaticRecipientListRouter12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String StaticRecipientListRouter12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TemplateEndpointRouter13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TemplateEndpointRouter13CreationTool_desc;
 
 	/**
 	 * @generated
@@ -648,17 +708,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String InboundRouterCollectionTypeINBOUNDEditPart_title;
+	public static String SedaServiceTypeINBOUNDEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutboundRouterCollectionTypeOUTBOUNDEditPart_title;
+	public static String SedaServiceTypeOUTBOUNDEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ResponseRouterCollectionTypeRESPONSEEditPart_title;
+	public static String SedaServiceTypeRESPONSEEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String InboundRouterCollectionTypeINBOUNDROUTERSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ResponseRouterCollectionTypeRESPONSEROUTERSEditPart_title;
 
 	/**
 	 * @generated
@@ -716,6 +801,16 @@ public class Messages extends NLS {
 	public static String CoreModelingAssistantProviderMessage;
 
 	//TODO: put accessor fields manually	
+	/**
+	 * 
+	 */
+	public static String InboundEndpointServiceItemTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String WireTapRouterTypeLabel;
+
 	/**
 	 * 
 	 */

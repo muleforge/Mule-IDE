@@ -77,9 +77,16 @@ public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == CoreElementTypes.WireTapRouterType_2002) {
+								if (type == CoreElementTypes.InboundEndpointType_2002) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(InboundRouterCollectionTypeINBOUNDEditPart.VISUAL_ID));
+											.getType(InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+								if (type == CoreElementTypes.WireTapRouterType_2003) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);

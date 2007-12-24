@@ -10,9 +10,7 @@ import java.util.Set;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramUpdater;
 import org.mule.ide.config.editor.services.part.CoreNodeDescriptor;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
@@ -20,7 +18,8 @@ import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 /**
  * @generated
  */
-public class SedaServiceTypeCanonicalEditPolicy extends CanonicalEditPolicy {
+public class InboundRouterCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy
+		extends CanonicalEditPolicy {
 
 	/**
 	 * @generated
@@ -34,8 +33,8 @@ public class SedaServiceTypeCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getSedaServiceType_1001SemanticChildren(viewObject).iterator(); it
-				.hasNext();) {
+				.getInboundRouterCollectionTypeINBOUNDENDPOINTS_5006SemanticChildren(
+						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}
 		return result;
@@ -47,9 +46,7 @@ public class SedaServiceTypeCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = CoreVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
-		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
-		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
+		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())
 					|| visualID != CoreVisualIDRegistry.getNodeVisualID(
 							(View) getHost().getModel(), view.getElement());
@@ -71,11 +68,7 @@ public class SedaServiceTypeCanonicalEditPolicy extends CanonicalEditPolicy {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
-					.getBaseServiceType_InboundRouter());
-			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
-					.getBaseServiceType_OutboundRouter());
-			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
-					.getBaseServiceType_ResponseRouter());
+					.getInboundRouterCollectionType_AbstractInboundEndpoint());
 		}
 		return myFeaturesToSynchronize;
 	}

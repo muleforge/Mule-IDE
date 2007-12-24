@@ -25,7 +25,9 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionS
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.Messages;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
@@ -43,40 +45,41 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof SedaServiceTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.InboundRouterCollectionType_2001);
-			types.add(CoreElementTypes.OutboundRouterCollectionType_2003);
-			types.add(CoreElementTypes.ResponseRouterCollectionType_2004);
-			types.add(CoreElementTypes.PojoComponentType_2005);
-			types.add(CoreElementTypes.NoArgsCallWrapperType_2006);
-			types.add(CoreElementTypes.DefaultComponentType_2007);
+			types.add(CoreElementTypes.PojoComponentType_2006);
+			types.add(CoreElementTypes.NoArgsCallWrapperType_2007);
 			types.add(CoreElementTypes.DefaultComponentType_2008);
 			types.add(CoreElementTypes.DefaultComponentType_2009);
 			types.add(CoreElementTypes.DefaultComponentType_2010);
 			types.add(CoreElementTypes.DefaultComponentType_2011);
 			types.add(CoreElementTypes.DefaultComponentType_2012);
-			types.add(CoreElementTypes.ExceptionStrategyType_2013);
-			types.add(CoreElementTypes.ExceptionStrategyType_2015);
-			types.add(CoreElementTypes.CustomExceptionStrategyType_2016);
+			types.add(CoreElementTypes.DefaultComponentType_2013);
+			types.add(CoreElementTypes.ExceptionStrategyType_2014);
+			types.add(CoreElementTypes.ExceptionStrategyType_2016);
+			types.add(CoreElementTypes.CustomExceptionStrategyType_2017);
+			types.add(CoreElementTypes.InboundRouterCollectionType_2001);
+			types.add(CoreElementTypes.OutboundRouterCollectionType_2005);
+			types.add(CoreElementTypes.ResponseRouterCollectionType_2004);
 			return types;
 		}
 		if (editPart instanceof InboundRouterCollectionTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.WireTapRouterType_2002);
+			types.add(CoreElementTypes.InboundEndpointType_2002);
+			types.add(CoreElementTypes.WireTapRouterType_2003);
 			return types;
 		}
 		if (editPart instanceof DefaultServiceExceptionStrategyTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2014);
+			types.add(CoreElementTypes.OutboundEndpointType_2015);
 			return types;
 		}
 		if (editPart instanceof DefaultConnectorExceptionStrategyTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2014);
+			types.add(CoreElementTypes.OutboundEndpointType_2015);
 			return types;
 		}
 		if (editPart instanceof CustomExceptionStrategyTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2014);
+			types.add(CoreElementTypes.OutboundEndpointType_2015);
 			return types;
 		}
 		if (editPart instanceof DefaultModelTypeEditPart) {

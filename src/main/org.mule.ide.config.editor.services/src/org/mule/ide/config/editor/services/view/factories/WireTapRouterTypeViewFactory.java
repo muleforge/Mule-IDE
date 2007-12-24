@@ -11,7 +11,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.WrapLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
@@ -46,8 +46,11 @@ public class WireTapRouterTypeViewFactory extends AbstractShapeViewFactory {
 		if (eObject != null) {
 			eObjectAdapter = new EObjectAdapter(eObject);
 		}
-		getViewService().createNode(eObjectAdapter, view,
-				CoreVisualIDRegistry.getType(WrapLabelEditPart.VISUAL_ID),
+		getViewService().createNode(
+				eObjectAdapter,
+				view,
+				CoreVisualIDRegistry
+						.getType(WireTapRouterTypeLabelEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

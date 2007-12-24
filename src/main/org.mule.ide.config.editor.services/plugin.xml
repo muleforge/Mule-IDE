@@ -313,21 +313,21 @@
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.WireTapRouterType_2002"
-               name="%metatype.name.WireTapRouterType_2002"
+               id="org.mule.ide.config.editor.services.InboundEndpointType_2002"
+               name="%metatype.name.InboundEndpointType_2002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="WireTapRouterType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.WireTapRouterTypeEditHelper">
+               eclass="InboundEndpointType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.InboundEndpointServiceItemTypeEditHelper">
             <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2003"
-               name="%metatype.name.OutboundRouterCollectionType_2003"
+               id="org.mule.ide.config.editor.services.WireTapRouterType_2003"
+               name="%metatype.name.WireTapRouterType_2003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="OutboundRouterCollectionType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.OutboundRouterCollectionTypeEditHelper">
+               eclass="WireTapRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.WireTapRouterTypeEditHelper">
             <param name="semanticHint" value="2003"/>
          </metamodelType>
       </metamodel>
@@ -343,49 +343,50 @@
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.PojoComponentType_2005"
-               name="%metatype.name.PojoComponentType_2005"
+               id="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2005"
+               name="%metatype.name.OutboundRouterCollectionType_2005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="PojoComponentType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.PojoComponentTypeEditHelper">
+               eclass="OutboundRouterCollectionType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.OutboundRouterCollectionTypeEditHelper">
             <param name="semanticHint" value="2005"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.NoArgsCallWrapperType_2006"
-               name="%metatype.name.NoArgsCallWrapperType_2006"
+               id="org.mule.ide.config.editor.services.PojoComponentType_2006"
+               name="%metatype.name.PojoComponentType_2006"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="NoArgsCallWrapperType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.NoArgsCallWrapperTypeEditHelper">
+               eclass="PojoComponentType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.PojoComponentTypeEditHelper">
             <param name="semanticHint" value="2006"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.DefaultComponentType_2007"
-               name="%metatype.name.DefaultComponentType_2007"
+               id="org.mule.ide.config.editor.services.NoArgsCallWrapperType_2007"
+               name="%metatype.name.NoArgsCallWrapperType_2007"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="DefaultComponentType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.DefaultComponentTypeEditHelper">
+               eclass="NoArgsCallWrapperType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.NoArgsCallWrapperTypeEditHelper">
             <param name="semanticHint" value="2007"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
-         <specializationType
+         <metamodelType
                id="org.mule.ide.config.editor.services.DefaultComponentType_2008"
                name="%metatype.name.DefaultComponentType_2008"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2007"/>
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DefaultComponentType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.DefaultComponentTypeEditHelper">
             <param name="semanticHint" value="2008"/>
-         </specializationType>
+         </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <specializationType
                id="org.mule.ide.config.editor.services.DefaultComponentType_2009"
                name="%metatype.name.DefaultComponentType_2009"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2007"/>
+            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2008"/>
             <param name="semanticHint" value="2009"/>
          </specializationType>
       </metamodel>
@@ -394,7 +395,7 @@
                id="org.mule.ide.config.editor.services.DefaultComponentType_2010"
                name="%metatype.name.DefaultComponentType_2010"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2007"/>
+            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2008"/>
             <param name="semanticHint" value="2010"/>
          </specializationType>
       </metamodel>
@@ -403,7 +404,7 @@
                id="org.mule.ide.config.editor.services.DefaultComponentType_2011"
                name="%metatype.name.DefaultComponentType_2011"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2007"/>
+            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2008"/>
             <param name="semanticHint" value="2011"/>
          </specializationType>
       </metamodel>
@@ -412,47 +413,56 @@
                id="org.mule.ide.config.editor.services.DefaultComponentType_2012"
                name="%metatype.name.DefaultComponentType_2012"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2007"/>
+            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2008"/>
             <param name="semanticHint" value="2012"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
-         <metamodelType
-               id="org.mule.ide.config.editor.services.ExceptionStrategyType_2013"
-               name="%metatype.name.ExceptionStrategyType_2013"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ExceptionStrategyType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.ExceptionStrategyTypeEditHelper">
-            <param name="semanticHint" value="2013"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
-         <metamodelType
-               id="org.mule.ide.config.editor.services.OutboundEndpointType_2014"
-               name="%metatype.name.OutboundEndpointType_2014"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="OutboundEndpointType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.OutboundEndpointTypeEditHelper">
-            <param name="semanticHint" value="2014"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <specializationType
-               id="org.mule.ide.config.editor.services.ExceptionStrategyType_2015"
-               name="%metatype.name.ExceptionStrategyType_2015"
+               id="org.mule.ide.config.editor.services.DefaultComponentType_2013"
+               name="%metatype.name.DefaultComponentType_2013"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.mule.ide.config.editor.services.ExceptionStrategyType_2013"/>
-            <param name="semanticHint" value="2015"/>
+            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2008"/>
+            <param name="semanticHint" value="2013"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.CustomExceptionStrategyType_2016"
-               name="%metatype.name.CustomExceptionStrategyType_2016"
+               id="org.mule.ide.config.editor.services.ExceptionStrategyType_2014"
+               name="%metatype.name.ExceptionStrategyType_2014"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ExceptionStrategyType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.ExceptionStrategyTypeEditHelper">
+            <param name="semanticHint" value="2014"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.OutboundEndpointType_2015"
+               name="%metatype.name.OutboundEndpointType_2015"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="OutboundEndpointType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.OutboundEndpointTypeEditHelper">
+            <param name="semanticHint" value="2015"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <specializationType
+               id="org.mule.ide.config.editor.services.ExceptionStrategyType_2016"
+               name="%metatype.name.ExceptionStrategyType_2016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.mule.ide.config.editor.services.ExceptionStrategyType_2014"/>
+            <param name="semanticHint" value="2016"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.CustomExceptionStrategyType_2017"
+               name="%metatype.name.CustomExceptionStrategyType_2017"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="CustomExceptionStrategyType"
                edithelper="org.mule.ide.config.editor.services.edit.helpers.CustomExceptionStrategyTypeEditHelper">
-            <param name="semanticHint" value="2016"/>
+            <param name="semanticHint" value="2017"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -470,21 +480,22 @@
          <elementType ref="org.mule.ide.config.editor.services.DefaultModelType_79"/>
          <elementType ref="org.mule.ide.config.editor.services.SedaServiceType_1001"/>
          <elementType ref="org.mule.ide.config.editor.services.InboundRouterCollectionType_2001"/>
-         <elementType ref="org.mule.ide.config.editor.services.WireTapRouterType_2002"/>
-         <elementType ref="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2003"/>
+         <elementType ref="org.mule.ide.config.editor.services.InboundEndpointType_2002"/>
+         <elementType ref="org.mule.ide.config.editor.services.WireTapRouterType_2003"/>
          <elementType ref="org.mule.ide.config.editor.services.ResponseRouterCollectionType_2004"/>
-         <elementType ref="org.mule.ide.config.editor.services.PojoComponentType_2005"/>
-         <elementType ref="org.mule.ide.config.editor.services.NoArgsCallWrapperType_2006"/>
-         <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2007"/>
+         <elementType ref="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2005"/>
+         <elementType ref="org.mule.ide.config.editor.services.PojoComponentType_2006"/>
+         <elementType ref="org.mule.ide.config.editor.services.NoArgsCallWrapperType_2007"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2008"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2009"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2010"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2011"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2012"/>
-         <elementType ref="org.mule.ide.config.editor.services.ExceptionStrategyType_2013"/>
-         <elementType ref="org.mule.ide.config.editor.services.OutboundEndpointType_2014"/>
-         <elementType ref="org.mule.ide.config.editor.services.ExceptionStrategyType_2015"/>
-         <elementType ref="org.mule.ide.config.editor.services.CustomExceptionStrategyType_2016"/>
+         <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2013"/>
+         <elementType ref="org.mule.ide.config.editor.services.ExceptionStrategyType_2014"/>
+         <elementType ref="org.mule.ide.config.editor.services.OutboundEndpointType_2015"/>
+         <elementType ref="org.mule.ide.config.editor.services.ExceptionStrategyType_2016"/>
+         <elementType ref="org.mule.ide.config.editor.services.CustomExceptionStrategyType_2017"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

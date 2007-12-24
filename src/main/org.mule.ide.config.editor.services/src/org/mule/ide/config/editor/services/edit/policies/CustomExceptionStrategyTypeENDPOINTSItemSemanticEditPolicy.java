@@ -16,7 +16,7 @@ public class CustomExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.OutboundEndpointType_2014 == req.getElementType()) {
+		if (CoreElementTypes.OutboundEndpointType_2015 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getExceptionStrategyType_AbstractOutboundEndpoint());

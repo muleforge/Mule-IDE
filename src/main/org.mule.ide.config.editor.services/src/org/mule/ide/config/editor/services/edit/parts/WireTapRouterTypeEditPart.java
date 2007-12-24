@@ -30,6 +30,7 @@ import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.WireTapRouterTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
+import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * @generated
@@ -39,7 +40,7 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2002;
+	public static final int VISUAL_ID = 2003;
 
 	/**
 	 * @generated
@@ -109,9 +110,10 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrapLabelEditPart) {
-			((WrapLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureServiceItemTypeLabelFigure());
+		if (childEditPart instanceof WireTapRouterTypeLabelEditPart) {
+			((WireTapRouterTypeLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureServiceItemTypeLabelFigure());
 			return true;
 		}
 		return false;
@@ -168,7 +170,8 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * customization
+	 *   - special config of service item figure
 	 */
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
@@ -176,6 +179,8 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		ServiceEditPartUtil.configureServiceItemFigure(figure,
+				Messages.WireTapRouterTypeLabel);
 		return figure;
 	}
 
@@ -209,7 +214,7 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(WrapLabelEditPart.VISUAL_ID));
+				.getType(WireTapRouterTypeLabelEditPart.VISUAL_ID));
 	}
 
 	/**

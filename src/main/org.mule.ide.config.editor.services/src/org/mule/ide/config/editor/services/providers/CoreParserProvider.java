@@ -32,22 +32,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser sedaServiceTypeName_4017Parser;
+	private IParser sedaServiceTypeName_4018Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSedaServiceTypeName_4017Parser() {
-		if (sedaServiceTypeName_4017Parser == null) {
-			sedaServiceTypeName_4017Parser = createSedaServiceTypeName_4017Parser();
+	private IParser getSedaServiceTypeName_4018Parser() {
+		if (sedaServiceTypeName_4018Parser == null) {
+			sedaServiceTypeName_4018Parser = createSedaServiceTypeName_4018Parser();
 		}
-		return sedaServiceTypeName_4017Parser;
+		return sedaServiceTypeName_4018Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSedaServiceTypeName_4017Parser() {
+	protected IParser createSedaServiceTypeName_4018Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getAbstractServiceType_Name(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -57,16 +57,76 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser pojoComponentTypeClass_4003Parser;
+	private IParser pojoComponentTypeClass_4004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPojoComponentTypeClass_4003Parser() {
-		if (pojoComponentTypeClass_4003Parser == null) {
-			pojoComponentTypeClass_4003Parser = createPojoComponentTypeClass_4003Parser();
+	private IParser getPojoComponentTypeClass_4004Parser() {
+		if (pojoComponentTypeClass_4004Parser == null) {
+			pojoComponentTypeClass_4004Parser = createPojoComponentTypeClass_4004Parser();
 		}
-		return pojoComponentTypeClass_4003Parser;
+		return pojoComponentTypeClass_4004Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createPojoComponentTypeClass_4004Parser() {
+		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+				.getPojoComponentType_Class(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser outboundEndpointTypeName_4013Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getOutboundEndpointTypeName_4013Parser() {
+		if (outboundEndpointTypeName_4013Parser == null) {
+			outboundEndpointTypeName_4013Parser = createOutboundEndpointTypeName_4013Parser();
+		}
+		return outboundEndpointTypeName_4013Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createOutboundEndpointTypeName_4013Parser() {
+		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+				.getAbstractOutboundEndpointType_Name(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser customExceptionStrategyTypeClass_4017Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCustomExceptionStrategyTypeClass_4017Parser() {
+		if (customExceptionStrategyTypeClass_4017Parser == null) {
+			customExceptionStrategyTypeClass_4017Parser = createCustomExceptionStrategyTypeClass_4017Parser();
+		}
+		return customExceptionStrategyTypeClass_4017Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createCustomExceptionStrategyTypeClass_4017Parser() {
+		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+				.getCustomExceptionStrategyType_Class(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
 	}
 
 	/**
@@ -78,46 +138,6 @@ public class CoreParserProvider extends AbstractProvider implements
 				.getPojoComponentType_Class(), };
 		MessageFormatParser parser = new ClassNameParser(features);
 		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser outboundEndpointTypeName_4012Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getOutboundEndpointTypeName_4012Parser() {
-		if (outboundEndpointTypeName_4012Parser == null) {
-			outboundEndpointTypeName_4012Parser = createOutboundEndpointTypeName_4012Parser();
-		}
-		return outboundEndpointTypeName_4012Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createOutboundEndpointTypeName_4012Parser() {
-		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
-				.getAbstractOutboundEndpointType_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser customExceptionStrategyTypeClass_4016Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCustomExceptionStrategyTypeClass_4016Parser() {
-		if (customExceptionStrategyTypeClass_4016Parser == null) {
-			customExceptionStrategyTypeClass_4016Parser = createCustomExceptionStrategyTypeClass_4016Parser();
-		}
-		return customExceptionStrategyTypeClass_4016Parser;
 	}
 
 	/**
@@ -162,15 +182,15 @@ public class CoreParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case SedaServiceTypeNameEditPart.VISUAL_ID:
-			return getSedaServiceTypeName_4017Parser();
+			return getSedaServiceTypeName_4018Parser();
 		case PojoComponentTypeClassEditPart.VISUAL_ID:
-			return getPojoComponentTypeClass_4003Parser();
+			return getPojoComponentTypeClass_4004Parser();
 		case NoArgsCallWrapperTypeClassEditPart.VISUAL_ID:
 			return getNoArgsCallWrapperTypeClass_4005Parser();
 		case OutboundEndpointTypeNameEditPart.VISUAL_ID:
-			return getOutboundEndpointTypeName_4012Parser();
+			return getOutboundEndpointTypeName_4013Parser();
 		case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyTypeClass_4016Parser();
+			return getCustomExceptionStrategyTypeClass_4017Parser();
 		}
 		return null;
 	}

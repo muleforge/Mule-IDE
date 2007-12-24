@@ -127,7 +127,18 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Inbound Endpoint"
-          description="Create new Inbound Endpoint">
+          description="Add a new Inbound Endpoint to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Aggregator Router"
+          description="Add a new Correlation Aggregator Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -135,8 +146,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Wire Tap Router"
-          description="Create new Wire Tap Router">
+          title="Inbound Chunking Router"
+          description="Add a new Message Chunking Aggregator Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -144,53 +155,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Static Recipient List Router"
-          description="Create new Static Recipient List Router">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Selective Consumer Router"
-          description="Create new Selective Consumer Router">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Outbound Router"
-          description="Create new Outbound Router">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Chunking Router"
-          description="Create new Chunking Router">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Correlation Router"
-          description="Create new Correlation Router">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Idempotent Receiver"
-          description="Create new Idempotent Receiver">
+          title="Inbound Custom Router"
+          description="Add a new Custom Inbound Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -199,7 +165,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Forwarding Router"
-          description="Create new Forwarding Router">
+          description="Add a new Forwarding Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -207,8 +173,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Filtered Inbound Router"
-          description="Create new Filtered Inbound Router">
+          title="Idempotent Receiver Router"
+          description="Add a new Idempotent Receiver Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -216,8 +182,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Custom Inbound Router"
-          description="Create new Custom Inbound Router">
+          title="Idempotent Secure Receiver Router"
+          description="Add a new Idempotent Secure Hash Receiver Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -225,8 +191,35 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Correlation Aggregator Router"
-          description="Create new Correlation Aggregator Router">
+          title="Inbound Pass Through Router"
+          description="Add a new Pass Through Router to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Resequencer Router"
+          description="Add a new Correlation Resequencer Router to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Selective Consumer Router"
+          description="Add a new Selective Consumer Router to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Wire Tap Router"
+          description="Add a new Wire Tap Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -240,7 +233,18 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Outbound Endpoint"
-          description="Create new Outbound Endpoint">
+          description="Add a new Outbound Endpoint to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Chaining Router"
+          description="Add a new Chaining Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -248,8 +252,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Message Splitter Outbound Router"
-          description="Create new Message Splitter Outbound Router">
+          title="Outbound Chunking Router"
+          description="Add a new Message Chunking Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -257,17 +261,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Filtering Outbound Router"
-          description="Create new Filtering Outbound Router">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Custom Outbound Router"
-          description="Create new Custom Outbound Router">
+          title="Outbound Custom Router"
+          description="Add a new Custom Outbound Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -276,7 +271,70 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Endpoint Selector Router"
-          description="Create new Endpoint Selector Router">
+          description="Add a new Endpoint Selector Router to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Exception Router"
+          description="Add a new Exception-Based Router to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Filtering Router"
+          description="Add a new Filtering Router to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="List Message Splitter Router"
+          description="Add a new List Message Splitter Router to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Multicasting Router"
+          description="Add a new Multicasting Router to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Outbound Pass Through Router"
+          description="Add a new Pass Through Router to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Static Recipient List Router"
+          description="Add a new Static Recipient List Router to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Template Endpoint Router"
+          description="Add a new Template Endpoint Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

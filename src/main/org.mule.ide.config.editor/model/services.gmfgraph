@@ -184,6 +184,51 @@
           xsi:type="gmfgraph:Label"
           name="EndpointItemLabelFigure"/>
     </descriptors>
+    <descriptors
+        name="EndpointServiceItemFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EndpointServiceItemFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            majorSpacing="0"
+            minorSpacing="0"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EndpointServiceItemTypeLabelFigure">
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="gray"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="7"
+              style="ITALIC"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="EndpointServiceItemEndpointFigure">
+          <layout
+              xsi:type="gmfgraph:FlowLayout"
+              vertical="true"
+              matchMinorSize="true"
+              forceSingleLine="true"
+              majorSpacing="0"
+              minorSpacing="0"/>
+          <children
+              xsi:type="gmfgraph:Label"
+              name="EndpointServiceItemEndpointNameFigure"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.1/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="ExceptionStrategyType"
@@ -251,6 +296,16 @@
           dy="10"/>
     </facets>
   </nodes>
+  <nodes
+      name="EndpointServiceItem"
+      figure="EndpointServiceItemFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="40"
+          dy="10"/>
+    </facets>
+  </nodes>
   <compartments
       name="COMPONENT"
       figure="CompartmentFigure"
@@ -288,6 +343,21 @@
       name="FilterCollection"
       figure="EndpointItemCollectionFigure"
       collapsible="true"/>
+  <compartments
+      name="INBOUNDROUTERS"
+      figure="CompartmentFigure"/>
+  <compartments
+      name="OUTBOUNDROUTERS"
+      figure="CompartmentFigure"/>
+  <compartments
+      name="RESPONSEROUTERS"
+      figure="CompartmentFigure"/>
+  <compartments
+      name="INBOUNDENDPOINTS"
+      figure="CompartmentFigure"/>
+  <compartments
+      name="RESPONSEENDPOINTS"
+      figure="CompartmentFigure"/>
   <labels
       name="ServiceNameLabel"
       figure="ServiceFigure"
@@ -314,4 +384,13 @@
       name="EndpointItemLabel"
       figure="EndpointItemLabelFigure"
       elementIcon="false"/>
+  <labels
+      name="EndpointServiceItemTypeLabel"
+      figure="EndpointServiceItemFigure"
+      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels
+      name="EndpointServiceItemEndpointName"
+      figure="EndpointServiceItemFigure"
+      accessor="//@figures.0/@descriptors.9/@accessors.2"
+      container="//@figures.0/@descriptors.9/@accessors.2"/>
 </gmfgraph:Canvas>

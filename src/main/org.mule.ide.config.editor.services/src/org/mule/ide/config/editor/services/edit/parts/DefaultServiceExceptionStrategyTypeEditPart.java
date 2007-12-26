@@ -44,7 +44,7 @@ public class DefaultServiceExceptionStrategyTypeEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2014;
+	public static final int VISUAL_ID = 2009;
 
 	/**
 	 * @generated
@@ -77,7 +77,7 @@ public class DefaultServiceExceptionStrategyTypeEditPart extends
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == CoreElementTypes.OutboundEndpointType_2015) {
+								if (type == CoreElementTypes.OutboundEndpointType_2010) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

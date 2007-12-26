@@ -45,41 +45,50 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof SedaServiceTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.PojoComponentType_2006);
-			types.add(CoreElementTypes.NoArgsCallWrapperType_2007);
+			types.add(CoreElementTypes.PojoComponentType_2001);
+			types.add(CoreElementTypes.NoArgsCallWrapperType_2002);
+			types.add(CoreElementTypes.DefaultComponentType_2003);
+			types.add(CoreElementTypes.DefaultComponentType_2004);
+			types.add(CoreElementTypes.DefaultComponentType_2005);
+			types.add(CoreElementTypes.DefaultComponentType_2006);
+			types.add(CoreElementTypes.DefaultComponentType_2007);
 			types.add(CoreElementTypes.DefaultComponentType_2008);
-			types.add(CoreElementTypes.DefaultComponentType_2009);
-			types.add(CoreElementTypes.DefaultComponentType_2010);
-			types.add(CoreElementTypes.DefaultComponentType_2011);
-			types.add(CoreElementTypes.DefaultComponentType_2012);
-			types.add(CoreElementTypes.DefaultComponentType_2013);
-			types.add(CoreElementTypes.ExceptionStrategyType_2014);
-			types.add(CoreElementTypes.ExceptionStrategyType_2016);
-			types.add(CoreElementTypes.CustomExceptionStrategyType_2017);
-			types.add(CoreElementTypes.InboundRouterCollectionType_2001);
-			types.add(CoreElementTypes.OutboundRouterCollectionType_2005);
-			types.add(CoreElementTypes.ResponseRouterCollectionType_2004);
-			return types;
-		}
-		if (editPart instanceof InboundRouterCollectionTypeEditPart) {
-			List types = new ArrayList();
-			types.add(CoreElementTypes.InboundEndpointType_2002);
-			types.add(CoreElementTypes.WireTapRouterType_2003);
+			types.add(CoreElementTypes.ExceptionStrategyType_2009);
+			types.add(CoreElementTypes.ExceptionStrategyType_2011);
+			types.add(CoreElementTypes.CustomExceptionStrategyType_2012);
+			types.add(CoreElementTypes.InboundRouterCollectionType_2013);
+			types.add(CoreElementTypes.ResponseRouterCollectionType_2025);
+			types.add(CoreElementTypes.OutboundRouterCollectionType_2026);
 			return types;
 		}
 		if (editPart instanceof DefaultServiceExceptionStrategyTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2015);
+			types.add(CoreElementTypes.OutboundEndpointType_2010);
 			return types;
 		}
 		if (editPart instanceof DefaultConnectorExceptionStrategyTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2015);
+			types.add(CoreElementTypes.OutboundEndpointType_2010);
 			return types;
 		}
 		if (editPart instanceof CustomExceptionStrategyTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2015);
+			types.add(CoreElementTypes.OutboundEndpointType_2010);
+			return types;
+		}
+		if (editPart instanceof InboundRouterCollectionTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.InboundEndpointType_2014);
+			types.add(CoreElementTypes.ForwardingRouterType_2015);
+			types.add(CoreElementTypes.FilteredInboundRouterType_2016);
+			types.add(CoreElementTypes.FilteredInboundRouterType_2017);
+			types.add(CoreElementTypes.IdempotentReceiverType_2018);
+			types.add(CoreElementTypes.WireTapRouterType_2019);
+			types.add(CoreElementTypes.SelectiveConsumerRouterType_2020);
+			types.add(CoreElementTypes.CorrelationRouterType_2021);
+			types.add(CoreElementTypes.CorrelationRouterType_2022);
+			types.add(CoreElementTypes.CorrelationAggregatorRouterType_2023);
+			types.add(CoreElementTypes.CustomInboundRouterType_2024);
 			return types;
 		}
 		if (editPart instanceof DefaultModelTypeEditPart) {

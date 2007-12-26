@@ -10,6 +10,15 @@ import java.util.Set;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramUpdater;
 import org.mule.ide.config.editor.services.part.CoreNodeDescriptor;
@@ -33,7 +42,7 @@ public class InboundRouterCollectionTypeINBOUNDROUTERSCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getInboundRouterCollectionTypeINBOUNDROUTERS_5007SemanticChildren(
+				.getInboundRouterCollectionTypeINBOUNDROUTERS_5010SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}
@@ -46,7 +55,16 @@ public class InboundRouterCollectionTypeINBOUNDROUTERSCanonicalEditPolicy
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = CoreVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
+		case ForwardingRouterTypeEditPart.VISUAL_ID:
+		case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
+		case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
+		case IdempotentReceiverTypeEditPart.VISUAL_ID:
 		case WireTapRouterTypeEditPart.VISUAL_ID:
+		case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
+		case ChunkingInboundRouterTypeEditPart.VISUAL_ID:
+		case CorrelationResequencerRouterTypeEditPart.VISUAL_ID:
+		case CorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
+		case CustomInboundRouterTypeEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())
 					|| visualID != CoreVisualIDRegistry.getNodeVisualID(
 							(View) getHost().getModel(), view.getElement());

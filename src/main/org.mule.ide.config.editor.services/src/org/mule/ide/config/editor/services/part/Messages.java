@@ -268,12 +268,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Outbound5Group_title;
+	public static String Response5Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Response6Group_title;
+	public static String Outbound6Group_title;
 
 	/**
 	 * @generated
@@ -418,22 +418,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String InboundChunkingRouter4CreationTool_title;
+	public static String ChunkingInboundRouter4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InboundChunkingRouter4CreationTool_desc;
+	public static String ChunkingInboundRouter4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InboundCustomRouter5CreationTool_title;
+	public static String CustomInboundRouter5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InboundCustomRouter5CreationTool_desc;
+	public static String CustomInboundRouter5CreationTool_desc;
 
 	/**
 	 * @generated
@@ -468,12 +468,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String InboundPassThroughRouter9CreationTool_title;
+	public static String PassThroughInboundRouter9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InboundPassThroughRouter9CreationTool_desc;
+	public static String PassThroughInboundRouter9CreationTool_desc;
 
 	/**
 	 * @generated
@@ -528,22 +528,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String OutboundChunkingRouter4CreationTool_title;
+	public static String ChunkingOutboundRouter4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutboundChunkingRouter4CreationTool_desc;
+	public static String ChunkingOutboundRouter4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String OutboundCustomRouter5CreationTool_title;
+	public static String CustomOutboundRouter5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutboundCustomRouter5CreationTool_desc;
+	public static String CustomOutboundRouter5CreationTool_desc;
 
 	/**
 	 * @generated
@@ -598,12 +598,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String OutboundPassThroughRouter11CreationTool_title;
+	public static String PassThroughOutboundRouter11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutboundPassThroughRouter11CreationTool_desc;
+	public static String PassThroughOutboundRouter11CreationTool_desc;
 
 	/**
 	 * @generated
@@ -638,22 +638,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CustomResponseRouter2CreationTool_title;
+	public static String CustomResponseRouter3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomResponseRouter2CreationTool_desc;
+	public static String CustomResponseRouter3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ResponseRouter3CreationTool_title;
+	public static String ResponseRouter4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ResponseRouter3CreationTool_desc;
+	public static String ResponseRouter4CreationTool_desc;
 
 	/**
 	 * @generated
@@ -805,6 +805,51 @@ public class Messages extends NLS {
 	 * 
 	 */
 	public static String InboundEndpointServiceItemTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String ChunkingInboundRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String CorrelationAggregatorRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String CorrelationResequencerRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String CustomInboundRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String ForwardingRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String IdempotentReceiverRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String IdempotentSecureReceiverRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String PassThroughInboundRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String SelectiveConsumerRouterTypeLabel;
 
 	/**
 	 * 

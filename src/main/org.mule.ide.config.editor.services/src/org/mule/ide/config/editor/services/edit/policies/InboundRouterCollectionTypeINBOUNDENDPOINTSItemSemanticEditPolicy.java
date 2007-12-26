@@ -16,7 +16,7 @@ public class InboundRouterCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.InboundEndpointType_2002 == req.getElementType()) {
+		if (CoreElementTypes.InboundEndpointType_2014 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
 						.setContainmentFeature(CorePackage.eINSTANCE

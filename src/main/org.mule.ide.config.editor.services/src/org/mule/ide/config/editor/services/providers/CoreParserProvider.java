@@ -32,22 +32,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser sedaServiceTypeName_4018Parser;
+	private IParser sedaServiceTypeName_4027Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSedaServiceTypeName_4018Parser() {
-		if (sedaServiceTypeName_4018Parser == null) {
-			sedaServiceTypeName_4018Parser = createSedaServiceTypeName_4018Parser();
+	private IParser getSedaServiceTypeName_4027Parser() {
+		if (sedaServiceTypeName_4027Parser == null) {
+			sedaServiceTypeName_4027Parser = createSedaServiceTypeName_4027Parser();
 		}
-		return sedaServiceTypeName_4018Parser;
+		return sedaServiceTypeName_4027Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSedaServiceTypeName_4018Parser() {
+	protected IParser createSedaServiceTypeName_4027Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getAbstractServiceType_Name(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -57,22 +57,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser pojoComponentTypeClass_4004Parser;
+	private IParser pojoComponentTypeClass_4002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPojoComponentTypeClass_4004Parser() {
-		if (pojoComponentTypeClass_4004Parser == null) {
-			pojoComponentTypeClass_4004Parser = createPojoComponentTypeClass_4004Parser();
+	private IParser getPojoComponentTypeClass_4002Parser() {
+		if (pojoComponentTypeClass_4002Parser == null) {
+			pojoComponentTypeClass_4002Parser = createPojoComponentTypeClass_4002Parser();
 		}
-		return pojoComponentTypeClass_4004Parser;
+		return pojoComponentTypeClass_4002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createPojoComponentTypeClass_4004Parser() {
+	protected IParser createPojoComponentTypeClass_4002Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getPojoComponentType_Class(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -82,22 +82,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser outboundEndpointTypeName_4013Parser;
+	private IParser outboundEndpointTypeName_4011Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getOutboundEndpointTypeName_4013Parser() {
-		if (outboundEndpointTypeName_4013Parser == null) {
-			outboundEndpointTypeName_4013Parser = createOutboundEndpointTypeName_4013Parser();
+	private IParser getOutboundEndpointTypeName_4011Parser() {
+		if (outboundEndpointTypeName_4011Parser == null) {
+			outboundEndpointTypeName_4011Parser = createOutboundEndpointTypeName_4011Parser();
 		}
-		return outboundEndpointTypeName_4013Parser;
+		return outboundEndpointTypeName_4011Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createOutboundEndpointTypeName_4013Parser() {
+	protected IParser createOutboundEndpointTypeName_4011Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getAbstractOutboundEndpointType_Name(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -107,22 +107,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser customExceptionStrategyTypeClass_4017Parser;
+	private IParser customExceptionStrategyTypeClass_4015Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCustomExceptionStrategyTypeClass_4017Parser() {
-		if (customExceptionStrategyTypeClass_4017Parser == null) {
-			customExceptionStrategyTypeClass_4017Parser = createCustomExceptionStrategyTypeClass_4017Parser();
+	private IParser getCustomExceptionStrategyTypeClass_4015Parser() {
+		if (customExceptionStrategyTypeClass_4015Parser == null) {
+			customExceptionStrategyTypeClass_4015Parser = createCustomExceptionStrategyTypeClass_4015Parser();
 		}
-		return customExceptionStrategyTypeClass_4017Parser;
+		return customExceptionStrategyTypeClass_4015Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCustomExceptionStrategyTypeClass_4017Parser() {
+	protected IParser createCustomExceptionStrategyTypeClass_4015Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getCustomExceptionStrategyType_Class(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -182,15 +182,15 @@ public class CoreParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case SedaServiceTypeNameEditPart.VISUAL_ID:
-			return getSedaServiceTypeName_4018Parser();
+			return getSedaServiceTypeName_4027Parser();
 		case PojoComponentTypeClassEditPart.VISUAL_ID:
-			return getPojoComponentTypeClass_4004Parser();
+			return getPojoComponentTypeClass_4002Parser();
 		case NoArgsCallWrapperTypeClassEditPart.VISUAL_ID:
 			return getNoArgsCallWrapperTypeClass_4005Parser();
 		case OutboundEndpointTypeNameEditPart.VISUAL_ID:
-			return getOutboundEndpointTypeName_4013Parser();
+			return getOutboundEndpointTypeName_4011Parser();
 		case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyTypeClass_4017Parser();
+			return getCustomExceptionStrategyTypeClass_4015Parser();
 		}
 		return null;
 	}

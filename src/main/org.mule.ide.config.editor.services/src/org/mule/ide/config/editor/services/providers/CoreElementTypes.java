@@ -57,37 +57,37 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType InboundRouterCollectionType_2001 = getElementType("org.mule.ide.config.editor.services.InboundRouterCollectionType_2001"); //$NON-NLS-1$
+	public static final IElementType PojoComponentType_2001 = getElementType("org.mule.ide.config.editor.services.PojoComponentType_2001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType InboundEndpointType_2002 = getElementType("org.mule.ide.config.editor.services.InboundEndpointType_2002"); //$NON-NLS-1$
+	public static final IElementType NoArgsCallWrapperType_2002 = getElementType("org.mule.ide.config.editor.services.NoArgsCallWrapperType_2002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType WireTapRouterType_2003 = getElementType("org.mule.ide.config.editor.services.WireTapRouterType_2003"); //$NON-NLS-1$
+	public static final IElementType DefaultComponentType_2003 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ResponseRouterCollectionType_2004 = getElementType("org.mule.ide.config.editor.services.ResponseRouterCollectionType_2004"); //$NON-NLS-1$
+	public static final IElementType DefaultComponentType_2004 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType OutboundRouterCollectionType_2005 = getElementType("org.mule.ide.config.editor.services.OutboundRouterCollectionType_2005"); //$NON-NLS-1$
+	public static final IElementType DefaultComponentType_2005 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2005"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType PojoComponentType_2006 = getElementType("org.mule.ide.config.editor.services.PojoComponentType_2006"); //$NON-NLS-1$
+	public static final IElementType DefaultComponentType_2006 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2006"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType NoArgsCallWrapperType_2007 = getElementType("org.mule.ide.config.editor.services.NoArgsCallWrapperType_2007"); //$NON-NLS-1$
+	public static final IElementType DefaultComponentType_2007 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2007"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -97,47 +97,92 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType DefaultComponentType_2009 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2009"); //$NON-NLS-1$
+	public static final IElementType ExceptionStrategyType_2009 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2009"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType DefaultComponentType_2010 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2010"); //$NON-NLS-1$
+	public static final IElementType OutboundEndpointType_2010 = getElementType("org.mule.ide.config.editor.services.OutboundEndpointType_2010"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType DefaultComponentType_2011 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2011"); //$NON-NLS-1$
+	public static final IElementType ExceptionStrategyType_2011 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2011"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType DefaultComponentType_2012 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2012"); //$NON-NLS-1$
+	public static final IElementType CustomExceptionStrategyType_2012 = getElementType("org.mule.ide.config.editor.services.CustomExceptionStrategyType_2012"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType DefaultComponentType_2013 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2013"); //$NON-NLS-1$
+	public static final IElementType InboundRouterCollectionType_2013 = getElementType("org.mule.ide.config.editor.services.InboundRouterCollectionType_2013"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExceptionStrategyType_2014 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2014"); //$NON-NLS-1$
+	public static final IElementType InboundEndpointType_2014 = getElementType("org.mule.ide.config.editor.services.InboundEndpointType_2014"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType OutboundEndpointType_2015 = getElementType("org.mule.ide.config.editor.services.OutboundEndpointType_2015"); //$NON-NLS-1$
+	public static final IElementType ForwardingRouterType_2015 = getElementType("org.mule.ide.config.editor.services.ForwardingRouterType_2015"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExceptionStrategyType_2016 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2016"); //$NON-NLS-1$
+	public static final IElementType FilteredInboundRouterType_2016 = getElementType("org.mule.ide.config.editor.services.FilteredInboundRouterType_2016"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CustomExceptionStrategyType_2017 = getElementType("org.mule.ide.config.editor.services.CustomExceptionStrategyType_2017"); //$NON-NLS-1$
+	public static final IElementType FilteredInboundRouterType_2017 = getElementType("org.mule.ide.config.editor.services.FilteredInboundRouterType_2017"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType IdempotentReceiverType_2018 = getElementType("org.mule.ide.config.editor.services.IdempotentReceiverType_2018"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType WireTapRouterType_2019 = getElementType("org.mule.ide.config.editor.services.WireTapRouterType_2019"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SelectiveConsumerRouterType_2020 = getElementType("org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2020"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CorrelationRouterType_2021 = getElementType("org.mule.ide.config.editor.services.CorrelationRouterType_2021"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CorrelationRouterType_2022 = getElementType("org.mule.ide.config.editor.services.CorrelationRouterType_2022"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CorrelationAggregatorRouterType_2023 = getElementType("org.mule.ide.config.editor.services.CorrelationAggregatorRouterType_2023"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CustomInboundRouterType_2024 = getElementType("org.mule.ide.config.editor.services.CustomInboundRouterType_2024"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ResponseRouterCollectionType_2025 = getElementType("org.mule.ide.config.editor.services.ResponseRouterCollectionType_2025"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType OutboundRouterCollectionType_2026 = getElementType("org.mule.ide.config.editor.services.OutboundRouterCollectionType_2026"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -256,56 +301,83 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(SedaServiceType_1001, CorePackage.eINSTANCE
 					.getSedaServiceType());
 
-			elements.put(InboundRouterCollectionType_2001,
-					CorePackage.eINSTANCE.getInboundRouterCollectionType());
-
-			elements.put(InboundEndpointType_2002, CorePackage.eINSTANCE
-					.getInboundEndpointType());
-
-			elements.put(WireTapRouterType_2003, CorePackage.eINSTANCE
-					.getWireTapRouterType());
-
-			elements.put(ResponseRouterCollectionType_2004,
-					CorePackage.eINSTANCE.getResponseRouterCollectionType());
-
-			elements.put(OutboundRouterCollectionType_2005,
-					CorePackage.eINSTANCE.getOutboundRouterCollectionType());
-
-			elements.put(PojoComponentType_2006, CorePackage.eINSTANCE
+			elements.put(PojoComponentType_2001, CorePackage.eINSTANCE
 					.getPojoComponentType());
 
-			elements.put(NoArgsCallWrapperType_2007, CorePackage.eINSTANCE
+			elements.put(NoArgsCallWrapperType_2002, CorePackage.eINSTANCE
 					.getNoArgsCallWrapperType());
+
+			elements.put(DefaultComponentType_2003, CorePackage.eINSTANCE
+					.getDefaultComponentType());
+
+			elements.put(DefaultComponentType_2004, CorePackage.eINSTANCE
+					.getDefaultComponentType());
+
+			elements.put(DefaultComponentType_2005, CorePackage.eINSTANCE
+					.getDefaultComponentType());
+
+			elements.put(DefaultComponentType_2006, CorePackage.eINSTANCE
+					.getDefaultComponentType());
+
+			elements.put(DefaultComponentType_2007, CorePackage.eINSTANCE
+					.getDefaultComponentType());
 
 			elements.put(DefaultComponentType_2008, CorePackage.eINSTANCE
 					.getDefaultComponentType());
 
-			elements.put(DefaultComponentType_2009, CorePackage.eINSTANCE
-					.getDefaultComponentType());
-
-			elements.put(DefaultComponentType_2010, CorePackage.eINSTANCE
-					.getDefaultComponentType());
-
-			elements.put(DefaultComponentType_2011, CorePackage.eINSTANCE
-					.getDefaultComponentType());
-
-			elements.put(DefaultComponentType_2012, CorePackage.eINSTANCE
-					.getDefaultComponentType());
-
-			elements.put(DefaultComponentType_2013, CorePackage.eINSTANCE
-					.getDefaultComponentType());
-
-			elements.put(ExceptionStrategyType_2014, CorePackage.eINSTANCE
+			elements.put(ExceptionStrategyType_2009, CorePackage.eINSTANCE
 					.getExceptionStrategyType());
 
-			elements.put(OutboundEndpointType_2015, CorePackage.eINSTANCE
+			elements.put(OutboundEndpointType_2010, CorePackage.eINSTANCE
 					.getOutboundEndpointType());
 
-			elements.put(ExceptionStrategyType_2016, CorePackage.eINSTANCE
+			elements.put(ExceptionStrategyType_2011, CorePackage.eINSTANCE
 					.getExceptionStrategyType());
 
-			elements.put(CustomExceptionStrategyType_2017,
+			elements.put(CustomExceptionStrategyType_2012,
 					CorePackage.eINSTANCE.getCustomExceptionStrategyType());
+
+			elements.put(InboundRouterCollectionType_2013,
+					CorePackage.eINSTANCE.getInboundRouterCollectionType());
+
+			elements.put(InboundEndpointType_2014, CorePackage.eINSTANCE
+					.getInboundEndpointType());
+
+			elements.put(ForwardingRouterType_2015, CorePackage.eINSTANCE
+					.getForwardingRouterType());
+
+			elements.put(FilteredInboundRouterType_2016, CorePackage.eINSTANCE
+					.getFilteredInboundRouterType());
+
+			elements.put(FilteredInboundRouterType_2017, CorePackage.eINSTANCE
+					.getFilteredInboundRouterType());
+
+			elements.put(IdempotentReceiverType_2018, CorePackage.eINSTANCE
+					.getIdempotentReceiverType());
+
+			elements.put(WireTapRouterType_2019, CorePackage.eINSTANCE
+					.getWireTapRouterType());
+
+			elements.put(SelectiveConsumerRouterType_2020,
+					CorePackage.eINSTANCE.getSelectiveConsumerRouterType());
+
+			elements.put(CorrelationRouterType_2021, CorePackage.eINSTANCE
+					.getCorrelationRouterType());
+
+			elements.put(CorrelationRouterType_2022, CorePackage.eINSTANCE
+					.getCorrelationRouterType());
+
+			elements.put(CorrelationAggregatorRouterType_2023,
+					CorePackage.eINSTANCE.getCorrelationAggregatorRouterType());
+
+			elements.put(CustomInboundRouterType_2024, CorePackage.eINSTANCE
+					.getCustomInboundRouterType());
+
+			elements.put(ResponseRouterCollectionType_2025,
+					CorePackage.eINSTANCE.getResponseRouterCollectionType());
+
+			elements.put(OutboundRouterCollectionType_2026,
+					CorePackage.eINSTANCE.getOutboundRouterCollectionType());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -325,23 +397,32 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES = new HashSet();
 			KNOWN_ELEMENT_TYPES.add(DefaultModelType_79);
 			KNOWN_ELEMENT_TYPES.add(SedaServiceType_1001);
-			KNOWN_ELEMENT_TYPES.add(InboundRouterCollectionType_2001);
-			KNOWN_ELEMENT_TYPES.add(InboundEndpointType_2002);
-			KNOWN_ELEMENT_TYPES.add(WireTapRouterType_2003);
-			KNOWN_ELEMENT_TYPES.add(ResponseRouterCollectionType_2004);
-			KNOWN_ELEMENT_TYPES.add(OutboundRouterCollectionType_2005);
-			KNOWN_ELEMENT_TYPES.add(PojoComponentType_2006);
-			KNOWN_ELEMENT_TYPES.add(NoArgsCallWrapperType_2007);
+			KNOWN_ELEMENT_TYPES.add(PojoComponentType_2001);
+			KNOWN_ELEMENT_TYPES.add(NoArgsCallWrapperType_2002);
+			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2003);
+			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2004);
+			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2005);
+			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2006);
+			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2007);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2008);
-			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2009);
-			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2010);
-			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2011);
-			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2012);
-			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2013);
-			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2014);
-			KNOWN_ELEMENT_TYPES.add(OutboundEndpointType_2015);
-			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2016);
-			KNOWN_ELEMENT_TYPES.add(CustomExceptionStrategyType_2017);
+			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2009);
+			KNOWN_ELEMENT_TYPES.add(OutboundEndpointType_2010);
+			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2011);
+			KNOWN_ELEMENT_TYPES.add(CustomExceptionStrategyType_2012);
+			KNOWN_ELEMENT_TYPES.add(InboundRouterCollectionType_2013);
+			KNOWN_ELEMENT_TYPES.add(InboundEndpointType_2014);
+			KNOWN_ELEMENT_TYPES.add(ForwardingRouterType_2015);
+			KNOWN_ELEMENT_TYPES.add(FilteredInboundRouterType_2016);
+			KNOWN_ELEMENT_TYPES.add(FilteredInboundRouterType_2017);
+			KNOWN_ELEMENT_TYPES.add(IdempotentReceiverType_2018);
+			KNOWN_ELEMENT_TYPES.add(WireTapRouterType_2019);
+			KNOWN_ELEMENT_TYPES.add(SelectiveConsumerRouterType_2020);
+			KNOWN_ELEMENT_TYPES.add(CorrelationRouterType_2021);
+			KNOWN_ELEMENT_TYPES.add(CorrelationRouterType_2022);
+			KNOWN_ELEMENT_TYPES.add(CorrelationAggregatorRouterType_2023);
+			KNOWN_ELEMENT_TYPES.add(CustomInboundRouterType_2024);
+			KNOWN_ELEMENT_TYPES.add(ResponseRouterCollectionType_2025);
+			KNOWN_ELEMENT_TYPES.add(OutboundRouterCollectionType_2026);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

@@ -34,7 +34,7 @@ public class DefaultComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2008;
+	public static final int VISUAL_ID = 2003;
 
 	/**
 	 * @generated

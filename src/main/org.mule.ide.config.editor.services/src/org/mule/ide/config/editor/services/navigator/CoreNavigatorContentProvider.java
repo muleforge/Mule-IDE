@@ -21,8 +21,12 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
@@ -30,6 +34,9 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart;
@@ -40,6 +47,7 @@ import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
@@ -48,6 +56,7 @@ import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeRESPONSEEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
@@ -249,24 +258,7 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 		case SedaServiceTypeEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view), SedaServiceTypeINBOUNDEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					InboundRouterCollectionTypeEditPart.VISUAL_ID);
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					SedaServiceTypeRESPONSEEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					ResponseRouterCollectionTypeEditPart.VISUAL_ID);
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					OutboundRouterCollectionTypeEditPart.VISUAL_ID);
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
+					.singleton(view),
 					SedaServiceTypeCOMPONENTEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					PojoComponentTypeEditPart.VISUAL_ID);
@@ -332,22 +324,22 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 					CustomExceptionStrategyTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			return result.toArray();
-		}
-
-		case InboundRouterCollectionTypeEditPart.VISUAL_ID: {
-			Collection result = new ArrayList();
-			Collection connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					SedaServiceTypeINBOUNDEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					InboundEndpointServiceItemTypeEditPart.VISUAL_ID);
+					InboundRouterCollectionTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+					SedaServiceTypeRESPONSEEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					WireTapRouterTypeEditPart.VISUAL_ID);
+					ResponseRouterCollectionTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					OutboundRouterCollectionTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -384,6 +376,78 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 					CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					OutboundEndpointTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case InboundRouterCollectionTypeEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InboundEndpointServiceItemTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ForwardingRouterTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					PassThroughInboundRouterTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					IdempotentReceiverTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					WireTapRouterTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					SelectiveConsumerRouterTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ChunkingInboundRouterTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CorrelationResequencerRouterTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CorrelationAggregatorRouterTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CustomInboundRouterTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

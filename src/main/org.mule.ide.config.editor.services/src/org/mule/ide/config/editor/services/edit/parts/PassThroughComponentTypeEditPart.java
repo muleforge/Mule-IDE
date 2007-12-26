@@ -35,7 +35,7 @@ public class PassThroughComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2013;
+	public static final int VISUAL_ID = 2008;
 
 	/**
 	 * @generated

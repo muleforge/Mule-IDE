@@ -16,7 +16,7 @@ public class SedaServiceTypeINBOUNDItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.InboundRouterCollectionType_2001 == req
+		if (CoreElementTypes.InboundRouterCollectionType_2013 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE

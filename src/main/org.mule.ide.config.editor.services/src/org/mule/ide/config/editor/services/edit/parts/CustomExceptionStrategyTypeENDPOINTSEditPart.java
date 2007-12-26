@@ -24,7 +24,7 @@ public class CustomExceptionStrategyTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5013;
+	public static final int VISUAL_ID = 5008;
 
 	/**
 	 * @generated

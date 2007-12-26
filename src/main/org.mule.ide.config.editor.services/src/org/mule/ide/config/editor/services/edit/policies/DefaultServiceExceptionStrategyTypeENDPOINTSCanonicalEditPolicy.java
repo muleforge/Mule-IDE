@@ -33,7 +33,7 @@ public class DefaultServiceExceptionStrategyTypeENDPOINTSCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getExceptionStrategyTypeENDPOINTS_5011SemanticChildren(
+				.getExceptionStrategyTypeENDPOINTS_5006SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}

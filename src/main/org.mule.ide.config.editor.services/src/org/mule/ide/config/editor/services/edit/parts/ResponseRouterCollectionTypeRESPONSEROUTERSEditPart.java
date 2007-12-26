@@ -20,7 +20,7 @@ public class ResponseRouterCollectionTypeRESPONSEROUTERSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5009;
+	public static final int VISUAL_ID = 5012;
 
 	/**
 	 * @generated

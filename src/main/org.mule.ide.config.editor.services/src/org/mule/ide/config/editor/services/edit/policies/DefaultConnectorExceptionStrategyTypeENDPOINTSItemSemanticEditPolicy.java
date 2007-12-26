@@ -16,7 +16,7 @@ public class DefaultConnectorExceptionStrategyTypeENDPOINTSItemSemanticEditPolic
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.OutboundEndpointType_2015 == req.getElementType()) {
+		if (CoreElementTypes.OutboundEndpointType_2010 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getExceptionStrategyType_AbstractOutboundEndpoint());

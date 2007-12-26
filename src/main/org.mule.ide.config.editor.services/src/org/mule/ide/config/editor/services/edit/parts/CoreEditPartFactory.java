@@ -37,27 +37,6 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case SedaServiceTypeNameEditPart.VISUAL_ID:
 				return new SedaServiceTypeNameEditPart(view);
 
-			case InboundRouterCollectionTypeEditPart.VISUAL_ID:
-				return new InboundRouterCollectionTypeEditPart(view);
-
-			case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
-				return new InboundEndpointServiceItemTypeEditPart(view);
-
-			case InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
-				return new InboundEndpointServiceItemTypeLabelEditPart(view);
-
-			case WireTapRouterTypeEditPart.VISUAL_ID:
-				return new WireTapRouterTypeEditPart(view);
-
-			case WireTapRouterTypeLabelEditPart.VISUAL_ID:
-				return new WireTapRouterTypeLabelEditPart(view);
-
-			case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-				return new ResponseRouterCollectionTypeEditPart(view);
-
-			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-				return new OutboundRouterCollectionTypeEditPart(view);
-
 			case PojoComponentTypeEditPart.VISUAL_ID:
 				return new PojoComponentTypeEditPart(view);
 
@@ -141,6 +120,81 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
 				return new CustomExceptionStrategyTypeClassEditPart(view);
 
+			case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+				return new InboundRouterCollectionTypeEditPart(view);
+
+			case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+				return new InboundEndpointServiceItemTypeEditPart(view);
+
+			case InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
+				return new InboundEndpointServiceItemTypeLabelEditPart(view);
+
+			case ForwardingRouterTypeEditPart.VISUAL_ID:
+				return new ForwardingRouterTypeEditPart(view);
+
+			case ForwardingRouterTypeLabelEditPart.VISUAL_ID:
+				return new ForwardingRouterTypeLabelEditPart(view);
+
+			case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
+				return new IdempotentSecureRecieverRouterTypeEditPart(view);
+
+			case IdempotentSecureRecieverRouterTypeLabelEditPart.VISUAL_ID:
+				return new IdempotentSecureRecieverRouterTypeLabelEditPart(view);
+
+			case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
+				return new PassThroughInboundRouterTypeEditPart(view);
+
+			case PassThroughInboundRouterTypeLabelEditPart.VISUAL_ID:
+				return new PassThroughInboundRouterTypeLabelEditPart(view);
+
+			case IdempotentReceiverTypeEditPart.VISUAL_ID:
+				return new IdempotentReceiverTypeEditPart(view);
+
+			case IdempotentReceiverRouterTypeLabelEditPart.VISUAL_ID:
+				return new IdempotentReceiverRouterTypeLabelEditPart(view);
+
+			case WireTapRouterTypeEditPart.VISUAL_ID:
+				return new WireTapRouterTypeEditPart(view);
+
+			case WireTapRouterTypeLabelEditPart.VISUAL_ID:
+				return new WireTapRouterTypeLabelEditPart(view);
+
+			case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
+				return new SelectiveConsumerRouterTypeEditPart(view);
+
+			case SelectiveConsumerRouterTypeLabelEditPart.VISUAL_ID:
+				return new SelectiveConsumerRouterTypeLabelEditPart(view);
+
+			case ChunkingInboundRouterTypeEditPart.VISUAL_ID:
+				return new ChunkingInboundRouterTypeEditPart(view);
+
+			case ChunkingInboundRouterTypeLabelEditPart.VISUAL_ID:
+				return new ChunkingInboundRouterTypeLabelEditPart(view);
+
+			case CorrelationResequencerRouterTypeEditPart.VISUAL_ID:
+				return new CorrelationResequencerRouterTypeEditPart(view);
+
+			case CorrelationResequencerRouterTypeLabelEditPart.VISUAL_ID:
+				return new CorrelationResequencerRouterTypeLabelEditPart(view);
+
+			case CorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
+				return new CorrelationAggregatorRouterTypeEditPart(view);
+
+			case CorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID:
+				return new CorrelationAggregatorRouterTypeLabelEditPart(view);
+
+			case CustomInboundRouterTypeEditPart.VISUAL_ID:
+				return new CustomInboundRouterTypeEditPart(view);
+
+			case CustomInboundRouterTypeLabelEditPart.VISUAL_ID:
+				return new CustomInboundRouterTypeLabelEditPart(view);
+
+			case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
+				return new ResponseRouterCollectionTypeEditPart(view);
+
+			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+				return new OutboundRouterCollectionTypeEditPart(view);
+
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				return new SedaServiceTypeCOMPONENTEditPart(view);
 
@@ -150,11 +204,22 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
 				return new SedaServiceTypeINBOUNDEditPart(view);
 
+			case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
+				return new SedaServiceTypeRESPONSEEditPart(view);
+
 			case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
 				return new SedaServiceTypeOUTBOUNDEditPart(view);
 
-			case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
-				return new SedaServiceTypeRESPONSEEditPart(view);
+			case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+				return new DefaultServiceExceptionStrategyTypeENDPOINTSEditPart(
+						view);
+
+			case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+				return new DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart(
+						view);
+
+			case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+				return new CustomExceptionStrategyTypeENDPOINTSEditPart(view);
 
 			case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
 				return new InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart(
@@ -175,17 +240,6 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
 				return new OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart(
 						view);
-
-			case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
-				return new DefaultServiceExceptionStrategyTypeENDPOINTSEditPart(
-						view);
-
-			case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
-				return new DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart(
-						view);
-
-			case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
-				return new CustomExceptionStrategyTypeENDPOINTSEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

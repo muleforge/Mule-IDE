@@ -20,7 +20,7 @@ public class OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5010;
+	public static final int VISUAL_ID = 5013;
 
 	/**
 	 * @generated

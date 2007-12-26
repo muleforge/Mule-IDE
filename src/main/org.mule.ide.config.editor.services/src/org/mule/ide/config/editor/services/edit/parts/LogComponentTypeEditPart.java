@@ -35,7 +35,7 @@ public class LogComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2011;
+	public static final int VISUAL_ID = 2006;
 
 	/**
 	 * @generated

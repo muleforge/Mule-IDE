@@ -33,7 +33,7 @@ public class InboundRouterCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getInboundRouterCollectionTypeINBOUNDENDPOINTS_5006SemanticChildren(
+				.getInboundRouterCollectionTypeINBOUNDENDPOINTS_5009SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}

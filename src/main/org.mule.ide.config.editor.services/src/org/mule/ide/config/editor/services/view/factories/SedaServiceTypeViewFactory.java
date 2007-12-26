@@ -93,13 +93,13 @@ public class SedaServiceTypeViewFactory extends AbstractShapeViewFactory {
 				eObjectAdapter,
 				view,
 				CoreVisualIDRegistry
-						.getType(SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID),
+						.getType(SedaServiceTypeRESPONSEEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService().createNode(
 				eObjectAdapter,
 				view,
 				CoreVisualIDRegistry
-						.getType(SedaServiceTypeRESPONSEEditPart.VISUAL_ID),
+						.getType(SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

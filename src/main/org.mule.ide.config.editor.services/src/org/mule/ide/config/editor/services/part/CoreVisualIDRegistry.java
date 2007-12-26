@@ -1,6 +1,9 @@
 package org.mule.ide.config.editor.services.part;
 
+import java.util.List;
+
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.FeatureMap;
@@ -8,15 +11,26 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.CorrelationRouterType;
 import org.mule.ide.config.core.DefaultComponentType;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.ExceptionStrategyType;
+import org.mule.ide.config.core.FilteredInboundRouterType;
+import org.mule.ide.config.core.InboundRouterCollectionType;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
@@ -28,6 +42,12 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStr
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
@@ -46,6 +66,8 @@ import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTy
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEditPart;
@@ -59,6 +81,8 @@ import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEdit
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeRESPONSEEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.expressions.CoreAbstractExpression;
@@ -252,28 +276,16 @@ public class CoreVisualIDRegistry {
 				return InboundRouterCollectionTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getOutboundRouterCollectionType()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return OutboundRouterCollectionTypeEditPart.VISUAL_ID;
-			}
-			break;
 		case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getResponseRouterCollectionType()
 					.isSuperTypeOf(domainElement.eClass())) {
 				return ResponseRouterCollectionTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getInboundEndpointType().isSuperTypeOf(
-					domainElement.eClass())) {
-				return InboundEndpointServiceItemTypeEditPart.VISUAL_ID;
-			}
-			break;
-		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getWireTapRouterType().isSuperTypeOf(
-					domainElement.eClass())) {
-				return WireTapRouterTypeEditPart.VISUAL_ID;
+		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundRouterCollectionType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return OutboundRouterCollectionTypeEditPart.VISUAL_ID;
 			}
 			break;
 		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
@@ -292,6 +304,68 @@ public class CoreVisualIDRegistry {
 			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
 					domainElement.eClass())) {
 				return OutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getInboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return InboundEndpointServiceItemTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getForwardingRouterType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ForwardingRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getFilteredInboundRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints
+							.idempotentSecureReceiverRouterConstraint(
+									(FilteredInboundRouterType) domainElement)
+							.booleanValue()) {
+				return IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getFilteredInboundRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.inboundPassThroughRouterConstraint(
+							(FilteredInboundRouterType) domainElement)
+							.booleanValue()) {
+				return PassThroughInboundRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getIdempotentReceiverType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return IdempotentReceiverTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getWireTapRouterType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return WireTapRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getSelectiveConsumerRouterType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return SelectiveConsumerRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getCorrelationRouterType().isSuperTypeOf(
+					domainElement.eClass())
+					&& JavaConstraints
+							.messageChunkingAggregatorRouterConstraint(
+									(CorrelationRouterType) domainElement)
+							.booleanValue()) {
+				return ChunkingInboundRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getCorrelationRouterType().isSuperTypeOf(
+					domainElement.eClass())
+					&& JavaConstraints.correlationResequencerRouterConstraint(
+							(CorrelationRouterType) domainElement)
+							.booleanValue()) {
+				return CorrelationResequencerRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getCorrelationAggregatorRouterType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return CorrelationAggregatorRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getCustomInboundRouterType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return CustomInboundRouterTypeEditPart.VISUAL_ID;
 			}
 			break;
 		case DefaultModelTypeEditPart.VISUAL_ID:
@@ -338,41 +412,10 @@ public class CoreVisualIDRegistry {
 			if (SedaServiceTypeINBOUNDEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (SedaServiceTypeRESPONSEEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			break;
-		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
-			if (InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
-			if (InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case WireTapRouterTypeEditPart.VISUAL_ID:
-			if (WireTapRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-			if (ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			if (OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+			if (SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -454,6 +497,82 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
+		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+			if (InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+			if (InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ForwardingRouterTypeEditPart.VISUAL_ID:
+			if (ForwardingRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
+			if (IdempotentSecureRecieverRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
+			if (PassThroughInboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case IdempotentReceiverTypeEditPart.VISUAL_ID:
+			if (IdempotentReceiverRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case WireTapRouterTypeEditPart.VISUAL_ID:
+			if (WireTapRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
+			if (SelectiveConsumerRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ChunkingInboundRouterTypeEditPart.VISUAL_ID:
+			if (ChunkingInboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CorrelationResequencerRouterTypeEditPart.VISUAL_ID:
+			if (CorrelationResequencerRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
+			if (CorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CustomInboundRouterTypeEditPart.VISUAL_ID:
+			if (CustomInboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
+			if (ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+			if (OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			if (PojoComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -496,23 +615,13 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
-			if (OutboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
 			if (ResponseRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-			if (InboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-			if (WireTapRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
+			if (OutboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -528,6 +637,43 @@ public class CoreVisualIDRegistry {
 			break;
 		case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 			if (OutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+			if (InboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+			if (ForwardingRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (PassThroughInboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (IdempotentReceiverTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (WireTapRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SelectiveConsumerRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ChunkingInboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CorrelationResequencerRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CorrelationAggregatorRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomInboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -567,7 +713,7 @@ public class CoreVisualIDRegistry {
 
 		/**
 		 * customization
-		 *   - implement constraint for differentiating DefaultComponentType elements
+		 *   - implement constraint for differentiating elements of the same type
 		 */
 		private static java.lang.Boolean defaultComponentConstraint(
 				DefaultComponentType self) {
@@ -576,7 +722,7 @@ public class CoreVisualIDRegistry {
 
 		/**
 		 * customization
-		 *   - implement constraint for differentiating DefaultComponentType elements
+		 *   - implement constraint for differentiating elements of the same type
 		 */
 		private static java.lang.Boolean bridgeComponentConstraint(
 				DefaultComponentType self) {
@@ -591,7 +737,7 @@ public class CoreVisualIDRegistry {
 
 		/**
 		 * customization
-		 *   - implement constraint for differentiating DefaultComponentType elements
+		 *   - implement constraint for differentiating elements of the same type
 		 */
 		private static java.lang.Boolean echoComponentConstraint(
 				DefaultComponentType self) {
@@ -606,7 +752,7 @@ public class CoreVisualIDRegistry {
 
 		/**
 		 * customization
-		 *   - implement constraint for differentiating DefaultComponentType elements
+		 *   - implement constraint for differentiating elements of the same type
 		 */
 		private static java.lang.Boolean logComponentConstraint(
 				DefaultComponentType self) {
@@ -621,7 +767,7 @@ public class CoreVisualIDRegistry {
 
 		/**
 		 * customization
-		 *   - implement constraint for differentiating DefaultComponentType elements
+		 *   - implement constraint for differentiating elements of the same type
 		 */
 		private static java.lang.Boolean nullComponentConstraint(
 				DefaultComponentType self) {
@@ -636,7 +782,7 @@ public class CoreVisualIDRegistry {
 
 		/**
 		 * customization
-		 *   - implement constraint for differentiating DefaultComponentType elements
+		 *   - implement constraint for differentiating elements of the same type
 		 */
 		private static java.lang.Boolean passThroughComponentConstraint(
 				DefaultComponentType self) {
@@ -651,7 +797,7 @@ public class CoreVisualIDRegistry {
 
 		/**
 		 * customization
-		 *   - implement constraint for differentiating ExceptionStrategyType elements
+		 *   - implement constraint for differentiating elements of the same type
 		 */
 		private static java.lang.Boolean defautServiceExceptionStrategyConstraint(
 				ExceptionStrategyType self) {
@@ -667,7 +813,7 @@ public class CoreVisualIDRegistry {
 
 		/**
 		 * customization
-		 *   - implement constraint for differentiating ExceptionStrategyType elements
+		 *   - implement constraint for differentiating elements of the same type
 		 */
 		private static java.lang.Boolean defautConnectorExceptionStrategyConstraint(
 				ExceptionStrategyType self) {
@@ -680,6 +826,66 @@ public class CoreVisualIDRegistry {
 									.getDocumentRoot_DefaultConnectorExceptionStrategy(),
 							false);
 			return self.equals(component);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean idempotentSecureReceiverRouterConstraint(
+				FilteredInboundRouterType self) {
+			InboundRouterCollectionType container = (InboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractInboundRouterGroup();
+			List<FilteredInboundRouterType> routers = map
+					.list(CorePackage.eINSTANCE
+							.getDocumentRoot_IdempotentSecureHashReceiverRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean inboundPassThroughRouterConstraint(
+				FilteredInboundRouterType self) {
+			InboundRouterCollectionType container = (InboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractInboundRouterGroup();
+			List<FilteredInboundRouterType> routers = map
+					.list(CorePackage.eINSTANCE
+							.getDocumentRoot_InboundPassThroughRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean messageChunkingAggregatorRouterConstraint(
+				CorrelationRouterType self) {
+			InboundRouterCollectionType container = (InboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractInboundRouterGroup();
+			List<CorrelationRouterType> routers = map
+					.list(CorePackage.eINSTANCE
+							.getDocumentRoot_MessageChunkingAggregatorRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean correlationResequencerRouterConstraint(
+				CorrelationRouterType self) {
+			InboundRouterCollectionType container = (InboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractInboundRouterGroup();
+			List<CorrelationRouterType> routers = map
+					.list(CorePackage.eINSTANCE
+							.getDocumentRoot_CorrelationResequencerRouter());
+			return routers.contains(self);
 		}
 
 	}

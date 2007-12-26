@@ -40,7 +40,7 @@ public class WireTapRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2003;
+	public static final int VISUAL_ID = 2019;
 
 	/**
 	 * @generated

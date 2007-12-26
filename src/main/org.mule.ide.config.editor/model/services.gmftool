@@ -146,7 +146,7 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Inbound Chunking Router"
+          title="Chunking Inbound Router"
           description="Add a new Message Chunking Aggregator Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
@@ -155,7 +155,7 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Inbound Custom Router"
+          title="Custom Inbound Router"
           description="Add a new Custom Inbound Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
@@ -191,7 +191,7 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Inbound Pass Through Router"
+          title="Pass Through Inbound Router"
           description="Add a new Pass Through Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
@@ -228,6 +228,40 @@
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
+        title="Response"
+        collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Response Endpoint"
+          description="Create new Response Endpoint">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Custom Response Router"
+          description="Create new Custom Response Router">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Response Router"
+          description="Create new Response Router">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
         title="Outbound"
         collapsible="true">
       <tools
@@ -252,7 +286,7 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Outbound Chunking Router"
+          title="Chunking Outbound Router"
           description="Add a new Message Chunking Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
@@ -261,7 +295,7 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Outbound Custom Router"
+          title="Custom Outbound Router"
           description="Add a new Custom Outbound Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
@@ -315,7 +349,7 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Outbound Pass Through Router"
+          title="Pass Through Outbound Router"
           description="Add a new Pass Through Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
@@ -335,38 +369,6 @@
           xsi:type="gmftool:CreationTool"
           title="Template Endpoint Router"
           description="Add a new Template Endpoint Router to a service">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-    </tools>
-    <tools
-        xsi:type="gmftool:ToolGroup"
-        title="Response"
-        collapsible="true">
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Response Endpoint"
-          description="Create new Response Endpoint">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Custom Response Router"
-          description="Create new Custom Response Router">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Response Router"
-          description="Create new Response Router">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

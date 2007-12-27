@@ -1446,6 +1446,113 @@
     </childNodes>
     <childNodes
         visualID="2027"
+        editPartClassName="ResponseRouterTypeEditPart"
+        itemSemanticEditPolicyClassName="ResponseRouterTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="ResponseRouterTypeViewFactory"
+        canonicalEditPolicyClassName="ResponseRouterTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ResponseRouterTypeGraphicalNodeEditPolicy"
+        createCommandClassName="ResponseRouterTypeCreateCommand"
+        containers="//@diagram/@compartments.11">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ResponseRouterTypeEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          layoutType="TOOLBAR_LAYOUT"
+          className="ServiceItemFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            height="10"/>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterType"/>
+        <containmentMetaFeature
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterCollectionType/abstractResponseRouter"/>
+        <childMetaFeature
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterCollectionType/abstractResponseRouter"/>
+        <modelElementSelector
+            body="singleResponseRouterConstraint"
+            language="java"/>
+      </modelFacet>
+      <labels
+          visualID="4028"
+          editPartClassName="ResponseRouterTypeLabelEditPart"
+          itemSemanticEditPolicyClassName="ResponseRouterTypeLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="ResponseRouterTypeLabelViewFactory"
+          readOnly="true"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureServiceItemTypeLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"
+              fixedForeground="true"/>
+        </viewmap>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="2028"
+        editPartClassName="CustomResponseRouterTypeEditPart"
+        itemSemanticEditPolicyClassName="CustomResponseRouterTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="CustomResponseRouterTypeViewFactory"
+        canonicalEditPolicyClassName="CustomResponseRouterTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="CustomResponseRouterTypeGraphicalNodeEditPolicy"
+        createCommandClassName="CustomResponseRouterTypeCreateCommand"
+        containers="//@diagram/@compartments.11">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="CustomResponseRouterTypeEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          layoutType="TOOLBAR_LAYOUT"
+          className="ClassServiceItemFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ClassServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureClassServiceItemTypeLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureClassServiceItemClassLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ClassServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureClassServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureClassServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureClassServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureClassServiceItemTypeLabelFigure.setFont(FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureClassServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#xA;fFigureClassServiceItemClassLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureClassServiceItemClassLabelFigure.setText(&quot;&quot;);&#xA;&#xA;fFigureClassServiceItemClassLabelFigure.setFont(FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;fFigureClassServiceItemClassLabelFigure.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;this.add(fFigureClassServiceItemClassLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureClassServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureClassServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureClassServiceItemClassLabelFigure() {&#xA;&#x9;&#x9;return fFigureClassServiceItemClassLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 7, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 9, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            height="10"/>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/CustomResponseRouterType"/>
+        <containmentMetaFeature
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterCollectionType/abstractResponseRouter"/>
+        <childMetaFeature
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterCollectionType/abstractResponseRouter"/>
+      </modelFacet>
+      <labels
+          visualID="4029"
+          editPartClassName="CustomResponseRouterTypeLabelEditPart"
+          itemSemanticEditPolicyClassName="CustomResponseRouterTypeLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="CustomResponseRouterTypeLabelViewFactory"
+          readOnly="true"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureClassServiceItemTypeLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"
+              fixedForeground="true"/>
+        </viewmap>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="2029"
         editPartClassName="OutboundRouterCollectionTypeEditPart"
         itemSemanticEditPolicyClassName="OutboundRouterCollectionTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="OutboundRouterCollectionTypeViewFactory"
@@ -1516,7 +1623,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/AbstractModelType/abstractService"/>
       </modelFacet>
       <labels
-          visualID="4028"
+          visualID="4030"
           editPartClassName="SedaServiceTypeNameEditPart"
           itemSemanticEditPolicyClassName="SedaServiceTypeNameItemSemanticEditPolicy"
           notationViewFactoryClassName="SedaServiceTypeNameViewFactory"
@@ -1615,7 +1722,7 @@
         itemSemanticEditPolicyClassName="SedaServiceTypeOUTBOUNDItemSemanticEditPolicy"
         notationViewFactoryClassName="SedaServiceTypeOUTBOUNDViewFactory"
         canonicalEditPolicyClassName="SedaServiceTypeOUTBOUNDCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.26"
+        childNodes="//@diagram/@childNodes.28"
         title="OUTBOUND"
         node="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
@@ -1743,6 +1850,7 @@
         itemSemanticEditPolicyClassName="ResponseRouterCollectionTypeRESPONSEROUTERSItemSemanticEditPolicy"
         notationViewFactoryClassName="ResponseRouterCollectionTypeRESPONSEROUTERSViewFactory"
         canonicalEditPolicyClassName="ResponseRouterCollectionTypeRESPONSEROUTERSCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.26 //@diagram/@childNodes.27"
         title="RESPONSEROUTERS"
         canCollapse="false"
         needsTitle="false"
@@ -1764,7 +1872,7 @@
         title="OUTBOUNDROUTERS"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.26">
+        node="//@diagram/@childNodes.28">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1909,18 +2017,20 @@
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Response Endpoint"
-            description="Create new Response Endpoint"
+            description="Add a new Response Endpoint to a service"
             genNodes="//@diagram/@childNodes.25"/>
         <entries
             xsi:type="gmfgen:Separator"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Custom Response Router"
-            description="Create new Custom Response Router"/>
+            description="Add a new Custom Response Router to a service"
+            genNodes="//@diagram/@childNodes.27"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Response Router"
-            description="Create new Response Router"/>
+            title="Single Response Router"
+            description="Add a new Single Response Router to a service"
+            genNodes="//@diagram/@childNodes.26"/>
       </groups>
       <groups
           title="Outbound"
@@ -2121,11 +2231,17 @@
         parent="//@diagram/@childNodes.24"
         child="//@diagram/@childNodes.25"/>
     <childReferences
+        parent="//@diagram/@childNodes.24"
+        child="//@diagram/@childNodes.26"/>
+    <childReferences
+        parent="//@diagram/@childNodes.24"
+        child="//@diagram/@childNodes.27"/>
+    <childReferences
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.24"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.26"/>
+        child="//@diagram/@childNodes.28"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
@@ -2155,6 +2271,6 @@
   <expressionProviders>
     <providers
         xsi:type="gmfgen:GenJavaExpressionProvider"
-        expressions="//@diagram/@childNodes.2/@modelFacet/@modelElementSelector //@diagram/@childNodes.3/@modelFacet/@modelElementSelector //@diagram/@childNodes.4/@modelFacet/@modelElementSelector //@diagram/@childNodes.5/@modelFacet/@modelElementSelector //@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.8/@modelFacet/@modelElementSelector //@diagram/@childNodes.10/@modelFacet/@modelElementSelector //@diagram/@childNodes.15/@modelFacet/@modelElementSelector //@diagram/@childNodes.16/@modelFacet/@modelElementSelector //@diagram/@childNodes.20/@modelFacet/@modelElementSelector //@diagram/@childNodes.21/@modelFacet/@modelElementSelector"/>
+        expressions="//@diagram/@childNodes.2/@modelFacet/@modelElementSelector //@diagram/@childNodes.3/@modelFacet/@modelElementSelector //@diagram/@childNodes.4/@modelFacet/@modelElementSelector //@diagram/@childNodes.5/@modelFacet/@modelElementSelector //@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.8/@modelFacet/@modelElementSelector //@diagram/@childNodes.10/@modelFacet/@modelElementSelector //@diagram/@childNodes.15/@modelFacet/@modelElementSelector //@diagram/@childNodes.16/@modelFacet/@modelElementSelector //@diagram/@childNodes.20/@modelFacet/@modelElementSelector //@diagram/@childNodes.21/@modelFacet/@modelElementSelector //@diagram/@childNodes.26/@modelFacet/@modelElementSelector"/>
   </expressionProviders>
 </gmfgen:GenEditorGenerator>

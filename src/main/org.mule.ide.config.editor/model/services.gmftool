@@ -233,7 +233,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Response Endpoint"
-          description="Create new Response Endpoint">
+          description="Add a new Response Endpoint to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -244,7 +244,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Custom Response Router"
-          description="Create new Custom Response Router">
+          description="Add a new Custom Response Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -252,8 +252,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Response Router"
-          description="Create new Response Router">
+          title="Single Response Router"
+          description="Add a new Single Response Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

@@ -591,12 +591,54 @@
                   href="services.gmfgraph#EndpointServiceItem"/>
             </ownedChild>
           </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.12/@ownedChild/@compartments.1">
+            <containmentFeature
+                href="../../org.mule.ide.config.core/model/core.ecore#//ResponseRouterCollectionType/abstractResponseRouter"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.mule.ide.config.core/model/core.ecore#//ResponseRouterType"/>
+              <domainSpecialization
+                  body="singleResponseRouterConstraint"
+                  language="java"/>
+              <labelMappings
+                  readOnly="true">
+                <diagramLabel
+                    href="services.gmfgraph#ServiceItemTypeLabel"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="services.gmftool#//@palette/@tools.4/@tools.3"/>
+              <diagramNode
+                  href="services.gmfgraph#ServiceItem"/>
+            </ownedChild>
+          </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.12/@ownedChild/@compartments.1">
+            <containmentFeature
+                href="../../org.mule.ide.config.core/model/core.ecore#//ResponseRouterCollectionType/abstractResponseRouter"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.mule.ide.config.core/model/core.ecore#//CustomResponseRouterType"/>
+              <labelMappings
+                  readOnly="true">
+                <diagramLabel
+                    href="services.gmfgraph#ClassServiceItemTypeLabel"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="services.gmftool#//@palette/@tools.4/@tools.2"/>
+              <diagramNode
+                  href="services.gmfgraph#ClassServiceItem"/>
+            </ownedChild>
+          </children>
           <compartments
               children="//@nodes.0/@ownedChild/@children.12/@ownedChild/@children.0">
             <compartment
                 href="services.gmfgraph#RESPONSEENDPOINTS"/>
           </compartments>
-          <compartments>
+          <compartments
+              children="//@nodes.0/@ownedChild/@children.12/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.12/@ownedChild/@children.2">
             <compartment
                 href="services.gmfgraph#RESPONSEROUTERS"/>
           </compartments>

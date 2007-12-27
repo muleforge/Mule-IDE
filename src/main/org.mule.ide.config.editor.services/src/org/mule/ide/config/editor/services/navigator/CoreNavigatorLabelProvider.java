@@ -68,6 +68,8 @@ import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTy
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceItemTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceItemTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
@@ -223,9 +225,12 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ResponseRouterCollectionType", CoreElementTypes.ResponseRouterCollectionType_2025); //$NON-NLS-1$
+		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ResponseEndpointType", CoreElementTypes.ResponseEndpointType_2026); //$NON-NLS-1$
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterCollectionType", CoreElementTypes.OutboundRouterCollectionType_2026); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterCollectionType", CoreElementTypes.OutboundRouterCollectionType_2027); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -332,8 +337,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getCustomInboundRouterType_2024Text(view);
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 			return getResponseRouterCollectionType_2025Text(view);
+		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
+			return getResponseEndpointType_2026Text(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundRouterCollectionType_2026Text(view);
+			return getOutboundRouterCollectionType_2027Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -369,7 +376,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4027); //$NON-NLS-1$
+					"Parser was not found for label " + 4028); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -870,14 +877,34 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getOutboundRouterCollectionType_2026Text(View view) {
+	private String getResponseEndpointType_2026Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.ResponseEndpointType_2026,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry
+						.getType(ResponseEndpointServiceItemTypeLabelEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getOutboundRouterCollectionType_2027Text(View view) {
 		OutboundRouterCollectionType domainModelElement = (OutboundRouterCollectionType) view
 				.getElement();
 		if (domainModelElement != null) {
 			return String.valueOf(domainModelElement.isMatchAll());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2026); //$NON-NLS-1$
+					"No domain element for view with visualID = " + 2027); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

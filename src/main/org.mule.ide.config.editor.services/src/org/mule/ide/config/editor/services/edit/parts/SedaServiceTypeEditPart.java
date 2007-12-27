@@ -170,7 +170,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.OutboundRouterCollectionType_2026) {
+								if (type == CoreElementTypes.OutboundRouterCollectionType_2027) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

@@ -16,7 +16,7 @@ public class SedaServiceTypeOUTBOUNDItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.OutboundRouterCollectionType_2026 == req
+		if (CoreElementTypes.OutboundRouterCollectionType_2027 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE

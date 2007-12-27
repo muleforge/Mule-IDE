@@ -71,6 +71,8 @@ import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTy
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceItemTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceItemTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEROUTERSEditPart;
@@ -368,6 +370,12 @@ public class CoreVisualIDRegistry {
 				return CustomInboundRouterTypeEditPart.VISUAL_ID;
 			}
 			break;
+		case ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getResponseEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ResponseEndpointServiceItemTypeEditPart.VISUAL_ID;
+			}
+			break;
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getSedaServiceType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -568,6 +576,11 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
+			if (ResponseEndpointServiceItemTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 			if (OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -674,6 +687,11 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			if (CustomInboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID:
+			if (ResponseEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

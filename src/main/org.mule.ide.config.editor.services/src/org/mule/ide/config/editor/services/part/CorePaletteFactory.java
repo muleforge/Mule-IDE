@@ -642,10 +642,15 @@ public class CorePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createResponseEndpoint1CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.ResponseEndpointType_2026);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ResponseEndpoint1CreationTool_title,
-				Messages.ResponseEndpoint1CreationTool_desc, null, null) {
-		};
+				Messages.ResponseEndpoint1CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.ResponseEndpointType_2026));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

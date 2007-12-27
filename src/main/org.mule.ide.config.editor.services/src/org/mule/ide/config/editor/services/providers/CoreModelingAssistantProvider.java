@@ -25,6 +25,7 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionS
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
@@ -58,7 +59,7 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.CustomExceptionStrategyType_2012);
 			types.add(CoreElementTypes.InboundRouterCollectionType_2013);
 			types.add(CoreElementTypes.ResponseRouterCollectionType_2025);
-			types.add(CoreElementTypes.OutboundRouterCollectionType_2026);
+			types.add(CoreElementTypes.OutboundRouterCollectionType_2027);
 			return types;
 		}
 		if (editPart instanceof DefaultServiceExceptionStrategyTypeEditPart) {
@@ -89,6 +90,11 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.CorrelationRouterType_2022);
 			types.add(CoreElementTypes.CorrelationAggregatorRouterType_2023);
 			types.add(CoreElementTypes.CustomInboundRouterType_2024);
+			return types;
+		}
+		if (editPart instanceof ResponseRouterCollectionTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.ResponseEndpointType_2026);
 			return types;
 		}
 		if (editPart instanceof DefaultModelTypeEditPart) {

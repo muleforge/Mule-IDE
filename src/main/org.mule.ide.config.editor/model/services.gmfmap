@@ -572,7 +572,27 @@
               href="../../org.mule.ide.config.core/model/core.ecore#//ResponseRouterCollectionType"/>
           <diagramNode
               href="services.gmfgraph#ResponseRouterCollectionType"/>
-          <compartments>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.12/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="../../org.mule.ide.config.core/model/core.ecore#//ResponseRouterCollectionType/abstractResponseEndpoint"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.mule.ide.config.core/model/core.ecore#//ResponseEndpointType"/>
+              <labelMappings
+                  readOnly="true">
+                <diagramLabel
+                    href="services.gmfgraph#EndpointServiceItemTypeLabel"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="services.gmftool#//@palette/@tools.4/@tools.0"/>
+              <diagramNode
+                  href="services.gmfgraph#EndpointServiceItem"/>
+            </ownedChild>
+          </children>
+          <compartments
+              children="//@nodes.0/@ownedChild/@children.12/@ownedChild/@children.0">
             <compartment
                 href="services.gmfgraph#RESPONSEENDPOINTS"/>
           </compartments>

@@ -198,6 +198,18 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case ResponseEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
 				return new ResponseEndpointServiceItemTypeLabelEditPart(view);
 
+			case ResponseRouterTypeEditPart.VISUAL_ID:
+				return new ResponseRouterTypeEditPart(view);
+
+			case ResponseRouterTypeLabelEditPart.VISUAL_ID:
+				return new ResponseRouterTypeLabelEditPart(view);
+
+			case CustomResponseRouterTypeEditPart.VISUAL_ID:
+				return new CustomResponseRouterTypeEditPart(view);
+
+			case CustomResponseRouterTypeLabelEditPart.VISUAL_ID:
+				return new CustomResponseRouterTypeLabelEditPart(view);
+
 			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 				return new OutboundRouterCollectionTypeEditPart(view);
 

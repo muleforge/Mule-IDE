@@ -59,7 +59,7 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.CustomExceptionStrategyType_2012);
 			types.add(CoreElementTypes.InboundRouterCollectionType_2013);
 			types.add(CoreElementTypes.ResponseRouterCollectionType_2025);
-			types.add(CoreElementTypes.OutboundRouterCollectionType_2027);
+			types.add(CoreElementTypes.OutboundRouterCollectionType_2029);
 			return types;
 		}
 		if (editPart instanceof DefaultServiceExceptionStrategyTypeEditPart) {
@@ -95,6 +95,8 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof ResponseRouterCollectionTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.ResponseEndpointType_2026);
+			types.add(CoreElementTypes.ResponseRouterType_2027);
+			types.add(CoreElementTypes.CustomResponseRouterType_2028);
 			return types;
 		}
 		if (editPart instanceof DefaultModelTypeEditPart) {

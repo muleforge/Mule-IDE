@@ -17,6 +17,8 @@ import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.ExceptionStrategyType;
 import org.mule.ide.config.core.FilteredInboundRouterType;
 import org.mule.ide.config.core.InboundRouterCollectionType;
+import org.mule.ide.config.core.ResponseRouterCollectionType;
+import org.mule.ide.config.core.ResponseRouterType;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeEditPart;
@@ -31,6 +33,8 @@ import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTyp
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
@@ -76,6 +80,8 @@ import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceIte
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEROUTERSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
@@ -376,6 +382,18 @@ public class CoreVisualIDRegistry {
 				return ResponseEndpointServiceItemTypeEditPart.VISUAL_ID;
 			}
 			break;
+		case ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getResponseRouterType().isSuperTypeOf(
+					domainElement.eClass())
+					&& JavaConstraints.singleResponseRouterConstraint(
+							(ResponseRouterType) domainElement).booleanValue()) {
+				return ResponseRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getCustomResponseRouterType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return CustomResponseRouterTypeEditPart.VISUAL_ID;
+			}
+			break;
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getSedaServiceType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -581,6 +599,16 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ResponseRouterTypeEditPart.VISUAL_ID:
+			if (ResponseRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CustomResponseRouterTypeEditPart.VISUAL_ID:
+			if (CustomResponseRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 			if (OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -692,6 +720,14 @@ public class CoreVisualIDRegistry {
 			break;
 		case ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID:
 			if (ResponseEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID:
+			if (ResponseRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomResponseRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -903,6 +939,20 @@ public class CoreVisualIDRegistry {
 			List<CorrelationRouterType> routers = map
 					.list(CorePackage.eINSTANCE
 							.getDocumentRoot_CorrelationResequencerRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean singleResponseRouterConstraint(
+				ResponseRouterType self) {
+			ResponseRouterCollectionType container = (ResponseRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractResponseRouterGroup();
+			List<ResponseRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_SingleResponseRouter());
 			return routers.contains(self);
 		}
 

@@ -35,6 +35,8 @@ import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTyp
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
@@ -71,6 +73,8 @@ import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEdit
 import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceItemTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
@@ -228,9 +232,15 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ResponseEndpointType", CoreElementTypes.ResponseEndpointType_2026); //$NON-NLS-1$
+		case ResponseRouterTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ResponseRouterType", CoreElementTypes.ResponseRouterType_2027); //$NON-NLS-1$
+		case CustomResponseRouterTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomResponseRouterType", CoreElementTypes.CustomResponseRouterType_2028); //$NON-NLS-1$
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterCollectionType", CoreElementTypes.OutboundRouterCollectionType_2027); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterCollectionType", CoreElementTypes.OutboundRouterCollectionType_2029); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -339,8 +349,12 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getResponseRouterCollectionType_2025Text(view);
 		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getResponseEndpointType_2026Text(view);
+		case ResponseRouterTypeEditPart.VISUAL_ID:
+			return getResponseRouterType_2027Text(view);
+		case CustomResponseRouterTypeEditPart.VISUAL_ID:
+			return getCustomResponseRouterType_2028Text(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundRouterCollectionType_2027Text(view);
+			return getOutboundRouterCollectionType_2029Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -376,7 +390,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4028); //$NON-NLS-1$
+					"Parser was not found for label " + 4030); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -897,14 +911,54 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getOutboundRouterCollectionType_2027Text(View view) {
+	private String getResponseRouterType_2027Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.ResponseRouterType_2027,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry
+						.getType(ResponseRouterTypeLabelEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getCustomResponseRouterType_2028Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.CustomResponseRouterType_2028,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry
+						.getType(CustomResponseRouterTypeLabelEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getOutboundRouterCollectionType_2029Text(View view) {
 		OutboundRouterCollectionType domainModelElement = (OutboundRouterCollectionType) view
 				.getElement();
 		if (domainModelElement != null) {
 			return String.valueOf(domainModelElement.isMatchAll());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2027); //$NON-NLS-1$
+					"No domain element for view with visualID = " + 2029); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

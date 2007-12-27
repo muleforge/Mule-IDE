@@ -12,6 +12,7 @@ import org.mule.ide.config.core.AbstractInboundEndpointType;
 import org.mule.ide.config.core.AbstractInboundRouterType;
 import org.mule.ide.config.core.AbstractOutboundEndpointType;
 import org.mule.ide.config.core.AbstractResponseEndpointType;
+import org.mule.ide.config.core.AbstractResponseRouterType;
 import org.mule.ide.config.core.AbstractServiceType;
 import org.mule.ide.config.core.CustomExceptionStrategyType;
 import org.mule.ide.config.core.DefaultModelType;
@@ -27,6 +28,7 @@ import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRout
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
@@ -52,6 +54,8 @@ import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEROUTERSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
@@ -93,6 +97,8 @@ public class CoreDiagramUpdater {
 			return getInboundRouterCollectionTypeINBOUNDROUTERS_5010SemanticChildren(view);
 		case ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID:
 			return getResponseRouterCollectionTypeRESPONSEENDPOINTS_5011SemanticChildren(view);
+		case ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID:
+			return getResponseRouterCollectionTypeRESPONSEROUTERS_5012SemanticChildren(view);
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			return getDefaultModelType_79SemanticChildren(view);
 		}
@@ -471,6 +477,39 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getResponseRouterCollectionTypeRESPONSEROUTERS_5012SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		ResponseRouterCollectionType modelElement = (ResponseRouterCollectionType) containerView
+				.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getAbstractResponseRouter().iterator(); it
+				.hasNext();) {
+			AbstractResponseRouterType childElement = (AbstractResponseRouterType) it
+					.next();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ResponseRouterTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CustomResponseRouterTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getDefaultModelType_79SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.EMPTY_LIST;
@@ -551,8 +590,12 @@ public class CoreDiagramUpdater {
 			return getResponseRouterCollectionType_2025ContainedLinks(view);
 		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getResponseEndpointType_2026ContainedLinks(view);
+		case ResponseRouterTypeEditPart.VISUAL_ID:
+			return getResponseRouterType_2027ContainedLinks(view);
+		case CustomResponseRouterTypeEditPart.VISUAL_ID:
+			return getCustomResponseRouterType_2028ContainedLinks(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundRouterCollectionType_2027ContainedLinks(view);
+			return getOutboundRouterCollectionType_2029ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -616,8 +659,12 @@ public class CoreDiagramUpdater {
 			return getResponseRouterCollectionType_2025IncomingLinks(view);
 		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getResponseEndpointType_2026IncomingLinks(view);
+		case ResponseRouterTypeEditPart.VISUAL_ID:
+			return getResponseRouterType_2027IncomingLinks(view);
+		case CustomResponseRouterTypeEditPart.VISUAL_ID:
+			return getCustomResponseRouterType_2028IncomingLinks(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundRouterCollectionType_2027IncomingLinks(view);
+			return getOutboundRouterCollectionType_2029IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -681,8 +728,12 @@ public class CoreDiagramUpdater {
 			return getResponseRouterCollectionType_2025OutgoingLinks(view);
 		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getResponseEndpointType_2026OutgoingLinks(view);
+		case ResponseRouterTypeEditPart.VISUAL_ID:
+			return getResponseRouterType_2027OutgoingLinks(view);
+		case CustomResponseRouterTypeEditPart.VISUAL_ID:
+			return getCustomResponseRouterType_2028OutgoingLinks(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundRouterCollectionType_2027OutgoingLinks(view);
+			return getOutboundRouterCollectionType_2029OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -891,7 +942,21 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundRouterCollectionType_2027ContainedLinks(
+	public static List getResponseRouterType_2027ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCustomResponseRouterType_2028ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getOutboundRouterCollectionType_2029ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1093,7 +1158,21 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundRouterCollectionType_2027IncomingLinks(
+	public static List getResponseRouterType_2027IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCustomResponseRouterType_2028IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getOutboundRouterCollectionType_2029IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1295,7 +1374,21 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundRouterCollectionType_2027OutgoingLinks(
+	public static List getResponseRouterType_2027OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCustomResponseRouterType_2028OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getOutboundRouterCollectionType_2029OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}

@@ -20,6 +20,8 @@ import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTyp
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
@@ -65,6 +67,8 @@ import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceIte
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEROUTERSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ResponseRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
@@ -91,6 +95,8 @@ import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrateg
 import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrategyTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.CustomInboundRouterTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.CustomInboundRouterTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.CustomResponseRouterTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.CustomResponseRouterTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.DefaultConnectorExceptionStrategyTypeENDPOINTSViewFactory;
@@ -137,6 +143,8 @@ import org.mule.ide.config.editor.services.view.factories.ResponseEndpointTypeLa
 import org.mule.ide.config.editor.services.view.factories.ResponseRouterCollectionTypeRESPONSEENDPOINTSViewFactory;
 import org.mule.ide.config.editor.services.view.factories.ResponseRouterCollectionTypeRESPONSEROUTERSViewFactory;
 import org.mule.ide.config.editor.services.view.factories.ResponseRouterCollectionTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.ResponseRouterTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.ResponseRouterTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeCOMPONENTViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeEXCEPTIONViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeINBOUNDViewFactory;
@@ -237,6 +245,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case CustomInboundRouterTypeEditPart.VISUAL_ID:
 				case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 				case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
+				case ResponseRouterTypeEditPart.VISUAL_ID:
+				case CustomResponseRouterTypeEditPart.VISUAL_ID:
 				case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 				case BridgeComponentTypeEditPart.VISUAL_ID:
 				case EchoComponentTypeEditPart.VISUAL_ID:
@@ -455,6 +465,20 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
+				case ResponseRouterTypeLabelEditPart.VISUAL_ID:
+					if (ResponseRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case CustomResponseRouterTypeLabelEditPart.VISUAL_ID:
+					if (CustomResponseRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
 				case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
 					if (OutboundRouterCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
@@ -589,6 +613,14 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return ResponseEndpointServiceItemTypeViewFactory.class;
 		case ResponseEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
 			return ResponseEndpointServiceItemTypeLabelViewFactory.class;
+		case ResponseRouterTypeEditPart.VISUAL_ID:
+			return ResponseRouterTypeViewFactory.class;
+		case ResponseRouterTypeLabelEditPart.VISUAL_ID:
+			return ResponseRouterTypeLabelViewFactory.class;
+		case CustomResponseRouterTypeEditPart.VISUAL_ID:
+			return CustomResponseRouterTypeViewFactory.class;
+		case CustomResponseRouterTypeLabelEditPart.VISUAL_ID:
+			return CustomResponseRouterTypeLabelViewFactory.class;
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return OutboundRouterCollectionTypeViewFactory.class;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:

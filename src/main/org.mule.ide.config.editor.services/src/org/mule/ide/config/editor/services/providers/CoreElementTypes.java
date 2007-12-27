@@ -187,7 +187,17 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType OutboundRouterCollectionType_2027 = getElementType("org.mule.ide.config.editor.services.OutboundRouterCollectionType_2027"); //$NON-NLS-1$
+	public static final IElementType ResponseRouterType_2027 = getElementType("org.mule.ide.config.editor.services.ResponseRouterType_2027"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CustomResponseRouterType_2028 = getElementType("org.mule.ide.config.editor.services.CustomResponseRouterType_2028"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType OutboundRouterCollectionType_2029 = getElementType("org.mule.ide.config.editor.services.OutboundRouterCollectionType_2029"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -384,7 +394,13 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(ResponseEndpointType_2026, CorePackage.eINSTANCE
 					.getResponseEndpointType());
 
-			elements.put(OutboundRouterCollectionType_2027,
+			elements.put(ResponseRouterType_2027, CorePackage.eINSTANCE
+					.getResponseRouterType());
+
+			elements.put(CustomResponseRouterType_2028, CorePackage.eINSTANCE
+					.getCustomResponseRouterType());
+
+			elements.put(OutboundRouterCollectionType_2029,
 					CorePackage.eINSTANCE.getOutboundRouterCollectionType());
 		}
 		return (ENamedElement) elements.get(type);
@@ -431,7 +447,9 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(CustomInboundRouterType_2024);
 			KNOWN_ELEMENT_TYPES.add(ResponseRouterCollectionType_2025);
 			KNOWN_ELEMENT_TYPES.add(ResponseEndpointType_2026);
-			KNOWN_ELEMENT_TYPES.add(OutboundRouterCollectionType_2027);
+			KNOWN_ELEMENT_TYPES.add(ResponseRouterType_2027);
+			KNOWN_ELEMENT_TYPES.add(CustomResponseRouterType_2028);
+			KNOWN_ELEMENT_TYPES.add(OutboundRouterCollectionType_2029);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

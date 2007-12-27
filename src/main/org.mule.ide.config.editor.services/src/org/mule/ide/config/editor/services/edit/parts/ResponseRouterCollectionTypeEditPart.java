@@ -83,6 +83,20 @@ public class ResponseRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
+								if (type == CoreElementTypes.ResponseRouterType_2027) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+								if (type == CoreElementTypes.CustomResponseRouterType_2028) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
 							}
 							return super.getCommand(request);
 						}

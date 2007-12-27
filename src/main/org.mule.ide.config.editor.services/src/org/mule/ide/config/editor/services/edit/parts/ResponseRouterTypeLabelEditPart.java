@@ -52,13 +52,13 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * @generated
  */
-public class SedaServiceTypeNameEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class ResponseRouterTypeLabelEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4030;
+	public static final int VISUAL_ID = 4028;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class SedaServiceTypeNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public SedaServiceTypeNameEditPart(View view) {
+	public ResponseRouterTypeLabelEditPart(View view) {
 		super(view);
 	}
 
@@ -187,7 +187,9 @@ public class SedaServiceTypeNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-		return resolveSemanticElement();
+
+		EObject element = resolveSemanticElement();
+		return element != null ? element : (View) getModel();
 	}
 
 	/**
@@ -245,7 +247,7 @@ public class SedaServiceTypeNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**
@@ -306,8 +308,8 @@ public class SedaServiceTypeNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.SedaServiceType_1001, getParserElement(),
-					parserHint);
+					CoreElementTypes.ResponseRouterType_2027,
+					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
 		return parser;

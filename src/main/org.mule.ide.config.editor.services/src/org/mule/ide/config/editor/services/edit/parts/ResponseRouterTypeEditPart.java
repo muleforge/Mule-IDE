@@ -2,17 +2,13 @@ package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RectangleFigure;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.Request;
-import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
@@ -27,18 +23,19 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.OutboundRouterCollectionTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.ResponseRouterTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
+import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * @generated
  */
-public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
+public class ResponseRouterTypeEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2029;
+	public static final int VISUAL_ID = 2027;
 
 	/**
 	 * @generated
@@ -53,7 +50,7 @@ public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public OutboundRouterCollectionTypeEditPart(View view) {
+	public ResponseRouterTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -64,7 +61,7 @@ public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new OutboundRouterCollectionTypeItemSemanticEditPolicy());
+				new ResponseRouterTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -93,15 +90,64 @@ public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		CollectionFigure figure = new CollectionFigure();
+		ServiceItemFigure figure = new ServiceItemFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public CollectionFigure getPrimaryShape() {
-		return (CollectionFigure) primaryShape;
+	public ServiceItemFigure getPrimaryShape() {
+		return (ServiceItemFigure) primaryShape;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof ResponseRouterTypeLabelEditPart) {
+			((ResponseRouterTypeLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureServiceItemTypeLabelFigure());
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+
+		return super.getContentPaneFor(editPart);
 	}
 
 	/**
@@ -119,7 +165,8 @@ public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * customization
+	 *   - special config of service item figure
 	 */
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
@@ -127,6 +174,8 @@ public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		ServiceEditPartUtil.configureServiceItemFigure(figure,
+				Messages.SingleResponseRouterTypeLabel);
 		return figure;
 	}
 
@@ -158,12 +207,25 @@ public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class CollectionFigure extends RectangleFigure {
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(CoreVisualIDRegistry
+				.getType(ResponseRouterTypeLabelEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	public class ServiceItemFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		public CollectionFigure() {
+		private WrapLabel fFigureServiceItemTypeLabelFigure;
+
+		/**
+		 * @generated
+		 */
+		public ServiceItemFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
@@ -174,13 +236,25 @@ public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setFill(false);
-			this.setOutline(false);
-			this.setOutlineXOR(true);
-			this.setLineWidth(0);
-			this.setForegroundColor(ColorConstants.black);
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
+					getMapMode().DPtoLP(8)));
+			createContents();
+		}
 
-			this.setFont(THIS_FONT);
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			fFigureServiceItemTypeLabelFigure = new WrapLabel();
+			fFigureServiceItemTypeLabelFigure.setText("");
+			fFigureServiceItemTypeLabelFigure
+					.setForegroundColor(ColorConstants.gray);
+
+			fFigureServiceItemTypeLabelFigure
+					.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);
+
+			this.add(fFigureServiceItemTypeLabelFigure);
 
 		}
 
@@ -203,13 +277,21 @@ public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureServiceItemTypeLabelFigure() {
+			return fFigureServiceItemTypeLabelFigure;
+		}
+
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Font THIS_FONT = new Font(Display.getCurrent(), Display
-			.getDefault().getSystemFont().getFontData()[0].getName(), 7,
+	static final Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 7,
 			SWT.ITALIC);
 
 }

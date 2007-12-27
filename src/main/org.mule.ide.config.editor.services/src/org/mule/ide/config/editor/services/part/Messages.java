@@ -648,12 +648,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ResponseRouter4CreationTool_title;
+	public static String SingleResponseRouter4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ResponseRouter4CreationTool_desc;
+	public static String SingleResponseRouter4CreationTool_desc;
 
 	/**
 	 * @generated
@@ -910,5 +910,15 @@ public class Messages extends NLS {
 	 * 
 	 */
 	public static String ResponseEndpointServiceItemTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String SingleResponseRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String CustomResponseRouterTypeLabel;
 
 }

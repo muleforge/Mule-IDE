@@ -555,12 +555,32 @@
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2027"
-               name="%metatype.name.OutboundRouterCollectionType_2027"
+               id="org.mule.ide.config.editor.services.ResponseRouterType_2027"
+               name="%metatype.name.ResponseRouterType_2027"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ResponseRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.ResponseRouterTypeEditHelper">
+            <param name="semanticHint" value="2027"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.CustomResponseRouterType_2028"
+               name="%metatype.name.CustomResponseRouterType_2028"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="CustomResponseRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.CustomResponseRouterTypeEditHelper">
+            <param name="semanticHint" value="2028"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2029"
+               name="%metatype.name.OutboundRouterCollectionType_2029"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="OutboundRouterCollectionType"
                edithelper="org.mule.ide.config.editor.services.edit.helpers.OutboundRouterCollectionTypeEditHelper">
-            <param name="semanticHint" value="2027"/>
+            <param name="semanticHint" value="2029"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -603,7 +623,9 @@
          <elementType ref="org.mule.ide.config.editor.services.CustomInboundRouterType_2024"/>
          <elementType ref="org.mule.ide.config.editor.services.ResponseRouterCollectionType_2025"/>
          <elementType ref="org.mule.ide.config.editor.services.ResponseEndpointType_2026"/>
-         <elementType ref="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2027"/>
+         <elementType ref="org.mule.ide.config.editor.services.ResponseRouterType_2027"/>
+         <elementType ref="org.mule.ide.config.editor.services.CustomResponseRouterType_2028"/>
+         <elementType ref="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2029"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

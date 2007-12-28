@@ -375,47 +375,5 @@
             xsi:type="gmftool:DefaultImage"/>
       </tools>
     </tools>
-    <tools
-        xsi:type="gmftool:ToolGroup"
-        title="Catch All Strategies"
-        description=""
-        collapsible="true">
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Logging Catch All Strategy"
-          description="Create new Logging Catch All Strategy">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Forwarding Catch All Strategy"
-          description="Create new Forwarding Catch All Strategy">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Custom Catch All Strategy"
-          description="Create new Custom Catch All Strategy">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="CustomForwardingCatchAllStrategyType"
-          description="Create new CustomForwardingCatchAllStrategyType">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-    </tools>
   </palette>
 </gmftool:ToolRegistry>

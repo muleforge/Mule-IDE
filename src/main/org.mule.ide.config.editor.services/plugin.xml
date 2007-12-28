@@ -583,6 +583,112 @@
             <param name="semanticHint" value="2029"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.OutboundRouterType_2030"
+               name="%metatype.name.OutboundRouterType_2030"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="OutboundRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.OutboundRouterTypeEditHelper">
+            <param name="semanticHint" value="2030"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2031"
+               name="%metatype.name.FilteringOutboundRouterType_2031"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="FilteringOutboundRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.FilteringOutboundRouterTypeEditHelper">
+            <param name="semanticHint" value="2031"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <specializationType
+               id="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2032"
+               name="%metatype.name.FilteringOutboundRouterType_2032"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2031"/>
+            <param name="semanticHint" value="2032"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <specializationType
+               id="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2033"
+               name="%metatype.name.FilteringOutboundRouterType_2033"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2031"/>
+            <param name="semanticHint" value="2033"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <specializationType
+               id="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2034"
+               name="%metatype.name.FilteringOutboundRouterType_2034"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2031"/>
+            <param name="semanticHint" value="2034"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <specializationType
+               id="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2035"
+               name="%metatype.name.FilteringOutboundRouterType_2035"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2031"/>
+            <param name="semanticHint" value="2035"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.EndpointSelectorRouterType_2036"
+               name="%metatype.name.EndpointSelectorRouterType_2036"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EndpointSelectorRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.EndpointSelectorRouterTypeEditHelper">
+            <param name="semanticHint" value="2036"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.MessageSplitterOutboundRouterType_2037"
+               name="%metatype.name.MessageSplitterOutboundRouterType_2037"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="MessageSplitterOutboundRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.MessageSplitterOutboundRouterTypeEditHelper">
+            <param name="semanticHint" value="2037"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.ChunkingRouterType_2038"
+               name="%metatype.name.ChunkingRouterType_2038"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ChunkingRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.ChunkingRouterTypeEditHelper">
+            <param name="semanticHint" value="2038"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.StaticRecipientListRouterType_2039"
+               name="%metatype.name.StaticRecipientListRouterType_2039"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="StaticRecipientListRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.StaticRecipientListRouterTypeEditHelper">
+            <param name="semanticHint" value="2039"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
+         <metamodelType
+               id="org.mule.ide.config.editor.services.CustomOutboundRouterType_2040"
+               name="%metatype.name.CustomOutboundRouterType_2040"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="CustomOutboundRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.CustomOutboundRouterTypeEditHelper">
+            <param name="semanticHint" value="2040"/>
+         </metamodelType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
@@ -626,6 +732,17 @@
          <elementType ref="org.mule.ide.config.editor.services.ResponseRouterType_2027"/>
          <elementType ref="org.mule.ide.config.editor.services.CustomResponseRouterType_2028"/>
          <elementType ref="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2029"/>
+         <elementType ref="org.mule.ide.config.editor.services.OutboundRouterType_2030"/>
+         <elementType ref="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2031"/>
+         <elementType ref="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2032"/>
+         <elementType ref="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2033"/>
+         <elementType ref="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2034"/>
+         <elementType ref="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2035"/>
+         <elementType ref="org.mule.ide.config.editor.services.EndpointSelectorRouterType_2036"/>
+         <elementType ref="org.mule.ide.config.editor.services.MessageSplitterOutboundRouterType_2037"/>
+         <elementType ref="org.mule.ide.config.editor.services.ChunkingRouterType_2038"/>
+         <elementType ref="org.mule.ide.config.editor.services.StaticRecipientListRouterType_2039"/>
+         <elementType ref="org.mule.ide.config.editor.services.CustomOutboundRouterType_2040"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

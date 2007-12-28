@@ -10,19 +10,31 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.BaseServiceType;
+import org.mule.ide.config.core.ChunkingRouterType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CorrelationRouterType;
+import org.mule.ide.config.core.CustomOutboundRouterType;
 import org.mule.ide.config.core.DefaultComponentType;
 import org.mule.ide.config.core.DefaultModelType;
+import org.mule.ide.config.core.EndpointSelectorRouterType;
 import org.mule.ide.config.core.ExceptionStrategyType;
 import org.mule.ide.config.core.FilteredInboundRouterType;
+import org.mule.ide.config.core.FilteringOutboundRouterType;
 import org.mule.ide.config.core.InboundRouterCollectionType;
+import org.mule.ide.config.core.MessageSplitterOutboundRouterType;
+import org.mule.ide.config.core.OutboundRouterCollectionType;
+import org.mule.ide.config.core.OutboundRouterType;
 import org.mule.ide.config.core.ResponseRouterCollectionType;
 import org.mule.ide.config.core.ResponseRouterType;
+import org.mule.ide.config.core.StaticRecipientListRouterType;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
@@ -33,6 +45,8 @@ import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTyp
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomOutboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomOutboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
@@ -46,6 +60,12 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStr
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.EndpointSelectorRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.EndpointSelectorRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ExceptionOutboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ExceptionOutboundRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.FilteringOutboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.FilteringOutboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverRouterTypeLabelEditPart;
@@ -59,6 +79,10 @@ import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTyp
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
@@ -72,6 +96,8 @@ import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEd
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEditPart;
@@ -91,6 +117,10 @@ import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEdi
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeRESPONSEEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.expressions.CoreAbstractExpression;
@@ -394,6 +424,83 @@ public class CoreVisualIDRegistry {
 				return CustomResponseRouterTypeEditPart.VISUAL_ID;
 			}
 			break;
+		case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundRouterType().isSuperTypeOf(
+					domainElement.eClass())
+					&& JavaConstraints.outboundPassThroughRouterConstraint(
+							(OutboundRouterType) domainElement).booleanValue()) {
+				return PassThroughOutboundRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getFilteringOutboundRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.filteringRouterConstraint(
+							(FilteringOutboundRouterType) domainElement)
+							.booleanValue()) {
+				return FilteringOutboundRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getFilteringOutboundRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.chainingRouterConstraint(
+							(FilteringOutboundRouterType) domainElement)
+							.booleanValue()) {
+				return ChainingOutboundRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getFilteringOutboundRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.exceptionBasedRouterConstraint(
+							(FilteringOutboundRouterType) domainElement)
+							.booleanValue()) {
+				return ExceptionOutboundRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getFilteringOutboundRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.multicastingRouterConstraint(
+							(FilteringOutboundRouterType) domainElement)
+							.booleanValue()) {
+				return MulticastingOutboundRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getFilteringOutboundRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.templateEndpointRouterConstraint(
+							(FilteringOutboundRouterType) domainElement)
+							.booleanValue()) {
+				return TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getEndpointSelectorRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.endpointSelectorRouterConstraint(
+							(EndpointSelectorRouterType) domainElement)
+							.booleanValue()) {
+				return EndpointSelectorRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getMessageSplitterOutboundRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.listMessageSplitterRouterConstraint(
+							(MessageSplitterOutboundRouterType) domainElement)
+							.booleanValue()) {
+				return MessageSplitterOutboundRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getChunkingRouterType().isSuperTypeOf(
+					domainElement.eClass())
+					&& JavaConstraints.chunkingOutboundRouterConstraint(
+							(ChunkingRouterType) domainElement).booleanValue()) {
+				return ChunkingRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getStaticRecipientListRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.staticRecipientListRouterConstraint(
+							(StaticRecipientListRouterType) domainElement)
+							.booleanValue()) {
+				return StaticRecipientListRouterTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getCustomOutboundRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.customOutboundRouterConstraint(
+							(CustomOutboundRouterType) domainElement)
+							.booleanValue()) {
+				return CustomOutboundRouterTypeEditPart.VISUAL_ID;
+			}
+			break;
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getSedaServiceType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -614,6 +721,61 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
+		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
+			if (PassThroughOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case FilteringOutboundRouterTypeEditPart.VISUAL_ID:
+			if (FilteringOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ChainingOutboundRouterTypeEditPart.VISUAL_ID:
+			if (ChainingOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ExceptionOutboundRouterTypeEditPart.VISUAL_ID:
+			if (ExceptionOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case MulticastingOutboundRouterTypeEditPart.VISUAL_ID:
+			if (MulticastingOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID:
+			if (TemplateEndpointOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case EndpointSelectorRouterTypeEditPart.VISUAL_ID:
+			if (EndpointSelectorRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case MessageSplitterOutboundRouterTypeEditPart.VISUAL_ID:
+			if (MessageSplitterOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ChunkingRouterTypeEditPart.VISUAL_ID:
+			if (ChunkingRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case StaticRecipientListRouterTypeEditPart.VISUAL_ID:
+			if (StaticRecipientListRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
+			if (CustomOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			if (PojoComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -728,6 +890,41 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			if (CustomResponseRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
+			if (PassThroughOutboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (FilteringOutboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ChainingOutboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ExceptionOutboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (MulticastingOutboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (EndpointSelectorRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (MessageSplitterOutboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ChunkingRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (StaticRecipientListRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomOutboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -953,6 +1150,160 @@ public class CoreVisualIDRegistry {
 			FeatureMap map = container.getAbstractResponseRouterGroup();
 			List<ResponseRouterType> routers = map.list(CorePackage.eINSTANCE
 					.getDocumentRoot_SingleResponseRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean outboundPassThroughRouterConstraint(
+				OutboundRouterType self) {
+			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractOutboundRouterGroup();
+			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_OutboundPassThroughRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean filteringRouterConstraint(
+				FilteringOutboundRouterType self) {
+			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractOutboundRouterGroup();
+			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_FilteringRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean chainingRouterConstraint(
+				FilteringOutboundRouterType self) {
+			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractOutboundRouterGroup();
+			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_ChainingRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean exceptionBasedRouterConstraint(
+				FilteringOutboundRouterType self) {
+			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractOutboundRouterGroup();
+			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_ExceptionBasedRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean multicastingRouterConstraint(
+				FilteringOutboundRouterType self) {
+			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractOutboundRouterGroup();
+			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_MulticastingRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean templateEndpointRouterConstraint(
+				FilteringOutboundRouterType self) {
+			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractOutboundRouterGroup();
+			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_TemplateEndpointRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean endpointSelectorRouterConstraint(
+				EndpointSelectorRouterType self) {
+			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractOutboundRouterGroup();
+			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_EndpointSelectorRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean listMessageSplitterRouterConstraint(
+				MessageSplitterOutboundRouterType self) {
+			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractOutboundRouterGroup();
+			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_ListMessageSplitterRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean chunkingOutboundRouterConstraint(
+				ChunkingRouterType self) {
+			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractOutboundRouterGroup();
+			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_MessageChunkingRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean staticRecipientListRouterConstraint(
+				StaticRecipientListRouterType self) {
+			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractOutboundRouterGroup();
+			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_StaticRecipientListRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean customOutboundRouterConstraint(
+				CustomOutboundRouterType self) {
+			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractOutboundRouterGroup();
+			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_CustomOutboundRouter());
 			return routers.contains(self);
 		}
 

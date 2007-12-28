@@ -921,4 +921,59 @@ public class Messages extends NLS {
 	 */
 	public static String CustomResponseRouterTypeLabel;
 
+	/**
+	 * 
+	 */
+	public static String PassThroughOutboundRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String FilteringOutboundRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String ChainingOutboundRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String ExceptionOutboundRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String MulticastingOutboundRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String TemplateEndpointOutboundRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String EndpointSelectorOutboundRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String MessageSplitterOutboundRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String ChunkingRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String StaticRecipientListRouterTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String CustomOutboundRouterTypeLabel;
+
 }

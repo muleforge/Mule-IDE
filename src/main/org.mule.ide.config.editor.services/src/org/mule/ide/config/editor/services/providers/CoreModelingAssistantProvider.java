@@ -25,6 +25,7 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionS
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
@@ -97,6 +98,21 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.ResponseEndpointType_2026);
 			types.add(CoreElementTypes.ResponseRouterType_2027);
 			types.add(CoreElementTypes.CustomResponseRouterType_2028);
+			return types;
+		}
+		if (editPart instanceof OutboundRouterCollectionTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundRouterType_2030);
+			types.add(CoreElementTypes.FilteringOutboundRouterType_2031);
+			types.add(CoreElementTypes.FilteringOutboundRouterType_2032);
+			types.add(CoreElementTypes.FilteringOutboundRouterType_2033);
+			types.add(CoreElementTypes.FilteringOutboundRouterType_2034);
+			types.add(CoreElementTypes.FilteringOutboundRouterType_2035);
+			types.add(CoreElementTypes.EndpointSelectorRouterType_2036);
+			types.add(CoreElementTypes.MessageSplitterOutboundRouterType_2037);
+			types.add(CoreElementTypes.ChunkingRouterType_2038);
+			types.add(CoreElementTypes.StaticRecipientListRouterType_2039);
+			types.add(CoreElementTypes.CustomOutboundRouterType_2040);
 			return types;
 		}
 		if (editPart instanceof DefaultModelTypeEditPart) {

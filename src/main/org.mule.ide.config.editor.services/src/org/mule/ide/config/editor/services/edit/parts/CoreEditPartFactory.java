@@ -213,6 +213,72 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 				return new OutboundRouterCollectionTypeEditPart(view);
 
+			case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
+				return new PassThroughOutboundRouterTypeEditPart(view);
+
+			case PassThroughOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				return new PassThroughOutboundRouterTypeLabelEditPart(view);
+
+			case FilteringOutboundRouterTypeEditPart.VISUAL_ID:
+				return new FilteringOutboundRouterTypeEditPart(view);
+
+			case FilteringOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				return new FilteringOutboundRouterTypeLabelEditPart(view);
+
+			case ChainingOutboundRouterTypeEditPart.VISUAL_ID:
+				return new ChainingOutboundRouterTypeEditPart(view);
+
+			case ChainingOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				return new ChainingOutboundRouterTypeLabelEditPart(view);
+
+			case ExceptionOutboundRouterTypeEditPart.VISUAL_ID:
+				return new ExceptionOutboundRouterTypeEditPart(view);
+
+			case ExceptionOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				return new ExceptionOutboundRouterTypeLabelEditPart(view);
+
+			case MulticastingOutboundRouterTypeEditPart.VISUAL_ID:
+				return new MulticastingOutboundRouterTypeEditPart(view);
+
+			case MulticastingOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				return new MulticastingOutboundRouterTypeLabelEditPart(view);
+
+			case TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID:
+				return new TemplateEndpointOutboundRouterTypeEditPart(view);
+
+			case TemplateEndpointOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				return new TemplateEndpointOutboundRouterTypeLabelEditPart(view);
+
+			case EndpointSelectorRouterTypeEditPart.VISUAL_ID:
+				return new EndpointSelectorRouterTypeEditPart(view);
+
+			case EndpointSelectorRouterTypeLabelEditPart.VISUAL_ID:
+				return new EndpointSelectorRouterTypeLabelEditPart(view);
+
+			case MessageSplitterOutboundRouterTypeEditPart.VISUAL_ID:
+				return new MessageSplitterOutboundRouterTypeEditPart(view);
+
+			case MessageSplitterOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				return new MessageSplitterOutboundRouterTypeLabelEditPart(view);
+
+			case ChunkingRouterTypeEditPart.VISUAL_ID:
+				return new ChunkingRouterTypeEditPart(view);
+
+			case ChunkingRouterTypeLabelEditPart.VISUAL_ID:
+				return new ChunkingRouterTypeLabelEditPart(view);
+
+			case StaticRecipientListRouterTypeEditPart.VISUAL_ID:
+				return new StaticRecipientListRouterTypeEditPart(view);
+
+			case StaticRecipientListRouterTypeLabelEditPart.VISUAL_ID:
+				return new StaticRecipientListRouterTypeLabelEditPart(view);
+
+			case CustomOutboundRouterTypeEditPart.VISUAL_ID:
+				return new CustomOutboundRouterTypeEditPart(view);
+
+			case CustomOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				return new CustomOutboundRouterTypeLabelEditPart(view);
+
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				return new SedaServiceTypeCOMPONENTEditPart(view);
 

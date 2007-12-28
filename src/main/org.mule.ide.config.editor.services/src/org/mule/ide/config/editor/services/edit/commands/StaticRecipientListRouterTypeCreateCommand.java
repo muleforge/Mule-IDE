@@ -47,7 +47,7 @@ public class StaticRecipientListRouterTypeCreateCommand extends
 			EObject element) {
 		FeatureMap map = ((OutboundRouterCollectionType) container)
 				.getAbstractOutboundRouterGroup();
-		map.add(CorePackage.eINSTANCE.getDocumentRoot_StaticRecipientListRouter(),
-				element);
+		map.add(CorePackage.eINSTANCE
+				.getDocumentRoot_StaticRecipientListRouter(), element);
 	}
 }

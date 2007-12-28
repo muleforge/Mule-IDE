@@ -28,7 +28,6 @@ public class CorePaletteFactory {
 		paletteRoot.add(createInbound4Group());
 		paletteRoot.add(createResponse5Group());
 		paletteRoot.add(createOutbound6Group());
-		paletteRoot.add(createCatchAllStrategies7Group());
 	}
 
 	/**
@@ -130,22 +129,6 @@ public class CorePaletteFactory {
 		paletteContainer.add(createPassThroughOutboundRouter11CreationTool());
 		paletteContainer.add(createStaticRecipientListRouter12CreationTool());
 		paletteContainer.add(createTemplateEndpointRouter13CreationTool());
-		return paletteContainer;
-	}
-
-	/**
-	 * Creates "Catch All Strategies" palette tool group
-	 * @generated
-	 */
-	private PaletteContainer createCatchAllStrategies7Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(
-				Messages.CatchAllStrategies7Group_title);
-		paletteContainer.setDescription(Messages.CatchAllStrategies7Group_desc);
-		paletteContainer.add(createLoggingCatchAllStrategy1CreationTool());
-		paletteContainer.add(createForwardingCatchAllStrategy2CreationTool());
-		paletteContainer.add(createCustomCatchAllStrategy3CreationTool());
-		paletteContainer
-				.add(createCustomForwardingCatchAllStrategyType4CreationTool());
 		return paletteContainer;
 	}
 
@@ -732,52 +715,6 @@ public class CorePaletteFactory {
 		entry.setSmallIcon(CoreElementTypes
 				.getImageDescriptor(CoreElementTypes.ResponseRouterType_2027));
 		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createLoggingCatchAllStrategy1CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.LoggingCatchAllStrategy1CreationTool_title,
-				Messages.LoggingCatchAllStrategy1CreationTool_desc, null, null) {
-		};
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createForwardingCatchAllStrategy2CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.ForwardingCatchAllStrategy2CreationTool_title,
-				Messages.ForwardingCatchAllStrategy2CreationTool_desc, null,
-				null) {
-		};
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createCustomCatchAllStrategy3CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.CustomCatchAllStrategy3CreationTool_title,
-				Messages.CustomCatchAllStrategy3CreationTool_desc, null, null) {
-		};
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createCustomForwardingCatchAllStrategyType4CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.CustomForwardingCatchAllStrategyType4CreationTool_title,
-				Messages.CustomForwardingCatchAllStrategyType4CreationTool_desc,
-				null, null) {
-		};
 		return entry;
 	}
 

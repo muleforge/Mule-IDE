@@ -279,7 +279,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(40), getMapMode().DPtoLP(40));
+				.DPtoLP(150), getMapMode().DPtoLP(10));
 		return result;
 	}
 
@@ -363,8 +363,6 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 
 			this.setFont(THIS_FONT);
 
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(100),
-					getMapMode().DPtoLP(10)));
 			createContents();
 		}
 

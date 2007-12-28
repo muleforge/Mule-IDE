@@ -48,7 +48,8 @@ public class ChainingOutboundRouterTypeCreateCommand extends
 			EObject element) {
 		FeatureMap map = ((OutboundRouterCollectionType) container)
 				.getAbstractOutboundRouterGroup();
-		map.add(CorePackage.eINSTANCE.getDocumentRoot_ChainingRouter(),
-				element);
+		map
+				.add(CorePackage.eINSTANCE.getDocumentRoot_ChainingRouter(),
+						element);
 	}
 }

@@ -278,16 +278,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CatchAllStrategies7Group_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CatchAllStrategies7Group_desc;
-
-	/**
-	 * @generated
-	 */
 	public static String SedaService1CreationTool_title;
 
 	/**
@@ -654,46 +644,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String SingleResponseRouter4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String LoggingCatchAllStrategy1CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String LoggingCatchAllStrategy1CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ForwardingCatchAllStrategy2CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ForwardingCatchAllStrategy2CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomCatchAllStrategy3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomCatchAllStrategy3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomForwardingCatchAllStrategyType4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomForwardingCatchAllStrategyType4CreationTool_desc;
 
 	/**
 	 * @generated

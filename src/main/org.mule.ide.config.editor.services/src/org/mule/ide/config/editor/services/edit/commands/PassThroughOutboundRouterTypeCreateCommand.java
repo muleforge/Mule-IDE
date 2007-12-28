@@ -47,7 +47,7 @@ public class PassThroughOutboundRouterTypeCreateCommand extends
 			EObject element) {
 		FeatureMap map = ((OutboundRouterCollectionType) container)
 				.getAbstractOutboundRouterGroup();
-		map.add(CorePackage.eINSTANCE.getDocumentRoot_OutboundPassThroughRouter(),
-				element);
+		map.add(CorePackage.eINSTANCE
+				.getDocumentRoot_OutboundPassThroughRouter(), element);
 	}
 }

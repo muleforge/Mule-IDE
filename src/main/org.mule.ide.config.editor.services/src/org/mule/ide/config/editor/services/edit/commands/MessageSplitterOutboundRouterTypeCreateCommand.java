@@ -48,7 +48,7 @@ public class MessageSplitterOutboundRouterTypeCreateCommand extends
 			EObject element) {
 		FeatureMap map = ((OutboundRouterCollectionType) container)
 				.getAbstractOutboundRouterGroup();
-		map.add(CorePackage.eINSTANCE.getDocumentRoot_ListMessageSplitterRouter(),
-				element);
+		map.add(CorePackage.eINSTANCE
+				.getDocumentRoot_ListMessageSplitterRouter(), element);
 	}
 }

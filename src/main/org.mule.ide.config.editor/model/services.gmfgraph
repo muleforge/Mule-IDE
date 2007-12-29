@@ -134,8 +134,7 @@
             xsi:type="gmfgraph:Label"
             name="ClassServiceItemClassLabelFigure">
           <font
-              xsi:type="gmfgraph:BasicFont"
-              style="BOLD"/>
+              xsi:type="gmfgraph:BasicFont"/>
           <insets
               left="10"/>
         </children>

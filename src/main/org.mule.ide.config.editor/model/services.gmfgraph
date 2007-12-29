@@ -59,7 +59,7 @@
             vertical="true"
             matchMinorSize="true"
             forceSingleLine="true"
-            majorSpacing="0"
+            majorSpacing="1"
             minorSpacing="0"/>
         <foregroundColor
             xsi:type="gmfgraph:ConstantColor"
@@ -82,6 +82,11 @@
             forceSingleLine="true"
             majorSpacing="0"
             minorSpacing="0"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="250"
+            green="250"
+            blue="190"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ServiceItemTypeLabelFigure">
@@ -109,6 +114,11 @@
             forceSingleLine="true"
             majorSpacing="0"
             minorSpacing="0"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="250"
+            green="250"
+            blue="190"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ClassServiceItemTypeLabelFigure">
@@ -193,6 +203,11 @@
             forceSingleLine="true"
             majorSpacing="0"
             minorSpacing="0"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="250"
+            green="250"
+            blue="190"/>
         <children
             xsi:type="gmfgraph:Label"
             name="EndpointServiceItemTypeLabelFigure">

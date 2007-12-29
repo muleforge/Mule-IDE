@@ -80,4 +80,9 @@ public class ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart extends
 		// super.setRatio(ratio); 
 	}
 
+	@Override
+	public String getToolTip() {
+		return Messages.ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart_tooltip;
+	}
+
 }

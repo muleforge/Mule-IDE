@@ -88,4 +88,9 @@ public class InboundRouterCollectionTypeINBOUNDROUTERSEditPart extends
 		// super.setRatio(ratio); 
 	}
 
+	@Override
+	public String getToolTip() {
+		return Messages.InboundRouterCollectionTypeINBOUNDROUTERSEditPart_tooltip;
+	}
+
 }

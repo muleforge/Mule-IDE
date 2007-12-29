@@ -750,7 +750,33 @@ public class Messages extends NLS {
 	 */
 	public static String CoreModelingAssistantProviderMessage;
 
-	//TODO: put accessor fields manually	
+	//TODO: put accessor fields manually
+
+	/**
+	 * 
+	 */
+	public static String InboundRouterCollectionTypeINBOUNDROUTERSEditPart_tooltip;
+
+	/**
+	 * 
+	 */
+	public static String OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart_tooltip;
+
+	/**
+	 * 
+	 */
+	public static String ResponseRouterCollectionTypeRESPONSEROUTERSEditPart_tooltip;
+
+	/**
+	 * 
+	 */
+	public static String InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart_tooltip;
+
+	/**
+	 * 
+	 */
+	public static String ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart_tooltip;
+
 	/**
 	 * 
 	 */

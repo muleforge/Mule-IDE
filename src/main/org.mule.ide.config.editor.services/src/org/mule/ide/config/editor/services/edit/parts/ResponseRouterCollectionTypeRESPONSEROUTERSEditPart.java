@@ -81,4 +81,9 @@ public class ResponseRouterCollectionTypeRESPONSEROUTERSEditPart extends
 		// super.setRatio(ratio); 
 	}
 
+	@Override
+	public String getToolTip() {
+		return Messages.ResponseRouterCollectionTypeRESPONSEROUTERSEditPart_tooltip;
+	}
+
 }

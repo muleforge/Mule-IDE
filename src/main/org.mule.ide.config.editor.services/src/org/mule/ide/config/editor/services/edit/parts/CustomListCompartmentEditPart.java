@@ -12,6 +12,8 @@ public abstract class CustomListCompartmentEditPart extends ListCompartmentEditP
 	public CustomListCompartmentEditPart(EObject model) {
 		super(model);
 	}
+	
+	public abstract String getToolTip();
 
 	public IFigure createFigure() {
 		ResizableCompartmentFigure rcf;
@@ -26,6 +28,8 @@ public abstract class CustomListCompartmentEditPart extends ListCompartmentEditP
 		layout.setStretchMinorAxis(true);
 		layout.setMinorAlignment(ConstrainedToolbarLayout.ALIGN_TOPLEFT);
 		rcf.getContentPane().setLayoutManager(layout);
+		
+		rcf.setToolTip(getToolTip());
 		
 		return rcf;
 	}

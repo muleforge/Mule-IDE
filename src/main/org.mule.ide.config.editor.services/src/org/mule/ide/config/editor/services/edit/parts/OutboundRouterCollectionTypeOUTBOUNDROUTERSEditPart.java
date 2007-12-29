@@ -81,4 +81,9 @@ public class OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart extends
 		// super.setRatio(ratio); 
 	}
 
+	@Override
+	public String getToolTip() {
+		return Messages.OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart_tooltip;
+	}
+
 }

@@ -86,4 +86,10 @@ public class DefaultServiceExceptionStrategyTypeENDPOINTSEditPart extends
 		// super.setRatio(ratio); 
 	}
 
+	@Override
+	public String getToolTip() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

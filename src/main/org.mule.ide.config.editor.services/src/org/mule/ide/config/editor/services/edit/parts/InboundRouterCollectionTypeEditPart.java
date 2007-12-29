@@ -268,7 +268,7 @@ public class InboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
-			layoutThis.setSpacing(0);
+			layoutThis.setSpacing(1);
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);

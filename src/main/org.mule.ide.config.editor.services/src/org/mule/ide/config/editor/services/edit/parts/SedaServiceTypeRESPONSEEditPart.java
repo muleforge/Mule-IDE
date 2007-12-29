@@ -3,6 +3,7 @@ package org.mule.ide.config.editor.services.edit.parts;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -68,6 +69,12 @@ public class SedaServiceTypeRESPONSEEditPart extends
 	protected void setRatio(Double ratio) {
 		// nothing to do -- parent layout does not accept Double constraints as ratio
 		// super.setRatio(ratio); 
+	}
+
+	@Override
+	public String getToolTip() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
@@ -279,6 +280,7 @@ public class CustomExceptionStrategyTypeEditPart extends ShapeNodeEditPart {
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
+			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
 
@@ -345,6 +347,11 @@ public class CustomExceptionStrategyTypeEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 250, 250, 190);
 
 	/**
 	 * @generated

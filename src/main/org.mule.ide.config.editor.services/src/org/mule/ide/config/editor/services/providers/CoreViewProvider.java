@@ -6,6 +6,7 @@ import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.editor.services.edit.parts.*;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterTypeEditPart;
@@ -103,6 +104,7 @@ import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRo
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
+import org.mule.ide.config.editor.services.view.factories.*;
 import org.mule.ide.config.editor.services.view.factories.BridgeComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.BridgeComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.ChainingOutboundRouterTypeLabelViewFactory;
@@ -492,6 +494,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case CorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID:
+				case CorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID:
 					if (CorrelationAggregatorRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -499,6 +502,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case CustomInboundRouterTypeLabelEditPart.VISUAL_ID:
+				case CustomInboundRouterTypeClassEditPart.VISUAL_ID:
 					if (CustomInboundRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -528,6 +532,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case CustomResponseRouterTypeLabelEditPart.VISUAL_ID:
+				case CustomResponseRouterTypeClassEditPart.VISUAL_ID:
 					if (CustomResponseRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -612,6 +617,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case CustomOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				case CustomOutboundRouterTypeClassEditPart.VISUAL_ID:
 					if (CustomOutboundRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -735,10 +741,14 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return CorrelationAggregatorRouterTypeViewFactory.class;
 		case CorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID:
 			return CorrelationAggregatorRouterTypeLabelViewFactory.class;
+		case CorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID:
+			return CorrelationAggregatorRouterTypeClassViewFactory.class;
 		case CustomInboundRouterTypeEditPart.VISUAL_ID:
 			return CustomInboundRouterTypeViewFactory.class;
 		case CustomInboundRouterTypeLabelEditPart.VISUAL_ID:
 			return CustomInboundRouterTypeLabelViewFactory.class;
+		case CustomInboundRouterTypeClassEditPart.VISUAL_ID:
+			return CustomInboundRouterTypeClassViewFactory.class;
 		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 			return ResponseRouterCollectionTypeViewFactory.class;
 		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
@@ -753,6 +763,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return CustomResponseRouterTypeViewFactory.class;
 		case CustomResponseRouterTypeLabelEditPart.VISUAL_ID:
 			return CustomResponseRouterTypeLabelViewFactory.class;
+		case CustomResponseRouterTypeClassEditPart.VISUAL_ID:
+			return CustomResponseRouterTypeClassViewFactory.class;
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return OutboundRouterCollectionTypeViewFactory.class;
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
@@ -799,6 +811,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return CustomOutboundRouterTypeViewFactory.class;
 		case CustomOutboundRouterTypeLabelEditPart.VISUAL_ID:
 			return CustomOutboundRouterTypeLabelViewFactory.class;
+		case CustomOutboundRouterTypeClassEditPart.VISUAL_ID:
+			return CustomOutboundRouterTypeClassViewFactory.class;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			return SedaServiceTypeCOMPONENTViewFactory.class;
 		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:

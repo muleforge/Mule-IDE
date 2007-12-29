@@ -467,7 +467,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4041); //$NON-NLS-1$
+					"Parser was not found for label " + 4045); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 

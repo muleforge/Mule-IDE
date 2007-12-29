@@ -183,11 +183,17 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case CorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID:
 				return new CorrelationAggregatorRouterTypeLabelEditPart(view);
 
+			case CorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID:
+				return new CorrelationAggregatorRouterTypeClassEditPart(view);
+
 			case CustomInboundRouterTypeEditPart.VISUAL_ID:
 				return new CustomInboundRouterTypeEditPart(view);
 
 			case CustomInboundRouterTypeLabelEditPart.VISUAL_ID:
 				return new CustomInboundRouterTypeLabelEditPart(view);
+
+			case CustomInboundRouterTypeClassEditPart.VISUAL_ID:
+				return new CustomInboundRouterTypeClassEditPart(view);
 
 			case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
 				return new ResponseRouterCollectionTypeEditPart(view);
@@ -209,6 +215,9 @@ public class CoreEditPartFactory implements EditPartFactory {
 
 			case CustomResponseRouterTypeLabelEditPart.VISUAL_ID:
 				return new CustomResponseRouterTypeLabelEditPart(view);
+
+			case CustomResponseRouterTypeClassEditPart.VISUAL_ID:
+				return new CustomResponseRouterTypeClassEditPart(view);
 
 			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 				return new OutboundRouterCollectionTypeEditPart(view);
@@ -278,6 +287,9 @@ public class CoreEditPartFactory implements EditPartFactory {
 
 			case CustomOutboundRouterTypeLabelEditPart.VISUAL_ID:
 				return new CustomOutboundRouterTypeLabelEditPart(view);
+
+			case CustomOutboundRouterTypeClassEditPart.VISUAL_ID:
+				return new CustomOutboundRouterTypeClassEditPart(view);
 
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				return new SedaServiceTypeCOMPONENTEditPart(view);

@@ -113,6 +113,12 @@ public class CorrelationAggregatorRouterTypeEditPart extends ShapeNodeEditPart {
 							.getFigureClassServiceItemTypeLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof CorrelationAggregatorRouterTypeClassEditPart) {
+			((CorrelationAggregatorRouterTypeClassEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureClassServiceItemClassLabelFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -329,6 +335,6 @@ public class CorrelationAggregatorRouterTypeEditPart extends ShapeNodeEditPart {
 	 */
 	static final Font FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT = new Font(
 			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 9, SWT.BOLD);
+					.getFontData()[0].getName(), 9, SWT.NORMAL);
 
 }

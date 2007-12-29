@@ -58,7 +58,7 @@ public class CustomOutboundRouterTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4040;
+	public static final int VISUAL_ID = 4043;
 
 	/**
 	 * @generated

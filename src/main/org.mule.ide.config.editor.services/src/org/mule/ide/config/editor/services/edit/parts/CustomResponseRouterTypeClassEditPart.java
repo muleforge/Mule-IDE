@@ -52,13 +52,13 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * @generated
  */
-public class ResponseRouterTypeLabelEditPart extends CompartmentEditPart
+public class CustomResponseRouterTypeClassEditPart extends CompartmentEditPart
 		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4030;
+	public static final int VISUAL_ID = 4032;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class ResponseRouterTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public ResponseRouterTypeLabelEditPart(View view) {
+	public CustomResponseRouterTypeClassEditPart(View view) {
 		super(view);
 	}
 
@@ -187,20 +187,14 @@ public class ResponseRouterTypeLabelEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-
-		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
+		return resolveSemanticElement();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return CoreElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -247,7 +241,7 @@ public class ResponseRouterTypeLabelEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -308,7 +302,7 @@ public class ResponseRouterTypeLabelEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.ResponseRouterType_2027,
+					CoreElementTypes.CustomResponseRouterType_2028,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

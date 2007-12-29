@@ -10,6 +10,7 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactor
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
@@ -53,6 +54,13 @@ public class CustomResponseRouterTypeViewFactory extends
 						view,
 						CoreVisualIDRegistry
 								.getType(CustomResponseRouterTypeLabelEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						eObjectAdapter,
+						view,
+						CoreVisualIDRegistry
+								.getType(CustomResponseRouterTypeClassEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

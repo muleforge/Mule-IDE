@@ -183,7 +183,7 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
 		ServiceEditPartUtil.configureServiceItemFigure(figure,
-				Messages.LogComponentTypeLabel);
+				Messages.NoArgsCallWrapperTypeLabel);
 		return figure;
 	}
 
@@ -335,6 +335,6 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 	 */
 	static final Font FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT = new Font(
 			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 9, SWT.BOLD);
+					.getFontData()[0].getName(), 9, SWT.NORMAL);
 
 }

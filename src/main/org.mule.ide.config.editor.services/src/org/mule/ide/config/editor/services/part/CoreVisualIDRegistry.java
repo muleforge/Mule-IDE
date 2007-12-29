@@ -27,6 +27,7 @@ import org.mule.ide.config.core.OutboundRouterType;
 import org.mule.ide.config.core.ResponseRouterCollectionType;
 import org.mule.ide.config.core.ResponseRouterType;
 import org.mule.ide.config.core.StaticRecipientListRouterType;
+import org.mule.ide.config.editor.services.edit.parts.*;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterTypeEditPart;
@@ -687,9 +688,15 @@ public class CoreVisualIDRegistry {
 			if (CorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (CorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case CustomInboundRouterTypeEditPart.VISUAL_ID:
 			if (CustomInboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomInboundRouterTypeClassEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -713,6 +720,9 @@ public class CoreVisualIDRegistry {
 			break;
 		case CustomResponseRouterTypeEditPart.VISUAL_ID:
 			if (CustomResponseRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomResponseRouterTypeClassEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -773,6 +783,9 @@ public class CoreVisualIDRegistry {
 			break;
 		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
 			if (CustomOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomOutboundRouterTypeClassEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

@@ -339,6 +339,6 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 	 */
 	static final Font FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT = new Font(
 			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 9, SWT.BOLD);
+					.getFontData()[0].getName(), 9, SWT.NORMAL);
 
 }

@@ -6,14 +6,14 @@
       <?gmfgen generated="true"?>
       <fileTypes
          type="text"
-         extension="mule_diagram">
+         extension="services_diagram">
       </fileTypes>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <?gmfgen generated="true"?>
       <parser
-         type="mule_diagram"
+         type="services_diagram"
          class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
       </parser>
    </extension>
@@ -24,7 +24,7 @@
          id="org.mule.ide.config.editor.services.part.CoreDiagramEditorID"
          name="%editorName"
          icon="icons/obj16/CoreDiagramFile.gif"
-         extensions="mule_diagram"
+         extensions="services_diagram"
          default="true"
          class="org.mule.ide.config.editor.services.part.CoreDiagramEditor"
          matchingStrategy="org.mule.ide.config.editor.services.part.CoreMatchingStrategy"
@@ -821,7 +821,7 @@
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="mule_diagram"/>
+        	      <test property="org.eclipse.core.resources.extension" value="services_diagram"/>
                </and>
                <instanceof value="org.mule.ide.config.editor.services.navigator.CoreAbstractNavigatorItem"/>
             </or>
@@ -838,7 +838,7 @@
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="mule_diagram"/>
+        	         <test property="org.eclipse.core.resources.extension" value="services_diagram"/>
                   </and>
                   <instanceof value="org.mule.ide.config.editor.services.navigator.CoreAbstractNavigatorItem"/>
                </or>

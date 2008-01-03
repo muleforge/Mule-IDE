@@ -102,7 +102,7 @@ public class CoreCreationWizard extends Wizard implements INewWizard {
 	 */
 	public void addPages() {
 		diagramModelFilePage = new CoreCreationWizardPage(
-				"DiagramModelFile", getSelection(), "mule_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+				"DiagramModelFile", getSelection(), "services_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
 		diagramModelFilePage
 				.setTitle(Messages.CoreCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage

@@ -81,7 +81,7 @@ public class CoreNewDiagramFileWizard extends Wizard {
 		}
 		myFileCreationPage.setContainerFullPath(filePath);
 		myFileCreationPage.setFileName(CoreDiagramEditorUtil.getUniqueFileName(
-				filePath, fileName, "mule_diagram")); //$NON-NLS-1$
+				filePath, fileName, "services_diagram")); //$NON-NLS-1$
 
 		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
 				Messages.CoreNewDiagramFileWizard_RootSelectionPageName);

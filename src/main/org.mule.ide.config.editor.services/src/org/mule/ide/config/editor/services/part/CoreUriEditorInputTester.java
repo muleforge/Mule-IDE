@@ -17,7 +17,7 @@ public class CoreUriEditorInputTester extends PropertyTester {
 			return false;
 		}
 		URIEditorInput editorInput = (URIEditorInput) receiver;
-		return "mule_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
+		return "services_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
 	}
 
 }

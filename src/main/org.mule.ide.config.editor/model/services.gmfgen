@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfgen="http://www.eclipse.org/gmf/2006/GenModel" packageNamePrefix="org.mule.ide.config.editor.services"
-    diagramFileExtension="mule_diagram"
+    diagramFileExtension="services_diagram"
     domainFileExtension="xml"
     templateDirectory="">
   <diagram

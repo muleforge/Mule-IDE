@@ -35,15 +35,15 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.MuleManagementContextType;
+import org.mule.ide.config.core.ManagementContextType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.MuleManagementContextType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.ManagementContextType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MuleManagementContextTypeItemProvider
+public class ManagementContextTypeItemProvider
 	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
@@ -57,7 +57,7 @@ public class MuleManagementContextTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MuleManagementContextTypeItemProvider(AdapterFactory adapterFactory) {
+	public ManagementContextTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -96,9 +96,9 @@ public class MuleManagementContextTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MuleManagementContextType_clusterId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MuleManagementContextType_clusterId_feature", "_UI_MuleManagementContextType_type"),
-				 CorePackage.eINSTANCE.getMuleManagementContextType_ClusterId(),
+				 getString("_UI_ManagementContextType_clusterId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ManagementContextType_clusterId_feature", "_UI_ManagementContextType_type"),
+				 CorePackage.eINSTANCE.getManagementContextType_ClusterId(),
 				 true,
 				 false,
 				 false,
@@ -118,9 +118,9 @@ public class MuleManagementContextTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MuleManagementContextType_defaultEncoding_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MuleManagementContextType_defaultEncoding_feature", "_UI_MuleManagementContextType_type"),
-				 CorePackage.eINSTANCE.getMuleManagementContextType_DefaultEncoding(),
+				 getString("_UI_ManagementContextType_defaultEncoding_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ManagementContextType_defaultEncoding_feature", "_UI_ManagementContextType_type"),
+				 CorePackage.eINSTANCE.getManagementContextType_DefaultEncoding(),
 				 true,
 				 false,
 				 false,
@@ -140,9 +140,9 @@ public class MuleManagementContextTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MuleManagementContextType_defaultRemoteSync_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MuleManagementContextType_defaultRemoteSync_feature", "_UI_MuleManagementContextType_type"),
-				 CorePackage.eINSTANCE.getMuleManagementContextType_DefaultRemoteSync(),
+				 getString("_UI_ManagementContextType_defaultRemoteSync_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ManagementContextType_defaultRemoteSync_feature", "_UI_ManagementContextType_type"),
+				 CorePackage.eINSTANCE.getManagementContextType_DefaultRemoteSync(),
 				 true,
 				 false,
 				 false,
@@ -162,9 +162,9 @@ public class MuleManagementContextTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MuleManagementContextType_defaultSynchronousEndpoints_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MuleManagementContextType_defaultSynchronousEndpoints_feature", "_UI_MuleManagementContextType_type"),
-				 CorePackage.eINSTANCE.getMuleManagementContextType_DefaultSynchronousEndpoints(),
+				 getString("_UI_ManagementContextType_defaultSynchronousEndpoints_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ManagementContextType_defaultSynchronousEndpoints_feature", "_UI_ManagementContextType_type"),
+				 CorePackage.eINSTANCE.getManagementContextType_DefaultSynchronousEndpoints(),
 				 true,
 				 false,
 				 false,
@@ -184,9 +184,9 @@ public class MuleManagementContextTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MuleManagementContextType_defaultSynchronousEventTimeout_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MuleManagementContextType_defaultSynchronousEventTimeout_feature", "_UI_MuleManagementContextType_type"),
-				 CorePackage.eINSTANCE.getMuleManagementContextType_DefaultSynchronousEventTimeout(),
+				 getString("_UI_ManagementContextType_defaultSynchronousEventTimeout_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ManagementContextType_defaultSynchronousEventTimeout_feature", "_UI_ManagementContextType_type"),
+				 CorePackage.eINSTANCE.getManagementContextType_DefaultSynchronousEventTimeout(),
 				 true,
 				 false,
 				 false,
@@ -206,9 +206,9 @@ public class MuleManagementContextTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MuleManagementContextType_defaultTransactionTimeout_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MuleManagementContextType_defaultTransactionTimeout_feature", "_UI_MuleManagementContextType_type"),
-				 CorePackage.eINSTANCE.getMuleManagementContextType_DefaultTransactionTimeout(),
+				 getString("_UI_ManagementContextType_defaultTransactionTimeout_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ManagementContextType_defaultTransactionTimeout_feature", "_UI_ManagementContextType_type"),
+				 CorePackage.eINSTANCE.getManagementContextType_DefaultTransactionTimeout(),
 				 true,
 				 false,
 				 false,
@@ -228,9 +228,9 @@ public class MuleManagementContextTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MuleManagementContextType_domainId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MuleManagementContextType_domainId_feature", "_UI_MuleManagementContextType_type"),
-				 CorePackage.eINSTANCE.getMuleManagementContextType_DomainId(),
+				 getString("_UI_ManagementContextType_domainId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ManagementContextType_domainId_feature", "_UI_ManagementContextType_type"),
+				 CorePackage.eINSTANCE.getManagementContextType_DomainId(),
 				 true,
 				 false,
 				 false,
@@ -250,9 +250,9 @@ public class MuleManagementContextTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MuleManagementContextType_serverId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MuleManagementContextType_serverId_feature", "_UI_MuleManagementContextType_type"),
-				 CorePackage.eINSTANCE.getMuleManagementContextType_ServerId(),
+				 getString("_UI_ManagementContextType_serverId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ManagementContextType_serverId_feature", "_UI_ManagementContextType_type"),
+				 CorePackage.eINSTANCE.getManagementContextType_ServerId(),
 				 true,
 				 false,
 				 false,
@@ -272,9 +272,9 @@ public class MuleManagementContextTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MuleManagementContextType_workingDirectory_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MuleManagementContextType_workingDirectory_feature", "_UI_MuleManagementContextType_type"),
-				 CorePackage.eINSTANCE.getMuleManagementContextType_WorkingDirectory(),
+				 getString("_UI_ManagementContextType_workingDirectory_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ManagementContextType_workingDirectory_feature", "_UI_ManagementContextType_type"),
+				 CorePackage.eINSTANCE.getManagementContextType_WorkingDirectory(),
 				 true,
 				 false,
 				 false,
@@ -295,12 +295,12 @@ public class MuleManagementContextTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultThreadingProfile());
-			childrenFeatures.add(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultDispatcherThreadingProfile());
-			childrenFeatures.add(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultReceiverThreadingProfile());
-			childrenFeatures.add(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultComponentThreadingProfile());
-			childrenFeatures.add(CorePackage.eINSTANCE.getMuleManagementContextType_AbstractStorageGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultConnectionStrategy());
+			childrenFeatures.add(CorePackage.eINSTANCE.getManagementContextType_DefaultThreadingProfile());
+			childrenFeatures.add(CorePackage.eINSTANCE.getManagementContextType_DefaultDispatcherThreadingProfile());
+			childrenFeatures.add(CorePackage.eINSTANCE.getManagementContextType_DefaultReceiverThreadingProfile());
+			childrenFeatures.add(CorePackage.eINSTANCE.getManagementContextType_DefaultComponentThreadingProfile());
+			childrenFeatures.add(CorePackage.eINSTANCE.getManagementContextType_AbstractStorageGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getManagementContextType_DefaultConnectionStrategy());
 		}
 		return childrenFeatures;
 	}
@@ -319,14 +319,14 @@ public class MuleManagementContextTypeItemProvider
 	}
 
 	/**
-	 * This returns MuleManagementContextType.gif.
+	 * This returns ManagementContextType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MuleManagementContextType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ManagementContextType"));
 	}
 
 	/**
@@ -337,10 +337,10 @@ public class MuleManagementContextTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MuleManagementContextType)object).getClusterId();
+		String label = ((ManagementContextType)object).getClusterId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_MuleManagementContextType_type") :
-			getString("_UI_MuleManagementContextType_type") + " " + label;
+			getString("_UI_ManagementContextType_type") :
+			getString("_UI_ManagementContextType_type") + " " + label;
 	}
 
 	/**
@@ -354,24 +354,24 @@ public class MuleManagementContextTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MuleManagementContextType.class)) {
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__CLUSTER_ID:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__DEFAULT_ENCODING:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__DEFAULT_REMOTE_SYNC:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__DEFAULT_SYNCHRONOUS_ENDPOINTS:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__DEFAULT_SYNCHRONOUS_EVENT_TIMEOUT:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__DEFAULT_TRANSACTION_TIMEOUT:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__DOMAIN_ID:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__SERVER_ID:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__WORKING_DIRECTORY:
+		switch (notification.getFeatureID(ManagementContextType.class)) {
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__CLUSTER_ID:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__DEFAULT_ENCODING:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__DEFAULT_REMOTE_SYNC:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__DEFAULT_SYNCHRONOUS_ENDPOINTS:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__DEFAULT_SYNCHRONOUS_EVENT_TIMEOUT:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__DEFAULT_TRANSACTION_TIMEOUT:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__DOMAIN_ID:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__SERVER_ID:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__WORKING_DIRECTORY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__DEFAULT_THREADING_PROFILE:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__DEFAULT_DISPATCHER_THREADING_PROFILE:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__DEFAULT_RECEIVER_THREADING_PROFILE:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__DEFAULT_COMPONENT_THREADING_PROFILE:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__ABSTRACT_STORAGE_GROUP:
-			case CorePackage.MULE_MANAGEMENT_CONTEXT_TYPE__DEFAULT_CONNECTION_STRATEGY:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__DEFAULT_THREADING_PROFILE:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__DEFAULT_DISPATCHER_THREADING_PROFILE:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__DEFAULT_RECEIVER_THREADING_PROFILE:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__DEFAULT_COMPONENT_THREADING_PROFILE:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__ABSTRACT_STORAGE_GROUP:
+			case CorePackage.MANAGEMENT_CONTEXT_TYPE__DEFAULT_CONNECTION_STRATEGY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -391,37 +391,37 @@ public class MuleManagementContextTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultThreadingProfile(),
+				(CorePackage.eINSTANCE.getManagementContextType_DefaultThreadingProfile(),
 				 CoreFactory.eINSTANCE.createThreadingProfileType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultDispatcherThreadingProfile(),
+				(CorePackage.eINSTANCE.getManagementContextType_DefaultDispatcherThreadingProfile(),
 				 CoreFactory.eINSTANCE.createThreadingProfileType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultReceiverThreadingProfile(),
+				(CorePackage.eINSTANCE.getManagementContextType_DefaultReceiverThreadingProfile(),
 				 CoreFactory.eINSTANCE.createThreadingProfileType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultComponentThreadingProfile(),
+				(CorePackage.eINSTANCE.getManagementContextType_DefaultComponentThreadingProfile(),
 				 CoreFactory.eINSTANCE.createThreadingProfileType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultConnectionStrategy(),
+				(CorePackage.eINSTANCE.getManagementContextType_DefaultConnectionStrategy(),
 				 CoreFactory.eINSTANCE.createConnectionStrategyType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultConnectionStrategy(),
+				(CorePackage.eINSTANCE.getManagementContextType_DefaultConnectionStrategy(),
 				 CoreFactory.eINSTANCE.createCustomConnectionStrategyType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleManagementContextType_DefaultConnectionStrategy(),
+				(CorePackage.eINSTANCE.getManagementContextType_DefaultConnectionStrategy(),
 				 CoreFactory.eINSTANCE.createRetryConnectionStrategyType()));
 	}
 
@@ -443,10 +443,10 @@ public class MuleManagementContextTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getMuleManagementContextType_DefaultThreadingProfile() ||
-			childFeature == CorePackage.eINSTANCE.getMuleManagementContextType_DefaultDispatcherThreadingProfile() ||
-			childFeature == CorePackage.eINSTANCE.getMuleManagementContextType_DefaultReceiverThreadingProfile() ||
-			childFeature == CorePackage.eINSTANCE.getMuleManagementContextType_DefaultComponentThreadingProfile();
+			childFeature == CorePackage.eINSTANCE.getManagementContextType_DefaultThreadingProfile() ||
+			childFeature == CorePackage.eINSTANCE.getManagementContextType_DefaultDispatcherThreadingProfile() ||
+			childFeature == CorePackage.eINSTANCE.getManagementContextType_DefaultReceiverThreadingProfile() ||
+			childFeature == CorePackage.eINSTANCE.getManagementContextType_DefaultComponentThreadingProfile();
 
 		if (qualify) {
 			return getString

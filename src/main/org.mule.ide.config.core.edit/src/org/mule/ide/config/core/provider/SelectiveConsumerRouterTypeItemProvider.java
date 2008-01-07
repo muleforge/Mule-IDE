@@ -69,32 +69,10 @@ public class SelectiveConsumerRouterTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTransformerFirstPropertyDescriptor(object);
 			addTransformerRefsPropertyDescriptor(object);
+			addTransformFirstPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Transformer First feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTransformerFirstPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SelectiveConsumerRouterType_transformerFirst_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SelectiveConsumerRouterType_transformerFirst_feature", "_UI_SelectiveConsumerRouterType_type"),
-				 CorePackage.eINSTANCE.getSelectiveConsumerRouterType_TransformerFirst(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -115,6 +93,28 @@ public class SelectiveConsumerRouterTypeItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Transform First feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTransformFirstPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SelectiveConsumerRouterType_transformFirst_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SelectiveConsumerRouterType_transformFirst_feature", "_UI_SelectiveConsumerRouterType_type"),
+				 CorePackage.eINSTANCE.getSelectiveConsumerRouterType_TransformFirst(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -168,8 +168,11 @@ public class SelectiveConsumerRouterTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		SelectiveConsumerRouterType selectiveConsumerRouterType = (SelectiveConsumerRouterType)object;
-		return getString("_UI_SelectiveConsumerRouterType_type") + " " + selectiveConsumerRouterType.isTransformerFirst();
+		List labelValue = ((SelectiveConsumerRouterType)object).getTransformerRefs();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SelectiveConsumerRouterType_type") :
+			getString("_UI_SelectiveConsumerRouterType_type") + " " + label;
 	}
 
 	/**
@@ -184,8 +187,8 @@ public class SelectiveConsumerRouterTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SelectiveConsumerRouterType.class)) {
-			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_FIRST:
 			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_REFS:
+			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORM_FIRST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__ABSTRACT_TRANSFORMER_GROUP:
@@ -871,20 +874,17 @@ public class SelectiveConsumerRouterTypeItemProvider
 		boolean qualify =
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_AndFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OrFilter() ||
-			childFeature == CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadTypeFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Filter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NotFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Decoder() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Encoder() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToHexString() ||
@@ -907,9 +907,8 @@ public class SelectiveConsumerRouterTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerUuEncoder() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityDecoder() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityEncoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerMessageProperties() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transformer();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerMessageProperties();
 
 		if (qualify) {
 			return getString

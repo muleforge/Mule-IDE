@@ -201,14 +201,21 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getMuleType_AdminAgent(),
-					 CoreFactory.eINSTANCE.createMuleAdminAgentType())));
+					 CoreFactory.eINSTANCE.createAdminAgentType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getMuleType_Configuration(),
-					 CoreFactory.eINSTANCE.createMuleManagementContextType())));
+					 CoreFactory.eINSTANCE.createManagementContextType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getMuleType_Notifications(),
+					 CoreFactory.eINSTANCE.createNotificationManagerType())));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -31,19 +31,18 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CustomOutboundRouterType;
-import org.mule.ide.config.core.EnableCorrelationType;
+import org.mule.ide.config.core.CustomAsyncReplyRouterType;
 
 import org.mule.ide.config.spring.SpringFactory;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.CustomOutboundRouterType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.CustomAsyncReplyRouterType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CustomOutboundRouterTypeItemProvider
-	extends FilteringOutboundRouterTypeItemProvider
+public class CustomAsyncReplyRouterTypeItemProvider
+	extends AsyncReplyRouterTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -56,7 +55,7 @@ public class CustomOutboundRouterTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomOutboundRouterTypeItemProvider(AdapterFactory adapterFactory) {
+	public CustomAsyncReplyRouterTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -87,9 +86,9 @@ public class CustomOutboundRouterTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CustomOutboundRouterType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CustomOutboundRouterType_class_feature", "_UI_CustomOutboundRouterType_type"),
-				 CorePackage.eINSTANCE.getCustomOutboundRouterType_Class(),
+				 getString("_UI_CustomAsyncReplyRouterType_class_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CustomAsyncReplyRouterType_class_feature", "_UI_CustomAsyncReplyRouterType_type"),
+				 CorePackage.eINSTANCE.getCustomAsyncReplyRouterType_Class(),
 				 true,
 				 false,
 				 false,
@@ -110,7 +109,7 @@ public class CustomOutboundRouterTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getCustomOutboundRouterType_Property());
+			childrenFeatures.add(CorePackage.eINSTANCE.getCustomAsyncReplyRouterType_Property());
 		}
 		return childrenFeatures;
 	}
@@ -129,14 +128,14 @@ public class CustomOutboundRouterTypeItemProvider
 	}
 
 	/**
-	 * This returns CustomOutboundRouterType.gif.
+	 * This returns CustomAsyncReplyRouterType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CustomOutboundRouterType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CustomAsyncReplyRouterType"));
 	}
 
 	/**
@@ -147,11 +146,10 @@ public class CustomOutboundRouterTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		EnableCorrelationType labelValue = ((CustomOutboundRouterType)object).getEnableCorrelation();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((CustomAsyncReplyRouterType)object).getClass_();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CustomOutboundRouterType_type") :
-			getString("_UI_CustomOutboundRouterType_type") + " " + label;
+			getString("_UI_CustomAsyncReplyRouterType_type") :
+			getString("_UI_CustomAsyncReplyRouterType_type") + " " + label;
 	}
 
 	/**
@@ -165,11 +163,11 @@ public class CustomOutboundRouterTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CustomOutboundRouterType.class)) {
-			case CorePackage.CUSTOM_OUTBOUND_ROUTER_TYPE__CLASS:
+		switch (notification.getFeatureID(CustomAsyncReplyRouterType.class)) {
+			case CorePackage.CUSTOM_ASYNC_REPLY_ROUTER_TYPE__CLASS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.CUSTOM_OUTBOUND_ROUTER_TYPE__PROPERTY:
+			case CorePackage.CUSTOM_ASYNC_REPLY_ROUTER_TYPE__PROPERTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -189,7 +187,7 @@ public class CustomOutboundRouterTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomOutboundRouterType_Property(),
+				(CorePackage.eINSTANCE.getCustomAsyncReplyRouterType_Property(),
 				 SpringFactory.eINSTANCE.createPropertyType()));
 	}
 
@@ -215,39 +213,7 @@ public class CustomOutboundRouterTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_AndFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OrFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadTypeFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Decoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Encoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToHexString() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToObject() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToSerializable() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToString() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerDecrypt() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerEncrypt() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerGzipCompress() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerGzipUncompress() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerHexStingToByteArray() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerNoAction() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerObjectToByteArray() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerObjectToString() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerSerializableToByteArray() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerStringToByteArray() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerUcDecoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerUcEncoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerUuDecoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerUuEncoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityDecoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityEncoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerMessageProperties();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor();
 
 		if (qualify) {
 			return getString

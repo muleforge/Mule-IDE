@@ -15,6 +15,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
@@ -28,21 +30,21 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CustomResponseRouterType;
-
-import org.mule.ide.config.spring.SpringFactory;
+import org.mule.ide.config.core.NotificationManagerType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.CustomResponseRouterType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.NotificationManagerType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CustomResponseRouterTypeItemProvider
-	extends ResponseRouterTypeItemProvider
+public class NotificationManagerTypeItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -55,7 +57,7 @@ public class CustomResponseRouterTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomResponseRouterTypeItemProvider(AdapterFactory adapterFactory) {
+	public NotificationManagerTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,29 +72,29 @@ public class CustomResponseRouterTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addClassPropertyDescriptor(object);
+			addDynamicPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Class feature.
+	 * This adds a property descriptor for the Dynamic feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClassPropertyDescriptor(Object object) {
+	protected void addDynamicPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CustomResponseRouterType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CustomResponseRouterType_class_feature", "_UI_CustomResponseRouterType_type"),
-				 CorePackage.eINSTANCE.getCustomResponseRouterType_Class(),
+				 getString("_UI_NotificationManagerType_dynamic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NotificationManagerType_dynamic_feature", "_UI_NotificationManagerType_type"),
+				 CorePackage.eINSTANCE.getNotificationManagerType_Dynamic(),
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -109,7 +111,9 @@ public class CustomResponseRouterTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getCustomResponseRouterType_Property());
+			childrenFeatures.add(CorePackage.eINSTANCE.getNotificationManagerType_Group());
+			childrenFeatures.add(CorePackage.eINSTANCE.getNotificationManagerType_Group1());
+			childrenFeatures.add(CorePackage.eINSTANCE.getNotificationManagerType_Group2());
 		}
 		return childrenFeatures;
 	}
@@ -128,14 +132,14 @@ public class CustomResponseRouterTypeItemProvider
 	}
 
 	/**
-	 * This returns CustomResponseRouterType.gif.
+	 * This returns NotificationManagerType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CustomResponseRouterType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NotificationManagerType"));
 	}
 
 	/**
@@ -146,10 +150,8 @@ public class CustomResponseRouterTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CustomResponseRouterType)object).getClass_();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CustomResponseRouterType_type") :
-			getString("_UI_CustomResponseRouterType_type") + " " + label;
+		NotificationManagerType notificationManagerType = (NotificationManagerType)object;
+		return getString("_UI_NotificationManagerType_type") + " " + notificationManagerType.isDynamic();
 	}
 
 	/**
@@ -163,11 +165,13 @@ public class CustomResponseRouterTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CustomResponseRouterType.class)) {
-			case CorePackage.CUSTOM_RESPONSE_ROUTER_TYPE__CLASS:
+		switch (notification.getFeatureID(NotificationManagerType.class)) {
+			case CorePackage.NOTIFICATION_MANAGER_TYPE__DYNAMIC:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.CUSTOM_RESPONSE_ROUTER_TYPE__PROPERTY:
+			case CorePackage.NOTIFICATION_MANAGER_TYPE__GROUP:
+			case CorePackage.NOTIFICATION_MANAGER_TYPE__GROUP1:
+			case CorePackage.NOTIFICATION_MANAGER_TYPE__GROUP2:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -187,43 +191,52 @@ public class CustomResponseRouterTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomResponseRouterType_Property(),
-				 SpringFactory.eINSTANCE.createPropertyType()));
+				(CorePackage.eINSTANCE.getNotificationManagerType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_Notification(),
+					 CoreFactory.eINSTANCE.createDefineNotificationType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getNotificationManagerType_Group1(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_DisableNotification(),
+					 CoreFactory.eINSTANCE.createDisableNotificationType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getNotificationManagerType_Group2(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getNotificationManagerType_NotificationListener(),
+					 CoreFactory.eINSTANCE.createNotificationListenerType())));
 	}
 
 	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
-			childFeature = entry.getEStructuralFeature();
-			childObject = entry.getValue();
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)child;
+			feature = entry.getEStructuralFeature();
+			child = entry.getValue();        
 		}
 
-		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ResponseEndpoint() ||
-			childFeature == CorePackage.eINSTANCE.getResponseRouterType_CustomPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getCustomResponseRouterType_Property();
+		if (feature instanceof EReference && child instanceof EObject) {
+			String name = "full/obj16/" + ((EObject)child).eClass().getName();
 
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+			try {
+				return getResourceLocator().getImage(name);
+			}
+			catch (Exception e) {
+				CoreEditPlugin.INSTANCE.log(e);
+			}
 		}
-		return super.getCreateChildText(owner, feature, child, selection);
+
+		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

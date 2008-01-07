@@ -202,14 +202,21 @@ public class MuleUnsafeTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleUnsafeType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getMuleUnsafeType_AdminAgent(),
-					 CoreFactory.eINSTANCE.createMuleAdminAgentType())));
+					 CoreFactory.eINSTANCE.createAdminAgentType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getMuleUnsafeType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getMuleUnsafeType_Configuration(),
-					 CoreFactory.eINSTANCE.createMuleManagementContextType())));
+					 CoreFactory.eINSTANCE.createManagementContextType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleUnsafeType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getMuleUnsafeType_Notifications(),
+					 CoreFactory.eINSTANCE.createNotificationManagerType())));
 
 		newChildDescriptors.add
 			(createChildParameter

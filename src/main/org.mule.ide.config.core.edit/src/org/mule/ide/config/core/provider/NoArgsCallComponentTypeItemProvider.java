@@ -17,9 +17,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.FeatureMapUtil;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -30,16 +27,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.ForwardingRouterType;
+import org.mule.ide.config.core.NoArgsCallComponentType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.ForwardingRouterType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.NoArgsCallComponentType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ForwardingRouterTypeItemProvider
-	extends FilteredInboundRouterTypeItemProvider
+public class NoArgsCallComponentTypeItemProvider
+	extends DefaultComponentTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -52,7 +49,7 @@ public class ForwardingRouterTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ForwardingRouterTypeItemProvider(AdapterFactory adapterFactory) {
+	public NoArgsCallComponentTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -83,7 +80,8 @@ public class ForwardingRouterTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getForwardingRouterType_AbstractInboundEndpointGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getNoArgsCallComponentType_DelegateClass());
+			childrenFeatures.add(CorePackage.eINSTANCE.getNoArgsCallComponentType_DelegateInstance());
 		}
 		return childrenFeatures;
 	}
@@ -102,14 +100,14 @@ public class ForwardingRouterTypeItemProvider
 	}
 
 	/**
-	 * This returns ForwardingRouterType.gif.
+	 * This returns NoArgsCallComponentType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ForwardingRouterType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NoArgsCallComponentType"));
 	}
 
 	/**
@@ -120,7 +118,7 @@ public class ForwardingRouterTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ForwardingRouterType_type");
+		return getString("_UI_NoArgsCallComponentType_type");
 	}
 
 	/**
@@ -134,8 +132,9 @@ public class ForwardingRouterTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ForwardingRouterType.class)) {
-			case CorePackage.FORWARDING_ROUTER_TYPE__ABSTRACT_INBOUND_ENDPOINT_GROUP:
+		switch (notification.getFeatureID(NoArgsCallComponentType.class)) {
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_CLASS:
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_INSTANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -155,49 +154,13 @@ public class ForwardingRouterTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getForwardingRouterType_AbstractInboundEndpointGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_InboundEndpoint(),
-					 CoreFactory.eINSTANCE.createInboundEndpointType())));
-	}
+				(CorePackage.eINSTANCE.getNoArgsCallComponentType_DelegateClass(),
+				 CoreFactory.eINSTANCE.createNoArgsCallDelegateClassType()));
 
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
-			childFeature = entry.getEStructuralFeature();
-			childObject = entry.getValue();
-		}
-
-		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_AndFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OrFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadTypeFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor();
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getNoArgsCallComponentType_DelegateInstance(),
+				 CoreFactory.eINSTANCE.createNoArgsCallDelegateInstanceType()));
 	}
 
 	/**

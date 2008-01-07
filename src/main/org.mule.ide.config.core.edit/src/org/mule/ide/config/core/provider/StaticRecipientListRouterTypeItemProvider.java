@@ -234,15 +234,19 @@ public class StaticRecipientListRouterTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OutboundEndpoint() ||
-			childFeature == CorePackage.eINSTANCE.getOutboundRouterType_CustomPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getOutboundRouterType_ReplyTo() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transaction() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_AndFilter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OrFilter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadTypeFilter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Decoder() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Encoder() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToHexString() ||
@@ -265,20 +269,8 @@ public class StaticRecipientListRouterTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerUuEncoder() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityDecoder() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityEncoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_AndFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OrFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Filter() ||
-			childFeature == CorePackage.eINSTANCE.getStaticRecipientListRouterType_Recipients() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerMessageProperties() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadTypeFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NotFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerMessageProperties();
 
 		if (qualify) {
 			return getString

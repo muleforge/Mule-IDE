@@ -15,11 +15,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,20 +23,20 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.NoArgsCallDelegateClassType;
+import org.mule.ide.config.core.DisableNotificationType;
+import org.mule.ide.config.core.EventType1;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.NoArgsCallDelegateClassType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.DisableNotificationType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NoArgsCallDelegateClassTypeItemProvider
-	extends ItemProviderAdapter
+public class DisableNotificationTypeItemProvider
+	extends AbstractDisableNotificationTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -54,7 +49,7 @@ public class NoArgsCallDelegateClassTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NoArgsCallDelegateClassTypeItemProvider(AdapterFactory adapterFactory) {
+	public DisableNotificationTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,26 +64,28 @@ public class NoArgsCallDelegateClassTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addClassPropertyDescriptor(object);
-			addMethodPropertyDescriptor(object);
+			addEventPropertyDescriptor(object);
+			addEventClassPropertyDescriptor(object);
+			addInterfacePropertyDescriptor(object);
+			addInterfaceClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Class feature.
+	 * This adds a property descriptor for the Event feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClassPropertyDescriptor(Object object) {
+	protected void addEventPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NoArgsCallDelegateClassType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NoArgsCallDelegateClassType_class_feature", "_UI_NoArgsCallDelegateClassType_type"),
-				 CorePackage.eINSTANCE.getNoArgsCallDelegateClassType_Class(),
+				 getString("_UI_DisableNotificationType_event_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DisableNotificationType_event_feature", "_UI_DisableNotificationType_type"),
+				 CorePackage.eINSTANCE.getDisableNotificationType_Event(),
 				 true,
 				 false,
 				 false,
@@ -98,19 +95,19 @@ public class NoArgsCallDelegateClassTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Method feature.
+	 * This adds a property descriptor for the Event Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMethodPropertyDescriptor(Object object) {
+	protected void addEventClassPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NoArgsCallDelegateClassType_method_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NoArgsCallDelegateClassType_method_feature", "_UI_NoArgsCallDelegateClassType_type"),
-				 CorePackage.eINSTANCE.getNoArgsCallDelegateClassType_Method(),
+				 getString("_UI_DisableNotificationType_eventClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DisableNotificationType_eventClass_feature", "_UI_DisableNotificationType_type"),
+				 CorePackage.eINSTANCE.getDisableNotificationType_EventClass(),
 				 true,
 				 false,
 				 false,
@@ -120,14 +117,58 @@ public class NoArgsCallDelegateClassTypeItemProvider
 	}
 
 	/**
-	 * This returns NoArgsCallDelegateClassType.gif.
+	 * This adds a property descriptor for the Interface feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInterfacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DisableNotificationType_interface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DisableNotificationType_interface_feature", "_UI_DisableNotificationType_type"),
+				 CorePackage.eINSTANCE.getDisableNotificationType_Interface(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Interface Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInterfaceClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DisableNotificationType_interfaceClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DisableNotificationType_interfaceClass_feature", "_UI_DisableNotificationType_type"),
+				 CorePackage.eINSTANCE.getDisableNotificationType_InterfaceClass(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns DisableNotificationType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NoArgsCallDelegateClassType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DisableNotificationType"));
 	}
 
 	/**
@@ -138,10 +179,11 @@ public class NoArgsCallDelegateClassTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NoArgsCallDelegateClassType)object).getClass_();
+		EventType1 labelValue = ((DisableNotificationType)object).getEvent();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NoArgsCallDelegateClassType_type") :
-			getString("_UI_NoArgsCallDelegateClassType_type") + " " + label;
+			getString("_UI_DisableNotificationType_type") :
+			getString("_UI_DisableNotificationType_type") + " " + label;
 	}
 
 	/**
@@ -155,9 +197,11 @@ public class NoArgsCallDelegateClassTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(NoArgsCallDelegateClassType.class)) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__CLASS:
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__METHOD:
+		switch (notification.getFeatureID(DisableNotificationType.class)) {
+			case CorePackage.DISABLE_NOTIFICATION_TYPE__EVENT:
+			case CorePackage.DISABLE_NOTIFICATION_TYPE__EVENT_CLASS:
+			case CorePackage.DISABLE_NOTIFICATION_TYPE__INTERFACE:
+			case CorePackage.DISABLE_NOTIFICATION_TYPE__INTERFACE_CLASS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -174,34 +218,6 @@ public class NoArgsCallDelegateClassTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
-		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)child;
-			feature = entry.getEStructuralFeature();
-			child = entry.getValue();        
-		}
-
-		if (feature instanceof EReference && child instanceof EObject) {
-			String name = "full/obj16/" + ((EObject)child).eClass().getName();
-
-			try {
-				return getResourceLocator().getImage(name);
-			}
-			catch (Exception e) {
-				CoreEditPlugin.INSTANCE.log(e);
-			}
-		}
-
-		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

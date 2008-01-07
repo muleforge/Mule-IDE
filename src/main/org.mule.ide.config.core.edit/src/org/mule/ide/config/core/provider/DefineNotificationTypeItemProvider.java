@@ -15,12 +15,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -29,22 +23,20 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.MuleAdminAgentType;
-
-import org.mule.ide.config.spring.SpringFactory;
+import org.mule.ide.config.core.DefineNotificationType;
+import org.mule.ide.config.core.EventType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.MuleAdminAgentType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.DefineNotificationType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MuleAdminAgentTypeItemProvider
-	extends ItemProviderAdapter
+public class DefineNotificationTypeItemProvider
+	extends AbstractDefineNotificationTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -57,7 +49,7 @@ public class MuleAdminAgentTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MuleAdminAgentTypeItemProvider(AdapterFactory adapterFactory) {
+	public DefineNotificationTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,25 +64,28 @@ public class MuleAdminAgentTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addServerUriPropertyDescriptor(object);
+			addEventPropertyDescriptor(object);
+			addEventClassPropertyDescriptor(object);
+			addInterfacePropertyDescriptor(object);
+			addInterfaceClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Server Uri feature.
+	 * This adds a property descriptor for the Event feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addServerUriPropertyDescriptor(Object object) {
+	protected void addEventPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MuleAdminAgentType_serverUri_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MuleAdminAgentType_serverUri_feature", "_UI_MuleAdminAgentType_type"),
-				 CorePackage.eINSTANCE.getMuleAdminAgentType_ServerUri(),
+				 getString("_UI_DefineNotificationType_event_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DefineNotificationType_event_feature", "_UI_DefineNotificationType_type"),
+				 CorePackage.eINSTANCE.getDefineNotificationType_Event(),
 				 true,
 				 false,
 				 false,
@@ -100,44 +95,80 @@ public class MuleAdminAgentTypeItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Event Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getMuleAdminAgentType_Property());
-		}
-		return childrenFeatures;
+	protected void addEventClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DefineNotificationType_eventClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DefineNotificationType_eventClass_feature", "_UI_DefineNotificationType_type"),
+				 CorePackage.eINSTANCE.getDefineNotificationType_EventClass(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This adds a property descriptor for the Interface feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addInterfacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DefineNotificationType_interface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DefineNotificationType_interface_feature", "_UI_DefineNotificationType_type"),
+				 CorePackage.eINSTANCE.getDefineNotificationType_Interface(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns MuleAdminAgentType.gif.
+	 * This adds a property descriptor for the Interface Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInterfaceClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DefineNotificationType_interfaceClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DefineNotificationType_interfaceClass_feature", "_UI_DefineNotificationType_type"),
+				 CorePackage.eINSTANCE.getDefineNotificationType_InterfaceClass(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns DefineNotificationType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MuleAdminAgentType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DefineNotificationType"));
 	}
 
 	/**
@@ -148,10 +179,11 @@ public class MuleAdminAgentTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MuleAdminAgentType)object).getServerUri();
+		EventType labelValue = ((DefineNotificationType)object).getEvent();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_MuleAdminAgentType_type") :
-			getString("_UI_MuleAdminAgentType_type") + " " + label;
+			getString("_UI_DefineNotificationType_type") :
+			getString("_UI_DefineNotificationType_type") + " " + label;
 	}
 
 	/**
@@ -165,12 +197,12 @@ public class MuleAdminAgentTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MuleAdminAgentType.class)) {
-			case CorePackage.MULE_ADMIN_AGENT_TYPE__SERVER_URI:
+		switch (notification.getFeatureID(DefineNotificationType.class)) {
+			case CorePackage.DEFINE_NOTIFICATION_TYPE__EVENT:
+			case CorePackage.DEFINE_NOTIFICATION_TYPE__EVENT_CLASS:
+			case CorePackage.DEFINE_NOTIFICATION_TYPE__INTERFACE:
+			case CorePackage.DEFINE_NOTIFICATION_TYPE__INTERFACE_CLASS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case CorePackage.MULE_ADMIN_AGENT_TYPE__PROPERTY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -186,39 +218,6 @@ public class MuleAdminAgentTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleAdminAgentType_Property(),
-				 SpringFactory.eINSTANCE.createPropertyType()));
-	}
-
-	/**
-	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
-		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)child;
-			feature = entry.getEStructuralFeature();
-			child = entry.getValue();        
-		}
-
-		if (feature instanceof EReference && child instanceof EObject) {
-			String name = "full/obj16/" + ((EObject)child).eClass().getName();
-
-			try {
-				return getResourceLocator().getImage(name);
-			}
-			catch (Exception e) {
-				CoreEditPlugin.INSTANCE.log(e);
-			}
-		}
-
-		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

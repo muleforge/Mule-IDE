@@ -69,26 +69,26 @@ public class NoArgsCallDelegateInstanceTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDelegateInstanceRefPropertyDescriptor(object);
-			addDelegateMethodPropertyDescriptor(object);
+			addMethodPropertyDescriptor(object);
+			addRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Delegate Instance Ref feature.
+	 * This adds a property descriptor for the Method feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDelegateInstanceRefPropertyDescriptor(Object object) {
+	protected void addMethodPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NoArgsCallDelegateInstanceType_delegateInstanceRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NoArgsCallDelegateInstanceType_delegateInstanceRef_feature", "_UI_NoArgsCallDelegateInstanceType_type"),
-				 CorePackage.eINSTANCE.getNoArgsCallDelegateInstanceType_DelegateInstanceRef(),
+				 getString("_UI_NoArgsCallDelegateInstanceType_method_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NoArgsCallDelegateInstanceType_method_feature", "_UI_NoArgsCallDelegateInstanceType_type"),
+				 CorePackage.eINSTANCE.getNoArgsCallDelegateInstanceType_Method(),
 				 true,
 				 false,
 				 false,
@@ -98,19 +98,19 @@ public class NoArgsCallDelegateInstanceTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Delegate Method feature.
+	 * This adds a property descriptor for the Ref feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDelegateMethodPropertyDescriptor(Object object) {
+	protected void addRefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NoArgsCallDelegateInstanceType_delegateMethod_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NoArgsCallDelegateInstanceType_delegateMethod_feature", "_UI_NoArgsCallDelegateInstanceType_type"),
-				 CorePackage.eINSTANCE.getNoArgsCallDelegateInstanceType_DelegateMethod(),
+				 getString("_UI_NoArgsCallDelegateInstanceType_ref_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NoArgsCallDelegateInstanceType_ref_feature", "_UI_NoArgsCallDelegateInstanceType_type"),
+				 CorePackage.eINSTANCE.getNoArgsCallDelegateInstanceType_Ref(),
 				 true,
 				 false,
 				 false,
@@ -138,7 +138,7 @@ public class NoArgsCallDelegateInstanceTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NoArgsCallDelegateInstanceType)object).getDelegateInstanceRef();
+		String label = ((NoArgsCallDelegateInstanceType)object).getMethod();
 		return label == null || label.length() == 0 ?
 			getString("_UI_NoArgsCallDelegateInstanceType_type") :
 			getString("_UI_NoArgsCallDelegateInstanceType_type") + " " + label;
@@ -156,8 +156,8 @@ public class NoArgsCallDelegateInstanceTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NoArgsCallDelegateInstanceType.class)) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_INSTANCE_REF:
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_METHOD:
+			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__METHOD:
+			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

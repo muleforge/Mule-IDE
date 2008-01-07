@@ -71,7 +71,6 @@ public class OutboundEndpointTypeItemProvider
 
 			addAddressPropertyDescriptor(object);
 			addConnectorRefPropertyDescriptor(object);
-			addCreateConnectorPropertyDescriptor(object);
 			addEncodingPropertyDescriptor(object);
 			addRefPropertyDescriptor(object);
 			addRemoteSyncPropertyDescriptor(object);
@@ -119,28 +118,6 @@ public class OutboundEndpointTypeItemProvider
 				 getString("_UI_OutboundEndpointType_connectorRef_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutboundEndpointType_connectorRef_feature", "_UI_OutboundEndpointType_type"),
 				 CorePackage.eINSTANCE.getOutboundEndpointType_ConnectorRef(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Create Connector feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCreateConnectorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_OutboundEndpointType_createConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OutboundEndpointType_createConnector_feature", "_UI_OutboundEndpointType_type"),
-				 CorePackage.eINSTANCE.getOutboundEndpointType_CreateConnector(),
 				 true,
 				 false,
 				 false,
@@ -372,7 +349,6 @@ public class OutboundEndpointTypeItemProvider
 		switch (notification.getFeatureID(OutboundEndpointType.class)) {
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ADDRESS:
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__CONNECTOR_REF:
-			case CorePackage.OUTBOUND_ENDPOINT_TYPE__CREATE_CONNECTOR:
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__ENCODING:
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__REF:
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE__REMOTE_SYNC:

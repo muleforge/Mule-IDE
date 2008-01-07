@@ -228,23 +228,12 @@
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Response"
+        title="Async Reply"
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Response Endpoint"
-          description="Add a new Response Endpoint to a service">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:PaletteSeparator"/>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Custom Response Router"
-          description="Add a new Custom Response Router to a service">
+          title="Custom Async Reply Router"
+          description="Add a new Custom Async Reply Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -252,8 +241,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Single Response Router"
-          description="Add a new Single Response Router to a service">
+          title="Single Async Reply Router"
+          description="Add a new Single Async Reply Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

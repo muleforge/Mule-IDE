@@ -129,7 +129,7 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/NoArgsCallWrapperType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/NoArgsCallComponentType"/>
         <containmentMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractComponent"/>
         <childMetaFeature
@@ -1465,19 +1465,19 @@
     </childNodes>
     <childNodes
         visualID="2025"
-        editPartClassName="ResponseRouterCollectionTypeEditPart"
-        itemSemanticEditPolicyClassName="ResponseRouterCollectionTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="ResponseRouterCollectionTypeViewFactory"
-        canonicalEditPolicyClassName="ResponseRouterCollectionTypeCanonicalEditPolicy"
+        editPartClassName="AsyncReplyRouterCollectionTypeEditPart"
+        itemSemanticEditPolicyClassName="AsyncReplyRouterCollectionTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="AsyncReplyRouterCollectionTypeViewFactory"
+        canonicalEditPolicyClassName="AsyncReplyRouterCollectionTypeCanonicalEditPolicy"
         compartments="//@diagram/@compartments.10 //@diagram/@compartments.11"
-        graphicalNodeEditPolicyClassName="ResponseRouterCollectionTypeGraphicalNodeEditPolicy"
-        createCommandClassName="ResponseRouterCollectionTypeCreateCommand"
+        graphicalNodeEditPolicyClassName="AsyncReplyRouterCollectionTypeGraphicalNodeEditPolicy"
+        createCommandClassName="AsyncReplyRouterCollectionTypeCreateCommand"
         containers="//@diagram/@compartments.3">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="ResponseRouterCollectionTypeEditHelper"/>
+          editHelperClassName="AsyncReplyRouterCollectionTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1494,27 +1494,27 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterCollectionType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/responseRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/asyncReplyRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/responseRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/asyncReplyRouter"/>
       </modelFacet>
     </childNodes>
     <childNodes
         visualID="2026"
-        editPartClassName="ResponseEndpointServiceItemTypeEditPart"
-        itemSemanticEditPolicyClassName="ResponseEndpointServiceItemTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="ResponseEndpointServiceItemTypeViewFactory"
-        canonicalEditPolicyClassName="ResponseEndpointServiceItemTypeCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="ResponseEndpointServiceItemTypeGraphicalNodeEditPolicy"
-        createCommandClassName="ResponseEndpointServiceItemTypeCreateCommand"
+        editPartClassName="AsyncReplyInboundEndpointServiceItemTypeEditPart"
+        itemSemanticEditPolicyClassName="AsyncReplyInboundEndpointServiceItemTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="AsyncReplyInboundEndpointServiceItemTypeViewFactory"
+        canonicalEditPolicyClassName="AsyncReplyInboundEndpointServiceItemTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="AsyncReplyInboundEndpointServiceItemTypeGraphicalNodeEditPolicy"
+        createCommandClassName="AsyncReplyInboundEndpointServiceItemTypeCreateCommand"
         containers="//@diagram/@compartments.10">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="ResponseEndpointTypeEditHelper"/>
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.13/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1530,17 +1530,17 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseEndpointType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundEndpointType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterCollectionType/abstractResponseEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractInboundEndpoint"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterCollectionType/abstractResponseEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractInboundEndpoint"/>
       </modelFacet>
       <labels
           visualID="4029"
-          editPartClassName="ResponseEndpointServiceItemTypeLabelEditPart"
-          itemSemanticEditPolicyClassName="ResponseEndpointServiceItemTypeLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="ResponseEndpointServiceItemTypeLabelViewFactory"
+          editPartClassName="AsyncReplyInboundEndpointServiceItemTypeLabelEditPart"
+          itemSemanticEditPolicyClassName="AsyncReplyInboundEndpointServiceItemTypeLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="AsyncReplyInboundEndpointServiceItemTypeLabelViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1558,18 +1558,18 @@
     </childNodes>
     <childNodes
         visualID="2027"
-        editPartClassName="ResponseRouterTypeEditPart"
-        itemSemanticEditPolicyClassName="ResponseRouterTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="ResponseRouterTypeViewFactory"
-        canonicalEditPolicyClassName="ResponseRouterTypeCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="ResponseRouterTypeGraphicalNodeEditPolicy"
-        createCommandClassName="ResponseRouterTypeCreateCommand"
+        editPartClassName="AsyncReplyRouterTypeEditPart"
+        itemSemanticEditPolicyClassName="AsyncReplyRouterTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="AsyncReplyRouterTypeViewFactory"
+        canonicalEditPolicyClassName="AsyncReplyRouterTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="AsyncReplyRouterTypeGraphicalNodeEditPolicy"
+        createCommandClassName="AsyncReplyRouterTypeCreateCommand"
         containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="ResponseRouterTypeEditHelper"/>
+          editHelperClassName="AsyncReplyRouterTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1585,20 +1585,20 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterCollectionType/abstractResponseRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractAsyncReplyRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterCollectionType/abstractResponseRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractAsyncReplyRouter"/>
         <modelElementSelector
-            body="singleResponseRouterConstraint"
+            body="singleAsyncReplyRouterConstraint"
             language="java"/>
       </modelFacet>
       <labels
           visualID="4030"
-          editPartClassName="ResponseRouterTypeLabelEditPart"
-          itemSemanticEditPolicyClassName="ResponseRouterTypeLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="ResponseRouterTypeLabelViewFactory"
+          editPartClassName="AsyncReplyRouterTypeLabelEditPart"
+          itemSemanticEditPolicyClassName="AsyncReplyRouterTypeLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="AsyncReplyRouterTypeLabelViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1616,18 +1616,18 @@
     </childNodes>
     <childNodes
         visualID="2028"
-        editPartClassName="CustomResponseRouterTypeEditPart"
-        itemSemanticEditPolicyClassName="CustomResponseRouterTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="CustomResponseRouterTypeViewFactory"
-        canonicalEditPolicyClassName="CustomResponseRouterTypeCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="CustomResponseRouterTypeGraphicalNodeEditPolicy"
-        createCommandClassName="CustomResponseRouterTypeCreateCommand"
+        editPartClassName="CustomAsyncReplyRouterTypeEditPart"
+        itemSemanticEditPolicyClassName="CustomAsyncReplyRouterTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="CustomAsyncReplyRouterTypeViewFactory"
+        canonicalEditPolicyClassName="CustomAsyncReplyRouterTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="CustomAsyncReplyRouterTypeGraphicalNodeEditPolicy"
+        createCommandClassName="CustomAsyncReplyRouterTypeCreateCommand"
         containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="CustomResponseRouterTypeEditHelper"/>
+          editHelperClassName="CustomAsyncReplyRouterTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1643,17 +1643,17 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/CustomResponseRouterType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/CustomAsyncReplyRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterCollectionType/abstractResponseRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractAsyncReplyRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ResponseRouterCollectionType/abstractResponseRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractAsyncReplyRouter"/>
       </modelFacet>
       <labels
           visualID="4031"
-          editPartClassName="CustomResponseRouterTypeLabelEditPart"
-          itemSemanticEditPolicyClassName="CustomResponseRouterTypeLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="CustomResponseRouterTypeLabelViewFactory"
+          editPartClassName="CustomAsyncReplyRouterTypeLabelEditPart"
+          itemSemanticEditPolicyClassName="CustomAsyncReplyRouterTypeLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="CustomAsyncReplyRouterTypeLabelViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1670,9 +1670,9 @@
       </labels>
       <labels
           visualID="4032"
-          editPartClassName="CustomResponseRouterTypeClassEditPart"
-          itemSemanticEditPolicyClassName="CustomResponseRouterTypeClassItemSemanticEditPolicy"
-          notationViewFactoryClassName="CustomResponseRouterTypeClassViewFactory">
+          editPartClassName="CustomAsyncReplyRouterTypeClassEditPart"
+          itemSemanticEditPolicyClassName="CustomAsyncReplyRouterTypeClassItemSemanticEditPolicy"
+          notationViewFactoryClassName="CustomAsyncReplyRouterTypeClassViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -1686,7 +1686,7 @@
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet">
           <metaFeatures
-              href="../../org.mule.ide.config.core/model/core.genmodel#//core/CustomResponseRouterType/class"/>
+              href="../../org.mule.ide.config.core/model/core.genmodel#//core/CustomAsyncReplyRouterType/class"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -2504,12 +2504,12 @@
     </compartments>
     <compartments
         visualID="5004"
-        editPartClassName="SedaServiceTypeRESPONSEEditPart"
-        itemSemanticEditPolicyClassName="SedaServiceTypeRESPONSEItemSemanticEditPolicy"
-        notationViewFactoryClassName="SedaServiceTypeRESPONSEViewFactory"
-        canonicalEditPolicyClassName="SedaServiceTypeRESPONSECanonicalEditPolicy"
+        editPartClassName="SedaServiceTypeASYNCREPLYEditPart"
+        itemSemanticEditPolicyClassName="SedaServiceTypeASYNCREPLYItemSemanticEditPolicy"
+        notationViewFactoryClassName="SedaServiceTypeASYNCREPLYViewFactory"
+        canonicalEditPolicyClassName="SedaServiceTypeASYNCREPLYCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.24"
-        title="RESPONSE"
+        title="ASYNC REPLY"
         node="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -2630,12 +2630,12 @@
     </compartments>
     <compartments
         visualID="5011"
-        editPartClassName="ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart"
-        itemSemanticEditPolicyClassName="ResponseRouterCollectionTypeRESPONSEENDPOINTSItemSemanticEditPolicy"
-        notationViewFactoryClassName="ResponseRouterCollectionTypeRESPONSEENDPOINTSViewFactory"
-        canonicalEditPolicyClassName="ResponseRouterCollectionTypeRESPONSEENDPOINTSCanonicalEditPolicy"
+        editPartClassName="AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart"
+        itemSemanticEditPolicyClassName="AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy"
+        notationViewFactoryClassName="AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSViewFactory"
+        canonicalEditPolicyClassName="AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.25"
-        title="RESPONSEENDPOINTS"
+        title="INBOUNDENDPOINTS"
         canCollapse="false"
         needsTitle="false"
         node="//@diagram/@childNodes.24">
@@ -2649,12 +2649,12 @@
     </compartments>
     <compartments
         visualID="5012"
-        editPartClassName="ResponseRouterCollectionTypeRESPONSEROUTERSEditPart"
-        itemSemanticEditPolicyClassName="ResponseRouterCollectionTypeRESPONSEROUTERSItemSemanticEditPolicy"
-        notationViewFactoryClassName="ResponseRouterCollectionTypeRESPONSEROUTERSViewFactory"
-        canonicalEditPolicyClassName="ResponseRouterCollectionTypeRESPONSEROUTERSCanonicalEditPolicy"
+        editPartClassName="AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart"
+        itemSemanticEditPolicyClassName="AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSItemSemanticEditPolicy"
+        notationViewFactoryClassName="AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSViewFactory"
+        canonicalEditPolicyClassName="AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.26 //@diagram/@childNodes.27"
-        title="RESPONSEROUTERS"
+        title="ASYNCREPLYROUTERS"
         canCollapse="false"
         needsTitle="false"
         node="//@diagram/@childNodes.24">
@@ -2761,7 +2761,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="Inbound Endpoint"
             description="Add a new Inbound Endpoint to a service"
-            genNodes="//@diagram/@childNodes.13"/>
+            genNodes="//@diagram/@childNodes.13 //@diagram/@childNodes.25"/>
         <entries
             xsi:type="gmfgen:Separator"/>
         <entries
@@ -2816,24 +2816,17 @@
             genNodes="//@diagram/@childNodes.18"/>
       </groups>
       <groups
-          title="Response"
+          title="Async Reply"
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Response Endpoint"
-            description="Add a new Response Endpoint to a service"
-            genNodes="//@diagram/@childNodes.25"/>
-        <entries
-            xsi:type="gmfgen:Separator"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Custom Response Router"
-            description="Add a new Custom Response Router to a service"
+            title="Custom Async Reply Router"
+            description="Add a new Custom Async Reply Router to a service"
             genNodes="//@diagram/@childNodes.27"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Single Response Router"
-            description="Add a new Single Response Router to a service"
+            title="Single Async Reply Router"
+            description="Add a new Single Async Reply Router to a service"
             genNodes="//@diagram/@childNodes.26"/>
       </groups>
       <groups

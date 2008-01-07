@@ -262,7 +262,7 @@
     </facets>
   </nodes>
   <nodes
-      name="ResponseRouterCollectionType"
+      name="AsyncReplyRouterCollectionType"
       figure="CollectionFigure">
     <facets
         xsi:type="gmfgraph:DefaultSizeFacet">
@@ -342,7 +342,7 @@
       collapsible="true"
       needsTitle="true"/>
   <compartments
-      name="RESPONSE"
+      name="ASYNC REPLY"
       figure="CompartmentFigure"
       collapsible="true"
       needsTitle="true"/>
@@ -365,13 +365,10 @@
       name="OUTBOUNDROUTERS"
       figure="CompartmentFigure"/>
   <compartments
-      name="RESPONSEROUTERS"
+      name="ASYNCREPLYROUTERS"
       figure="CompartmentFigure"/>
   <compartments
       name="INBOUNDENDPOINTS"
-      figure="CompartmentFigure"/>
-  <compartments
-      name="RESPONSEENDPOINTS"
       figure="CompartmentFigure"/>
   <labels
       name="ServiceNameLabel"

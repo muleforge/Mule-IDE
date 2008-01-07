@@ -14,10 +14,10 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomOutboundRouterTypeClassEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
@@ -186,24 +186,24 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser customResponseRouterTypeClass_4032Parser;
+	private IParser customAsyncReplyRouterTypeClass_4032Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCustomResponseRouterTypeClass_4032Parser() {
-		if (customResponseRouterTypeClass_4032Parser == null) {
-			customResponseRouterTypeClass_4032Parser = createCustomResponseRouterTypeClass_4032Parser();
+	private IParser getCustomAsyncReplyRouterTypeClass_4032Parser() {
+		if (customAsyncReplyRouterTypeClass_4032Parser == null) {
+			customAsyncReplyRouterTypeClass_4032Parser = createCustomAsyncReplyRouterTypeClass_4032Parser();
 		}
-		return customResponseRouterTypeClass_4032Parser;
+		return customAsyncReplyRouterTypeClass_4032Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCustomResponseRouterTypeClass_4032Parser() {
+	protected IParser createCustomAsyncReplyRouterTypeClass_4032Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
-				.getCustomResponseRouterType_Class(), };
+				.getCustomAsyncReplyRouterType_Class(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
 		return parser;
 	}
@@ -386,24 +386,24 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 *
 	 */
-	private IParser customResponseRouterTypeClass_Parser;
+	private IParser customAsyncReplyRouterTypeClass_Parser;
 
 	/**
 	 *
 	 */
-	private IParser getCustomResponseRouterTypeClass_Parser() {
-		if (customResponseRouterTypeClass_Parser == null) {
-			customResponseRouterTypeClass_Parser = createCustomResponseRouterTypeClass_Parser();
+	private IParser getCustomAsyncReplyRouterTypeClass_Parser() {
+		if (customAsyncReplyRouterTypeClass_Parser == null) {
+			customAsyncReplyRouterTypeClass_Parser = createCustomAsyncReplyRouterTypeClass_Parser();
 		}
-		return customResponseRouterTypeClass_Parser;
+		return customAsyncReplyRouterTypeClass_Parser;
 	}
 
 	/**
 	 *
 	 */
-	protected IParser createCustomResponseRouterTypeClass_Parser() {
+	protected IParser createCustomAsyncReplyRouterTypeClass_Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
-				.getCustomResponseRouterType_Class(), };
+				.getCustomAsyncReplyRouterType_Class(), };
 		MessageFormatParser parser = new ClassNameParser(features);
 		return parser;
 	}
@@ -477,8 +477,8 @@ public class CoreParserProvider extends AbstractProvider implements
 			return getCorrelationAggregatorRouterTypeClass_Parser();
 		case CustomInboundRouterTypeClassEditPart.VISUAL_ID:
 			return getCustomInboundRouterTypeClass_Parser();
-		case CustomResponseRouterTypeClassEditPart.VISUAL_ID:
-			return getCustomResponseRouterTypeClass_Parser();
+		case CustomAsyncReplyRouterTypeClassEditPart.VISUAL_ID:
+			return getCustomAsyncReplyRouterTypeClass_Parser();
 		case CustomOutboundRouterTypeClassEditPart.VISUAL_ID:
 			return getCustomOutboundRouterTypeClass_Parser();
 

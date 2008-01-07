@@ -12,7 +12,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.commands.InboundRouterCollectionTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.OutboundRouterCollectionTypeCreateCommand;
-import org.mule.ide.config.editor.services.edit.commands.ResponseRouterCollectionTypeCreateCommand;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
@@ -26,12 +26,11 @@ import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeASYNCREPLYEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeRESPONSEEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
@@ -128,12 +127,12 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 					}
 				}
 				break;
-			case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
+			case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
-					case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
+					case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					}

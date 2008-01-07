@@ -20,13 +20,13 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
@@ -48,7 +48,7 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof SedaServiceTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.PojoComponentType_2001);
-			types.add(CoreElementTypes.NoArgsCallWrapperType_2002);
+			types.add(CoreElementTypes.NoArgsCallComponentType_2002);
 			types.add(CoreElementTypes.DefaultComponentType_2003);
 			types.add(CoreElementTypes.DefaultComponentType_2004);
 			types.add(CoreElementTypes.DefaultComponentType_2005);
@@ -59,7 +59,7 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.ExceptionStrategyType_2011);
 			types.add(CoreElementTypes.CustomExceptionStrategyType_2012);
 			types.add(CoreElementTypes.InboundRouterCollectionType_2013);
-			types.add(CoreElementTypes.ResponseRouterCollectionType_2025);
+			types.add(CoreElementTypes.AsyncReplyRouterCollectionType_2025);
 			types.add(CoreElementTypes.OutboundRouterCollectionType_2029);
 			return types;
 		}
@@ -93,11 +93,11 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.CustomInboundRouterType_2024);
 			return types;
 		}
-		if (editPart instanceof ResponseRouterCollectionTypeEditPart) {
+		if (editPart instanceof AsyncReplyRouterCollectionTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.ResponseEndpointType_2026);
-			types.add(CoreElementTypes.ResponseRouterType_2027);
-			types.add(CoreElementTypes.CustomResponseRouterType_2028);
+			types.add(CoreElementTypes.InboundEndpointType_2026);
+			types.add(CoreElementTypes.AsyncReplyRouterType_2027);
+			types.add(CoreElementTypes.CustomAsyncReplyRouterType_2028);
 			return types;
 		}
 		if (editPart instanceof OutboundRouterCollectionTypeEditPart) {

@@ -31,7 +31,8 @@ public class SedaServiceTypeCOMPONENTItemSemanticEditPolicy extends
 			}
 			return getGEFWrapper(new PojoComponentTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.NoArgsCallWrapperType_2002 == req.getElementType()) {
+		if (CoreElementTypes.NoArgsCallComponentType_2002 == req
+				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());

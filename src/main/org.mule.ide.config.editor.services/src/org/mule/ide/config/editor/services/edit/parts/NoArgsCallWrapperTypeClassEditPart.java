@@ -304,7 +304,7 @@ public class NoArgsCallWrapperTypeClassEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.NoArgsCallWrapperType_2002,
+					CoreElementTypes.NoArgsCallComponentType_2002,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

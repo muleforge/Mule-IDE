@@ -195,29 +195,31 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case CustomInboundRouterTypeClassEditPart.VISUAL_ID:
 				return new CustomInboundRouterTypeClassEditPart(view);
 
-			case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-				return new ResponseRouterCollectionTypeEditPart(view);
+			case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
+				return new AsyncReplyRouterCollectionTypeEditPart(view);
 
-			case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
-				return new ResponseEndpointServiceItemTypeEditPart(view);
+			case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+				return new AsyncReplyInboundEndpointServiceItemTypeEditPart(
+						view);
 
-			case ResponseEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
-				return new ResponseEndpointServiceItemTypeLabelEditPart(view);
+			case AsyncReplyInboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
+				return new AsyncReplyInboundEndpointServiceItemTypeLabelEditPart(
+						view);
 
-			case ResponseRouterTypeEditPart.VISUAL_ID:
-				return new ResponseRouterTypeEditPart(view);
+			case AsyncReplyRouterTypeEditPart.VISUAL_ID:
+				return new AsyncReplyRouterTypeEditPart(view);
 
-			case ResponseRouterTypeLabelEditPart.VISUAL_ID:
-				return new ResponseRouterTypeLabelEditPart(view);
+			case AsyncReplyRouterTypeLabelEditPart.VISUAL_ID:
+				return new AsyncReplyRouterTypeLabelEditPart(view);
 
-			case CustomResponseRouterTypeEditPart.VISUAL_ID:
-				return new CustomResponseRouterTypeEditPart(view);
+			case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
+				return new CustomAsyncReplyRouterTypeEditPart(view);
 
-			case CustomResponseRouterTypeLabelEditPart.VISUAL_ID:
-				return new CustomResponseRouterTypeLabelEditPart(view);
+			case CustomAsyncReplyRouterTypeLabelEditPart.VISUAL_ID:
+				return new CustomAsyncReplyRouterTypeLabelEditPart(view);
 
-			case CustomResponseRouterTypeClassEditPart.VISUAL_ID:
-				return new CustomResponseRouterTypeClassEditPart(view);
+			case CustomAsyncReplyRouterTypeClassEditPart.VISUAL_ID:
+				return new CustomAsyncReplyRouterTypeClassEditPart(view);
 
 			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 				return new OutboundRouterCollectionTypeEditPart(view);
@@ -300,8 +302,8 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
 				return new SedaServiceTypeINBOUNDEditPart(view);
 
-			case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
-				return new SedaServiceTypeRESPONSEEditPart(view);
+			case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
+				return new SedaServiceTypeASYNCREPLYEditPart(view);
 
 			case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
 				return new SedaServiceTypeOUTBOUNDEditPart(view);
@@ -325,12 +327,12 @@ public class CoreEditPartFactory implements EditPartFactory {
 				return new InboundRouterCollectionTypeINBOUNDROUTERSEditPart(
 						view);
 
-			case ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID:
-				return new ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart(
+			case AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+				return new AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart(
 						view);
 
-			case ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID:
-				return new ResponseRouterCollectionTypeRESPONSEROUTERSEditPart(
+			case AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
+				return new AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart(
 						view);
 
 			case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:

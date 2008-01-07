@@ -62,7 +62,7 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType NoArgsCallWrapperType_2002 = getElementType("org.mule.ide.config.editor.services.NoArgsCallWrapperType_2002"); //$NON-NLS-1$
+	public static final IElementType NoArgsCallComponentType_2002 = getElementType("org.mule.ide.config.editor.services.NoArgsCallComponentType_2002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -177,22 +177,22 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ResponseRouterCollectionType_2025 = getElementType("org.mule.ide.config.editor.services.ResponseRouterCollectionType_2025"); //$NON-NLS-1$
+	public static final IElementType AsyncReplyRouterCollectionType_2025 = getElementType("org.mule.ide.config.editor.services.AsyncReplyRouterCollectionType_2025"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ResponseEndpointType_2026 = getElementType("org.mule.ide.config.editor.services.ResponseEndpointType_2026"); //$NON-NLS-1$
+	public static final IElementType InboundEndpointType_2026 = getElementType("org.mule.ide.config.editor.services.InboundEndpointType_2026"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ResponseRouterType_2027 = getElementType("org.mule.ide.config.editor.services.ResponseRouterType_2027"); //$NON-NLS-1$
+	public static final IElementType AsyncReplyRouterType_2027 = getElementType("org.mule.ide.config.editor.services.AsyncReplyRouterType_2027"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CustomResponseRouterType_2028 = getElementType("org.mule.ide.config.editor.services.CustomResponseRouterType_2028"); //$NON-NLS-1$
+	public static final IElementType CustomAsyncReplyRouterType_2028 = getElementType("org.mule.ide.config.editor.services.CustomAsyncReplyRouterType_2028"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -374,8 +374,8 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(PojoComponentType_2001, CorePackage.eINSTANCE
 					.getPojoComponentType());
 
-			elements.put(NoArgsCallWrapperType_2002, CorePackage.eINSTANCE
-					.getNoArgsCallWrapperType());
+			elements.put(NoArgsCallComponentType_2002, CorePackage.eINSTANCE
+					.getNoArgsCallComponentType());
 
 			elements.put(DefaultComponentType_2003, CorePackage.eINSTANCE
 					.getDefaultComponentType());
@@ -443,17 +443,17 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(CustomInboundRouterType_2024, CorePackage.eINSTANCE
 					.getCustomInboundRouterType());
 
-			elements.put(ResponseRouterCollectionType_2025,
-					CorePackage.eINSTANCE.getResponseRouterCollectionType());
+			elements.put(AsyncReplyRouterCollectionType_2025,
+					CorePackage.eINSTANCE.getAsyncReplyRouterCollectionType());
 
-			elements.put(ResponseEndpointType_2026, CorePackage.eINSTANCE
-					.getResponseEndpointType());
+			elements.put(InboundEndpointType_2026, CorePackage.eINSTANCE
+					.getInboundEndpointType());
 
-			elements.put(ResponseRouterType_2027, CorePackage.eINSTANCE
-					.getResponseRouterType());
+			elements.put(AsyncReplyRouterType_2027, CorePackage.eINSTANCE
+					.getAsyncReplyRouterType());
 
-			elements.put(CustomResponseRouterType_2028, CorePackage.eINSTANCE
-					.getCustomResponseRouterType());
+			elements.put(CustomAsyncReplyRouterType_2028, CorePackage.eINSTANCE
+					.getCustomAsyncReplyRouterType());
 
 			elements.put(OutboundRouterCollectionType_2029,
 					CorePackage.eINSTANCE.getOutboundRouterCollectionType());
@@ -511,7 +511,7 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(DefaultModelType_79);
 			KNOWN_ELEMENT_TYPES.add(SedaServiceType_1001);
 			KNOWN_ELEMENT_TYPES.add(PojoComponentType_2001);
-			KNOWN_ELEMENT_TYPES.add(NoArgsCallWrapperType_2002);
+			KNOWN_ELEMENT_TYPES.add(NoArgsCallComponentType_2002);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2003);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2004);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2005);
@@ -534,10 +534,10 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(CorrelationRouterType_2022);
 			KNOWN_ELEMENT_TYPES.add(CorrelationAggregatorRouterType_2023);
 			KNOWN_ELEMENT_TYPES.add(CustomInboundRouterType_2024);
-			KNOWN_ELEMENT_TYPES.add(ResponseRouterCollectionType_2025);
-			KNOWN_ELEMENT_TYPES.add(ResponseEndpointType_2026);
-			KNOWN_ELEMENT_TYPES.add(ResponseRouterType_2027);
-			KNOWN_ELEMENT_TYPES.add(CustomResponseRouterType_2028);
+			KNOWN_ELEMENT_TYPES.add(AsyncReplyRouterCollectionType_2025);
+			KNOWN_ELEMENT_TYPES.add(InboundEndpointType_2026);
+			KNOWN_ELEMENT_TYPES.add(AsyncReplyRouterType_2027);
+			KNOWN_ELEMENT_TYPES.add(CustomAsyncReplyRouterType_2028);
 			KNOWN_ELEMENT_TYPES.add(OutboundRouterCollectionType_2029);
 			KNOWN_ELEMENT_TYPES.add(OutboundRouterType_2030);
 			KNOWN_ELEMENT_TYPES.add(FilteringOutboundRouterType_2031);

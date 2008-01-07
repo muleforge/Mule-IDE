@@ -86,7 +86,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.NoArgsCallWrapperType_2002) {
+								if (type == CoreElementTypes.NoArgsCallComponentType_2002) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeCOMPONENTEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
@@ -163,9 +163,9 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.ResponseRouterCollectionType_2025) {
+								if (type == CoreElementTypes.AsyncReplyRouterCollectionType_2025) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(SedaServiceTypeRESPONSEEditPart.VISUAL_ID));
+											.getType(SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);

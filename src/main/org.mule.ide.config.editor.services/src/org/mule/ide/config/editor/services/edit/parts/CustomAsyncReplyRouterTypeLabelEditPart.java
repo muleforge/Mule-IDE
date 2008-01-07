@@ -52,13 +52,13 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * @generated
  */
-public class NoArgsCallWrapperTypeLabelEditPart extends CompartmentEditPart
-		implements ITextAwareEditPart {
+public class CustomAsyncReplyRouterTypeLabelEditPart extends
+		CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4003;
+	public static final int VISUAL_ID = 4031;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class NoArgsCallWrapperTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public NoArgsCallWrapperTypeLabelEditPart(View view) {
+	public CustomAsyncReplyRouterTypeLabelEditPart(View view) {
 		super(view);
 	}
 
@@ -308,7 +308,7 @@ public class NoArgsCallWrapperTypeLabelEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.NoArgsCallComponentType_2002,
+					CoreElementTypes.CustomAsyncReplyRouterType_2028,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

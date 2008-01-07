@@ -268,7 +268,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Response5Group_title;
+	public static String AsyncReply5Group_title;
 
 	/**
 	 * @generated
@@ -498,6 +498,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String CustomAsyncReplyRouter1CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CustomAsyncReplyRouter1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String SingleAsyncReplyRouter2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SingleAsyncReplyRouter2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String OutboundEndpoint1CreationTool_title;
 
 	/**
@@ -618,36 +638,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ResponseEndpoint1CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ResponseEndpoint1CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomResponseRouter3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CustomResponseRouter3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String SingleResponseRouter4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String SingleResponseRouter4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
 	public static String SedaServiceTypeCOMPONENTEditPart_title;
 
 	/**
@@ -663,12 +653,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String SedaServiceTypeOUTBOUNDEditPart_title;
+	public static String SedaServiceTypeASYNCREPLYEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SedaServiceTypeRESPONSEEditPart_title;
+	public static String SedaServiceTypeOUTBOUNDEditPart_title;
 
 	/**
 	 * @generated
@@ -683,17 +673,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart_title;
+	public static String AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart_title;
 
 	/**
 	 * @generated
 	 */
 	public static String OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ResponseRouterCollectionTypeRESPONSEROUTERSEditPart_title;
 
 	/**
 	 * @generated
@@ -752,6 +742,8 @@ public class Messages extends NLS {
 
 	//TODO: put accessor fields manually
 
+	// Custom messages
+	
 	/**
 	 * 
 	 */
@@ -765,7 +757,7 @@ public class Messages extends NLS {
 	/**
 	 * 
 	 */
-	public static String ResponseRouterCollectionTypeRESPONSEROUTERSEditPart_tooltip;
+	public static String AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart_tooltip;
 
 	/**
 	 * 
@@ -775,7 +767,7 @@ public class Messages extends NLS {
 	/**
 	 * 
 	 */
-	public static String ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart_tooltip;
+	public static String AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart_tooltip;
 
 	/**
 	 * 
@@ -885,17 +877,17 @@ public class Messages extends NLS {
 	/**
 	 * 
 	 */
-	public static String ResponseEndpointServiceItemTypeLabel;
+	public static String AsyncReplyInboundEndpointServiceItemTypeLabel;
 
 	/**
 	 * 
 	 */
-	public static String SingleResponseRouterTypeLabel;
+	public static String SingleAsyncReplyRouterTypeLabel;
 
 	/**
 	 * 
 	 */
-	public static String CustomResponseRouterTypeLabel;
+	public static String CustomAsyncReplyRouterTypeLabel;
 
 	/**
 	 * 

@@ -19,6 +19,11 @@ import org.mule.ide.config.core.CorePackage;
  */
 public class SedaServiceTypeEditHelper extends CoreBaseEditHelper {
 
+	/**
+	 * customization
+	 *   - automatically create the inbound, outbound, and async reply collections on
+	 *     creation of a seda service element.
+	 */
 	protected ICommand getConfigureCommand(final ConfigureRequest req) {
 		return new ConfigureServiceElementCommand(req);
 	}
@@ -61,9 +66,9 @@ public class SedaServiceTypeEditHelper extends CoreBaseEditHelper {
 					collectionClass);
 
 			collectionClass = CorePackage.eINSTANCE
-					.getResponseRouterCollectionType();
+					.getAsyncReplyRouterCollectionType();
 			collectionContainer = CorePackage.eINSTANCE
-					.getBaseServiceType_ResponseRouter();
+					.getBaseServiceType_AsyncReplyRouter();
 			result = EMFCoreUtil.create(service, collectionContainer,
 					collectionClass);
 		}

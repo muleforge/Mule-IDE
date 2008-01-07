@@ -6,33 +6,37 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.AbstractAsyncReplyRouterType;
 import org.mule.ide.config.core.AbstractComponentType;
 import org.mule.ide.config.core.AbstractExceptionStrategyType;
 import org.mule.ide.config.core.AbstractInboundEndpointType;
 import org.mule.ide.config.core.AbstractInboundRouterType;
 import org.mule.ide.config.core.AbstractOutboundEndpointType;
 import org.mule.ide.config.core.AbstractOutboundRouterType;
-import org.mule.ide.config.core.AbstractResponseEndpointType;
-import org.mule.ide.config.core.AbstractResponseRouterType;
 import org.mule.ide.config.core.AbstractServiceType;
+import org.mule.ide.config.core.AsyncReplyRouterCollectionType;
 import org.mule.ide.config.core.CustomExceptionStrategyType;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.ExceptionStrategyType;
 import org.mule.ide.config.core.InboundRouterCollectionType;
 import org.mule.ide.config.core.OutboundRouterCollectionType;
-import org.mule.ide.config.core.ResponseRouterCollectionType;
 import org.mule.ide.config.core.SedaServiceType;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyInboundEndpointServiceItemTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
@@ -62,17 +66,12 @@ import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEd
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceItemTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEROUTERSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeASYNCREPLYEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeRESPONSEEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRouterTypeEditPart;
@@ -94,8 +93,8 @@ public class CoreDiagramUpdater {
 			return getSedaServiceTypeEXCEPTION_5002SemanticChildren(view);
 		case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
 			return getSedaServiceTypeINBOUND_5003SemanticChildren(view);
-		case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
-			return getSedaServiceTypeRESPONSE_5004SemanticChildren(view);
+		case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
+			return getSedaServiceTypeASYNCREPLY_5004SemanticChildren(view);
 		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
 			return getSedaServiceTypeOUTBOUND_5005SemanticChildren(view);
 		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
@@ -108,10 +107,10 @@ public class CoreDiagramUpdater {
 			return getInboundRouterCollectionTypeINBOUNDENDPOINTS_5009SemanticChildren(view);
 		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 			return getInboundRouterCollectionTypeINBOUNDROUTERS_5010SemanticChildren(view);
-		case ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID:
-			return getResponseRouterCollectionTypeRESPONSEENDPOINTS_5011SemanticChildren(view);
-		case ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID:
-			return getResponseRouterCollectionTypeRESPONSEROUTERS_5012SemanticChildren(view);
+		case AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+			return getAsyncReplyRouterCollectionTypeINBOUNDENDPOINTS_5011SemanticChildren(view);
+		case AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
+			return getAsyncReplyRouterCollectionTypeASYNCREPLYROUTERS_5012SemanticChildren(view);
 		case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
 			return getOutboundRouterCollectionTypeOUTBOUNDROUTERS_5013SemanticChildren(view);
 		case DefaultModelTypeEditPart.VISUAL_ID:
@@ -230,7 +229,8 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSedaServiceTypeRESPONSE_5004SemanticChildren(View view) {
+	public static List getSedaServiceTypeASYNCREPLY_5004SemanticChildren(
+			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
 		}
@@ -242,11 +242,11 @@ public class CoreDiagramUpdater {
 				.getElement();
 		List result = new LinkedList();
 		{
-			ResponseRouterCollectionType childElement = modelElement
-					.getResponseRouter();
+			AsyncReplyRouterCollectionType childElement = modelElement
+					.getAsyncReplyRouter();
 			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == ResponseRouterCollectionTypeEditPart.VISUAL_ID) {
+			if (visualID == AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -463,7 +463,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResponseRouterCollectionTypeRESPONSEENDPOINTS_5011SemanticChildren(
+	public static List getAsyncReplyRouterCollectionTypeINBOUNDENDPOINTS_5011SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -472,16 +472,16 @@ public class CoreDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
-		ResponseRouterCollectionType modelElement = (ResponseRouterCollectionType) containerView
+		AsyncReplyRouterCollectionType modelElement = (AsyncReplyRouterCollectionType) containerView
 				.getElement();
 		List result = new LinkedList();
-		for (Iterator it = modelElement.getAbstractResponseEndpoint()
-				.iterator(); it.hasNext();) {
-			AbstractResponseEndpointType childElement = (AbstractResponseEndpointType) it
+		for (Iterator it = modelElement.getAbstractInboundEndpoint().iterator(); it
+				.hasNext();) {
+			AbstractInboundEndpointType childElement = (AbstractInboundEndpointType) it
 					.next();
 			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == ResponseEndpointServiceItemTypeEditPart.VISUAL_ID) {
+			if (visualID == AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -492,7 +492,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResponseRouterCollectionTypeRESPONSEROUTERS_5012SemanticChildren(
+	public static List getAsyncReplyRouterCollectionTypeASYNCREPLYROUTERS_5012SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -501,20 +501,20 @@ public class CoreDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
-		ResponseRouterCollectionType modelElement = (ResponseRouterCollectionType) containerView
+		AsyncReplyRouterCollectionType modelElement = (AsyncReplyRouterCollectionType) containerView
 				.getElement();
 		List result = new LinkedList();
-		for (Iterator it = modelElement.getAbstractResponseRouter().iterator(); it
-				.hasNext();) {
-			AbstractResponseRouterType childElement = (AbstractResponseRouterType) it
+		for (Iterator it = modelElement.getAbstractAsyncReplyRouter()
+				.iterator(); it.hasNext();) {
+			AbstractAsyncReplyRouterType childElement = (AbstractAsyncReplyRouterType) it
 					.next();
 			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == ResponseRouterTypeEditPart.VISUAL_ID) {
+			if (visualID == AsyncReplyRouterTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 				continue;
 			}
-			if (visualID == CustomResponseRouterTypeEditPart.VISUAL_ID) {
+			if (visualID == CustomAsyncReplyRouterTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -625,7 +625,7 @@ public class CoreDiagramUpdater {
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2001ContainedLinks(view);
 		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
-			return getNoArgsCallWrapperType_2002ContainedLinks(view);
+			return getNoArgsCallComponentType_2002ContainedLinks(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2003ContainedLinks(view);
 		case BridgeComponentTypeEditPart.VISUAL_ID:
@@ -670,14 +670,14 @@ public class CoreDiagramUpdater {
 			return getCorrelationAggregatorRouterType_2023ContainedLinks(view);
 		case CustomInboundRouterTypeEditPart.VISUAL_ID:
 			return getCustomInboundRouterType_2024ContainedLinks(view);
-		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-			return getResponseRouterCollectionType_2025ContainedLinks(view);
-		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
-			return getResponseEndpointType_2026ContainedLinks(view);
-		case ResponseRouterTypeEditPart.VISUAL_ID:
-			return getResponseRouterType_2027ContainedLinks(view);
-		case CustomResponseRouterTypeEditPart.VISUAL_ID:
-			return getCustomResponseRouterType_2028ContainedLinks(view);
+		case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
+			return getAsyncReplyRouterCollectionType_2025ContainedLinks(view);
+		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+			return getInboundEndpointType_2026ContainedLinks(view);
+		case AsyncReplyRouterTypeEditPart.VISUAL_ID:
+			return getAsyncReplyRouterType_2027ContainedLinks(view);
+		case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
+			return getCustomAsyncReplyRouterType_2028ContainedLinks(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getOutboundRouterCollectionType_2029ContainedLinks(view);
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
@@ -716,7 +716,7 @@ public class CoreDiagramUpdater {
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2001IncomingLinks(view);
 		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
-			return getNoArgsCallWrapperType_2002IncomingLinks(view);
+			return getNoArgsCallComponentType_2002IncomingLinks(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2003IncomingLinks(view);
 		case BridgeComponentTypeEditPart.VISUAL_ID:
@@ -761,14 +761,14 @@ public class CoreDiagramUpdater {
 			return getCorrelationAggregatorRouterType_2023IncomingLinks(view);
 		case CustomInboundRouterTypeEditPart.VISUAL_ID:
 			return getCustomInboundRouterType_2024IncomingLinks(view);
-		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-			return getResponseRouterCollectionType_2025IncomingLinks(view);
-		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
-			return getResponseEndpointType_2026IncomingLinks(view);
-		case ResponseRouterTypeEditPart.VISUAL_ID:
-			return getResponseRouterType_2027IncomingLinks(view);
-		case CustomResponseRouterTypeEditPart.VISUAL_ID:
-			return getCustomResponseRouterType_2028IncomingLinks(view);
+		case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
+			return getAsyncReplyRouterCollectionType_2025IncomingLinks(view);
+		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+			return getInboundEndpointType_2026IncomingLinks(view);
+		case AsyncReplyRouterTypeEditPart.VISUAL_ID:
+			return getAsyncReplyRouterType_2027IncomingLinks(view);
+		case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
+			return getCustomAsyncReplyRouterType_2028IncomingLinks(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getOutboundRouterCollectionType_2029IncomingLinks(view);
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
@@ -807,7 +807,7 @@ public class CoreDiagramUpdater {
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2001OutgoingLinks(view);
 		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
-			return getNoArgsCallWrapperType_2002OutgoingLinks(view);
+			return getNoArgsCallComponentType_2002OutgoingLinks(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2003OutgoingLinks(view);
 		case BridgeComponentTypeEditPart.VISUAL_ID:
@@ -852,14 +852,14 @@ public class CoreDiagramUpdater {
 			return getCorrelationAggregatorRouterType_2023OutgoingLinks(view);
 		case CustomInboundRouterTypeEditPart.VISUAL_ID:
 			return getCustomInboundRouterType_2024OutgoingLinks(view);
-		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-			return getResponseRouterCollectionType_2025OutgoingLinks(view);
-		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
-			return getResponseEndpointType_2026OutgoingLinks(view);
-		case ResponseRouterTypeEditPart.VISUAL_ID:
-			return getResponseRouterType_2027OutgoingLinks(view);
-		case CustomResponseRouterTypeEditPart.VISUAL_ID:
-			return getCustomResponseRouterType_2028OutgoingLinks(view);
+		case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
+			return getAsyncReplyRouterCollectionType_2025OutgoingLinks(view);
+		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+			return getInboundEndpointType_2026OutgoingLinks(view);
+		case AsyncReplyRouterTypeEditPart.VISUAL_ID:
+			return getAsyncReplyRouterType_2027OutgoingLinks(view);
+		case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
+			return getCustomAsyncReplyRouterType_2028OutgoingLinks(view);
 		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
 			return getOutboundRouterCollectionType_2029OutgoingLinks(view);
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
@@ -912,7 +912,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getNoArgsCallWrapperType_2002ContainedLinks(View view) {
+	public static List getNoArgsCallComponentType_2002ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1077,7 +1077,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResponseRouterCollectionType_2025ContainedLinks(
+	public static List getAsyncReplyRouterCollectionType_2025ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1085,21 +1085,22 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResponseEndpointType_2026ContainedLinks(View view) {
+	public static List getInboundEndpointType_2026ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getResponseRouterType_2027ContainedLinks(View view) {
+	public static List getAsyncReplyRouterType_2027ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCustomResponseRouterType_2028ContainedLinks(View view) {
+	public static List getCustomAsyncReplyRouterType_2028ContainedLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1213,7 +1214,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getNoArgsCallWrapperType_2002IncomingLinks(View view) {
+	public static List getNoArgsCallComponentType_2002IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1378,7 +1379,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResponseRouterCollectionType_2025IncomingLinks(
+	public static List getAsyncReplyRouterCollectionType_2025IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1386,21 +1387,21 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResponseEndpointType_2026IncomingLinks(View view) {
+	public static List getInboundEndpointType_2026IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getResponseRouterType_2027IncomingLinks(View view) {
+	public static List getAsyncReplyRouterType_2027IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCustomResponseRouterType_2028IncomingLinks(View view) {
+	public static List getCustomAsyncReplyRouterType_2028IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1513,7 +1514,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getNoArgsCallWrapperType_2002OutgoingLinks(View view) {
+	public static List getNoArgsCallComponentType_2002OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1678,7 +1679,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResponseRouterCollectionType_2025OutgoingLinks(
+	public static List getAsyncReplyRouterCollectionType_2025OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1686,21 +1687,21 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResponseEndpointType_2026OutgoingLinks(View view) {
+	public static List getInboundEndpointType_2026OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getResponseRouterType_2027OutgoingLinks(View view) {
+	public static List getAsyncReplyRouterType_2027OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCustomResponseRouterType_2028OutgoingLinks(View view) {
+	public static List getCustomAsyncReplyRouterType_2028OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

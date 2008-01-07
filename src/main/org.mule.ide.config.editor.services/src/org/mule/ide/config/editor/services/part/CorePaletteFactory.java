@@ -26,7 +26,7 @@ public class CorePaletteFactory {
 		paletteRoot.add(createComponents2Group());
 		paletteRoot.add(createExceptionStrategies3Group());
 		paletteRoot.add(createInbound4Group());
-		paletteRoot.add(createResponse5Group());
+		paletteRoot.add(createAsyncReply5Group());
 		paletteRoot.add(createOutbound6Group());
 	}
 
@@ -96,16 +96,14 @@ public class CorePaletteFactory {
 	}
 
 	/**
-	 * Creates "Response" palette tool group
+	 * Creates "Async Reply" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createResponse5Group() {
+	private PaletteContainer createAsyncReply5Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
-				Messages.Response5Group_title);
-		paletteContainer.add(createResponseEndpoint1CreationTool());
-		paletteContainer.add(new PaletteSeparator());
-		paletteContainer.add(createCustomResponseRouter3CreationTool());
-		paletteContainer.add(createSingleResponseRouter4CreationTool());
+				Messages.AsyncReply5Group_title);
+		paletteContainer.add(createCustomAsyncReplyRouter1CreationTool());
+		paletteContainer.add(createSingleAsyncReplyRouter2CreationTool());
 		return paletteContainer;
 	}
 
@@ -184,13 +182,13 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createNoArgsCallComponent3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.NoArgsCallWrapperType_2002);
+		types.add(CoreElementTypes.NoArgsCallComponentType_2002);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.NoArgsCallComponent3CreationTool_title,
 				Messages.NoArgsCallComponent3CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.NoArgsCallWrapperType_2002));
+						.getImageDescriptor(CoreElementTypes.NoArgsCallComponentType_2002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -310,8 +308,9 @@ public class CorePaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createInboundEndpoint1CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
 		types.add(CoreElementTypes.InboundEndpointType_2014);
+		types.add(CoreElementTypes.InboundEndpointType_2026);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.InboundEndpoint1CreationTool_title,
 				Messages.InboundEndpoint1CreationTool_desc, types);
@@ -477,6 +476,38 @@ public class CorePaletteFactory {
 				Messages.WireTapRouter12CreationTool_desc, types);
 		entry.setSmallIcon(CoreElementTypes
 				.getImageDescriptor(CoreElementTypes.WireTapRouterType_2019));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createCustomAsyncReplyRouter1CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.CustomAsyncReplyRouterType_2028);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.CustomAsyncReplyRouter1CreationTool_title,
+				Messages.CustomAsyncReplyRouter1CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.CustomAsyncReplyRouterType_2028));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createSingleAsyncReplyRouter2CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(CoreElementTypes.AsyncReplyRouterType_2027);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.SingleAsyncReplyRouter2CreationTool_title,
+				Messages.SingleAsyncReplyRouter2CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.AsyncReplyRouterType_2027));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -667,53 +698,6 @@ public class CorePaletteFactory {
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.FilteringOutboundRouterType_2035));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createResponseEndpoint1CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.ResponseEndpointType_2026);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ResponseEndpoint1CreationTool_title,
-				Messages.ResponseEndpoint1CreationTool_desc, types);
-		entry
-				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.ResponseEndpointType_2026));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createCustomResponseRouter3CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.CustomResponseRouterType_2028);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CustomResponseRouter3CreationTool_title,
-				Messages.CustomResponseRouter3CreationTool_desc, types);
-		entry
-				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.CustomResponseRouterType_2028));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createSingleResponseRouter4CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.ResponseRouterType_2027);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.SingleResponseRouter4CreationTool_title,
-				Messages.SingleResponseRouter4CreationTool_desc, types);
-		entry.setSmallIcon(CoreElementTypes
-				.getImageDescriptor(CoreElementTypes.ResponseRouterType_2027));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

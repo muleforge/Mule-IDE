@@ -23,6 +23,9 @@ public class CoreDomainModelElementTester extends PropertyTester {
 		if (eClass == CorePackage.eINSTANCE.getAbstractAgentType()) {
 			return true;
 		}
+		if (eClass == CorePackage.eINSTANCE.getAbstractAsyncReplyRouterType()) {
+			return true;
+		}
 		if (eClass == CorePackage.eINSTANCE.getAbstractBindingType()) {
 			return true;
 		}
@@ -40,6 +43,13 @@ public class CoreDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getAbstractConnectorType()) {
+			return true;
+		}
+		if (eClass == CorePackage.eINSTANCE.getAbstractDefineNotificationType()) {
+			return true;
+		}
+		if (eClass == CorePackage.eINSTANCE
+				.getAbstractDisableNotificationType()) {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getAbstractEntrypointResolverType()) {
@@ -84,12 +94,6 @@ public class CoreDomainModelElementTester extends PropertyTester {
 		if (eClass == CorePackage.eINSTANCE.getAbstractQueueProfileType()) {
 			return true;
 		}
-		if (eClass == CorePackage.eINSTANCE.getAbstractResponseEndpointType()) {
-			return true;
-		}
-		if (eClass == CorePackage.eINSTANCE.getAbstractResponseRouterType()) {
-			return true;
-		}
 		if (eClass == CorePackage.eINSTANCE.getAbstractSecurityFilterType()) {
 			return true;
 		}
@@ -112,6 +116,15 @@ public class CoreDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getAbstractTransformerType()) {
+			return true;
+		}
+		if (eClass == CorePackage.eINSTANCE.getAdminAgentType()) {
+			return true;
+		}
+		if (eClass == CorePackage.eINSTANCE.getAsyncReplyRouterCollectionType()) {
+			return true;
+		}
+		if (eClass == CorePackage.eINSTANCE.getAsyncReplyRouterType()) {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getBaseContainerContextType()) {
@@ -143,6 +156,9 @@ public class CoreDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getCorrelationRouterType()) {
+			return true;
+		}
+		if (eClass == CorePackage.eINSTANCE.getCustomAsyncReplyRouterType()) {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getCustomCatchAllStrategyType()) {
@@ -182,9 +198,6 @@ public class CoreDomainModelElementTester extends PropertyTester {
 		if (eClass == CorePackage.eINSTANCE.getCustomPropertyExtractorType()) {
 			return true;
 		}
-		if (eClass == CorePackage.eINSTANCE.getCustomResponseRouterType()) {
-			return true;
-		}
 		if (eClass == CorePackage.eINSTANCE.getCustomSecurityProviderType()) {
 			return true;
 		}
@@ -206,7 +219,13 @@ public class CoreDomainModelElementTester extends PropertyTester {
 		if (eClass == CorePackage.eINSTANCE.getDefaultServiceType()) {
 			return true;
 		}
+		if (eClass == CorePackage.eINSTANCE.getDefineNotificationType()) {
+			return true;
+		}
 		if (eClass == CorePackage.eINSTANCE.getDescriptionType()) {
+			return true;
+		}
+		if (eClass == CorePackage.eINSTANCE.getDisableNotificationType()) {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getDocumentRoot()) {
@@ -272,6 +291,9 @@ public class CoreDomainModelElementTester extends PropertyTester {
 		if (eClass == CorePackage.eINSTANCE.getLoggingCatchAllStrategyType()) {
 			return true;
 		}
+		if (eClass == CorePackage.eINSTANCE.getManagementContextType()) {
+			return true;
+		}
 		if (eClass == CorePackage.eINSTANCE.getMapType()) {
 			return true;
 		}
@@ -283,16 +305,13 @@ public class CoreDomainModelElementTester extends PropertyTester {
 				.getMessageSplitterOutboundRouterType()) {
 			return true;
 		}
-		if (eClass == CorePackage.eINSTANCE.getMuleAdminAgentType()) {
-			return true;
-		}
-		if (eClass == CorePackage.eINSTANCE.getMuleManagementContextType()) {
-			return true;
-		}
 		if (eClass == CorePackage.eINSTANCE.getMuleType()) {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getMuleUnsafeType()) {
+			return true;
+		}
+		if (eClass == CorePackage.eINSTANCE.getNoArgsCallComponentType()) {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getNoArgsCallDelegateClassType()) {
@@ -301,7 +320,10 @@ public class CoreDomainModelElementTester extends PropertyTester {
 		if (eClass == CorePackage.eINSTANCE.getNoArgsCallDelegateInstanceType()) {
 			return true;
 		}
-		if (eClass == CorePackage.eINSTANCE.getNoArgsCallWrapperType()) {
+		if (eClass == CorePackage.eINSTANCE.getNotificationListenerType()) {
+			return true;
+		}
+		if (eClass == CorePackage.eINSTANCE.getNotificationManagerType()) {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getOutboundEndpointType()) {
@@ -344,15 +366,6 @@ public class CoreDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getReplyToType()) {
-			return true;
-		}
-		if (eClass == CorePackage.eINSTANCE.getResponseEndpointType()) {
-			return true;
-		}
-		if (eClass == CorePackage.eINSTANCE.getResponseRouterCollectionType()) {
-			return true;
-		}
-		if (eClass == CorePackage.eINSTANCE.getResponseRouterType()) {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getResponseTransformersType()) {

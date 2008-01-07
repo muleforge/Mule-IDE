@@ -20,17 +20,22 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyInboundEndpointServiceItemTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
@@ -60,17 +65,12 @@ import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEd
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceItemTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEROUTERSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeASYNCREPLYEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeRESPONSEEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRouterTypeEditPart;
@@ -348,9 +348,9 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					SedaServiceTypeRESPONSEEditPart.VISUAL_ID);
+					SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					ResponseRouterCollectionTypeEditPart.VISUAL_ID);
+					AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
@@ -470,27 +470,27 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case ResponseRouterCollectionTypeEditPart.VISUAL_ID: {
+		case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID);
+					AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					ResponseEndpointServiceItemTypeEditPart.VISUAL_ID);
+					AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID);
+					AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					ResponseRouterTypeEditPart.VISUAL_ID);
+					AsyncReplyRouterTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID);
+					AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					CustomResponseRouterTypeEditPart.VISUAL_ID);
+					CustomAsyncReplyRouterTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

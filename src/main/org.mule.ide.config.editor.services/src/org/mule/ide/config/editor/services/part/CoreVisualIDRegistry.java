@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.AsyncReplyRouterCollectionType;
+import org.mule.ide.config.core.AsyncReplyRouterType;
 import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.ChunkingRouterType;
 import org.mule.ide.config.core.CorePackage;
@@ -24,106 +26,8 @@ import org.mule.ide.config.core.InboundRouterCollectionType;
 import org.mule.ide.config.core.MessageSplitterOutboundRouterType;
 import org.mule.ide.config.core.OutboundRouterCollectionType;
 import org.mule.ide.config.core.OutboundRouterType;
-import org.mule.ide.config.core.ResponseRouterCollectionType;
-import org.mule.ide.config.core.ResponseRouterType;
 import org.mule.ide.config.core.StaticRecipientListRouterType;
 import org.mule.ide.config.editor.services.edit.parts.*;
-import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeENDPOINTSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomOutboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CustomResponseRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeENDPOINTSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.EndpointSelectorRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.EndpointSelectorRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ExceptionOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ExceptionOutboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.FilteringOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.FilteringOutboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
-import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceItemTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseEndpointServiceItemTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterCollectionTypeRESPONSEROUTERSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.ResponseRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeRESPONSEEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.expressions.CoreAbstractExpression;
 
 /**
@@ -240,8 +144,8 @@ public class CoreVisualIDRegistry {
 					domainElement.eClass())) {
 				return PojoComponentTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getNoArgsCallWrapperType().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (CorePackage.eINSTANCE.getNoArgsCallComponentType()
+					.isSuperTypeOf(domainElement.eClass())) {
 				return NoArgsCallWrapperTypeEditPart.VISUAL_ID;
 			}
 			if (CorePackage.eINSTANCE.getDefaultComponentType().isSuperTypeOf(
@@ -315,10 +219,10 @@ public class CoreVisualIDRegistry {
 				return InboundRouterCollectionTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getResponseRouterCollectionType()
+		case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getAsyncReplyRouterCollectionType()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return ResponseRouterCollectionTypeEditPart.VISUAL_ID;
+				return AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID;
 			}
 			break;
 		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
@@ -407,22 +311,23 @@ public class CoreVisualIDRegistry {
 				return CustomInboundRouterTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getResponseEndpointType().isSuperTypeOf(
+		case AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getInboundEndpointType().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ResponseEndpointServiceItemTypeEditPart.VISUAL_ID;
+				return AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getResponseRouterType().isSuperTypeOf(
+		case AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getAsyncReplyRouterType().isSuperTypeOf(
 					domainElement.eClass())
-					&& JavaConstraints.singleResponseRouterConstraint(
-							(ResponseRouterType) domainElement).booleanValue()) {
-				return ResponseRouterTypeEditPart.VISUAL_ID;
+					&& JavaConstraints.singleAsyncReplyRouterConstraint(
+							(AsyncReplyRouterType) domainElement)
+							.booleanValue()) {
+				return AsyncReplyRouterTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getCustomResponseRouterType()
+			if (CorePackage.eINSTANCE.getCustomAsyncReplyRouterType()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return CustomResponseRouterTypeEditPart.VISUAL_ID;
+				return CustomAsyncReplyRouterTypeEditPart.VISUAL_ID;
 			}
 			break;
 		case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
@@ -546,7 +451,7 @@ public class CoreVisualIDRegistry {
 			if (SedaServiceTypeINBOUNDEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SedaServiceTypeRESPONSEEditPart.VISUAL_ID == nodeVisualID) {
+			if (SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID == nodeVisualID) {
@@ -700,29 +605,29 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ResponseRouterCollectionTypeEditPart.VISUAL_ID:
-			if (ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+		case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
+			if (AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ResponseEndpointServiceItemTypeEditPart.VISUAL_ID:
-			if (ResponseEndpointServiceItemTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ResponseRouterTypeEditPart.VISUAL_ID:
-			if (ResponseRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+			if (AsyncReplyInboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case CustomResponseRouterTypeEditPart.VISUAL_ID:
-			if (CustomResponseRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case AsyncReplyRouterTypeEditPart.VISUAL_ID:
+			if (AsyncReplyRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CustomResponseRouterTypeClassEditPart.VISUAL_ID == nodeVisualID) {
+			break;
+		case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
+			if (CustomAsyncReplyRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomAsyncReplyRouterTypeClassEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -831,8 +736,8 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case SedaServiceTypeRESPONSEEditPart.VISUAL_ID:
-			if (ResponseRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+		case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
+			if (AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -893,16 +798,16 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ResponseRouterCollectionTypeRESPONSEENDPOINTSEditPart.VISUAL_ID:
-			if (ResponseEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
+		case AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+			if (AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ResponseRouterCollectionTypeRESPONSEROUTERSEditPart.VISUAL_ID:
-			if (ResponseRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+		case AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
+			if (AsyncReplyRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CustomResponseRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (CustomAsyncReplyRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -1156,13 +1061,13 @@ public class CoreVisualIDRegistry {
 		 * customization
 		 *   - implement constraint for differentiating elements of the same type
 		 */
-		private static java.lang.Boolean singleResponseRouterConstraint(
-				ResponseRouterType self) {
-			ResponseRouterCollectionType container = (ResponseRouterCollectionType) self
+		private static java.lang.Boolean singleAsyncReplyRouterConstraint(
+				AsyncReplyRouterType self) {
+			AsyncReplyRouterCollectionType container = (AsyncReplyRouterCollectionType) self
 					.eContainer();
-			FeatureMap map = container.getAbstractResponseRouterGroup();
-			List<ResponseRouterType> routers = map.list(CorePackage.eINSTANCE
-					.getDocumentRoot_SingleResponseRouter());
+			FeatureMap map = container.getAbstractAsyncReplyRouterGroup();
+			List<AsyncReplyRouterType> routers = map.list(CorePackage.eINSTANCE
+					.getDocumentRoot_SingleAsyncReplyRouter());
 			return routers.contains(self);
 		}
 

@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.NoArgsCallDelegateClassType#getDelegateClass <em>Delegate Class</em>}</li>
- *   <li>{@link org.mule.ide.config.core.NoArgsCallDelegateClassType#getDelegateMethod <em>Delegate Method</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.NoArgsCallDelegateClassType#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.NoArgsCallDelegateClassType#getMethod <em>Method</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,57 +27,57 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface NoArgsCallDelegateClassType extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Delegate Class</b></em>' attribute.
+	 * Returns the value of the '<em><b>Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Delegate Class</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Class</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Delegate Class</em>' attribute.
-	 * @see #setDelegateClass(String)
-	 * @see org.mule.ide.config.core.CorePackage#getNoArgsCallDelegateClassType_DelegateClass()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='delegateClass'"
+	 * @return the value of the '<em>Class</em>' attribute.
+	 * @see #setClass(String)
+	 * @see org.mule.ide.config.core.CorePackage#getNoArgsCallDelegateClassType_Class()
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass" required="true"
+	 *        extendedMetaData="kind='attribute' name='class'"
 	 * @generated
 	 */
-	String getDelegateClass();
+	String getClass_();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.NoArgsCallDelegateClassType#getDelegateClass <em>Delegate Class</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.NoArgsCallDelegateClassType#getClass_ <em>Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Delegate Class</em>' attribute.
-	 * @see #getDelegateClass()
+	 * @param value the new value of the '<em>Class</em>' attribute.
+	 * @see #getClass_()
 	 * @generated
 	 */
-	void setDelegateClass(String value);
+	void setClass(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Delegate Method</b></em>' attribute.
+	 * Returns the value of the '<em><b>Method</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Delegate Method</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Method</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Delegate Method</em>' attribute.
-	 * @see #setDelegateMethod(String)
-	 * @see org.mule.ide.config.core.CorePackage#getNoArgsCallDelegateClassType_DelegateMethod()
+	 * @return the value of the '<em>Method</em>' attribute.
+	 * @see #setMethod(String)
+	 * @see org.mule.ide.config.core.CorePackage#getNoArgsCallDelegateClassType_Method()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='delegateMethod'"
+	 *        extendedMetaData="kind='attribute' name='method'"
 	 * @generated
 	 */
-	String getDelegateMethod();
+	String getMethod();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.NoArgsCallDelegateClassType#getDelegateMethod <em>Delegate Method</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.NoArgsCallDelegateClassType#getMethod <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Delegate Method</em>' attribute.
-	 * @see #getDelegateMethod()
+	 * @param value the new value of the '<em>Method</em>' attribute.
+	 * @see #getMethod()
 	 * @generated
 	 */
-	void setDelegateMethod(String value);
+	void setMethod(String value);
 
 } // NoArgsCallDelegateClassType

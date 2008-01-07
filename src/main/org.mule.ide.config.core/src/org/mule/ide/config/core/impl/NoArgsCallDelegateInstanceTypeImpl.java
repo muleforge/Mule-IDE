@@ -23,8 +23,8 @@ import org.mule.ide.config.core.NoArgsCallDelegateInstanceType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallDelegateInstanceTypeImpl#getDelegateInstanceRef <em>Delegate Instance Ref</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallDelegateInstanceTypeImpl#getDelegateMethod <em>Delegate Method</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallDelegateInstanceTypeImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallDelegateInstanceTypeImpl#getRef <em>Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,44 +32,44 @@ import org.mule.ide.config.core.NoArgsCallDelegateInstanceType;
  */
 public class NoArgsCallDelegateInstanceTypeImpl extends EObjectImpl implements NoArgsCallDelegateInstanceType {
 	/**
-	 * The default value of the '{@link #getDelegateInstanceRef() <em>Delegate Instance Ref</em>}' attribute.
+	 * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDelegateInstanceRef()
+	 * @see #getMethod()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DELEGATE_INSTANCE_REF_EDEFAULT = null;
+	protected static final String METHOD_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDelegateInstanceRef() <em>Delegate Instance Ref</em>}' attribute.
+	 * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDelegateInstanceRef()
+	 * @see #getMethod()
 	 * @generated
 	 * @ordered
 	 */
-	protected String delegateInstanceRef = DELEGATE_INSTANCE_REF_EDEFAULT;
+	protected String method = METHOD_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDelegateMethod() <em>Delegate Method</em>}' attribute.
+	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDelegateMethod()
+	 * @see #getRef()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DELEGATE_METHOD_EDEFAULT = null;
+	protected static final String REF_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDelegateMethod() <em>Delegate Method</em>}' attribute.
+	 * The cached value of the '{@link #getRef() <em>Ref</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDelegateMethod()
+	 * @see #getRef()
 	 * @generated
 	 * @ordered
 	 */
-	protected String delegateMethod = DELEGATE_METHOD_EDEFAULT;
+	protected String ref = REF_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,8 +95,8 @@ public class NoArgsCallDelegateInstanceTypeImpl extends EObjectImpl implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDelegateInstanceRef() {
-		return delegateInstanceRef;
+	public String getMethod() {
+		return method;
 	}
 
 	/**
@@ -104,11 +104,11 @@ public class NoArgsCallDelegateInstanceTypeImpl extends EObjectImpl implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDelegateInstanceRef(String newDelegateInstanceRef) {
-		String oldDelegateInstanceRef = delegateInstanceRef;
-		delegateInstanceRef = newDelegateInstanceRef;
+	public void setMethod(String newMethod) {
+		String oldMethod = method;
+		method = newMethod;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_INSTANCE_REF, oldDelegateInstanceRef, delegateInstanceRef));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__METHOD, oldMethod, method));
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class NoArgsCallDelegateInstanceTypeImpl extends EObjectImpl implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDelegateMethod() {
-		return delegateMethod;
+	public String getRef() {
+		return ref;
 	}
 
 	/**
@@ -125,11 +125,11 @@ public class NoArgsCallDelegateInstanceTypeImpl extends EObjectImpl implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDelegateMethod(String newDelegateMethod) {
-		String oldDelegateMethod = delegateMethod;
-		delegateMethod = newDelegateMethod;
+	public void setRef(String newRef) {
+		String oldRef = ref;
+		ref = newRef;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_METHOD, oldDelegateMethod, delegateMethod));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__REF, oldRef, ref));
 	}
 
 	/**
@@ -140,10 +140,10 @@ public class NoArgsCallDelegateInstanceTypeImpl extends EObjectImpl implements N
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_INSTANCE_REF:
-				return getDelegateInstanceRef();
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_METHOD:
-				return getDelegateMethod();
+			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__METHOD:
+				return getMethod();
+			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__REF:
+				return getRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,11 +156,11 @@ public class NoArgsCallDelegateInstanceTypeImpl extends EObjectImpl implements N
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_INSTANCE_REF:
-				setDelegateInstanceRef((String)newValue);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__METHOD:
+				setMethod((String)newValue);
 				return;
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_METHOD:
-				setDelegateMethod((String)newValue);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__REF:
+				setRef((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,11 +174,11 @@ public class NoArgsCallDelegateInstanceTypeImpl extends EObjectImpl implements N
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_INSTANCE_REF:
-				setDelegateInstanceRef(DELEGATE_INSTANCE_REF_EDEFAULT);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__METHOD:
+				setMethod(METHOD_EDEFAULT);
 				return;
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_METHOD:
-				setDelegateMethod(DELEGATE_METHOD_EDEFAULT);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__REF:
+				setRef(REF_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -192,10 +192,10 @@ public class NoArgsCallDelegateInstanceTypeImpl extends EObjectImpl implements N
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_INSTANCE_REF:
-				return DELEGATE_INSTANCE_REF_EDEFAULT == null ? delegateInstanceRef != null : !DELEGATE_INSTANCE_REF_EDEFAULT.equals(delegateInstanceRef);
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__DELEGATE_METHOD:
-				return DELEGATE_METHOD_EDEFAULT == null ? delegateMethod != null : !DELEGATE_METHOD_EDEFAULT.equals(delegateMethod);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__METHOD:
+				return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__REF:
+				return REF_EDEFAULT == null ? ref != null : !REF_EDEFAULT.equals(ref);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,10 +210,10 @@ public class NoArgsCallDelegateInstanceTypeImpl extends EObjectImpl implements N
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (delegateInstanceRef: ");
-		result.append(delegateInstanceRef);
-		result.append(", delegateMethod: ");
-		result.append(delegateMethod);
+		result.append(" (method: ");
+		result.append(method);
+		result.append(", ref: ");
+		result.append(ref);
 		result.append(')');
 		return result.toString();
 	}

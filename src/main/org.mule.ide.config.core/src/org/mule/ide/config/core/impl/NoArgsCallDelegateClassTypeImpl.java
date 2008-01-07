@@ -23,8 +23,8 @@ import org.mule.ide.config.core.NoArgsCallDelegateClassType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallDelegateClassTypeImpl#getDelegateClass <em>Delegate Class</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallDelegateClassTypeImpl#getDelegateMethod <em>Delegate Method</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallDelegateClassTypeImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallDelegateClassTypeImpl#getMethod <em>Method</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,44 +32,44 @@ import org.mule.ide.config.core.NoArgsCallDelegateClassType;
  */
 public class NoArgsCallDelegateClassTypeImpl extends EObjectImpl implements NoArgsCallDelegateClassType {
 	/**
-	 * The default value of the '{@link #getDelegateClass() <em>Delegate Class</em>}' attribute.
+	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDelegateClass()
+	 * @see #getClass_()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DELEGATE_CLASS_EDEFAULT = null;
+	protected static final String CLASS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDelegateClass() <em>Delegate Class</em>}' attribute.
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDelegateClass()
+	 * @see #getClass_()
 	 * @generated
 	 * @ordered
 	 */
-	protected String delegateClass = DELEGATE_CLASS_EDEFAULT;
+	protected String class_ = CLASS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDelegateMethod() <em>Delegate Method</em>}' attribute.
+	 * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDelegateMethod()
+	 * @see #getMethod()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DELEGATE_METHOD_EDEFAULT = null;
+	protected static final String METHOD_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDelegateMethod() <em>Delegate Method</em>}' attribute.
+	 * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDelegateMethod()
+	 * @see #getMethod()
 	 * @generated
 	 * @ordered
 	 */
-	protected String delegateMethod = DELEGATE_METHOD_EDEFAULT;
+	protected String method = METHOD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,8 +95,8 @@ public class NoArgsCallDelegateClassTypeImpl extends EObjectImpl implements NoAr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDelegateClass() {
-		return delegateClass;
+	public String getClass_() {
+		return class_;
 	}
 
 	/**
@@ -104,11 +104,11 @@ public class NoArgsCallDelegateClassTypeImpl extends EObjectImpl implements NoAr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDelegateClass(String newDelegateClass) {
-		String oldDelegateClass = delegateClass;
-		delegateClass = newDelegateClass;
+	public void setClass(String newClass) {
+		String oldClass = class_;
+		class_ = newClass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__DELEGATE_CLASS, oldDelegateClass, delegateClass));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__CLASS, oldClass, class_));
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class NoArgsCallDelegateClassTypeImpl extends EObjectImpl implements NoAr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDelegateMethod() {
-		return delegateMethod;
+	public String getMethod() {
+		return method;
 	}
 
 	/**
@@ -125,11 +125,11 @@ public class NoArgsCallDelegateClassTypeImpl extends EObjectImpl implements NoAr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDelegateMethod(String newDelegateMethod) {
-		String oldDelegateMethod = delegateMethod;
-		delegateMethod = newDelegateMethod;
+	public void setMethod(String newMethod) {
+		String oldMethod = method;
+		method = newMethod;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__DELEGATE_METHOD, oldDelegateMethod, delegateMethod));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__METHOD, oldMethod, method));
 	}
 
 	/**
@@ -140,10 +140,10 @@ public class NoArgsCallDelegateClassTypeImpl extends EObjectImpl implements NoAr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__DELEGATE_CLASS:
-				return getDelegateClass();
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__DELEGATE_METHOD:
-				return getDelegateMethod();
+			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__CLASS:
+				return getClass_();
+			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__METHOD:
+				return getMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,11 +156,11 @@ public class NoArgsCallDelegateClassTypeImpl extends EObjectImpl implements NoAr
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__DELEGATE_CLASS:
-				setDelegateClass((String)newValue);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__CLASS:
+				setClass((String)newValue);
 				return;
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__DELEGATE_METHOD:
-				setDelegateMethod((String)newValue);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__METHOD:
+				setMethod((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,11 +174,11 @@ public class NoArgsCallDelegateClassTypeImpl extends EObjectImpl implements NoAr
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__DELEGATE_CLASS:
-				setDelegateClass(DELEGATE_CLASS_EDEFAULT);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__CLASS:
+				setClass(CLASS_EDEFAULT);
 				return;
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__DELEGATE_METHOD:
-				setDelegateMethod(DELEGATE_METHOD_EDEFAULT);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__METHOD:
+				setMethod(METHOD_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -192,10 +192,10 @@ public class NoArgsCallDelegateClassTypeImpl extends EObjectImpl implements NoAr
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__DELEGATE_CLASS:
-				return DELEGATE_CLASS_EDEFAULT == null ? delegateClass != null : !DELEGATE_CLASS_EDEFAULT.equals(delegateClass);
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__DELEGATE_METHOD:
-				return DELEGATE_METHOD_EDEFAULT == null ? delegateMethod != null : !DELEGATE_METHOD_EDEFAULT.equals(delegateMethod);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__CLASS:
+				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
+			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__METHOD:
+				return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,10 +210,10 @@ public class NoArgsCallDelegateClassTypeImpl extends EObjectImpl implements NoAr
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (delegateClass: ");
-		result.append(delegateClass);
-		result.append(", delegateMethod: ");
-		result.append(delegateMethod);
+		result.append(" (class: ");
+		result.append(class_);
+		result.append(", method: ");
+		result.append(method);
 		result.append(')');
 		return result.toString();
 	}

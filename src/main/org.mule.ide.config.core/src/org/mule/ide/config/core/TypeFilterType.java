@@ -35,7 +35,7 @@ public interface TypeFilterType extends AbstractFilterType {
 	 * @return the value of the '<em>Expected Type</em>' attribute.
 	 * @see #setExpectedType(String)
 	 * @see org.mule.ide.config.core.CorePackage#getTypeFilterType_ExpectedType()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass" required="true"
 	 *        extendedMetaData="kind='attribute' name='expectedType'"
 	 * @generated
 	 */

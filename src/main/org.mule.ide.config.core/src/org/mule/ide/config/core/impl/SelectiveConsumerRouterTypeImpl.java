@@ -35,8 +35,8 @@ import org.mule.ide.config.core.SelectiveConsumerRouterType;
  * <ul>
  *   <li>{@link org.mule.ide.config.core.impl.SelectiveConsumerRouterTypeImpl#getAbstractTransformerGroup <em>Abstract Transformer Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.SelectiveConsumerRouterTypeImpl#getAbstractTransformer <em>Abstract Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.SelectiveConsumerRouterTypeImpl#isTransformerFirst <em>Transformer First</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.SelectiveConsumerRouterTypeImpl#getTransformerRefs <em>Transformer Refs</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.SelectiveConsumerRouterTypeImpl#isTransformFirst <em>Transform First</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,35 +52,6 @@ public class SelectiveConsumerRouterTypeImpl extends FilteredInboundRouterTypeIm
 	 * @ordered
 	 */
 	protected FeatureMap abstractTransformerGroup;
-
-	/**
-	 * The default value of the '{@link #isTransformerFirst() <em>Transformer First</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isTransformerFirst()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean TRANSFORMER_FIRST_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isTransformerFirst() <em>Transformer First</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isTransformerFirst()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean transformerFirst = TRANSFORMER_FIRST_EDEFAULT;
-
-	/**
-	 * This is true if the Transformer First attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean transformerFirstESet;
 
 	/**
 	 * The default value of the '{@link #getTransformerRefs() <em>Transformer Refs</em>}' attribute.
@@ -101,6 +72,35 @@ public class SelectiveConsumerRouterTypeImpl extends FilteredInboundRouterTypeIm
 	 * @ordered
 	 */
 	protected List<String> transformerRefs = TRANSFORMER_REFS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isTransformFirst() <em>Transform First</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTransformFirst()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TRANSFORM_FIRST_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isTransformFirst() <em>Transform First</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTransformFirst()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean transformFirst = TRANSFORM_FIRST_EDEFAULT;
+
+	/**
+	 * This is true if the Transform First attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean transformFirstESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,52 +147,6 @@ public class SelectiveConsumerRouterTypeImpl extends FilteredInboundRouterTypeIm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isTransformerFirst() {
-		return transformerFirst;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerFirst(boolean newTransformerFirst) {
-		boolean oldTransformerFirst = transformerFirst;
-		transformerFirst = newTransformerFirst;
-		boolean oldTransformerFirstESet = transformerFirstESet;
-		transformerFirstESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_FIRST, oldTransformerFirst, transformerFirst, !oldTransformerFirstESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetTransformerFirst() {
-		boolean oldTransformerFirst = transformerFirst;
-		boolean oldTransformerFirstESet = transformerFirstESet;
-		transformerFirst = TRANSFORMER_FIRST_EDEFAULT;
-		transformerFirstESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_FIRST, oldTransformerFirst, TRANSFORMER_FIRST_EDEFAULT, oldTransformerFirstESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetTransformerFirst() {
-		return transformerFirstESet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public List<String> getTransformerRefs() {
 		return transformerRefs;
 	}
@@ -207,6 +161,52 @@ public class SelectiveConsumerRouterTypeImpl extends FilteredInboundRouterTypeIm
 		transformerRefs = newTransformerRefs;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_REFS, oldTransformerRefs, transformerRefs));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isTransformFirst() {
+		return transformFirst;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransformFirst(boolean newTransformFirst) {
+		boolean oldTransformFirst = transformFirst;
+		transformFirst = newTransformFirst;
+		boolean oldTransformFirstESet = transformFirstESet;
+		transformFirstESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORM_FIRST, oldTransformFirst, transformFirst, !oldTransformFirstESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetTransformFirst() {
+		boolean oldTransformFirst = transformFirst;
+		boolean oldTransformFirstESet = transformFirstESet;
+		transformFirst = TRANSFORM_FIRST_EDEFAULT;
+		transformFirstESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORM_FIRST, oldTransformFirst, TRANSFORM_FIRST_EDEFAULT, oldTransformFirstESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetTransformFirst() {
+		return transformFirstESet;
 	}
 
 	/**
@@ -238,10 +238,10 @@ public class SelectiveConsumerRouterTypeImpl extends FilteredInboundRouterTypeIm
 				return ((FeatureMap.Internal)getAbstractTransformerGroup()).getWrapper();
 			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__ABSTRACT_TRANSFORMER:
 				return getAbstractTransformer();
-			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_FIRST:
-				return isTransformerFirst() ? Boolean.TRUE : Boolean.FALSE;
 			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_REFS:
 				return getTransformerRefs();
+			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORM_FIRST:
+				return isTransformFirst() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -258,11 +258,11 @@ public class SelectiveConsumerRouterTypeImpl extends FilteredInboundRouterTypeIm
 			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__ABSTRACT_TRANSFORMER_GROUP:
 				((FeatureMap.Internal)getAbstractTransformerGroup()).set(newValue);
 				return;
-			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_FIRST:
-				setTransformerFirst(((Boolean)newValue).booleanValue());
-				return;
 			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_REFS:
 				setTransformerRefs((List<String>)newValue);
+				return;
+			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORM_FIRST:
+				setTransformFirst(((Boolean)newValue).booleanValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -279,11 +279,11 @@ public class SelectiveConsumerRouterTypeImpl extends FilteredInboundRouterTypeIm
 			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__ABSTRACT_TRANSFORMER_GROUP:
 				getAbstractTransformerGroup().clear();
 				return;
-			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_FIRST:
-				unsetTransformerFirst();
-				return;
 			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_REFS:
 				setTransformerRefs(TRANSFORMER_REFS_EDEFAULT);
+				return;
+			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORM_FIRST:
+				unsetTransformFirst();
 				return;
 		}
 		super.eUnset(featureID);
@@ -301,10 +301,10 @@ public class SelectiveConsumerRouterTypeImpl extends FilteredInboundRouterTypeIm
 				return abstractTransformerGroup != null && !abstractTransformerGroup.isEmpty();
 			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__ABSTRACT_TRANSFORMER:
 				return !getAbstractTransformer().isEmpty();
-			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_FIRST:
-				return isSetTransformerFirst();
 			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORMER_REFS:
 				return TRANSFORMER_REFS_EDEFAULT == null ? transformerRefs != null : !TRANSFORMER_REFS_EDEFAULT.equals(transformerRefs);
+			case CorePackage.SELECTIVE_CONSUMER_ROUTER_TYPE__TRANSFORM_FIRST:
+				return isSetTransformFirst();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -321,10 +321,10 @@ public class SelectiveConsumerRouterTypeImpl extends FilteredInboundRouterTypeIm
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (abstractTransformerGroup: ");
 		result.append(abstractTransformerGroup);
-		result.append(", transformerFirst: ");
-		if (transformerFirstESet) result.append(transformerFirst); else result.append("<unset>");
 		result.append(", transformerRefs: ");
 		result.append(transformerRefs);
+		result.append(", transformFirst: ");
+		if (transformFirstESet) result.append(transformFirst); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

@@ -98,7 +98,7 @@ public interface JndiConnectorType extends ConnectorType {
 	 * @return the value of the '<em>Jndi Initial Factory</em>' attribute.
 	 * @see #setJndiInitialFactory(String)
 	 * @see org.mule.ide.config.core.CorePackage#getJndiConnectorType_JndiInitialFactory()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
 	 *        extendedMetaData="kind='attribute' name='jndiInitialFactory'"
 	 * @generated
 	 */

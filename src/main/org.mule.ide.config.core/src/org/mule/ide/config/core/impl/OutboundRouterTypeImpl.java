@@ -25,6 +25,7 @@ import org.mule.ide.config.core.AbstractOutboundEndpointType;
 import org.mule.ide.config.core.AbstractPropertyExtractorType;
 import org.mule.ide.config.core.AbstractTransactionType;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.CustomPropertyExtractorType;
 import org.mule.ide.config.core.EnableCorrelationType;
 import org.mule.ide.config.core.OutboundRouterType;
 import org.mule.ide.config.core.ReplyToType;
@@ -99,7 +100,7 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected EObject customPropertyExtractor;
+	protected CustomPropertyExtractorType customPropertyExtractor;
 
 	/**
 	 * The default value of the '{@link #getEnableCorrelation() <em>Enable Correlation</em>}' attribute.
@@ -278,7 +279,7 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject getCustomPropertyExtractor() {
+	public CustomPropertyExtractorType getCustomPropertyExtractor() {
 		return customPropertyExtractor;
 	}
 
@@ -287,8 +288,8 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCustomPropertyExtractor(EObject newCustomPropertyExtractor, NotificationChain msgs) {
-		EObject oldCustomPropertyExtractor = customPropertyExtractor;
+	public NotificationChain basicSetCustomPropertyExtractor(CustomPropertyExtractorType newCustomPropertyExtractor, NotificationChain msgs) {
+		CustomPropertyExtractorType oldCustomPropertyExtractor = customPropertyExtractor;
 		customPropertyExtractor = newCustomPropertyExtractor;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.OUTBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR, oldCustomPropertyExtractor, newCustomPropertyExtractor);
@@ -302,7 +303,7 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCustomPropertyExtractor(EObject newCustomPropertyExtractor) {
+	public void setCustomPropertyExtractor(CustomPropertyExtractorType newCustomPropertyExtractor) {
 		if (newCustomPropertyExtractor != customPropertyExtractor) {
 			NotificationChain msgs = null;
 			if (customPropertyExtractor != null)
@@ -444,7 +445,7 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 				((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).set(newValue);
 				return;
 			case CorePackage.OUTBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
-				setCustomPropertyExtractor((EObject)newValue);
+				setCustomPropertyExtractor((CustomPropertyExtractorType)newValue);
 				return;
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ENABLE_CORRELATION:
 				setEnableCorrelation((EnableCorrelationType)newValue);
@@ -474,7 +475,7 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 				getAbstractPropertyExtractorGroup().clear();
 				return;
 			case CorePackage.OUTBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
-				setCustomPropertyExtractor((EObject)null);
+				setCustomPropertyExtractor((CustomPropertyExtractorType)null);
 				return;
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ENABLE_CORRELATION:
 				unsetEnableCorrelation();

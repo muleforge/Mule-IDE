@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getEnvironmentProperty <em>Environment Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getAdminAgent <em>Admin Agent</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getNotifications <em>Notifications</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getDescription <em>Description</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractExtensionGroup <em>Abstract Extension Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractExtension <em>Abstract Extension</em>}</li>
@@ -89,7 +90,7 @@ public interface MuleUnsafeType extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Admin Agent</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.MuleAdminAgentType}.
+	 * The list contents are of type {@link org.mule.ide.config.core.AdminAgentType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Admin Agent</em>' containment reference list isn't clear,
@@ -102,11 +103,11 @@ public interface MuleUnsafeType extends EObject {
 	 *        extendedMetaData="kind='element' name='admin-agent' namespace='##targetNamespace' group='#group:0'"
 	 * @generated
 	 */
-	EList<MuleAdminAgentType> getAdminAgent();
+	EList<AdminAgentType> getAdminAgent();
 
 	/**
 	 * Returns the value of the '<em><b>Configuration</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.MuleManagementContextType}.
+	 * The list contents are of type {@link org.mule.ide.config.core.ManagementContextType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Configuration</em>' containment reference list isn't clear,
@@ -119,7 +120,24 @@ public interface MuleUnsafeType extends EObject {
 	 *        extendedMetaData="kind='element' name='configuration' namespace='##targetNamespace' group='#group:0'"
 	 * @generated
 	 */
-	EList<MuleManagementContextType> getConfiguration();
+	EList<ManagementContextType> getConfiguration();
+
+	/**
+	 * Returns the value of the '<em><b>Notifications</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.core.NotificationManagerType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Notifications</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Notifications</em>' containment reference list.
+	 * @see org.mule.ide.config.core.CorePackage#getMuleUnsafeType_Notifications()
+	 * @model containment="true" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='notifications' namespace='##targetNamespace' group='#group:0'"
+	 * @generated
+	 */
+	EList<NotificationManagerType> getNotifications();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference list.
@@ -466,7 +484,7 @@ public interface MuleUnsafeType extends EObject {
 	 * @return the value of the '<em>Any</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleUnsafeType_Any()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='elementWildcard' wildcards='##other' name=':23' processing='strict' group='#group:0'"
+	 *        extendedMetaData="kind='elementWildcard' wildcards='##other' name=':24' processing='strict' group='#group:0'"
 	 * @generated
 	 */
 	FeatureMap getAny();

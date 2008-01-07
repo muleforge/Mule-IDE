@@ -15,26 +15,26 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.mule.ide.config.core.AdminAgentType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.MuleAdminAgentType;
 
 import org.mule.ide.config.spring.PropertyType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Mule Admin Agent Type</b></em>'.
+ * An implementation of the model object '<em><b>Admin Agent Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.MuleAdminAgentTypeImpl#getProperty <em>Property</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.MuleAdminAgentTypeImpl#getServerUri <em>Server Uri</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.AdminAgentTypeImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.AdminAgentTypeImpl#getServerUri <em>Server Uri</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgentType {
+public class AdminAgentTypeImpl extends EObjectImpl implements AdminAgentType {
 	/**
 	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -70,7 +70,7 @@ public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MuleAdminAgentTypeImpl() {
+	protected AdminAgentTypeImpl() {
 		super();
 	}
 
@@ -81,7 +81,7 @@ public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.eINSTANCE.getMuleAdminAgentType();
+		return CorePackage.eINSTANCE.getAdminAgentType();
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgen
 		PropertyType oldProperty = property;
 		property = newProperty;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.MULE_ADMIN_AGENT_TYPE__PROPERTY, oldProperty, newProperty);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.ADMIN_AGENT_TYPE__PROPERTY, oldProperty, newProperty);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -117,14 +117,14 @@ public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgen
 		if (newProperty != property) {
 			NotificationChain msgs = null;
 			if (property != null)
-				msgs = ((InternalEObject)property).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.MULE_ADMIN_AGENT_TYPE__PROPERTY, null, msgs);
+				msgs = ((InternalEObject)property).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.ADMIN_AGENT_TYPE__PROPERTY, null, msgs);
 			if (newProperty != null)
-				msgs = ((InternalEObject)newProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.MULE_ADMIN_AGENT_TYPE__PROPERTY, null, msgs);
+				msgs = ((InternalEObject)newProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.ADMIN_AGENT_TYPE__PROPERTY, null, msgs);
 			msgs = basicSetProperty(newProperty, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.MULE_ADMIN_AGENT_TYPE__PROPERTY, newProperty, newProperty));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ADMIN_AGENT_TYPE__PROPERTY, newProperty, newProperty));
 	}
 
 	/**
@@ -145,7 +145,7 @@ public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgen
 		String oldServerUri = serverUri;
 		serverUri = newServerUri;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.MULE_ADMIN_AGENT_TYPE__SERVER_URI, oldServerUri, serverUri));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ADMIN_AGENT_TYPE__SERVER_URI, oldServerUri, serverUri));
 	}
 
 	/**
@@ -156,7 +156,7 @@ public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.MULE_ADMIN_AGENT_TYPE__PROPERTY:
+			case CorePackage.ADMIN_AGENT_TYPE__PROPERTY:
 				return basicSetProperty(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -170,9 +170,9 @@ public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.MULE_ADMIN_AGENT_TYPE__PROPERTY:
+			case CorePackage.ADMIN_AGENT_TYPE__PROPERTY:
 				return getProperty();
-			case CorePackage.MULE_ADMIN_AGENT_TYPE__SERVER_URI:
+			case CorePackage.ADMIN_AGENT_TYPE__SERVER_URI:
 				return getServerUri();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -186,10 +186,10 @@ public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.MULE_ADMIN_AGENT_TYPE__PROPERTY:
+			case CorePackage.ADMIN_AGENT_TYPE__PROPERTY:
 				setProperty((PropertyType)newValue);
 				return;
-			case CorePackage.MULE_ADMIN_AGENT_TYPE__SERVER_URI:
+			case CorePackage.ADMIN_AGENT_TYPE__SERVER_URI:
 				setServerUri((String)newValue);
 				return;
 		}
@@ -204,10 +204,10 @@ public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.MULE_ADMIN_AGENT_TYPE__PROPERTY:
+			case CorePackage.ADMIN_AGENT_TYPE__PROPERTY:
 				setProperty((PropertyType)null);
 				return;
-			case CorePackage.MULE_ADMIN_AGENT_TYPE__SERVER_URI:
+			case CorePackage.ADMIN_AGENT_TYPE__SERVER_URI:
 				setServerUri(SERVER_URI_EDEFAULT);
 				return;
 		}
@@ -222,9 +222,9 @@ public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.MULE_ADMIN_AGENT_TYPE__PROPERTY:
+			case CorePackage.ADMIN_AGENT_TYPE__PROPERTY:
 				return property != null;
-			case CorePackage.MULE_ADMIN_AGENT_TYPE__SERVER_URI:
+			case CorePackage.ADMIN_AGENT_TYPE__SERVER_URI:
 				return SERVER_URI_EDEFAULT == null ? serverUri != null : !SERVER_URI_EDEFAULT.equals(serverUri);
 		}
 		return super.eIsSet(featureID);
@@ -246,4 +246,4 @@ public class MuleAdminAgentTypeImpl extends EObjectImpl implements MuleAdminAgen
 		return result.toString();
 	}
 
-} //MuleAdminAgentTypeImpl
+} //AdminAgentTypeImpl

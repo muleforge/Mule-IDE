@@ -12,36 +12,36 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Mule Management Context Type</b></em>'.
+ * A representation of the model object '<em><b>Management Context Type</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultThreadingProfile <em>Default Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultDispatcherThreadingProfile <em>Default Dispatcher Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultReceiverThreadingProfile <em>Default Receiver Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultComponentThreadingProfile <em>Default Component Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getAbstractStorageGroup <em>Abstract Storage Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getAbstractStorage <em>Abstract Storage</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultConnectionStrategy <em>Default Connection Strategy</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getClusterId <em>Cluster Id</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultEncoding <em>Default Encoding</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#isDefaultRemoteSync <em>Default Remote Sync</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#isDefaultSynchronousEndpoints <em>Default Synchronous Endpoints</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultSynchronousEventTimeout <em>Default Synchronous Event Timeout</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultTransactionTimeout <em>Default Transaction Timeout</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getDomainId <em>Domain Id</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getServerId <em>Server Id</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleManagementContextType#getWorkingDirectory <em>Working Directory</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getDefaultThreadingProfile <em>Default Threading Profile</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getDefaultDispatcherThreadingProfile <em>Default Dispatcher Threading Profile</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getDefaultReceiverThreadingProfile <em>Default Receiver Threading Profile</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getDefaultComponentThreadingProfile <em>Default Component Threading Profile</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getAbstractStorageGroup <em>Abstract Storage Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getAbstractStorage <em>Abstract Storage</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getDefaultConnectionStrategy <em>Default Connection Strategy</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getClusterId <em>Cluster Id</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getDefaultEncoding <em>Default Encoding</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#isDefaultRemoteSync <em>Default Remote Sync</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#isDefaultSynchronousEndpoints <em>Default Synchronous Endpoints</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getDefaultSynchronousEventTimeout <em>Default Synchronous Event Timeout</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getDefaultTransactionTimeout <em>Default Transaction Timeout</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getDomainId <em>Domain Id</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getServerId <em>Server Id</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ManagementContextType#getWorkingDirectory <em>Working Directory</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType()
- * @model extendedMetaData="name='muleManagementContextType' kind='elementOnly'"
+ * @see org.mule.ide.config.core.CorePackage#getManagementContextType()
+ * @model extendedMetaData="name='managementContextType' kind='elementOnly'"
  * @generated
  */
-public interface MuleManagementContextType extends EObject {
+public interface ManagementContextType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Default Threading Profile</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -52,7 +52,7 @@ public interface MuleManagementContextType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Threading Profile</em>' containment reference.
 	 * @see #setDefaultThreadingProfile(ThreadingProfileType)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_DefaultThreadingProfile()
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_DefaultThreadingProfile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='default-threading-profile' namespace='##targetNamespace'"
 	 * @generated
@@ -60,7 +60,7 @@ public interface MuleManagementContextType extends EObject {
 	ThreadingProfileType getDefaultThreadingProfile();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultThreadingProfile <em>Default Threading Profile</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultThreadingProfile <em>Default Threading Profile</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Default Threading Profile</em>' containment reference.
@@ -79,7 +79,7 @@ public interface MuleManagementContextType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Dispatcher Threading Profile</em>' containment reference.
 	 * @see #setDefaultDispatcherThreadingProfile(ThreadingProfileType)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_DefaultDispatcherThreadingProfile()
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_DefaultDispatcherThreadingProfile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='default-dispatcher-threading-profile' namespace='##targetNamespace'"
 	 * @generated
@@ -87,7 +87,7 @@ public interface MuleManagementContextType extends EObject {
 	ThreadingProfileType getDefaultDispatcherThreadingProfile();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultDispatcherThreadingProfile <em>Default Dispatcher Threading Profile</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultDispatcherThreadingProfile <em>Default Dispatcher Threading Profile</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Default Dispatcher Threading Profile</em>' containment reference.
@@ -106,7 +106,7 @@ public interface MuleManagementContextType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Receiver Threading Profile</em>' containment reference.
 	 * @see #setDefaultReceiverThreadingProfile(ThreadingProfileType)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_DefaultReceiverThreadingProfile()
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_DefaultReceiverThreadingProfile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='default-receiver-threading-profile' namespace='##targetNamespace'"
 	 * @generated
@@ -114,7 +114,7 @@ public interface MuleManagementContextType extends EObject {
 	ThreadingProfileType getDefaultReceiverThreadingProfile();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultReceiverThreadingProfile <em>Default Receiver Threading Profile</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultReceiverThreadingProfile <em>Default Receiver Threading Profile</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Default Receiver Threading Profile</em>' containment reference.
@@ -133,7 +133,7 @@ public interface MuleManagementContextType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Component Threading Profile</em>' containment reference.
 	 * @see #setDefaultComponentThreadingProfile(ThreadingProfileType)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_DefaultComponentThreadingProfile()
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_DefaultComponentThreadingProfile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='default-component-threading-profile' namespace='##targetNamespace'"
 	 * @generated
@@ -141,7 +141,7 @@ public interface MuleManagementContextType extends EObject {
 	ThreadingProfileType getDefaultComponentThreadingProfile();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultComponentThreadingProfile <em>Default Component Threading Profile</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultComponentThreadingProfile <em>Default Component Threading Profile</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Default Component Threading Profile</em>' containment reference.
@@ -160,7 +160,7 @@ public interface MuleManagementContextType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Abstract Storage Group</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_AbstractStorageGroup()
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_AbstractStorageGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
 	 *        extendedMetaData="kind='group' name='abstract-storage:group' namespace='##targetNamespace'"
 	 * @generated
@@ -176,7 +176,7 @@ public interface MuleManagementContextType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Abstract Storage</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_AbstractStorage()
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_AbstractStorage()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='abstract-storage' namespace='##targetNamespace' group='abstract-storage:group'"
 	 * @generated
@@ -193,7 +193,7 @@ public interface MuleManagementContextType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Connection Strategy</em>' containment reference.
 	 * @see #setDefaultConnectionStrategy(ConnectionStrategyType)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_DefaultConnectionStrategy()
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_DefaultConnectionStrategy()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='default-connection-strategy' namespace='##targetNamespace'"
 	 * @generated
@@ -201,7 +201,7 @@ public interface MuleManagementContextType extends EObject {
 	ConnectionStrategyType getDefaultConnectionStrategy();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultConnectionStrategy <em>Default Connection Strategy</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultConnectionStrategy <em>Default Connection Strategy</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Default Connection Strategy</em>' containment reference.
@@ -220,7 +220,7 @@ public interface MuleManagementContextType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Cluster Id</em>' attribute.
 	 * @see #setClusterId(String)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_ClusterId()
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_ClusterId()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='attribute' name='clusterId'"
 	 * @generated
@@ -228,7 +228,7 @@ public interface MuleManagementContextType extends EObject {
 	String getClusterId();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getClusterId <em>Cluster Id</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getClusterId <em>Cluster Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Cluster Id</em>' attribute.
@@ -239,6 +239,7 @@ public interface MuleManagementContextType extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Default Encoding</b></em>' attribute.
+	 * The default value is <code>"UTF-8"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Default Encoding</em>' attribute isn't clear,
@@ -246,23 +247,50 @@ public interface MuleManagementContextType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Encoding</em>' attribute.
+	 * @see #isSetDefaultEncoding()
+	 * @see #unsetDefaultEncoding()
 	 * @see #setDefaultEncoding(String)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_DefaultEncoding()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_DefaultEncoding()
+	 * @model default="UTF-8" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='attribute' name='defaultEncoding'"
 	 * @generated
 	 */
 	String getDefaultEncoding();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultEncoding <em>Default Encoding</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultEncoding <em>Default Encoding</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Default Encoding</em>' attribute.
+	 * @see #isSetDefaultEncoding()
+	 * @see #unsetDefaultEncoding()
 	 * @see #getDefaultEncoding()
 	 * @generated
 	 */
 	void setDefaultEncoding(String value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultEncoding <em>Default Encoding</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetDefaultEncoding()
+	 * @see #getDefaultEncoding()
+	 * @see #setDefaultEncoding(String)
+	 * @generated
+	 */
+	void unsetDefaultEncoding();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultEncoding <em>Default Encoding</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Default Encoding</em>' attribute is set.
+	 * @see #unsetDefaultEncoding()
+	 * @see #getDefaultEncoding()
+	 * @see #setDefaultEncoding(String)
+	 * @generated
+	 */
+	boolean isSetDefaultEncoding();
 
 	/**
 	 * Returns the value of the '<em><b>Default Remote Sync</b></em>' attribute.
@@ -277,7 +305,7 @@ public interface MuleManagementContextType extends EObject {
 	 * @see #isSetDefaultRemoteSync()
 	 * @see #unsetDefaultRemoteSync()
 	 * @see #setDefaultRemoteSync(boolean)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_DefaultRemoteSync()
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_DefaultRemoteSync()
 	 * @model default="false" unsettable="true" dataType="org.mule.ide.config.core.SubstitutableBoolean"
 	 *        extendedMetaData="kind='attribute' name='defaultRemoteSync'"
 	 * @generated
@@ -285,7 +313,7 @@ public interface MuleManagementContextType extends EObject {
 	boolean isDefaultRemoteSync();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#isDefaultRemoteSync <em>Default Remote Sync</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#isDefaultRemoteSync <em>Default Remote Sync</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Default Remote Sync</em>' attribute.
@@ -297,7 +325,7 @@ public interface MuleManagementContextType extends EObject {
 	void setDefaultRemoteSync(boolean value);
 
 	/**
-	 * Unsets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#isDefaultRemoteSync <em>Default Remote Sync</em>}' attribute.
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ManagementContextType#isDefaultRemoteSync <em>Default Remote Sync</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isSetDefaultRemoteSync()
@@ -308,7 +336,7 @@ public interface MuleManagementContextType extends EObject {
 	void unsetDefaultRemoteSync();
 
 	/**
-	 * Returns whether the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#isDefaultRemoteSync <em>Default Remote Sync</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ManagementContextType#isDefaultRemoteSync <em>Default Remote Sync</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return whether the value of the '<em>Default Remote Sync</em>' attribute is set.
@@ -332,7 +360,7 @@ public interface MuleManagementContextType extends EObject {
 	 * @see #isSetDefaultSynchronousEndpoints()
 	 * @see #unsetDefaultSynchronousEndpoints()
 	 * @see #setDefaultSynchronousEndpoints(boolean)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_DefaultSynchronousEndpoints()
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_DefaultSynchronousEndpoints()
 	 * @model default="false" unsettable="true" dataType="org.mule.ide.config.core.SubstitutableBoolean"
 	 *        extendedMetaData="kind='attribute' name='defaultSynchronousEndpoints'"
 	 * @generated
@@ -340,7 +368,7 @@ public interface MuleManagementContextType extends EObject {
 	boolean isDefaultSynchronousEndpoints();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#isDefaultSynchronousEndpoints <em>Default Synchronous Endpoints</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#isDefaultSynchronousEndpoints <em>Default Synchronous Endpoints</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Default Synchronous Endpoints</em>' attribute.
@@ -352,7 +380,7 @@ public interface MuleManagementContextType extends EObject {
 	void setDefaultSynchronousEndpoints(boolean value);
 
 	/**
-	 * Unsets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#isDefaultSynchronousEndpoints <em>Default Synchronous Endpoints</em>}' attribute.
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ManagementContextType#isDefaultSynchronousEndpoints <em>Default Synchronous Endpoints</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isSetDefaultSynchronousEndpoints()
@@ -363,7 +391,7 @@ public interface MuleManagementContextType extends EObject {
 	void unsetDefaultSynchronousEndpoints();
 
 	/**
-	 * Returns whether the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#isDefaultSynchronousEndpoints <em>Default Synchronous Endpoints</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ManagementContextType#isDefaultSynchronousEndpoints <em>Default Synchronous Endpoints</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return whether the value of the '<em>Default Synchronous Endpoints</em>' attribute is set.
@@ -376,6 +404,7 @@ public interface MuleManagementContextType extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Default Synchronous Event Timeout</b></em>' attribute.
+	 * The default value is <code>"3000"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Default Synchronous Event Timeout</em>' attribute isn't clear,
@@ -383,26 +412,54 @@ public interface MuleManagementContextType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Synchronous Event Timeout</em>' attribute.
+	 * @see #isSetDefaultSynchronousEventTimeout()
+	 * @see #unsetDefaultSynchronousEventTimeout()
 	 * @see #setDefaultSynchronousEventTimeout(String)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_DefaultSynchronousEventTimeout()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_DefaultSynchronousEventTimeout()
+	 * @model default="3000" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='attribute' name='defaultSynchronousEventTimeout'"
 	 * @generated
 	 */
 	String getDefaultSynchronousEventTimeout();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultSynchronousEventTimeout <em>Default Synchronous Event Timeout</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultSynchronousEventTimeout <em>Default Synchronous Event Timeout</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Default Synchronous Event Timeout</em>' attribute.
+	 * @see #isSetDefaultSynchronousEventTimeout()
+	 * @see #unsetDefaultSynchronousEventTimeout()
 	 * @see #getDefaultSynchronousEventTimeout()
 	 * @generated
 	 */
 	void setDefaultSynchronousEventTimeout(String value);
 
 	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultSynchronousEventTimeout <em>Default Synchronous Event Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetDefaultSynchronousEventTimeout()
+	 * @see #getDefaultSynchronousEventTimeout()
+	 * @see #setDefaultSynchronousEventTimeout(String)
+	 * @generated
+	 */
+	void unsetDefaultSynchronousEventTimeout();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultSynchronousEventTimeout <em>Default Synchronous Event Timeout</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Default Synchronous Event Timeout</em>' attribute is set.
+	 * @see #unsetDefaultSynchronousEventTimeout()
+	 * @see #getDefaultSynchronousEventTimeout()
+	 * @see #setDefaultSynchronousEventTimeout(String)
+	 * @generated
+	 */
+	boolean isSetDefaultSynchronousEventTimeout();
+
+	/**
 	 * Returns the value of the '<em><b>Default Transaction Timeout</b></em>' attribute.
+	 * The default value is <code>"5000"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Default Transaction Timeout</em>' attribute isn't clear,
@@ -410,26 +467,54 @@ public interface MuleManagementContextType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Transaction Timeout</em>' attribute.
+	 * @see #isSetDefaultTransactionTimeout()
+	 * @see #unsetDefaultTransactionTimeout()
 	 * @see #setDefaultTransactionTimeout(String)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_DefaultTransactionTimeout()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_DefaultTransactionTimeout()
+	 * @model default="5000" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='attribute' name='defaultTransactionTimeout'"
 	 * @generated
 	 */
 	String getDefaultTransactionTimeout();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getDefaultTransactionTimeout <em>Default Transaction Timeout</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultTransactionTimeout <em>Default Transaction Timeout</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Default Transaction Timeout</em>' attribute.
+	 * @see #isSetDefaultTransactionTimeout()
+	 * @see #unsetDefaultTransactionTimeout()
 	 * @see #getDefaultTransactionTimeout()
 	 * @generated
 	 */
 	void setDefaultTransactionTimeout(String value);
 
 	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultTransactionTimeout <em>Default Transaction Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetDefaultTransactionTimeout()
+	 * @see #getDefaultTransactionTimeout()
+	 * @see #setDefaultTransactionTimeout(String)
+	 * @generated
+	 */
+	void unsetDefaultTransactionTimeout();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDefaultTransactionTimeout <em>Default Transaction Timeout</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Default Transaction Timeout</em>' attribute is set.
+	 * @see #unsetDefaultTransactionTimeout()
+	 * @see #getDefaultTransactionTimeout()
+	 * @see #setDefaultTransactionTimeout(String)
+	 * @generated
+	 */
+	boolean isSetDefaultTransactionTimeout();
+
+	/**
 	 * Returns the value of the '<em><b>Domain Id</b></em>' attribute.
+	 * The default value is <code>"org.mule"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Domain Id</em>' attribute isn't clear,
@@ -437,23 +522,50 @@ public interface MuleManagementContextType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Domain Id</em>' attribute.
+	 * @see #isSetDomainId()
+	 * @see #unsetDomainId()
 	 * @see #setDomainId(String)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_DomainId()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_DomainId()
+	 * @model default="org.mule" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='attribute' name='domainId'"
 	 * @generated
 	 */
 	String getDomainId();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getDomainId <em>Domain Id</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDomainId <em>Domain Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Domain Id</em>' attribute.
+	 * @see #isSetDomainId()
+	 * @see #unsetDomainId()
 	 * @see #getDomainId()
 	 * @generated
 	 */
 	void setDomainId(String value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDomainId <em>Domain Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetDomainId()
+	 * @see #getDomainId()
+	 * @see #setDomainId(String)
+	 * @generated
+	 */
+	void unsetDomainId();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ManagementContextType#getDomainId <em>Domain Id</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Domain Id</em>' attribute is set.
+	 * @see #unsetDomainId()
+	 * @see #getDomainId()
+	 * @see #setDomainId(String)
+	 * @generated
+	 */
+	boolean isSetDomainId();
 
 	/**
 	 * Returns the value of the '<em><b>Server Id</b></em>' attribute.
@@ -465,15 +577,15 @@ public interface MuleManagementContextType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Server Id</em>' attribute.
 	 * @see #setServerId(String)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_ServerId()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_ServerId()
+	 * @model dataType="org.mule.ide.config.core.NonBlankString"
 	 *        extendedMetaData="kind='attribute' name='serverId'"
 	 * @generated
 	 */
 	String getServerId();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getServerId <em>Server Id</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getServerId <em>Server Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Server Id</em>' attribute.
@@ -484,7 +596,6 @@ public interface MuleManagementContextType extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Working Directory</b></em>' attribute.
-	 * The default value is <code>"./.mule"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Working Directory</em>' attribute isn't clear,
@@ -492,49 +603,22 @@ public interface MuleManagementContextType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Working Directory</em>' attribute.
-	 * @see #isSetWorkingDirectory()
-	 * @see #unsetWorkingDirectory()
 	 * @see #setWorkingDirectory(String)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleManagementContextType_WorkingDirectory()
-	 * @model default="./.mule" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @see org.mule.ide.config.core.CorePackage#getManagementContextType_WorkingDirectory()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='attribute' name='workingDirectory'"
 	 * @generated
 	 */
 	String getWorkingDirectory();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getWorkingDirectory <em>Working Directory</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ManagementContextType#getWorkingDirectory <em>Working Directory</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Working Directory</em>' attribute.
-	 * @see #isSetWorkingDirectory()
-	 * @see #unsetWorkingDirectory()
 	 * @see #getWorkingDirectory()
 	 * @generated
 	 */
 	void setWorkingDirectory(String value);
 
-	/**
-	 * Unsets the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getWorkingDirectory <em>Working Directory</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetWorkingDirectory()
-	 * @see #getWorkingDirectory()
-	 * @see #setWorkingDirectory(String)
-	 * @generated
-	 */
-	void unsetWorkingDirectory();
-
-	/**
-	 * Returns whether the value of the '{@link org.mule.ide.config.core.MuleManagementContextType#getWorkingDirectory <em>Working Directory</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Working Directory</em>' attribute is set.
-	 * @see #unsetWorkingDirectory()
-	 * @see #getWorkingDirectory()
-	 * @see #setWorkingDirectory(String)
-	 * @generated
-	 */
-	boolean isSetWorkingDirectory();
-
-} // MuleManagementContextType
+} // ManagementContextType

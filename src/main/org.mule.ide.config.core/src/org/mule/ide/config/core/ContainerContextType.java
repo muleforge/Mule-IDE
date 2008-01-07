@@ -57,7 +57,7 @@ public interface ContainerContextType extends EObject {
 	 * @return the value of the '<em>Class</em>' attribute.
 	 * @see #setClass(String)
 	 * @see org.mule.ide.config.core.CorePackage#getContainerContextType_Class()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.NMTOKEN" required="true"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass" required="true"
 	 *        extendedMetaData="kind='attribute' name='class'"
 	 * @generated
 	 */

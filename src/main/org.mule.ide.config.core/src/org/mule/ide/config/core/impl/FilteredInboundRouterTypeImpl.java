@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.mule.ide.config.core.AbstractFilterType;
 import org.mule.ide.config.core.AbstractPropertyExtractorType;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.CustomPropertyExtractorType;
 import org.mule.ide.config.core.FilteredInboundRouterType;
 
 /**
@@ -70,7 +71,7 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected EObject customPropertyExtractor;
+	protected CustomPropertyExtractorType customPropertyExtractor;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,7 +157,7 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject getCustomPropertyExtractor() {
+	public CustomPropertyExtractorType getCustomPropertyExtractor() {
 		return customPropertyExtractor;
 	}
 
@@ -165,8 +166,8 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCustomPropertyExtractor(EObject newCustomPropertyExtractor, NotificationChain msgs) {
-		EObject oldCustomPropertyExtractor = customPropertyExtractor;
+	public NotificationChain basicSetCustomPropertyExtractor(CustomPropertyExtractorType newCustomPropertyExtractor, NotificationChain msgs) {
+		CustomPropertyExtractorType oldCustomPropertyExtractor = customPropertyExtractor;
 		customPropertyExtractor = newCustomPropertyExtractor;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR, oldCustomPropertyExtractor, newCustomPropertyExtractor);
@@ -180,7 +181,7 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCustomPropertyExtractor(EObject newCustomPropertyExtractor) {
+	public void setCustomPropertyExtractor(CustomPropertyExtractorType newCustomPropertyExtractor) {
 		if (newCustomPropertyExtractor != customPropertyExtractor) {
 			NotificationChain msgs = null;
 			if (customPropertyExtractor != null)
@@ -255,7 +256,7 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 				((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).set(newValue);
 				return;
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
-				setCustomPropertyExtractor((EObject)newValue);
+				setCustomPropertyExtractor((CustomPropertyExtractorType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -276,7 +277,7 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 				getAbstractPropertyExtractorGroup().clear();
 				return;
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
-				setCustomPropertyExtractor((EObject)null);
+				setCustomPropertyExtractor((CustomPropertyExtractorType)null);
 				return;
 		}
 		super.eUnset(featureID);

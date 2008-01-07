@@ -173,13 +173,13 @@ public interface OutboundRouterType extends AbstractOutboundRouterType {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Custom Property Extractor</em>' containment reference.
-	 * @see #setCustomPropertyExtractor(EObject)
+	 * @see #setCustomPropertyExtractor(CustomPropertyExtractorType)
 	 * @see org.mule.ide.config.core.CorePackage#getOutboundRouterType_CustomPropertyExtractor()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='custom-property-extractor' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EObject getCustomPropertyExtractor();
+	CustomPropertyExtractorType getCustomPropertyExtractor();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.OutboundRouterType#getCustomPropertyExtractor <em>Custom Property Extractor</em>}' containment reference.
@@ -189,7 +189,7 @@ public interface OutboundRouterType extends AbstractOutboundRouterType {
 	 * @see #getCustomPropertyExtractor()
 	 * @generated
 	 */
-	void setCustomPropertyExtractor(EObject value);
+	void setCustomPropertyExtractor(CustomPropertyExtractorType value);
 
 	/**
 	 * Returns the value of the '<em><b>Enable Correlation</b></em>' attribute.

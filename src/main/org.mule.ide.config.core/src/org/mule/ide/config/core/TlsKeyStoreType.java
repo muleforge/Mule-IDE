@@ -163,7 +163,7 @@ public interface TlsKeyStoreType extends EObject {
 	 * @return the value of the '<em>Key Store Type</em>' attribute.
 	 * @see #setKeyStoreType(String)
 	 * @see org.mule.ide.config.core.CorePackage#getTlsKeyStoreType_KeyStoreType()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
 	 *        extendedMetaData="kind='attribute' name='keyStoreType'"
 	 * @generated
 	 */

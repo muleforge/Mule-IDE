@@ -35,6 +35,15 @@ public interface CoreFactory extends EFactory {
 	AbstractAgentType createAbstractAgentType();
 
 	/**
+	 * Returns a new object of class '<em>Abstract Async Reply Router Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Abstract Async Reply Router Type</em>'.
+	 * @generated
+	 */
+	AbstractAsyncReplyRouterType createAbstractAsyncReplyRouterType();
+
+	/**
 	 * Returns a new object of class '<em>Abstract Binding Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,6 +96,24 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	AbstractConnectorType createAbstractConnectorType();
+
+	/**
+	 * Returns a new object of class '<em>Abstract Define Notification Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Abstract Define Notification Type</em>'.
+	 * @generated
+	 */
+	AbstractDefineNotificationType createAbstractDefineNotificationType();
+
+	/**
+	 * Returns a new object of class '<em>Abstract Disable Notification Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Abstract Disable Notification Type</em>'.
+	 * @generated
+	 */
+	AbstractDisableNotificationType createAbstractDisableNotificationType();
 
 	/**
 	 * Returns a new object of class '<em>Abstract Entrypoint Resolver Type</em>'.
@@ -215,24 +242,6 @@ public interface CoreFactory extends EFactory {
 	AbstractQueueProfileType createAbstractQueueProfileType();
 
 	/**
-	 * Returns a new object of class '<em>Abstract Response Endpoint Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Abstract Response Endpoint Type</em>'.
-	 * @generated
-	 */
-	AbstractResponseEndpointType createAbstractResponseEndpointType();
-
-	/**
-	 * Returns a new object of class '<em>Abstract Response Router Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Abstract Response Router Type</em>'.
-	 * @generated
-	 */
-	AbstractResponseRouterType createAbstractResponseRouterType();
-
-	/**
 	 * Returns a new object of class '<em>Abstract Security Filter Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -303,6 +312,33 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	AbstractTransformerType createAbstractTransformerType();
+
+	/**
+	 * Returns a new object of class '<em>Admin Agent Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Admin Agent Type</em>'.
+	 * @generated
+	 */
+	AdminAgentType createAdminAgentType();
+
+	/**
+	 * Returns a new object of class '<em>Async Reply Router Collection Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Async Reply Router Collection Type</em>'.
+	 * @generated
+	 */
+	AsyncReplyRouterCollectionType createAsyncReplyRouterCollectionType();
+
+	/**
+	 * Returns a new object of class '<em>Async Reply Router Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Async Reply Router Type</em>'.
+	 * @generated
+	 */
+	AsyncReplyRouterType createAsyncReplyRouterType();
 
 	/**
 	 * Returns a new object of class '<em>Base Container Context Type</em>'.
@@ -393,6 +429,15 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	CorrelationRouterType createCorrelationRouterType();
+
+	/**
+	 * Returns a new object of class '<em>Custom Async Reply Router Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Custom Async Reply Router Type</em>'.
+	 * @generated
+	 */
+	CustomAsyncReplyRouterType createCustomAsyncReplyRouterType();
 
 	/**
 	 * Returns a new object of class '<em>Custom Catch All Strategy Type</em>'.
@@ -503,15 +548,6 @@ public interface CoreFactory extends EFactory {
 	CustomPropertyExtractorType createCustomPropertyExtractorType();
 
 	/**
-	 * Returns a new object of class '<em>Custom Response Router Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Custom Response Router Type</em>'.
-	 * @generated
-	 */
-	CustomResponseRouterType createCustomResponseRouterType();
-
-	/**
 	 * Returns a new object of class '<em>Custom Security Provider Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -575,6 +611,15 @@ public interface CoreFactory extends EFactory {
 	DefaultServiceType createDefaultServiceType();
 
 	/**
+	 * Returns a new object of class '<em>Define Notification Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Define Notification Type</em>'.
+	 * @generated
+	 */
+	DefineNotificationType createDefineNotificationType();
+
+	/**
 	 * Returns a new object of class '<em>Description Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -582,6 +627,15 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	DescriptionType createDescriptionType();
+
+	/**
+	 * Returns a new object of class '<em>Disable Notification Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Disable Notification Type</em>'.
+	 * @generated
+	 */
+	DisableNotificationType createDisableNotificationType();
 
 	/**
 	 * Returns a new object of class '<em>Document Root</em>'.
@@ -773,6 +827,15 @@ public interface CoreFactory extends EFactory {
 	LoggingCatchAllStrategyType createLoggingCatchAllStrategyType();
 
 	/**
+	 * Returns a new object of class '<em>Management Context Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Management Context Type</em>'.
+	 * @generated
+	 */
+	ManagementContextType createManagementContextType();
+
+	/**
 	 * Returns a new object of class '<em>Map Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -800,24 +863,6 @@ public interface CoreFactory extends EFactory {
 	MessageSplitterOutboundRouterType createMessageSplitterOutboundRouterType();
 
 	/**
-	 * Returns a new object of class '<em>Mule Admin Agent Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mule Admin Agent Type</em>'.
-	 * @generated
-	 */
-	MuleAdminAgentType createMuleAdminAgentType();
-
-	/**
-	 * Returns a new object of class '<em>Mule Management Context Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mule Management Context Type</em>'.
-	 * @generated
-	 */
-	MuleManagementContextType createMuleManagementContextType();
-
-	/**
 	 * Returns a new object of class '<em>Mule Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -834,6 +879,15 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	MuleUnsafeType createMuleUnsafeType();
+
+	/**
+	 * Returns a new object of class '<em>No Args Call Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>No Args Call Component Type</em>'.
+	 * @generated
+	 */
+	NoArgsCallComponentType createNoArgsCallComponentType();
 
 	/**
 	 * Returns a new object of class '<em>No Args Call Delegate Class Type</em>'.
@@ -854,13 +908,22 @@ public interface CoreFactory extends EFactory {
 	NoArgsCallDelegateInstanceType createNoArgsCallDelegateInstanceType();
 
 	/**
-	 * Returns a new object of class '<em>No Args Call Wrapper Type</em>'.
+	 * Returns a new object of class '<em>Notification Listener Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>No Args Call Wrapper Type</em>'.
+	 * @return a new object of class '<em>Notification Listener Type</em>'.
 	 * @generated
 	 */
-	NoArgsCallWrapperType createNoArgsCallWrapperType();
+	NotificationListenerType createNotificationListenerType();
+
+	/**
+	 * Returns a new object of class '<em>Notification Manager Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Notification Manager Type</em>'.
+	 * @generated
+	 */
+	NotificationManagerType createNotificationManagerType();
 
 	/**
 	 * Returns a new object of class '<em>Outbound Endpoint Type</em>'.
@@ -987,33 +1050,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	ReplyToType createReplyToType();
-
-	/**
-	 * Returns a new object of class '<em>Response Endpoint Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Response Endpoint Type</em>'.
-	 * @generated
-	 */
-	ResponseEndpointType createResponseEndpointType();
-
-	/**
-	 * Returns a new object of class '<em>Response Router Collection Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Response Router Collection Type</em>'.
-	 * @generated
-	 */
-	ResponseRouterCollectionType createResponseRouterCollectionType();
-
-	/**
-	 * Returns a new object of class '<em>Response Router Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Response Router Type</em>'.
-	 * @generated
-	 */
-	ResponseRouterType createResponseRouterType();
 
 	/**
 	 * Returns a new object of class '<em>Response Transformers Type</em>'.

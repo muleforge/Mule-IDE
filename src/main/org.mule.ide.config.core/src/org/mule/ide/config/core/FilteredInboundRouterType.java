@@ -106,13 +106,13 @@ public interface FilteredInboundRouterType extends AbstractInboundRouterType {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Custom Property Extractor</em>' containment reference.
-	 * @see #setCustomPropertyExtractor(EObject)
+	 * @see #setCustomPropertyExtractor(CustomPropertyExtractorType)
 	 * @see org.mule.ide.config.core.CorePackage#getFilteredInboundRouterType_CustomPropertyExtractor()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='custom-property-extractor' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EObject getCustomPropertyExtractor();
+	CustomPropertyExtractorType getCustomPropertyExtractor();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.FilteredInboundRouterType#getCustomPropertyExtractor <em>Custom Property Extractor</em>}' containment reference.
@@ -122,6 +122,6 @@ public interface FilteredInboundRouterType extends AbstractInboundRouterType {
 	 * @see #getCustomPropertyExtractor()
 	 * @generated
 	 */
-	void setCustomPropertyExtractor(EObject value);
+	void setCustomPropertyExtractor(CustomPropertyExtractorType value);
 
 } // FilteredInboundRouterType

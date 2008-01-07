@@ -10,25 +10,25 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.mule.ide.config.core.AbstractResponseRouterType;
+import org.mule.ide.config.core.AbstractDefineNotificationType;
 import org.mule.ide.config.core.CorePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Response Router Type</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Define Notification Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class AbstractResponseRouterTypeImpl extends EObjectImpl implements AbstractResponseRouterType {
+public class AbstractDefineNotificationTypeImpl extends EObjectImpl implements AbstractDefineNotificationType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AbstractResponseRouterTypeImpl() {
+	protected AbstractDefineNotificationTypeImpl() {
 		super();
 	}
 
@@ -39,7 +39,7 @@ public class AbstractResponseRouterTypeImpl extends EObjectImpl implements Abstr
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.eINSTANCE.getAbstractResponseRouterType();
+		return CorePackage.eINSTANCE.getAbstractDefineNotificationType();
 	}
 
-} //AbstractResponseRouterTypeImpl
+} //AbstractDefineNotificationTypeImpl

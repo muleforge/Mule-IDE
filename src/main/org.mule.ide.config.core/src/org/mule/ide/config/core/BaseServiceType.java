@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAbstractComponentGroup <em>Abstract Component Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAbstractComponent <em>Abstract Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getOutboundRouter <em>Outbound Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.BaseServiceType#getResponseRouter <em>Response Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAsyncReplyRouter <em>Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAbstractExceptionStrategyGroup <em>Abstract Exception Strategy Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAbstractExceptionStrategy <em>Abstract Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getClass_ <em>Class</em>}</li>
@@ -126,31 +126,31 @@ public interface BaseServiceType extends AbstractServiceType {
 	void setOutboundRouter(OutboundRouterCollectionType value);
 
 	/**
-	 * Returns the value of the '<em><b>Response Router</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Async Reply Router</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Response Router</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Async Reply Router</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Response Router</em>' containment reference.
-	 * @see #setResponseRouter(ResponseRouterCollectionType)
-	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_ResponseRouter()
+	 * @return the value of the '<em>Async Reply Router</em>' containment reference.
+	 * @see #setAsyncReplyRouter(AsyncReplyRouterCollectionType)
+	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_AsyncReplyRouter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='response-router' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='async-reply-router' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ResponseRouterCollectionType getResponseRouter();
+	AsyncReplyRouterCollectionType getAsyncReplyRouter();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.BaseServiceType#getResponseRouter <em>Response Router</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.BaseServiceType#getAsyncReplyRouter <em>Async Reply Router</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Response Router</em>' containment reference.
-	 * @see #getResponseRouter()
+	 * @param value the new value of the '<em>Async Reply Router</em>' containment reference.
+	 * @see #getAsyncReplyRouter()
 	 * @generated
 	 */
-	void setResponseRouter(ResponseRouterCollectionType value);
+	void setAsyncReplyRouter(AsyncReplyRouterCollectionType value);
 
 	/**
 	 * Returns the value of the '<em><b>Abstract Exception Strategy Group</b></em>' attribute list.
@@ -196,7 +196,7 @@ public interface BaseServiceType extends AbstractServiceType {
 	 * @return the value of the '<em>Class</em>' attribute.
 	 * @see #setClass(String)
 	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_Class()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.NMTOKEN"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
 	 *        extendedMetaData="kind='attribute' name='class'"
 	 * @generated
 	 */

@@ -60,7 +60,7 @@ public interface CustomTransactionManagerType extends JndiTransactionManagerType
 	 * @return the value of the '<em>Class</em>' attribute.
 	 * @see #setClass(String)
 	 * @see org.mule.ide.config.core.CorePackage#getCustomTransactionManagerType_Class()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.NMTOKEN" required="true"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass" required="true"
 	 *        extendedMetaData="kind='attribute' name='class'"
 	 * @generated
 	 */

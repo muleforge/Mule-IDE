@@ -36,7 +36,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getAddress <em>Address</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getConnectorRef <em>Connector Ref</em>}</li>
- *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getCreateConnector <em>Create Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getEncoding <em>Encoding</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getRef <em>Ref</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#isRemoteSync <em>Remote Sync</em>}</li>
@@ -343,64 +342,6 @@ public interface InboundEndpointType extends AbstractInboundEndpointType {
 	 * @generated
 	 */
 	void setConnectorRef(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Create Connector</b></em>' attribute.
-	 * The default value is <code>"FIND_OR_CREATE"</code>.
-	 * The literals are from the enumeration {@link org.mule.ide.config.core.CreateConnectorType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Create Connector</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Create Connector</em>' attribute.
-	 * @see org.mule.ide.config.core.CreateConnectorType
-	 * @see #isSetCreateConnector()
-	 * @see #unsetCreateConnector()
-	 * @see #setCreateConnector(CreateConnectorType)
-	 * @see org.mule.ide.config.core.CorePackage#getInboundEndpointType_CreateConnector()
-	 * @model default="FIND_OR_CREATE" unsettable="true"
-	 *        extendedMetaData="kind='attribute' name='createConnector'"
-	 * @generated
-	 */
-	CreateConnectorType getCreateConnector();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.InboundEndpointType#getCreateConnector <em>Create Connector</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Create Connector</em>' attribute.
-	 * @see org.mule.ide.config.core.CreateConnectorType
-	 * @see #isSetCreateConnector()
-	 * @see #unsetCreateConnector()
-	 * @see #getCreateConnector()
-	 * @generated
-	 */
-	void setCreateConnector(CreateConnectorType value);
-
-	/**
-	 * Unsets the value of the '{@link org.mule.ide.config.core.InboundEndpointType#getCreateConnector <em>Create Connector</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetCreateConnector()
-	 * @see #getCreateConnector()
-	 * @see #setCreateConnector(CreateConnectorType)
-	 * @generated
-	 */
-	void unsetCreateConnector();
-
-	/**
-	 * Returns whether the value of the '{@link org.mule.ide.config.core.InboundEndpointType#getCreateConnector <em>Create Connector</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Create Connector</em>' attribute is set.
-	 * @see #unsetCreateConnector()
-	 * @see #getCreateConnector()
-	 * @see #setCreateConnector(CreateConnectorType)
-	 * @generated
-	 */
-	boolean isSetCreateConnector();
 
 	/**
 	 * Returns the value of the '<em><b>Encoding</b></em>' attribute.

@@ -32,13 +32,14 @@ import org.mule.ide.config.core.AbstractSecurityManagerType;
 import org.mule.ide.config.core.AbstractTransactionFactoryType;
 import org.mule.ide.config.core.AbstractTransactionManagerType;
 import org.mule.ide.config.core.AbstractTransformerType;
+import org.mule.ide.config.core.AdminAgentType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DescriptionType;
 import org.mule.ide.config.core.EnvironmentPropertyType;
-import org.mule.ide.config.core.MuleAdminAgentType;
-import org.mule.ide.config.core.MuleManagementContextType;
+import org.mule.ide.config.core.ManagementContextType;
 import org.mule.ide.config.core.MuleType;
 
+import org.mule.ide.config.core.NotificationManagerType;
 import org.mule.ide.config.spring.BeanType;
 import org.mule.ide.config.spring.BeansType;
 
@@ -53,6 +54,7 @@ import org.mule.ide.config.spring.BeansType;
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getEnvironmentProperty <em>Environment Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getAdminAgent <em>Admin Agent</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getNotifications <em>Notifications</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getAbstractExtensionGroup <em>Abstract Extension Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getAbstractExtension <em>Abstract Extension</em>}</li>
@@ -156,7 +158,7 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MuleAdminAgentType> getAdminAgent() {
+	public EList<AdminAgentType> getAdminAgent() {
 		return getGroup().list(CorePackage.eINSTANCE.getMuleType_AdminAgent());
 	}
 
@@ -165,8 +167,17 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MuleManagementContextType> getConfiguration() {
+	public EList<ManagementContextType> getConfiguration() {
 		return getGroup().list(CorePackage.eINSTANCE.getMuleType_Configuration());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<NotificationManagerType> getNotifications() {
+		return getGroup().list(CorePackage.eINSTANCE.getMuleType_Notifications());
 	}
 
 	/**
@@ -395,6 +406,8 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return ((InternalEList<?>)getAdminAgent()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return ((InternalEList<?>)getConfiguration()).basicRemove(otherEnd, msgs);
+			case CorePackage.MULE_TYPE__NOTIFICATIONS:
+				return ((InternalEList<?>)getNotifications()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__DESCRIPTION:
 				return ((InternalEList<?>)getDescription()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__ABSTRACT_EXTENSION_GROUP:
@@ -458,6 +471,8 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return getAdminAgent();
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return getConfiguration();
+			case CorePackage.MULE_TYPE__NOTIFICATIONS:
+				return getNotifications();
 			case CorePackage.MULE_TYPE__DESCRIPTION:
 				return getDescription();
 			case CorePackage.MULE_TYPE__ABSTRACT_EXTENSION_GROUP:
@@ -533,11 +548,15 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return;
 			case CorePackage.MULE_TYPE__ADMIN_AGENT:
 				getAdminAgent().clear();
-				getAdminAgent().addAll((Collection<? extends MuleAdminAgentType>)newValue);
+				getAdminAgent().addAll((Collection<? extends AdminAgentType>)newValue);
 				return;
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				getConfiguration().clear();
-				getConfiguration().addAll((Collection<? extends MuleManagementContextType>)newValue);
+				getConfiguration().addAll((Collection<? extends ManagementContextType>)newValue);
+				return;
+			case CorePackage.MULE_TYPE__NOTIFICATIONS:
+				getNotifications().clear();
+				getNotifications().addAll((Collection<? extends NotificationManagerType>)newValue);
 				return;
 			case CorePackage.MULE_TYPE__DESCRIPTION:
 				getDescription().clear();
@@ -605,6 +624,9 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				getConfiguration().clear();
 				return;
+			case CorePackage.MULE_TYPE__NOTIFICATIONS:
+				getNotifications().clear();
+				return;
 			case CorePackage.MULE_TYPE__DESCRIPTION:
 				getDescription().clear();
 				return;
@@ -664,6 +686,8 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return !getAdminAgent().isEmpty();
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return !getConfiguration().isEmpty();
+			case CorePackage.MULE_TYPE__NOTIFICATIONS:
+				return !getNotifications().isEmpty();
 			case CorePackage.MULE_TYPE__DESCRIPTION:
 				return !getDescription().isEmpty();
 			case CorePackage.MULE_TYPE__ABSTRACT_EXTENSION_GROUP:

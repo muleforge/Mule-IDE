@@ -58,7 +58,6 @@ import org.mule.ide.config.core.TransformersType;
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getConnectorRef <em>Connector Ref</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getCreateConnector <em>Create Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getEncoding <em>Encoding</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#isRemoteSync <em>Remote Sync</em>}</li>
@@ -121,35 +120,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 	 * @ordered
 	 */
 	protected String connectorRef = CONNECTOR_REF_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getCreateConnector() <em>Create Connector</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCreateConnector()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final CreateConnectorType CREATE_CONNECTOR_EDEFAULT = CreateConnectorType.FINDORCREATE;
-
-	/**
-	 * The cached value of the '{@link #getCreateConnector() <em>Create Connector</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCreateConnector()
-	 * @generated
-	 * @ordered
-	 */
-	protected CreateConnectorType createConnector = CREATE_CONNECTOR_EDEFAULT;
-
-	/**
-	 * This is true if the Create Connector attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean createConnectorESet;
 
 	/**
 	 * The default value of the '{@link #getEncoding() <em>Encoding</em>}' attribute.
@@ -504,52 +474,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CreateConnectorType getCreateConnector() {
-		return createConnector;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCreateConnector(CreateConnectorType newCreateConnector) {
-		CreateConnectorType oldCreateConnector = createConnector;
-		createConnector = newCreateConnector == null ? CREATE_CONNECTOR_EDEFAULT : newCreateConnector;
-		boolean oldCreateConnectorESet = createConnectorESet;
-		createConnectorESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.GLOBAL_ENDPOINT_TYPE__CREATE_CONNECTOR, oldCreateConnector, createConnector, !oldCreateConnectorESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetCreateConnector() {
-		CreateConnectorType oldCreateConnector = createConnector;
-		boolean oldCreateConnectorESet = createConnectorESet;
-		createConnector = CREATE_CONNECTOR_EDEFAULT;
-		createConnectorESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.GLOBAL_ENDPOINT_TYPE__CREATE_CONNECTOR, oldCreateConnector, CREATE_CONNECTOR_EDEFAULT, oldCreateConnectorESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetCreateConnector() {
-		return createConnectorESet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getEncoding() {
 		return encoding;
 	}
@@ -828,8 +752,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return getAddress();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__CONNECTOR_REF:
 				return getConnectorRef();
-			case CorePackage.GLOBAL_ENDPOINT_TYPE__CREATE_CONNECTOR:
-				return getCreateConnector();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__ENCODING:
 				return getEncoding();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__REF:
@@ -892,9 +814,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__CONNECTOR_REF:
 				setConnectorRef((String)newValue);
-				return;
-			case CorePackage.GLOBAL_ENDPOINT_TYPE__CREATE_CONNECTOR:
-				setCreateConnector((CreateConnectorType)newValue);
 				return;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__ENCODING:
 				setEncoding((String)newValue);
@@ -962,9 +881,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__CONNECTOR_REF:
 				setConnectorRef(CONNECTOR_REF_EDEFAULT);
 				return;
-			case CorePackage.GLOBAL_ENDPOINT_TYPE__CREATE_CONNECTOR:
-				unsetCreateConnector();
-				return;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__ENCODING:
 				setEncoding(ENCODING_EDEFAULT);
 				return;
@@ -1030,8 +946,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return ADDRESS_EDEFAULT == null ? address != null : !ADDRESS_EDEFAULT.equals(address);
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__CONNECTOR_REF:
 				return CONNECTOR_REF_EDEFAULT == null ? connectorRef != null : !CONNECTOR_REF_EDEFAULT.equals(connectorRef);
-			case CorePackage.GLOBAL_ENDPOINT_TYPE__CREATE_CONNECTOR:
-				return isSetCreateConnector();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__ENCODING:
 				return ENCODING_EDEFAULT == null ? encoding != null : !ENCODING_EDEFAULT.equals(encoding);
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__REF:
@@ -1066,8 +980,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 		result.append(address);
 		result.append(", connectorRef: ");
 		result.append(connectorRef);
-		result.append(", createConnector: ");
-		if (createConnectorESet) result.append(createConnector); else result.append("<unset>");
 		result.append(", encoding: ");
 		result.append(encoding);
 		result.append(", ref: ");

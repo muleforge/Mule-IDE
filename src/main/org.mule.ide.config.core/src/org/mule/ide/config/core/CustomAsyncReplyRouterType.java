@@ -12,22 +12,22 @@ import org.mule.ide.config.spring.PropertyType;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Custom Response Router Type</b></em>'.
+ * A representation of the model object '<em><b>Custom Async Reply Router Type</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.CustomResponseRouterType#getProperty <em>Property</em>}</li>
- *   <li>{@link org.mule.ide.config.core.CustomResponseRouterType#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.CustomAsyncReplyRouterType#getProperty <em>Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.CustomAsyncReplyRouterType#getClass_ <em>Class</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.mule.ide.config.core.CorePackage#getCustomResponseRouterType()
- * @model extendedMetaData="name='customResponseRouterType' kind='elementOnly'"
+ * @see org.mule.ide.config.core.CorePackage#getCustomAsyncReplyRouterType()
+ * @model extendedMetaData="name='customAsyncReplyRouterType' kind='elementOnly'"
  * @generated
  */
-public interface CustomResponseRouterType extends ResponseRouterType {
+public interface CustomAsyncReplyRouterType extends AsyncReplyRouterType {
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' containment reference list.
 	 * The list contents are of type {@link org.mule.ide.config.spring.PropertyType}.
@@ -42,7 +42,7 @@ public interface CustomResponseRouterType extends ResponseRouterType {
 	 * 			]]>
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Property</em>' containment reference list.
-	 * @see org.mule.ide.config.core.CorePackage#getCustomResponseRouterType_Property()
+	 * @see org.mule.ide.config.core.CorePackage#getCustomAsyncReplyRouterType_Property()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='property' namespace='http://www.springframework.org/schema/beans'"
 	 * @generated
@@ -59,15 +59,15 @@ public interface CustomResponseRouterType extends ResponseRouterType {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Class</em>' attribute.
 	 * @see #setClass(String)
-	 * @see org.mule.ide.config.core.CorePackage#getCustomResponseRouterType_Class()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.NMTOKEN" required="true"
+	 * @see org.mule.ide.config.core.CorePackage#getCustomAsyncReplyRouterType_Class()
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass" required="true"
 	 *        extendedMetaData="kind='attribute' name='class'"
 	 * @generated
 	 */
 	String getClass_();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.CustomResponseRouterType#getClass_ <em>Class</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.CustomAsyncReplyRouterType#getClass_ <em>Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Class</em>' attribute.
@@ -76,4 +76,4 @@ public interface CustomResponseRouterType extends ResponseRouterType {
 	 */
 	void setClass(String value);
 
-} // CustomResponseRouterType
+} // CustomAsyncReplyRouterType

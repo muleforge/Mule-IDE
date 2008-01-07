@@ -22,8 +22,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <ul>
  *   <li>{@link org.mule.ide.config.core.SelectiveConsumerRouterType#getAbstractTransformerGroup <em>Abstract Transformer Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.SelectiveConsumerRouterType#getAbstractTransformer <em>Abstract Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.SelectiveConsumerRouterType#isTransformerFirst <em>Transformer First</em>}</li>
  *   <li>{@link org.mule.ide.config.core.SelectiveConsumerRouterType#getTransformerRefs <em>Transformer Refs</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.SelectiveConsumerRouterType#isTransformFirst <em>Transform First</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,60 +67,6 @@ public interface SelectiveConsumerRouterType extends FilteredInboundRouterType {
 	EList<AbstractTransformerType> getAbstractTransformer();
 
 	/**
-	 * Returns the value of the '<em><b>Transformer First</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer First</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer First</em>' attribute.
-	 * @see #isSetTransformerFirst()
-	 * @see #unsetTransformerFirst()
-	 * @see #setTransformerFirst(boolean)
-	 * @see org.mule.ide.config.core.CorePackage#getSelectiveConsumerRouterType_TransformerFirst()
-	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableBoolean"
-	 *        extendedMetaData="kind='attribute' name='transformerFirst'"
-	 * @generated
-	 */
-	boolean isTransformerFirst();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.SelectiveConsumerRouterType#isTransformerFirst <em>Transformer First</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer First</em>' attribute.
-	 * @see #isSetTransformerFirst()
-	 * @see #unsetTransformerFirst()
-	 * @see #isTransformerFirst()
-	 * @generated
-	 */
-	void setTransformerFirst(boolean value);
-
-	/**
-	 * Unsets the value of the '{@link org.mule.ide.config.core.SelectiveConsumerRouterType#isTransformerFirst <em>Transformer First</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetTransformerFirst()
-	 * @see #isTransformerFirst()
-	 * @see #setTransformerFirst(boolean)
-	 * @generated
-	 */
-	void unsetTransformerFirst();
-
-	/**
-	 * Returns whether the value of the '{@link org.mule.ide.config.core.SelectiveConsumerRouterType#isTransformerFirst <em>Transformer First</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Transformer First</em>' attribute is set.
-	 * @see #unsetTransformerFirst()
-	 * @see #isTransformerFirst()
-	 * @see #setTransformerFirst(boolean)
-	 * @generated
-	 */
-	boolean isSetTransformerFirst();
-
-	/**
 	 * Returns the value of the '<em><b>Transformer Refs</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -146,5 +92,59 @@ public interface SelectiveConsumerRouterType extends FilteredInboundRouterType {
 	 * @generated
 	 */
 	void setTransformerRefs(List<String> value);
+
+	/**
+	 * Returns the value of the '<em><b>Transform First</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Transform First</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Transform First</em>' attribute.
+	 * @see #isSetTransformFirst()
+	 * @see #unsetTransformFirst()
+	 * @see #setTransformFirst(boolean)
+	 * @see org.mule.ide.config.core.CorePackage#getSelectiveConsumerRouterType_TransformFirst()
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableBoolean"
+	 *        extendedMetaData="kind='attribute' name='transformFirst'"
+	 * @generated
+	 */
+	boolean isTransformFirst();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.SelectiveConsumerRouterType#isTransformFirst <em>Transform First</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Transform First</em>' attribute.
+	 * @see #isSetTransformFirst()
+	 * @see #unsetTransformFirst()
+	 * @see #isTransformFirst()
+	 * @generated
+	 */
+	void setTransformFirst(boolean value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.SelectiveConsumerRouterType#isTransformFirst <em>Transform First</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetTransformFirst()
+	 * @see #isTransformFirst()
+	 * @see #setTransformFirst(boolean)
+	 * @generated
+	 */
+	void unsetTransformFirst();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.SelectiveConsumerRouterType#isTransformFirst <em>Transform First</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Transform First</em>' attribute is set.
+	 * @see #unsetTransformFirst()
+	 * @see #isTransformFirst()
+	 * @see #setTransformFirst(boolean)
+	 * @generated
+	 */
+	boolean isSetTransformFirst();
 
 } // SelectiveConsumerRouterType

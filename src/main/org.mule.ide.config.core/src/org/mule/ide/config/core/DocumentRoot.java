@@ -23,12 +23,15 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractAsyncReplyRouter <em>Abstract Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractBinding <em>Abstract Binding</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractCatchAllStrategy <em>Abstract Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractComponent <em>Abstract Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractComponentThreadingProfile <em>Abstract Component Threading Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractConnector <em>Abstract Connector</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractDefineNotification <em>Abstract Define Notification</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractDisableNotification <em>Abstract Disable Notification</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractEntrypointResolver <em>Abstract Entrypoint Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractExceptionStrategy <em>Abstract Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractExtension <em>Abstract Extension</em>}</li>
@@ -43,8 +46,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractPoolingProfile <em>Abstract Pooling Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractPropertyExtractor <em>Abstract Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractQueueProfile <em>Abstract Queue Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractResponseEndpoint <em>Abstract Response Endpoint</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractResponseRouter <em>Abstract Response Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractSecurityFilter <em>Abstract Security Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractSecurityManager <em>Abstract Security Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractService <em>Abstract Service</em>}</li>
@@ -63,6 +64,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCorrelationAggregatorRouter <em>Correlation Aggregator Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCorrelationPropertyExtractor <em>Correlation Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCorrelationResequencerRouter <em>Correlation Resequencer Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomAsyncReplyRouter <em>Custom Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomCatchAllStrategy <em>Custom Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomConnectionStrategy <em>Custom Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomConnector <em>Custom Connector</em>}</li>
@@ -74,13 +76,13 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomInboundRouter <em>Custom Inbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomOutboundRouter <em>Custom Outbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomPropertyExtractor <em>Custom Property Extractor</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomResponseRouter <em>Custom Response Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransactionFactory <em>Custom Transaction Factory</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransactionManager <em>Custom Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransformer <em>Custom Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDefaultConnectorExceptionStrategy <em>Default Connector Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDefaultServiceExceptionStrategy <em>Default Service Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDisableNotification <em>Disable Notification</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEchoComponent <em>Echo Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEjbContainer <em>Ejb Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEncryptionSecurityFilter <em>Encryption Security Filter</em>}</li>
@@ -112,6 +114,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMulticastingRouter <em>Multicasting Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNoArgsCallComponent <em>No Args Call Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNotFilter <em>Not Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNotification <em>Notification</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNullComponent <em>Null Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getOrFilter <em>Or Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getOutboundEndpoint <em>Outbound Endpoint</em>}</li>
@@ -128,14 +131,13 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPrototypeObject <em>Prototype Object</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getQueueProfile <em>Queue Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getRegexFilter <em>Regex Filter</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getResponseEndpoint <em>Response Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getRetryConnectionStrategy <em>Retry Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getRmiContainer <em>Rmi Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSecurityManager <em>Security Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSedaModel <em>Seda Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSelectiveConsumerRouter <em>Selective Consumer Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getService <em>Service</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSingleResponseRouter <em>Single Response Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSingleAsyncReplyRouter <em>Single Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSingletonObject <em>Singleton Object</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getStaticRecipientListRouter <em>Static Recipient List Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTemplateEndpointRouter <em>Template Endpoint Router</em>}</li>
@@ -236,6 +238,22 @@ public interface DocumentRoot extends EObject {
 	EMap<String, String> getXSISchemaLocation();
 
 	/**
+	 * Returns the value of the '<em><b>Abstract Async Reply Router</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract Async Reply Router</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Async Reply Router</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractAsyncReplyRouter()
+	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='abstract-async-reply-router' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	AbstractAsyncReplyRouterType getAbstractAsyncReplyRouter();
+
+	/**
 	 * Returns the value of the '<em><b>Abstract Binding</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -330,6 +348,38 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	AbstractConnectorType getAbstractConnector();
+
+	/**
+	 * Returns the value of the '<em><b>Abstract Define Notification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract Define Notification</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Define Notification</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractDefineNotification()
+	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='abstract-define-notification' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	AbstractDefineNotificationType getAbstractDefineNotification();
+
+	/**
+	 * Returns the value of the '<em><b>Abstract Disable Notification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract Disable Notification</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Disable Notification</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractDisableNotification()
+	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='abstract-disable-notification' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	AbstractDisableNotificationType getAbstractDisableNotification();
 
 	/**
 	 * Returns the value of the '<em><b>Abstract Entrypoint Resolver</b></em>' containment reference.
@@ -555,38 +605,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	AbstractQueueProfileType getAbstractQueueProfile();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Response Endpoint</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Response Endpoint</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Response Endpoint</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractResponseEndpoint()
-	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-response-endpoint' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	AbstractResponseEndpointType getAbstractResponseEndpoint();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Response Router</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Response Router</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Response Router</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractResponseRouter()
-	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-response-router' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	AbstractResponseRouterType getAbstractResponseRouter();
 
 	/**
 	 * Returns the value of the '<em><b>Abstract Security Filter</b></em>' containment reference.
@@ -992,6 +1010,33 @@ public interface DocumentRoot extends EObject {
 	void setCorrelationResequencerRouter(CorrelationRouterType value);
 
 	/**
+	 * Returns the value of the '<em><b>Custom Async Reply Router</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Custom Async Reply Router</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Custom Async Reply Router</em>' containment reference.
+	 * @see #setCustomAsyncReplyRouter(CustomAsyncReplyRouterType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomAsyncReplyRouter()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='custom-async-reply-router' namespace='##targetNamespace' affiliation='abstract-async-reply-router'"
+	 * @generated
+	 */
+	CustomAsyncReplyRouterType getCustomAsyncReplyRouter();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomAsyncReplyRouter <em>Custom Async Reply Router</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Custom Async Reply Router</em>' containment reference.
+	 * @see #getCustomAsyncReplyRouter()
+	 * @generated
+	 */
+	void setCustomAsyncReplyRouter(CustomAsyncReplyRouterType value);
+
+	/**
 	 * Returns the value of the '<em><b>Custom Catch All Strategy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1270,13 +1315,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Custom Property Extractor</em>' containment reference.
-	 * @see #setCustomPropertyExtractor(EObject)
+	 * @see #setCustomPropertyExtractor(CustomPropertyExtractorType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomPropertyExtractor()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='custom-property-extractor' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EObject getCustomPropertyExtractor();
+	CustomPropertyExtractorType getCustomPropertyExtractor();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomPropertyExtractor <em>Custom Property Extractor</em>}' containment reference.
@@ -1286,34 +1331,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getCustomPropertyExtractor()
 	 * @generated
 	 */
-	void setCustomPropertyExtractor(EObject value);
-
-	/**
-	 * Returns the value of the '<em><b>Custom Response Router</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Custom Response Router</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Custom Response Router</em>' containment reference.
-	 * @see #setCustomResponseRouter(CustomResponseRouterType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomResponseRouter()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='custom-response-router' namespace='##targetNamespace' affiliation='abstract-response-router'"
-	 * @generated
-	 */
-	CustomResponseRouterType getCustomResponseRouter();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomResponseRouter <em>Custom Response Router</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Custom Response Router</em>' containment reference.
-	 * @see #getCustomResponseRouter()
-	 * @generated
-	 */
-	void setCustomResponseRouter(CustomResponseRouterType value);
+	void setCustomPropertyExtractor(CustomPropertyExtractorType value);
 
 	/**
 	 * Returns the value of the '<em><b>Custom Transaction Factory</b></em>' containment reference.
@@ -1479,6 +1497,33 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setDescription(DescriptionType value);
+
+	/**
+	 * Returns the value of the '<em><b>Disable Notification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Disable Notification</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Disable Notification</em>' containment reference.
+	 * @see #setDisableNotification(DisableNotificationType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_DisableNotification()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='disable-notification' namespace='##targetNamespace' affiliation='abstract-disable-notification'"
+	 * @generated
+	 */
+	DisableNotificationType getDisableNotification();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getDisableNotification <em>Disable Notification</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Disable Notification</em>' containment reference.
+	 * @see #getDisableNotification()
+	 * @generated
+	 */
+	void setDisableNotification(DisableNotificationType value);
 
 	/**
 	 * Returns the value of the '<em><b>Echo Component</b></em>' containment reference.
@@ -2282,13 +2327,13 @@ public interface DocumentRoot extends EObject {
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>No Args Call Component</em>' containment reference.
-	 * @see #setNoArgsCallComponent(NoArgsCallWrapperType)
+	 * @see #setNoArgsCallComponent(NoArgsCallComponentType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_NoArgsCallComponent()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='no-args-call-component' namespace='##targetNamespace' affiliation='abstract-component'"
 	 * @generated
 	 */
-	NoArgsCallWrapperType getNoArgsCallComponent();
+	NoArgsCallComponentType getNoArgsCallComponent();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getNoArgsCallComponent <em>No Args Call Component</em>}' containment reference.
@@ -2298,7 +2343,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getNoArgsCallComponent()
 	 * @generated
 	 */
-	void setNoArgsCallComponent(NoArgsCallWrapperType value);
+	void setNoArgsCallComponent(NoArgsCallComponentType value);
 
 	/**
 	 * Returns the value of the '<em><b>Not Filter</b></em>' containment reference.
@@ -2326,6 +2371,33 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setNotFilter(UnitaryFilterType value);
+
+	/**
+	 * Returns the value of the '<em><b>Notification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Notification</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Notification</em>' containment reference.
+	 * @see #setNotification(DefineNotificationType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Notification()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='notification' namespace='##targetNamespace' affiliation='abstract-define-notification'"
+	 * @generated
+	 */
+	DefineNotificationType getNotification();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getNotification <em>Notification</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Notification</em>' containment reference.
+	 * @see #getNotification()
+	 * @generated
+	 */
+	void setNotification(DefineNotificationType value);
 
 	/**
 	 * Returns the value of the '<em><b>Null Component</b></em>' containment reference.
@@ -2764,33 +2836,6 @@ public interface DocumentRoot extends EObject {
 	void setRegexFilter(PatternFilterType value);
 
 	/**
-	 * Returns the value of the '<em><b>Response Endpoint</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Response Endpoint</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Response Endpoint</em>' containment reference.
-	 * @see #setResponseEndpoint(ResponseEndpointType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ResponseEndpoint()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='response-endpoint' namespace='##targetNamespace' affiliation='abstract-response-endpoint'"
-	 * @generated
-	 */
-	ResponseEndpointType getResponseEndpoint();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getResponseEndpoint <em>Response Endpoint</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Response Endpoint</em>' containment reference.
-	 * @see #getResponseEndpoint()
-	 * @generated
-	 */
-	void setResponseEndpoint(ResponseEndpointType value);
-
-	/**
 	 * Returns the value of the '<em><b>Retry Connection Strategy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -2954,31 +2999,31 @@ public interface DocumentRoot extends EObject {
 	void setService(SedaServiceType value);
 
 	/**
-	 * Returns the value of the '<em><b>Single Response Router</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Single Async Reply Router</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Single Response Router</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Single Async Reply Router</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Single Response Router</em>' containment reference.
-	 * @see #setSingleResponseRouter(ResponseRouterType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_SingleResponseRouter()
+	 * @return the value of the '<em>Single Async Reply Router</em>' containment reference.
+	 * @see #setSingleAsyncReplyRouter(AsyncReplyRouterType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_SingleAsyncReplyRouter()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='single-response-router' namespace='##targetNamespace' affiliation='abstract-response-router'"
+	 *        extendedMetaData="kind='element' name='single-async-reply-router' namespace='##targetNamespace' affiliation='abstract-async-reply-router'"
 	 * @generated
 	 */
-	ResponseRouterType getSingleResponseRouter();
+	AsyncReplyRouterType getSingleAsyncReplyRouter();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getSingleResponseRouter <em>Single Response Router</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getSingleAsyncReplyRouter <em>Single Async Reply Router</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Single Response Router</em>' containment reference.
-	 * @see #getSingleResponseRouter()
+	 * @param value the new value of the '<em>Single Async Reply Router</em>' containment reference.
+	 * @see #getSingleAsyncReplyRouter()
 	 * @generated
 	 */
-	void setSingleResponseRouter(ResponseRouterType value);
+	void setSingleAsyncReplyRouter(AsyncReplyRouterType value);
 
 	/**
 	 * Returns the value of the '<em><b>Singleton Object</b></em>' containment reference.

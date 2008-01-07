@@ -201,7 +201,7 @@ public interface TlsServerTrustStoreType extends TlsTrustStoreType {
 	 * @return the value of the '<em>Trust Store Type</em>' attribute.
 	 * @see #setTrustStoreType(String)
 	 * @see org.mule.ide.config.core.CorePackage#getTlsServerTrustStoreType_TrustStoreType()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
 	 *        extendedMetaData="kind='attribute' name='trustStoreType'"
 	 * @generated
 	 */

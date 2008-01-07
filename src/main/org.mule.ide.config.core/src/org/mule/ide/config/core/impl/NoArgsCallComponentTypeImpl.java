@@ -15,25 +15,25 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.NoArgsCallComponentType;
 import org.mule.ide.config.core.NoArgsCallDelegateClassType;
 import org.mule.ide.config.core.NoArgsCallDelegateInstanceType;
-import org.mule.ide.config.core.NoArgsCallWrapperType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>No Args Call Wrapper Type</b></em>'.
+ * An implementation of the model object '<em><b>No Args Call Component Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallWrapperTypeImpl#getDelegateClass <em>Delegate Class</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallWrapperTypeImpl#getDelegateInstance <em>Delegate Instance</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallComponentTypeImpl#getDelegateClass <em>Delegate Class</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.NoArgsCallComponentTypeImpl#getDelegateInstance <em>Delegate Instance</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implements NoArgsCallWrapperType {
+public class NoArgsCallComponentTypeImpl extends DefaultComponentTypeImpl implements NoArgsCallComponentType {
 	/**
 	 * The cached value of the '{@link #getDelegateClass() <em>Delegate Class</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -59,7 +59,7 @@ public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NoArgsCallWrapperTypeImpl() {
+	protected NoArgsCallComponentTypeImpl() {
 		super();
 	}
 
@@ -70,7 +70,7 @@ public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implemen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.eINSTANCE.getNoArgsCallWrapperType();
+		return CorePackage.eINSTANCE.getNoArgsCallComponentType();
 	}
 
 	/**
@@ -91,7 +91,7 @@ public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implemen
 		NoArgsCallDelegateClassType oldDelegateClass = delegateClass;
 		delegateClass = newDelegateClass;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_CLASS, oldDelegateClass, newDelegateClass);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_CLASS, oldDelegateClass, newDelegateClass);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -106,14 +106,14 @@ public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implemen
 		if (newDelegateClass != delegateClass) {
 			NotificationChain msgs = null;
 			if (delegateClass != null)
-				msgs = ((InternalEObject)delegateClass).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_CLASS, null, msgs);
+				msgs = ((InternalEObject)delegateClass).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_CLASS, null, msgs);
 			if (newDelegateClass != null)
-				msgs = ((InternalEObject)newDelegateClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_CLASS, null, msgs);
+				msgs = ((InternalEObject)newDelegateClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_CLASS, null, msgs);
 			msgs = basicSetDelegateClass(newDelegateClass, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_CLASS, newDelegateClass, newDelegateClass));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_CLASS, newDelegateClass, newDelegateClass));
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implemen
 		NoArgsCallDelegateInstanceType oldDelegateInstance = delegateInstance;
 		delegateInstance = newDelegateInstance;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_INSTANCE, oldDelegateInstance, newDelegateInstance);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_INSTANCE, oldDelegateInstance, newDelegateInstance);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -149,14 +149,14 @@ public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implemen
 		if (newDelegateInstance != delegateInstance) {
 			NotificationChain msgs = null;
 			if (delegateInstance != null)
-				msgs = ((InternalEObject)delegateInstance).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_INSTANCE, null, msgs);
+				msgs = ((InternalEObject)delegateInstance).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_INSTANCE, null, msgs);
 			if (newDelegateInstance != null)
-				msgs = ((InternalEObject)newDelegateInstance).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_INSTANCE, null, msgs);
+				msgs = ((InternalEObject)newDelegateInstance).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_INSTANCE, null, msgs);
 			msgs = basicSetDelegateInstance(newDelegateInstance, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_INSTANCE, newDelegateInstance, newDelegateInstance));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_INSTANCE, newDelegateInstance, newDelegateInstance));
 	}
 
 	/**
@@ -167,9 +167,9 @@ public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_CLASS:
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_CLASS:
 				return basicSetDelegateClass(null, msgs);
-			case CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_INSTANCE:
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_INSTANCE:
 				return basicSetDelegateInstance(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -183,9 +183,9 @@ public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_CLASS:
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_CLASS:
 				return getDelegateClass();
-			case CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_INSTANCE:
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_INSTANCE:
 				return getDelegateInstance();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -199,10 +199,10 @@ public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_CLASS:
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_CLASS:
 				setDelegateClass((NoArgsCallDelegateClassType)newValue);
 				return;
-			case CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_INSTANCE:
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_INSTANCE:
 				setDelegateInstance((NoArgsCallDelegateInstanceType)newValue);
 				return;
 		}
@@ -217,10 +217,10 @@ public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_CLASS:
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_CLASS:
 				setDelegateClass((NoArgsCallDelegateClassType)null);
 				return;
-			case CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_INSTANCE:
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_INSTANCE:
 				setDelegateInstance((NoArgsCallDelegateInstanceType)null);
 				return;
 		}
@@ -235,12 +235,12 @@ public class NoArgsCallWrapperTypeImpl extends DefaultComponentTypeImpl implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_CLASS:
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_CLASS:
 				return delegateClass != null;
-			case CorePackage.NO_ARGS_CALL_WRAPPER_TYPE__DELEGATE_INSTANCE:
+			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_INSTANCE:
 				return delegateInstance != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //NoArgsCallWrapperTypeImpl
+} //NoArgsCallComponentTypeImpl

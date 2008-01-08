@@ -43,6 +43,7 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.DiagramDocum
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.FileEditorInputProxy;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.EditorStatusCodes;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.util.DiagramIOUtil;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
@@ -52,6 +53,7 @@ import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.part.FileEditorInput;
 
 /**
@@ -65,7 +67,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 	 */
 	protected ElementInfo createElementInfo(Object element)
 			throws CoreException {
-		if (false == element instanceof FileEditorInput
+		if (false == element instanceof IFileEditorInput
 				&& false == element instanceof URIEditorInput) {
 			throw new CoreException(
 					new Status(
@@ -77,7 +79,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 											Messages.CoreDocumentProvider_IncorrectInputError,
 											new Object[] {
 													element,
-													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+													"org.eclipse.ui.part.IFileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
 							null));
 		}
 		IEditorInput editorInput = (IEditorInput) element;
@@ -93,7 +95,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 	 * @generated
 	 */
 	protected IDocument createDocument(Object element) throws CoreException {
-		if (false == element instanceof FileEditorInput
+		if (false == element instanceof IFileEditorInput
 				&& false == element instanceof URIEditorInput) {
 			throw new CoreException(
 					new Status(
@@ -105,10 +107,10 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 											Messages.CoreDocumentProvider_IncorrectInputError,
 											new Object[] {
 													element,
-													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+													"org.eclipse.ui.IFileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
 							null));
 		}
-		IDocument document = createEmptyDocument();
+		IDocument document = createEmptyDocument(element);
 		setDocumentContent(document, (IEditorInput) element);
 		setupDocument(element, document);
 		return document;
@@ -147,14 +149,20 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 		return result;
 	}
 
-	/**
-	 * @generated
-	 */
-	protected IDocument createEmptyDocument() {
-		DiagramDocument document = new DiagramDocument();
-		document.setEditingDomain(createEditingDomain());
-		return document;
-	}
+	  protected IDocument createEmptyDocument() {
+		  return createEmptyDocument(null);
+	  }
+
+	  protected IDocument createEmptyDocument(Object input) {
+		  DiagramDocument document = new DiagramDocument();
+		  if (input instanceof FileEditorInputProxy) {
+			  FileEditorInputProxy proxy = (FileEditorInputProxy) input;
+			  document.setEditingDomain(proxy.getEditingDomain());
+		  } else {
+			  document.setEditingDomain(createEditingDomain());
+		  }
+		  return document;
+	  }
 
 	/**
 	 * @generated
@@ -208,8 +216,8 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 			throws CoreException {
 		IDiagramDocument diagramDocument = (IDiagramDocument) document;
 		TransactionalEditingDomain domain = diagramDocument.getEditingDomain();
-		if (element instanceof FileEditorInput) {
-			IStorage storage = ((FileEditorInput) element).getStorage();
+		if (element instanceof IFileEditorInput) {
+			IStorage storage = ((IFileEditorInput) element).getStorage();
 			Diagram diagram = DiagramIOUtil.load(domain, storage, true,
 					getProgressMonitor());
 			document.setContent(diagram);
@@ -281,7 +289,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 											Messages.CoreDocumentProvider_IncorrectInputError,
 											new Object[] {
 													element,
-													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+													"org.eclipse.ui.part.IFileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
 							null));
 		}
 	}
@@ -380,7 +388,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 	 */
 	public boolean isModifiable(Object element) {
 		if (!isStateValidated(element)) {
-			if (element instanceof FileEditorInput
+			if (element instanceof IFileEditorInput
 					|| element instanceof URIEditorInput) {
 				return true;
 			}
@@ -628,8 +636,8 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 		} else {
 			URI newResoruceURI;
 			List affectedFiles = null;
-			if (element instanceof FileEditorInput) {
-				IFile newFile = ((FileEditorInput) element).getFile();
+			if (element instanceof IFileEditorInput) {
+				IFile newFile = ((IFileEditorInput) element).getFile();
 				affectedFiles = Collections.singletonList(newFile);
 				newResoruceURI = URI.createPlatformResourceURI(newFile
 						.getFullPath().toString(), true);
@@ -647,7 +655,7 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 												Messages.CoreDocumentProvider_IncorrectInputError,
 												new Object[] {
 														element,
-														"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+														"org.eclipse.ui.part.IFileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
 								null));
 			}
 			if (false == document instanceof IDiagramDocument) {
@@ -731,7 +739,9 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 	 * @generated
 	 */
 	protected void handleElementMoved(IEditorInput input, URI uri) {
-		if (input instanceof FileEditorInput) {
+		
+		
+		if (input instanceof IFileEditorInput) {
 			IFile newFile = ResourcesPlugin.getWorkspace().getRoot().getFile(
 					new Path(URI.decode(uri.path())).removeFirstSegments(1));
 			fireElementMoved(input, newFile == null ? null

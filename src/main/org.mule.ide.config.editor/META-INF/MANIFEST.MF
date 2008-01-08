@@ -17,5 +17,7 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.wst.sse.ui,
  org.eclipse.wst.xml.core,
  org.eclipse.wst.xml.ui,
- org.mule.ide.config.editor.services
+ org.mule.ide.config.editor.services,
+ org.eclipse.wst.common.emf,
+ org.eclipse.wst.common.emfworkbench.integration
 Eclipse-LazyStart: true

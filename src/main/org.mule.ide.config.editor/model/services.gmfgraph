@@ -15,7 +15,7 @@
             vertical="true"
             matchMinorSize="true"
             forceSingleLine="true"
-            majorSpacing="0"
+            majorSpacing="1"
             minorSpacing="0"/>
         <foregroundColor
             xsi:type="gmfgraph:ConstantColor"
@@ -87,6 +87,8 @@
             red="250"
             green="250"
             blue="190"/>
+        <insets
+            bottom="2"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ServiceItemTypeLabelFigure">
@@ -119,6 +121,8 @@
             red="250"
             green="250"
             blue="190"/>
+        <insets
+            bottom="2"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ClassServiceItemTypeLabelFigure">
@@ -134,9 +138,10 @@
             xsi:type="gmfgraph:Label"
             name="ClassServiceItemClassLabelFigure">
           <font
-              xsi:type="gmfgraph:BasicFont"/>
+              xsi:type="gmfgraph:BasicFont"
+              faceName=""/>
           <insets
-              left="10"/>
+              left="15"/>
         </children>
       </actualFigure>
       <accessors
@@ -163,7 +168,8 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="EndpointFigure"
-          outline="false">
+          outline="false"
+          fill="false">
         <layout
             xsi:type="gmfgraph:FlowLayout"
             vertical="true"
@@ -173,7 +179,11 @@
             minorSpacing="0"/>
         <children
             xsi:type="gmfgraph:Label"
-            name="EndpointNameFigure"/>
+            name="EndpointNameFigure">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName=""/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
@@ -207,6 +217,8 @@
             red="250"
             green="250"
             blue="190"/>
+        <insets
+            bottom="2"/>
         <children
             xsi:type="gmfgraph:Label"
             name="EndpointServiceItemTypeLabelFigure">
@@ -219,26 +231,17 @@
               style="ITALIC"/>
         </children>
         <children
-            xsi:type="gmfgraph:Rectangle"
-            name="EndpointServiceItemEndpointFigure">
-          <layout
-              xsi:type="gmfgraph:FlowLayout"
-              vertical="true"
-              matchMinorSize="true"
-              forceSingleLine="true"
-              majorSpacing="0"
-              minorSpacing="0"/>
-          <children
-              xsi:type="gmfgraph:Label"
-              name="EndpointServiceItemEndpointNameFigure"/>
+            xsi:type="gmfgraph:Label"
+            name="EndpointServiceItemEndpointNameFigure">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName=""/>
         </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
       <accessors
           figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
-      <accessors
-          figure="//@figures.0/@descriptors.9/@actualFigure/@children.1/@children.0"/>
     </descriptors>
   </figures>
   <nodes
@@ -401,8 +404,9 @@
       figure="EndpointServiceItemFigure"
       accessor="//@figures.0/@descriptors.9/@accessors.0"/>
   <labels
-      name="EndpointServiceItemEndpointName"
+      name="EndpointServiceItemEndpointNameLabel"
       figure="EndpointServiceItemFigure"
-      accessor="//@figures.0/@descriptors.9/@accessors.2"
-      container="//@figures.0/@descriptors.9/@accessors.2"/>
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.9/@accessors.1"
+      container="//@figures.0/@descriptors.9/@accessors.1"/>
 </gmfgraph:Canvas>

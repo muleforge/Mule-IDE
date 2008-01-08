@@ -6,9 +6,14 @@
  */
 package org.mule.ide.config.core.util;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.util.URI;
 
+import org.eclipse.emf.ecore.xmi.XMLOptions;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
+import org.mule.ide.config.common.impl.SyncResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +22,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * @see org.mule.ide.config.core.util.CoreResourceFactoryImpl
  * @generated
  */
-public class CoreResourceImpl extends XMLResourceImpl {
+public class CoreResourceImpl extends SyncResourceImpl {
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
@@ -29,4 +34,11 @@ public class CoreResourceImpl extends XMLResourceImpl {
 		super(uri);
 	}
 
+	@Override
+	public Map<Object, Object> getDefaultLoadOptions() {
+		Map<Object, Object> defaults = super.getDefaultLoadOptions();
+		defaults.put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
+		return defaults;
+	}
+	
 } //CoreResourceImpl

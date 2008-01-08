@@ -231,11 +231,18 @@
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//OutboundEndpointType"/>
               <labelMappings
-                  xsi:type="gmfmap:FeatureLabelMapping">
+                  xsi:type="gmfmap:FeatureLabelMapping"
+                  readOnly="true">
                 <diagramLabel
                     href="services.gmfgraph#EndpointNameLabel"/>
                 <features
                     href="../../org.mule.ide.config.core/model/core.ecore#//AbstractOutboundEndpointType/name"/>
+                <features
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundEndpointType/ref"/>
+                <features
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundEndpointType/connectorRef"/>
+                <features
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundEndpointType/address"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
@@ -341,6 +348,20 @@
                   readOnly="true">
                 <diagramLabel
                     href="services.gmfgraph#EndpointServiceItemTypeLabel"/>
+              </labelMappings>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping"
+                  readOnly="true">
+                <diagramLabel
+                    href="services.gmfgraph#EndpointServiceItemEndpointNameLabel"/>
+                <features
+                    href="../../org.mule.ide.config.core/model/core.ecore#//AbstractInboundEndpointType/name"/>
+                <features
+                    href="../../org.mule.ide.config.core/model/core.ecore#//InboundEndpointType/ref"/>
+                <features
+                    href="../../org.mule.ide.config.core/model/core.ecore#//InboundEndpointType/connectorRef"/>
+                <features
+                    href="../../org.mule.ide.config.core/model/core.ecore#//InboundEndpointType/address"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"

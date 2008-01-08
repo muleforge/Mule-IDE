@@ -255,6 +255,10 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setBackgroundColor(THIS_BACK);
+
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+					getMapMode().DPtoLP(0)));
 			createContents();
 		}
 
@@ -280,7 +284,7 @@ public class PojoComponentTypeEditPart extends ShapeNodeEditPart {
 					.setFont(FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT);
 
 			fFigureClassServiceItemClassLabelFigure.setBorder(new MarginBorder(
-					getMapMode().DPtoLP(0), getMapMode().DPtoLP(10),
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(15),
 					getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 
 			this.add(fFigureClassServiceItemClassLabelFigure);

@@ -2,6 +2,7 @@ package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
@@ -228,10 +229,6 @@ public class AsyncReplyInboundEndpointServiceItemTypeEditPart extends
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fFigureEndpointServiceItemEndpointFigure;
-		/**
-		 * @generated
-		 */
 		private WrapLabel fFigureEndpointServiceItemEndpointNameFigure;
 
 		/**
@@ -251,6 +248,10 @@ public class AsyncReplyInboundEndpointServiceItemTypeEditPart extends
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setBackgroundColor(THIS_BACK);
+
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+					getMapMode().DPtoLP(0)));
 			createContents();
 		}
 
@@ -269,27 +270,13 @@ public class AsyncReplyInboundEndpointServiceItemTypeEditPart extends
 
 			this.add(fFigureEndpointServiceItemTypeLabelFigure);
 
-			fFigureEndpointServiceItemEndpointFigure = new RectangleFigure();
-
-			this.add(fFigureEndpointServiceItemEndpointFigure);
-
-			ToolbarLayout layoutFFigureEndpointServiceItemEndpointFigure = new ToolbarLayout();
-			layoutFFigureEndpointServiceItemEndpointFigure
-					.setStretchMinorAxis(true);
-			layoutFFigureEndpointServiceItemEndpointFigure
-					.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
-
-			layoutFFigureEndpointServiceItemEndpointFigure.setSpacing(0);
-			layoutFFigureEndpointServiceItemEndpointFigure.setVertical(true);
-
-			fFigureEndpointServiceItemEndpointFigure
-					.setLayoutManager(layoutFFigureEndpointServiceItemEndpointFigure);
-
 			fFigureEndpointServiceItemEndpointNameFigure = new WrapLabel();
 			fFigureEndpointServiceItemEndpointNameFigure.setText("");
 
-			fFigureEndpointServiceItemEndpointFigure
-					.add(fFigureEndpointServiceItemEndpointNameFigure);
+			fFigureEndpointServiceItemEndpointNameFigure
+					.setFont(FFIGUREENDPOINTSERVICEITEMENDPOINTNAMEFIGURE_FONT);
+
+			this.add(fFigureEndpointServiceItemEndpointNameFigure);
 
 		}
 
@@ -322,13 +309,6 @@ public class AsyncReplyInboundEndpointServiceItemTypeEditPart extends
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getFigureEndpointServiceItemEndpointFigure() {
-			return fFigureEndpointServiceItemEndpointFigure;
-		}
-
-		/**
-		 * @generated
-		 */
 		public WrapLabel getFigureEndpointServiceItemEndpointNameFigure() {
 			return fFigureEndpointServiceItemEndpointNameFigure;
 		}
@@ -346,5 +326,12 @@ public class AsyncReplyInboundEndpointServiceItemTypeEditPart extends
 	static final Font FFIGUREENDPOINTSERVICEITEMTYPELABELFIGURE_FONT = new Font(
 			Display.getCurrent(), Display.getDefault().getSystemFont()
 					.getFontData()[0].getName(), 7, SWT.ITALIC);
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREENDPOINTSERVICEITEMENDPOINTNAMEFIGURE_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 9, SWT.NORMAL);
 
 }

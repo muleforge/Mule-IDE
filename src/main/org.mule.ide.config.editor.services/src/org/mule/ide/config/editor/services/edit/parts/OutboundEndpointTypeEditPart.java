@@ -1,6 +1,7 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
@@ -17,6 +18,9 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.OutboundEndpointTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
@@ -226,6 +230,7 @@ public class OutboundEndpointTypeEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
+			this.setFill(false);
 			this.setOutline(false);
 			createContents();
 		}
@@ -237,6 +242,8 @@ public class OutboundEndpointTypeEditPart extends ShapeNodeEditPart {
 
 			fFigureEndpointNameFigure = new WrapLabel();
 			fFigureEndpointNameFigure.setText("");
+
+			fFigureEndpointNameFigure.setFont(FFIGUREENDPOINTNAMEFIGURE_FONT);
 
 			this.add(fFigureEndpointNameFigure);
 
@@ -269,5 +276,13 @@ public class OutboundEndpointTypeEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREENDPOINTNAMEFIGURE_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9,
+			SWT.NORMAL);
 
 }

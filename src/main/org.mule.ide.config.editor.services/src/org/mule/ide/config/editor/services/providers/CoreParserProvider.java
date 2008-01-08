@@ -23,6 +23,7 @@ import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEd
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.parsers.ClassNameParser;
+import org.mule.ide.config.editor.services.parsers.EndpointParser;
 import org.mule.ide.config.editor.services.parsers.MessageFormatParser;
 import org.mule.ide.config.editor.services.parsers.NoArgsComponentParser;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
@@ -304,7 +305,7 @@ public class CoreParserProvider extends AbstractProvider implements
 	protected IParser createOutboundEndpointTypeName_Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getAbstractOutboundEndpointType_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+		MessageFormatParser parser = new EndpointParser(features);
 		return parser;
 	}
 

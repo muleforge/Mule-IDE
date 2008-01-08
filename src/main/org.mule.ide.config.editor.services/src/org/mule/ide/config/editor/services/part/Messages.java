@@ -743,7 +743,7 @@ public class Messages extends NLS {
 	//TODO: put accessor fields manually
 
 	// Custom messages
-	
+
 	/**
 	 * 
 	 */

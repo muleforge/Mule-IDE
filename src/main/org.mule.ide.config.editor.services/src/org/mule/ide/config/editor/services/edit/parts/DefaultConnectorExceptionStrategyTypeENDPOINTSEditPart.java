@@ -1,6 +1,7 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
@@ -49,13 +50,15 @@ public class DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart extends
 
 	/**
 	 * customization
-	 *  - no border
+	 *  - configure border
 	 */
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(false);
-		result.setBorder(null);
+		//result.setBorder(null);
+		result.setBorder(new MarginBorder(getMapMode().DPtoLP(0), getMapMode()
+				.DPtoLP(10), getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 		return result;
 	}
 

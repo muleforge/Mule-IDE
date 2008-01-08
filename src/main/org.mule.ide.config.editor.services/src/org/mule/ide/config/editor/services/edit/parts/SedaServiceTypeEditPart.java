@@ -414,7 +414,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	static final Font THIS_FONT = new Font(Display.getCurrent(), Display
-			.getDefault().getSystemFont().getFontData()[0].getName(), 7,
+			.getDefault().getSystemFont().getFontData()[0].getName(), 8,
 			SWT.ITALIC);
 
 	/**
@@ -422,7 +422,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 */
 	static final Font FFIGURESERVICENAMEFIGURE_FONT = new Font(Display
 			.getCurrent(),
-			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9,
-			SWT.BOLD);
+			Display.getDefault().getSystemFont().getFontData()[0].getName(),
+			10, SWT.BOLD);
 
 }

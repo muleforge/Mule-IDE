@@ -114,6 +114,12 @@ public class InboundEndpointServiceItemTypeEditPart extends ShapeNodeEditPart {
 							.getFigureEndpointServiceItemTypeLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof InboundEndpointServiceItemEndpointNameEditPart) {
+			((InboundEndpointServiceItemEndpointNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureEndpointServiceItemEndpointNameFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -274,6 +280,11 @@ public class InboundEndpointServiceItemTypeEditPart extends ShapeNodeEditPart {
 			fFigureEndpointServiceItemEndpointNameFigure
 					.setFont(FFIGUREENDPOINTSERVICEITEMENDPOINTNAMEFIGURE_FONT);
 
+			fFigureEndpointServiceItemEndpointNameFigure
+					.setBorder(new MarginBorder(getMapMode().DPtoLP(0),
+							getMapMode().DPtoLP(15), getMapMode().DPtoLP(0),
+							getMapMode().DPtoLP(0)));
+
 			this.add(fFigureEndpointServiceItemEndpointNameFigure);
 
 		}
@@ -323,13 +334,13 @@ public class InboundEndpointServiceItemTypeEditPart extends ShapeNodeEditPart {
 	 */
 	static final Font FFIGUREENDPOINTSERVICEITEMTYPELABELFIGURE_FONT = new Font(
 			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 7, SWT.ITALIC);
+					.getFontData()[0].getName(), 8, SWT.ITALIC);
 
 	/**
 	 * @generated
 	 */
 	static final Font FFIGUREENDPOINTSERVICEITEMENDPOINTNAMEFIGURE_FONT = new Font(
 			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 9, SWT.NORMAL);
+					.getFontData()[0].getName(), 10, SWT.NORMAL);
 
 }

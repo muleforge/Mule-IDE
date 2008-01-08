@@ -332,13 +332,13 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 	 */
 	static final Font FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT = new Font(
 			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 7, SWT.ITALIC);
+					.getFontData()[0].getName(), 8, SWT.ITALIC);
 
 	/**
 	 * @generated
 	 */
 	static final Font FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT = new Font(
 			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 9, SWT.NORMAL);
+					.getFontData()[0].getName(), 10, SWT.NORMAL);
 
 }

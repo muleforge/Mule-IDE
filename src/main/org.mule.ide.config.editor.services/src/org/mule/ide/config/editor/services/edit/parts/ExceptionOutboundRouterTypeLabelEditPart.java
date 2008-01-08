@@ -58,7 +58,7 @@ public class ExceptionOutboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4036;
+	public static final int VISUAL_ID = 4038;
 
 	/**
 	 * @generated

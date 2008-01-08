@@ -282,7 +282,7 @@ public class OutboundEndpointTypeEditPart extends ShapeNodeEditPart {
 	 */
 	static final Font FFIGUREENDPOINTNAMEFIGURE_FONT = new Font(Display
 			.getCurrent(),
-			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9,
-			SWT.NORMAL);
+			Display.getDefault().getSystemFont().getFontData()[0].getName(),
+			10, SWT.NORMAL);
 
 }

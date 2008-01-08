@@ -58,7 +58,7 @@ public class ChunkingRouterTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4041;
+	public static final int VISUAL_ID = 4043;
 
 	/**
 	 * @generated

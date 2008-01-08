@@ -548,6 +548,9 @@ public class CoreVisualIDRegistry {
 			if (InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case ForwardingRouterTypeEditPart.VISUAL_ID:
 			if (ForwardingRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
@@ -615,6 +618,9 @@ public class CoreVisualIDRegistry {
 			break;
 		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			if (AsyncReplyInboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (AsyncReplyInboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

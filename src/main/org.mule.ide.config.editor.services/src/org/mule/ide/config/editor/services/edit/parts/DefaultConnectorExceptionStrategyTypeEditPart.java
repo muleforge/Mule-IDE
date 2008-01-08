@@ -335,7 +335,7 @@ public class DefaultConnectorExceptionStrategyTypeEditPart extends
 	 */
 	static final Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new Font(Display
 			.getCurrent(),
-			Display.getDefault().getSystemFont().getFontData()[0].getName(), 7,
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 8,
 			SWT.ITALIC);
 
 }

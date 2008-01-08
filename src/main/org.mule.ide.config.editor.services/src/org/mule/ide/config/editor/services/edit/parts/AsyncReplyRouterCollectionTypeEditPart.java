@@ -246,7 +246,7 @@ public class AsyncReplyRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	static final Font THIS_FONT = new Font(Display.getCurrent(), Display
-			.getDefault().getSystemFont().getFontData()[0].getName(), 7,
+			.getDefault().getSystemFont().getFontData()[0].getName(), 8,
 			SWT.ITALIC);
 
 }

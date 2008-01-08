@@ -129,6 +129,9 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
 				return new InboundEndpointServiceItemTypeLabelEditPart(view);
 
+			case InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
+				return new InboundEndpointServiceItemEndpointNameEditPart(view);
+
 			case ForwardingRouterTypeEditPart.VISUAL_ID:
 				return new ForwardingRouterTypeEditPart(view);
 
@@ -204,6 +207,10 @@ public class CoreEditPartFactory implements EditPartFactory {
 
 			case AsyncReplyInboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
 				return new AsyncReplyInboundEndpointServiceItemTypeLabelEditPart(
+						view);
+
+			case AsyncReplyInboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
+				return new AsyncReplyInboundEndpointServiceItemEndpointNameEditPart(
 						view);
 
 			case AsyncReplyRouterTypeEditPart.VISUAL_ID:

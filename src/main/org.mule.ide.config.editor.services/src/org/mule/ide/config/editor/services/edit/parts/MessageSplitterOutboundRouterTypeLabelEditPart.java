@@ -58,7 +58,7 @@ public class MessageSplitterOutboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4040;
+	public static final int VISUAL_ID = 4042;
 
 	/**
 	 * @generated

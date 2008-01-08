@@ -410,6 +410,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
+				case InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
 					if (InboundEndpointServiceItemTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -497,6 +498,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case AsyncReplyInboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
+				case AsyncReplyInboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
 					if (AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -684,6 +686,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return InboundEndpointServiceItemTypeViewFactory.class;
 		case InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
 			return InboundEndpointServiceItemTypeLabelViewFactory.class;
+		case InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
+			return InboundEndpointServiceItemEndpointNameViewFactory.class;
 		case ForwardingRouterTypeEditPart.VISUAL_ID:
 			return ForwardingRouterTypeViewFactory.class;
 		case ForwardingRouterTypeLabelEditPart.VISUAL_ID:
@@ -734,6 +738,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return AsyncReplyInboundEndpointServiceItemTypeViewFactory.class;
 		case AsyncReplyInboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
 			return AsyncReplyInboundEndpointServiceItemTypeLabelViewFactory.class;
+		case AsyncReplyInboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
+			return AsyncReplyInboundEndpointServiceItemEndpointNameViewFactory.class;
 		case AsyncReplyRouterTypeEditPart.VISUAL_ID:
 			return AsyncReplyRouterTypeViewFactory.class;
 		case AsyncReplyRouterTypeLabelEditPart.VISUAL_ID:

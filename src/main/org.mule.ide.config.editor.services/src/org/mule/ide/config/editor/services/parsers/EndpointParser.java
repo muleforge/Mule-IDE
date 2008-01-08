@@ -1,7 +1,10 @@
 package org.mule.ide.config.editor.services.parsers;
 
+import java.text.FieldPosition;
+
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EObject;
 
 public class EndpointParser extends MessageFormatParser {
 	
@@ -10,10 +13,14 @@ public class EndpointParser extends MessageFormatParser {
 	}
 	
 	public String getPrintString(IAdaptable adapter, int flags) {
-		String result = super.getPrintString(adapter, flags);
-		if (result.isEmpty()) {
-			return "<endpoint>";
+		EObject element = (EObject) adapter.getAdapter(EObject.class);
+		Object[] values = getValues(element);
+		// Display the first non-empty value
+		for (Object value : values) {
+			if (value instanceof String && ! ((String) value).isEmpty()) {
+				return (String) value;
+			}
 		}
-		return result;
+		return "<endpoint>";
 	}
 }

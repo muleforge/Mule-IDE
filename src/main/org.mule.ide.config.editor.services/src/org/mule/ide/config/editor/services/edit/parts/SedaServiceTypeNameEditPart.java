@@ -58,7 +58,7 @@ public class SedaServiceTypeNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4045;
+	public static final int VISUAL_ID = 4047;
 
 	/**
 	 * @generated

@@ -58,7 +58,7 @@ public class AsyncReplyRouterTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4030;
+	public static final int VISUAL_ID = 4032;
 
 	/**
 	 * @generated

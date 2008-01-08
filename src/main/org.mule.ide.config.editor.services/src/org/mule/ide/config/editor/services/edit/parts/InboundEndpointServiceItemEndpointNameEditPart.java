@@ -52,13 +52,13 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * @generated
  */
-public class ChainingOutboundRouterTypeLabelEditPart extends
+public class InboundEndpointServiceItemEndpointNameEditPart extends
 		CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4037;
+	public static final int VISUAL_ID = 4017;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class ChainingOutboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public ChainingOutboundRouterTypeLabelEditPart(View view) {
+	public InboundEndpointServiceItemEndpointNameEditPart(View view) {
 		super(view);
 	}
 
@@ -187,20 +187,14 @@ public class ChainingOutboundRouterTypeLabelEditPart extends
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-
-		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
+		return resolveSemanticElement();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return CoreElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -308,7 +302,7 @@ public class ChainingOutboundRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.FilteringOutboundRouterType_2032,
+					CoreElementTypes.InboundEndpointType_2014,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

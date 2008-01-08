@@ -63,7 +63,8 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 		IDiagramDocumentProvider {
 
 	/**
-	 * @generated
+	 * customization
+	 *   - use IFileEditorInput instead of FileEditorInput
 	 */
 	protected ElementInfo createElementInfo(Object element)
 			throws CoreException {
@@ -92,7 +93,8 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 	}
 
 	/**
-	 * @generated
+	 * customization
+	 *   - use IFileEditorInput instead of FileEditorInput
 	 */
 	protected IDocument createDocument(Object element) throws CoreException {
 		if (false == element instanceof IFileEditorInput
@@ -149,20 +151,20 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 		return result;
 	}
 
-	  protected IDocument createEmptyDocument() {
-		  return createEmptyDocument(null);
-	  }
+	protected IDocument createEmptyDocument() {
+		return createEmptyDocument(null);
+	}
 
-	  protected IDocument createEmptyDocument(Object input) {
-		  DiagramDocument document = new DiagramDocument();
-		  if (input instanceof FileEditorInputProxy) {
-			  FileEditorInputProxy proxy = (FileEditorInputProxy) input;
-			  document.setEditingDomain(proxy.getEditingDomain());
-		  } else {
-			  document.setEditingDomain(createEditingDomain());
-		  }
-		  return document;
-	  }
+	protected IDocument createEmptyDocument(Object input) {
+		DiagramDocument document = new DiagramDocument();
+		if (input instanceof FileEditorInputProxy) {
+			FileEditorInputProxy proxy = (FileEditorInputProxy) input;
+			document.setEditingDomain(proxy.getEditingDomain());
+		} else {
+			document.setEditingDomain(createEditingDomain());
+		}
+		return document;
+	}
 
 	/**
 	 * @generated
@@ -210,7 +212,8 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 	}
 
 	/**
-	 * @generated
+	 * customization
+	 *   - use IFileEditorInput instead of FileEditorInput
 	 */
 	protected void setDocumentContent(IDocument document, IEditorInput element)
 			throws CoreException {
@@ -384,7 +387,8 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 	}
 
 	/**
-	 * @generated
+	 * customization
+	 *   - use IFileEditorInput instead of FileEditorInput
 	 */
 	public boolean isModifiable(Object element) {
 		if (!isStateValidated(element)) {
@@ -582,7 +586,8 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 	}
 
 	/**
-	 * @generated
+	 * customization
+	 *   - use IFileEditorInput instead of FileEditorInput
 	 */
 	protected void doSaveDocument(IProgressMonitor monitor, Object element,
 			IDocument document, boolean overwrite) throws CoreException {
@@ -736,11 +741,11 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 	}
 
 	/**
-	 * @generated
+	 * customization
+	 *   - use IFileEditorInput instead of FileEditorInput
 	 */
 	protected void handleElementMoved(IEditorInput input, URI uri) {
-		
-		
+
 		if (input instanceof IFileEditorInput) {
 			IFile newFile = ResourcesPlugin.getWorkspace().getRoot().getFile(
 					new Path(URI.decode(uri.path())).removeFirstSegments(1));

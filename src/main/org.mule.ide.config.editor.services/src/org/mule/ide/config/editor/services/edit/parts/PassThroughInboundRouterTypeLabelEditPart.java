@@ -58,7 +58,7 @@ public class PassThroughInboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4019;
+	public static final int VISUAL_ID = 4020;
 
 	/**
 	 * @generated

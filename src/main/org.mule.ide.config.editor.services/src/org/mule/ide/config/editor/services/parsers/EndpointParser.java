@@ -17,7 +17,7 @@ public class EndpointParser extends MessageFormatParser {
 		Object[] values = getValues(element);
 		// Display the first non-empty value
 		for (Object value : values) {
-			if (value instanceof String && ! ((String) value).isEmpty()) {
+			if (value instanceof String && ((String) value).length() > 0) {
 				return (String) value;
 			}
 		}

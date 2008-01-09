@@ -1,150 +1,164 @@
 package org.mule.ide.config.editor.wizards;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-import org.eclipse.core.runtime.*;
-import org.eclipse.jface.operation.*;
-import java.lang.reflect.InvocationTargetException;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.core.resources.*;
-import org.eclipse.core.runtime.CoreException;
-import java.io.*;
-import org.eclipse.ui.*;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.ide.IDE;
+import org.eclipse.ui.part.FileEditorInput;
+import org.mule.ide.config.editor.Activator;
 import org.mule.ide.config.editor.Messages;
+import org.mule.ide.config.editor.editors.MuleConfigEditor;
+import org.mule.ide.config.editor.services.part.CoreDiagramEditor;
 
 /**
- * This is a sample new wizard. Its role is to create a new file 
- * resource in the provided container. If the container resource
- * (a folder or a project) is selected in the workspace 
- * when the wizard is opened, it will accept it as the target
- * container. The wizard creates one file with the extension
- * "xml". If a sample multi-page editor (also available
- * as a template) is registered for the same extension, it will
- * be able to open it.
+ * 
  */
-
 public class MuleConfigNewWizard extends Wizard implements INewWizard {
-	private MuleConfigNewWizardPage page;
-	private ISelection selection;
 
 	/**
-	 * Constructor for MuleConfigNewWizard.
+	 * 
 	 */
-	public MuleConfigNewWizard() {
-		super();
+	private IWorkbench workbench;
+
+	/**
+	 * 
+	 */
+	protected IStructuredSelection selection;
+
+	/**
+	 * 
+	 */
+	protected MuleConfigNewWizardPage domainModelFilePage;
+
+	/**
+	 * 
+	 */
+	private boolean openNewlyCreatedDiagramEditor = true;
+	
+	private IFile newFile = null;
+
+	/**
+	 * 
+	 */
+	public IWorkbench getWorkbench() {
+		return workbench;
+	}
+
+	/**
+	 * 
+	 */
+	public IStructuredSelection getSelection() {
+		return selection;
+	}
+
+	/**
+	 * 
+	 */
+	public final boolean isOpenNewlyCreatedDiagramEditor() {
+		return openNewlyCreatedDiagramEditor;
+	}
+
+	/**
+	 * 
+	 */
+	public void setOpenNewlyCreatedDiagramEditor(
+			boolean openNewlyCreatedDiagramEditor) {
+		this.openNewlyCreatedDiagramEditor = openNewlyCreatedDiagramEditor;
+	}
+
+	/**
+	 * 
+	 */
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		this.workbench = workbench;
+		this.selection = selection;
+		setWindowTitle(Messages.NewFileWizard_Title);
+		setDefaultPageImageDescriptor(Activator
+				.getBundledImageDescriptor("icons/wizban/NewCoreWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);
 	}
-	
-	/**
-	 * Adding the page to the wizard.
-	 */
 
+	/**
+	 * 
+	 */
 	public void addPages() {
-		page = new MuleConfigNewWizardPage(selection);
-		addPage(page);
+		domainModelFilePage = new MuleConfigNewWizardPage(
+				"DomainModelFile", getSelection(), "xml"); //$NON-NLS-1$ //$NON-NLS-2$
+		domainModelFilePage
+				.setTitle(Messages.NewFileWizard_FilePageTitle);
+		domainModelFilePage
+				.setDescription(Messages.NewFileWizard_FilePageDescription);
+		addPage(domainModelFilePage);
 	}
 
 	/**
-	 * This method is called when 'Finish' button is pressed in
-	 * the wizard. We will create an operation and run it
-	 * using wizard as execution context.
+	 * 
 	 */
 	public boolean performFinish() {
-		final String containerName = page.getContainerName();
-		final String fileName = page.getFileName();
-		IRunnableWithProgress op = new IRunnableWithProgress() {
-			public void run(IProgressMonitor monitor) throws InvocationTargetException {
-				try {
-					doFinish(containerName, fileName, monitor);
-				} catch (CoreException e) {
-					throw new InvocationTargetException(e);
-				} finally {
-					monitor.done();
+		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
+
+			protected void execute(IProgressMonitor monitor)
+					throws CoreException, InterruptedException {
+				monitor.beginTask("Creating " + domainModelFilePage.getFileName(), 2);
+				newFile = domainModelFilePage.createNewFile();
+				monitor.worked(1);
+				if (isOpenNewlyCreatedDiagramEditor() && newFile != null) {
+					monitor.setTaskName("Opening file ...");
+					getShell().getDisplay().asyncExec(new Runnable() {
+						public void run() {
+							IWorkbenchPage page =
+								PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+							try {
+								page.openEditor(new FileEditorInput(newFile), MuleConfigEditor.ID);
+							} catch (PartInitException e) {
+								ErrorDialog.openError(getContainer().getShell(),
+										Messages.NewFileWizard_OpenEditorError,
+										null, e.getStatus());
+							}
+						}
+					});
+					monitor.worked(1);
 				}
 			}
 		};
 		try {
-			getContainer().run(true, false, op);
+			getContainer().run(false, true, op);
 		} catch (InterruptedException e) {
 			return false;
 		} catch (InvocationTargetException e) {
-			Throwable realException = e.getTargetException();
-			MessageDialog.openError(getShell(), "Error", realException.getMessage());
+			if (e.getTargetException() instanceof CoreException) {
+				ErrorDialog.openError(getContainer().getShell(),
+						Messages.NewFileWizard_Error, null,
+						((CoreException) e.getTargetException()).getStatus());
+			} else {
+				Activator.getDefault().logError(
+						"Error creating diagram", e.getTargetException()); //$NON-NLS-1$
+			}
 			return false;
 		}
-		return true;
-	}
-	
-	/**
-	 * The worker method. It will find the container, create the
-	 * file if missing or just replace its contents, and open
-	 * the editor on the newly created file.
-	 */
-
-	private void doFinish(
-		String containerName,
-		String fileName,
-		IProgressMonitor monitor)
-		throws CoreException {
-		// create a sample file
-		monitor.beginTask("Creating " + fileName, 2);
-		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		IResource resource = root.findMember(new Path(containerName));
-		if (!resource.exists() || !(resource instanceof IContainer)) {
-			throwCoreException("Container \"" + containerName + "\" does not exist.");
-		}
-		IContainer container = (IContainer) resource;
-		final IFile file = container.getFile(new Path(fileName));
-		try {
-			InputStream stream = openContentStream();
-			if (file.exists()) {
-				file.setContents(stream, true, true, monitor);
-			} else {
-				file.create(stream, true, monitor);
-			}
-			stream.close();
-		} catch (IOException e) {
-		}
-		monitor.worked(1);
-		monitor.setTaskName("Opening file for editing...");
-		getShell().getDisplay().asyncExec(new Runnable() {
-			public void run() {
-				IWorkbenchPage page =
-					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-				try {
-					IDE.openEditor(page, file, true);
-				} catch (PartInitException e) {
-				}
-			}
-		});
-		monitor.worked(1);
-	}
-	
-	/**
-	 * We will initialize file contents with a sample text.
-	 */
-
-	private InputStream openContentStream() {
-		return new ByteArrayInputStream(Messages.InitialConfigFile_MuleNS.getBytes());
-	}
-
-	private void throwCoreException(String message) throws CoreException {
-		IStatus status =
-			new Status(IStatus.ERROR, "org.mule.ide.config.editormultipage", IStatus.OK, message, null);
-		throw new CoreException(status);
-	}
-
-	/**
-	 * We will accept the selection in the workbench to see if
-	 * we can initialize from it.
-	 * @see IWorkbenchWizard#init(IWorkbench, IStructuredSelection)
-	 */
-	public void init(IWorkbench workbench, IStructuredSelection selection) {
-		this.selection = selection;
+		return newFile != null;
 	}
 
 }

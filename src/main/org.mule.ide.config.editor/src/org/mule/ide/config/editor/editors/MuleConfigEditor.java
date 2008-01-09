@@ -81,6 +81,8 @@ import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
  */
 public class MuleConfigEditor extends MultiPageEditorPart implements IResourceChangeListener {
 
+	public static final String ID = "org.mule.ide.config.editor.editors.MuleConfigEditor"; //$NON-NLS-1$
+	
 	private static final int OVERVIEW_PAGE_INDEX = 0;
 	private static final int SERVICES_PAGE_INDEX = 1;
 	private static final int SOURCE_PAGE_INDEX = 2;
@@ -148,7 +150,7 @@ public class MuleConfigEditor extends MultiPageEditorPart implements IResourceCh
         					 generateServicesDiagramFile(sourceFile, diagramFile, monitor);
         				 }
         			 };
-        			 new ProgressMonitorDialog(getSite().getShell()).run(true, true, op);
+        			 getSite().getWorkbenchWindow().run(true, true, op);
         		 } catch (InvocationTargetException e) {
         			 Activator.getDefault().logError(
         					 "Failed to initialze services diagram file: "+diagramFile, e); //$NON-NLS-1$			
@@ -234,6 +236,8 @@ public class MuleConfigEditor extends MultiPageEditorPart implements IResourceCh
 			throw new PartInitException("Invalid Input: Must be IFileEditorInput");
 		
 		editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
+		
+		setPartName(editorInput.getName());
 		
     	IFile sourceFile = ((FileEditorInput) editorInput).getFile();
 		URI domainModelURI = 

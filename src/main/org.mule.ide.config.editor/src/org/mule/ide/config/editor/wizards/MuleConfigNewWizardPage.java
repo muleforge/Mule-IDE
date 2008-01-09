@@ -1,185 +1,113 @@
 package org.mule.ide.config.editor.wizards;
 
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IResource;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.wizard.WizardPage;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.dialogs.ContainerSelectionDialog;
+import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+import org.mule.ide.config.editor.Messages;
 
 /**
- * The "New" wizard page allows setting the container for the new file as well
- * as the file name. The page will only accept file name without the extension
- * OR with the extension that matches the expected one (xml).
+ * @generated
  */
-
-public class MuleConfigNewWizardPage extends WizardPage {
-	private Text containerText;
-
-	private Text fileText;
-
-	private ISelection selection;
-
+public class MuleConfigNewWizardPage extends WizardNewFileCreationPage {
+	
 	/**
-	 * Constructor for SampleNewWizardPage.
 	 * 
-	 * @param pageName
 	 */
-	public MuleConfigNewWizardPage(ISelection selection) {
-		super("wizardPage");
-		setTitle("Multi-page Editor File");
-		setDescription("This wizard creates a new file with *.xml extension that can be opened by a multi-page editor.");
-		this.selection = selection;
+	private final String fileExtension;
+
+	/**
+	 * 
+	 */
+	public MuleConfigNewWizardPage(String pageName,
+			IStructuredSelection selection, String fileExtension) {
+		super(pageName, selection);
+		this.fileExtension = fileExtension;
 	}
 
 	/**
-	 * @see IDialogPage#createControl(Composite)
+	 * 
 	 */
-	public void createControl(Composite parent) {
-		Composite container = new Composite(parent, SWT.NULL);
-		GridLayout layout = new GridLayout();
-		container.setLayout(layout);
-		layout.numColumns = 3;
-		layout.verticalSpacing = 9;
-		Label label = new Label(container, SWT.NULL);
-		label.setText("&Container:");
-
-		containerText = new Text(container, SWT.BORDER | SWT.SINGLE);
-		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-		containerText.setLayoutData(gd);
-		containerText.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				dialogChanged();
-			}
-		});
-
-		Button button = new Button(container, SWT.PUSH);
-		button.setText("Browse...");
-		button.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				handleBrowse();
-			}
-		});
-		label = new Label(container, SWT.NULL);
-		label.setText("&File name:");
-
-		fileText = new Text(container, SWT.BORDER | SWT.SINGLE);
-		gd = new GridData(GridData.FILL_HORIZONTAL);
-		fileText.setLayoutData(gd);
-		fileText.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				dialogChanged();
-			}
-		});
-		initialize();
-		dialogChanged();
-		setControl(container);
+	protected String getExtension() {
+		return fileExtension;
 	}
 
 	/**
-	 * Tests if the current workbench selection is a suitable container to use.
+	 * 
 	 */
+	public URI getURI() {
+		return URI.createPlatformResourceURI(getFilePath().toString(), false);
+	}
 
-	private void initialize() {
-		if (selection != null && selection.isEmpty() == false
-				&& selection instanceof IStructuredSelection) {
-			IStructuredSelection ssel = (IStructuredSelection) selection;
-			if (ssel.size() > 1)
-				return;
-			Object obj = ssel.getFirstElement();
-			if (obj instanceof IResource) {
-				IContainer container;
-				if (obj instanceof IContainer)
-					container = (IContainer) obj;
-				else
-					container = ((IResource) obj).getParent();
-				containerText.setText(container.getFullPath().toString());
-			}
+	/**
+	 * 
+	 */
+	public IPath getFilePath() {
+		IPath path = getContainerFullPath();
+		if (path == null) {
+			path = new Path(""); //$NON-NLS-1$
 		}
-		fileText.setText("mule-config.xml");
-	}
-
-	/**
-	 * Uses the standard container selection dialog to choose the new value for
-	 * the container field.
-	 */
-
-	private void handleBrowse() {
-		ContainerSelectionDialog dialog = new ContainerSelectionDialog(
-				getShell(), ResourcesPlugin.getWorkspace().getRoot(), false,
-				"Select new file container");
-		if (dialog.open() == ContainerSelectionDialog.OK) {
-			Object[] result = dialog.getResult();
-			if (result.length == 1) {
-				containerText.setText(((Path) result[0]).toString());
-			}
-		}
-	}
-
-	/**
-	 * Ensures that both text fields are set.
-	 */
-
-	private void dialogChanged() {
-		IResource container = ResourcesPlugin.getWorkspace().getRoot()
-				.findMember(new Path(getContainerName()));
 		String fileName = getFileName();
+		if (fileName != null) {
+			path = path.append(fileName);
+		}
+		return path;
+	}
 
-		if (getContainerName().length() == 0) {
-			updateStatus("File container must be specified");
-			return;
+	@Override
+	public void createControl(Composite parent) {
+		super.createControl(parent);
+		setFileName(getUniqueFileName(getContainerFullPath(), getFileName(), getExtension()));
+		setPageComplete(validatePage());
+	}
+
+	@Override
+	protected boolean validatePage() {
+		if (!super.validatePage()) {
+			return false;
 		}
-		if (container == null
-				|| (container.getType() & (IResource.PROJECT | IResource.FOLDER)) == 0) {
-			updateStatus("File container must exist");
-			return;
+		String extension = getExtension();
+		if (extension != null
+				&& !getFilePath().toString().endsWith("." + extension)) {
+			setErrorMessage(Messages.NewFileWizard_ExtensionError);
+			return false;
 		}
-		if (!container.isAccessible()) {
-			updateStatus("Project must be writable");
-			return;
+		return true;
+	}
+	
+	@Override
+	protected InputStream getInitialContents() {
+		return new ByteArrayInputStream(Messages.InitialConfigFile_MuleNS.getBytes());
+	}
+
+	public static String getUniqueFileName(IPath containerFullPath,
+			String fileName, String extension) {
+		if (containerFullPath == null) {
+			containerFullPath = new Path(""); //$NON-NLS-1$
 		}
-		if (fileName.length() == 0) {
-			updateStatus("File name must be specified");
-			return;
+		if (fileName == null || fileName.trim().length() == 0) {
+			fileName = Messages.NewFileWizard_DefaultFileName;
 		}
-		if (fileName.replace('\\', '/').indexOf('/', 1) > 0) {
-			updateStatus("File name must be valid");
-			return;
+		IPath filePath = containerFullPath.append(fileName);
+		if (extension != null && !extension.equals(filePath.getFileExtension())) {
+			filePath = filePath.addFileExtension(extension);
 		}
-		int dotLoc = fileName.lastIndexOf('.');
-		if (dotLoc != -1) {
-			String ext = fileName.substring(dotLoc + 1);
-			if (ext.equalsIgnoreCase("xml") == false) {
-				updateStatus("File extension must be \"xml\"");
-				return;
+		extension = filePath.getFileExtension();
+		fileName = filePath.removeFileExtension().lastSegment();
+		int i = 1;
+		while (ResourcesPlugin.getWorkspace().getRoot().exists(filePath)) {
+			i++;
+			filePath = containerFullPath.append(fileName + i);
+			if (extension != null) {
+				filePath = filePath.addFileExtension(extension);
 			}
 		}
-		updateStatus(null);
-	}
-
-	private void updateStatus(String message) {
-		setErrorMessage(message);
-		setPageComplete(message == null);
-	}
-
-	public String getContainerName() {
-		return containerText.getText();
-	}
-
-	public String getFileName() {
-		return fileText.getText();
+		return filePath.lastSegment();
 	}
 }

@@ -11,7 +11,7 @@
             filenames="mule-config.xml"
             icon="icons/sample.gif"
             id="org.mule.ide.config.editor.editors.MuleConfigEditor"
-            name="Mule Configuration File Editor">
+            name="Mule Configuration Editor">
       </editor>
    </extension>
    <extension

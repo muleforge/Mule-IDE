@@ -703,6 +703,17 @@
                   href="services.gmftool#//@palette/@tools.5/@tools.10"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType/abstractOutboundEndpoint"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.0/@ownedChild/@children.0">
+                <compartment
+                    href="services.gmfgraph#ENDPOINTS"/>
+              </compartments>
             </ownedChild>
           </children>
           <children
@@ -725,6 +736,17 @@
                   href="services.gmftool#//@palette/@tools.5/@tools.7"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.1/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType/abstractOutboundEndpoint"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.1/@ownedChild/@children.0">
+                <compartment
+                    href="services.gmfgraph#ENDPOINTS"/>
+              </compartments>
             </ownedChild>
           </children>
           <children
@@ -747,6 +769,17 @@
                   href="services.gmftool#//@palette/@tools.5/@tools.2"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.2/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType/abstractOutboundEndpoint"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.2/@ownedChild/@children.0">
+                <compartment
+                    href="services.gmfgraph#ENDPOINTS"/>
+              </compartments>
             </ownedChild>
           </children>
           <children
@@ -769,6 +802,17 @@
                   href="services.gmftool#//@palette/@tools.5/@tools.6"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.3/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType/abstractOutboundEndpoint"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.3/@ownedChild/@children.0">
+                <compartment
+                    href="services.gmfgraph#ENDPOINTS"/>
+              </compartments>
             </ownedChild>
           </children>
           <children
@@ -791,6 +835,17 @@
                   href="services.gmftool#//@palette/@tools.5/@tools.9"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.4/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType/abstractOutboundEndpoint"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.4/@ownedChild/@children.0">
+                <compartment
+                    href="services.gmfgraph#ENDPOINTS"/>
+              </compartments>
             </ownedChild>
           </children>
           <children
@@ -813,6 +868,17 @@
                   href="services.gmftool#//@palette/@tools.5/@tools.12"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.5/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType/abstractOutboundEndpoint"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.5/@ownedChild/@children.0">
+                <compartment
+                    href="services.gmfgraph#ENDPOINTS"/>
+              </compartments>
             </ownedChild>
           </children>
           <children
@@ -835,6 +901,17 @@
                   href="services.gmftool#//@palette/@tools.5/@tools.5"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.6/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType/abstractOutboundEndpoint"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.6/@ownedChild/@children.0">
+                <compartment
+                    href="services.gmfgraph#ENDPOINTS"/>
+              </compartments>
             </ownedChild>
           </children>
           <children
@@ -857,6 +934,17 @@
                   href="services.gmftool#//@palette/@tools.5/@tools.8"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.7/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType/abstractOutboundEndpoint"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.7/@ownedChild/@children.0">
+                <compartment
+                    href="services.gmfgraph#ENDPOINTS"/>
+              </compartments>
             </ownedChild>
           </children>
           <children
@@ -879,6 +967,17 @@
                   href="services.gmftool#//@palette/@tools.5/@tools.3"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.8/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType/abstractOutboundEndpoint"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.8/@ownedChild/@children.0">
+                <compartment
+                    href="services.gmfgraph#ENDPOINTS"/>
+              </compartments>
             </ownedChild>
           </children>
           <children
@@ -901,6 +1000,17 @@
                   href="services.gmftool#//@palette/@tools.5/@tools.11"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.9/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType/abstractOutboundEndpoint"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.9/@ownedChild/@children.0">
+                <compartment
+                    href="services.gmfgraph#ENDPOINTS"/>
+              </compartments>
             </ownedChild>
           </children>
           <children
@@ -931,6 +1041,17 @@
                   href="services.gmftool#//@palette/@tools.5/@tools.4"/>
               <diagramNode
                   href="services.gmfgraph#ClassServiceItem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.10/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType/abstractOutboundEndpoint"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.13/@ownedChild/@children.10/@ownedChild/@children.0">
+                <compartment
+                    href="services.gmfgraph#ENDPOINTS"/>
+              </compartments>
             </ownedChild>
           </children>
           <compartments

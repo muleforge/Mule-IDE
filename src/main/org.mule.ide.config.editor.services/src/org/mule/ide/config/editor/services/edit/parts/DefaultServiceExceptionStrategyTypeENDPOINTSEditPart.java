@@ -55,9 +55,6 @@ public class DefaultServiceExceptionStrategyTypeENDPOINTSEditPart extends
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(false);
-		//result.setBorder(null);
-		result.setBorder(new MarginBorder(getMapMode().DPtoLP(0), getMapMode()
-				.DPtoLP(10), getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 		return result;
 	}
 

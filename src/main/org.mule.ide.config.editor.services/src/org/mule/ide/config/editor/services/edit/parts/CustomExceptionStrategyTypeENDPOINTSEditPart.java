@@ -55,10 +55,6 @@ public class CustomExceptionStrategyTypeENDPOINTSEditPart extends
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(false);
-		//result.setBorder(null);
-		// left inset of 10 lines up a 15 inset of class label above.
-		result.setBorder(new MarginBorder(getMapMode().DPtoLP(0), getMapMode()
-				.DPtoLP(10), getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 		return result;
 	}
 
@@ -87,7 +83,7 @@ public class CustomExceptionStrategyTypeENDPOINTSEditPart extends
 		// nothing to do -- parent layout does not accept Double constraints as ratio
 		// super.setRatio(ratio); 
 	}
-	
+
 	@Override
 	public String getToolTip() {
 		return Messages.OutboundEndpointsCompartment_tooltip;

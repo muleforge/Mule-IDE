@@ -46,14 +46,14 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case PojoComponentTypeClassEditPart.VISUAL_ID:
 				return new PojoComponentTypeClassEditPart(view);
 
-			case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
-				return new NoArgsCallWrapperTypeEditPart(view);
+			case NoArgsCallComponentTypeEditPart.VISUAL_ID:
+				return new NoArgsCallComponentTypeEditPart(view);
 
-			case NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID:
-				return new NoArgsCallWrapperTypeLabelEditPart(view);
+			case NoArgsCallComponentTypeLabelEditPart.VISUAL_ID:
+				return new NoArgsCallComponentTypeLabelEditPart(view);
 
-			case NoArgsCallWrapperTypeClassEditPart.VISUAL_ID:
-				return new NoArgsCallWrapperTypeClassEditPart(view);
+			case NoArgsCallComponentTypeClassEditPart.VISUAL_ID:
+				return new NoArgsCallComponentTypeClassEditPart(view);
 
 			case DefaultComponentTypeEditPart.VISUAL_ID:
 				return new DefaultComponentTypeEditPart(view);
@@ -237,6 +237,12 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case PassThroughOutboundRouterTypeLabelEditPart.VISUAL_ID:
 				return new PassThroughOutboundRouterTypeLabelEditPart(view);
 
+			case OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID:
+				return new OutboundRouterOutboundEndpointTypeEditPart(view);
+
+			case OutboundRouterOutboundEndpointTypeNameEditPart.VISUAL_ID:
+				return new OutboundRouterOutboundEndpointTypeNameEditPart(view);
+
 			case FilteringOutboundRouterTypeEditPart.VISUAL_ID:
 				return new FilteringOutboundRouterTypeEditPart(view);
 
@@ -345,6 +351,41 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
 				return new OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart(
 						view);
+
+			case PassThroughOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+				return new PassThroughOutboundRouterTypeENDPOINTSEditPart(view);
+
+			case FilteringOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+				return new FilteringOutboundRouterTypeENDPOINTSEditPart(view);
+
+			case ChainingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+				return new ChainingOutboundRouterTypeENDPOINTSEditPart(view);
+
+			case ExceptionOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+				return new ExceptionOutboundRouterTypeENDPOINTSEditPart(view);
+
+			case MulticastingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+				return new MulticastingOutboundRouterTypeENDPOINTSEditPart(view);
+
+			case TemplateEndpointOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+				return new TemplateEndpointOutboundRouterTypeENDPOINTSEditPart(
+						view);
+
+			case EndpointSelectorRouterTypeENDPOINTSEditPart.VISUAL_ID:
+				return new EndpointSelectorRouterTypeENDPOINTSEditPart(view);
+
+			case MessageSplitterOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+				return new MessageSplitterOutboundRouterTypeENDPOINTSEditPart(
+						view);
+
+			case ChunkingRouterTypeENDPOINTSEditPart.VISUAL_ID:
+				return new ChunkingRouterTypeENDPOINTSEditPart(view);
+
+			case StaticRecipientListRouterTypeENDPOINTSEditPart.VISUAL_ID:
+				return new StaticRecipientListRouterTypeENDPOINTSEditPart(view);
+
+			case CustomOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+				return new CustomOutboundRouterTypeENDPOINTSEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

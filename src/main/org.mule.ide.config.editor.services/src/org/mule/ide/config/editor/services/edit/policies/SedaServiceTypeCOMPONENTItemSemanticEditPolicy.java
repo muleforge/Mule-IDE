@@ -8,7 +8,7 @@ import org.mule.ide.config.editor.services.edit.commands.DefaultComponentTypeCre
 import org.mule.ide.config.editor.services.edit.commands.DefaultConnectorExceptionStrategyTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.EchoComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.LogComponentTypeCreateCommand;
-import org.mule.ide.config.editor.services.edit.commands.NoArgsCallWrapperTypeCreateCommand;
+import org.mule.ide.config.editor.services.edit.commands.NoArgsCallComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.NullComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.PassThroughComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.PojoComponentTypeCreateCommand;
@@ -37,7 +37,7 @@ public class SedaServiceTypeCOMPONENTItemSemanticEditPolicy extends
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());
 			}
-			return getGEFWrapper(new NoArgsCallWrapperTypeCreateCommand(req));
+			return getGEFWrapper(new NoArgsCallComponentTypeCreateCommand(req));
 		}
 		if (CoreElementTypes.DefaultComponentType_2003 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {

@@ -6,20 +6,22 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.ExceptionStrategyType;
+import org.mule.ide.config.core.OutboundRouterType;
 
 /**
  * customization
  *   - subclass SubstitutionElementCreateCommand
  */
-public class NoArgsCallWrapperTypeCreateCommand extends
+public class OutboundRouterOutboundEndpointTypeCreateCommand extends
 		SubstitutionElementCreateCommand {
 
 	/**
 	 * @generated
 	 */
-	public NoArgsCallWrapperTypeCreateCommand(CreateElementRequest req) {
+	public OutboundRouterOutboundEndpointTypeCreateCommand(
+			CreateElementRequest req) {
 		super(req);
 	}
 
@@ -39,26 +41,15 @@ public class NoArgsCallWrapperTypeCreateCommand extends
 	 * @generated
 	 */
 	protected EClass getEClassToEdit() {
-		return CorePackage.eINSTANCE.getBaseServiceType();
-	}
-
-	/**
-	 * @generated
-	 */
-	public boolean canExecute() {
-		BaseServiceType container = (BaseServiceType) getElementToEdit();
-		if (container.getAbstractComponent() != null) {
-			return false;
-		}
-		return true;
+		return CorePackage.eINSTANCE.getOutboundRouterType();
 	}
 
 	@Override
 	protected void addSubstitutionElementReference(EObject container,
 			EObject element) {
-		FeatureMap map = ((BaseServiceType) container)
-				.getAbstractComponentGroup();
-		map.add(CorePackage.eINSTANCE.getDocumentRoot_NoArgsCallComponent(),
+		FeatureMap map = ((OutboundRouterType) container)
+				.getAbstractOutboundEndpointGroup();
+		map.add(CorePackage.eINSTANCE.getDocumentRoot_OutboundEndpoint(),
 				element);
 	}
 }

@@ -17,10 +17,10 @@ import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * customization
- *  - subclass CustomListCompartmentEditPart
+ *  - subclass EndpointsCompartmentEditPart
  */
 public class CustomExceptionStrategyTypeENDPOINTSEditPart extends
-		CustomListCompartmentEditPart {
+		EndpointsCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -49,8 +49,7 @@ public class CustomExceptionStrategyTypeENDPOINTSEditPart extends
 	}
 
 	/**
-	 * customization
-	 *  - configure border
+	 * @generated
 	 */
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
@@ -88,11 +87,10 @@ public class CustomExceptionStrategyTypeENDPOINTSEditPart extends
 		// nothing to do -- parent layout does not accept Double constraints as ratio
 		// super.setRatio(ratio); 
 	}
-
+	
 	@Override
 	public String getToolTip() {
-		// TODO Auto-generated method stub
-		return null;
+		return Messages.OutboundEndpointsCompartment_tooltip;
 	}
 
 }

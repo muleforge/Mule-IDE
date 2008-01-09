@@ -3,5 +3,5 @@ package org.mule.ide.config.editor.services.edit.helpers;
 /**
  * @generated
  */
-public class NoArgsCallWrapperTypeEditHelper extends CoreBaseEditHelper {
+public class NoArgsCallComponentTypeEditHelper extends CoreBaseEditHelper {
 }

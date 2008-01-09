@@ -58,7 +58,7 @@ public class ExceptionOutboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4038;
+	public static final int VISUAL_ID = 4039;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class ExceptionOutboundRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.FilteringOutboundRouterType_2033,
+					CoreElementTypes.FilteringOutboundRouterType_2034,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

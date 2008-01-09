@@ -1,12 +1,9 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
-import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.RoundedRectangle;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
@@ -21,23 +18,22 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.NoArgsCallWrapperTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.OutboundRouterOutboundEndpointTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
-import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * @generated
  */
-public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
+public class OutboundRouterOutboundEndpointTypeEditPart extends
+		ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2002;
+	public static final int VISUAL_ID = 2031;
 
 	/**
 	 * @generated
@@ -52,7 +48,7 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public NoArgsCallWrapperTypeEditPart(View view) {
+	public OutboundRouterOutboundEndpointTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -63,7 +59,7 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new NoArgsCallWrapperTypeItemSemanticEditPolicy());
+				new OutboundRouterOutboundEndpointTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -92,31 +88,24 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		ClassServiceItemFigure figure = new ClassServiceItemFigure();
+		EndpointFigure figure = new EndpointFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public ClassServiceItemFigure getPrimaryShape() {
-		return (ClassServiceItemFigure) primaryShape;
+	public EndpointFigure getPrimaryShape() {
+		return (EndpointFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof NoArgsCallWrapperTypeLabelEditPart) {
-			((NoArgsCallWrapperTypeLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureClassServiceItemTypeLabelFigure());
-			return true;
-		}
-		if (childEditPart instanceof NoArgsCallWrapperTypeClassEditPart) {
-			((NoArgsCallWrapperTypeClassEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureClassServiceItemClassLabelFigure());
+		if (childEditPart instanceof OutboundRouterOutboundEndpointTypeNameEditPart) {
+			((OutboundRouterOutboundEndpointTypeNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureEndpointNameFigure());
 			return true;
 		}
 		return false;
@@ -173,8 +162,7 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * customization
-	 *   - special config of service item figure
+	 * @generated
 	 */
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
@@ -182,8 +170,6 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
-		ServiceEditPartUtil.configureServiceItemFigure(figure,
-				Messages.NoArgsCallWrapperTypeLabel);
 		return figure;
 	}
 
@@ -217,27 +203,23 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID));
+				.getType(OutboundRouterOutboundEndpointTypeNameEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class ClassServiceItemFigure extends RoundedRectangle {
+	public class EndpointFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureClassServiceItemTypeLabelFigure;
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureClassServiceItemClassLabelFigure;
+		private WrapLabel fFigureEndpointNameFigure;
 
 		/**
 		 * @generated
 		 */
-		public ClassServiceItemFigure() {
+		public EndpointFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
@@ -248,13 +230,8 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
-			this.setBackgroundColor(THIS_BACK);
-
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(0),
-					getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
-					getMapMode().DPtoLP(0)));
+			this.setFill(false);
+			this.setOutline(false);
 			createContents();
 		}
 
@@ -263,27 +240,12 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureClassServiceItemTypeLabelFigure = new WrapLabel();
-			fFigureClassServiceItemTypeLabelFigure.setText("");
-			fFigureClassServiceItemTypeLabelFigure
-					.setForegroundColor(ColorConstants.gray);
+			fFigureEndpointNameFigure = new WrapLabel();
+			fFigureEndpointNameFigure.setText("");
 
-			fFigureClassServiceItemTypeLabelFigure
-					.setFont(FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT);
+			fFigureEndpointNameFigure.setFont(FFIGUREENDPOINTNAMEFIGURE_FONT);
 
-			this.add(fFigureClassServiceItemTypeLabelFigure);
-
-			fFigureClassServiceItemClassLabelFigure = new WrapLabel();
-			fFigureClassServiceItemClassLabelFigure.setText("");
-
-			fFigureClassServiceItemClassLabelFigure
-					.setFont(FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT);
-
-			fFigureClassServiceItemClassLabelFigure.setBorder(new MarginBorder(
-					getMapMode().DPtoLP(0), getMapMode().DPtoLP(15),
-					getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
-
-			this.add(fFigureClassServiceItemClassLabelFigure);
+			this.add(fFigureEndpointNameFigure);
 
 		}
 
@@ -309,15 +271,8 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureClassServiceItemTypeLabelFigure() {
-			return fFigureClassServiceItemTypeLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureClassServiceItemClassLabelFigure() {
-			return fFigureClassServiceItemClassLabelFigure;
+		public WrapLabel getFigureEndpointNameFigure() {
+			return fFigureEndpointNameFigure;
 		}
 
 	}
@@ -325,20 +280,9 @@ public class NoArgsCallWrapperTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 250, 250, 190);
-
-	/**
-	 * @generated
-	 */
-	static final Font FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT = new Font(
-			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 8, SWT.ITALIC);
-
-	/**
-	 * @generated
-	 */
-	static final Font FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT = new Font(
-			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 10, SWT.NORMAL);
+	static final Font FFIGUREENDPOINTNAMEFIGURE_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(),
+			10, SWT.NORMAL);
 
 }

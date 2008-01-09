@@ -52,13 +52,13 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * @generated
  */
-public class NoArgsCallWrapperTypeClassEditPart extends CompartmentEditPart
-		implements ITextAwareEditPart {
+public class OutboundRouterOutboundEndpointTypeNameEditPart extends
+		CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4004;
+	public static final int VISUAL_ID = 4035;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class NoArgsCallWrapperTypeClassEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public NoArgsCallWrapperTypeClassEditPart(View view) {
+	public OutboundRouterOutboundEndpointTypeNameEditPart(View view) {
 		super(view);
 	}
 
@@ -187,9 +187,7 @@ public class NoArgsCallWrapperTypeClassEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-
-		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
+		return resolveSemanticElement();
 	}
 
 	/**
@@ -304,7 +302,7 @@ public class NoArgsCallWrapperTypeClassEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.NoArgsCallComponentType_2002,
+					CoreElementTypes.OutboundEndpointType_2031,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

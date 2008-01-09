@@ -21,15 +21,26 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.EndpointSelectorRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ExceptionOutboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.FilteringOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
+import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.Messages;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
@@ -103,16 +114,71 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof OutboundRouterCollectionTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.OutboundRouterType_2030);
-			types.add(CoreElementTypes.FilteringOutboundRouterType_2031);
 			types.add(CoreElementTypes.FilteringOutboundRouterType_2032);
 			types.add(CoreElementTypes.FilteringOutboundRouterType_2033);
 			types.add(CoreElementTypes.FilteringOutboundRouterType_2034);
 			types.add(CoreElementTypes.FilteringOutboundRouterType_2035);
-			types.add(CoreElementTypes.EndpointSelectorRouterType_2036);
-			types.add(CoreElementTypes.MessageSplitterOutboundRouterType_2037);
-			types.add(CoreElementTypes.ChunkingRouterType_2038);
-			types.add(CoreElementTypes.StaticRecipientListRouterType_2039);
-			types.add(CoreElementTypes.CustomOutboundRouterType_2040);
+			types.add(CoreElementTypes.FilteringOutboundRouterType_2036);
+			types.add(CoreElementTypes.EndpointSelectorRouterType_2037);
+			types.add(CoreElementTypes.MessageSplitterOutboundRouterType_2038);
+			types.add(CoreElementTypes.ChunkingRouterType_2039);
+			types.add(CoreElementTypes.StaticRecipientListRouterType_2040);
+			types.add(CoreElementTypes.CustomOutboundRouterType_2041);
+			return types;
+		}
+		if (editPart instanceof PassThroughOutboundRouterTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			return types;
+		}
+		if (editPart instanceof FilteringOutboundRouterTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			return types;
+		}
+		if (editPart instanceof ChainingOutboundRouterTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			return types;
+		}
+		if (editPart instanceof ExceptionOutboundRouterTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			return types;
+		}
+		if (editPart instanceof MulticastingOutboundRouterTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			return types;
+		}
+		if (editPart instanceof TemplateEndpointOutboundRouterTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			return types;
+		}
+		if (editPart instanceof EndpointSelectorRouterTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			return types;
+		}
+		if (editPart instanceof MessageSplitterOutboundRouterTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			return types;
+		}
+		if (editPart instanceof ChunkingRouterTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			return types;
+		}
+		if (editPart instanceof StaticRecipientListRouterTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			return types;
+		}
+		if (editPart instanceof CustomOutboundRouterTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundEndpointType_2031);
 			return types;
 		}
 		if (editPart instanceof DefaultModelTypeEditPart) {

@@ -9,7 +9,8 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class NoArgsCallWrapperTypeClassViewFactory extends BasicNodeViewFactory {
+public class NoArgsCallComponentTypeLabelViewFactory extends
+		BasicNodeViewFactory {
 
 	/**
 	 * @generated

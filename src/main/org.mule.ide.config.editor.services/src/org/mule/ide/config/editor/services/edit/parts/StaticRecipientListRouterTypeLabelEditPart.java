@@ -58,7 +58,7 @@ public class StaticRecipientListRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4044;
+	public static final int VISUAL_ID = 4045;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class StaticRecipientListRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.StaticRecipientListRouterType_2039,
+					CoreElementTypes.StaticRecipientListRouterType_2040,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

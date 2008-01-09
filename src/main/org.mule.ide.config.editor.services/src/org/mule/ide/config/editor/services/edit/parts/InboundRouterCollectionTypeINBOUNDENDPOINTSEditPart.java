@@ -82,7 +82,7 @@ public class InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart extends
 
 	@Override
 	public String getToolTip() {
-		return Messages.InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart_tooltip;
+		return Messages.InboundEndpointsCompartment_tooltip;
 	}
 
 }

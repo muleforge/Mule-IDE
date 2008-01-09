@@ -688,6 +688,61 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String PassThroughOutboundRouterTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String FilteringOutboundRouterTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ChainingOutboundRouterTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ExceptionOutboundRouterTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MulticastingOutboundRouterTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TemplateEndpointOutboundRouterTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String EndpointSelectorRouterTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MessageSplitterOutboundRouterTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ChunkingRouterTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String StaticRecipientListRouterTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CustomOutboundRouterTypeENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String DefaultServiceExceptionStrategyTypeENDPOINTSEditPart_title;
 
 	/**
@@ -772,6 +827,16 @@ public class Messages extends NLS {
 	/**
 	 * 
 	 */
+	public static String InboundEndpointsCompartment_tooltip;
+
+	/**
+	 * 
+	 */
+	public static String OutboundEndpointsCompartment_tooltip;
+
+	/**
+	 * 
+	 */
 	public static String InboundEndpointServiceItemTypeLabel;
 
 	/**
@@ -832,7 +897,7 @@ public class Messages extends NLS {
 	/**
 	 * 
 	 */
-	public static String NoArgsCallWrapperTypeLabel;
+	public static String NoArgsCallComponentTypeLabel;
 
 	/**
 	 * 

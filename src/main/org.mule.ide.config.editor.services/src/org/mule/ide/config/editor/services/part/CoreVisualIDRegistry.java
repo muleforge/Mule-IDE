@@ -146,7 +146,7 @@ public class CoreVisualIDRegistry {
 			}
 			if (CorePackage.eINSTANCE.getNoArgsCallComponentType()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return NoArgsCallWrapperTypeEditPart.VISUAL_ID;
+				return NoArgsCallComponentTypeEditPart.VISUAL_ID;
 			}
 			if (CorePackage.eINSTANCE.getDefaultComponentType().isSuperTypeOf(
 					domainElement.eClass())
@@ -407,6 +407,72 @@ public class CoreVisualIDRegistry {
 				return CustomOutboundRouterTypeEditPart.VISUAL_ID;
 			}
 			break;
+		case PassThroughOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case FilteringOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case ChainingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case ExceptionOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case MulticastingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case TemplateEndpointOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case EndpointSelectorRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case MessageSplitterOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case ChunkingRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case StaticRecipientListRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
+		case CustomOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID;
+			}
+			break;
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getSedaServiceType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -466,11 +532,11 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
-			if (NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
+			if (NoArgsCallComponentTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (NoArgsCallWrapperTypeClassEditPart.VISUAL_ID == nodeVisualID) {
+			if (NoArgsCallComponentTypeClassEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -646,9 +712,20 @@ public class CoreVisualIDRegistry {
 			if (PassThroughOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (PassThroughOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case FilteringOutboundRouterTypeEditPart.VISUAL_ID:
 			if (FilteringOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (FilteringOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -656,9 +733,15 @@ public class CoreVisualIDRegistry {
 			if (ChainingOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ChainingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case ExceptionOutboundRouterTypeEditPart.VISUAL_ID:
 			if (ExceptionOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ExceptionOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -666,9 +749,15 @@ public class CoreVisualIDRegistry {
 			if (MulticastingOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (MulticastingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID:
 			if (TemplateEndpointOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TemplateEndpointOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -676,9 +765,15 @@ public class CoreVisualIDRegistry {
 			if (EndpointSelectorRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (EndpointSelectorRouterTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MessageSplitterOutboundRouterTypeEditPart.VISUAL_ID:
 			if (MessageSplitterOutboundRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (MessageSplitterOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -686,9 +781,15 @@ public class CoreVisualIDRegistry {
 			if (ChunkingRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ChunkingRouterTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case StaticRecipientListRouterTypeEditPart.VISUAL_ID:
 			if (StaticRecipientListRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (StaticRecipientListRouterTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -699,12 +800,15 @@ public class CoreVisualIDRegistry {
 			if (CustomOutboundRouterTypeClassEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (CustomOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			if (PojoComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (NoArgsCallWrapperTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (NoArgsCallComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (DefaultComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
@@ -849,6 +953,61 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			if (CustomOutboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case PassThroughOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case FilteringOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ChainingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ExceptionOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case MulticastingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case TemplateEndpointOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case EndpointSelectorRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case MessageSplitterOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ChunkingRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case StaticRecipientListRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CustomOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

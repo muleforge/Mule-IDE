@@ -82,7 +82,7 @@ public class AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart extends
 
 	@Override
 	public String getToolTip() {
-		return Messages.AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart_tooltip;
+		return Messages.InboundEndpointsCompartment_tooltip;
 	}
 
 }

@@ -58,7 +58,7 @@ public class ChainingOutboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4037;
+	public static final int VISUAL_ID = 4038;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class ChainingOutboundRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.FilteringOutboundRouterType_2032,
+					CoreElementTypes.FilteringOutboundRouterType_2033,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

@@ -20,8 +20,9 @@ import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTyp
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomOutboundRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemEndpointNameEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterOutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.editor.services.parsers.ClassNameParser;
@@ -39,22 +40,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser sedaServiceTypeName_4047Parser;
+	private IParser sedaServiceTypeName_4048Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSedaServiceTypeName_4047Parser() {
-		if (sedaServiceTypeName_4047Parser == null) {
-			sedaServiceTypeName_4047Parser = createSedaServiceTypeName_4047Parser();
+	private IParser getSedaServiceTypeName_4048Parser() {
+		if (sedaServiceTypeName_4048Parser == null) {
+			sedaServiceTypeName_4048Parser = createSedaServiceTypeName_4048Parser();
 		}
-		return sedaServiceTypeName_4047Parser;
+		return sedaServiceTypeName_4048Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSedaServiceTypeName_4047Parser() {
+	protected IParser createSedaServiceTypeName_4048Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getAbstractServiceType_Name(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -273,22 +274,50 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser customOutboundRouterTypeClass_4046Parser;
+	private IParser outboundEndpointTypeNameRefConnectorRefAddress_4035Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCustomOutboundRouterTypeClass_4046Parser() {
-		if (customOutboundRouterTypeClass_4046Parser == null) {
-			customOutboundRouterTypeClass_4046Parser = createCustomOutboundRouterTypeClass_4046Parser();
+	private IParser getOutboundEndpointTypeNameRefConnectorRefAddress_4035Parser() {
+		if (outboundEndpointTypeNameRefConnectorRefAddress_4035Parser == null) {
+			outboundEndpointTypeNameRefConnectorRefAddress_4035Parser = createOutboundEndpointTypeNameRefConnectorRefAddress_4035Parser();
 		}
-		return customOutboundRouterTypeClass_4046Parser;
+		return outboundEndpointTypeNameRefConnectorRefAddress_4035Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCustomOutboundRouterTypeClass_4046Parser() {
+	protected IParser createOutboundEndpointTypeNameRefConnectorRefAddress_4035Parser() {
+		EAttribute[] features = new EAttribute[] {
+				CorePackage.eINSTANCE.getAbstractOutboundEndpointType_Name(),
+				CorePackage.eINSTANCE.getOutboundEndpointType_Ref(),
+				CorePackage.eINSTANCE.getOutboundEndpointType_ConnectorRef(),
+				CorePackage.eINSTANCE.getOutboundEndpointType_Address(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser customOutboundRouterTypeClass_4047Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCustomOutboundRouterTypeClass_4047Parser() {
+		if (customOutboundRouterTypeClass_4047Parser == null) {
+			customOutboundRouterTypeClass_4047Parser = createCustomOutboundRouterTypeClass_4047Parser();
+		}
+		return customOutboundRouterTypeClass_4047Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createCustomOutboundRouterTypeClass_4047Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getCustomOutboundRouterType_Class(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -560,13 +589,15 @@ public class CoreParserProvider extends AbstractProvider implements
 			return getSedaServiceTypeName_Parser();
 		case PojoComponentTypeClassEditPart.VISUAL_ID:
 			return getPojoComponentTypeClass_Parser();
-		case NoArgsCallWrapperTypeClassEditPart.VISUAL_ID:
+		case NoArgsCallComponentTypeClassEditPart.VISUAL_ID:
 			return getNoArgsCallWrapperTypeClass_Parser();
 		case InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
 			return getInboundEndpointTypeName_Parser();
 		case AsyncReplyInboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
 			return getInboundEndpointTypeName_Parser();
 		case OutboundEndpointTypeNameEditPart.VISUAL_ID:
+			return getOutboundEndpointTypeName_Parser();
+		case OutboundRouterOutboundEndpointTypeNameEditPart.VISUAL_ID:
 			return getOutboundEndpointTypeName_Parser();
 		case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
 			return getCustomExceptionStrategyTypeClass_Parser();

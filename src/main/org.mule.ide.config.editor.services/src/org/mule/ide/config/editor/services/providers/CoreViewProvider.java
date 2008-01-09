@@ -61,9 +61,6 @@ import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRou
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeClassEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
@@ -149,9 +146,6 @@ import org.mule.ide.config.editor.services.view.factories.MessageSplitterOutboun
 import org.mule.ide.config.editor.services.view.factories.MessageSplitterOutboundRouterTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.MulticastingOutboundRouterTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.MulticastingOutboundRouterTypeViewFactory;
-import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeClassViewFactory;
-import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeLabelViewFactory;
-import org.mule.ide.config.editor.services.view.factories.NoArgsCallWrapperTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.NullComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.NullComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundEndpointTypeNameViewFactory;
@@ -253,7 +247,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 				switch (visualID) {
 				case SedaServiceTypeEditPart.VISUAL_ID:
 				case PojoComponentTypeEditPart.VISUAL_ID:
-				case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
+				case NoArgsCallComponentTypeEditPart.VISUAL_ID:
 				case DefaultComponentTypeEditPart.VISUAL_ID:
 				case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
 				case OutboundEndpointTypeEditPart.VISUAL_ID:
@@ -288,6 +282,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
 				case CorrelationResequencerRouterTypeEditPart.VISUAL_ID:
 				case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
+				case OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID:
 				case ChainingOutboundRouterTypeEditPart.VISUAL_ID:
 				case ExceptionOutboundRouterTypeEditPart.VISUAL_ID:
 				case MulticastingOutboundRouterTypeEditPart.VISUAL_ID:
@@ -319,9 +314,9 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID:
-				case NoArgsCallWrapperTypeClassEditPart.VISUAL_ID:
-					if (NoArgsCallWrapperTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+				case NoArgsCallComponentTypeLabelEditPart.VISUAL_ID:
+				case NoArgsCallComponentTypeClassEditPart.VISUAL_ID:
+					if (NoArgsCallComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -528,13 +523,22 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case PassThroughOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				case PassThroughOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 					if (PassThroughOutboundRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
+				case OutboundRouterOutboundEndpointTypeNameEditPart.VISUAL_ID:
+					if (OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
 				case FilteringOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				case FilteringOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 					if (FilteringOutboundRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -542,6 +546,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case ChainingOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				case ChainingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 					if (ChainingOutboundRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -549,6 +554,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case ExceptionOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				case ExceptionOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 					if (ExceptionOutboundRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -556,6 +562,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case MulticastingOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				case MulticastingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 					if (MulticastingOutboundRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -563,6 +570,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case TemplateEndpointOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				case TemplateEndpointOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 					if (TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -570,6 +578,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case EndpointSelectorRouterTypeLabelEditPart.VISUAL_ID:
+				case EndpointSelectorRouterTypeENDPOINTSEditPart.VISUAL_ID:
 					if (EndpointSelectorRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -577,6 +586,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case MessageSplitterOutboundRouterTypeLabelEditPart.VISUAL_ID:
+				case MessageSplitterOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 					if (MessageSplitterOutboundRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -584,6 +594,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case ChunkingRouterTypeLabelEditPart.VISUAL_ID:
+				case ChunkingRouterTypeENDPOINTSEditPart.VISUAL_ID:
 					if (ChunkingRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -591,6 +602,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case StaticRecipientListRouterTypeLabelEditPart.VISUAL_ID:
+				case StaticRecipientListRouterTypeENDPOINTSEditPart.VISUAL_ID:
 					if (StaticRecipientListRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -599,6 +611,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					break;
 				case CustomOutboundRouterTypeLabelEditPart.VISUAL_ID:
 				case CustomOutboundRouterTypeClassEditPart.VISUAL_ID:
+				case CustomOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 					if (CustomOutboundRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -632,12 +645,12 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return PojoComponentTypeLabelViewFactory.class;
 		case PojoComponentTypeClassEditPart.VISUAL_ID:
 			return PojoComponentTypeClassViewFactory.class;
-		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
-			return NoArgsCallWrapperTypeViewFactory.class;
-		case NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID:
-			return NoArgsCallWrapperTypeLabelViewFactory.class;
-		case NoArgsCallWrapperTypeClassEditPart.VISUAL_ID:
-			return NoArgsCallWrapperTypeClassViewFactory.class;
+		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
+			return NoArgsCallComponentTypeViewFactory.class;
+		case NoArgsCallComponentTypeLabelEditPart.VISUAL_ID:
+			return NoArgsCallComponentTypeLabelViewFactory.class;
+		case NoArgsCallComponentTypeClassEditPart.VISUAL_ID:
+			return NoArgsCallComponentTypeClassViewFactory.class;
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return DefaultComponentTypeViewFactory.class;
 		case DefaultComponentTypeLabelEditPart.VISUAL_ID:
@@ -756,6 +769,10 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return PassThroughOutboundRouterTypeViewFactory.class;
 		case PassThroughOutboundRouterTypeLabelEditPart.VISUAL_ID:
 			return PassThroughOutboundRouterTypeLabelViewFactory.class;
+		case OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID:
+			return OutboundRouterOutboundEndpointTypeViewFactory.class;
+		case OutboundRouterOutboundEndpointTypeNameEditPart.VISUAL_ID:
+			return OutboundRouterOutboundEndpointTypeNameViewFactory.class;
 		case FilteringOutboundRouterTypeEditPart.VISUAL_ID:
 			return FilteringOutboundRouterTypeViewFactory.class;
 		case FilteringOutboundRouterTypeLabelEditPart.VISUAL_ID:
@@ -824,6 +841,28 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSViewFactory.class;
 		case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
 			return OutboundRouterCollectionTypeOUTBOUNDROUTERSViewFactory.class;
+		case PassThroughOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			return PassThroughOutboundRouterTypeENDPOINTSViewFactory.class;
+		case FilteringOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			return FilteringOutboundRouterTypeENDPOINTSViewFactory.class;
+		case ChainingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			return ChainingOutboundRouterTypeENDPOINTSViewFactory.class;
+		case ExceptionOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			return ExceptionOutboundRouterTypeENDPOINTSViewFactory.class;
+		case MulticastingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			return MulticastingOutboundRouterTypeENDPOINTSViewFactory.class;
+		case TemplateEndpointOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			return TemplateEndpointOutboundRouterTypeENDPOINTSViewFactory.class;
+		case EndpointSelectorRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			return EndpointSelectorRouterTypeENDPOINTSViewFactory.class;
+		case MessageSplitterOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			return MessageSplitterOutboundRouterTypeENDPOINTSViewFactory.class;
+		case ChunkingRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			return ChunkingRouterTypeENDPOINTSViewFactory.class;
+		case StaticRecipientListRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			return StaticRecipientListRouterTypeENDPOINTSViewFactory.class;
+		case CustomOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
+			return CustomOutboundRouterTypeENDPOINTSViewFactory.class;
 		}
 		return null;
 	}

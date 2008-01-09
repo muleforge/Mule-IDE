@@ -9,7 +9,8 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class NoArgsCallWrapperTypeLabelViewFactory extends BasicNodeViewFactory {
+public class OutboundRouterOutboundEndpointTypeNameViewFactory extends
+		BasicNodeViewFactory {
 
 	/**
 	 * @generated

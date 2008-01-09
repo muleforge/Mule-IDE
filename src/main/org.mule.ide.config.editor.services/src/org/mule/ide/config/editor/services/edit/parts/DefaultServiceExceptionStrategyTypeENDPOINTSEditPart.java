@@ -17,10 +17,10 @@ import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * customization
- *  - subclass CustomListCompartmentEditPart
+ *  - subclass EndpointsCompartmentEditPart
  */
 public class DefaultServiceExceptionStrategyTypeENDPOINTSEditPart extends
-		CustomListCompartmentEditPart {
+		EndpointsCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -49,8 +49,7 @@ public class DefaultServiceExceptionStrategyTypeENDPOINTSEditPart extends
 	}
 
 	/**
-	 * customization
-	 *  - configure border
+	 * @generated
 	 */
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
@@ -91,8 +90,7 @@ public class DefaultServiceExceptionStrategyTypeENDPOINTSEditPart extends
 
 	@Override
 	public String getToolTip() {
-		// TODO Auto-generated method stub
-		return null;
+		return Messages.OutboundEndpointsCompartment_tooltip;
 	}
 
 }

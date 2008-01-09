@@ -78,13 +78,15 @@ import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRou
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallWrapperTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.NoArgsCallComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterOutboundEndpointTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundRouterOutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
@@ -178,7 +180,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?PojoComponentType", CoreElementTypes.PojoComponentType_2001); //$NON-NLS-1$
-		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
+		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?NoArgsCallComponentType", CoreElementTypes.NoArgsCallComponentType_2002); //$NON-NLS-1$
 		case DefaultComponentTypeEditPart.VISUAL_ID:
@@ -265,36 +267,39 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterType", CoreElementTypes.OutboundRouterType_2030); //$NON-NLS-1$
+		case OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundEndpointType", CoreElementTypes.OutboundEndpointType_2031); //$NON-NLS-1$
 		case FilteringOutboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?FilteringOutboundRouterType", CoreElementTypes.FilteringOutboundRouterType_2031); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?FilteringOutboundRouterType", CoreElementTypes.FilteringOutboundRouterType_2032); //$NON-NLS-1$
 		case ChainingOutboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?FilteringOutboundRouterType", CoreElementTypes.FilteringOutboundRouterType_2032); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?FilteringOutboundRouterType", CoreElementTypes.FilteringOutboundRouterType_2033); //$NON-NLS-1$
 		case ExceptionOutboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?FilteringOutboundRouterType", CoreElementTypes.FilteringOutboundRouterType_2033); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?FilteringOutboundRouterType", CoreElementTypes.FilteringOutboundRouterType_2034); //$NON-NLS-1$
 		case MulticastingOutboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?FilteringOutboundRouterType", CoreElementTypes.FilteringOutboundRouterType_2034); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?FilteringOutboundRouterType", CoreElementTypes.FilteringOutboundRouterType_2035); //$NON-NLS-1$
 		case TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?FilteringOutboundRouterType", CoreElementTypes.FilteringOutboundRouterType_2035); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?FilteringOutboundRouterType", CoreElementTypes.FilteringOutboundRouterType_2036); //$NON-NLS-1$
 		case EndpointSelectorRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?EndpointSelectorRouterType", CoreElementTypes.EndpointSelectorRouterType_2036); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?EndpointSelectorRouterType", CoreElementTypes.EndpointSelectorRouterType_2037); //$NON-NLS-1$
 		case MessageSplitterOutboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?MessageSplitterOutboundRouterType", CoreElementTypes.MessageSplitterOutboundRouterType_2037); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?MessageSplitterOutboundRouterType", CoreElementTypes.MessageSplitterOutboundRouterType_2038); //$NON-NLS-1$
 		case ChunkingRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ChunkingRouterType", CoreElementTypes.ChunkingRouterType_2038); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ChunkingRouterType", CoreElementTypes.ChunkingRouterType_2039); //$NON-NLS-1$
 		case StaticRecipientListRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?StaticRecipientListRouterType", CoreElementTypes.StaticRecipientListRouterType_2039); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?StaticRecipientListRouterType", CoreElementTypes.StaticRecipientListRouterType_2040); //$NON-NLS-1$
 		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomOutboundRouterType", CoreElementTypes.CustomOutboundRouterType_2040); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomOutboundRouterType", CoreElementTypes.CustomOutboundRouterType_2041); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -353,7 +358,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getSedaServiceType_1001Text(view);
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2001Text(view);
-		case NoArgsCallWrapperTypeEditPart.VISUAL_ID:
+		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
 			return getNoArgsCallComponentType_2002Text(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2003Text(view);
@@ -411,26 +416,28 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getOutboundRouterCollectionType_2029Text(view);
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
 			return getOutboundRouterType_2030Text(view);
+		case OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID:
+			return getOutboundEndpointType_2031Text(view);
 		case FilteringOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2031Text(view);
-		case ChainingOutboundRouterTypeEditPart.VISUAL_ID:
 			return getFilteringOutboundRouterType_2032Text(view);
-		case ExceptionOutboundRouterTypeEditPart.VISUAL_ID:
+		case ChainingOutboundRouterTypeEditPart.VISUAL_ID:
 			return getFilteringOutboundRouterType_2033Text(view);
-		case MulticastingOutboundRouterTypeEditPart.VISUAL_ID:
+		case ExceptionOutboundRouterTypeEditPart.VISUAL_ID:
 			return getFilteringOutboundRouterType_2034Text(view);
-		case TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID:
+		case MulticastingOutboundRouterTypeEditPart.VISUAL_ID:
 			return getFilteringOutboundRouterType_2035Text(view);
+		case TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID:
+			return getFilteringOutboundRouterType_2036Text(view);
 		case EndpointSelectorRouterTypeEditPart.VISUAL_ID:
-			return getEndpointSelectorRouterType_2036Text(view);
+			return getEndpointSelectorRouterType_2037Text(view);
 		case MessageSplitterOutboundRouterTypeEditPart.VISUAL_ID:
-			return getMessageSplitterOutboundRouterType_2037Text(view);
+			return getMessageSplitterOutboundRouterType_2038Text(view);
 		case ChunkingRouterTypeEditPart.VISUAL_ID:
-			return getChunkingRouterType_2038Text(view);
+			return getChunkingRouterType_2039Text(view);
 		case StaticRecipientListRouterTypeEditPart.VISUAL_ID:
-			return getStaticRecipientListRouterType_2039Text(view);
+			return getStaticRecipientListRouterType_2040Text(view);
 		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
-			return getCustomOutboundRouterType_2040Text(view);
+			return getCustomOutboundRouterType_2041Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -466,7 +473,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4047); //$NON-NLS-1$
+					"Parser was not found for label " + 4048); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -498,10 +505,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	private String getNoArgsCallComponentType_2002Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.NoArgsCallComponentType_2002, (view
-						.getElement() != null ? view.getElement() : view),
+				CoreElementTypes.NoArgsCallComponentType_2002,
+				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
-						.getType(NoArgsCallWrapperTypeLabelEditPart.VISUAL_ID));
+						.getType(NoArgsCallComponentTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -1062,18 +1069,20 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getFilteringOutboundRouterType_2031Text(View view) {
-
+	private String getOutboundEndpointType_2031Text(View view) {
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.FilteringOutboundRouterType_2031,
+				CoreElementTypes.OutboundEndpointType_2031,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
-						.getType(FilteringOutboundRouterTypeLabelEditPart.VISUAL_ID));
+						.getType(OutboundRouterOutboundEndpointTypeNameEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
 					.intValue());
 		} else {
+			ServicesEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 4035); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1088,7 +1097,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 				CoreElementTypes.FilteringOutboundRouterType_2032,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
-						.getType(ChainingOutboundRouterTypeLabelEditPart.VISUAL_ID));
+						.getType(FilteringOutboundRouterTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -1108,7 +1117,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 				CoreElementTypes.FilteringOutboundRouterType_2033,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
-						.getType(ExceptionOutboundRouterTypeLabelEditPart.VISUAL_ID));
+						.getType(ChainingOutboundRouterTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -1128,7 +1137,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 				CoreElementTypes.FilteringOutboundRouterType_2034,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
-						.getType(MulticastingOutboundRouterTypeLabelEditPart.VISUAL_ID));
+						.getType(ExceptionOutboundRouterTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -1148,6 +1157,26 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 				CoreElementTypes.FilteringOutboundRouterType_2035,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
+						.getType(MulticastingOutboundRouterTypeLabelEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getFilteringOutboundRouterType_2036Text(View view) {
+
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.FilteringOutboundRouterType_2036,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry
 						.getType(TemplateEndpointOutboundRouterTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
@@ -1162,10 +1191,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getEndpointSelectorRouterType_2036Text(View view) {
+	private String getEndpointSelectorRouterType_2037Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.EndpointSelectorRouterType_2036,
+				CoreElementTypes.EndpointSelectorRouterType_2037,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(EndpointSelectorRouterTypeLabelEditPart.VISUAL_ID));
@@ -1182,10 +1211,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getMessageSplitterOutboundRouterType_2037Text(View view) {
+	private String getMessageSplitterOutboundRouterType_2038Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.MessageSplitterOutboundRouterType_2037,
+				CoreElementTypes.MessageSplitterOutboundRouterType_2038,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(MessageSplitterOutboundRouterTypeLabelEditPart.VISUAL_ID));
@@ -1202,10 +1231,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getChunkingRouterType_2038Text(View view) {
+	private String getChunkingRouterType_2039Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.ChunkingRouterType_2038,
+				CoreElementTypes.ChunkingRouterType_2039,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(ChunkingRouterTypeLabelEditPart.VISUAL_ID));
@@ -1222,10 +1251,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getStaticRecipientListRouterType_2039Text(View view) {
+	private String getStaticRecipientListRouterType_2040Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.StaticRecipientListRouterType_2039,
+				CoreElementTypes.StaticRecipientListRouterType_2040,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(StaticRecipientListRouterTypeLabelEditPart.VISUAL_ID));
@@ -1242,10 +1271,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getCustomOutboundRouterType_2040Text(View view) {
+	private String getCustomOutboundRouterType_2041Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.CustomOutboundRouterType_2040,
+				CoreElementTypes.CustomOutboundRouterType_2041,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(CustomOutboundRouterTypeLabelEditPart.VISUAL_ID));

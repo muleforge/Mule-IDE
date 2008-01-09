@@ -83,13 +83,6 @@ public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.FilteringOutboundRouterType_2031) {
-									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
 								if (type == CoreElementTypes.FilteringOutboundRouterType_2032) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID));
@@ -118,35 +111,42 @@ public class OutboundRouterCollectionTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.EndpointSelectorRouterType_2036) {
+								if (type == CoreElementTypes.FilteringOutboundRouterType_2036) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.MessageSplitterOutboundRouterType_2037) {
+								if (type == CoreElementTypes.EndpointSelectorRouterType_2037) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.ChunkingRouterType_2038) {
+								if (type == CoreElementTypes.MessageSplitterOutboundRouterType_2038) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.StaticRecipientListRouterType_2039) {
+								if (type == CoreElementTypes.ChunkingRouterType_2039) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.CustomOutboundRouterType_2040) {
+								if (type == CoreElementTypes.StaticRecipientListRouterType_2040) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+								if (type == CoreElementTypes.CustomOutboundRouterType_2041) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

@@ -52,7 +52,7 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * @generated
  */
-public class NoArgsCallWrapperTypeLabelEditPart extends CompartmentEditPart
+public class NoArgsCallComponentTypeLabelEditPart extends CompartmentEditPart
 		implements ITextAwareEditPart {
 
 	/**
@@ -83,7 +83,7 @@ public class NoArgsCallWrapperTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public NoArgsCallWrapperTypeLabelEditPart(View view) {
+	public NoArgsCallComponentTypeLabelEditPart(View view) {
 		super(view);
 	}
 

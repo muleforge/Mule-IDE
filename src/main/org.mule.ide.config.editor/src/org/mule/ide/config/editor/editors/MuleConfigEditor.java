@@ -2,9 +2,14 @@ package org.mule.ide.config.editor.editors;
 
 
 import java.io.IOException;
+import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
+import java.text.Collator;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
@@ -19,6 +24,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -29,13 +35,16 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.FileEditorInputProxy;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -47,18 +56,18 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.part.MultiPageEditorPart;
+import org.eclipse.ui.part.MultiPageEditorSite;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.ide.undo.CreateFileOperation;
 import org.eclipse.ui.ide.undo.WorkspaceUndoUtil;
-import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.ui.part.MultiPageEditorPart;
-import org.eclipse.ui.part.MultiPageEditorSite;
+import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.wst.sse.ui.StructuredTextEditor;
 import org.eclipse.wst.xml.core.internal.provisional.contenttype.ContentTypeIdForXML;
-import org.mule.ide.config.core.AbstractModelType;
+import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DocumentRoot;
-import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.editor.Activator;
 import org.mule.ide.config.editor.Messages;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
@@ -129,7 +138,7 @@ public class MuleConfigEditor extends MultiPageEditorPart implements IResourceCh
 	 */
 	void createServicesPage() {
         try {
-        	final IFile sourceFile = ((IFileEditorInput) getEditorInput()).getFile();
+        	final IFile sourceFile = ((FileEditorInput) getEditorInput()).getFile();
         	final IFile diagramFile = getServicesDiagramFile(sourceFile);
         	if (! diagramFile.exists()) {
         		 try {
@@ -151,7 +160,7 @@ public class MuleConfigEditor extends MultiPageEditorPart implements IResourceCh
         		 }
         	}
         	servicesEditor = new CoreDiagramEditor();
-        	IFileEditorInput diagramEditorInput = new FileEditorInputProxy(new FileEditorInput(diagramFile), editingDomain);
+        	FileEditorInput diagramEditorInput = new FileEditorInput(diagramFile);
         	int index = addPage(servicesEditor, diagramEditorInput);
         	setPageText(index, "Services");
         } catch (PartInitException e) {
@@ -221,15 +230,12 @@ public class MuleConfigEditor extends MultiPageEditorPart implements IResourceCh
 	public void init(IEditorSite site, IEditorInput editorInput)
 			throws PartInitException {
 		
-	    if (!(editorInput instanceof IFileEditorInput))
+		if (!(editorInput instanceof IFileEditorInput))
 			throw new PartInitException("Invalid Input: Must be IFileEditorInput");
 		
 		editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
-		editingDomain.setID("org.mule.ide.config.editor.services.EditingDomain"); //$NON-NLS-1$
-
-		editorInput = new FileEditorInputProxy((IFileEditorInput)editorInput, editingDomain);
-	    	
-    	IFile sourceFile = ((IFileEditorInput) editorInput).getFile();
+		
+    	IFile sourceFile = ((FileEditorInput) editorInput).getFile();
 		URI domainModelURI = 
 			URI.createPlatformResourceURI(sourceFile.getFullPath().toString(), true);
 		resourceSet = editingDomain.getResourceSet();
@@ -262,7 +268,7 @@ public class MuleConfigEditor extends MultiPageEditorPart implements IResourceCh
 				public void run(){
 					IWorkbenchPage[] pages = getSite().getWorkbenchWindow().getPages();
 					for (int i = 0; i<pages.length; i++){
-						if(((IFileEditorInput)xmlEditor.getEditorInput()).getFile().getProject().equals(event.getResource())){
+						if(((FileEditorInput)xmlEditor.getEditorInput()).getFile().getProject().equals(event.getResource())){
 							IEditorPart editorPart = pages[i].findEditor(xmlEditor.getEditorInput());
 							pages[i].closeEditor(editorPart,true);
 						}
@@ -317,12 +323,11 @@ public class MuleConfigEditor extends MultiPageEditorPart implements IResourceCh
 	 */
 	public void generateServicesDiagramFile(IFile sourceFile, IFile diagramFile, IProgressMonitor monitor) 
 			throws CoreException {
-		MuleType muleElement = documentRoot.getMule();
+		EObject muleElement = (EObject) documentRoot.eGet(CorePackage.eINSTANCE.getDocumentRoot_Mule());
 		if (muleElement == null) {
 			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Configuration file has no <mule> element."));			
 		}
-		EList<AbstractModelType> modelElementList = muleElement.getAbstractModel();
-		
+		EList modelElementList = (EList) muleElement.eGet(CorePackage.eINSTANCE.getDocumentRoot_Model());
 		final EObject modelElement;
 		if (modelElementList.size() > 0) {
 			// TODO handle multiple model elements.  For now just use the first one.
@@ -343,7 +348,7 @@ public class MuleConfigEditor extends MultiPageEditorPart implements IResourceCh
 			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error creating services diagram file", e));			
 		}
 		CoreDiagramEditorUtil.setCharset(diagramFile);
-		List<IFile> affectedFiles = new LinkedList<IFile>();
+		List affectedFiles = new LinkedList();
 		affectedFiles.add(diagramFile);
 		URI diagramModelURI = URI.createPlatformResourceURI(diagramFile
 				.getFullPath().toString(), true);

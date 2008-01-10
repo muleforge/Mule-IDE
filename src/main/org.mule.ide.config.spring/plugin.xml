@@ -23,4 +23,13 @@
        class="org.mule.ide.config.spring.util.SpringResourceFactoryImpl" />
   </extension>
 
+  <extension
+        point="org.eclipse.wst.xml.core.catalogContributions">
+        <catalogContribution id="default">
+            <uri
+                name="http://www.springframework.org/schema/beans"
+                uri="model/spring-beans-2.0.xsd" />
+        </catalogContribution>
+  </extension>
+
 </plugin>

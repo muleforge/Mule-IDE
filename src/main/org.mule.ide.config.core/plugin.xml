@@ -22,5 +22,13 @@
        type="xml" 
        class="org.mule.ide.config.core.util.CoreResourceFactoryImpl" />
   </extension>
+  <extension
+        point="org.eclipse.wst.xml.core.catalogContributions">
+        <catalogContribution id="default">
+            <uri
+                name="http://www.mulesource.org/schema/mule/core/2.0"
+                uri="model/mule.xsd" />
+        </catalogContribution>
+  </extension>
 
 </plugin>

@@ -8,7 +8,6 @@ import org.eclipse.jface.viewers.DecoratingLabelProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.Image;
 import org.mule.ide.config.editor.services.navigator.CoreNavigatorGroup;
-import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 
 /**

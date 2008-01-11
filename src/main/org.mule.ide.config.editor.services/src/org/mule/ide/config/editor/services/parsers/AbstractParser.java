@@ -22,7 +22,6 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.osgi.util.NLS;
-import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.Messages;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 

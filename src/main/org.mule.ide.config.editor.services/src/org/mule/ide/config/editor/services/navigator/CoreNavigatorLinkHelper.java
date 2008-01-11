@@ -23,7 +23,6 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.navigator.ILinkHelper;
 import org.eclipse.ui.part.FileEditorInput;
-import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 
 /**

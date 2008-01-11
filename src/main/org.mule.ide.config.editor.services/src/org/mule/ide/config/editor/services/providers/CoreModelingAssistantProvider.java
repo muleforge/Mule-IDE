@@ -41,7 +41,6 @@ import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.part.CoreDiagramEditorPlugin;
 import org.mule.ide.config.editor.services.part.Messages;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 

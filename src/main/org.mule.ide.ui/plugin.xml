@@ -5,7 +5,7 @@
  * $Revision$
  * $Date$
  *
- * Copyright (c) Jesper Steen Møller. All rights reserved.
+ * Copyright (c) Jesper Steen Moller. All rights reserved.
  * http://www.selskabet.org/jesper/
  * 
  * The software in this package is published under the terms of the BSD
@@ -64,10 +64,10 @@
             hasPages="true"
             icon="META-INF/icons/mule_config_set_16x16.png"
             id="org.mule.ide.ui.MuleProjectWizard"
-            name="Mule Project"
+            name="ESB Muleプロジェクト"
             project="true">
          <description>
-            Create a Mule project, optionally importing an example from the Mule distribution
+            ESB Muleプロジェクトを作成し、ESB Mule配布ファイルから例題のインポートができる
          </description>
       </wizard>
       <wizard
@@ -77,10 +77,10 @@
             hasPages="true"
             icon="META-INF/icons/convert_prj_16x16.png"
             id="org.mule.ide.ui.AddMuleSupportWizard"
-            name="Add Mule Support to Existing Project"
+            name="既存プロジェクトにESB Mule機能を追加"
             project="true">
          <description>
-            Use this wizard to add Mule support to existing Java project(s), setting up the Mule class path and the Mule launch configurations.
+            既存JavaプロジェクトにESB Mule機能を追加し、classpathの設定とESB Muleを起動するための設定を行う。。
          </description>
       </wizard>
    </extension>
@@ -90,7 +90,7 @@
       <classpathContainerPage
             class="org.mule.ide.ui.project.MuleClasspathContainerPage"
             id="org.mule.ide.core.muleClasspath"
-            name="Mule Classpath"/>
+            name="ESB Mule Classpath"/>
    </extension>
 
 </plugin>

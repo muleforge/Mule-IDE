@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.ResourceBundle;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -57,13 +58,14 @@ import org.mule.ide.core.model.IMuleConfigSet;
 import org.mule.ide.core.model.IMuleConfiguration;
 import org.mule.ide.core.model.IMuleModel;
 import org.mule.ide.core.nature.MuleNature;
+import org.mule.ide.ui.IMuleIDEConstants;
 import org.mule.ide.ui.IMuleImages;
 import org.mule.ide.ui.MulePlugin;
 
 /**
  * Wizard for creating a new Mule project.
  */
-public class MuleProjectWizard extends Wizard implements INewWizard {
+public class MuleProjectWizard extends Wizard implements INewWizard, IMuleIDEConstants {
 
 	private static final String MULE_MODULE_BUILDER_NAME = "module-builder";
 
@@ -87,7 +89,7 @@ public class MuleProjectWizard extends Wizard implements INewWizard {
 	 * @see org.eclipse.jface.wizard.IWizard#addPages()
 	 */
 	public void addPages() {
-		setWindowTitle("New Mule Project");
+		setWindowTitle(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("NewProject"));
 		setDefaultPageImageDescriptor(MulePlugin.getDefault().getImageRegistry().getDescriptor(
 				IMuleImages.KEY_MULE_WIZARD_BANNER));
 		projectPage = new MuleWizardProjectPage();
@@ -369,11 +371,7 @@ public class MuleProjectWizard extends Wizard implements INewWizard {
 			} else {
 				for (int i = 0; i < configs.length; i++) {
 					File configFile = configs[i];
-					if (! configFile.isFile()) {
-						// making the assumption that config files aren't in subdirectories
-						// and that subdirectory content should be copied.
-						copyIntoProject(configFile, configFolder);
-					}
+					if (! configFile.isFile()) continue;
                     
 					IFile newConfigFile = configFolder.getFile(configFile.getName());
 					try {

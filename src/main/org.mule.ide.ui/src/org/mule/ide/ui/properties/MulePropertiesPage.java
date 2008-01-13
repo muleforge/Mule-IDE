@@ -13,6 +13,7 @@ package org.mule.ide.ui.properties;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
@@ -29,9 +30,10 @@ import org.eclipse.ui.dialogs.PropertyPage;
 import org.mule.ide.core.MuleCorePlugin;
 import org.mule.ide.core.exception.MuleModelException;
 import org.mule.ide.core.model.IMuleModel;
+import org.mule.ide.ui.IMuleIDEConstants;
 import org.mule.ide.ui.MulePlugin;
 
-public class MulePropertiesPage extends PropertyPage {
+public class MulePropertiesPage extends PropertyPage implements IMuleIDEConstants {
 
 	/** The working copy of Mule model data */
 	private IMuleModel workingCopy;
@@ -40,7 +42,7 @@ public class MulePropertiesPage extends PropertyPage {
 	private List propertyPanels = new ArrayList();
 
 	/** Text shown by the nature checkbox */
-	private static final String NATURE_MESSAGE = "&Mule Project";
+	private static final String NATURE_MESSAGE = ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("MuleProject");
 
 	/** Nature checkbox widget */
 	private Button hasNatureButton;
@@ -141,7 +143,7 @@ public class MulePropertiesPage extends PropertyPage {
 		try {
 			getWorkingCopy().save();
 		} catch (MuleModelException e) {
-			MulePlugin.getDefault().showError("Unable to save Mule settings.", e.getStatus());
+			MulePlugin.getDefault().showError(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("UnableSave"), e.getStatus());
 		}
 		return true;
 	}

@@ -12,6 +12,7 @@ package org.mule.ide.ui.dialogs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -39,11 +40,12 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.mule.ide.core.IMuleDefaults;
 import org.mule.ide.core.MuleCorePlugin;
+import org.mule.ide.ui.IMuleIDEConstants;
 
 /**
  * Dialog for editing a mule configuration entry.
  */
-public class MuleConfigurationDialog extends Dialog implements ModifyListener {
+public class MuleConfigurationDialog extends Dialog implements ModifyListener, IMuleIDEConstants {
 
 	/** Parent project */
 	private IProject project;
@@ -80,12 +82,12 @@ public class MuleConfigurationDialog extends Dialog implements ModifyListener {
 	 */
 	protected Control createDialogArea(Composite parent) {
 		GridData gd;
-		getShell().setText("Mule Configuration File");
+		getShell().setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("MuleConfigFile"));
 		Composite composite = (Composite) super.createDialogArea(parent);
 		GridLayout layout = (GridLayout) composite.getLayout();
 		layout.numColumns = 3;
 		Label descLabel = new Label(composite, SWT.NULL);
-		descLabel.setText("Description");
+		descLabel.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Description"));
 		textDescription = new Text(composite, SWT.BORDER);
 		textDescription.setText(getDescription());
 		textDescription.addModifyListener(this);
@@ -94,7 +96,7 @@ public class MuleConfigurationDialog extends Dialog implements ModifyListener {
 		gd.horizontalSpan = 2;
 		textDescription.setLayoutData(gd);
 		Label pathLabel = new Label(composite, SWT.NULL);
-		pathLabel.setText("File Path");
+		pathLabel.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("FilePath"));
 		textPath = new Text(composite, SWT.BORDER);
 		textPath.setText(getPath());
 		textPath.addModifyListener(this);
@@ -172,14 +174,14 @@ public class MuleConfigurationDialog extends Dialog implements ModifyListener {
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(getShell(),
 				labelProvider);
 
-		dialog.setTitle("Choose Mule Config File");
-		dialog.setMessage("Select the Mule configuration file to add");
+		dialog.setTitle(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("ChooseConfig"));
+		dialog.setMessage(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("SelectConfig"));
 		try {
 			List l = new ArrayList();
 			collect(project, IMuleDefaults.MULE_CONFIG_FILE_SUFFIX, l);
 			if (l.size() < 1) {
-				MessageDialog.openError(shell, "Mule Config File",
-						"No Mule config files in selected project");
+				MessageDialog.openError(shell,ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("MuleConfigFile"),
+						ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("NoConfigFile"));
 				return null;
 			}
 

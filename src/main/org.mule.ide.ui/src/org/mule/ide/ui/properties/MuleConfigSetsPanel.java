@@ -13,6 +13,7 @@ package org.mule.ide.ui.properties;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
@@ -34,6 +35,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.mule.ide.core.model.IMuleConfigSet;
 import org.mule.ide.core.model.IMuleConfiguration;
 import org.mule.ide.core.model.IMuleModel;
+import org.mule.ide.ui.IMuleIDEConstants;
 import org.mule.ide.ui.IMuleImages;
 import org.mule.ide.ui.MulePlugin;
 import org.mule.ide.ui.MuleUIUtils;
@@ -45,7 +47,7 @@ import org.mule.ide.ui.model.MuleModelViewerSorter;
 /**
  * Panel that allows the config sets for the Mule IDE project to be changed.
  */
-public class MuleConfigSetsPanel implements IMulePropertyPanel {
+public class MuleConfigSetsPanel implements IMulePropertyPanel,IMuleIDEConstants {
 
 	/** The Mule model for the project */
 	private IMuleModel muleModel;
@@ -145,19 +147,19 @@ public class MuleConfigSetsPanel implements IMulePropertyPanel {
 
 		// Create the config set buttons.
 		Composite csButtons = MuleUIUtils.createButtonPanel(composite);
-		buttonSetAdd = MuleUIUtils.createSideButton("Add", csButtons);
+		buttonSetAdd = MuleUIUtils.createSideButton(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Add"), csButtons);
 		buttonSetAdd.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				addSetClicked();
 			}
 		});
-		buttonSetEdit = MuleUIUtils.createSideButton("Edit", csButtons);
+		buttonSetEdit = MuleUIUtils.createSideButton(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Edit"), csButtons);
 		buttonSetEdit.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				editSetClicked();
 			}
 		});
-		buttonSetDelete = MuleUIUtils.createSideButton("Delete", csButtons);
+		buttonSetDelete = MuleUIUtils.createSideButton(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Delete"), csButtons);
 		buttonSetDelete.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				deleteSetClicked();
@@ -202,25 +204,25 @@ public class MuleConfigSetsPanel implements IMulePropertyPanel {
 
 		// Create the buttons for modifying the config files.
 		Composite cButtons = MuleUIUtils.createButtonPanel(composite);
-		buttonConfigAdd = MuleUIUtils.createSideButton("Add", cButtons);
+		buttonConfigAdd = MuleUIUtils.createSideButton(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Add"), cButtons);
 		buttonConfigAdd.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				addClicked();
 			}
 		});
-		buttonConfigUp = MuleUIUtils.createSideButton("Up", cButtons);
+		buttonConfigUp = MuleUIUtils.createSideButton(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Up"), cButtons);
 		buttonConfigUp.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				upClicked();
 			}
 		});
-		buttonConfigDown = MuleUIUtils.createSideButton("Down", cButtons);
+		buttonConfigDown = MuleUIUtils.createSideButton(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Down"), cButtons);
 		buttonConfigDown.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				downClicked();
 			}
 		});
-		buttonConfigDelete = MuleUIUtils.createSideButton("Delete", cButtons);
+		buttonConfigDelete = MuleUIUtils.createSideButton(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Delete"), cButtons);
 		buttonConfigDelete.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				deleteClicked();
@@ -347,8 +349,8 @@ public class MuleConfigSetsPanel implements IMulePropertyPanel {
 		}
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(buttonConfigAdd
 				.getShell(), MuleModelLabelProvider.getDecoratingMuleModelLabelProvider());
-		dialog.setTitle("Add Mule Config Files");
-		dialog.setMessage("Select the Mule configuration files to add");
+		dialog.setTitle(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("AddConfig"));
+		dialog.setMessage(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("SelectConfig"));
 		dialog.setMultipleSelection(true);
 		dialog.setElements(dupsRemoved.toArray());
 		if (dialog.open() == Window.OK) {

@@ -10,26 +10,29 @@
 
 package org.mule.ide.ui.preferences;
 
+import java.util.ResourceBundle;
+
 import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
+import org.mule.ide.ui.IMuleIDEConstants;
 import org.mule.ide.ui.MulePlugin;
 import org.mule.ide.ui.panels.MuleDistributionPreferencePanel;
 
 /**
  * Preference page for Mule setttings.
  */
-public class MulePreferencePage extends PreferencePage implements IWorkbenchPreferencePage {
+public class MulePreferencePage extends PreferencePage implements IWorkbenchPreferencePage, IMuleIDEConstants {
 
 	/** Widget for choosing classpath */
 	private MuleDistributionPreferencePanel classpathPanel;
 
 	public MulePreferencePage() {
 		setPreferenceStore(MulePlugin.getDefault().getPreferenceStore());
-		setDescription("Default settings for Mule projects");
+		setDescription(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("DefaultSettings"));
 	}
 
 	/*

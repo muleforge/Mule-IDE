@@ -12,6 +12,7 @@ package org.mule.ide.ui.wizards;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.ResourceBundle;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -29,13 +30,14 @@ import org.eclipse.ui.IWorkbench;
 import org.mule.ide.core.MuleClasspathUtils;
 import org.mule.ide.core.MuleCorePlugin;
 import org.mule.ide.core.exception.MuleModelException;
+import org.mule.ide.ui.IMuleIDEConstants;
 import org.mule.ide.ui.IMuleImages;
 import org.mule.ide.ui.MulePlugin;
 
 /**
  * Wizard for creating a new Mule project.
  */
-public class AddMuleSupportWizard extends Wizard implements INewWizard {
+public class AddMuleSupportWizard extends Wizard implements INewWizard, IMuleIDEConstants {
 
 	/** The workbench handle */
 	private IWorkbench workbench;
@@ -52,13 +54,13 @@ public class AddMuleSupportWizard extends Wizard implements INewWizard {
 	 * @see org.eclipse.jface.wizard.IWizard#addPages()
 	 */
 	public void addPages() {
-		setWindowTitle("Add Mule Support to Existing Projects");
+		setWindowTitle(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("AddExisting"));
 		setDefaultPageImageDescriptor(MulePlugin.getDefault().getImageRegistry().getDescriptor(
 				IMuleImages.KEY_MULE_WIZARD_BANNER));
 		
 		referencePage = new MuleProjectReferencePage("muleProjectReferencePage");
-		referencePage.setTitle("Add Mule Support");
-		referencePage.setDescription("Select projects to convert to Mule projects");
+		referencePage.setTitle(ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("AddMuleSupport"));
+		referencePage.setDescription(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("SelectProject"));
 		addPage(referencePage);
 				
 		wizardPage = new AddMuleSupportWizardPage();

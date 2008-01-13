@@ -10,6 +10,8 @@
 
 package org.mule.ide.ui.properties;
 
+import java.util.ResourceBundle;
+
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -25,6 +27,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.mule.ide.core.model.IMuleConfiguration;
 import org.mule.ide.core.model.IMuleModel;
+import org.mule.ide.ui.IMuleIDEConstants;
 import org.mule.ide.ui.IMuleImages;
 import org.mule.ide.ui.MulePlugin;
 import org.mule.ide.ui.MuleUIUtils;
@@ -36,7 +39,7 @@ import org.mule.ide.ui.model.MuleModelViewerSorter;
 /**
  * Panel that allows the configuration files for the Mule IDE project to be changed.
  */
-public class MuleConfigurationsPanel implements IMulePropertyPanel {
+public class MuleConfigurationsPanel implements IMulePropertyPanel,IMuleIDEConstants {
 
 	/** The parent model */
 	private IMuleModel muleModel;
@@ -59,7 +62,7 @@ public class MuleConfigurationsPanel implements IMulePropertyPanel {
 	 * @see org.mule.ide.ui.properties.IMulePropertyPanel#getDisplayName()
 	 */
 	public String getDisplayName() {
-		return "Configuration Files";
+		return ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("ConfigFiles");
 	}
 
 	/*
@@ -101,19 +104,19 @@ public class MuleConfigurationsPanel implements IMulePropertyPanel {
 
 		// Create buttons and add button handlers.
 		Composite buttons = MuleUIUtils.createButtonPanel(composite);
-		addButton = MuleUIUtils.createSideButton("Add", buttons);
+		addButton = MuleUIUtils.createSideButton(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Add"), buttons);
 		addButton.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				addClicked();
 			}
 		});
-		editButton = MuleUIUtils.createSideButton("Edit", buttons);
+		editButton = MuleUIUtils.createSideButton(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Edit"), buttons);
 		editButton.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				editClicked();
 			}
 		});
-		deleteButton = MuleUIUtils.createSideButton("Delete", buttons);
+		deleteButton = MuleUIUtils.createSideButton(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Delete"), buttons);
 		deleteButton.addMouseListener(new MouseAdapter() {
 			public void mouseUp(MouseEvent e) {
 				deleteClicked();

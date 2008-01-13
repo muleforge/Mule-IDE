@@ -10,10 +10,12 @@
 
 package org.mule.ide.ui.panels;
 
+import java.util.ResourceBundle;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.layout.FillLayout;
+//import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -22,13 +24,14 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.mule.ide.core.distribution.IMuleDistribution;
 import org.mule.ide.core.distribution.IMuleSample;
+import org.mule.ide.ui.IMuleIDEConstants;
 
 /**
  * Allows the choice of initial project content.
  * 
  * @author dadams, jmoller, tbashor
  */
-public class ProjectContentChooser extends Composite {
+public class ProjectContentChooser extends Composite implements IMuleIDEConstants {
 
 	private IMuleSample[] allSamples;
 	
@@ -89,7 +92,7 @@ public class ProjectContentChooser extends Composite {
 		this.setLayout(gridLayout1);
 
 		Group group = new Group(this, SWT.NONE);
-		group.setText("Sample Content");
+		group.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("SampleContent"));
 		GridData gdGroup = new GridData();
 		gdGroup.grabExcessHorizontalSpace = true;
 		gdGroup.horizontalAlignment = org.eclipse.swt.layout.GridData.FILL;
@@ -104,7 +107,7 @@ public class ProjectContentChooser extends Composite {
 		
 		buttonUseSample = new Button(group, SWT.CHECK | SWT.RIGHT);
 		buttonUseSample
-				.setText("Add content from a Mule distribution sample project");
+				.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("AddSample"));
 		buttonUseSample.setSelection(false);
 		GridData buttonData = new GridData();
 		buttonData.horizontalSpan = 1;

@@ -10,6 +10,8 @@
 
 package org.mule.ide.ui.dialogs;
 
+import java.util.ResourceBundle;
+
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -21,11 +23,12 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.mule.ide.ui.IMuleIDEConstants;
 
 /**
  * Dialog for editing a mule config set.
  */
-public class MuleConfigSetDialog extends Dialog implements ModifyListener {
+public class MuleConfigSetDialog extends Dialog implements ModifyListener, IMuleIDEConstants {
 
 	/** Widget for description */
 	private Text textDescription;
@@ -49,12 +52,12 @@ public class MuleConfigSetDialog extends Dialog implements ModifyListener {
 	 */
 	protected Control createDialogArea(Composite parent) {
 		GridData gd;
-		getShell().setText("Mule Configuration Set");
+		getShell().setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("MuleConfigSet"));
 		Composite composite = (Composite) super.createDialogArea(parent);
 		GridLayout layout = (GridLayout) composite.getLayout();
 		layout.numColumns = 2;
 		Label descLabel = new Label(composite, SWT.NULL);
-		descLabel.setText("Description");
+		descLabel.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Description"));
 		textDescription = new Text(composite, SWT.BORDER);
 		textDescription.setText(getDescription());
 		textDescription.addModifyListener(this);

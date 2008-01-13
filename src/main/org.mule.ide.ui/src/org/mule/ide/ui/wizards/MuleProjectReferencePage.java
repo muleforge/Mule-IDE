@@ -12,6 +12,7 @@ package org.mule.ide.ui.wizards;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -35,11 +36,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.model.WorkbenchContentProvider;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.mule.ide.core.MuleCorePlugin;
+import org.mule.ide.ui.IMuleIDEConstants;
 
 /**
  * Wizard page for a wizard that uses a project resource.
  */
-public class MuleProjectReferencePage extends WizardPage {
+public class MuleProjectReferencePage extends WizardPage implements IMuleIDEConstants {
     // widgets
     private CheckboxTableViewer referenceProjectsViewer;
 
@@ -67,7 +69,7 @@ public class MuleProjectReferencePage extends WizardPage {
         composite.setFont(font);
 
         Label referenceLabel = new Label(composite, SWT.NONE);
-        referenceLabel.setText("&Projects to convert to Mule project");
+        referenceLabel.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("ProjectConvert"));
         referenceLabel.setFont(font);
 
         referenceProjectsViewer = CheckboxTableViewer.newCheckList(composite,

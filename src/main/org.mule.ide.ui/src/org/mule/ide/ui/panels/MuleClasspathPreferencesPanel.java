@@ -13,6 +13,7 @@ package org.mule.ide.ui.panels;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -33,6 +34,7 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.mule.ide.core.distribution.IMuleDistribution;
 import org.mule.ide.core.distribution.MuleDistributionFactory;
+import org.mule.ide.ui.IMuleIDEConstants;
 import org.mule.ide.ui.preferences.IPreferenceConstants;
 import org.mule.ide.ui.preferences.MulePreferences;
 
@@ -41,7 +43,7 @@ import org.mule.ide.ui.preferences.MulePreferences;
  *
  * @deprecated 1.3.0 Refactored into MuleDistributionsPreferencesPanel
  */
-public class MuleClasspathPreferencesPanel {
+public class MuleClasspathPreferencesPanel implements IMuleIDEConstants {
 
 	/** Button for selecting distro dir */
 	private Button addDirButton;
@@ -80,7 +82,7 @@ public class MuleClasspathPreferencesPanel {
 	 */
 	public Composite createControl(Composite parent) {
 		Group cpGroup = new Group(parent, SWT.NONE);
-		cpGroup.setText("Mule distributions");
+		cpGroup.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("MuleDist"));
 		GridLayout layout = new GridLayout();
 		layout.numColumns = 2;
 		cpGroup.setLayout(layout);
@@ -107,7 +109,7 @@ public class MuleClasspathPreferencesPanel {
 		});
 		
 		addDirButton = new Button(cpGroup, SWT.PUSH);
-		addDirButton.setText("Add Mule &Directory");
+		addDirButton.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("AddMuleDir"));
 		addDirButton.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_END));
 		addDirButton.addMouseListener(new MouseAdapter() {
 			public void mouseDown(MouseEvent e) {
@@ -116,7 +118,7 @@ public class MuleClasspathPreferencesPanel {
 		});
 	
 		addSingleFileButton = new Button(cpGroup, SWT.PUSH);
-		addSingleFileButton.setText("Add Mule &JAR");
+		addSingleFileButton.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("AddMuleJar"));
 		addSingleFileButton.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_END));
 		addSingleFileButton.addMouseListener(new MouseAdapter() {
 			public void mouseDown(MouseEvent e) {
@@ -125,7 +127,7 @@ public class MuleClasspathPreferencesPanel {
 		});
 		
 		removeButton = new Button(cpGroup, SWT.PUSH);
-		removeButton.setText("&Remove");
+		removeButton.setText(ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("Remove"));
 		removeButton.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_END));
 		removeButton.addMouseListener(new MouseAdapter() {
 			public void mouseDown(MouseEvent e) {
@@ -153,8 +155,7 @@ public class MuleClasspathPreferencesPanel {
 		String cpType = MulePreferences.getDeprecatedClasspathChoice();
 		if (IPreferenceConstants.MULE_CLASSPATH_TYPE_PLUGIN.equals(cpType)) {
 			hadDeprecatedValues = true;
-			parentPage.setMessage("Mule IDE no longer distributes Mule as part of the plugin. " + 
-					"You must set the location of the external install for Mule to work.");
+			parentPage.setMessage(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("NoLonger"));
 			initDistros(new String[0], -1);
 		} else if (IPreferenceConstants.MULE_CLASSPATH_TYPE_EXTERNAL.equals(cpType)) {
 			hadDeprecatedValues = true;
@@ -187,8 +188,8 @@ public class MuleClasspathPreferencesPanel {
 				this.textDistributionDescription.setText(dist.getLocation().toString());
 				return true;
 			} else {
-				this.textDistributionVersion.setText("Error");
-				this.textDistributionDescription.setText("The selected Mule distribution cannot be used with Mule IDE");
+				this.textDistributionVersion.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("Error"));
+				this.textDistributionDescription.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("VersionError"));
 				return false;
 			}
 		} else {
@@ -214,7 +215,7 @@ public class MuleClasspathPreferencesPanel {
 	 */
 	protected void addDirDistribution() {
 		DirectoryDialog dialog = new DirectoryDialog(parentPage.getShell());
-		dialog.setText("Choose the root of an unpacked Mule Distribution");
+		dialog.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("ChooseRoot"));
 		tryAddDistribution(dialog.open());
 	}
 	
@@ -223,8 +224,8 @@ public class MuleClasspathPreferencesPanel {
 	 */
 	protected void addJarDistribution() {
 		FileDialog dialog = new FileDialog(parentPage.getShell());
-		dialog.setText("Choose a Mule single-file distribution (JAR or RAR)");
-		dialog.setFilterNames (new String [] {"Java Archive", "Resource Adapter Archive"});
+		dialog.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("ChooseSingleFile"));
+		dialog.setFilterNames (new String [] {ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("JavaArchive"), ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("ResourceAdapter")});
 		dialog.setFilterExtensions (new String [] {"*.jar", "*.rar"});
 		tryAddDistribution(dialog.open());
 	}
@@ -250,7 +251,7 @@ public class MuleClasspathPreferencesPanel {
 		
 		if (filepath == null)
 		{
-			MessageDialog.openError(parentPage.getShell(), "Mule Distribution not found", "No Mule Distribution found at:\r\n" + filepath);
+			MessageDialog.openError(parentPage.getShell(), ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("MuleNotFound"), "No Mule Distribution found at:\r\n" + filepath);
 			return;
 		}
 		
@@ -318,5 +319,4 @@ public class MuleClasspathPreferencesPanel {
 		
 		return dist;
 	}
-
 }

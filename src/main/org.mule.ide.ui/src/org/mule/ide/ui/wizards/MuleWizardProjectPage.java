@@ -10,12 +10,15 @@
 
 package org.mule.ide.ui.wizards;
 
+import java.util.ResourceBundle;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.mule.ide.core.distribution.IMuleDistribution;
 import org.mule.ide.core.distribution.IMuleSample;
+import org.mule.ide.ui.IMuleIDEConstants;
 import org.mule.ide.ui.panels.ProjectContentChooser;
 import org.mule.ide.ui.project.MuleClasspathChooserPanel;
 
@@ -24,7 +27,7 @@ import org.mule.ide.ui.project.MuleClasspathChooserPanel;
  * 
  * @author Derek Adams, Jesper Steen Møller
  */
-public class MuleWizardProjectPage extends WizardNewProjectCreationPage {
+public class MuleWizardProjectPage extends WizardNewProjectCreationPage implements IMuleIDEConstants {
 
 	/** Widgets needed to choose the initial project content */
 	private ProjectContentChooser contentChooser;
@@ -37,8 +40,8 @@ public class MuleWizardProjectPage extends WizardNewProjectCreationPage {
 
 	public MuleWizardProjectPage() {
 		super(PAGE_PROJECT);
-		setTitle("Mule Project");
-		setDescription("Create a new Mule project.");
+		setTitle(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("MuleProject"));
+		setDescription(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("CreateNew"));
 	}
 
 	/*
@@ -77,7 +80,7 @@ public class MuleWizardProjectPage extends WizardNewProjectCreationPage {
     	if (valid) {
     		if (chosenDistribution == null) {
     			setErrorMessage(null);
-    			setMessage("A Mule distribution must be configured");
+    			setMessage(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("configMule"));
     			return false;
     		}
     	}

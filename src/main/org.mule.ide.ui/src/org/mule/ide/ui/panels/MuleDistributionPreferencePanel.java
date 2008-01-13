@@ -13,6 +13,7 @@ package org.mule.ide.ui.panels;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -30,10 +31,11 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.mule.ide.core.distribution.IMuleDistribution;
 import org.mule.ide.core.distribution.MuleDistributionFactory;
+import org.mule.ide.ui.IMuleIDEConstants;
 import org.mule.ide.ui.preferences.IPreferenceConstants;
 import org.mule.ide.ui.preferences.MulePreferences;
 
-public class MuleDistributionPreferencePanel extends Composite {
+public class MuleDistributionPreferencePanel extends Composite implements IMuleIDEConstants {
 
 	private Group distroGroup = null;
 	private Table distros = null;
@@ -91,7 +93,7 @@ public class MuleDistributionPreferencePanel extends Composite {
 		GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 2;
 		distroGroup = new Group(this, SWT.NONE);
-		distroGroup.setText("Mule &Distributions:");
+		distroGroup.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("MuleDist"));
 		distroGroup.setLayout(gridLayout);
 		distroGroup.setLayoutData(gridData1);
 		distros = new Table(distroGroup, SWT.CHECK | SWT.BORDER);
@@ -111,8 +113,9 @@ public class MuleDistributionPreferencePanel extends Composite {
 				}
 			}
 		});
+
 		buttonAddDir = new Button(distroGroup, SWT.NONE);
-		buttonAddDir.setText("Add &Full Distribution");
+		buttonAddDir.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("AddFull"));
 		buttonAddDir.setLayoutData(gridData11);
 		buttonAddDir
 				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
@@ -121,7 +124,7 @@ public class MuleDistributionPreferencePanel extends Composite {
 					}
 				});
 		buttonAddJar = new Button(distroGroup, SWT.NONE);
-		buttonAddJar.setText("Add Mule &JAR/RAR");
+		buttonAddJar.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("AddJar"));
 		buttonAddJar.setLayoutData(gridData2);
 		buttonAddJar
 				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
@@ -129,8 +132,9 @@ public class MuleDistributionPreferencePanel extends Composite {
 						 addJarDistribution();
 					}
 				});
+		
 		buttonRemoveDistro = new Button(distroGroup, SWT.NONE);
-		buttonRemoveDistro.setText("&Remove");
+		buttonRemoveDistro.setText(ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("Remove"));
 		buttonRemoveDistro.setLayoutData(gridData3);
 		buttonRemoveDistro
 				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
@@ -160,13 +164,13 @@ public class MuleDistributionPreferencePanel extends Composite {
 		selectedDistroInfo = new Group(this, SWT.NONE);
 		selectedDistroInfo.setLayoutData(gridData4);
 		selectedDistroInfo.setLayout(gridLayout1);
-		selectedDistroInfo.setText("Information:");
+		selectedDistroInfo.setText(ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("Info"));
 		label1 = new Label(selectedDistroInfo, SWT.NONE);
-		label1.setText("Path:");
+		label1.setText(ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("Path"));
 		textDistributionDescription = new Text(selectedDistroInfo, SWT.READ_ONLY);
 		textDistributionDescription.setLayoutData(gridData5);
 		label2 = new Label(selectedDistroInfo, SWT.NONE);
-		label2.setText("Version:");
+		label2.setText(ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("Version"));
 		textDistributionVersion = new Text(selectedDistroInfo, SWT.READ_ONLY);
 		textDistributionVersion.setLayoutData(gridData6);
 	}
@@ -176,7 +180,7 @@ public class MuleDistributionPreferencePanel extends Composite {
 	 */
 	protected void addDirDistribution() {
 		DirectoryDialog dialog = new DirectoryDialog(parentPage.getShell());
-		dialog.setText("Choose the root of an unpacked Mule Distribution");
+		dialog.setText(ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("ChooseRoot"));
 		tryAddDistribution(dialog.open());
 	}
 
@@ -194,7 +198,7 @@ public class MuleDistributionPreferencePanel extends Composite {
 	 * Browse for the external root.
 	 */
 	protected void addJarDistribution() {
-		MessageDialog.openConfirm(parentPage.getShell(), "Single Archive Mule Distribution", "Sorry, this feature has not been implemented yet...");
+		MessageDialog.openConfirm(parentPage.getShell(), ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("SingleArchive"), ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("FeatureNotSupport"));
 //		FileDialog dialog = new FileDialog(parentPage.getShell());
 //		dialog.setText("Choose a Mule single-file distribution (JAR or RAR)");
 //		dialog.setFilterNames (new String [] {"Java Archive", "Resource Adapter Archive"});
@@ -231,8 +235,7 @@ public class MuleDistributionPreferencePanel extends Composite {
 		String cpType = MulePreferences.getDeprecatedClasspathChoice();
 		if (IPreferenceConstants.MULE_CLASSPATH_TYPE_PLUGIN.equals(cpType)) {
 			hadDeprecatedValues = true;
-			parentPage.setMessage("Mule IDE no longer distributes Mule as part of the plugin. " + 
-					"You must set the location of the external install for Mule to work.");
+			parentPage.setMessage(ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("NoLonger"));
 			initDistros(new String[0], -1);
 		} else if (IPreferenceConstants.MULE_CLASSPATH_TYPE_EXTERNAL.equals(cpType)) {
 			hadDeprecatedValues = true;
@@ -281,7 +284,7 @@ public class MuleDistributionPreferencePanel extends Composite {
 		
 		if (! ok)
 		{
-			parentPage.setErrorMessage("The Mule installation or distribution at this location cannot be recognized");
+			parentPage.setErrorMessage(ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("NotRecog"));
 		}
 		else
 		{
@@ -298,8 +301,8 @@ public class MuleDistributionPreferencePanel extends Composite {
 				this.textDistributionDescription.setText(dist.getLocation().toString());
 				return true;
 			} else {
-				this.textDistributionVersion.setText("Error");
-				this.textDistributionDescription.setText("The selected Mule distribution cannot be used with Mule IDE");
+				this.textDistributionVersion.setText(ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("Error"));
+				this.textDistributionDescription.setText(ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("VersionError"));
 				return false;
 			}
 		} else {
@@ -325,7 +328,7 @@ public class MuleDistributionPreferencePanel extends Composite {
 		
 		if (filepath == null)
 		{
-			MessageDialog.openError(parentPage.getShell(), "Mule Distribution not found", "No Mule Distribution found at:\r\n" + filepath);
+			MessageDialog.openError(parentPage.getShell(), ResourceBundle.getBundle(MESSAGEFILENAME,locale).getString("NotFound"), "No Mule Distribution found at:\r\n" + filepath);
 			return;
 		}
 		

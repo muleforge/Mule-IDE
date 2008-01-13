@@ -1,0 +1,90 @@
+#
+# Author:H.Ozawa
+#
+# native2ascii message_ja.properties.src message_ja.properties
+#
+# MuleDistributionPreferencePanel
+MuleDist=ESB Muleファイル(&D):
+AddFull=全ファイルを追加(&F)
+AddJar=ESB Mule JAR/RARを追加(&J)
+Remove=削除(&R)
+Info=情報:
+Path=パス:
+Version=バージョン:
+ChooseRoot=ESB Muleを解凍したディレクトリ
+NoLonger=ESB Muleのファイルは同梱されていません。\n\rESB Muleのファイルを解凍してディレクトリを指定してください。
+NotRecog=指定されたディレクトリにESB Muleのファイルが見つかりません。
+Error=エラー
+VersionError=指定されたESB Muleのバージョンは現バージョンのESB Mule IDEでは未サポートです。
+NotFound=ESB Mule配布ファイルが見つかりません
+FeatureNotSupport=この機能はまだ未対応です。
+#
+AddMuleSupport=ESB Muleサポートを追加
+#/
+MuleProject=ESB Muleプロジェクト
+CreateNew=新ESB Muleプロジェクトを作成
+configMule=ESB Muleを設定してください
+#
+AddExisting=既存プロジェクトにESB Mule機能を追加
+SelectProject=ESB Muleプロジェクトを選択してください
+# AddMuleSupportWizardPage
+ChooseFeatures=ESB Mule機能の選択
+SelectModules=プロジェクトで利用するESB Muleモジュールを選択してください
+# MuleConfigSetsPanel
+Add=追加
+Edit=編集
+Delete=削除
+Up=上
+Down=下
+AddConfig=ESB Mule用のファイルを追加
+SelectConfig=追加するESB Mule設定ファイルを選択してください
+# MuleConfigurationsPanel
+ConfigFiles=設定ファイル
+# MulePropertiesPage
+UnableSave=ESB Muleの設定を保存することに失敗しました。
+MuleProject=ESB Muleプロジェクト(&M)
+# MuleClasspathChooserPanel
+MuleDistribution=ESB Mule配布ファイル(&M)
+UseDefaultDist=デフォルト配布ファイルを利用(&U)
+ConfigDefault=<a>デフォルト設定...</a>
+CheckIncludes=ESB Mule Classpathに含むモジュールとトランスポートをチェックしてください
+SelectAll=全て選択(&A)
+DeselectAll=全て解除(&D)
+UseSpecific=プロジェクトのESB Mule配布ファイルを利用(&s):
+SingleArchive=ESB Mule配布ファイル
+# MuleClasspathContainerPage
+MuleClasspath=ESB Mule Classpath
+MuleDistribution=ESB Muleモジュール
+ChooseDistribution=利用するESB Mule配布ファイルを選択してください。
+# MuleClasspathPreferencesPanel
+AddMuleDir=ESB Muleディレクトリを追加(&D)
+AddMuleJar=ESB Mule Jarを追加(&J)
+ChooseSingleFile=ESB Mule配布ファイルを選択してください(JAR、RAR)
+JavaArchive=Javaアーカイブ
+ResourceAdapter=リソース・アダプタ・アーカイブ
+MuleNotFound=ESB Mule配布ファイルが見つかりませんでした
+# ProjectContentChooser
+SampleContent=内容の例
+AddSample=ESB Mule配布ファイルから例を追加
+# MuleConfigSetDialog
+MuleConfigSet=ESB Mule設定
+Description=説明
+# MuleConfigurationDialog
+ChooseConfig=ESB Mule設定ファイルの選択
+SelectConfig=ESB Mule設定ファイルを選択し下さい
+MuleConfigFile=ESB Mule設定ファイル
+NoConfigFile=選択されたプロジェクトにESB Mule設定ファイルがありません
+MuleConfigFile=ESB Mule設定ファイル
+FilePath=ファイルパス
+# MulePreferencePage
+DefaultSettings=ESB Muleプロジェクトのデフォルト設定
+#MuleLaunchConfigurationDelegate
+MuleRequired=起動するには、ESB Muleプロジェクトと設定が必要です
+# MuleClasspathChooserPanel
+UseSpecified=プロジェクトのESB Mule配布ファイルを利用(&s):
+# MuleProjectReferencePage
+ProjectConvert=ESB Muleプロジェクトに変換するプロジェクト(&P)
+# MuleProjectWizard
+NewProject=新規のESB Muleプロジェクト
+# MuleLauncherTab
+Mule=Mule

@@ -11,6 +11,7 @@
 package org.mule.ide.ui.wizards;
 
 import java.util.Collection;
+import java.util.ResourceBundle;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -18,6 +19,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.mule.ide.core.distribution.IMuleDistribution;
+import org.mule.ide.ui.IMuleIDEConstants;
 import org.mule.ide.ui.project.MuleClasspathChooserPanel;
 
 /**
@@ -25,7 +27,7 @@ import org.mule.ide.ui.project.MuleClasspathChooserPanel;
  * 
  * @author Jesper Steen Møller
  */
-public class AddMuleSupportWizardPage extends WizardPage {
+public class AddMuleSupportWizardPage extends WizardPage implements IMuleIDEConstants {
 
 	/** Widgets needed to choose the initial project content */
 	private MuleClasspathChooserPanel classpathChooser;
@@ -35,8 +37,8 @@ public class AddMuleSupportWizardPage extends WizardPage {
 
 	public AddMuleSupportWizardPage() {
 		super(PAGE_PROJECT);
-		setTitle("Choose Mule Features");
-		setDescription("Select a Mule distribution and modules for use in existing Java projects");
+		setTitle(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("ChooseFeatures"));
+		setDescription(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("SelectModules"));
 	}
 
 	/*

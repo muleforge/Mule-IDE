@@ -14,13 +14,14 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Point;
+//import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -36,10 +37,11 @@ import org.mule.ide.core.distribution.IMuleBundle;
 import org.mule.ide.core.distribution.IMuleDistribution;
 import org.mule.ide.core.distribution.MuleDistributionClasspathInitializer;
 import org.mule.ide.core.distribution.MuleDistributionFactory;
+import org.mule.ide.ui.IMuleIDEConstants;
 import org.mule.ide.ui.preferences.IPreferenceConstants;
 import org.mule.ide.ui.preferences.MulePreferences;
 
-public class MuleClasspathChooserPanel extends Composite {
+public class MuleClasspathChooserPanel extends Composite implements IMuleIDEConstants {
 
 	private Group groupDistribution = null;
 	private Group groupModule = null;
@@ -88,7 +90,7 @@ public class MuleClasspathChooserPanel extends Composite {
 	 * null newPath indicates no distributions available.
 	 */
 	private void setDistributionSelection(String newPath) {
-		assert(newPath != null || comboDistribution.getItemCount() == 0);
+		assert( newPath != null || comboDistribution.getItemCount() == 0);
 		
 		if (newPath == null) {
 			if (selectedPath != null) {
@@ -267,14 +269,14 @@ public class MuleClasspathChooserPanel extends Composite {
 		gdGroup.grabExcessHorizontalSpace = true;
 		gdGroup.horizontalAlignment = org.eclipse.swt.layout.GridData.FILL;
 		groupDistribution = new Group(this, SWT.NONE);
-		groupDistribution.setText("&Mule distribution");
+		groupDistribution.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("MuleDistribution"));
 		groupDistribution.setLayoutData(gdGroup);
 		groupDistribution.setLayout(layoutGroup);
 		
 		GridData gdUseDefault = new GridData();
 		gdUseDefault.grabExcessHorizontalSpace = false;
 		radioUseDefault = new Button(groupDistribution, SWT.RADIO);
-		radioUseDefault.setText("&Use default Mule distribution");
+		radioUseDefault.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("UseDefaultDist"));
 		radioUseDefault.setLayoutData(gdUseDefault);
 		radioUseDefault
 		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
@@ -290,7 +292,7 @@ public class MuleClasspathChooserPanel extends Composite {
 		GridData gdPrefs = new GridData();
 		gdPrefs.horizontalAlignment = org.eclipse.swt.layout.GridData.END;
 		linkPrefs = new Link(groupDistribution, SWT.NONE);
-		linkPrefs.setText("<a>Configure Default...</a>");
+		linkPrefs.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("ConfigDefault"));
 		linkPrefs.setLayoutData(gdPrefs);
 		linkPrefs.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
@@ -307,7 +309,7 @@ public class MuleClasspathChooserPanel extends Composite {
 		GridData gdSpecify = new GridData();
 		gdSpecify.horizontalSpan = 2;
 		radioSpecifyDistribution = new Button(groupDistribution, SWT.RADIO);
-		radioSpecifyDistribution.setText("Use a project &specific Mule distribution:");
+		radioSpecifyDistribution.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("UseSpecific"));
 		radioSpecifyDistribution.setLayoutData(gdSpecify);
 		createComboDistribution();
 		radioSpecifyDistribution
@@ -358,11 +360,11 @@ public class MuleClasspathChooserPanel extends Composite {
 		groupModule.setLayoutData(gridData2);
 		tableSelectedModules = new Table(groupModule, SWT.BORDER | SWT.CHECK);
 		tableSelectedModules.setHeaderVisible(false);
-		tableSelectedModules.setToolTipText("Check the modules and transport to include in the Mule classpath for this project");
+		tableSelectedModules.setToolTipText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("CheckIncludes"));
 		tableSelectedModules.setLayoutData(gridData1);
 		tableSelectedModules.setLinesVisible(false);
 		buttonDeSelectAll = new Button(groupModule, SWT.NONE);
-		buttonDeSelectAll.setText("Select &All");
+		buttonDeSelectAll.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("SelectAll"));
 		buttonDeSelectAll.setLayoutData(gridData3);
 		buttonDeSelectAll
 				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
@@ -373,7 +375,7 @@ public class MuleClasspathChooserPanel extends Composite {
 					}
 				});
 		buttonSelectAll = new Button(groupModule, SWT.NONE);
-		buttonSelectAll.setText("&Deselect All");
+		buttonSelectAll.setText(ResourceBundle.getBundle(MESSAGEFILENAME, locale).getString("DeselectAll"));
 		buttonSelectAll.setLayoutData(gridData4);
 		buttonSelectAll
 				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {

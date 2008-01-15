@@ -23,4 +23,20 @@ public class Messages extends NLS {
 	public static String NewDiagramFile_CreateDiagramFile;
 	public static String NewDiagramFile_InitDiagramCommand;
 	public static String NewDiagramFile_IncorrectRootError;
+	
+	public static String ConfigEditorFormPage_TitleMessage;
+	public static String ConfigEditorFormPage_TitleDetails;
+	
+	public static String TableSection_ItemCount;
+	public static String TableSection_Add;
+	public static String TableSection_Remove;
+	public static String TableSection_Up;
+	public static String TableSection_Down;
+	
+	public static String EndpointsSection_Title;
+	public static String EndpointsSection_Desc;
+	public static String EndpointsSection_SortAlpha;
+	
+	public static String OverviewPage_TabName;
+	public static String OverviewPage_Title;
 }

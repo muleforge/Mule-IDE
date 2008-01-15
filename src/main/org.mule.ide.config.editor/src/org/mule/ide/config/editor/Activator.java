@@ -7,7 +7,10 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.forms.FormColors;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 import org.osgi.framework.BundleContext;
@@ -22,7 +25,12 @@ public class Activator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static Activator plugin;
-	
+
+	// Shared colors for all forms
+	private FormColors fFormColors;
+
+	private ConfigEditorLabelProvider fLabelProvider;
+
 	/**
 	 * The constructor
 	 */
@@ -169,4 +177,24 @@ public class Activator extends AbstractUIPlugin {
 		if (throwable != null) {
 			throwable.printStackTrace();
 		}
-	}}
+	}
+	
+	public FormColors getFormColors(Display display) {
+		if (fFormColors == null) {
+			fFormColors = new FormColors(display);
+			fFormColors.markShared();
+		}
+		return fFormColors;
+	}
+
+	public ConfigEditorLabelProvider getLabelProvider() {
+		if (fLabelProvider == null)
+			fLabelProvider = new ConfigEditorLabelProvider();
+		return fLabelProvider;
+	}
+		
+	// TODO implement a real label provider for model elements
+	private class ConfigEditorLabelProvider extends LabelProvider {
+		
+	}
+}

@@ -38,10 +38,12 @@ import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.layout.FillLayout;
@@ -57,9 +59,13 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.part.MultiPageEditorActionBarContributor;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.part.MultiPageEditorSite;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.eclipse.ui.forms.editor.FormEditor;
+import org.eclipse.ui.forms.editor.IFormPage;
+import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.ide.undo.CreateFileOperation;
 import org.eclipse.ui.ide.undo.WorkspaceUndoUtil;
@@ -70,6 +76,7 @@ import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DocumentRoot;
 import org.mule.ide.config.editor.Activator;
 import org.mule.ide.config.editor.Messages;
+import org.mule.ide.config.editor.internal.overview.OverviewPage;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditor;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorUtil;
@@ -79,7 +86,8 @@ import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 /**
  * 
  */
-public class MuleConfigEditor extends MultiPageEditorPart implements IResourceChangeListener {
+// See also PDEFormEditor for functionality that we may want to add.
+public class MuleConfigEditor extends FormEditor implements IResourceChangeListener {
 
 	public static final String ID = "org.mule.ide.config.editor.editors.MuleConfigEditor"; //$NON-NLS-1$
 	
@@ -103,14 +111,23 @@ public class MuleConfigEditor extends MultiPageEditorPart implements IResourceCh
 		super();
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
 	}
-	
-	/**
-	 * Creates the pages of the multi-page editor.
-	 */
-	protected void createPages() {
-		createOverviewPage();
-		createServicesPage();
-		createSourcePage();
+
+	@Override
+	protected void addPages() {
+        try {
+			createOverviewPage();
+			createServicesPage();
+			createSourcePage();
+		} catch (PartInitException e) {
+			Activator.getDefault().logError(
+					"Error creating editor page", e);			
+			ErrorDialog.openError(
+				getSite().getShell(),
+				"Error creating editor page",
+				null,
+				e.getStatus());
+			return;
+		}
 		if (servicesEditor != null) {
 			setActiveEditor(servicesEditor);
 		}
@@ -119,74 +136,49 @@ public class MuleConfigEditor extends MultiPageEditorPart implements IResourceCh
 	/**
 	 * Creates the overview page
 	 */
-	void createOverviewPage() {
-		Composite composite = new Composite(getContainer(), SWT.NONE);
-		GridLayout layout = new GridLayout();
-		composite.setLayout(layout);
-		layout.numColumns = 2;
-
-		Label l = new Label(composite, SWT.LEFT);
-		GridData gd = new GridData(GridData.BEGINNING);
-		gd.horizontalSpan = 2;
-		l.setLayoutData(gd);
-		l.setText("Not yet implemented");
-
-		int index = addPage(composite);
-		setPageText(index, "Overview");
+	void createOverviewPage() throws PartInitException {
+		addPage(new OverviewPage(this));
 	}
 	
 	/**
 	 * Creates the services editor page.
 	 */
-	void createServicesPage() {
-        try {
-        	final IFile sourceFile = ((FileEditorInput) getEditorInput()).getFile();
-        	final IFile diagramFile = getServicesDiagramFile(sourceFile);
-        	if (! diagramFile.exists()) {
-        		 try {
-        			 WorkspaceModifyOperation op = new WorkspaceModifyOperation() {
-        				 protected void execute(IProgressMonitor monitor)
-        							throws CoreException, InterruptedException {
-        					 generateServicesDiagramFile(sourceFile, diagramFile, monitor);
-        				 }
-        			 };
-        			 getSite().getWorkbenchWindow().run(true, true, op);
-        		 } catch (InvocationTargetException e) {
-        			 Activator.getDefault().logError(
-        					 "Failed to initialze services diagram file: "+diagramFile, e); //$NON-NLS-1$			
-        			 return;
-        		 } catch (InterruptedException e) {
-        			 Activator.getDefault().logError(
-        					 "Failed to initialze services diagram file: "+diagramFile, e); //$NON-NLS-1$			
-        			 return;
-        		 }
-        	}
-        	servicesEditor = new CoreDiagramEditor();
-        	FileEditorInput diagramEditorInput = new FileEditorInput(diagramFile);
-        	int index = addPage(servicesEditor, diagramEditorInput);
-        	setPageText(index, "Services");
-        } catch (PartInitException e) {
-            // TODO add some error handling
-            throw new RuntimeException(e);
-        }
+	void createServicesPage() throws PartInitException {
+    	final IFile sourceFile = ((FileEditorInput) getEditorInput()).getFile();
+    	final IFile diagramFile = getServicesDiagramFile(sourceFile);
+    	if (! diagramFile.exists()) {
+    		 try {
+    			 WorkspaceModifyOperation op = new WorkspaceModifyOperation() {
+    				 protected void execute(IProgressMonitor monitor)
+    							throws CoreException, InterruptedException {
+    					 generateServicesDiagramFile(sourceFile, diagramFile, monitor);
+    				 }
+    			 };
+    			 getSite().getWorkbenchWindow().run(true, true, op);
+    		 } catch (InvocationTargetException e) {
+    			 Activator.getDefault().logError(
+    					 "Failed to initialze services diagram file: "+diagramFile, e);			
+    			 return;
+    		 } catch (InterruptedException e) {
+    			 Activator.getDefault().logError(
+    					 "Failed to initialze services diagram file: "+diagramFile, e);			
+    			 return;
+    		 }
+    	}
+    	servicesEditor = new CoreDiagramEditor();
+    	FileEditorInput diagramEditorInput = new FileEditorInput(diagramFile);
+    	int index = addPage(servicesEditor, diagramEditorInput);
+    	setPageText(index, "Services");
 	}
 	
 	/**
 	 * Creates an xml source editor page.
 	 */
-	void createSourcePage() {
-		try {
-			xmlEditor = new StructuredTextEditor();  
-			xmlEditor.setEditorPart(this);
-			int index = addPage(xmlEditor, getEditorInput());
-			setPageText(index, "Source");
-		} catch (PartInitException e) {
-			ErrorDialog.openError(
-				getSite().getShell(),
-				"Error creating nested text editor",
-				null,
-				e.getStatus());
-		}
+	void createSourcePage() throws PartInitException {
+		xmlEditor = new StructuredTextEditor();  
+		xmlEditor.setEditorPart(this);
+		int index = addPage(xmlEditor, getEditorInput());
+		setPageText(index, "Source");
 	}
 	
 	/**
@@ -393,5 +385,57 @@ public class MuleConfigEditor extends MultiPageEditorPart implements IResourceCh
 			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error saving services diagram file", e));			
 		}
 	}
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.forms.editor.FormEditor#createToolkit(org.eclipse.swt.widgets.Display)
+	 */
+	@Override
+	protected FormToolkit createToolkit(Display display) {
+		// Create a toolkit that shares colors between editors.
+		return new FormToolkit(Activator.getDefault().getFormColors(display));
+	}
 
+	public void contributeToToolbar(IToolBarManager manager) {
+	}	
+
+	public void setSelection(ISelection selection) {
+		getSite().getSelectionProvider().setSelection(selection);
+		getContributor().updateSelectableActions(selection);
+	}
+	
+	public ISelection getSelection() {
+		return getSite().getSelectionProvider().getSelection();
+	}
+	
+	public ConfigEditorContributor getContributor() {
+		return (ConfigEditorContributor) getEditorSite().getActionBarContributor();
+	}
+	
+	// TODO implement real contributor
+	public class ConfigEditorContributor extends MultiPageEditorActionBarContributor {
+
+		@Override
+		public void setActivePage(IEditorPart activeEditor) {
+			// TODO
+			/*
+			if (fEditor == null)
+				return;
+			IFormPage oldPage = fPage;
+			fPage = fEditor.getActivePageInstance();
+			if (fPage != null) {
+				updateActions();
+				if (oldPage != null && !oldPage.isEditor() && !fPage.isEditor()) {
+					getActionBars().updateActionBars();
+				}
+			}
+			*/
+		}
+		
+		public void updateSelectableActions(ISelection selection) {
+			// TODO
+		}
+	}
+	
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+  	  <wizard
+         canFinishEarly="false"
+  	     name="Mule Example Project"
+  	     category="org.mule.ide.MuleWizards"
+  	     class="org.mule.ide.project.examples.MuleExampleProjectWizard"
+         hasPages="true"
+  	     id="org.mule.ide.project.examples.MuleExampleProjectWizardID"
+         project="true">
+  	  	 <description>Create a java project with mule sample files.</description>  
+      </wizard>
+   </extension>
+
+</plugin>

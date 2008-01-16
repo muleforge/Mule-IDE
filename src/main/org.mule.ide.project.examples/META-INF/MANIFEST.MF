@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Examples Plug-in
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.mule.ide.project.examples; singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.vqualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.core.resources,
@@ -11,3 +11,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.jdt.ui
 Bundle-Activator: org.mule.ide.project.examples.ExamplesPlugin
 Eclipse-LazyStart: true
+Bundle-Vendor: %providerName
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

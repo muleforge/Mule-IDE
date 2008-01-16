@@ -73,7 +73,7 @@ public abstract class GlobalElementTableSection extends TableSection
     private int fInsertIndex;
 
 	public GlobalElementTableSection(OverviewPage page, Composite parent) {
-		super(page, parent, Section.DESCRIPTION|ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED, BUTTON_LABELS);
+		super(page, parent, Section.DESCRIPTION, BUTTON_LABELS);
 		getTablePart().setEditable(false);
 		resetInsertIndex();
 	}

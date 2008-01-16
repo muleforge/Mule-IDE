@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Mule Configuration Plug-in
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.mule.ide.config.editor; singleton:=true
-Bundle-Version: 0.1.0
+Bundle-Version: 1.0.0.vqualifier
 Bundle-Activator: org.mule.ide.config.editor.Activator
 Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.core.runtime,
@@ -21,3 +21,5 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.wst.common.emf,
  org.eclipse.wst.common.emfworkbench.integration
 Eclipse-LazyStart: true
+Bundle-Vendor: %providerName
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

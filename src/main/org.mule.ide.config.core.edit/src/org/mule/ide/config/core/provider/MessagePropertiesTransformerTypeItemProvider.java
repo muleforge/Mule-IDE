@@ -139,14 +139,14 @@ public class MessagePropertiesTransformerTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * customization
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((MessagePropertiesTransformerType)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_MessagePropertiesTransformerType_type") :
-			getString("_UI_MessagePropertiesTransformerType_type") + " " + label;
+			label;
 	}
 
 	/**

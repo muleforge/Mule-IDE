@@ -139,14 +139,14 @@ public class CustomFilterTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * customization
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((CustomFilterType)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CustomFilterType_type") :
-			getString("_UI_CustomFilterType_type") + " " + label;
+			label;
 	}
 
 	/**

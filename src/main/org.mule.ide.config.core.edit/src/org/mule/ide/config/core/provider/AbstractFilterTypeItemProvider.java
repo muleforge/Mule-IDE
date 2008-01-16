@@ -134,14 +134,14 @@ public class AbstractFilterTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * customization
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((AbstractFilterType)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AbstractFilterType_type") :
-			getString("_UI_AbstractFilterType_type") + " " + label;
+			label;
 	}
 
 	/**

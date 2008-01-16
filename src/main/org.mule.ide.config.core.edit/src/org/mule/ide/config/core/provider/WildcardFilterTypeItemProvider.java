@@ -78,14 +78,14 @@ public class WildcardFilterTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * customization
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((WildcardFilterType)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_WildcardFilterType_type") :
-			getString("_UI_WildcardFilterType_type") + " " + label;
+			label;
 	}
 
 	/**

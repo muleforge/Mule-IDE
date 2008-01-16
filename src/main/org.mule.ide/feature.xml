@@ -2,8 +2,8 @@
 <feature
       id="org.mule.ide"
       label="%featureName"
-      version="2.0.0.1"
-      provider-name="MuleSource, Inc.">
+      version="2.0.0.vqualifier"
+      provider-name="%featureProvider">
 
    <description url="http://mule.mulesource.org">
       Eclipse feature for working with the Mule ESB.
@@ -18,7 +18,7 @@
    </license>
 
    <url>
-      <discovery label="Mule IDE Update Site" url="http://dist.codehaus.org/mule/muleide/updates/"/>
+      <update label="Mule IDE 2.0.0" url="http://dist.muleforge.org/mule-ide/updates-2.0.0/"/>
    </url>
 
    <requires>
@@ -26,14 +26,14 @@
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.wst.xml.core"/>
       <import plugin="org.eclipse.wst.sse.core"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="org.eclipse.jface"/>
       <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.wst.common.ui"/>
       <import plugin="org.eclipse.wst.sse.ui"/>
       <import plugin="org.eclipse.wst.xml.ui"/>
@@ -57,6 +57,8 @@
       <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
       <import plugin="org.eclipse.gef"/>
       <import plugin="org.eclipse.ocl.ecore"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.jdt.ui"/>
    </requires>
 
    <plugin
@@ -107,5 +109,11 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="org.mule.ide.project.examples"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
 </feature>

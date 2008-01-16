@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.mule.ide.config.editor.services; singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.0.vqualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.mule.ide.config.editor.services.part.ServicesEditorPlugin
 Bundle-Vendor: %providerName
@@ -39,3 +39,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gef;visibility:=reexport,
  org.eclipse.ocl.ecore;visibility:=reexport
 Eclipse-LazyStart: true
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

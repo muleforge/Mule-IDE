@@ -4,7 +4,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.swt.widgets.Composite;
-import org.mule.ide.config.core.AbstractGlobalEndpointType;
+import org.mule.ide.config.core.AbstractConnectorType;
 import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.editor.Messages;
 import org.mule.ide.config.editor.internal.elements.DefaultTableProvider;
@@ -12,39 +12,39 @@ import org.mule.ide.config.editor.internal.elements.DefaultTableProvider;
 /**
  * Derived from org.eclipse.pde.internal.ui.editor.plugin.RequiresSection
  */
-public class EndpointsSection extends GlobalElementTableSection 
+public class ConnectorsSection extends GlobalElementTableSection 
 	implements IPropertyChangeListener {
 	//implements IModelChangedListener, IPluginModelListener, IPropertyChangeListener {
     
-	private EList<AbstractGlobalEndpointType> fEndpoints;
+	private EList<AbstractConnectorType> fConnectors;
 
-	public EndpointsSection(OverviewPage page, Composite parent) {
+	public ConnectorsSection(OverviewPage page, Composite parent) {
 		super(page, parent);
-		getSection().setText(Messages.EndpointsSection_Title); 
-		getSection().setDescription(Messages.EndpointsSection_Desc); 
+		getSection().setText(Messages.ConnectorsSection_Title); 
+		getSection().setDescription(Messages.ConnectorsSection_Desc); 
 	}
 	
 	@Override
 	protected IContentProvider getContentProvider() {
-		return new EndpointContentProvider();
+		return new ConnectorContentProvider();
 	}
 
 	public void refresh() {
-		fEndpoints = null;
+		fConnectors = null;
 		super.refresh();
 	}
 
-	private void getEndpoints() {
+	private void getConnectors() {
 		MuleType mule = getPage().getModel();
-		fEndpoints = mule.getAbstractGlobalEndpoint();
+		fConnectors = mule.getAbstractConnector();
 	}
     
-	class EndpointContentProvider extends DefaultTableProvider {
+	class ConnectorContentProvider extends DefaultTableProvider {
 		public Object[] getElements(Object parent) {
-			if (fEndpoints == null) {
-				getEndpoints();
+			if (fConnectors == null) {
+				getConnectors();
 			}
-			return fEndpoints.toArray();
+			return fConnectors.toArray();
 		}
 	}
 

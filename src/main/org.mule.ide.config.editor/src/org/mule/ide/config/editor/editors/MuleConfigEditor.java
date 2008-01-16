@@ -74,6 +74,7 @@ import org.eclipse.wst.sse.ui.StructuredTextEditor;
 import org.eclipse.wst.xml.core.internal.provisional.contenttype.ContentTypeIdForXML;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DocumentRoot;
+import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.editor.Activator;
 import org.mule.ide.config.editor.Messages;
 import org.mule.ide.config.editor.internal.overview.OverviewPage;
@@ -150,7 +151,7 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
     		 try {
     			 WorkspaceModifyOperation op = new WorkspaceModifyOperation() {
     				 protected void execute(IProgressMonitor monitor)
-    							throws CoreException, InterruptedException {
+    							throws InvocationTargetException, CoreException, InterruptedException {
     					 generateServicesDiagramFile(sourceFile, diagramFile, monitor);
     				 }
     			 };
@@ -248,6 +249,10 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 		super.init(site, editorInput);
 	}
 	
+	public MuleType getModel() {
+		return documentRoot.getMule();
+	}
+	
 	/* (non-Javadoc)
 	 * Method declared on IEditorPart.
 	 */
@@ -318,7 +323,7 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 	 * @throws CoreException
 	 */
 	public void generateServicesDiagramFile(IFile sourceFile, IFile diagramFile, IProgressMonitor monitor) 
-			throws CoreException {
+			throws InvocationTargetException, CoreException {
 		EObject muleElement = (EObject) documentRoot.eGet(CorePackage.eINSTANCE.getDocumentRoot_Mule());
 		if (muleElement == null) {
 			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Configuration file has no <mule> element."));			
@@ -329,7 +334,8 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 			// TODO handle multiple model elements.  For now just use the first one.
 			modelElement = (EObject) modelElementList.get(0);
 		} else {
-			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Configuration file has no <model> element."));			
+			// TODO No model element should not be an error condition
+			throw new InvocationTargetException(new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Configuration file has no <model> element.")));			
 		}
 		try {
 			CreateFileOperation op = new CreateFileOperation(diagramFile,
@@ -409,33 +415,8 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 		return getSite().getSelectionProvider().getSelection();
 	}
 	
-	public ConfigEditorContributor getContributor() {
-		return (ConfigEditorContributor) getEditorSite().getActionBarContributor();
-	}
-	
-	// TODO implement real contributor
-	public class ConfigEditorContributor extends MultiPageEditorActionBarContributor {
-
-		@Override
-		public void setActivePage(IEditorPart activeEditor) {
-			// TODO
-			/*
-			if (fEditor == null)
-				return;
-			IFormPage oldPage = fPage;
-			fPage = fEditor.getActivePageInstance();
-			if (fPage != null) {
-				updateActions();
-				if (oldPage != null && !oldPage.isEditor() && !fPage.isEditor()) {
-					getActionBars().updateActionBars();
-				}
-			}
-			*/
-		}
-		
-		public void updateSelectableActions(ISelection selection) {
-			// TODO
-		}
+	public MuleConfigEditorContributor getContributor() {
+		return (MuleConfigEditorContributor) getEditorSite().getActionBarContributor();
 	}
 	
 }

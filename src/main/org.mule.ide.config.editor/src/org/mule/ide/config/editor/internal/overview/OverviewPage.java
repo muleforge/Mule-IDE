@@ -10,6 +10,7 @@ import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
+import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.editor.Messages;
 import org.mule.ide.config.editor.internal.form.ConfigEditorFormPage;
 import org.mule.ide.config.editor.internal.form.FormLayoutFactory;
@@ -24,7 +25,7 @@ public class OverviewPage extends ConfigEditorFormPage {
 	public static final String PAGE_ID = "overview"; //$NON-NLS-1$
 	
 	public OverviewPage(FormEditor editor) {
-		super(editor, PAGE_ID, Messages.OverviewPage_TabName);  
+		super(editor, PAGE_ID, Messages.OverviewPage_TabName); 
 	}
 	
 	/* (non-Javadoc)
@@ -52,20 +53,22 @@ public class OverviewPage extends ConfigEditorFormPage {
 		right.setLayout(FormLayoutFactory.createFormPaneGridLayout(false, 1));
 		right.setLayoutData(new GridData(GridData.FILL_BOTH));
 		
-		EndpointsSection endpointsSection = new EndpointsSection(this, left, getRequiredSectionLabels());
-		managedForm.addPart(endpointsSection);		
+		GlobalElementTableSection section;
+		
+		section = new ConnectorsSection(this, left);
+		managedForm.addPart(section);		
+
+		section = new EndpointsSection(this, right);
+		managedForm.addPart(section);		
+
+		section = new FiltersSection(this, left);
+		managedForm.addPart(section);		
+
+		section = new TransformersSection(this, right);
+		managedForm.addPart(section);		
 
 		// TODO
 		//PlatformUI.getWorkbench().getHelpSystem().setHelp(form.getBody(), IHelpContextIds.MANIFEST_PLUGIN_DEPENDENCIES);
 	}
-	
-    private String[] getRequiredSectionLabels() {
-        ArrayList<String> labels = new ArrayList<String>();
-        labels.add(Messages.TableSection_Add);
-        labels.add(Messages.TableSection_Remove);
-        labels.add(Messages.TableSection_Up);
-        labels.add(Messages.TableSection_Down);
-        return (String[])labels.toArray(new String[labels.size()]);
-    }
 
 }

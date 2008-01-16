@@ -2,6 +2,7 @@ package org.mule.ide.config.editor.editors;
 
 import org.eclipse.jface.action.*;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchActionConstants;
@@ -20,7 +21,8 @@ import org.eclipse.ui.texteditor.ITextEditorActionConstants;
  */
 public class MuleConfigEditorContributor extends MultiPageEditorActionBarContributor {
 	private IEditorPart activeEditorPart;
-	private Action sampleAction;
+	//private Action sampleAction;
+	
 	/**
 	 * Creates a multi-page contributor.
 	 */
@@ -80,7 +82,14 @@ public class MuleConfigEditorContributor extends MultiPageEditorActionBarContrib
 			actionBars.updateActionBars();
 		}
 	}
+	
+	public void updateSelectableActions(ISelection selection) {
+		// TODO
+	}
+	
 	private void createActions() {
+		// TODO
+		/*
 		sampleAction = new Action() {
 			public void run() {
 				MessageDialog.openInformation(null, "Editormultipage Plug-in", "Sample Action Executed");
@@ -90,14 +99,21 @@ public class MuleConfigEditorContributor extends MultiPageEditorActionBarContrib
 		sampleAction.setToolTipText("Sample Action tool tip");
 		sampleAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
+				*/
 	}
 	public void contributeToMenu(IMenuManager manager) {
+		// TODO
+		/*
 		IMenuManager menu = new MenuManager("Editor &Menu");
 		manager.prependToGroup(IWorkbenchActionConstants.MB_ADDITIONS, menu);
 		menu.add(sampleAction);
+		*/
 	}
 	public void contributeToToolBar(IToolBarManager manager) {
+		// TODO
+		/*
 		manager.add(new Separator());
 		manager.add(sampleAction);
+		*/
 	}
 }

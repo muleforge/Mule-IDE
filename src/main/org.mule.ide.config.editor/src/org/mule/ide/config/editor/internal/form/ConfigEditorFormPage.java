@@ -46,6 +46,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
+import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.editor.Messages;
 import org.mule.ide.config.editor.editors.MuleConfigEditor;
 
@@ -184,11 +185,9 @@ public abstract class ConfigEditorFormPage extends FormPage {
 		return null;
 	}
 	
-	/*
-	public IBaseModel getModel() {
-		return getPDEEditor().getAggregateModel();
+	public MuleType getModel() {
+		return getConfigEditor().getModel();
 	}
-	*/
 	
 	public void contextMenuAboutToShow(IMenuManager menu) {
 	}

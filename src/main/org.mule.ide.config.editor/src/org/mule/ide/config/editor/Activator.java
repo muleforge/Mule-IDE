@@ -4,9 +4,10 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
-import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
@@ -29,7 +30,7 @@ public class Activator extends AbstractUIPlugin {
 	// Shared colors for all forms
 	private FormColors fFormColors;
 
-	private ConfigEditorLabelProvider fLabelProvider;
+	private ILabelProvider fLabelProvider;
 
 	/**
 	 * The constructor
@@ -139,7 +140,7 @@ public class Activator extends AbstractUIPlugin {
 			error = throwable.getMessage();
 		}
 		getLog().log(
-				new Status(IStatus.ERROR, ServicesEditorPlugin.ID, IStatus.OK,
+				new Status(IStatus.ERROR, PLUGIN_ID, IStatus.OK,
 						error, throwable));
 		debug(error, throwable);
 	}
@@ -159,7 +160,7 @@ public class Activator extends AbstractUIPlugin {
 			message = throwable.getMessage();
 		}
 		getLog().log(
-				new Status(IStatus.INFO, ServicesEditorPlugin.ID, IStatus.OK,
+				new Status(IStatus.INFO, PLUGIN_ID, IStatus.OK,
 						message, throwable));
 		debug(message, throwable);
 	}
@@ -187,14 +188,13 @@ public class Activator extends AbstractUIPlugin {
 		return fFormColors;
 	}
 
-	public ConfigEditorLabelProvider getLabelProvider() {
-		if (fLabelProvider == null)
-			fLabelProvider = new ConfigEditorLabelProvider();
+	public ILabelProvider getLabelProvider() {
+		if (fLabelProvider == null) {
+			// Note that we may want a separate label provider for Overview
+			// and Services page, but for now, use the same one...
+			AdapterFactory adapterFactory = ServicesEditorPlugin.getInstance().getItemProvidersAdapterFactory();
+			fLabelProvider = new AdapterFactoryLabelProvider(adapterFactory);
+		}
 		return fLabelProvider;
-	}
-		
-	// TODO implement a real label provider for model elements
-	private class ConfigEditorLabelProvider extends LabelProvider {
-		
 	}
 }

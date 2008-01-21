@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="urn:cars" elementFormDefault="qualified"
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:vp="urn:vehiclePark"
+	xmlns:cs="urn:cars">
+
+	<import namespace="urn:vehiclePark" schemaLocation="vehiclePark.xsd"/>
+	<element name="Car" type="vp:VehicleType"
+		substitutionGroup="vp:AbstractVehicle">
+	</element>
+
+</schema>

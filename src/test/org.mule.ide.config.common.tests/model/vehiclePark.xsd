@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="urn:vehiclePark" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:vp="urn:vehiclePark">
+
+    <complexType name="VehicleType">
+    	<sequence>
+    		<element ref="vp:Make"></element>
+    		<element ref="vp:Model"></element>
+    		<choice minOccurs="0" maxOccurs="unbounded">
+    			<element ref="vp:Decal"></element>
+    			<element ref="vp:Paint"></element>
+    		</choice>
+    	</sequence>
+    </complexType>
+
+    <element name="Make" type="string"></element>
+
+    <element name="Model" type="string"></element>
+
+    <element name="Paint" type="string"></element>
+
+    <element name="Decal">
+    	<complexType>
+    		<attribute name="style" type="string"></attribute>
+    		<attribute name="color" type="string"></attribute>
+    	</complexType>
+    </element>
+
+    <element name="AbstractVehicle" type="vp:VehicleType" abstract="true"></element>
+
+    <element name="Vehicle" type="vp:VehicleType" substitutionGroup="vp:AbstractVehicle"></element>
+
+    <element name="Park">
+    	<complexType>
+   			<sequence minOccurs="1" maxOccurs="unbounded"><element ref="vp:AbstractVehicle"/></sequence>
+    	</complexType>
+    </element>
+</schema>

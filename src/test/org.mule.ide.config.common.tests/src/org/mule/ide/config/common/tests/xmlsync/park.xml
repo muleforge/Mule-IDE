@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vp:Park xmlns:vp="urn:vehiclePark" xmlns:cs="urn:cars">
+  <vp:Vehicle>
+    <vp:Make>Ford</vp:Make>
+    <vp:Model>Fusion</vp:Model>
+    <vp:Decal color="black">1</vp:Decal>
+    <vp:Decal style="stripe" color="white">2</vp:Decal>
+    <vp:Paint>egg shell</vp:Paint>
+    <vp:Decal color="blue" style="stripe">3</vp:Decal>
+    <vp:Decal style="tribal">32</vp:Decal>
+  </vp:Vehicle>
+  
+  <cs:Car>
+  	<vp:Make>fisk</vp:Make>
+  	<vp:Model>fisk</vp:Model>
+  </cs:Car>
+  
+</vp:Park>

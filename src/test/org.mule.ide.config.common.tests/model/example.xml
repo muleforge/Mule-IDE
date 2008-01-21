@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vp:Park xmlns:vp="urn:vehiclePark" xmlns:cs="urn:cars" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:vehiclePark vehiclePark.xsd urn:cars cars.xsd ">
+  <vp:Vehicle>
+    <vp:Make>Form</vp:Make>
+    <vp:Model>Fusion</vp:Model>
+    <vp:Decal style="stripe" color="white"/>
+    <vp:Paint>egg shell</vp:Paint>
+    <vp:Decal color="blue" style="stripe"/>
+    <vp:Decal style="tribal"/>
+  </vp:Vehicle>
+  
+  <cs:Car>
+  	<vp:Make>fisk</vp:Make>
+  	<vp:Model>fisk</vp:Model>
+  </cs:Car>
+  
+</vp:Park>

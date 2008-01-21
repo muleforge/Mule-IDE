@@ -10,10 +10,9 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.mule.ide.config.common,
  org.mule.ide.config.common.impl
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.mule.ide.config.spring;visibility:=reexport,
  org.eclipse.core.resources,
  org.eclipse.wst.xml.core,
  org.eclipse.wst.sse.core
 Eclipse-LazyStart: true
+Bundle-Activator: org.mule.ide.config.common.impl.CommonSyncPlugin

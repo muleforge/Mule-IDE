@@ -1,34 +1,46 @@
 package org.mule.ide.config.common.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.wst.sse.core.internal.provisional.INodeAdapter;
+import org.eclipse.wst.sse.core.internal.provisional.INodeNotifier;
+import org.eclipse.wst.xml.core.internal.Logger;
+import org.eclipse.wst.xml.core.internal.provisional.document.IDOMModel;
+import org.eclipse.wst.xml.core.internal.provisional.document.IDOMNode;
 import org.mule.ide.config.common.SyncAdapter;
+import org.mule.ide.config.common.SyncResource;
 import org.w3c.dom.Node;
 
 
-public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter {
+public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAdapter {
 
 	protected boolean DEBUG = true;
 	
 	protected boolean updateEnabled = true;
+	
+	protected SyncResource syncResource;
 
-	protected Node domNode;
+	protected IDOMNode domNode;
 
+	protected EObject theObject;
+	
 	/**
 	 * Construct an Adapter given an EObject and a node
 	 */
-	public SyncAdapterImpl(Notifier object, Node node) {
+	public SyncAdapterImpl(EObject object, IDOMNode node, SyncResource resource) {
 		super();
-		setTarget(object);
+		this.syncResource = resource;
+		this.theObject = object;
 		domNode = node;
 		addEMFAdapter();
 		addDOMAdapter();
 	}
 
 	private void addDOMAdapter() {
-		// TODO Auto-generated method stub
+		// Spejlblank
 	}
 
 	/**
@@ -45,12 +57,20 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter {
 		updateEnabled = isEnabled;
 	}
 
+	/**
+	 * If false then notification of changes from the EMF object will be ignored.
+	 */
+	public boolean isUpdateInEffect() {
+		return updateEnabled && syncResource.isUpdateEnabled();
+	}
+
+	
 	public boolean isAdapterForType(Object type) {
 		return SyncAdapter.ADAPTER_CLASS == type;
 	}
 
 	protected void addEMFAdapter() {
-		target.eAdapters().add(this);
+		getEObject().eAdapters().add(this);
 	}
 
 	public String toString() {
@@ -112,9 +132,19 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter {
 		}
 	}
 
+	@Override
+	public void notifyChanged(Notification msg) {
+		super.notifyChanged(msg);
+		
+		if (! isUpdateInEffect()) return;
+		
+		debugEMFNotify(msg);
+
+		syncResource.notify(msg, getEObject(), getNode());
+	}
+	
 	public EObject getEObject() {
-		// Wouldn't this usuablly be "getTarget"
-		return null;
+		return theObject;
 	}
 
 	public Node getNode() {
@@ -141,4 +171,88 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter {
 	public void updateEMF() {
 		// Not sure we are going to be using this for M2
 	}
+	
+	/*
+	 * This method is called when the DOM node changes. It attempts to update
+	 * MOF object based on the changes.
+	 */
+	public void notifyChanged(INodeNotifier notifier, int eventType, Object changedFeature, Object oldValue, Object newValue, int pos) {
+
+		if (!isUpdateInEffect())
+			return;
+
+		debugDOMNotify(notifier, eventType, changedFeature, oldValue, newValue);
+
+		if (notifier != getNode() && eventType != INodeNotifier.CHANGE) {
+			// This is the case where the notification was sent from a
+			// sub node. Use the notifiers name to determine which
+			// MOF feature to update.
+		}
+		else {
+			// Update everything on STRUCTURE_CHANGE or CONTENT_CHANGE.
+			// Other event types occur too often.
+			if (eventType == INodeNotifier.STRUCTURE_CHANGED || eventType == INodeNotifier.CONTENT_CHANGED) {
+				//updateMOF();
+			}
+			// Update just the attribute that changed.
+			else if (eventType == INodeNotifier.CHANGE) {
+			}
+		}
+	}
+
+	/*
+	 * Prints out a DOM notification for debugging.
+	 */
+	protected void debugDOMNotify(INodeNotifier notifier, int eventType, Object changedFeature, Object oldValue, Object newValue) {
+		if (DEBUG) {
+			String notifType = ""; //$NON-NLS-1$
+			switch (eventType) {
+				case INodeNotifier.ADD :
+					notifType = "ADD"; //$NON-NLS-1$
+					break;
+				case INodeNotifier.REMOVE :
+					notifType = "REMOVE"; //$NON-NLS-1$
+					break;
+				case INodeNotifier.CHANGE :
+					notifType = "CHANGE"; //$NON-NLS-1$
+					break;
+				case INodeNotifier.CONTENT_CHANGED :
+					notifType = "CONTENT_CHANGED"; //$NON-NLS-1$
+					break;
+				case INodeNotifier.STRUCTURE_CHANGED :
+					notifType = "STRUCTURE_CHANGE"; //$NON-NLS-1$
+					break;
+			}
+			Logger.log(Logger.INFO_DEBUG, "DOM Change: " + notifType); //$NON-NLS-1$
+			Logger.log(Logger.INFO_DEBUG, "\tnotifier      : " + notifier); //$NON-NLS-1$
+			Logger.log(Logger.INFO_DEBUG, "\tchangedFeature: " + changedFeature); //$NON-NLS-1$
+			Logger.log(Logger.INFO_DEBUG, "\toldValue      : " + oldValue); //$NON-NLS-1$
+			Logger.log(Logger.INFO_DEBUG, "\tnewValue      : " + newValue); //$NON-NLS-1$
+		}
+	}
+
+	protected void disableUndoManagementIfNecessary() {
+		IDOMModel model = this.domNode.getModel();
+		if (model != null && model.getUndoManager() != null)
+			model.disableUndoManagement();
+	}
+
+	protected void enableUndoManagement() {
+		IDOMModel model = this.domNode.getModel();
+		if (model != null && model.getUndoManager() != null)
+			model.enableUndoManagement();
+	}
+	
+	protected void postUpdateDOMFeature(Node node, EObject emfObject) {
+		enableUndoManagement();
+	}
+
+	protected void preUpdateDOMFeature(Node node, EObject emfObject) {
+		disableUndoManagementIfNecessary();
+	}
+
+	protected void primAddDOMAdapter(Node aNode, SyncAdapter anAdapter) {
+		domNode.addAdapter((SyncAdapterImpl) anAdapter);
+	}
+
 }

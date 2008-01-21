@@ -41,8 +41,6 @@ public interface SyncAdapter extends Adapter {
 	 */
 	void updateEMF();
 
-	EObject getEObject();
-
 	/**
 	 * Return true if EMF object is a proxy.
 	 */

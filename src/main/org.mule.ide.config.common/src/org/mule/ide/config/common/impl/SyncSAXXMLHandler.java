@@ -31,7 +31,6 @@ public class SyncSAXXMLHandler extends SAXXMLHandler implements SyncHandler {
 		}
 	}
 
-	@Override
 	public void setCurrentNode(Node node) {
 		this.currentNode = node;
 	}

@@ -2,6 +2,7 @@ package org.mule.ide.config.editor.internal.form;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.ArrayList;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.jface.action.Action;
@@ -11,6 +12,10 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.BusyIndicator;
 import org.eclipse.swt.custom.CCombo;
@@ -53,14 +58,20 @@ import org.mule.ide.config.editor.editors.MuleConfigEditor;
 /**
  * Copied from pde internal class org.eclipse.pde.internal.ui.editor.PDEFormPage
  * 
+ * Forwards selection events from contained sections.
  */
-public abstract class ConfigEditorFormPage extends FormPage {
+public abstract class ConfigEditorFormPage extends FormPage 
+		implements ISelectionProvider {
 
 	private boolean fNewStyleHeader=true;
 	private Control fLastFocusControl;
 	
 	private boolean fStale;
-	
+
+	private ArrayList<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener>();
+	//private IContentOutlinePage contentOutlinePage;
+	private ISelection currentSelection;
+
 	public ConfigEditorFormPage(FormEditor editor, String id, String title) {
 		super(editor, id, title);
 		fLastFocusControl = null;
@@ -137,12 +148,12 @@ public abstract class ConfigEditorFormPage extends FormPage {
 			toolkit.decorateFormHeading(form.getForm());
 		}
 
+		// TODO
+		/*
 		IToolBarManager manager = form.getToolBarManager();
 		
 		getConfigEditor().contributeToToolbar(manager);
 		
-		// TODO
-		/*
 		final String href = getHelpResource();
 		if (href != null) {
 			Action helpAction = new Action("help") { //$NON-NLS-1$
@@ -593,4 +604,29 @@ public abstract class ConfigEditorFormPage extends FormPage {
 		form.getForm().setSeparatorVisible(true);
 	}
 	*/
+
+	public void addSelectionChangedListener(ISelectionChangedListener listener) {
+		selectionChangedListeners.add(listener);
+	}
+
+	public ISelection getSelection() {
+		if (currentSelection != null)
+			return currentSelection;
+
+		return StructuredSelection.EMPTY;
+	}
+
+	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
+		selectionChangedListeners.remove(listener);
+	}
+
+	public void setSelection(ISelection selection) {
+		currentSelection = selection;
+		
+		// May need to check if section is expanded...
+		for (ISelectionChangedListener listener : selectionChangedListeners) {
+			SelectionChangedEvent event = new SelectionChangedEvent(this, selection);
+			listener.selectionChanged(event);
+		}
+	}
 }

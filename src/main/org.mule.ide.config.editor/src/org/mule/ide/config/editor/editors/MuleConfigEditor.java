@@ -138,7 +138,7 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 	 * Creates the overview page
 	 */
 	void createOverviewPage() throws PartInitException {
-		addPage(new OverviewPage(this));
+		addPage(new OverviewPage(this), null);
 	}
 	
 	/**
@@ -406,6 +406,8 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 	public void contributeToToolbar(IToolBarManager manager) {
 	}	
 
+	/*  TODO need to revisit:  when an OverviewPage section widget called setSelection here,
+	 * getSite().getSelectionProvider().setSelection() caused an infinite loop. 
 	public void setSelection(ISelection selection) {
 		getSite().getSelectionProvider().setSelection(selection);
 		getContributor().updateSelectableActions(selection);
@@ -418,5 +420,6 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 	public MuleConfigEditorContributor getContributor() {
 		return (MuleConfigEditorContributor) getEditorSite().getActionBarContributor();
 	}
+	*/
 	
 }

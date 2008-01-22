@@ -13,6 +13,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.forms.FormColors;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.mule.ide.config.editor.internal.overview.OverviewLabelProvider;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -31,6 +32,7 @@ public class Activator extends AbstractUIPlugin {
 	private FormColors fFormColors;
 
 	private ILabelProvider fLabelProvider;
+	private ILabelProvider fOverviewLabelProvider;
 
 	/**
 	 * The constructor
@@ -196,5 +198,13 @@ public class Activator extends AbstractUIPlugin {
 			fLabelProvider = new AdapterFactoryLabelProvider(adapterFactory);
 		}
 		return fLabelProvider;
+	}
+
+	public ILabelProvider getOverviewLabelProvider() {
+		if (fOverviewLabelProvider == null) {
+			AdapterFactory adapterFactory = ServicesEditorPlugin.getInstance().getItemProvidersAdapterFactory();
+			fOverviewLabelProvider = new OverviewLabelProvider(adapterFactory);
+		}
+		return fOverviewLabelProvider;
 	}
 }

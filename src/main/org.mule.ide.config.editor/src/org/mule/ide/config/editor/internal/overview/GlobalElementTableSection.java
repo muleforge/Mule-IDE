@@ -19,7 +19,10 @@ import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.ViewerDropAdapter;
@@ -57,7 +60,7 @@ public abstract class GlobalElementTableSection extends TableSection
 	implements IPropertyChangeListener {
 	//implements IModelChangedListener, IPluginModelListener, IPropertyChangeListener {
     
-    private static final int ADD_INDEX = 0;
+	private static final int ADD_INDEX = 0;
     private static final int REMOVE_INDEX = 1;
     private static final int UP_INDEX = 2;
     private static final int DOWN_INDEX = 3;
@@ -85,7 +88,7 @@ public abstract class GlobalElementTableSection extends TableSection
 		fViewer = tablePart.getTableViewer();
 
 		fViewer.setContentProvider(getContentProvider());
-		fViewer.setLabelProvider(Activator.getDefault().getLabelProvider());
+		fViewer.setLabelProvider(Activator.getDefault().getOverviewLabelProvider());
 		toolkit.paintBordersFor(container);
 		makeActions();
 		section.setClient(container);
@@ -126,7 +129,7 @@ public abstract class GlobalElementTableSection extends TableSection
 	}
 
 	protected void selectionChanged(IStructuredSelection sel) {
-		getPage().getConfigEditor().setSelection(sel);
+		((OverviewPage) getPage()).setSelection(sel);
 		updateButtons();
 	}
 	
@@ -725,5 +728,5 @@ public abstract class GlobalElementTableSection extends TableSection
 		}
 		return fSortAction.isChecked();
 	}    
-    
+
 }

@@ -105,14 +105,14 @@ public class FilterRefTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * customization
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((FilterRefType)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_FilterRefType_type") :
-			label;
+			getString("_UI_FilterRefType_type") + " " + label;
 	}
 
 	/**

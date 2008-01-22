@@ -157,14 +157,14 @@ public class AbstractTransformerTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * customization
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((AbstractTransformerType)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AbstractTransformerType_type") :
-			label;
+			getString("_UI_AbstractTransformerType_type") + " " + label;
 	}
 
 	/**

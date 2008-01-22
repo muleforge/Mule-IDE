@@ -193,14 +193,14 @@ public class ConnectorTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * customization
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((ConnectorType)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ConnectorType_type") :
-			label;
+			getString("_UI_ConnectorType_type") + " " + label;
 	}
 
 	/**

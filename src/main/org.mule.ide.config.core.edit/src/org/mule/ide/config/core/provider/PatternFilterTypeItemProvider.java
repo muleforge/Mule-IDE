@@ -105,14 +105,14 @@ public class PatternFilterTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * customization
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((PatternFilterType)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_PatternFilterType_type") :
-			label;
+			getString("_UI_PatternFilterType_type") + " " + label;
 	}
 
 	/**

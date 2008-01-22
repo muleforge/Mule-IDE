@@ -3268,6 +3268,7 @@
       iD="org.mule.ide.config.editor.services"
       name="Services Editor Plugin"
       provider="MuleSource"
+      version="1.0.0.vqualifier"
       activatorClassName="ServicesEditorPlugin"/>
   <editor/>
   <navigator>
@@ -3439,15 +3440,9 @@
   <diagramUpdater/>
   <propertySheet>
     <tabs
-        xsi:type="gmfgen:GenStandardPropertyTab"
-        iD="appearance"/>
-    <tabs
-        xsi:type="gmfgen:GenStandardPropertyTab"
-        iD="diagram"/>
-    <tabs
         xsi:type="gmfgen:GenCustomPropertyTab"
         iD="domain"
-        label="Core">
+        label="Attributes">
       <filter
           xsi:type="gmfgen:TypeTabFilter">
         <types>org.eclipse.gmf.runtime.notation.View</types>

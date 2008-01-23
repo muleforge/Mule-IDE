@@ -43,5 +43,12 @@
          </propertySection>
       </propertySections>
    </extension>
+   <extension
+         point="org.eclipse.emf.transaction.editingDomains">
+      <editingDomain
+            factory="org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory"
+            id="org.mule.ide.config.editor.services.EditingDomain">
+      </editingDomain>
+   </extension>
 
 </plugin>

@@ -228,7 +228,7 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 		if (!(editorInput instanceof IFileEditorInput))
 			throw new PartInitException("Invalid Input: Must be IFileEditorInput");
 		
-		editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
+		editingDomain = TransactionalEditingDomain.Registry.INSTANCE.getEditingDomain("org.mule.ide.config.editor.services.EditingDomain");
 		
 		setPartName(editorInput.getName());
 		

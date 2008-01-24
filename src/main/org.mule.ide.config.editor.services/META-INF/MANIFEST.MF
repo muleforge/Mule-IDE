@@ -9,7 +9,8 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.mule.ide.config.editor.services.edit.parts,
  org.mule.ide.config.editor.services.part,
- org.mule.ide.config.editor.services.providers
+ org.mule.ide.config.editor.services.providers,
+ org.mule.ide.config.editor.services.sheet
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.core.expressions,

@@ -35,15 +35,7 @@ public abstract class StructuredViewerSection extends ConfigEditorSection {
 	 * @param formPage
 	 */
 	public StructuredViewerSection(ConfigEditorFormPage formPage, Composite parent, int style, String [] buttonLabels) {
-		this(formPage, parent, style, true, buttonLabels);
-	}
-
-	/**
-	 * Constructor for StructuredViewerSection.
-	 * @param formPage
-	 */
-	public StructuredViewerSection(ConfigEditorFormPage formPage, Composite parent, int style, boolean titleBar, String [] buttonLabels) {
-		super(formPage, parent, style, titleBar);
+		super(formPage, parent, style);
 		fViewerPart = createViewerPart(buttonLabels);
 		fViewerPart.setMinimumSize(50, 50);
 		FormToolkit toolkit = formPage.getManagedForm().getToolkit();
@@ -129,8 +121,8 @@ public abstract class StructuredViewerSection extends ConfigEditorSection {
 		return false;
 	}
 	
-	protected ISelection getViewerSelection() {
-		return fViewerPart.getViewer().getSelection();
+	protected IStructuredSelection getViewerSelection() {
+		return (IStructuredSelection) fViewerPart.getViewer().getSelection();
 	}
 	
 	/**

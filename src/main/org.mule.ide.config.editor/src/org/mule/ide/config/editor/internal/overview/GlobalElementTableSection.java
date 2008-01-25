@@ -1,15 +1,14 @@
 package org.mule.ide.config.editor.internal.overview;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.List;
 
-import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
@@ -19,31 +18,22 @@ import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.ViewerDropAdapter;
-import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.ToolBar;
-import org.eclipse.ui.actions.ActionContext;
 import org.eclipse.ui.actions.ActionFactory;
-import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
-import org.mule.ide.config.core.AbstractGlobalEndpointType;
 import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.editor.Activator;
 import org.mule.ide.config.editor.Messages;
@@ -75,8 +65,11 @@ public abstract class GlobalElementTableSection extends TableSection
     
     private int fInsertIndex;
 
-	public GlobalElementTableSection(OverviewPage page, Composite parent) {
-		super(page, parent, Section.DESCRIPTION, BUTTON_LABELS);
+	private EList<? extends EObject> fElements;
+	private GlobalElementNotificationAdapter notificationAdapter;
+	
+	public GlobalElementTableSection(OverviewPage page, Composite parent, int style) {
+		super(page, parent, style, BUTTON_LABELS);
 		getTablePart().setEditable(false);
 		resetInsertIndex();
 	}
@@ -101,7 +94,41 @@ public abstract class GlobalElementTableSection extends TableSection
 		initialize();
 	}
 	
-	protected abstract IContentProvider getContentProvider();
+	protected void expansionStateChanging(boolean expanding) {
+		if (!expanding) {
+			GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+			getSection().setLayoutData(gd);
+		} else {
+			GridData gd = new GridData(GridData.FILL_BOTH);
+			gd.grabExcessVerticalSpace = true;
+			getSection().setLayoutData(gd);
+		}
+
+		super.expansionStateChanging(expanding);
+	}
+
+	public boolean setInitialSelection() {
+		if (!getSection().isExpanded()) {
+			return false;
+		}
+        if (!getViewerSelection().isEmpty()) {
+        	return true;
+        }
+    	Object firstElement = fViewer.getElementAt(0);
+    	if (firstElement != null) {
+    		fViewer.setSelection(new StructuredSelection(firstElement), true);
+    		return true;
+    	}
+		return false;
+	}
+	
+	protected IContentProvider getContentProvider() {
+		return new GlobalElementsContentProvider();
+	}
+	
+	protected TableViewer getViewer() {
+		return fViewer;
+	}
 	
 	private void createSectionToolbar(Section section, FormToolkit toolkit) {
 		ToolBarManager toolBarManager = new ToolBarManager(SWT.FLAT);
@@ -129,6 +156,7 @@ public abstract class GlobalElementTableSection extends TableSection
 	}
 
 	protected void selectionChanged(IStructuredSelection sel) {
+		// Forward selection event to parent.
 		((OverviewPage) getPage()).setSelection(sel);
 		updateButtons();
 	}
@@ -187,13 +215,12 @@ public abstract class GlobalElementTableSection extends TableSection
 	}
 
 	public void dispose() {
-		// TODO
-		/*
-		IPluginModelBase model = (IPluginModelBase) getPage().getModel();
-		if (model!=null)
-			model.removeModelChangedListener(this);
-		PDECore.getDefault().getModelManager().removePluginModelListener(this);
-		*/
+		if (fElements != null) {
+			for (EObject element : fElements) {
+				element.eAdapters().remove(getNotificationAdapter());
+			}
+		}
+		fElements = null;
 		super.dispose();
 	}
 	
@@ -285,27 +312,6 @@ public abstract class GlobalElementTableSection extends TableSection
 		*/
 	}
 
-	/**
-	 * @return
-	 */
-	/*
-	private IPluginModelBase getModel() {
-		return (IPluginModelBase)getPage().getModel();
-	}
-	*/
-	
-	// TODO
-	/*
-	public boolean setFormInput(Object object) {
-		if (object instanceof IPluginImport) {
-			ImportObject iobj = new ImportObject((IPluginImport) object);
-			fViewer.setSelection(new StructuredSelection(iobj), true);
-			return true;
-		}
-		return false;
-	}
-	*/
-
 	protected void fillContextMenu(IMenuManager manager) {
 		ISelection selection = fViewer.getSelection();
 		manager.add(fAddAction);
@@ -328,75 +334,17 @@ public abstract class GlobalElementTableSection extends TableSection
 	}
 
 	private void handleRemove() {
-		// TODO
-		/*
-		IStructuredSelection ssel = (IStructuredSelection) fViewer.getSelection();
-		IPluginModelBase model = (IPluginModelBase) getPage().getModel();
-		IPluginBase pluginBase = model.getPluginBase();
-		IPluginImport[] imports = new IPluginImport[ssel.size()];
-		int i = 0;
-		for (Iterator iter = ssel.iterator(); iter.hasNext();i++) 
-			imports[i] = ((ImportObject) iter.next()).getImport();
-
-		try {			
-			removeImports(pluginBase, imports);
-		} catch (CoreException e) {
-            PDEPlugin.logException(e);
-		}
-		*/
+		IStructuredSelection selection = getViewerSelection();
+		if (selection.isEmpty()) {
+			return;
+		}	
+		handleRemove(selection.toList());
         updateButtons();
 	}
-    
-	private void handleAdd() {
-		// TODO
-		/*
-		IPluginModelBase model = (IPluginModelBase) getPage().getModel();
-		PluginSelectionDialog dialog =
-			new PluginSelectionDialog(
-				PDEPlugin.getActiveWorkbenchShell(),
-				getAvailablePlugins(model),
-				true);
-		dialog.create();
-		if (dialog.open() == Window.OK) {
-			Object[] models = dialog.getResult();
-			IPluginImport[] imports = new IPluginImport[models.length];
-			try {
-				for (int i = 0; i < models.length; i++) {
-					IPluginModel candidate = (IPluginModel) models[i];
-					String pluginId = candidate.getPlugin().getId();
-					IPluginImport importNode = createImport(model.getPluginFactory(), pluginId);
-					String version = VersionUtil.computeInitialPluginVersion(
-							candidate.getPlugin().getVersion());
-					importNode.setVersion(version);
-					imports[i] = importNode;
-				}
-				addImports(model.getPluginBase(), imports);
-			} catch (CoreException e) {
-			}
-		}
-		*/
-	}
 	
-	/*
-	private IPluginImport createImport(IPluginModelFactory factory, String id) {
-		if (factory instanceof AbstractPluginModelBase) 
-			return ((AbstractPluginModelBase)factory).createImport(id);
-		else if (factory instanceof BundlePluginModelBase)
-			return ((BundlePluginModelBase)factory).createImport(id);
-		else if (factory instanceof PluginDocumentNodeFactory)
-			return ((PluginDocumentNodeFactory)factory).createImport(id);
-		return null;
-	}
+	protected abstract void handleRemove(List elements);
 	
-	private void addImports(IPluginBase base, IPluginImport[] imports) throws CoreException {
-		if (base instanceof BundlePluginBase)
-			((BundlePluginBase)base).add(imports);
-		else if (base instanceof PluginBase) 
-			((PluginBase)base).add(imports);
-		else if (base instanceof PluginBaseNode) 
-			((PluginBaseNode)base).add(imports);
-	}
-	*/
+	protected abstract void handleAdd();
 	
 	private void handleUp() {
 		int index = getTablePart().getTableViewer().getTable().getSelectionIndex();
@@ -431,18 +379,14 @@ public abstract class GlobalElementTableSection extends TableSection
 	}
 
 	public void initialize() {
-		MuleType mule = getPage().getModel();
+		MuleType mule = getMuleElement();
 		fViewer.setInput(mule);
         updateButtons();
-		// TODO
-        /*
-		model.addModelChangedListener(this);
-		PDECore.getDefault().getModelManager().addPluginModelListener(this);
-		fAddAction.setEnabled(model.isEditable());
-		fRemoveAction.setEnabled(model.isEditable());
-		*/
+        addModelListener();
 	}
-
+	
+	protected abstract void addModelListener();
+    	
 	private void makeActions() {
 		fAddAction = new Action(Messages.TableSection_Add) { 
 			public void run() {
@@ -452,6 +396,7 @@ public abstract class GlobalElementTableSection extends TableSection
 		fRemoveAction = new Action(Messages.TableSection_Remove) { 
 			public void run() {
 				handleRemove();
+		        updateButtons();
 			}
 		};
 		/*
@@ -466,6 +411,12 @@ public abstract class GlobalElementTableSection extends TableSection
 	}
 	
 	public void refresh() {
+		if (fElements != null) {
+			for (EObject element : fElements) {
+				element.eAdapters().remove(getNotificationAdapter());
+			}
+		}
+		fElements = null;
 		fViewer.refresh();
 		super.refresh();
 	}
@@ -729,4 +680,68 @@ public abstract class GlobalElementTableSection extends TableSection
 		return fSortAction.isChecked();
 	}    
 
+	protected abstract EList<? extends EObject> getGlobalElements();
+	
+	protected abstract GlobalElementNotificationAdapter createNotificationAdapter();
+	
+	protected GlobalElementNotificationAdapter getNotificationAdapter() {
+		if (notificationAdapter == null) {
+			notificationAdapter = createNotificationAdapter();
+		}
+		return notificationAdapter;
+	}
+	
+	class GlobalElementsContentProvider extends DefaultTableProvider {
+		public Object[] getElements(Object parent) {
+			if (fElements == null) {
+				fElements = getGlobalElements();
+				for (EObject element : fElements) {
+					element.eAdapters().add(getNotificationAdapter());
+				}
+			}
+			return fElements.toArray();
+		}
+	}
+
+	/**
+	 * Provides notification handling for add/remove/change of mule child 
+	 * substitution elements.
+	 */
+	protected abstract class GlobalElementNotificationAdapter extends AdapterImpl {
+		public void notifyChanged(Notification msg) {
+			int eventType = msg.getEventType();
+			
+			if (eventType == Notification.ADD) {
+				Object feature = msg.getFeature();
+				if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) feature)) {
+			         FeatureMap.Entry entry = (FeatureMap.Entry) msg.getNewValue();
+			         if (checkElementType(entry.getValue())) {
+			        	 refresh();
+			        	 return;
+			         }
+				}
+			}
+
+			if (eventType == Notification.REMOVE) {
+				Object feature = msg.getFeature();
+				if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) feature)) {
+			         FeatureMap.Entry entry = (FeatureMap.Entry) msg.getOldValue();
+			         if (checkElementType(entry.getValue())) {
+			        	 refresh();
+			        	 return;
+			         }
+				}
+			}
+
+			if (eventType == Notification.SET) {
+				Object notifier = msg.getNotifier();
+				if (checkElementType(notifier)) {
+					getViewer().update(notifier, null);
+					return;
+				}
+			}
+		}
+
+		protected abstract boolean checkElementType(Object object);
+	}
 }

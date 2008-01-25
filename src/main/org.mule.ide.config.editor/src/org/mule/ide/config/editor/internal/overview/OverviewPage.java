@@ -8,6 +8,7 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.gmf.runtime.diagram.ui.properties.views.PropertiesBrowserPage;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -78,22 +79,37 @@ public class OverviewPage extends ConfigEditorFormPage
 		
 		GlobalElementTableSection section;
 		
-		section = new ConnectorsSection(this, left);
-		managedForm.addPart(section);		
+		boolean haveInitialSelection = false;
+		
+		section = new ConnectorsSection(this, left, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
+		managedForm.addPart(section);
+		if (!haveInitialSelection) {
+			haveInitialSelection = section.setInitialSelection();
+		}
 
-		section = new EndpointsSection(this, right);
+		section = new EndpointsSection(this, right, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
 		managedForm.addPart(section);		
+		if (!haveInitialSelection) {
+			haveInitialSelection = section.setInitialSelection();
+		}
 
-		section = new FiltersSection(this, left);
+		section = new FiltersSection(this, left, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
 		managedForm.addPart(section);		
+		if (!haveInitialSelection) {
+			haveInitialSelection = section.setInitialSelection();
+		}
 
-		section = new TransformersSection(this, right);
+		section = new TransformersSection(this, right, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
 		managedForm.addPart(section);		
+		if (!haveInitialSelection) {
+			haveInitialSelection = section.setInitialSelection();
+		}
 
 		// TODO
 		//PlatformUI.getWorkbench().getHelpSystem().setHelp(form.getBody(), IHelpContextIds.MANIFEST_PLUGIN_DEPENDENCIES);
 
 		getSite().setSelectionProvider(this);
+		
 	}
 
 	/**

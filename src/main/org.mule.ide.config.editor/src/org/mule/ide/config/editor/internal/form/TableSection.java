@@ -68,18 +68,8 @@ public abstract class TableSection extends StructuredViewerSection {
 	 * 
 	 * @param formPage
 	 */
-	public TableSection(ConfigEditorFormPage formPage, Composite parent, int style,
-			String[] buttonLabels) {
-		this (formPage, parent, style, true, buttonLabels);
-	}
-	/**
-	 * Constructor for TableSection.
-	 * 
-	 * @param formPage
-	 */
-	public TableSection(ConfigEditorFormPage formPage, Composite parent, int style,
-			boolean titleBar, String[] buttonLabels) {
-		super(formPage, parent, style, titleBar, buttonLabels);
+	public TableSection(ConfigEditorFormPage formPage, Composite parent, int style, String[] buttonLabels) {
+		super(formPage, parent, style, buttonLabels);
 	}
 	protected StructuredViewerPart createViewerPart(String[] buttonLabels) {
 		return new PartAdapter(buttonLabels);

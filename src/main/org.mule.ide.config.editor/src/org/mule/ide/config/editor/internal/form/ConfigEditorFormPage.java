@@ -5,6 +5,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
@@ -196,8 +197,12 @@ public abstract class ConfigEditorFormPage extends FormPage
 		return null;
 	}
 	
-	public MuleType getModel() {
-		return getConfigEditor().getModel();
+	public MuleType getMuleElement() {
+		return getConfigEditor().getMuleElement();
+	}
+	
+	public EditingDomain getEditingDomain() {
+		return getConfigEditor().getEditingDomain();
 	}
 	
 	public void contextMenuAboutToShow(IMenuManager menu) {

@@ -32,6 +32,7 @@ import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
@@ -249,8 +250,12 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 		super.init(site, editorInput);
 	}
 	
-	public MuleType getModel() {
+	public MuleType getMuleElement() {
 		return documentRoot.getMule();
+	}
+	
+	public EditingDomain getEditingDomain() {
+		return editingDomain;
 	}
 	
 	/* (non-Javadoc)

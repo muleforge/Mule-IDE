@@ -2,6 +2,7 @@ package org.mule.ide.config.editor.internal.form;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.widgets.Composite;
@@ -9,6 +10,7 @@ import org.eclipse.ui.forms.SectionPart;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
+import org.mule.ide.config.core.MuleType;
 
 /**
  * 
@@ -16,19 +18,12 @@ import org.eclipse.ui.forms.widgets.Section;
  *
  */
 public abstract class ConfigEditorSection extends SectionPart
-    // TODO
-	// implements IModelChangedListener, IContextPart, IAdaptable {
     implements IAdaptable {
 
 	private ConfigEditorFormPage fPage;
 
 	public ConfigEditorSection(ConfigEditorFormPage page, Composite parent, int style) {
-		this(page, parent, style, true);
-	}
-
-	public ConfigEditorSection(ConfigEditorFormPage page, Composite parent, int style, boolean titleBar) {
-		super(parent, page.getManagedForm().getToolkit(),
-				titleBar ? (ExpandableComposite.TITLE_BAR | style) : style);
+		super(parent, page.getManagedForm().getToolkit(), style);
 		fPage = page;
 		initialize(page.getManagedForm());
 		getSection().clientVerticalSpacing = FormLayoutFactory.SECTION_HEADER_VERTICAL_SPACING;
@@ -41,6 +36,14 @@ public abstract class ConfigEditorSection extends SectionPart
 		return fPage;
 	}
 
+	public MuleType getMuleElement() {
+		return fPage.getMuleElement();
+	}
+
+	public EditingDomain getEditingDomain() {
+		return fPage.getEditingDomain();
+	}
+	
 	public boolean doGlobalAction(String actionId) {
 		return false;
 	}

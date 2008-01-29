@@ -174,8 +174,8 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 		//		.getInstance().createEditingDomain();
 		//editingDomain
 		//		.setID("org.mule.ide.config.editor.services.EditingDomain"); //$NON-NLS-1$
-		TransactionalEditingDomain editingDomain =
-			TransactionalEditingDomain.Registry.INSTANCE.getEditingDomain("org.mule.ide.config.editor.services.EditingDomain");
+		TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
+				.getEditingDomain("org.mule.ide.config.editor.services.EditingDomain");
 		final NotificationFilter diagramResourceModifiedFilter = NotificationFilter
 				.createNotifierFilter(editingDomain.getResourceSet()).and(
 						NotificationFilter

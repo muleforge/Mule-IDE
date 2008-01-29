@@ -16,16 +16,16 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
-import org.mule.ide.config.core.AsyncReplyRouterCollectionType;
+import org.mule.ide.config.core.AsyncReplyCollectionType;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.DefaultServiceType;
-import org.mule.ide.config.core.InboundRouterCollectionType;
-import org.mule.ide.config.core.OutboundRouterCollectionType;
+import org.mule.ide.config.core.InboundCollectionType;
+import org.mule.ide.config.core.OutboundCollectionType;
 import org.mule.ide.config.core.PojoComponentType;
 import org.mule.ide.config.core.SedaServiceType;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyInboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyInboundEndpointServiceItemTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
@@ -36,12 +36,12 @@ import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeE
 import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomCorrelationAggregatorRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomCorrelationAggregatorRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEditPart;
@@ -65,13 +65,13 @@ import org.mule.ide.config.editor.services.edit.parts.FilteringOutboundRouterTyp
 import org.mule.ide.config.editor.services.edit.parts.FilteringOutboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
@@ -82,9 +82,9 @@ import org.mule.ide.config.editor.services.edit.parts.NoArgsCallComponentTypeEdi
 import org.mule.ide.config.editor.services.edit.parts.NoArgsCallComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
-import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterOutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterOutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
@@ -182,7 +182,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?PojoComponentType", CoreElementTypes.PojoComponentType_2001); //$NON-NLS-1$
 		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?NoArgsCallComponentType", CoreElementTypes.NoArgsCallComponentType_2002); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?PojoComponentType", CoreElementTypes.PojoComponentType_2002); //$NON-NLS-1$
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?DefaultComponentType", CoreElementTypes.DefaultComponentType_2003); //$NON-NLS-1$
@@ -213,9 +213,9 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomExceptionStrategyType", CoreElementTypes.CustomExceptionStrategyType_2012); //$NON-NLS-1$
-		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+		case InboundCollectionTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?InboundRouterCollectionType", CoreElementTypes.InboundRouterCollectionType_2013); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?InboundCollectionType", CoreElementTypes.InboundCollectionType_2013); //$NON-NLS-1$
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?InboundEndpointType", CoreElementTypes.InboundEndpointType_2014); //$NON-NLS-1$
@@ -228,9 +228,9 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?FilteredInboundRouterType", CoreElementTypes.FilteredInboundRouterType_2017); //$NON-NLS-1$
-		case IdempotentReceiverTypeEditPart.VISUAL_ID:
+		case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?IdempotentReceiverType", CoreElementTypes.IdempotentReceiverType_2018); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?IdempotentReceiverRouterType", CoreElementTypes.IdempotentReceiverRouterType_2018); //$NON-NLS-1$
 		case WireTapRouterTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?WireTapRouterType", CoreElementTypes.WireTapRouterType_2019); //$NON-NLS-1$
@@ -239,19 +239,19 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?SelectiveConsumerRouterType", CoreElementTypes.SelectiveConsumerRouterType_2020); //$NON-NLS-1$
 		case ChunkingInboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CorrelationRouterType", CoreElementTypes.CorrelationRouterType_2021); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?MessageChunkingAggregatorRouterType", CoreElementTypes.MessageChunkingAggregatorRouterType_2021); //$NON-NLS-1$
 		case CorrelationResequencerRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CorrelationRouterType", CoreElementTypes.CorrelationRouterType_2022); //$NON-NLS-1$
-		case CorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?SelectiveConsumerRouterType", CoreElementTypes.SelectiveConsumerRouterType_2022); //$NON-NLS-1$
+		case CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CorrelationAggregatorRouterType", CoreElementTypes.CorrelationAggregatorRouterType_2023); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomCorrelationAggregatorRouterType", CoreElementTypes.CustomCorrelationAggregatorRouterType_2023); //$NON-NLS-1$
 		case CustomInboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomInboundRouterType", CoreElementTypes.CustomInboundRouterType_2024); //$NON-NLS-1$
-		case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
+		case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?AsyncReplyRouterCollectionType", CoreElementTypes.AsyncReplyRouterCollectionType_2025); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?AsyncReplyCollectionType", CoreElementTypes.AsyncReplyCollectionType_2025); //$NON-NLS-1$
 		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?InboundEndpointType", CoreElementTypes.InboundEndpointType_2026); //$NON-NLS-1$
@@ -261,9 +261,9 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomAsyncReplyRouterType", CoreElementTypes.CustomAsyncReplyRouterType_2028); //$NON-NLS-1$
-		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+		case OutboundCollectionTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterCollectionType", CoreElementTypes.OutboundRouterCollectionType_2029); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundCollectionType", CoreElementTypes.OutboundCollectionType_2029); //$NON-NLS-1$
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundRouterType", CoreElementTypes.OutboundRouterType_2030); //$NON-NLS-1$
@@ -359,7 +359,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2001Text(view);
 		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
-			return getNoArgsCallComponentType_2002Text(view);
+			return getPojoComponentType_2002Text(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2003Text(view);
 		case BridgeComponentTypeEditPart.VISUAL_ID:
@@ -380,8 +380,8 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getExceptionStrategyType_2011Text(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getCustomExceptionStrategyType_2012Text(view);
-		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getInboundRouterCollectionType_2013Text(view);
+		case InboundCollectionTypeEditPart.VISUAL_ID:
+			return getInboundCollectionType_2013Text(view);
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getInboundEndpointType_2014Text(view);
 		case ForwardingRouterTypeEditPart.VISUAL_ID:
@@ -390,30 +390,30 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getFilteredInboundRouterType_2016Text(view);
 		case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
 			return getFilteredInboundRouterType_2017Text(view);
-		case IdempotentReceiverTypeEditPart.VISUAL_ID:
-			return getIdempotentReceiverType_2018Text(view);
+		case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
+			return getIdempotentReceiverRouterType_2018Text(view);
 		case WireTapRouterTypeEditPart.VISUAL_ID:
 			return getWireTapRouterType_2019Text(view);
 		case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
 			return getSelectiveConsumerRouterType_2020Text(view);
 		case ChunkingInboundRouterTypeEditPart.VISUAL_ID:
-			return getCorrelationRouterType_2021Text(view);
+			return getMessageChunkingAggregatorRouterType_2021Text(view);
 		case CorrelationResequencerRouterTypeEditPart.VISUAL_ID:
-			return getCorrelationRouterType_2022Text(view);
-		case CorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
-			return getCorrelationAggregatorRouterType_2023Text(view);
+			return getSelectiveConsumerRouterType_2022Text(view);
+		case CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
+			return getCustomCorrelationAggregatorRouterType_2023Text(view);
 		case CustomInboundRouterTypeEditPart.VISUAL_ID:
 			return getCustomInboundRouterType_2024Text(view);
-		case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
-			return getAsyncReplyRouterCollectionType_2025Text(view);
+		case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
+			return getAsyncReplyCollectionType_2025Text(view);
 		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getInboundEndpointType_2026Text(view);
 		case AsyncReplyRouterTypeEditPart.VISUAL_ID:
 			return getAsyncReplyRouterType_2027Text(view);
 		case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
 			return getCustomAsyncReplyRouterType_2028Text(view);
-		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundRouterCollectionType_2029Text(view);
+		case OutboundCollectionTypeEditPart.VISUAL_ID:
+			return getOutboundCollectionType_2029Text(view);
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
 			return getOutboundRouterType_2030Text(view);
 		case OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID:
@@ -502,10 +502,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getNoArgsCallComponentType_2002Text(View view) {
+	private String getPojoComponentType_2002Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.NoArgsCallComponentType_2002,
+				CoreElementTypes.PojoComponentType_2002,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(NoArgsCallComponentTypeLabelEditPart.VISUAL_ID));
@@ -724,8 +724,8 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getInboundRouterCollectionType_2013Text(View view) {
-		InboundRouterCollectionType domainModelElement = (InboundRouterCollectionType) view
+	private String getInboundCollectionType_2013Text(View view) {
+		InboundCollectionType domainModelElement = (InboundCollectionType) view
 				.getElement();
 		if (domainModelElement != null) {
 			return String.valueOf(domainModelElement.isMatchAll());
@@ -819,10 +819,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getIdempotentReceiverType_2018Text(View view) {
+	private String getIdempotentReceiverRouterType_2018Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.IdempotentReceiverType_2018,
+				CoreElementTypes.IdempotentReceiverRouterType_2018,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(IdempotentReceiverRouterTypeLabelEditPart.VISUAL_ID));
@@ -879,10 +879,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getCorrelationRouterType_2021Text(View view) {
+	private String getMessageChunkingAggregatorRouterType_2021Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.CorrelationRouterType_2021,
+				CoreElementTypes.MessageChunkingAggregatorRouterType_2021,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(ChunkingInboundRouterTypeLabelEditPart.VISUAL_ID));
@@ -899,10 +899,10 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getCorrelationRouterType_2022Text(View view) {
+	private String getSelectiveConsumerRouterType_2022Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.CorrelationRouterType_2022,
+				CoreElementTypes.SelectiveConsumerRouterType_2022,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
 						.getType(CorrelationResequencerRouterTypeLabelEditPart.VISUAL_ID));
@@ -919,13 +919,13 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getCorrelationAggregatorRouterType_2023Text(View view) {
+	private String getCustomCorrelationAggregatorRouterType_2023Text(View view) {
 
 		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-				CoreElementTypes.CorrelationAggregatorRouterType_2023,
+				CoreElementTypes.CustomCorrelationAggregatorRouterType_2023,
 				(view.getElement() != null ? view.getElement() : view),
 				CoreVisualIDRegistry
-						.getType(CorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID));
+						.getType(CustomCorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -959,8 +959,8 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getAsyncReplyRouterCollectionType_2025Text(View view) {
-		AsyncReplyRouterCollectionType domainModelElement = (AsyncReplyRouterCollectionType) view
+	private String getAsyncReplyCollectionType_2025Text(View view) {
+		AsyncReplyCollectionType domainModelElement = (AsyncReplyCollectionType) view
 				.getElement();
 		if (domainModelElement != null) {
 			return String.valueOf(domainModelElement.getTimeout());
@@ -1034,8 +1034,8 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getOutboundRouterCollectionType_2029Text(View view) {
-		OutboundRouterCollectionType domainModelElement = (OutboundRouterCollectionType) view
+	private String getOutboundCollectionType_2029Text(View view) {
+		OutboundCollectionType domainModelElement = (OutboundCollectionType) view
 				.getElement();
 		if (domainModelElement != null) {
 			return String.valueOf(domainModelElement.isMatchAll());

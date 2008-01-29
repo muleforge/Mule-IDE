@@ -81,7 +81,8 @@ public class CorePaletteFactory {
 				Messages.Inbound4Group_title);
 		paletteContainer.add(createInboundEndpoint1CreationTool());
 		paletteContainer.add(new PaletteSeparator());
-		paletteContainer.add(createAggregatorRouter3CreationTool());
+		paletteContainer
+				.add(createCustomCorrelationAggregatorRouter3CreationTool());
 		paletteContainer.add(createChunkingInboundRouter4CreationTool());
 		paletteContainer.add(createCustomInboundRouter5CreationTool());
 		paletteContainer.add(createForwardingRouter6CreationTool());
@@ -89,7 +90,8 @@ public class CorePaletteFactory {
 		paletteContainer
 				.add(createIdempotentSecureReceiverRouter8CreationTool());
 		paletteContainer.add(createPassThroughInboundRouter9CreationTool());
-		paletteContainer.add(createResequencerRouter10CreationTool());
+		paletteContainer
+				.add(createCorrelationResequencerRouter10CreationTool());
 		paletteContainer.add(createSelectiveConsumerRouter11CreationTool());
 		paletteContainer.add(createWireTapRouter12CreationTool());
 		return paletteContainer;
@@ -182,13 +184,12 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createNoArgsCallComponent3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.NoArgsCallComponentType_2002);
+		types.add(CoreElementTypes.PojoComponentType_2002);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.NoArgsCallComponent3CreationTool_title,
 				Messages.NoArgsCallComponent3CreationTool_desc, types);
-		entry
-				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.NoArgsCallComponentType_2002));
+		entry.setSmallIcon(CoreElementTypes
+				.getImageDescriptor(CoreElementTypes.PojoComponentType_2002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -323,15 +324,16 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createAggregatorRouter3CreationTool() {
+	private ToolEntry createCustomCorrelationAggregatorRouter3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.CorrelationAggregatorRouterType_2023);
+		types.add(CoreElementTypes.CustomCorrelationAggregatorRouterType_2023);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.AggregatorRouter3CreationTool_title,
-				Messages.AggregatorRouter3CreationTool_desc, types);
+				Messages.CustomCorrelationAggregatorRouter3CreationTool_title,
+				Messages.CustomCorrelationAggregatorRouter3CreationTool_desc,
+				types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.CorrelationAggregatorRouterType_2023));
+						.getImageDescriptor(CoreElementTypes.CustomCorrelationAggregatorRouterType_2023));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -341,13 +343,13 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createChunkingInboundRouter4CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.CorrelationRouterType_2021);
+		types.add(CoreElementTypes.MessageChunkingAggregatorRouterType_2021);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ChunkingInboundRouter4CreationTool_title,
 				Messages.ChunkingInboundRouter4CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.CorrelationRouterType_2021));
+						.getImageDescriptor(CoreElementTypes.MessageChunkingAggregatorRouterType_2021));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -389,13 +391,13 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createIdempotentReceiverRouter7CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.IdempotentReceiverType_2018);
+		types.add(CoreElementTypes.IdempotentReceiverRouterType_2018);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.IdempotentReceiverRouter7CreationTool_title,
 				Messages.IdempotentReceiverRouter7CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.IdempotentReceiverType_2018));
+						.getImageDescriptor(CoreElementTypes.IdempotentReceiverRouterType_2018));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -436,15 +438,15 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createResequencerRouter10CreationTool() {
+	private ToolEntry createCorrelationResequencerRouter10CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.CorrelationRouterType_2022);
+		types.add(CoreElementTypes.SelectiveConsumerRouterType_2022);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ResequencerRouter10CreationTool_title,
-				Messages.ResequencerRouter10CreationTool_desc, types);
+				Messages.CorrelationResequencerRouter10CreationTool_title,
+				Messages.CorrelationResequencerRouter10CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.CorrelationRouterType_2022));
+						.getImageDescriptor(CoreElementTypes.SelectiveConsumerRouterType_2022));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

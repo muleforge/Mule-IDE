@@ -308,7 +308,7 @@ public class ChunkingInboundRouterTypeLabelEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.CorrelationRouterType_2021,
+					CoreElementTypes.MessageChunkingAggregatorRouterType_2021,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

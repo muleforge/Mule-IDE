@@ -20,7 +20,7 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
-import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeEditPart;
@@ -31,10 +31,10 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStr
 import org.mule.ide.config.editor.services.edit.parts.EndpointSelectorRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ExceptionOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.FilteringOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
@@ -58,7 +58,7 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof SedaServiceTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.PojoComponentType_2001);
-			types.add(CoreElementTypes.NoArgsCallComponentType_2002);
+			types.add(CoreElementTypes.PojoComponentType_2002);
 			types.add(CoreElementTypes.DefaultComponentType_2003);
 			types.add(CoreElementTypes.DefaultComponentType_2004);
 			types.add(CoreElementTypes.DefaultComponentType_2005);
@@ -68,9 +68,9 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.ExceptionStrategyType_2009);
 			types.add(CoreElementTypes.ExceptionStrategyType_2011);
 			types.add(CoreElementTypes.CustomExceptionStrategyType_2012);
-			types.add(CoreElementTypes.InboundRouterCollectionType_2013);
-			types.add(CoreElementTypes.AsyncReplyRouterCollectionType_2025);
-			types.add(CoreElementTypes.OutboundRouterCollectionType_2029);
+			types.add(CoreElementTypes.InboundCollectionType_2013);
+			types.add(CoreElementTypes.AsyncReplyCollectionType_2025);
+			types.add(CoreElementTypes.OutboundCollectionType_2029);
 			return types;
 		}
 		if (editPart instanceof DefaultServiceExceptionStrategyTypeEditPart) {
@@ -88,29 +88,31 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.OutboundEndpointType_2010);
 			return types;
 		}
-		if (editPart instanceof InboundRouterCollectionTypeEditPart) {
+		if (editPart instanceof InboundCollectionTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.InboundEndpointType_2014);
 			types.add(CoreElementTypes.ForwardingRouterType_2015);
 			types.add(CoreElementTypes.FilteredInboundRouterType_2016);
 			types.add(CoreElementTypes.FilteredInboundRouterType_2017);
-			types.add(CoreElementTypes.IdempotentReceiverType_2018);
+			types.add(CoreElementTypes.IdempotentReceiverRouterType_2018);
 			types.add(CoreElementTypes.WireTapRouterType_2019);
 			types.add(CoreElementTypes.SelectiveConsumerRouterType_2020);
-			types.add(CoreElementTypes.CorrelationRouterType_2021);
-			types.add(CoreElementTypes.CorrelationRouterType_2022);
-			types.add(CoreElementTypes.CorrelationAggregatorRouterType_2023);
+			types
+					.add(CoreElementTypes.MessageChunkingAggregatorRouterType_2021);
+			types.add(CoreElementTypes.SelectiveConsumerRouterType_2022);
+			types
+					.add(CoreElementTypes.CustomCorrelationAggregatorRouterType_2023);
 			types.add(CoreElementTypes.CustomInboundRouterType_2024);
 			return types;
 		}
-		if (editPart instanceof AsyncReplyRouterCollectionTypeEditPart) {
+		if (editPart instanceof AsyncReplyCollectionTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.InboundEndpointType_2026);
 			types.add(CoreElementTypes.AsyncReplyRouterType_2027);
 			types.add(CoreElementTypes.CustomAsyncReplyRouterType_2028);
 			return types;
 		}
-		if (editPart instanceof OutboundRouterCollectionTypeEditPart) {
+		if (editPart instanceof OutboundCollectionTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.OutboundRouterType_2030);
 			types.add(CoreElementTypes.FilteringOutboundRouterType_2032);

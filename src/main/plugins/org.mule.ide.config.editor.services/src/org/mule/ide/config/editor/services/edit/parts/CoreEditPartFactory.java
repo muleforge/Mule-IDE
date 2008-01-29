@@ -120,8 +120,8 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
 				return new CustomExceptionStrategyTypeClassEditPart(view);
 
-			case InboundRouterCollectionTypeEditPart.VISUAL_ID:
-				return new InboundRouterCollectionTypeEditPart(view);
+			case InboundCollectionTypeEditPart.VISUAL_ID:
+				return new InboundCollectionTypeEditPart(view);
 
 			case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 				return new InboundEndpointServiceItemTypeEditPart(view);
@@ -150,8 +150,8 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case PassThroughInboundRouterTypeLabelEditPart.VISUAL_ID:
 				return new PassThroughInboundRouterTypeLabelEditPart(view);
 
-			case IdempotentReceiverTypeEditPart.VISUAL_ID:
-				return new IdempotentReceiverTypeEditPart(view);
+			case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
+				return new IdempotentReceiverRouterTypeEditPart(view);
 
 			case IdempotentReceiverRouterTypeLabelEditPart.VISUAL_ID:
 				return new IdempotentReceiverRouterTypeLabelEditPart(view);
@@ -180,14 +180,16 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case CorrelationResequencerRouterTypeLabelEditPart.VISUAL_ID:
 				return new CorrelationResequencerRouterTypeLabelEditPart(view);
 
-			case CorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
-				return new CorrelationAggregatorRouterTypeEditPart(view);
+			case CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
+				return new CustomCorrelationAggregatorRouterTypeEditPart(view);
 
-			case CorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID:
-				return new CorrelationAggregatorRouterTypeLabelEditPart(view);
+			case CustomCorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID:
+				return new CustomCorrelationAggregatorRouterTypeLabelEditPart(
+						view);
 
-			case CorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID:
-				return new CorrelationAggregatorRouterTypeClassEditPart(view);
+			case CustomCorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID:
+				return new CustomCorrelationAggregatorRouterTypeClassEditPart(
+						view);
 
 			case CustomInboundRouterTypeEditPart.VISUAL_ID:
 				return new CustomInboundRouterTypeEditPart(view);
@@ -198,8 +200,8 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case CustomInboundRouterTypeClassEditPart.VISUAL_ID:
 				return new CustomInboundRouterTypeClassEditPart(view);
 
-			case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
-				return new AsyncReplyRouterCollectionTypeEditPart(view);
+			case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
+				return new AsyncReplyCollectionTypeEditPart(view);
 
 			case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 				return new AsyncReplyInboundEndpointServiceItemTypeEditPart(
@@ -228,8 +230,8 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case CustomAsyncReplyRouterTypeClassEditPart.VISUAL_ID:
 				return new CustomAsyncReplyRouterTypeClassEditPart(view);
 
-			case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-				return new OutboundRouterCollectionTypeEditPart(view);
+			case OutboundCollectionTypeEditPart.VISUAL_ID:
+				return new OutboundCollectionTypeEditPart(view);
 
 			case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
 				return new PassThroughOutboundRouterTypeEditPart(view);
@@ -332,25 +334,22 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 				return new CustomExceptionStrategyTypeENDPOINTSEditPart(view);
 
-			case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-				return new InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart(
+			case InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+				return new InboundCollectionTypeINBOUNDENDPOINTSEditPart(view);
+
+			case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+				return new InboundCollectionTypeINBOUNDROUTERSEditPart(view);
+
+			case AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+				return new AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart(
 						view);
 
-			case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-				return new InboundRouterCollectionTypeINBOUNDROUTERSEditPart(
+			case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
+				return new AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart(
 						view);
 
-			case AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-				return new AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart(
-						view);
-
-			case AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
-				return new AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart(
-						view);
-
-			case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
-				return new OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart(
-						view);
+			case OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
+				return new OutboundCollectionTypeOUTBOUNDROUTERSEditPart(view);
 
 			case PassThroughOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 				return new PassThroughOutboundRouterTypeENDPOINTSEditPart(view);

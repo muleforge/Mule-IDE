@@ -7,7 +7,7 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.InboundRouterCollectionType;
+import org.mule.ide.config.core.InboundCollectionType;
 
 /**
  * customization
@@ -39,13 +39,13 @@ public class WireTapRouterTypeCreateCommand extends
 	 * @generated
 	 */
 	protected EClass getEClassToEdit() {
-		return CorePackage.eINSTANCE.getInboundRouterCollectionType();
+		return CorePackage.eINSTANCE.getInboundCollectionType();
 	}
 
 	@Override
 	protected void addSubstitutionElementReference(EObject container,
 			EObject element) {
-		FeatureMap map = ((InboundRouterCollectionType) container)
+		FeatureMap map = ((InboundCollectionType) container)
 				.getAbstractInboundRouterGroup();
 		map.add(CorePackage.eINSTANCE.getDocumentRoot_WireTapRouter(), element);
 	}

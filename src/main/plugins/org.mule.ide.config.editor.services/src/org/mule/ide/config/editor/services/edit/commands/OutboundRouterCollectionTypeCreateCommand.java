@@ -45,7 +45,7 @@ public class OutboundRouterCollectionTypeCreateCommand extends
 	 */
 	public boolean canExecute() {
 		BaseServiceType container = (BaseServiceType) getElementToEdit();
-		if (container.getOutboundRouter() != null) {
+		if (container.getOutbound() != null) {
 			return false;
 		}
 		return true;

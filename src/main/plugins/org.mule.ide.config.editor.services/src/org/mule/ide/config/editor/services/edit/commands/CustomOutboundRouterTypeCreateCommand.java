@@ -7,7 +7,7 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.OutboundRouterCollectionType;
+import org.mule.ide.config.core.OutboundCollectionType;
 
 /**
  * customization
@@ -39,13 +39,13 @@ public class CustomOutboundRouterTypeCreateCommand extends
 	 * @generated
 	 */
 	protected EClass getEClassToEdit() {
-		return CorePackage.eINSTANCE.getOutboundRouterCollectionType();
+		return CorePackage.eINSTANCE.getOutboundCollectionType();
 	}
 
 	@Override
 	protected void addSubstitutionElementReference(EObject container,
 			EObject element) {
-		FeatureMap map = ((OutboundRouterCollectionType) container)
+		FeatureMap map = ((OutboundCollectionType) container)
 				.getAbstractOutboundRouterGroup();
 		map.add(CorePackage.eINSTANCE.getDocumentRoot_CustomOutboundRouter(),
 				element);

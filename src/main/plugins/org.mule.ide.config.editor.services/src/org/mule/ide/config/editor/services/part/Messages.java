@@ -398,12 +398,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String AggregatorRouter3CreationTool_title;
+	public static String CustomCorrelationAggregatorRouter3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String AggregatorRouter3CreationTool_desc;
+	public static String CustomCorrelationAggregatorRouter3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -468,12 +468,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ResequencerRouter10CreationTool_title;
+	public static String CorrelationResequencerRouter10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ResequencerRouter10CreationTool_desc;
+	public static String CorrelationResequencerRouter10CreationTool_desc;
 
 	/**
 	 * @generated
@@ -663,31 +663,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String InboundRouterCollectionTypeINBOUNDROUTERSEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String PassThroughOutboundRouterTypeENDPOINTSEditPart_title;
 
 	/**
@@ -758,6 +733,31 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String InboundCollectionTypeINBOUNDENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String InboundCollectionTypeINBOUNDROUTERSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String OutboundCollectionTypeOUTBOUNDROUTERSEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
@@ -802,27 +802,27 @@ public class Messages extends NLS {
 	/**
 	 * 
 	 */
-	public static String InboundRouterCollectionTypeINBOUNDROUTERSEditPart_tooltip;
+	public static String InboundCollectionTypeINBOUNDROUTERSEditPart_tooltip;
 
 	/**
 	 * 
 	 */
-	public static String OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart_tooltip;
+	public static String OutboundCollectionTypeOUTBOUNDROUTERSEditPart_tooltip;
 
 	/**
 	 * 
 	 */
-	public static String AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart_tooltip;
+	public static String AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart_tooltip;
 
 	/**
 	 * 
 	 */
-	public static String InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart_tooltip;
+	public static String InboundCollectionTypeINBOUNDENDPOINTSEditPart_tooltip;
 
 	/**
 	 * 
 	 */
-	public static String AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart_tooltip;
+	public static String AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart_tooltip;
 
 	/**
 	 * 
@@ -847,7 +847,7 @@ public class Messages extends NLS {
 	/**
 	 * 
 	 */
-	public static String CorrelationAggregatorRouterTypeLabel;
+	public static String CustomCorrelationAggregatorRouterTypeLabel;
 
 	/**
 	 * 

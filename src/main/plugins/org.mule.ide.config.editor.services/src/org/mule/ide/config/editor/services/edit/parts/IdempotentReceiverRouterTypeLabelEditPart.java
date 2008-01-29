@@ -308,7 +308,7 @@ public class IdempotentReceiverRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.IdempotentReceiverType_2018,
+					CoreElementTypes.IdempotentReceiverRouterType_2018,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

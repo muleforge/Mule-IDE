@@ -308,7 +308,7 @@ public class CorrelationResequencerRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.CorrelationRouterType_2022,
+					CoreElementTypes.SelectiveConsumerRouterType_2022,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

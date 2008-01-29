@@ -6,7 +6,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.core.AsyncReplyRouterCollectionType;
+import org.mule.ide.config.core.AsyncReplyCollectionType;
 import org.mule.ide.config.core.CorePackage;
 
 /**
@@ -40,13 +40,13 @@ public class AsyncReplyInboundEndpointServiceItemTypeCreateCommand extends
 	 * @generated
 	 */
 	protected EClass getEClassToEdit() {
-		return CorePackage.eINSTANCE.getAsyncReplyRouterCollectionType();
+		return CorePackage.eINSTANCE.getAsyncReplyCollectionType();
 	}
 
 	@Override
 	protected void addSubstitutionElementReference(EObject container,
 			EObject element) {
-		FeatureMap map = ((AsyncReplyRouterCollectionType) container)
+		FeatureMap map = ((AsyncReplyCollectionType) container)
 				.getAbstractInboundEndpointGroup();
 		map.add(CorePackage.eINSTANCE.getDocumentRoot_InboundEndpoint(),
 				element);

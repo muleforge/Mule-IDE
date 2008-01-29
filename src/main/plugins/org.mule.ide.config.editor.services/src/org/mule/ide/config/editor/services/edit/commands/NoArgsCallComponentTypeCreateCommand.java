@@ -58,7 +58,6 @@ public class NoArgsCallComponentTypeCreateCommand extends
 			EObject element) {
 		FeatureMap map = ((BaseServiceType) container)
 				.getAbstractComponentGroup();
-		map.add(CorePackage.eINSTANCE.getDocumentRoot_NoArgsCallComponent(),
-				element);
+		map.add(CorePackage.eINSTANCE.getDocumentRoot_Component(), element);
 	}
 }

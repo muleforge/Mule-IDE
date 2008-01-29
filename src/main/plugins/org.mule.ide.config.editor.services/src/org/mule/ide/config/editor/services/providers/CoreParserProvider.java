@@ -14,13 +14,12 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyInboundEndpointServiceItemEndpointNameEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.CustomCorrelationAggregatorRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomOutboundRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemEndpointNameEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallComponentTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterOutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
@@ -28,7 +27,6 @@ import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPar
 import org.mule.ide.config.editor.services.parsers.ClassNameParser;
 import org.mule.ide.config.editor.services.parsers.EndpointParser;
 import org.mule.ide.config.editor.services.parsers.MessageFormatParser;
-import org.mule.ide.config.editor.services.parsers.NoArgsComponentParser;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
@@ -171,24 +169,24 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser correlationAggregatorRouterTypeClass_4027Parser;
+	private IParser customCorrelationAggregatorRouterTypeClass_4027Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCorrelationAggregatorRouterTypeClass_4027Parser() {
-		if (correlationAggregatorRouterTypeClass_4027Parser == null) {
-			correlationAggregatorRouterTypeClass_4027Parser = createCorrelationAggregatorRouterTypeClass_4027Parser();
+	private IParser getCustomCorrelationAggregatorRouterTypeClass_4027Parser() {
+		if (customCorrelationAggregatorRouterTypeClass_4027Parser == null) {
+			customCorrelationAggregatorRouterTypeClass_4027Parser = createCustomCorrelationAggregatorRouterTypeClass_4027Parser();
 		}
-		return correlationAggregatorRouterTypeClass_4027Parser;
+		return customCorrelationAggregatorRouterTypeClass_4027Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCorrelationAggregatorRouterTypeClass_4027Parser() {
+	protected IParser createCustomCorrelationAggregatorRouterTypeClass_4027Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
-				.getCorrelationAggregatorRouterType_Class(), };
+				.getCustomCorrelationAggregatorRouterType_Class(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
 		return parser;
 	}
@@ -463,9 +461,9 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 *
 	 */
-	private IParser getCorrelationAggregatorRouterTypeClass_Parser() {
+	private IParser getCustomCorrelationAggregatorRouterTypeClass_Parser() {
 		if (correlationAggregatorRouterTypeClass_Parser == null) {
-			correlationAggregatorRouterTypeClass_Parser = createCorrelationAggregatorRouterTypeClass_Parser();
+			correlationAggregatorRouterTypeClass_Parser = createCustomCorrelationAggregatorRouterTypeClass_Parser();
 		}
 		return correlationAggregatorRouterTypeClass_Parser;
 	}
@@ -473,9 +471,9 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 *
 	 */
-	protected IParser createCorrelationAggregatorRouterTypeClass_Parser() {
+	protected IParser createCustomCorrelationAggregatorRouterTypeClass_Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
-				.getCorrelationAggregatorRouterType_Class(), };
+				.getCustomCorrelationAggregatorRouterType_Class(), };
 		MessageFormatParser parser = new ClassNameParser(features);
 		return parser;
 	}
@@ -556,30 +554,6 @@ public class CoreParserProvider extends AbstractProvider implements
 	}
 
 	/**
-	 * 
-	 */
-	private IParser noArgsCallWrapperTypeClass_Parser;
-
-	/**
-	 * 
-	 */
-	private IParser getNoArgsCallWrapperTypeClass_Parser() {
-		if (noArgsCallWrapperTypeClass_Parser == null) {
-			noArgsCallWrapperTypeClass_Parser = createNoArgsCallWrapperTypeClass_Parser();
-		}
-		return noArgsCallWrapperTypeClass_Parser;
-	}
-
-	/**
-	 * 
-	 */
-	protected IParser createNoArgsCallWrapperTypeClass_Parser() {
-		EClass eClass = CorePackage.eINSTANCE.getNoArgsCallDelegateClassType();
-		NoArgsComponentParser parser = new NoArgsComponentParser(eClass);
-		return parser;
-	}
-
-	/**
 	 * customization
 	 *   - add custom parsers
 	 */
@@ -589,8 +563,6 @@ public class CoreParserProvider extends AbstractProvider implements
 			return getSedaServiceTypeName_Parser();
 		case PojoComponentTypeClassEditPart.VISUAL_ID:
 			return getPojoComponentTypeClass_Parser();
-		case NoArgsCallComponentTypeClassEditPart.VISUAL_ID:
-			return getNoArgsCallWrapperTypeClass_Parser();
 		case InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
 			return getInboundEndpointTypeName_Parser();
 		case AsyncReplyInboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
@@ -601,8 +573,8 @@ public class CoreParserProvider extends AbstractProvider implements
 			return getOutboundEndpointTypeName_Parser();
 		case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
 			return getCustomExceptionStrategyTypeClass_Parser();
-		case CorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID:
-			return getCorrelationAggregatorRouterTypeClass_Parser();
+		case CustomCorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID:
+			return getCustomCorrelationAggregatorRouterTypeClass_Parser();
 		case CustomInboundRouterTypeClassEditPart.VISUAL_ID:
 			return getCustomInboundRouterTypeClass_Parser();
 		case CustomAsyncReplyRouterTypeClassEditPart.VISUAL_ID:

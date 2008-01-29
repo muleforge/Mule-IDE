@@ -45,7 +45,7 @@ public class AsyncReplyRouterCollectionTypeCreateCommand extends
 	 */
 	public boolean canExecute() {
 		BaseServiceType container = (BaseServiceType) getElementToEdit();
-		if (container.getAsyncReplyRouter() != null) {
+		if (container.getAsyncReply() != null) {
 			return false;
 		}
 		return true;

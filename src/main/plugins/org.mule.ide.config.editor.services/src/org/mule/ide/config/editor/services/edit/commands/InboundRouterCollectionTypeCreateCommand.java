@@ -45,7 +45,7 @@ public class InboundRouterCollectionTypeCreateCommand extends
 	 */
 	public boolean canExecute() {
 		BaseServiceType container = (BaseServiceType) getElementToEdit();
-		if (container.getInboundRouter() != null) {
+		if (container.getInbound() != null) {
 			return false;
 		}
 		return true;

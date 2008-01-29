@@ -9,12 +9,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.core.AsyncReplyRouterCollectionType;
+import org.mule.ide.config.core.AsyncReplyCollectionType;
 import org.mule.ide.config.core.AsyncReplyRouterType;
 import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.ChunkingRouterType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CorrelationRouterType;
+import org.mule.ide.config.core.CustomCorrelationAggregatorRouterType;
 import org.mule.ide.config.core.CustomOutboundRouterType;
 import org.mule.ide.config.core.DefaultComponentType;
 import org.mule.ide.config.core.DefaultModelType;
@@ -22,10 +22,12 @@ import org.mule.ide.config.core.EndpointSelectorRouterType;
 import org.mule.ide.config.core.ExceptionStrategyType;
 import org.mule.ide.config.core.FilteredInboundRouterType;
 import org.mule.ide.config.core.FilteringOutboundRouterType;
-import org.mule.ide.config.core.InboundRouterCollectionType;
+import org.mule.ide.config.core.InboundCollectionType;
+import org.mule.ide.config.core.MessageChunkingAggregatorRouterType;
 import org.mule.ide.config.core.MessageSplitterOutboundRouterType;
-import org.mule.ide.config.core.OutboundRouterCollectionType;
+import org.mule.ide.config.core.OutboundCollectionType;
 import org.mule.ide.config.core.OutboundRouterType;
+import org.mule.ide.config.core.SelectiveConsumerRouterType;
 import org.mule.ide.config.core.StaticRecipientListRouterType;
 import org.mule.ide.config.editor.services.edit.parts.*;
 import org.mule.ide.config.editor.services.expressions.CoreAbstractExpression;
@@ -144,8 +146,8 @@ public class CoreVisualIDRegistry {
 					domainElement.eClass())) {
 				return PojoComponentTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getNoArgsCallComponentType()
-					.isSuperTypeOf(domainElement.eClass())) {
+			if (CorePackage.eINSTANCE.getPojoComponentType().isSuperTypeOf(
+					domainElement.eClass())) {
 				return NoArgsCallComponentTypeEditPart.VISUAL_ID;
 			}
 			if (CorePackage.eINSTANCE.getDefaultComponentType().isSuperTypeOf(
@@ -214,21 +216,21 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getInboundRouterCollectionType()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return InboundRouterCollectionTypeEditPart.VISUAL_ID;
+			if (CorePackage.eINSTANCE.getInboundCollectionType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return InboundCollectionTypeEditPart.VISUAL_ID;
 			}
 			break;
 		case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getAsyncReplyRouterCollectionType()
+			if (CorePackage.eINSTANCE.getAsyncReplyCollectionType()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID;
+				return AsyncReplyCollectionTypeEditPart.VISUAL_ID;
 			}
 			break;
 		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getOutboundRouterCollectionType()
+			if (CorePackage.eINSTANCE.getOutboundCollectionType()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return OutboundRouterCollectionTypeEditPart.VISUAL_ID;
+				return OutboundCollectionTypeEditPart.VISUAL_ID;
 			}
 			break;
 		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
@@ -249,13 +251,13 @@ public class CoreVisualIDRegistry {
 				return OutboundEndpointTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+		case InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getInboundEndpointType().isSuperTypeOf(
 					domainElement.eClass())) {
 				return InboundEndpointServiceItemTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+		case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getForwardingRouterType().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ForwardingRouterTypeEditPart.VISUAL_ID;
@@ -275,49 +277,57 @@ public class CoreVisualIDRegistry {
 							.booleanValue()) {
 				return PassThroughInboundRouterTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getIdempotentReceiverType()
+			if (CorePackage.eINSTANCE.getIdempotentReceiverRouterType()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return IdempotentReceiverTypeEditPart.VISUAL_ID;
+				return IdempotentReceiverRouterTypeEditPart.VISUAL_ID;
 			}
 			if (CorePackage.eINSTANCE.getWireTapRouterType().isSuperTypeOf(
 					domainElement.eClass())) {
 				return WireTapRouterTypeEditPart.VISUAL_ID;
 			}
 			if (CorePackage.eINSTANCE.getSelectiveConsumerRouterType()
-					.isSuperTypeOf(domainElement.eClass())) {
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.selectiveConsumerRouterConstraint(
+							(SelectiveConsumerRouterType) domainElement)
+							.booleanValue()) {
 				return SelectiveConsumerRouterTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getCorrelationRouterType().isSuperTypeOf(
-					domainElement.eClass())
+			if (CorePackage.eINSTANCE.getMessageChunkingAggregatorRouterType()
+					.isSuperTypeOf(domainElement.eClass())
 					&& JavaConstraints
 							.messageChunkingAggregatorRouterConstraint(
-									(CorrelationRouterType) domainElement)
+									(MessageChunkingAggregatorRouterType) domainElement)
 							.booleanValue()) {
 				return ChunkingInboundRouterTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getCorrelationRouterType().isSuperTypeOf(
-					domainElement.eClass())
+			if (CorePackage.eINSTANCE.getSelectiveConsumerRouterType()
+					.isSuperTypeOf(domainElement.eClass())
 					&& JavaConstraints.correlationResequencerRouterConstraint(
-							(CorrelationRouterType) domainElement)
+							(SelectiveConsumerRouterType) domainElement)
 							.booleanValue()) {
 				return CorrelationResequencerRouterTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getCorrelationAggregatorRouterType()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return CorrelationAggregatorRouterTypeEditPart.VISUAL_ID;
+			if (CorePackage.eINSTANCE
+					.getCustomCorrelationAggregatorRouterType().isSuperTypeOf(
+							domainElement.eClass())
+					&& JavaConstraints
+							.customCorrelationAggregatorRouterConstraint(
+									(CustomCorrelationAggregatorRouterType) domainElement)
+							.booleanValue()) {
+				return CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID;
 			}
 			if (CorePackage.eINSTANCE.getCustomInboundRouterType()
 					.isSuperTypeOf(domainElement.eClass())) {
 				return CustomInboundRouterTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+		case AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getInboundEndpointType().isSuperTypeOf(
 					domainElement.eClass())) {
 				return AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
+		case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getAsyncReplyRouterType().isSuperTypeOf(
 					domainElement.eClass())
 					&& JavaConstraints.singleAsyncReplyRouterConstraint(
@@ -330,7 +340,7 @@ public class CoreVisualIDRegistry {
 				return CustomAsyncReplyRouterTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
+		case OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getOutboundRouterType().isSuperTypeOf(
 					domainElement.eClass())
 					&& JavaConstraints.outboundPassThroughRouterConstraint(
@@ -602,11 +612,11 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
-			if (InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+		case InboundCollectionTypeEditPart.VISUAL_ID:
+			if (InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+			if (InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -633,7 +643,7 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case IdempotentReceiverTypeEditPart.VISUAL_ID:
+		case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
 			if (IdempotentReceiverRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -658,11 +668,11 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case CorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
-			if (CorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
+			if (CustomCorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID == nodeVisualID) {
+			if (CustomCorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -674,11 +684,11 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
-			if (AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
+		case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
+			if (AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+			if (AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -703,8 +713,8 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			if (OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
+		case OutboundCollectionTypeEditPart.VISUAL_ID:
+			if (OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -842,17 +852,17 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
-			if (InboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (InboundCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
-			if (AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (AsyncReplyCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
-			if (OutboundRouterCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (OutboundCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -871,12 +881,12 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+		case InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
 			if (InboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+		case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 			if (ForwardingRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -886,7 +896,7 @@ public class CoreVisualIDRegistry {
 			if (PassThroughInboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (IdempotentReceiverTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (IdempotentReceiverRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (WireTapRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
@@ -901,19 +911,19 @@ public class CoreVisualIDRegistry {
 			if (CorrelationResequencerRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CorrelationAggregatorRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (CustomInboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+		case AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
 			if (AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
+		case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
 			if (AsyncReplyRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -921,7 +931,7 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
+		case OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
 			if (PassThroughOutboundRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -1168,7 +1178,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean idempotentSecureReceiverRouterConstraint(
 				FilteredInboundRouterType self) {
-			InboundRouterCollectionType container = (InboundRouterCollectionType) self
+			InboundCollectionType container = (InboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractInboundRouterGroup();
 			List<FilteredInboundRouterType> routers = map
@@ -1183,7 +1193,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean inboundPassThroughRouterConstraint(
 				FilteredInboundRouterType self) {
-			InboundRouterCollectionType container = (InboundRouterCollectionType) self
+			InboundCollectionType container = (InboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractInboundRouterGroup();
 			List<FilteredInboundRouterType> routers = map
@@ -1196,12 +1206,27 @@ public class CoreVisualIDRegistry {
 		 * customization
 		 *   - implement constraint for differentiating elements of the same type
 		 */
-		private static java.lang.Boolean messageChunkingAggregatorRouterConstraint(
-				CorrelationRouterType self) {
-			InboundRouterCollectionType container = (InboundRouterCollectionType) self
+		private static java.lang.Boolean selectiveConsumerRouterConstraint(
+				SelectiveConsumerRouterType self) {
+			InboundCollectionType container = (InboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractInboundRouterGroup();
-			List<CorrelationRouterType> routers = map
+			List<SelectiveConsumerRouterType> routers = map
+					.list(CorePackage.eINSTANCE
+								.getDocumentRoot_SelectiveConsumerRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean messageChunkingAggregatorRouterConstraint(
+				MessageChunkingAggregatorRouterType self) {
+			InboundCollectionType container = (InboundCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractInboundRouterGroup();
+			List<MessageChunkingAggregatorRouterType> routers = map
 					.list(CorePackage.eINSTANCE
 							.getDocumentRoot_MessageChunkingAggregatorRouter());
 			return routers.contains(self);
@@ -1212,11 +1237,11 @@ public class CoreVisualIDRegistry {
 		 *   - implement constraint for differentiating elements of the same type
 		 */
 		private static java.lang.Boolean correlationResequencerRouterConstraint(
-				CorrelationRouterType self) {
-			InboundRouterCollectionType container = (InboundRouterCollectionType) self
+				SelectiveConsumerRouterType self) {
+			InboundCollectionType container = (InboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractInboundRouterGroup();
-			List<CorrelationRouterType> routers = map
+			List<SelectiveConsumerRouterType> routers = map
 					.list(CorePackage.eINSTANCE
 							.getDocumentRoot_CorrelationResequencerRouter());
 			return routers.contains(self);
@@ -1226,9 +1251,24 @@ public class CoreVisualIDRegistry {
 		 * customization
 		 *   - implement constraint for differentiating elements of the same type
 		 */
+		private static java.lang.Boolean customCorrelationAggregatorRouterConstraint(
+				CustomCorrelationAggregatorRouterType self) {
+			InboundCollectionType container = (InboundCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractInboundRouterGroup();
+			List<CustomCorrelationAggregatorRouterType> routers = map
+					.list(CorePackage.eINSTANCE
+							.getDocumentRoot_CustomCorrelationAggregatorRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
 		private static java.lang.Boolean singleAsyncReplyRouterConstraint(
 				AsyncReplyRouterType self) {
-			AsyncReplyRouterCollectionType container = (AsyncReplyRouterCollectionType) self
+			AsyncReplyCollectionType container = (AsyncReplyCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractAsyncReplyRouterGroup();
 			List<AsyncReplyRouterType> routers = map.list(CorePackage.eINSTANCE
@@ -1242,7 +1282,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean outboundPassThroughRouterConstraint(
 				OutboundRouterType self) {
-			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+			OutboundCollectionType container = (OutboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractOutboundRouterGroup();
 			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
@@ -1256,7 +1296,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean filteringRouterConstraint(
 				FilteringOutboundRouterType self) {
-			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+			OutboundCollectionType container = (OutboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractOutboundRouterGroup();
 			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
@@ -1270,7 +1310,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean chainingRouterConstraint(
 				FilteringOutboundRouterType self) {
-			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+			OutboundCollectionType container = (OutboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractOutboundRouterGroup();
 			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
@@ -1284,7 +1324,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean exceptionBasedRouterConstraint(
 				FilteringOutboundRouterType self) {
-			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+			OutboundCollectionType container = (OutboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractOutboundRouterGroup();
 			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
@@ -1298,7 +1338,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean multicastingRouterConstraint(
 				FilteringOutboundRouterType self) {
-			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+			OutboundCollectionType container = (OutboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractOutboundRouterGroup();
 			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
@@ -1312,7 +1352,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean templateEndpointRouterConstraint(
 				FilteringOutboundRouterType self) {
-			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+			OutboundCollectionType container = (OutboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractOutboundRouterGroup();
 			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
@@ -1326,7 +1366,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean endpointSelectorRouterConstraint(
 				EndpointSelectorRouterType self) {
-			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+			OutboundCollectionType container = (OutboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractOutboundRouterGroup();
 			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
@@ -1340,7 +1380,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean listMessageSplitterRouterConstraint(
 				MessageSplitterOutboundRouterType self) {
-			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+			OutboundCollectionType container = (OutboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractOutboundRouterGroup();
 			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
@@ -1354,7 +1394,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean chunkingOutboundRouterConstraint(
 				ChunkingRouterType self) {
-			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+			OutboundCollectionType container = (OutboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractOutboundRouterGroup();
 			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
@@ -1368,7 +1408,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean staticRecipientListRouterConstraint(
 				StaticRecipientListRouterType self) {
-			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+			OutboundCollectionType container = (OutboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractOutboundRouterGroup();
 			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE
@@ -1382,7 +1422,7 @@ public class CoreVisualIDRegistry {
 		 */
 		private static java.lang.Boolean customOutboundRouterConstraint(
 				CustomOutboundRouterType self) {
-			OutboundRouterCollectionType container = (OutboundRouterCollectionType) self
+			OutboundCollectionType container = (OutboundCollectionType) self
 					.eContainer();
 			FeatureMap map = container.getAbstractOutboundRouterGroup();
 			List<OutboundRouterType> routers = map.list(CorePackage.eINSTANCE

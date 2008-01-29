@@ -52,23 +52,22 @@ public class SedaServiceTypeEditHelper extends CoreBaseEditHelper {
 		protected void doConfiguration(BaseServiceType service,
 				IProgressMonitor monitor) {
 			EClass collectionClass = CorePackage.eINSTANCE
-					.getInboundRouterCollectionType();
+					.getInboundCollectionType();
 			EReference collectionContainer = CorePackage.eINSTANCE
-					.getBaseServiceType_InboundRouter();
+					.getBaseServiceType_Inbound();
 			EObject result = EMFCoreUtil.create(service, collectionContainer,
 					collectionClass);
 
-			collectionClass = CorePackage.eINSTANCE
-					.getOutboundRouterCollectionType();
+			collectionClass = CorePackage.eINSTANCE.getOutboundCollectionType();
 			collectionContainer = CorePackage.eINSTANCE
-					.getBaseServiceType_OutboundRouter();
+					.getBaseServiceType_Outbound();
 			result = EMFCoreUtil.create(service, collectionContainer,
 					collectionClass);
 
 			collectionClass = CorePackage.eINSTANCE
-					.getAsyncReplyRouterCollectionType();
+					.getAsyncReplyCollectionType();
 			collectionContainer = CorePackage.eINSTANCE
-					.getBaseServiceType_AsyncReplyRouter();
+					.getBaseServiceType_AsyncReply();
 			result = EMFCoreUtil.create(service, collectionContainer,
 					collectionClass);
 		}

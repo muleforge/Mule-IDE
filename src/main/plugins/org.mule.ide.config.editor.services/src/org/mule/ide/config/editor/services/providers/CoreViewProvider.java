@@ -15,8 +15,6 @@ import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeE
 import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.CorrelationAggregatorRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
@@ -47,14 +45,10 @@ import org.mule.ide.config.editor.services.edit.parts.FilteringOutboundRouterTyp
 import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundRouterCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
@@ -65,8 +59,6 @@ import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
-import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
@@ -100,8 +92,8 @@ import org.mule.ide.config.editor.services.view.factories.ChunkingInboundRouterT
 import org.mule.ide.config.editor.services.view.factories.ChunkingInboundRouterTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.ChunkingRouterTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.ChunkingRouterTypeViewFactory;
-import org.mule.ide.config.editor.services.view.factories.CorrelationAggregatorRouterTypeLabelViewFactory;
-import org.mule.ide.config.editor.services.view.factories.CorrelationAggregatorRouterTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.CustomCorrelationAggregatorRouterTypeLabelViewFactory;
+import org.mule.ide.config.editor.services.view.factories.CustomCorrelationAggregatorRouterTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.CorrelationResequencerRouterTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.CorrelationResequencerRouterTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.CustomExceptionStrategyTypeClassViewFactory;
@@ -132,14 +124,13 @@ import org.mule.ide.config.editor.services.view.factories.FilteringOutboundRoute
 import org.mule.ide.config.editor.services.view.factories.ForwardingRouterTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.ForwardingRouterTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.IdempotentReceiverRouterTypeLabelViewFactory;
-import org.mule.ide.config.editor.services.view.factories.IdempotentReceiverTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.IdempotentSecureRecieverRouterTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.IdempotentSecureRecieverRouterTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.InboundEndpointServiceItemTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.InboundEndpointServiceItemTypeViewFactory;
-import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeINBOUNDENDPOINTSViewFactory;
-import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeINBOUNDROUTERSViewFactory;
-import org.mule.ide.config.editor.services.view.factories.InboundRouterCollectionTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.InboundCollectionTypeINBOUNDENDPOINTSViewFactory;
+import org.mule.ide.config.editor.services.view.factories.InboundCollectionTypeINBOUNDROUTERSViewFactory;
+import org.mule.ide.config.editor.services.view.factories.InboundCollectionTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.LogComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.LogComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.MessageSplitterOutboundRouterTypeLabelViewFactory;
@@ -150,8 +141,8 @@ import org.mule.ide.config.editor.services.view.factories.NullComponentTypeLabel
 import org.mule.ide.config.editor.services.view.factories.NullComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundEndpointTypeNameViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundEndpointTypeViewFactory;
-import org.mule.ide.config.editor.services.view.factories.OutboundRouterCollectionTypeOUTBOUNDROUTERSViewFactory;
-import org.mule.ide.config.editor.services.view.factories.OutboundRouterCollectionTypeViewFactory;
+import org.mule.ide.config.editor.services.view.factories.OutboundCollectionTypeOUTBOUNDROUTERSViewFactory;
+import org.mule.ide.config.editor.services.view.factories.OutboundCollectionTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PassThroughComponentTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PassThroughComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PassThroughInboundRouterTypeLabelViewFactory;
@@ -247,25 +238,24 @@ public class CoreViewProvider extends AbstractViewProvider {
 				switch (visualID) {
 				case SedaServiceTypeEditPart.VISUAL_ID:
 				case PojoComponentTypeEditPart.VISUAL_ID:
-				case NoArgsCallComponentTypeEditPart.VISUAL_ID:
 				case DefaultComponentTypeEditPart.VISUAL_ID:
 				case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
 				case OutboundEndpointTypeEditPart.VISUAL_ID:
 				case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
-				case InboundRouterCollectionTypeEditPart.VISUAL_ID:
+				case InboundCollectionTypeEditPart.VISUAL_ID:
 				case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 				case ForwardingRouterTypeEditPart.VISUAL_ID:
 				case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
-				case IdempotentReceiverTypeEditPart.VISUAL_ID:
+				case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
 				case WireTapRouterTypeEditPart.VISUAL_ID:
 				case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
 				case ChunkingInboundRouterTypeEditPart.VISUAL_ID:
-				case CorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
+				case CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
 				case CustomInboundRouterTypeEditPart.VISUAL_ID:
-				case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
+				case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
 				case AsyncReplyRouterTypeEditPart.VISUAL_ID:
 				case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
-				case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
+				case OutboundCollectionTypeEditPart.VISUAL_ID:
 				case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
 				case FilteringOutboundRouterTypeEditPart.VISUAL_ID:
 				case EndpointSelectorRouterTypeEditPart.VISUAL_ID:
@@ -273,6 +263,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case ChunkingRouterTypeEditPart.VISUAL_ID:
 				case StaticRecipientListRouterTypeEditPart.VISUAL_ID:
 				case CustomOutboundRouterTypeEditPart.VISUAL_ID:
+				case NoArgsCallComponentTypeEditPart.VISUAL_ID:
 				case BridgeComponentTypeEditPart.VISUAL_ID:
 				case EchoComponentTypeEditPart.VISUAL_ID:
 				case LogComponentTypeEditPart.VISUAL_ID:
@@ -396,9 +387,9 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-				case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-					if (InboundRouterCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+				case InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+				case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+					if (InboundCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -434,7 +425,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case IdempotentReceiverRouterTypeLabelEditPart.VISUAL_ID:
-					if (IdempotentReceiverTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+					if (IdempotentReceiverRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -468,9 +459,9 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case CorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID:
-				case CorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID:
-					if (CorrelationAggregatorRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+				case CustomCorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID:
+				case CustomCorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID:
+					if (CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -484,9 +475,9 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-				case AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
-					if (AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+				case AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+				case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
+					if (AsyncReplyCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -515,8 +506,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
-					if (OutboundRouterCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+				case OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
+					if (OutboundCollectionTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -693,8 +684,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return CustomExceptionStrategyTypeLabelViewFactory.class;
 		case CustomExceptionStrategyTypeClassEditPart.VISUAL_ID:
 			return CustomExceptionStrategyTypeClassViewFactory.class;
-		case InboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return InboundRouterCollectionTypeViewFactory.class;
+		case InboundCollectionTypeEditPart.VISUAL_ID:
+			return InboundCollectionTypeViewFactory.class;
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return InboundEndpointServiceItemTypeViewFactory.class;
 		case InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
@@ -713,8 +704,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return PassThroughInboundRouterTypeViewFactory.class;
 		case PassThroughInboundRouterTypeLabelEditPart.VISUAL_ID:
 			return PassThroughInboundRouterTypeLabelViewFactory.class;
-		case IdempotentReceiverTypeEditPart.VISUAL_ID:
-			return IdempotentReceiverTypeViewFactory.class;
+		case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
+			return IdempotentReceiverRouterTypeViewFactory.class;
 		case IdempotentReceiverRouterTypeLabelEditPart.VISUAL_ID:
 			return IdempotentReceiverRouterTypeLabelViewFactory.class;
 		case WireTapRouterTypeEditPart.VISUAL_ID:
@@ -733,20 +724,20 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return CorrelationResequencerRouterTypeViewFactory.class;
 		case CorrelationResequencerRouterTypeLabelEditPart.VISUAL_ID:
 			return CorrelationResequencerRouterTypeLabelViewFactory.class;
-		case CorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
-			return CorrelationAggregatorRouterTypeViewFactory.class;
-		case CorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID:
-			return CorrelationAggregatorRouterTypeLabelViewFactory.class;
-		case CorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID:
-			return CorrelationAggregatorRouterTypeClassViewFactory.class;
+		case CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
+			return CustomCorrelationAggregatorRouterTypeViewFactory.class;
+		case CustomCorrelationAggregatorRouterTypeLabelEditPart.VISUAL_ID:
+			return CustomCorrelationAggregatorRouterTypeLabelViewFactory.class;
+		case CustomCorrelationAggregatorRouterTypeClassEditPart.VISUAL_ID:
+			return CustomCorrelationAggregatorRouterTypeClassViewFactory.class;
 		case CustomInboundRouterTypeEditPart.VISUAL_ID:
 			return CustomInboundRouterTypeViewFactory.class;
 		case CustomInboundRouterTypeLabelEditPart.VISUAL_ID:
 			return CustomInboundRouterTypeLabelViewFactory.class;
 		case CustomInboundRouterTypeClassEditPart.VISUAL_ID:
 			return CustomInboundRouterTypeClassViewFactory.class;
-		case AsyncReplyRouterCollectionTypeEditPart.VISUAL_ID:
-			return AsyncReplyRouterCollectionTypeViewFactory.class;
+		case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
+			return AsyncReplyCollectionTypeViewFactory.class;
 		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return AsyncReplyInboundEndpointServiceItemTypeViewFactory.class;
 		case AsyncReplyInboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
@@ -763,8 +754,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return CustomAsyncReplyRouterTypeLabelViewFactory.class;
 		case CustomAsyncReplyRouterTypeClassEditPart.VISUAL_ID:
 			return CustomAsyncReplyRouterTypeClassViewFactory.class;
-		case OutboundRouterCollectionTypeEditPart.VISUAL_ID:
-			return OutboundRouterCollectionTypeViewFactory.class;
+		case OutboundCollectionTypeEditPart.VISUAL_ID:
+			return OutboundCollectionTypeViewFactory.class;
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
 			return PassThroughOutboundRouterTypeViewFactory.class;
 		case PassThroughOutboundRouterTypeLabelEditPart.VISUAL_ID:
@@ -831,16 +822,16 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return DefaultConnectorExceptionStrategyTypeENDPOINTSViewFactory.class;
 		case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 			return CustomExceptionStrategyTypeENDPOINTSViewFactory.class;
-		case InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-			return InboundRouterCollectionTypeINBOUNDENDPOINTSViewFactory.class;
-		case InboundRouterCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-			return InboundRouterCollectionTypeINBOUNDROUTERSViewFactory.class;
-		case AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-			return AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSViewFactory.class;
-		case AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
-			return AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSViewFactory.class;
-		case OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
-			return OutboundRouterCollectionTypeOUTBOUNDROUTERSViewFactory.class;
+		case InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+			return InboundCollectionTypeINBOUNDENDPOINTSViewFactory.class;
+		case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+			return InboundCollectionTypeINBOUNDROUTERSViewFactory.class;
+		case AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+			return AsyncReplyCollectionTypeINBOUNDENDPOINTSViewFactory.class;
+		case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
+			return AsyncReplyCollectionTypeASYNCREPLYROUTERSViewFactory.class;
+		case OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
+			return OutboundCollectionTypeOUTBOUNDROUTERSViewFactory.class;
 		case PassThroughOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 			return PassThroughOutboundRouterTypeENDPOINTSViewFactory.class;
 		case FilteringOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:

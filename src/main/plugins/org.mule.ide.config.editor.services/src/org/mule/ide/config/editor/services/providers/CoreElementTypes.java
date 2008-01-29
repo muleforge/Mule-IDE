@@ -61,7 +61,7 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType NoArgsCallComponentType_2002 = getElementType("org.mule.ide.config.editor.services.NoArgsCallComponentType_2002"); //$NON-NLS-1$
+	public static final IElementType PojoComponentType_2002 = getElementType("org.mule.ide.config.editor.services.PojoComponentType_2002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -116,7 +116,7 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType InboundRouterCollectionType_2013 = getElementType("org.mule.ide.config.editor.services.InboundRouterCollectionType_2013"); //$NON-NLS-1$
+	public static final IElementType InboundCollectionType_2013 = getElementType("org.mule.ide.config.editor.services.InboundCollectionType_2013"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -141,7 +141,7 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType IdempotentReceiverType_2018 = getElementType("org.mule.ide.config.editor.services.IdempotentReceiverType_2018"); //$NON-NLS-1$
+	public static final IElementType IdempotentReceiverRouterType_2018 = getElementType("org.mule.ide.config.editor.services.IdempotentReceiverRouterType_2018"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -156,17 +156,17 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType CorrelationRouterType_2021 = getElementType("org.mule.ide.config.editor.services.CorrelationRouterType_2021"); //$NON-NLS-1$
+	public static final IElementType MessageChunkingAggregatorRouterType_2021 = getElementType("org.mule.ide.config.editor.services.MessageChunkingAggregatorRouterType_2021"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CorrelationRouterType_2022 = getElementType("org.mule.ide.config.editor.services.CorrelationRouterType_2022"); //$NON-NLS-1$
+	public static final IElementType SelectiveConsumerRouterType_2022 = getElementType("org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2022"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CorrelationAggregatorRouterType_2023 = getElementType("org.mule.ide.config.editor.services.CorrelationAggregatorRouterType_2023"); //$NON-NLS-1$
+	public static final IElementType CustomCorrelationAggregatorRouterType_2023 = getElementType("org.mule.ide.config.editor.services.CustomCorrelationAggregatorRouterType_2023"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -176,7 +176,7 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType AsyncReplyRouterCollectionType_2025 = getElementType("org.mule.ide.config.editor.services.AsyncReplyRouterCollectionType_2025"); //$NON-NLS-1$
+	public static final IElementType AsyncReplyCollectionType_2025 = getElementType("org.mule.ide.config.editor.services.AsyncReplyCollectionType_2025"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -196,7 +196,7 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType OutboundRouterCollectionType_2029 = getElementType("org.mule.ide.config.editor.services.OutboundRouterCollectionType_2029"); //$NON-NLS-1$
+	public static final IElementType OutboundCollectionType_2029 = getElementType("org.mule.ide.config.editor.services.OutboundCollectionType_2029"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -378,8 +378,8 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(PojoComponentType_2001, CorePackage.eINSTANCE
 					.getPojoComponentType());
 
-			elements.put(NoArgsCallComponentType_2002, CorePackage.eINSTANCE
-					.getNoArgsCallComponentType());
+			elements.put(PojoComponentType_2002, CorePackage.eINSTANCE
+					.getPojoComponentType());
 
 			elements.put(DefaultComponentType_2003, CorePackage.eINSTANCE
 					.getDefaultComponentType());
@@ -411,8 +411,8 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(CustomExceptionStrategyType_2012,
 					CorePackage.eINSTANCE.getCustomExceptionStrategyType());
 
-			elements.put(InboundRouterCollectionType_2013,
-					CorePackage.eINSTANCE.getInboundRouterCollectionType());
+			elements.put(InboundCollectionType_2013, CorePackage.eINSTANCE
+					.getInboundCollectionType());
 
 			elements.put(InboundEndpointType_2014, CorePackage.eINSTANCE
 					.getInboundEndpointType());
@@ -426,8 +426,8 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(FilteredInboundRouterType_2017, CorePackage.eINSTANCE
 					.getFilteredInboundRouterType());
 
-			elements.put(IdempotentReceiverType_2018, CorePackage.eINSTANCE
-					.getIdempotentReceiverType());
+			elements.put(IdempotentReceiverRouterType_2018,
+					CorePackage.eINSTANCE.getIdempotentReceiverRouterType());
 
 			elements.put(WireTapRouterType_2019, CorePackage.eINSTANCE
 					.getWireTapRouterType());
@@ -435,20 +435,22 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(SelectiveConsumerRouterType_2020,
 					CorePackage.eINSTANCE.getSelectiveConsumerRouterType());
 
-			elements.put(CorrelationRouterType_2021, CorePackage.eINSTANCE
-					.getCorrelationRouterType());
+			elements.put(MessageChunkingAggregatorRouterType_2021,
+					CorePackage.eINSTANCE
+							.getMessageChunkingAggregatorRouterType());
 
-			elements.put(CorrelationRouterType_2022, CorePackage.eINSTANCE
-					.getCorrelationRouterType());
+			elements.put(SelectiveConsumerRouterType_2022,
+					CorePackage.eINSTANCE.getSelectiveConsumerRouterType());
 
-			elements.put(CorrelationAggregatorRouterType_2023,
-					CorePackage.eINSTANCE.getCorrelationAggregatorRouterType());
+			elements.put(CustomCorrelationAggregatorRouterType_2023,
+					CorePackage.eINSTANCE
+							.getCustomCorrelationAggregatorRouterType());
 
 			elements.put(CustomInboundRouterType_2024, CorePackage.eINSTANCE
 					.getCustomInboundRouterType());
 
-			elements.put(AsyncReplyRouterCollectionType_2025,
-					CorePackage.eINSTANCE.getAsyncReplyRouterCollectionType());
+			elements.put(AsyncReplyCollectionType_2025, CorePackage.eINSTANCE
+					.getAsyncReplyCollectionType());
 
 			elements.put(InboundEndpointType_2026, CorePackage.eINSTANCE
 					.getInboundEndpointType());
@@ -459,8 +461,8 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(CustomAsyncReplyRouterType_2028, CorePackage.eINSTANCE
 					.getCustomAsyncReplyRouterType());
 
-			elements.put(OutboundRouterCollectionType_2029,
-					CorePackage.eINSTANCE.getOutboundRouterCollectionType());
+			elements.put(OutboundCollectionType_2029, CorePackage.eINSTANCE
+					.getOutboundCollectionType());
 
 			elements.put(OutboundRouterType_2030, CorePackage.eINSTANCE
 					.getOutboundRouterType());
@@ -518,7 +520,7 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(DefaultModelType_79);
 			KNOWN_ELEMENT_TYPES.add(SedaServiceType_1001);
 			KNOWN_ELEMENT_TYPES.add(PojoComponentType_2001);
-			KNOWN_ELEMENT_TYPES.add(NoArgsCallComponentType_2002);
+			KNOWN_ELEMENT_TYPES.add(PojoComponentType_2002);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2003);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2004);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2005);
@@ -529,23 +531,23 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(OutboundEndpointType_2010);
 			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2011);
 			KNOWN_ELEMENT_TYPES.add(CustomExceptionStrategyType_2012);
-			KNOWN_ELEMENT_TYPES.add(InboundRouterCollectionType_2013);
+			KNOWN_ELEMENT_TYPES.add(InboundCollectionType_2013);
 			KNOWN_ELEMENT_TYPES.add(InboundEndpointType_2014);
 			KNOWN_ELEMENT_TYPES.add(ForwardingRouterType_2015);
 			KNOWN_ELEMENT_TYPES.add(FilteredInboundRouterType_2016);
 			KNOWN_ELEMENT_TYPES.add(FilteredInboundRouterType_2017);
-			KNOWN_ELEMENT_TYPES.add(IdempotentReceiverType_2018);
+			KNOWN_ELEMENT_TYPES.add(IdempotentReceiverRouterType_2018);
 			KNOWN_ELEMENT_TYPES.add(WireTapRouterType_2019);
 			KNOWN_ELEMENT_TYPES.add(SelectiveConsumerRouterType_2020);
-			KNOWN_ELEMENT_TYPES.add(CorrelationRouterType_2021);
-			KNOWN_ELEMENT_TYPES.add(CorrelationRouterType_2022);
-			KNOWN_ELEMENT_TYPES.add(CorrelationAggregatorRouterType_2023);
+			KNOWN_ELEMENT_TYPES.add(MessageChunkingAggregatorRouterType_2021);
+			KNOWN_ELEMENT_TYPES.add(SelectiveConsumerRouterType_2022);
+			KNOWN_ELEMENT_TYPES.add(CustomCorrelationAggregatorRouterType_2023);
 			KNOWN_ELEMENT_TYPES.add(CustomInboundRouterType_2024);
-			KNOWN_ELEMENT_TYPES.add(AsyncReplyRouterCollectionType_2025);
+			KNOWN_ELEMENT_TYPES.add(AsyncReplyCollectionType_2025);
 			KNOWN_ELEMENT_TYPES.add(InboundEndpointType_2026);
 			KNOWN_ELEMENT_TYPES.add(AsyncReplyRouterType_2027);
 			KNOWN_ELEMENT_TYPES.add(CustomAsyncReplyRouterType_2028);
-			KNOWN_ELEMENT_TYPES.add(OutboundRouterCollectionType_2029);
+			KNOWN_ELEMENT_TYPES.add(OutboundCollectionType_2029);
 			KNOWN_ELEMENT_TYPES.add(OutboundRouterType_2030);
 			KNOWN_ELEMENT_TYPES.add(OutboundEndpointType_2031);
 			KNOWN_ELEMENT_TYPES.add(FilteringOutboundRouterType_2032);

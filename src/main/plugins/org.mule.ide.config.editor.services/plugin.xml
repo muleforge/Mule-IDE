@@ -284,14 +284,13 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
-         <metamodelType
-               id="org.mule.ide.config.editor.services.NoArgsCallComponentType_2002"
-               name="%metatype.name.NoArgsCallComponentType_2002"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="NoArgsCallComponentType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.NoArgsCallComponentTypeEditHelper">
+         <specializationType
+               id="org.mule.ide.config.editor.services.PojoComponentType_2002"
+               name="%metatype.name.PojoComponentType_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.mule.ide.config.editor.services.PojoComponentType_2001"/>
             <param name="semanticHint" value="2002"/>
-         </metamodelType>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
@@ -389,11 +388,11 @@
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.InboundRouterCollectionType_2013"
-               name="%metatype.name.InboundRouterCollectionType_2013"
+               id="org.mule.ide.config.editor.services.InboundCollectionType_2013"
+               name="%metatype.name.InboundCollectionType_2013"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="InboundRouterCollectionType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.InboundRouterCollectionTypeEditHelper">
+               eclass="InboundCollectionType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.InboundCollectionTypeEditHelper">
             <param name="semanticHint" value="2013"/>
          </metamodelType>
       </metamodel>
@@ -438,11 +437,11 @@
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.IdempotentReceiverType_2018"
-               name="%metatype.name.IdempotentReceiverType_2018"
+               id="org.mule.ide.config.editor.services.IdempotentReceiverRouterType_2018"
+               name="%metatype.name.IdempotentReceiverRouterType_2018"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="IdempotentReceiverType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.IdempotentReceiverTypeEditHelper">
+               eclass="IdempotentReceiverRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.IdempotentReceiverRouterTypeEditHelper">
             <param name="semanticHint" value="2018"/>
          </metamodelType>
       </metamodel>
@@ -468,30 +467,30 @@
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.CorrelationRouterType_2021"
-               name="%metatype.name.CorrelationRouterType_2021"
+               id="org.mule.ide.config.editor.services.MessageChunkingAggregatorRouterType_2021"
+               name="%metatype.name.MessageChunkingAggregatorRouterType_2021"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="CorrelationRouterType"
+               eclass="MessageChunkingAggregatorRouterType"
                edithelper="org.mule.ide.config.editor.services.edit.helpers.CorrelationRouterTypeEditHelper">
             <param name="semanticHint" value="2021"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <specializationType
-               id="org.mule.ide.config.editor.services.CorrelationRouterType_2022"
-               name="%metatype.name.CorrelationRouterType_2022"
+               id="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2022"
+               name="%metatype.name.SelectiveConsumerRouterType_2022"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.mule.ide.config.editor.services.CorrelationRouterType_2021"/>
+            <specializes id="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2020"/>
             <param name="semanticHint" value="2022"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.CorrelationAggregatorRouterType_2023"
-               name="%metatype.name.CorrelationAggregatorRouterType_2023"
+               id="org.mule.ide.config.editor.services.CustomCorrelationAggregatorRouterType_2023"
+               name="%metatype.name.CustomCorrelationAggregatorRouterType_2023"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="CorrelationAggregatorRouterType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.CorrelationAggregatorRouterTypeEditHelper">
+               eclass="CustomCorrelationAggregatorRouterType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.CustomCorrelationAggregatorRouterTypeEditHelper">
             <param name="semanticHint" value="2023"/>
          </metamodelType>
       </metamodel>
@@ -507,10 +506,10 @@
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.AsyncReplyRouterCollectionType_2025"
-               name="%metatype.name.AsyncReplyRouterCollectionType_2025"
+               id="org.mule.ide.config.editor.services.AsyncReplyCollectionType_2025"
+               name="%metatype.name.AsyncReplyCollectionType_2025"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="AsyncReplyRouterCollectionType"
+               eclass="AsyncReplyCollectionType"
                edithelper="org.mule.ide.config.editor.services.edit.helpers.AsyncReplyRouterCollectionTypeEditHelper">
             <param name="semanticHint" value="2025"/>
          </metamodelType>
@@ -546,11 +545,11 @@
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2029"
-               name="%metatype.name.OutboundRouterCollectionType_2029"
+               id="org.mule.ide.config.editor.services.OutboundCollectionType_2029"
+               name="%metatype.name.OutboundCollectionType_2029"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="OutboundRouterCollectionType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.OutboundRouterCollectionTypeEditHelper">
+               eclass="OutboundCollectionType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.OutboundCollectionTypeEditHelper">
             <param name="semanticHint" value="2029"/>
          </metamodelType>
       </metamodel>
@@ -684,7 +683,7 @@
          <elementType ref="org.mule.ide.config.editor.services.DefaultModelType_79"/>
          <elementType ref="org.mule.ide.config.editor.services.SedaServiceType_1001"/>
          <elementType ref="org.mule.ide.config.editor.services.PojoComponentType_2001"/>
-         <elementType ref="org.mule.ide.config.editor.services.NoArgsCallComponentType_2002"/>
+         <elementType ref="org.mule.ide.config.editor.services.PojoComponentType_2002"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2003"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2004"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2005"/>
@@ -695,23 +694,23 @@
          <elementType ref="org.mule.ide.config.editor.services.OutboundEndpointType_2010"/>
          <elementType ref="org.mule.ide.config.editor.services.ExceptionStrategyType_2011"/>
          <elementType ref="org.mule.ide.config.editor.services.CustomExceptionStrategyType_2012"/>
-         <elementType ref="org.mule.ide.config.editor.services.InboundRouterCollectionType_2013"/>
+         <elementType ref="org.mule.ide.config.editor.services.InboundCollectionType_2013"/>
          <elementType ref="org.mule.ide.config.editor.services.InboundEndpointType_2014"/>
          <elementType ref="org.mule.ide.config.editor.services.ForwardingRouterType_2015"/>
          <elementType ref="org.mule.ide.config.editor.services.FilteredInboundRouterType_2016"/>
          <elementType ref="org.mule.ide.config.editor.services.FilteredInboundRouterType_2017"/>
-         <elementType ref="org.mule.ide.config.editor.services.IdempotentReceiverType_2018"/>
+         <elementType ref="org.mule.ide.config.editor.services.IdempotentReceiverRouterType_2018"/>
          <elementType ref="org.mule.ide.config.editor.services.WireTapRouterType_2019"/>
          <elementType ref="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2020"/>
-         <elementType ref="org.mule.ide.config.editor.services.CorrelationRouterType_2021"/>
-         <elementType ref="org.mule.ide.config.editor.services.CorrelationRouterType_2022"/>
-         <elementType ref="org.mule.ide.config.editor.services.CorrelationAggregatorRouterType_2023"/>
+         <elementType ref="org.mule.ide.config.editor.services.MessageChunkingAggregatorRouterType_2021"/>
+         <elementType ref="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2022"/>
+         <elementType ref="org.mule.ide.config.editor.services.CustomCorrelationAggregatorRouterType_2023"/>
          <elementType ref="org.mule.ide.config.editor.services.CustomInboundRouterType_2024"/>
-         <elementType ref="org.mule.ide.config.editor.services.AsyncReplyRouterCollectionType_2025"/>
+         <elementType ref="org.mule.ide.config.editor.services.AsyncReplyCollectionType_2025"/>
          <elementType ref="org.mule.ide.config.editor.services.InboundEndpointType_2026"/>
          <elementType ref="org.mule.ide.config.editor.services.AsyncReplyRouterType_2027"/>
          <elementType ref="org.mule.ide.config.editor.services.CustomAsyncReplyRouterType_2028"/>
-         <elementType ref="org.mule.ide.config.editor.services.OutboundRouterCollectionType_2029"/>
+         <elementType ref="org.mule.ide.config.editor.services.OutboundCollectionType_2029"/>
          <elementType ref="org.mule.ide.config.editor.services.OutboundRouterType_2030"/>
          <elementType ref="org.mule.ide.config.editor.services.OutboundEndpointType_2031"/>
          <elementType ref="org.mule.ide.config.editor.services.FilteringOutboundRouterType_2032"/>

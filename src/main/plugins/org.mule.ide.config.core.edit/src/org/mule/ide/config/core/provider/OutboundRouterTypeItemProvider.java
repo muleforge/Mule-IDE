@@ -214,8 +214,8 @@ public class OutboundRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractTransactionGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_Transaction(),
-					 CoreFactory.eINSTANCE.createTransactionType())));
+					(CorePackage.eINSTANCE.getDocumentRoot_CustomTransaction(),
+					 CoreFactory.eINSTANCE.createCustomTransactionType())));
 
 		newChildDescriptors.add
 			(createChildParameter

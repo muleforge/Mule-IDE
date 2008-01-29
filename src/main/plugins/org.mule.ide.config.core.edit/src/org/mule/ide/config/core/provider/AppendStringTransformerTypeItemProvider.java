@@ -15,8 +15,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,19 +25,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.mule.ide.config.core.AppendStringTransformerType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CustomTransactionFactoryType;
-
-import org.mule.ide.config.spring.SpringFactory;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.CustomTransactionFactoryType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.AppendStringTransformerType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CustomTransactionFactoryTypeItemProvider
-	extends AbstractTransactionFactoryTypeItemProvider
+public class AppendStringTransformerTypeItemProvider
+	extends AbstractTransformerTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -52,7 +48,7 @@ public class CustomTransactionFactoryTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomTransactionFactoryTypeItemProvider(AdapterFactory adapterFactory) {
+	public AppendStringTransformerTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -67,25 +63,25 @@ public class CustomTransactionFactoryTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addClassPropertyDescriptor(object);
+			addMessagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Class feature.
+	 * This adds a property descriptor for the Message feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClassPropertyDescriptor(Object object) {
+	protected void addMessagePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CustomTransactionFactoryType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CustomTransactionFactoryType_class_feature", "_UI_CustomTransactionFactoryType_type"),
-				 CorePackage.eINSTANCE.getCustomTransactionFactoryType_Class(),
+				 getString("_UI_AppendStringTransformerType_message_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AppendStringTransformerType_message_feature", "_UI_AppendStringTransformerType_type"),
+				 CorePackage.eINSTANCE.getAppendStringTransformerType_Message(),
 				 true,
 				 false,
 				 false,
@@ -95,44 +91,14 @@ public class CustomTransactionFactoryTypeItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getCustomTransactionFactoryType_Property());
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns CustomTransactionFactoryType.gif.
+	 * This returns AppendStringTransformerType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CustomTransactionFactoryType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AppendStringTransformerType"));
 	}
 
 	/**
@@ -143,10 +109,10 @@ public class CustomTransactionFactoryTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CustomTransactionFactoryType)object).getName();
+		String label = ((AppendStringTransformerType)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CustomTransactionFactoryType_type") :
-			getString("_UI_CustomTransactionFactoryType_type") + " " + label;
+			getString("_UI_AppendStringTransformerType_type") :
+			getString("_UI_AppendStringTransformerType_type") + " " + label;
 	}
 
 	/**
@@ -160,12 +126,9 @@ public class CustomTransactionFactoryTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CustomTransactionFactoryType.class)) {
-			case CorePackage.CUSTOM_TRANSACTION_FACTORY_TYPE__CLASS:
+		switch (notification.getFeatureID(AppendStringTransformerType.class)) {
+			case CorePackage.APPEND_STRING_TRANSFORMER_TYPE__MESSAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case CorePackage.CUSTOM_TRANSACTION_FACTORY_TYPE__PROPERTY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -181,11 +144,6 @@ public class CustomTransactionFactoryTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomTransactionFactoryType_Property(),
-				 SpringFactory.eINSTANCE.createPropertyType()));
 	}
 
 	/**

@@ -35,15 +35,15 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.InboundRouterCollectionType;
+import org.mule.ide.config.core.InboundCollectionType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.InboundRouterCollectionType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.InboundCollectionType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class InboundRouterCollectionTypeItemProvider
+public class InboundCollectionTypeItemProvider
 	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
@@ -57,7 +57,7 @@ public class InboundRouterCollectionTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InboundRouterCollectionTypeItemProvider(AdapterFactory adapterFactory) {
+	public InboundCollectionTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -88,9 +88,9 @@ public class InboundRouterCollectionTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InboundRouterCollectionType_matchAll_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InboundRouterCollectionType_matchAll_feature", "_UI_InboundRouterCollectionType_type"),
-				 CorePackage.eINSTANCE.getInboundRouterCollectionType_MatchAll(),
+				 getString("_UI_InboundCollectionType_matchAll_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InboundCollectionType_matchAll_feature", "_UI_InboundCollectionType_type"),
+				 CorePackage.eINSTANCE.getInboundCollectionType_MatchAll(),
 				 true,
 				 false,
 				 false,
@@ -111,9 +111,9 @@ public class InboundRouterCollectionTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractCatchAllStrategyGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundEndpointGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getInboundCollectionType_AbstractCatchAllStrategyGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundEndpointGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup());
 		}
 		return childrenFeatures;
 	}
@@ -132,14 +132,14 @@ public class InboundRouterCollectionTypeItemProvider
 	}
 
 	/**
-	 * This returns InboundRouterCollectionType.gif.
+	 * This returns InboundCollectionType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InboundRouterCollectionType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InboundCollectionType"));
 	}
 
 	/**
@@ -150,8 +150,8 @@ public class InboundRouterCollectionTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		InboundRouterCollectionType inboundRouterCollectionType = (InboundRouterCollectionType)object;
-		return getString("_UI_InboundRouterCollectionType_type") + " " + inboundRouterCollectionType.isMatchAll();
+		InboundCollectionType inboundCollectionType = (InboundCollectionType)object;
+		return getString("_UI_InboundCollectionType_type") + " " + inboundCollectionType.isMatchAll();
 	}
 
 	/**
@@ -165,13 +165,13 @@ public class InboundRouterCollectionTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(InboundRouterCollectionType.class)) {
-			case CorePackage.INBOUND_ROUTER_COLLECTION_TYPE__MATCH_ALL:
+		switch (notification.getFeatureID(InboundCollectionType.class)) {
+			case CorePackage.INBOUND_COLLECTION_TYPE__MATCH_ALL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.INBOUND_ROUTER_COLLECTION_TYPE__ABSTRACT_CATCH_ALL_STRATEGY_GROUP:
-			case CorePackage.INBOUND_ROUTER_COLLECTION_TYPE__ABSTRACT_INBOUND_ENDPOINT_GROUP:
-			case CorePackage.INBOUND_ROUTER_COLLECTION_TYPE__ABSTRACT_INBOUND_ROUTER_GROUP:
+			case CorePackage.INBOUND_COLLECTION_TYPE__ABSTRACT_CATCH_ALL_STRATEGY_GROUP:
+			case CorePackage.INBOUND_COLLECTION_TYPE__ABSTRACT_INBOUND_ENDPOINT_GROUP:
+			case CorePackage.INBOUND_COLLECTION_TYPE__ABSTRACT_INBOUND_ROUTER_GROUP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -191,224 +191,217 @@ public class InboundRouterCollectionTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractCatchAllStrategyGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractCatchAllStrategyGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_CustomCatchAllStrategy(),
 					 CoreFactory.eINSTANCE.createCustomCatchAllStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractCatchAllStrategyGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractCatchAllStrategyGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_CustomForwardingCatchAllStrategy(),
 					 CoreFactory.eINSTANCE.createCustomForwardingCatchAllStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractCatchAllStrategyGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractCatchAllStrategyGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ForwardingCatchAllStrategy(),
 					 CoreFactory.eINSTANCE.createForwardingCatchAllStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractCatchAllStrategyGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractCatchAllStrategyGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ForwardingCatchAllStrategy(),
 					 CoreFactory.eINSTANCE.createCustomForwardingCatchAllStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractCatchAllStrategyGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractCatchAllStrategyGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_LoggingCatchAllStrategy(),
 					 CoreFactory.eINSTANCE.createLoggingCatchAllStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundEndpointGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundEndpointGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_InboundEndpoint(),
 					 CoreFactory.eINSTANCE.createInboundEndpointType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationAggregatorRouter(),
-					 CoreFactory.eINSTANCE.createCorrelationAggregatorRouterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter(),
-					 CoreFactory.eINSTANCE.createCorrelationRouterType())));
+					 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter(),
-					 CoreFactory.eINSTANCE.createCorrelationAggregatorRouterType())));
+					(CorePackage.eINSTANCE.getDocumentRoot_CustomCorrelationAggregatorRouter(),
+					 CoreFactory.eINSTANCE.createCustomCorrelationAggregatorRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_CustomInboundRouter(),
 					 CoreFactory.eINSTANCE.createCustomInboundRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter(),
 					 CoreFactory.eINSTANCE.createForwardingRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
-					 CoreFactory.eINSTANCE.createIdempotentReceiverType())));
+					 CoreFactory.eINSTANCE.createIdempotentReceiverRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
 					 CoreFactory.eINSTANCE.createFilteredInboundRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
-					 CoreFactory.eINSTANCE.createCorrelationRouterType())));
+					 CoreFactory.eINSTANCE.createMessageChunkingAggregatorRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
-					 CoreFactory.eINSTANCE.createCorrelationAggregatorRouterType())));
+					 CoreFactory.eINSTANCE.createCustomCorrelationAggregatorRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
 					 CoreFactory.eINSTANCE.createCustomInboundRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
 					 CoreFactory.eINSTANCE.createForwardingRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
-					 CoreFactory.eINSTANCE.createIdempotentReceiverType())));
+					 CoreFactory.eINSTANCE.createIdempotentReceiverRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
 					 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
 					 CoreFactory.eINSTANCE.createWireTapRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
 					 CoreFactory.eINSTANCE.createFilteredInboundRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
-					 CoreFactory.eINSTANCE.createCorrelationRouterType())));
+					 CoreFactory.eINSTANCE.createMessageChunkingAggregatorRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
-					 CoreFactory.eINSTANCE.createCorrelationAggregatorRouterType())));
+					 CoreFactory.eINSTANCE.createCustomCorrelationAggregatorRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
 					 CoreFactory.eINSTANCE.createCustomInboundRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
 					 CoreFactory.eINSTANCE.createForwardingRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
-					 CoreFactory.eINSTANCE.createIdempotentReceiverType())));
+					 CoreFactory.eINSTANCE.createIdempotentReceiverRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
 					 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
 					 CoreFactory.eINSTANCE.createWireTapRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter(),
-					 CoreFactory.eINSTANCE.createCorrelationRouterType())));
+					 CoreFactory.eINSTANCE.createMessageChunkingAggregatorRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter(),
-					 CoreFactory.eINSTANCE.createCorrelationAggregatorRouterType())));
+					 CoreFactory.eINSTANCE.createCustomCorrelationAggregatorRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_SelectiveConsumerRouter(),
 					 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundRouterCollectionType_AbstractInboundRouterGroup(),
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_WireTapRouter(),
 					 CoreFactory.eINSTANCE.createWireTapRouterType())));
@@ -434,15 +427,15 @@ public class InboundRouterCollectionTypeItemProvider
 		boolean qualify =
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomForwardingCatchAllStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ForwardingCatchAllStrategy() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationAggregatorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SelectiveConsumerRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomCorrelationAggregatorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomInboundRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SelectiveConsumerRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WireTapRouter();
 
 		if (qualify) {

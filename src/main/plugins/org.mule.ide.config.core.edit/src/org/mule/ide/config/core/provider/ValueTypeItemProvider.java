@@ -15,6 +15,13 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,19 +30,20 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.TransformerRefType;
+import org.mule.ide.config.core.ValueType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.TransformerRefType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.ValueType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TransformerRefTypeItemProvider
-	extends AbstractTransformerTypeItemProvider
+public class ValueTypeItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -48,7 +56,7 @@ public class TransformerRefTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TransformerRefTypeItemProvider(AdapterFactory adapterFactory) {
+	public ValueTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,25 +71,26 @@ public class TransformerRefTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRefPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
+			addValueRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Ref feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRefPropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TransformerRefType_ref_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TransformerRefType_ref_feature", "_UI_TransformerRefType_type"),
-				 CorePackage.eINSTANCE.getTransformerRefType_Ref(),
+				 getString("_UI_ValueType_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ValueType_value_feature", "_UI_ValueType_type"),
+				 CorePackage.eINSTANCE.getValueType_Value(),
 				 true,
 				 false,
 				 false,
@@ -91,14 +100,36 @@ public class TransformerRefTypeItemProvider
 	}
 
 	/**
-	 * This returns TransformerRefType.gif.
+	 * This adds a property descriptor for the Value Ref feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValueRefPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ValueType_valueRef_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ValueType_valueRef_feature", "_UI_ValueType_type"),
+				 CorePackage.eINSTANCE.getValueType_ValueRef(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns ValueType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TransformerRefType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ValueType"));
 	}
 
 	/**
@@ -109,10 +140,10 @@ public class TransformerRefTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TransformerRefType)object).getName();
+		String label = ((ValueType)object).getValue();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TransformerRefType_type") :
-			getString("_UI_TransformerRefType_type") + " " + label;
+			getString("_UI_ValueType_type") :
+			getString("_UI_ValueType_type") + " " + label;
 	}
 
 	/**
@@ -126,8 +157,9 @@ public class TransformerRefTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TransformerRefType.class)) {
-			case CorePackage.TRANSFORMER_REF_TYPE__REF:
+		switch (notification.getFeatureID(ValueType.class)) {
+			case CorePackage.VALUE_TYPE__VALUE:
+			case CorePackage.VALUE_TYPE__VALUE_REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -144,6 +176,34 @@ public class TransformerRefTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)child;
+			feature = entry.getEStructuralFeature();
+			child = entry.getValue();        
+		}
+
+		if (feature instanceof EReference && child instanceof EObject) {
+			String name = "full/obj16/" + ((EObject)child).eClass().getName();
+
+			try {
+				return getResourceLocator().getImage(name);
+			}
+			catch (Exception e) {
+				CoreEditPlugin.INSTANCE.log(e);
+			}
+		}
+
+		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

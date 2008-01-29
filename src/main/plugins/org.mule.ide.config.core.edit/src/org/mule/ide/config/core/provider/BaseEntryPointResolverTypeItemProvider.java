@@ -15,11 +15,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,20 +23,19 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.mule.ide.config.core.BaseEntryPointResolverType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.NoArgsCallDelegateInstanceType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.NoArgsCallDelegateInstanceType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.BaseEntryPointResolverType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NoArgsCallDelegateInstanceTypeItemProvider
-	extends ItemProviderAdapter
+public class BaseEntryPointResolverTypeItemProvider
+	extends AbstractEntryPointResolverTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -54,7 +48,7 @@ public class NoArgsCallDelegateInstanceTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NoArgsCallDelegateInstanceTypeItemProvider(AdapterFactory adapterFactory) {
+	public BaseEntryPointResolverTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,65 +63,65 @@ public class NoArgsCallDelegateInstanceTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMethodPropertyDescriptor(object);
-			addRefPropertyDescriptor(object);
+			addAcceptVoidMethodsPropertyDescriptor(object);
+			addTransformFirstPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Method feature.
+	 * This adds a property descriptor for the Accept Void Methods feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMethodPropertyDescriptor(Object object) {
+	protected void addAcceptVoidMethodsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NoArgsCallDelegateInstanceType_method_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NoArgsCallDelegateInstanceType_method_feature", "_UI_NoArgsCallDelegateInstanceType_type"),
-				 CorePackage.eINSTANCE.getNoArgsCallDelegateInstanceType_Method(),
+				 getString("_UI_BaseEntryPointResolverType_acceptVoidMethods_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BaseEntryPointResolverType_acceptVoidMethods_feature", "_UI_BaseEntryPointResolverType_type"),
+				 CorePackage.eINSTANCE.getBaseEntryPointResolverType_AcceptVoidMethods(),
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Ref feature.
+	 * This adds a property descriptor for the Transform First feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRefPropertyDescriptor(Object object) {
+	protected void addTransformFirstPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NoArgsCallDelegateInstanceType_ref_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NoArgsCallDelegateInstanceType_ref_feature", "_UI_NoArgsCallDelegateInstanceType_type"),
-				 CorePackage.eINSTANCE.getNoArgsCallDelegateInstanceType_Ref(),
+				 getString("_UI_BaseEntryPointResolverType_transformFirst_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BaseEntryPointResolverType_transformFirst_feature", "_UI_BaseEntryPointResolverType_type"),
+				 CorePackage.eINSTANCE.getBaseEntryPointResolverType_TransformFirst(),
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns NoArgsCallDelegateInstanceType.gif.
+	 * This returns BaseEntryPointResolverType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NoArgsCallDelegateInstanceType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BaseEntryPointResolverType"));
 	}
 
 	/**
@@ -138,10 +132,8 @@ public class NoArgsCallDelegateInstanceTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NoArgsCallDelegateInstanceType)object).getMethod();
-		return label == null || label.length() == 0 ?
-			getString("_UI_NoArgsCallDelegateInstanceType_type") :
-			getString("_UI_NoArgsCallDelegateInstanceType_type") + " " + label;
+		BaseEntryPointResolverType baseEntryPointResolverType = (BaseEntryPointResolverType)object;
+		return getString("_UI_BaseEntryPointResolverType_type") + " " + baseEntryPointResolverType.isAcceptVoidMethods();
 	}
 
 	/**
@@ -155,9 +147,9 @@ public class NoArgsCallDelegateInstanceTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(NoArgsCallDelegateInstanceType.class)) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__METHOD:
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE__REF:
+		switch (notification.getFeatureID(BaseEntryPointResolverType.class)) {
+			case CorePackage.BASE_ENTRY_POINT_RESOLVER_TYPE__ACCEPT_VOID_METHODS:
+			case CorePackage.BASE_ENTRY_POINT_RESOLVER_TYPE__TRANSFORM_FIRST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -174,34 +166,6 @@ public class NoArgsCallDelegateInstanceTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
-		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)child;
-			feature = entry.getEStructuralFeature();
-			child = entry.getValue();        
-		}
-
-		if (feature instanceof EReference && child instanceof EObject) {
-			String name = "full/obj16/" + ((EObject)child).eClass().getName();
-
-			try {
-				return getResourceLocator().getImage(name);
-			}
-			catch (Exception e) {
-				CoreEditPlugin.INSTANCE.log(e);
-			}
-		}
-
-		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

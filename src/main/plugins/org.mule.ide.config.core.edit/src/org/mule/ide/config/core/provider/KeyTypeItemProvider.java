@@ -15,6 +15,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
@@ -28,19 +30,20 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CorrelationRouterType;
+import org.mule.ide.config.core.KeyType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.CorrelationRouterType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.KeyType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CorrelationRouterTypeItemProvider
-	extends FilteredInboundRouterTypeItemProvider
+public class KeyTypeItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -53,7 +56,7 @@ public class CorrelationRouterTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CorrelationRouterTypeItemProvider(AdapterFactory adapterFactory) {
+	public KeyTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,25 +71,25 @@ public class CorrelationRouterTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCorrelationExpressionPropertyDescriptor(object);
+			addKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Correlation Expression feature.
+	 * This adds a property descriptor for the Key feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCorrelationExpressionPropertyDescriptor(Object object) {
+	protected void addKeyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CorrelationRouterType_correlationExpression_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CorrelationRouterType_correlationExpression_feature", "_UI_CorrelationRouterType_type"),
-				 CorePackage.eINSTANCE.getCorrelationRouterType_CorrelationExpression(),
+				 getString("_UI_KeyType_key_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_KeyType_key_feature", "_UI_KeyType_type"),
+				 CorePackage.eINSTANCE.getKeyType_Key(),
 				 true,
 				 false,
 				 false,
@@ -96,14 +99,14 @@ public class CorrelationRouterTypeItemProvider
 	}
 
 	/**
-	 * This returns CorrelationRouterType.gif.
+	 * This returns KeyType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CorrelationRouterType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/KeyType"));
 	}
 
 	/**
@@ -114,10 +117,10 @@ public class CorrelationRouterTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CorrelationRouterType)object).getCorrelationExpression();
+		String label = ((KeyType)object).getKey();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CorrelationRouterType_type") :
-			getString("_UI_CorrelationRouterType_type") + " " + label;
+			getString("_UI_KeyType_type") :
+			getString("_UI_KeyType_type") + " " + label;
 	}
 
 	/**
@@ -131,8 +134,8 @@ public class CorrelationRouterTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CorrelationRouterType.class)) {
-			case CorePackage.CORRELATION_ROUTER_TYPE__CORRELATION_EXPRESSION:
+		switch (notification.getFeatureID(KeyType.class)) {
+			case CorePackage.KEY_TYPE__KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -152,42 +155,31 @@ public class CorrelationRouterTypeItemProvider
 	}
 
 	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
-			childFeature = entry.getEStructuralFeature();
-			childObject = entry.getValue();
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)child;
+			feature = entry.getEStructuralFeature();
+			child = entry.getValue();        
 		}
 
-		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_AndFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OrFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadTypeFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor();
+		if (feature instanceof EReference && child instanceof EObject) {
+			String name = "full/obj16/" + ((EObject)child).eClass().getName();
 
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+			try {
+				return getResourceLocator().getImage(name);
+			}
+			catch (Exception e) {
+				CoreEditPlugin.INSTANCE.log(e);
+			}
 		}
-		return super.getCreateChildText(owner, feature, child, selection);
+
+		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

@@ -26,16 +26,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.TransformerAppendStringType;
+import org.mule.ide.config.core.SpringBeanLookupType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.TransformerAppendStringType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.SpringBeanLookupType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TransformerAppendStringTypeItemProvider
-	extends AbstractTransformerTypeItemProvider
+public class SpringBeanLookupTypeItemProvider
+	extends AbstractObjectFactoryTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -48,7 +48,7 @@ public class TransformerAppendStringTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TransformerAppendStringTypeItemProvider(AdapterFactory adapterFactory) {
+	public SpringBeanLookupTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,25 +63,25 @@ public class TransformerAppendStringTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMessagePropertyDescriptor(object);
+			addBeanPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Message feature.
+	 * This adds a property descriptor for the Bean feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMessagePropertyDescriptor(Object object) {
+	protected void addBeanPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TransformerAppendStringType_message_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TransformerAppendStringType_message_feature", "_UI_TransformerAppendStringType_type"),
-				 CorePackage.eINSTANCE.getTransformerAppendStringType_Message(),
+				 getString("_UI_SpringBeanLookupType_bean_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpringBeanLookupType_bean_feature", "_UI_SpringBeanLookupType_type"),
+				 CorePackage.eINSTANCE.getSpringBeanLookupType_Bean(),
 				 true,
 				 false,
 				 false,
@@ -91,14 +91,14 @@ public class TransformerAppendStringTypeItemProvider
 	}
 
 	/**
-	 * This returns TransformerAppendStringType.gif.
+	 * This returns SpringBeanLookupType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TransformerAppendStringType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpringBeanLookupType"));
 	}
 
 	/**
@@ -109,10 +109,10 @@ public class TransformerAppendStringTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TransformerAppendStringType)object).getName();
+		String label = ((SpringBeanLookupType)object).getBean();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TransformerAppendStringType_type") :
-			getString("_UI_TransformerAppendStringType_type") + " " + label;
+			getString("_UI_SpringBeanLookupType_type") :
+			getString("_UI_SpringBeanLookupType_type") + " " + label;
 	}
 
 	/**
@@ -126,8 +126,8 @@ public class TransformerAppendStringTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TransformerAppendStringType.class)) {
-			case CorePackage.TRANSFORMER_APPEND_STRING_TYPE__MESSAGE:
+		switch (notification.getFeatureID(SpringBeanLookupType.class)) {
+			case CorePackage.SPRING_BEAN_LOOKUP_TYPE__BEAN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

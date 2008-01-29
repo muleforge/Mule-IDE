@@ -31,16 +31,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CorrelationAggregatorRouterType;
+import org.mule.ide.config.core.CustomCorrelationAggregatorRouterType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.CorrelationAggregatorRouterType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.CustomCorrelationAggregatorRouterType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CorrelationAggregatorRouterTypeItemProvider
-	extends CorrelationRouterTypeItemProvider
+public class CustomCorrelationAggregatorRouterTypeItemProvider
+	extends MessageChunkingAggregatorRouterTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -53,7 +53,7 @@ public class CorrelationAggregatorRouterTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CorrelationAggregatorRouterTypeItemProvider(AdapterFactory adapterFactory) {
+	public CustomCorrelationAggregatorRouterTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -84,9 +84,9 @@ public class CorrelationAggregatorRouterTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CorrelationAggregatorRouterType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CorrelationAggregatorRouterType_class_feature", "_UI_CorrelationAggregatorRouterType_type"),
-				 CorePackage.eINSTANCE.getCorrelationAggregatorRouterType_Class(),
+				 getString("_UI_CustomCorrelationAggregatorRouterType_class_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CustomCorrelationAggregatorRouterType_class_feature", "_UI_CustomCorrelationAggregatorRouterType_type"),
+				 CorePackage.eINSTANCE.getCustomCorrelationAggregatorRouterType_Class(),
 				 true,
 				 false,
 				 false,
@@ -96,14 +96,14 @@ public class CorrelationAggregatorRouterTypeItemProvider
 	}
 
 	/**
-	 * This returns CorrelationAggregatorRouterType.gif.
+	 * This returns CustomCorrelationAggregatorRouterType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CorrelationAggregatorRouterType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CustomCorrelationAggregatorRouterType"));
 	}
 
 	/**
@@ -114,10 +114,10 @@ public class CorrelationAggregatorRouterTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CorrelationAggregatorRouterType)object).getCorrelationExpression();
+		String label = ((CustomCorrelationAggregatorRouterType)object).getCorrelationExpression();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CorrelationAggregatorRouterType_type") :
-			getString("_UI_CorrelationAggregatorRouterType_type") + " " + label;
+			getString("_UI_CustomCorrelationAggregatorRouterType_type") :
+			getString("_UI_CustomCorrelationAggregatorRouterType_type") + " " + label;
 	}
 
 	/**
@@ -131,8 +131,8 @@ public class CorrelationAggregatorRouterTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CorrelationAggregatorRouterType.class)) {
-			case CorePackage.CORRELATION_AGGREGATOR_ROUTER_TYPE__CLASS:
+		switch (notification.getFeatureID(CustomCorrelationAggregatorRouterType.class)) {
+			case CorePackage.CUSTOM_CORRELATION_AGGREGATOR_ROUTER_TYPE__CLASS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

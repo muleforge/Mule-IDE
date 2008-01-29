@@ -135,7 +135,8 @@ public class AbstractModelTypeItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CorePackage.eINSTANCE.getAbstractModelType_AbstractExceptionStrategyGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntrypointResolverGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverSetGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup());
 			childrenFeatures.add(CorePackage.eINSTANCE.getAbstractModelType_AbstractServiceGroup());
 		}
 		return childrenFeatures;
@@ -196,7 +197,8 @@ public class AbstractModelTypeItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
-			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRYPOINT_RESOLVER_GROUP:
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_SET_GROUP:
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_GROUP:
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE_GROUP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -252,17 +254,122 @@ public class AbstractModelTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntrypointResolverGroup(),
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverSetGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CallableEntrypointResolver(),
-					 CoreFactory.eINSTANCE.createCallableEntrypointResolverType())));
+					(CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolverSet(),
+					 CoreFactory.eINSTANCE.createCustomEntryPointResolverSetType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntrypointResolverGroup(),
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverSetGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CustomEntrypointResolver(),
-					 CoreFactory.eINSTANCE.createCustomEntrypointResolverType())));
+					(CorePackage.eINSTANCE.getDocumentRoot_EntryPointResolverSet(),
+					 CoreFactory.eINSTANCE.createExtensibleEntryPointResolverSet())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverSetGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_LegacyEntryPointResolverSet(),
+					 CoreFactory.eINSTANCE.createExtensibleEntryPointResolverSet())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ArrayEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createComplexEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createAbstractEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createBaseEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createReflectionEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createComplexEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createCustomEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createMethodEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createPropertyEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createCustomEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_MethodEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createMethodEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_NoArgumentsEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createComplexEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_PropertyEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createPropertyEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ReflectionEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createReflectionEntryPointResolverType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ReflectionEntryPointResolver(),
+					 CoreFactory.eINSTANCE.createComplexEntryPointResolverType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -299,7 +406,16 @@ public class AbstractModelTypeItemProvider
 		boolean qualify =
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomExceptionStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EntryPointResolverSet() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_LegacyEntryPointResolverSet() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ArrayEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NoArgumentsEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ReflectionEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MethodEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PropertyEntryPointResolver();
 
 		if (qualify) {
 			return getString

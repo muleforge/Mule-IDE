@@ -15,21 +15,28 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.mule.ide.config.core.CoreFactory;
+import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.MethodEntryPointResolverType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.CallableEntrypointResolverType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.MethodEntryPointResolverType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CallableEntrypointResolverTypeItemProvider
-	extends AbstractEntrypointResolverTypeItemProvider
+public class MethodEntryPointResolverTypeItemProvider
+	extends BaseEntryPointResolverTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -42,7 +49,7 @@ public class CallableEntrypointResolverTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CallableEntrypointResolverTypeItemProvider(AdapterFactory adapterFactory) {
+	public MethodEntryPointResolverTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,14 +69,44 @@ public class CallableEntrypointResolverTypeItemProvider
 	}
 
 	/**
-	 * This returns CallableEntrypointResolverType.gif.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(CorePackage.eINSTANCE.getMethodEntryPointResolverType_IncludeEntryPoint());
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns MethodEntryPointResolverType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CallableEntrypointResolverType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MethodEntryPointResolverType"));
 	}
 
 	/**
@@ -80,7 +117,8 @@ public class CallableEntrypointResolverTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_CallableEntrypointResolverType_type");
+		MethodEntryPointResolverType methodEntryPointResolverType = (MethodEntryPointResolverType)object;
+		return getString("_UI_MethodEntryPointResolverType_type") + " " + methodEntryPointResolverType.isAcceptVoidMethods();
 	}
 
 	/**
@@ -93,6 +131,12 @@ public class CallableEntrypointResolverTypeItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(MethodEntryPointResolverType.class)) {
+			case CorePackage.METHOD_ENTRY_POINT_RESOLVER_TYPE__INCLUDE_ENTRY_POINT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -106,6 +150,11 @@ public class CallableEntrypointResolverTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMethodEntryPointResolverType_IncludeEntryPoint(),
+				 CoreFactory.eINSTANCE.createMethodType()));
 	}
 
 	/**

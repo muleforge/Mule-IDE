@@ -18,29 +18,25 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.mule.ide.config.core.AbstractTransactionFactoryType;
-import org.mule.ide.config.core.CorePackage;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.AbstractTransactionFactoryType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.AbstractEntryPointResolverType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AbstractTransactionFactoryTypeItemProvider
+public class AbstractEntryPointResolverTypeItemProvider
 	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
@@ -54,7 +50,7 @@ public class AbstractTransactionFactoryTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractTransactionFactoryTypeItemProvider(AdapterFactory adapterFactory) {
+	public AbstractEntryPointResolverTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,42 +65,19 @@ public class AbstractTransactionFactoryTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AbstractTransactionFactoryType_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractTransactionFactoryType_name_feature", "_UI_AbstractTransactionFactoryType_type"),
-				 CorePackage.eINSTANCE.getAbstractTransactionFactoryType_Name(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns AbstractTransactionFactoryType.gif.
+	 * This returns AbstractEntryPointResolverType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AbstractTransactionFactoryType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AbstractEntryPointResolverType"));
 	}
 
 	/**
@@ -115,10 +88,7 @@ public class AbstractTransactionFactoryTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AbstractTransactionFactoryType)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AbstractTransactionFactoryType_type") :
-			getString("_UI_AbstractTransactionFactoryType_type") + " " + label;
+		return getString("_UI_AbstractEntryPointResolverType_type");
 	}
 
 	/**
@@ -131,12 +101,6 @@ public class AbstractTransactionFactoryTypeItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(AbstractTransactionFactoryType.class)) {
-			case CorePackage.ABSTRACT_TRANSACTION_FACTORY_TYPE__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

@@ -29,15 +29,15 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.IdempotentReceiverType;
+import org.mule.ide.config.core.IdempotentReceiverRouterType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.IdempotentReceiverType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.IdempotentReceiverRouterType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class IdempotentReceiverTypeItemProvider
+public class IdempotentReceiverRouterTypeItemProvider
 	extends FilteredInboundRouterTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
@@ -51,7 +51,7 @@ public class IdempotentReceiverTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IdempotentReceiverTypeItemProvider(AdapterFactory adapterFactory) {
+	public IdempotentReceiverRouterTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -82,7 +82,7 @@ public class IdempotentReceiverTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getIdempotentReceiverType_AbstractStorageGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getIdempotentReceiverRouterType_AbstractStorageGroup());
 		}
 		return childrenFeatures;
 	}
@@ -101,14 +101,14 @@ public class IdempotentReceiverTypeItemProvider
 	}
 
 	/**
-	 * This returns IdempotentReceiverType.gif.
+	 * This returns IdempotentReceiverRouterType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IdempotentReceiverType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IdempotentReceiverRouterType"));
 	}
 
 	/**
@@ -119,7 +119,7 @@ public class IdempotentReceiverTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_IdempotentReceiverType_type");
+		return getString("_UI_IdempotentReceiverRouterType_type");
 	}
 
 	/**
@@ -133,8 +133,8 @@ public class IdempotentReceiverTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(IdempotentReceiverType.class)) {
-			case CorePackage.IDEMPOTENT_RECEIVER_TYPE__ABSTRACT_STORAGE_GROUP:
+		switch (notification.getFeatureID(IdempotentReceiverRouterType.class)) {
+			case CorePackage.IDEMPOTENT_RECEIVER_ROUTER_TYPE__ABSTRACT_STORAGE_GROUP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

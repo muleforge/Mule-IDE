@@ -182,7 +182,7 @@ public class UnitaryFilterTypeItemProvider
 				(CorePackage.eINSTANCE.getUnitaryFilterType_AbstractFilterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Filter(),
-					 CoreFactory.eINSTANCE.createFilterRefType())));
+					 CoreFactory.eINSTANCE.createRefFilterType())));
 
 		newChildDescriptors.add
 			(createChildParameter

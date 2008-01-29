@@ -109,8 +109,7 @@ public class TransactionManagerTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((TransactionManagerType)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((TransactionManagerType)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TransactionManagerType_type") :
 			getString("_UI_TransactionManagerType_type") + " " + label;

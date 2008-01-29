@@ -26,16 +26,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.TransactionRefFactoryType;
+import org.mule.ide.config.core.RefFilterType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.TransactionRefFactoryType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.RefFilterType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TransactionRefFactoryTypeItemProvider
-	extends AbstractTransactionFactoryTypeItemProvider
+public class RefFilterTypeItemProvider
+	extends AbstractFilterTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -48,7 +48,7 @@ public class TransactionRefFactoryTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TransactionRefFactoryTypeItemProvider(AdapterFactory adapterFactory) {
+	public RefFilterTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -79,9 +79,9 @@ public class TransactionRefFactoryTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TransactionRefFactoryType_ref_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TransactionRefFactoryType_ref_feature", "_UI_TransactionRefFactoryType_type"),
-				 CorePackage.eINSTANCE.getTransactionRefFactoryType_Ref(),
+				 getString("_UI_RefFilterType_ref_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RefFilterType_ref_feature", "_UI_RefFilterType_type"),
+				 CorePackage.eINSTANCE.getRefFilterType_Ref(),
 				 true,
 				 false,
 				 false,
@@ -91,14 +91,14 @@ public class TransactionRefFactoryTypeItemProvider
 	}
 
 	/**
-	 * This returns TransactionRefFactoryType.gif.
+	 * This returns RefFilterType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TransactionRefFactoryType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RefFilterType"));
 	}
 
 	/**
@@ -109,10 +109,10 @@ public class TransactionRefFactoryTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TransactionRefFactoryType)object).getName();
+		String label = ((RefFilterType)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TransactionRefFactoryType_type") :
-			getString("_UI_TransactionRefFactoryType_type") + " " + label;
+			getString("_UI_RefFilterType_type") :
+			getString("_UI_RefFilterType_type") + " " + label;
 	}
 
 	/**
@@ -126,8 +126,8 @@ public class TransactionRefFactoryTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TransactionRefFactoryType.class)) {
-			case CorePackage.TRANSACTION_REF_FACTORY_TYPE__REF:
+		switch (notification.getFeatureID(RefFilterType.class)) {
+			case CorePackage.REF_FILTER_TYPE__REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

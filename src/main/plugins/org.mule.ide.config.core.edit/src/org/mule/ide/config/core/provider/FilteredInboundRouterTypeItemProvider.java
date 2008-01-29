@@ -187,7 +187,7 @@ public class FilteredInboundRouterTypeItemProvider
 				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractFilterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Filter(),
-					 CoreFactory.eINSTANCE.createFilterRefType())));
+					 CoreFactory.eINSTANCE.createRefFilterType())));
 
 		newChildDescriptors.add
 			(createChildParameter

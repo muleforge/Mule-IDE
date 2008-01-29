@@ -105,8 +105,9 @@ public class MessagePropertiesTransformerTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getMessagePropertiesTransformerType_DeleteProperties());
-			childrenFeatures.add(CorePackage.eINSTANCE.getMessagePropertiesTransformerType_AddProperties());
+			childrenFeatures.add(CorePackage.eINSTANCE.getMessagePropertiesTransformerType_DeleteMessageProperty());
+			childrenFeatures.add(CorePackage.eINSTANCE.getMessagePropertiesTransformerType_AddMessageProperty());
+			childrenFeatures.add(CorePackage.eINSTANCE.getMessagePropertiesTransformerType_AddMessageProperties());
 		}
 		return childrenFeatures;
 	}
@@ -164,8 +165,9 @@ public class MessagePropertiesTransformerTypeItemProvider
 			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__OVERWRITE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_PROPERTIES:
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_PROPERTIES:
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_MESSAGE_PROPERTY:
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTY:
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -185,13 +187,46 @@ public class MessagePropertiesTransformerTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getMessagePropertiesTransformerType_DeleteProperties(),
-				 CoreFactory.eINSTANCE.createListOrSetType()));
+				(CorePackage.eINSTANCE.getMessagePropertiesTransformerType_DeleteMessageProperty(),
+				 CoreFactory.eINSTANCE.createKeyType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getMessagePropertiesTransformerType_AddProperties(),
+				(CorePackage.eINSTANCE.getMessagePropertiesTransformerType_DeleteMessageProperty(),
+				 CoreFactory.eINSTANCE.createKeyValueType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMessagePropertiesTransformerType_AddMessageProperty(),
+				 CoreFactory.eINSTANCE.createKeyValueType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMessagePropertiesTransformerType_AddMessageProperties(),
 				 CoreFactory.eINSTANCE.createMapType()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == CorePackage.eINSTANCE.getMessagePropertiesTransformerType_DeleteMessageProperty() ||
+			childFeature == CorePackage.eINSTANCE.getMessagePropertiesTransformerType_AddMessageProperty();
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

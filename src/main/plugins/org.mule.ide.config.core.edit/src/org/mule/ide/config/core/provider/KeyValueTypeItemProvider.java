@@ -15,28 +15,27 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.NoArgsCallComponentType;
+import org.mule.ide.config.core.KeyValueType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.NoArgsCallComponentType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.KeyValueType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NoArgsCallComponentTypeItemProvider
-	extends DefaultComponentTypeItemProvider
+public class KeyValueTypeItemProvider
+	extends KeyTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -49,7 +48,7 @@ public class NoArgsCallComponentTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NoArgsCallComponentTypeItemProvider(AdapterFactory adapterFactory) {
+	public KeyValueTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,50 +63,65 @@ public class NoArgsCallComponentTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addValuePropertyDescriptor(object);
+			addValueRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getNoArgsCallComponentType_DelegateClass());
-			childrenFeatures.add(CorePackage.eINSTANCE.getNoArgsCallComponentType_DelegateInstance());
-		}
-		return childrenFeatures;
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_KeyValueType_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_KeyValueType_value_feature", "_UI_KeyValueType_type"),
+				 CorePackage.eINSTANCE.getKeyValueType_Value(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This adds a property descriptor for the Value Ref feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addValueRefPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_KeyValueType_valueRef_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_KeyValueType_valueRef_feature", "_UI_KeyValueType_type"),
+				 CorePackage.eINSTANCE.getKeyValueType_ValueRef(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns NoArgsCallComponentType.gif.
+	 * This returns KeyValueType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NoArgsCallComponentType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/KeyValueType"));
 	}
 
 	/**
@@ -118,7 +132,10 @@ public class NoArgsCallComponentTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NoArgsCallComponentType_type");
+		String label = ((KeyValueType)object).getKey();
+		return label == null || label.length() == 0 ?
+			getString("_UI_KeyValueType_type") :
+			getString("_UI_KeyValueType_type") + " " + label;
 	}
 
 	/**
@@ -132,10 +149,10 @@ public class NoArgsCallComponentTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(NoArgsCallComponentType.class)) {
-			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_CLASS:
-			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE__DELEGATE_INSTANCE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(KeyValueType.class)) {
+			case CorePackage.KEY_VALUE_TYPE__VALUE:
+			case CorePackage.KEY_VALUE_TYPE__VALUE_REF:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -151,16 +168,6 @@ public class NoArgsCallComponentTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getNoArgsCallComponentType_DelegateClass(),
-				 CoreFactory.eINSTANCE.createNoArgsCallDelegateClassType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getNoArgsCallComponentType_DelegateInstance(),
-				 CoreFactory.eINSTANCE.createNoArgsCallDelegateInstanceType()));
 	}
 
 	/**

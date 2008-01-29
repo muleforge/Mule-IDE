@@ -15,6 +15,13 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,19 +30,20 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.FilterRefType;
+import org.mule.ide.config.core.MethodType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.FilterRefType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.MethodType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FilterRefTypeItemProvider
-	extends AbstractFilterTypeItemProvider
+public class MethodTypeItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -48,7 +56,7 @@ public class FilterRefTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FilterRefTypeItemProvider(AdapterFactory adapterFactory) {
+	public MethodTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,25 +71,25 @@ public class FilterRefTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRefPropertyDescriptor(object);
+			addMethodPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Ref feature.
+	 * This adds a property descriptor for the Method feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRefPropertyDescriptor(Object object) {
+	protected void addMethodPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FilterRefType_ref_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FilterRefType_ref_feature", "_UI_FilterRefType_type"),
-				 CorePackage.eINSTANCE.getFilterRefType_Ref(),
+				 getString("_UI_MethodType_method_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MethodType_method_feature", "_UI_MethodType_type"),
+				 CorePackage.eINSTANCE.getMethodType_Method(),
 				 true,
 				 false,
 				 false,
@@ -91,14 +99,14 @@ public class FilterRefTypeItemProvider
 	}
 
 	/**
-	 * This returns FilterRefType.gif.
+	 * This returns MethodType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/FilterRefType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MethodType"));
 	}
 
 	/**
@@ -109,10 +117,10 @@ public class FilterRefTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((FilterRefType)object).getName();
+		String label = ((MethodType)object).getMethod();
 		return label == null || label.length() == 0 ?
-			getString("_UI_FilterRefType_type") :
-			getString("_UI_FilterRefType_type") + " " + label;
+			getString("_UI_MethodType_type") :
+			getString("_UI_MethodType_type") + " " + label;
 	}
 
 	/**
@@ -126,8 +134,8 @@ public class FilterRefTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(FilterRefType.class)) {
-			case CorePackage.FILTER_REF_TYPE__REF:
+		switch (notification.getFeatureID(MethodType.class)) {
+			case CorePackage.METHOD_TYPE__METHOD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -144,6 +152,34 @@ public class FilterRefTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)child;
+			feature = entry.getEStructuralFeature();
+			child = entry.getValue();        
+		}
+
+		if (feature instanceof EReference && child instanceof EObject) {
+			String name = "full/obj16/" + ((EObject)child).eClass().getName();
+
+			try {
+				return getResourceLocator().getImage(name);
+			}
+			catch (Exception e) {
+				CoreEditPlugin.INSTANCE.log(e);
+			}
+		}
+
+		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

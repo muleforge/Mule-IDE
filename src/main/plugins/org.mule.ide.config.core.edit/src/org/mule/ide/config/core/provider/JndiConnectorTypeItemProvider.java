@@ -177,6 +177,7 @@ public class JndiConnectorTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(CorePackage.eINSTANCE.getJndiConnectorType_JndiProviderProperty());
 			childrenFeatures.add(CorePackage.eINSTANCE.getJndiConnectorType_JndiProviderProperties());
 		}
 		return childrenFeatures;
@@ -238,6 +239,7 @@ public class JndiConnectorTypeItemProvider
 			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_URL_PKG_PREFIXES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTY:
 			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -255,6 +257,11 @@ public class JndiConnectorTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getJndiConnectorType_JndiProviderProperty(),
+				 CoreFactory.eINSTANCE.createKeyValueType()));
 
 		newChildDescriptors.add
 			(createChildParameter

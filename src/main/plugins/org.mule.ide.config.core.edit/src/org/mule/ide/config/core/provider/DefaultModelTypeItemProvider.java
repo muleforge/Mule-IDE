@@ -139,7 +139,16 @@ public class DefaultModelTypeItemProvider
 		boolean qualify =
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomExceptionStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EntryPointResolverSet() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_LegacyEntryPointResolverSet() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ArrayEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NoArgumentsEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ReflectionEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MethodEntryPointResolver() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PropertyEntryPointResolver();
 
 		if (qualify) {
 			return getString

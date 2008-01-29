@@ -43,7 +43,7 @@ import org.mule.ide.config.spring.SpringFactory;
  * @generated
  */
 public class CustomConnectorTypeItemProvider
-	extends AbstractConnectorTypeItemProvider
+	extends ConnectorTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -72,9 +72,6 @@ public class CustomConnectorTypeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addClassPropertyDescriptor(object);
-			addCreateDispatcherPerRequestPropertyDescriptor(object);
-			addCreateMultipleTransactedReceiversPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -99,106 +96,6 @@ public class CustomConnectorTypeItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Create Dispatcher Per Request feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCreateDispatcherPerRequestPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CustomConnectorType_createDispatcherPerRequest_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CustomConnectorType_createDispatcherPerRequest_feature", "_UI_CustomConnectorType_type"),
-				 CorePackage.eINSTANCE.getCustomConnectorType_CreateDispatcherPerRequest(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Create Multiple Transacted Receivers feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCreateMultipleTransactedReceiversPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CustomConnectorType_createMultipleTransactedReceivers_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CustomConnectorType_createMultipleTransactedReceivers_feature", "_UI_CustomConnectorType_type"),
-				 CorePackage.eINSTANCE.getCustomConnectorType_CreateMultipleTransactedReceivers(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CustomConnectorType_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CustomConnectorType_name_feature", "_UI_CustomConnectorType_type"),
-				 CorePackage.eINSTANCE.getCustomConnectorType_Name(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getCustomConnectorType_Property());
-			childrenFeatures.add(CorePackage.eINSTANCE.getCustomConnectorType_ReceiverThreadingProfile());
-			childrenFeatures.add(CorePackage.eINSTANCE.getCustomConnectorType_DispatcherThreadingProfile());
-			childrenFeatures.add(CorePackage.eINSTANCE.getCustomConnectorType_AbstractExceptionStrategyGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getCustomConnectorType_ServiceOverrides());
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -239,17 +136,7 @@ public class CustomConnectorTypeItemProvider
 
 		switch (notification.getFeatureID(CustomConnectorType.class)) {
 			case CorePackage.CUSTOM_CONNECTOR_TYPE__CLASS:
-			case CorePackage.CUSTOM_CONNECTOR_TYPE__CREATE_DISPATCHER_PER_REQUEST:
-			case CorePackage.CUSTOM_CONNECTOR_TYPE__CREATE_MULTIPLE_TRANSACTED_RECEIVERS:
-			case CorePackage.CUSTOM_CONNECTOR_TYPE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case CorePackage.CUSTOM_CONNECTOR_TYPE__PROPERTY:
-			case CorePackage.CUSTOM_CONNECTOR_TYPE__RECEIVER_THREADING_PROFILE:
-			case CorePackage.CUSTOM_CONNECTOR_TYPE__DISPATCHER_THREADING_PROFILE:
-			case CorePackage.CUSTOM_CONNECTOR_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
-			case CorePackage.CUSTOM_CONNECTOR_TYPE__SERVICE_OVERRIDES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -265,61 +152,6 @@ public class CustomConnectorTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomConnectorType_Property(),
-				 SpringFactory.eINSTANCE.createPropertyType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomConnectorType_ReceiverThreadingProfile(),
-				 CoreFactory.eINSTANCE.createThreadingProfileType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomConnectorType_DispatcherThreadingProfile(),
-				 CoreFactory.eINSTANCE.createThreadingProfileType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomConnectorType_AbstractExceptionStrategyGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CustomExceptionStrategy(),
-					 CoreFactory.eINSTANCE.createCustomExceptionStrategyType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomConnectorType_AbstractExceptionStrategyGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy(),
-					 CoreFactory.eINSTANCE.createExceptionStrategyType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomConnectorType_AbstractExceptionStrategyGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy(),
-					 CoreFactory.eINSTANCE.createCustomExceptionStrategyType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomConnectorType_AbstractExceptionStrategyGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy(),
-					 CoreFactory.eINSTANCE.createExceptionStrategyType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomConnectorType_AbstractExceptionStrategyGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy(),
-					 CoreFactory.eINSTANCE.createCustomExceptionStrategyType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomConnectorType_ServiceOverrides(),
-				 CoreFactory.eINSTANCE.createServiceOverridesType()));
 	}
 
 	/**
@@ -340,8 +172,8 @@ public class CustomConnectorTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getCustomConnectorType_ReceiverThreadingProfile() ||
-			childFeature == CorePackage.eINSTANCE.getCustomConnectorType_DispatcherThreadingProfile() ||
+			childFeature == CorePackage.eINSTANCE.getConnectorType_ReceiverThreadingProfile() ||
+			childFeature == CorePackage.eINSTANCE.getConnectorType_DispatcherThreadingProfile() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomExceptionStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy();

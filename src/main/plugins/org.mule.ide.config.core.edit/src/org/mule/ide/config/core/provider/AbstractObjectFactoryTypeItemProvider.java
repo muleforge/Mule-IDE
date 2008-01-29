@@ -85,6 +85,7 @@ public class AbstractObjectFactoryTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(CorePackage.eINSTANCE.getAbstractObjectFactoryType_Property());
 			childrenFeatures.add(CorePackage.eINSTANCE.getAbstractObjectFactoryType_Properties());
 		}
 		return childrenFeatures;
@@ -137,6 +138,7 @@ public class AbstractObjectFactoryTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AbstractObjectFactoryType.class)) {
+			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTY:
 			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -154,6 +156,11 @@ public class AbstractObjectFactoryTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAbstractObjectFactoryType_Property(),
+				 CoreFactory.eINSTANCE.createKeyValueType()));
 
 		newChildDescriptors.add
 			(createChildParameter

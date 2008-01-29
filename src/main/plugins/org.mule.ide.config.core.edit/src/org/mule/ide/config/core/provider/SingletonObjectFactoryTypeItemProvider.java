@@ -64,7 +64,6 @@ public class SingletonObjectFactoryTypeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addClassPropertyDescriptor(object);
-			addInstanceRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,28 +82,6 @@ public class SingletonObjectFactoryTypeItemProvider
 				 getString("_UI_SingletonObjectFactoryType_class_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SingletonObjectFactoryType_class_feature", "_UI_SingletonObjectFactoryType_type"),
 				 CorePackage.eINSTANCE.getSingletonObjectFactoryType_Class(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Instance Ref feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInstanceRefPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SingletonObjectFactoryType_instanceRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingletonObjectFactoryType_instanceRef_feature", "_UI_SingletonObjectFactoryType_type"),
-				 CorePackage.eINSTANCE.getSingletonObjectFactoryType_InstanceRef(),
 				 true,
 				 false,
 				 false,
@@ -151,7 +128,6 @@ public class SingletonObjectFactoryTypeItemProvider
 
 		switch (notification.getFeatureID(SingletonObjectFactoryType.class)) {
 			case CorePackage.SINGLETON_OBJECT_FACTORY_TYPE__CLASS:
-			case CorePackage.SINGLETON_OBJECT_FACTORY_TYPE__INSTANCE_REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

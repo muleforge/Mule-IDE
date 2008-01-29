@@ -15,11 +15,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,20 +23,19 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.NoArgsCallDelegateClassType;
+import org.mule.ide.config.core.RefTransformerType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.NoArgsCallDelegateClassType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.RefTransformerType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NoArgsCallDelegateClassTypeItemProvider
-	extends ItemProviderAdapter
+public class RefTransformerTypeItemProvider
+	extends AbstractTransformerTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -54,7 +48,7 @@ public class NoArgsCallDelegateClassTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NoArgsCallDelegateClassTypeItemProvider(AdapterFactory adapterFactory) {
+	public RefTransformerTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,26 +63,25 @@ public class NoArgsCallDelegateClassTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addClassPropertyDescriptor(object);
-			addMethodPropertyDescriptor(object);
+			addRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Class feature.
+	 * This adds a property descriptor for the Ref feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClassPropertyDescriptor(Object object) {
+	protected void addRefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NoArgsCallDelegateClassType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NoArgsCallDelegateClassType_class_feature", "_UI_NoArgsCallDelegateClassType_type"),
-				 CorePackage.eINSTANCE.getNoArgsCallDelegateClassType_Class(),
+				 getString("_UI_RefTransformerType_ref_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RefTransformerType_ref_feature", "_UI_RefTransformerType_type"),
+				 CorePackage.eINSTANCE.getRefTransformerType_Ref(),
 				 true,
 				 false,
 				 false,
@@ -98,36 +91,14 @@ public class NoArgsCallDelegateClassTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Method feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMethodPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_NoArgsCallDelegateClassType_method_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NoArgsCallDelegateClassType_method_feature", "_UI_NoArgsCallDelegateClassType_type"),
-				 CorePackage.eINSTANCE.getNoArgsCallDelegateClassType_Method(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns NoArgsCallDelegateClassType.gif.
+	 * This returns RefTransformerType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NoArgsCallDelegateClassType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RefTransformerType"));
 	}
 
 	/**
@@ -138,10 +109,10 @@ public class NoArgsCallDelegateClassTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NoArgsCallDelegateClassType)object).getClass_();
+		String label = ((RefTransformerType)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NoArgsCallDelegateClassType_type") :
-			getString("_UI_NoArgsCallDelegateClassType_type") + " " + label;
+			getString("_UI_RefTransformerType_type") :
+			getString("_UI_RefTransformerType_type") + " " + label;
 	}
 
 	/**
@@ -155,9 +126,8 @@ public class NoArgsCallDelegateClassTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(NoArgsCallDelegateClassType.class)) {
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__CLASS:
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE__METHOD:
+		switch (notification.getFeatureID(RefTransformerType.class)) {
+			case CorePackage.REF_TRANSFORMER_TYPE__REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -174,34 +144,6 @@ public class NoArgsCallDelegateClassTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
-		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)child;
-			feature = entry.getEStructuralFeature();
-			child = entry.getValue();        
-		}
-
-		if (feature instanceof EReference && child instanceof EObject) {
-			String name = "full/obj16/" + ((EObject)child).eClass().getName();
-
-			try {
-				return getResourceLocator().getImage(name);
-			}
-			catch (Exception e) {
-				CoreEditPlugin.INSTANCE.log(e);
-			}
-		}
-
-		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

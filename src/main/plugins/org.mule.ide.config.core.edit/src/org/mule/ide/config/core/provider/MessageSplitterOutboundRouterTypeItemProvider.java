@@ -183,31 +183,31 @@ public class MessageSplitterOutboundRouterTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Decoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Encoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToHexString() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToObject() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToSerializable() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToString() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerDecrypt() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerEncrypt() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerGzipCompress() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerGzipUncompress() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerHexStingToByteArray() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerNoAction() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerObjectToByteArray() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerObjectToString() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerSerializableToByteArray() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerStringToByteArray() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerUcDecoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerUcEncoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerUuDecoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerUuEncoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityDecoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityEncoder() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_TransformerMessageProperties();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transformer();
 
 		if (qualify) {
 			return getString

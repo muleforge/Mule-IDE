@@ -73,7 +73,8 @@ public class ConnectorTypeItemProvider
 
 			addCreateDispatcherPerRequestPropertyDescriptor(object);
 			addCreateMultipleTransactedReceiversPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
+			addDynamicNotificationPropertyDescriptor(object);
+			addNumberOfConcurrentTransactedReceiversPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -123,23 +124,45 @@ public class ConnectorTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Dynamic Notification feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addDynamicNotificationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConnectorType_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConnectorType_name_feature", "_UI_ConnectorType_type"),
-				 CorePackage.eINSTANCE.getConnectorType_Name(),
+				 getString("_UI_ConnectorType_dynamicNotification_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConnectorType_dynamicNotification_feature", "_UI_ConnectorType_type"),
+				 CorePackage.eINSTANCE.getConnectorType_DynamicNotification(),
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Number Of Concurrent Transacted Receivers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNumberOfConcurrentTransactedReceiversPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConnectorType_numberOfConcurrentTransactedReceivers_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConnectorType_numberOfConcurrentTransactedReceivers_feature", "_UI_ConnectorType_type"),
+				 CorePackage.eINSTANCE.getConnectorType_NumberOfConcurrentTransactedReceivers(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -217,7 +240,8 @@ public class ConnectorTypeItemProvider
 		switch (notification.getFeatureID(ConnectorType.class)) {
 			case CorePackage.CONNECTOR_TYPE__CREATE_DISPATCHER_PER_REQUEST:
 			case CorePackage.CONNECTOR_TYPE__CREATE_MULTIPLE_TRANSACTED_RECEIVERS:
-			case CorePackage.CONNECTOR_TYPE__NAME:
+			case CorePackage.CONNECTOR_TYPE__DYNAMIC_NOTIFICATION:
+			case CorePackage.CONNECTOR_TYPE__NUMBER_OF_CONCURRENT_TRANSACTED_RECEIVERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CorePackage.CONNECTOR_TYPE__PROPERTY:

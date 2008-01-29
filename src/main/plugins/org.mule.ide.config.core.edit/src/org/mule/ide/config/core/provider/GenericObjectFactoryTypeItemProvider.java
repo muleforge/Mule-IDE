@@ -15,8 +15,11 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -26,6 +29,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -40,7 +44,7 @@ import org.mule.ide.config.core.GenericObjectFactoryType;
  * @generated
  */
 public class GenericObjectFactoryTypeItemProvider
-	extends AbstractObjectFactoryTypeItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -68,100 +72,8 @@ public class GenericObjectFactoryTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addClassPropertyDescriptor(object);
-			addFactoryRefPropertyDescriptor(object);
-			addInstanceRefPropertyDescriptor(object);
-			addScopePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Class feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addClassPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GenericObjectFactoryType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GenericObjectFactoryType_class_feature", "_UI_GenericObjectFactoryType_type"),
-				 CorePackage.eINSTANCE.getGenericObjectFactoryType_Class(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Factory Ref feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFactoryRefPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GenericObjectFactoryType_factoryRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GenericObjectFactoryType_factoryRef_feature", "_UI_GenericObjectFactoryType_type"),
-				 CorePackage.eINSTANCE.getGenericObjectFactoryType_FactoryRef(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Instance Ref feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInstanceRefPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GenericObjectFactoryType_instanceRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GenericObjectFactoryType_instanceRef_feature", "_UI_GenericObjectFactoryType_type"),
-				 CorePackage.eINSTANCE.getGenericObjectFactoryType_InstanceRef(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Scope feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addScopePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GenericObjectFactoryType_scope_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GenericObjectFactoryType_scope_feature", "_UI_GenericObjectFactoryType_type"),
-				 CorePackage.eINSTANCE.getGenericObjectFactoryType_Scope(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -176,7 +88,7 @@ public class GenericObjectFactoryTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractPoolingProfileGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractObjectFactoryGroup());
 		}
 		return childrenFeatures;
 	}
@@ -213,10 +125,7 @@ public class GenericObjectFactoryTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GenericObjectFactoryType)object).getClass_();
-		return label == null || label.length() == 0 ?
-			getString("_UI_GenericObjectFactoryType_type") :
-			getString("_UI_GenericObjectFactoryType_type") + " " + label;
+		return getString("_UI_GenericObjectFactoryType_type");
 	}
 
 	/**
@@ -231,13 +140,7 @@ public class GenericObjectFactoryTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GenericObjectFactoryType.class)) {
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__CLASS:
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__FACTORY_REF:
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__INSTANCE_REF:
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__SCOPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_POOLING_PROFILE_GROUP:
+			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -257,10 +160,59 @@ public class GenericObjectFactoryTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractPoolingProfileGroup(),
+				(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractObjectFactoryGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_PoolingProfile(),
-					 CoreFactory.eINSTANCE.createPoolingProfileType())));
+					(CorePackage.eINSTANCE.getDocumentRoot_PooledObject(),
+					 CoreFactory.eINSTANCE.createPooledObjectFactoryType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractObjectFactoryGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_PrototypeObject(),
+					 CoreFactory.eINSTANCE.createPrototypeObjectFactoryType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractObjectFactoryGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_SingletonObject(),
+					 CoreFactory.eINSTANCE.createSingletonObjectFactoryType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractObjectFactoryGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_SpringObject(),
+					 CoreFactory.eINSTANCE.createSpringBeanLookupType())));
+	}
+
+	/**
+	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)child;
+			feature = entry.getEStructuralFeature();
+			child = entry.getValue();        
+		}
+
+		if (feature instanceof EReference && child instanceof EObject) {
+			String name = "full/obj16/" + ((EObject)child).eClass().getName();
+
+			try {
+				return getResourceLocator().getImage(name);
+			}
+			catch (Exception e) {
+				CoreEditPlugin.INSTANCE.log(e);
+			}
+		}
+
+		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

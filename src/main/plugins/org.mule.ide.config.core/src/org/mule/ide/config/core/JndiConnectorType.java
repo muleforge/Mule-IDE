@@ -6,6 +6,8 @@
  */
 package org.mule.ide.config.core;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +17,7 @@ package org.mule.ide.config.core;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.mule.ide.config.core.JndiConnectorType#getJndiProviderProperty <em>Jndi Provider Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.JndiConnectorType#getJndiProviderProperties <em>Jndi Provider Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.JndiConnectorType#getJndiContextRef <em>Jndi Context Ref</em>}</li>
  *   <li>{@link org.mule.ide.config.core.JndiConnectorType#getJndiInitialFactory <em>Jndi Initial Factory</em>}</li>
@@ -29,12 +32,31 @@ package org.mule.ide.config.core;
  */
 public interface JndiConnectorType extends ConnectorType {
 	/**
+	 * Returns the value of the '<em><b>Jndi Provider Property</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.core.KeyValueType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 Direct setting of a JNDI property.
+	 *                             
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Jndi Provider Property</em>' containment reference list.
+	 * @see org.mule.ide.config.core.CorePackage#getJndiConnectorType_JndiProviderProperty()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='jndi-provider-property' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<KeyValueType> getJndiProviderProperty();
+
+	/**
 	 * Returns the value of the '<em><b>Jndi Provider Properties</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                                 Direct setting of JNDI properties.
+	 *                                 Direct setting of JNDI properties
+	 *                                 (this allows access to the full Spring map entry).
 	 *                             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jndi Provider Properties</em>' containment reference.

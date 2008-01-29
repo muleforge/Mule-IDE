@@ -37,7 +37,7 @@ public class TransactionManagerTypeImpl extends AbstractTransactionManagerTypeIm
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object NAME_EDEFAULT = "transactionManagerFactory";
+	protected static final String NAME_EDEFAULT = "transactionManagerFactory";
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -47,7 +47,7 @@ public class TransactionManagerTypeImpl extends AbstractTransactionManagerTypeIm
 	 * @generated
 	 * @ordered
 	 */
-	protected Object name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * This is true if the Name attribute has been set.
@@ -82,7 +82,7 @@ public class TransactionManagerTypeImpl extends AbstractTransactionManagerTypeIm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getName() {
+	public String getName() {
 		return name;
 	}
 
@@ -91,8 +91,8 @@ public class TransactionManagerTypeImpl extends AbstractTransactionManagerTypeIm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(Object newName) {
-		Object oldName = name;
+	public void setName(String newName) {
+		String oldName = name;
 		name = newName;
 		boolean oldNameESet = nameESet;
 		nameESet = true;
@@ -106,7 +106,7 @@ public class TransactionManagerTypeImpl extends AbstractTransactionManagerTypeIm
 	 * @generated
 	 */
 	public void unsetName() {
-		Object oldName = name;
+		String oldName = name;
 		boolean oldNameESet = nameESet;
 		name = NAME_EDEFAULT;
 		nameESet = false;
@@ -146,7 +146,7 @@ public class TransactionManagerTypeImpl extends AbstractTransactionManagerTypeIm
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CorePackage.TRANSACTION_MANAGER_TYPE__NAME:
-				setName(newValue);
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

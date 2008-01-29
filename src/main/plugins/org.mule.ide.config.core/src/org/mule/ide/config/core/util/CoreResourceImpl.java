@@ -20,7 +20,8 @@ import org.mule.ide.config.common.impl.SyncResourceImpl;
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
  * @see org.mule.ide.config.core.util.CoreResourceFactoryImpl
- * @generated
+ * customization
+ *   - use SyncResourceImpl
  */
 public class CoreResourceImpl extends SyncResourceImpl {
 	/**

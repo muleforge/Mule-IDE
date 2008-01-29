@@ -29,7 +29,6 @@ import org.mule.ide.config.core.AbstractFilterType;
 import org.mule.ide.config.core.AbstractGlobalEndpointType;
 import org.mule.ide.config.core.AbstractModelType;
 import org.mule.ide.config.core.AbstractSecurityManagerType;
-import org.mule.ide.config.core.AbstractTransactionFactoryType;
 import org.mule.ide.config.core.AbstractTransactionManagerType;
 import org.mule.ide.config.core.AbstractTransformerType;
 import org.mule.ide.config.core.AdminAgentType;
@@ -59,8 +58,6 @@ import org.mule.ide.config.core.NotificationManagerType;
  *   <li>{@link org.mule.ide.config.core.impl.MuleUnsafeTypeImpl#getAbstractSecurityManager <em>Abstract Security Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleUnsafeTypeImpl#getAbstractTransactionManagerGroup <em>Abstract Transaction Manager Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleUnsafeTypeImpl#getAbstractTransactionManager <em>Abstract Transaction Manager</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.MuleUnsafeTypeImpl#getAbstractTransactionFactoryGroup <em>Abstract Transaction Factory Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.MuleUnsafeTypeImpl#getAbstractTransactionFactory <em>Abstract Transaction Factory</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleUnsafeTypeImpl#getAbstractConnectorGroup <em>Abstract Connector Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleUnsafeTypeImpl#getAbstractConnector <em>Abstract Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleUnsafeTypeImpl#getAbstractGlobalEndpointGroup <em>Abstract Global Endpoint Group</em>}</li>
@@ -244,24 +241,6 @@ public class MuleUnsafeTypeImpl extends EObjectImpl implements MuleUnsafeType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getAbstractTransactionFactoryGroup() {
-		return (FeatureMap)getGroup().<FeatureMap.Entry>list(CorePackage.eINSTANCE.getMuleUnsafeType_AbstractTransactionFactoryGroup());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<AbstractTransactionFactoryType> getAbstractTransactionFactory() {
-		return getAbstractTransactionFactoryGroup().list(CorePackage.eINSTANCE.getMuleUnsafeType_AbstractTransactionFactory());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public FeatureMap getAbstractConnectorGroup() {
 		return (FeatureMap)getGroup().<FeatureMap.Entry>list(CorePackage.eINSTANCE.getMuleUnsafeType_AbstractConnectorGroup());
 	}
@@ -409,10 +388,6 @@ public class MuleUnsafeTypeImpl extends EObjectImpl implements MuleUnsafeType {
 				return ((InternalEList<?>)getAbstractTransactionManagerGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_MANAGER:
 				return ((InternalEList<?>)getAbstractTransactionManager()).basicRemove(otherEnd, msgs);
-			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_FACTORY_GROUP:
-				return ((InternalEList<?>)getAbstractTransactionFactoryGroup()).basicRemove(otherEnd, msgs);
-			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_FACTORY:
-				return ((InternalEList<?>)getAbstractTransactionFactory()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_CONNECTOR_GROUP:
 				return ((InternalEList<?>)getAbstractConnectorGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_CONNECTOR:
@@ -475,11 +450,6 @@ public class MuleUnsafeTypeImpl extends EObjectImpl implements MuleUnsafeType {
 				return ((FeatureMap.Internal)getAbstractTransactionManagerGroup()).getWrapper();
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_MANAGER:
 				return getAbstractTransactionManager();
-			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_FACTORY_GROUP:
-				if (coreType) return getAbstractTransactionFactoryGroup();
-				return ((FeatureMap.Internal)getAbstractTransactionFactoryGroup()).getWrapper();
-			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_FACTORY:
-				return getAbstractTransactionFactory();
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_CONNECTOR_GROUP:
 				if (coreType) return getAbstractConnectorGroup();
 				return ((FeatureMap.Internal)getAbstractConnectorGroup()).getWrapper();
@@ -555,9 +525,6 @@ public class MuleUnsafeTypeImpl extends EObjectImpl implements MuleUnsafeType {
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_MANAGER_GROUP:
 				((FeatureMap.Internal)getAbstractTransactionManagerGroup()).set(newValue);
 				return;
-			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_FACTORY_GROUP:
-				((FeatureMap.Internal)getAbstractTransactionFactoryGroup()).set(newValue);
-				return;
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_CONNECTOR_GROUP:
 				((FeatureMap.Internal)getAbstractConnectorGroup()).set(newValue);
 				return;
@@ -618,9 +585,6 @@ public class MuleUnsafeTypeImpl extends EObjectImpl implements MuleUnsafeType {
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_MANAGER_GROUP:
 				getAbstractTransactionManagerGroup().clear();
 				return;
-			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_FACTORY_GROUP:
-				getAbstractTransactionFactoryGroup().clear();
-				return;
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_CONNECTOR_GROUP:
 				getAbstractConnectorGroup().clear();
 				return;
@@ -678,10 +642,6 @@ public class MuleUnsafeTypeImpl extends EObjectImpl implements MuleUnsafeType {
 				return !getAbstractTransactionManagerGroup().isEmpty();
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_MANAGER:
 				return !getAbstractTransactionManager().isEmpty();
-			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_FACTORY_GROUP:
-				return !getAbstractTransactionFactoryGroup().isEmpty();
-			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_FACTORY:
-				return !getAbstractTransactionFactory().isEmpty();
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_CONNECTOR_GROUP:
 				return !getAbstractConnectorGroup().isEmpty();
 			case CorePackage.MULE_UNSAFE_TYPE__ABSTRACT_CONNECTOR:

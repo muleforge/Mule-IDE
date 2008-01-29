@@ -21,7 +21,8 @@ import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.mule.ide.config.core.AbstractEntrypointResolverType;
+import org.mule.ide.config.core.AbstractEntryPointResolverSetType;
+import org.mule.ide.config.core.AbstractEntryPointResolverType;
 import org.mule.ide.config.core.AbstractExceptionStrategyType;
 import org.mule.ide.config.core.AbstractModelType;
 import org.mule.ide.config.core.AbstractServiceType;
@@ -36,8 +37,10 @@ import org.mule.ide.config.core.CorePackage;
  * <ul>
  *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractExceptionStrategyGroup <em>Abstract Exception Strategy Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractExceptionStrategy <em>Abstract Exception Strategy</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractEntrypointResolverGroup <em>Abstract Entrypoint Resolver Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractEntrypointResolver <em>Abstract Entrypoint Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractEntryPointResolverSetGroup <em>Abstract Entry Point Resolver Set Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractEntryPointResolverSet <em>Abstract Entry Point Resolver Set</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractEntryPointResolverGroup <em>Abstract Entry Point Resolver Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractEntryPointResolver <em>Abstract Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractServiceGroup <em>Abstract Service Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractService <em>Abstract Service</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getClass_ <em>Class</em>}</li>
@@ -59,14 +62,24 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 	protected FeatureMap abstractExceptionStrategyGroup;
 
 	/**
-	 * The cached value of the '{@link #getAbstractEntrypointResolverGroup() <em>Abstract Entrypoint Resolver Group</em>}' attribute list.
+	 * The cached value of the '{@link #getAbstractEntryPointResolverSetGroup() <em>Abstract Entry Point Resolver Set Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbstractEntrypointResolverGroup()
+	 * @see #getAbstractEntryPointResolverSetGroup()
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap abstractEntrypointResolverGroup;
+	protected FeatureMap abstractEntryPointResolverSetGroup;
+
+	/**
+	 * The cached value of the '{@link #getAbstractEntryPointResolverGroup() <em>Abstract Entry Point Resolver Group</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAbstractEntryPointResolverGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected FeatureMap abstractEntryPointResolverGroup;
 
 	/**
 	 * The cached value of the '{@link #getAbstractServiceGroup() <em>Abstract Service Group</em>}' attribute list.
@@ -172,11 +185,11 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getAbstractEntrypointResolverGroup() {
-		if (abstractEntrypointResolverGroup == null) {
-			abstractEntrypointResolverGroup = new BasicFeatureMap(this, CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRYPOINT_RESOLVER_GROUP);
+	public FeatureMap getAbstractEntryPointResolverSetGroup() {
+		if (abstractEntryPointResolverSetGroup == null) {
+			abstractEntryPointResolverSetGroup = new BasicFeatureMap(this, CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_SET_GROUP);
 		}
-		return abstractEntrypointResolverGroup;
+		return abstractEntryPointResolverSetGroup;
 	}
 
 	/**
@@ -184,8 +197,8 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractEntrypointResolverType getAbstractEntrypointResolver() {
-		return (AbstractEntrypointResolverType)getAbstractEntrypointResolverGroup().get(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntrypointResolver(), true);
+	public AbstractEntryPointResolverSetType getAbstractEntryPointResolverSet() {
+		return (AbstractEntryPointResolverSetType)getAbstractEntryPointResolverSetGroup().get(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverSet(), true);
 	}
 
 	/**
@@ -193,8 +206,38 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAbstractEntrypointResolver(AbstractEntrypointResolverType newAbstractEntrypointResolver, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getAbstractEntrypointResolverGroup()).basicAdd(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntrypointResolver(), newAbstractEntrypointResolver, msgs);
+	public NotificationChain basicSetAbstractEntryPointResolverSet(AbstractEntryPointResolverSetType newAbstractEntryPointResolverSet, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getAbstractEntryPointResolverSetGroup()).basicAdd(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolverSet(), newAbstractEntryPointResolverSet, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureMap getAbstractEntryPointResolverGroup() {
+		if (abstractEntryPointResolverGroup == null) {
+			abstractEntryPointResolverGroup = new BasicFeatureMap(this, CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_GROUP);
+		}
+		return abstractEntryPointResolverGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractEntryPointResolverType getAbstractEntryPointResolver() {
+		return (AbstractEntryPointResolverType)getAbstractEntryPointResolverGroup().get(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolver(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAbstractEntryPointResolver(AbstractEntryPointResolverType newAbstractEntryPointResolver, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getAbstractEntryPointResolverGroup()).basicAdd(CorePackage.eINSTANCE.getAbstractModelType_AbstractEntryPointResolver(), newAbstractEntryPointResolver, msgs);
 	}
 
 	/**
@@ -272,10 +315,14 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 				return ((InternalEList<?>)getAbstractExceptionStrategyGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_EXCEPTION_STRATEGY:
 				return basicSetAbstractExceptionStrategy(null, msgs);
-			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRYPOINT_RESOLVER_GROUP:
-				return ((InternalEList<?>)getAbstractEntrypointResolverGroup()).basicRemove(otherEnd, msgs);
-			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRYPOINT_RESOLVER:
-				return basicSetAbstractEntrypointResolver(null, msgs);
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_SET_GROUP:
+				return ((InternalEList<?>)getAbstractEntryPointResolverSetGroup()).basicRemove(otherEnd, msgs);
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_SET:
+				return basicSetAbstractEntryPointResolverSet(null, msgs);
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_GROUP:
+				return ((InternalEList<?>)getAbstractEntryPointResolverGroup()).basicRemove(otherEnd, msgs);
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER:
+				return basicSetAbstractEntryPointResolver(null, msgs);
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE_GROUP:
 				return ((InternalEList<?>)getAbstractServiceGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE:
@@ -297,11 +344,16 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 				return ((FeatureMap.Internal)getAbstractExceptionStrategyGroup()).getWrapper();
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_EXCEPTION_STRATEGY:
 				return getAbstractExceptionStrategy();
-			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRYPOINT_RESOLVER_GROUP:
-				if (coreType) return getAbstractEntrypointResolverGroup();
-				return ((FeatureMap.Internal)getAbstractEntrypointResolverGroup()).getWrapper();
-			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRYPOINT_RESOLVER:
-				return getAbstractEntrypointResolver();
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_SET_GROUP:
+				if (coreType) return getAbstractEntryPointResolverSetGroup();
+				return ((FeatureMap.Internal)getAbstractEntryPointResolverSetGroup()).getWrapper();
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_SET:
+				return getAbstractEntryPointResolverSet();
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_GROUP:
+				if (coreType) return getAbstractEntryPointResolverGroup();
+				return ((FeatureMap.Internal)getAbstractEntryPointResolverGroup()).getWrapper();
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER:
+				return getAbstractEntryPointResolver();
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE_GROUP:
 				if (coreType) return getAbstractServiceGroup();
 				return ((FeatureMap.Internal)getAbstractServiceGroup()).getWrapper();
@@ -326,8 +378,11 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
 				((FeatureMap.Internal)getAbstractExceptionStrategyGroup()).set(newValue);
 				return;
-			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRYPOINT_RESOLVER_GROUP:
-				((FeatureMap.Internal)getAbstractEntrypointResolverGroup()).set(newValue);
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_SET_GROUP:
+				((FeatureMap.Internal)getAbstractEntryPointResolverSetGroup()).set(newValue);
+				return;
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_GROUP:
+				((FeatureMap.Internal)getAbstractEntryPointResolverGroup()).set(newValue);
 				return;
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE_GROUP:
 				((FeatureMap.Internal)getAbstractServiceGroup()).set(newValue);
@@ -353,8 +408,11 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
 				getAbstractExceptionStrategyGroup().clear();
 				return;
-			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRYPOINT_RESOLVER_GROUP:
-				getAbstractEntrypointResolverGroup().clear();
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_SET_GROUP:
+				getAbstractEntryPointResolverSetGroup().clear();
+				return;
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_GROUP:
+				getAbstractEntryPointResolverGroup().clear();
 				return;
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE_GROUP:
 				getAbstractServiceGroup().clear();
@@ -381,10 +439,14 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 				return abstractExceptionStrategyGroup != null && !abstractExceptionStrategyGroup.isEmpty();
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_EXCEPTION_STRATEGY:
 				return getAbstractExceptionStrategy() != null;
-			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRYPOINT_RESOLVER_GROUP:
-				return abstractEntrypointResolverGroup != null && !abstractEntrypointResolverGroup.isEmpty();
-			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRYPOINT_RESOLVER:
-				return getAbstractEntrypointResolver() != null;
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_SET_GROUP:
+				return abstractEntryPointResolverSetGroup != null && !abstractEntryPointResolverSetGroup.isEmpty();
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_SET:
+				return getAbstractEntryPointResolverSet() != null;
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER_GROUP:
+				return abstractEntryPointResolverGroup != null && !abstractEntryPointResolverGroup.isEmpty();
+			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_ENTRY_POINT_RESOLVER:
+				return getAbstractEntryPointResolver() != null;
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE_GROUP:
 				return abstractServiceGroup != null && !abstractServiceGroup.isEmpty();
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE:
@@ -409,8 +471,10 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (abstractExceptionStrategyGroup: ");
 		result.append(abstractExceptionStrategyGroup);
-		result.append(", abstractEntrypointResolverGroup: ");
-		result.append(abstractEntrypointResolverGroup);
+		result.append(", abstractEntryPointResolverSetGroup: ");
+		result.append(abstractEntryPointResolverSetGroup);
+		result.append(", abstractEntryPointResolverGroup: ");
+		result.append(abstractEntryPointResolverGroup);
 		result.append(", abstractServiceGroup: ");
 		result.append(abstractServiceGroup);
 		result.append(", class: ");

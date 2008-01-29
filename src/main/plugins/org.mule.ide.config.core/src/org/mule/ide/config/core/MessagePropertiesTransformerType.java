@@ -6,6 +6,8 @@
  */
 package org.mule.ide.config.core;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -15,8 +17,9 @@ package org.mule.ide.config.core;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.MessagePropertiesTransformerType#getDeleteProperties <em>Delete Properties</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MessagePropertiesTransformerType#getAddProperties <em>Add Properties</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.MessagePropertiesTransformerType#getDeleteMessageProperty <em>Delete Message Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.MessagePropertiesTransformerType#getAddMessageProperty <em>Add Message Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.MessagePropertiesTransformerType#getAddMessageProperties <em>Add Message Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MessagePropertiesTransformerType#isOverwrite <em>Overwrite</em>}</li>
  * </ul>
  * </p>
@@ -27,58 +30,65 @@ package org.mule.ide.config.core;
  */
 public interface MessagePropertiesTransformerType extends AbstractTransformerType {
 	/**
-	 * Returns the value of the '<em><b>Delete Properties</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Delete Message Property</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.core.KeyType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Delete Properties</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Delete Message Property</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Delete Properties</em>' containment reference.
-	 * @see #setDeleteProperties(ListOrSetType)
-	 * @see org.mule.ide.config.core.CorePackage#getMessagePropertiesTransformerType_DeleteProperties()
+	 * @return the value of the '<em>Delete Message Property</em>' containment reference list.
+	 * @see org.mule.ide.config.core.CorePackage#getMessagePropertiesTransformerType_DeleteMessageProperty()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='delete-properties' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='delete-message-property' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ListOrSetType getDeleteProperties();
+	EList<KeyType> getDeleteMessageProperty();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MessagePropertiesTransformerType#getDeleteProperties <em>Delete Properties</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Delete Properties</em>' containment reference.
-	 * @see #getDeleteProperties()
-	 * @generated
-	 */
-	void setDeleteProperties(ListOrSetType value);
-
-	/**
-	 * Returns the value of the '<em><b>Add Properties</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Add Message Property</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.core.KeyValueType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Add Properties</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Add Message Property</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Add Properties</em>' containment reference.
-	 * @see #setAddProperties(MapType)
-	 * @see org.mule.ide.config.core.CorePackage#getMessagePropertiesTransformerType_AddProperties()
+	 * @return the value of the '<em>Add Message Property</em>' containment reference list.
+	 * @see org.mule.ide.config.core.CorePackage#getMessagePropertiesTransformerType_AddMessageProperty()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='add-properties' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='add-message-property' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MapType getAddProperties();
+	EList<KeyValueType> getAddMessageProperty();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MessagePropertiesTransformerType#getAddProperties <em>Add Properties</em>}' containment reference.
+	 * Returns the value of the '<em><b>Add Message Properties</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Add Message Properties</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Add Properties</em>' containment reference.
-	 * @see #getAddProperties()
+	 * @return the value of the '<em>Add Message Properties</em>' containment reference.
+	 * @see #setAddMessageProperties(MapType)
+	 * @see org.mule.ide.config.core.CorePackage#getMessagePropertiesTransformerType_AddMessageProperties()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='add-message-properties' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setAddProperties(MapType value);
+	MapType getAddMessageProperties();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.MessagePropertiesTransformerType#getAddMessageProperties <em>Add Message Properties</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Add Message Properties</em>' containment reference.
+	 * @see #getAddMessageProperties()
+	 * @generated
+	 */
+	void setAddMessageProperties(MapType value);
 
 	/**
 	 * Returns the value of the '<em><b>Overwrite</b></em>' attribute.

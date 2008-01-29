@@ -28,7 +28,8 @@ import org.mule.ide.config.spring.PropertyType;
  *   <li>{@link org.mule.ide.config.core.ConnectorType#getServiceOverrides <em>Service Overrides</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ConnectorType#isCreateDispatcherPerRequest <em>Create Dispatcher Per Request</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ConnectorType#isCreateMultipleTransactedReceivers <em>Create Multiple Transacted Receivers</em>}</li>
- *   <li>{@link org.mule.ide.config.core.ConnectorType#getName <em>Name</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ConnectorType#isDynamicNotification <em>Dynamic Notification</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ConnectorType#getNumberOfConcurrentTransactedReceivers <em>Number Of Concurrent Transacted Receivers</em>}</li>
  * </ul>
  * </p>
  *
@@ -281,30 +282,111 @@ public interface ConnectorType extends AbstractConnectorType {
 	boolean isSetCreateMultipleTransactedReceivers();
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Dynamic Notification</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Dynamic Notification</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.mule.ide.config.core.CorePackage#getConnectorType_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='name'"
+	 * @return the value of the '<em>Dynamic Notification</em>' attribute.
+	 * @see #isSetDynamicNotification()
+	 * @see #unsetDynamicNotification()
+	 * @see #setDynamicNotification(boolean)
+	 * @see org.mule.ide.config.core.CorePackage#getConnectorType_DynamicNotification()
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableBoolean"
+	 *        extendedMetaData="kind='attribute' name='dynamicNotification'"
 	 * @generated
 	 */
-	String getName();
+	boolean isDynamicNotification();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.ConnectorType#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.ConnectorType#isDynamicNotification <em>Dynamic Notification</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Dynamic Notification</em>' attribute.
+	 * @see #isSetDynamicNotification()
+	 * @see #unsetDynamicNotification()
+	 * @see #isDynamicNotification()
 	 * @generated
 	 */
-	void setName(String value);
+	void setDynamicNotification(boolean value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ConnectorType#isDynamicNotification <em>Dynamic Notification</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetDynamicNotification()
+	 * @see #isDynamicNotification()
+	 * @see #setDynamicNotification(boolean)
+	 * @generated
+	 */
+	void unsetDynamicNotification();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ConnectorType#isDynamicNotification <em>Dynamic Notification</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Dynamic Notification</em>' attribute is set.
+	 * @see #unsetDynamicNotification()
+	 * @see #isDynamicNotification()
+	 * @see #setDynamicNotification(boolean)
+	 * @generated
+	 */
+	boolean isSetDynamicNotification();
+
+	/**
+	 * Returns the value of the '<em><b>Number Of Concurrent Transacted Receivers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Number Of Concurrent Transacted Receivers</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Number Of Concurrent Transacted Receivers</em>' attribute.
+	 * @see #isSetNumberOfConcurrentTransactedReceivers()
+	 * @see #unsetNumberOfConcurrentTransactedReceivers()
+	 * @see #setNumberOfConcurrentTransactedReceivers(int)
+	 * @see org.mule.ide.config.core.CorePackage#getConnectorType_NumberOfConcurrentTransactedReceivers()
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableInt"
+	 *        extendedMetaData="kind='attribute' name='numberOfConcurrentTransactedReceivers'"
+	 * @generated
+	 */
+	int getNumberOfConcurrentTransactedReceivers();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.ConnectorType#getNumberOfConcurrentTransactedReceivers <em>Number Of Concurrent Transacted Receivers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Number Of Concurrent Transacted Receivers</em>' attribute.
+	 * @see #isSetNumberOfConcurrentTransactedReceivers()
+	 * @see #unsetNumberOfConcurrentTransactedReceivers()
+	 * @see #getNumberOfConcurrentTransactedReceivers()
+	 * @generated
+	 */
+	void setNumberOfConcurrentTransactedReceivers(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ConnectorType#getNumberOfConcurrentTransactedReceivers <em>Number Of Concurrent Transacted Receivers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetNumberOfConcurrentTransactedReceivers()
+	 * @see #getNumberOfConcurrentTransactedReceivers()
+	 * @see #setNumberOfConcurrentTransactedReceivers(int)
+	 * @generated
+	 */
+	void unsetNumberOfConcurrentTransactedReceivers();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ConnectorType#getNumberOfConcurrentTransactedReceivers <em>Number Of Concurrent Transacted Receivers</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Number Of Concurrent Transacted Receivers</em>' attribute is set.
+	 * @see #unsetNumberOfConcurrentTransactedReceivers()
+	 * @see #getNumberOfConcurrentTransactedReceivers()
+	 * @see #setNumberOfConcurrentTransactedReceivers(int)
+	 * @generated
+	 */
+	boolean isSetNumberOfConcurrentTransactedReceivers();
 
 } // ConnectorType

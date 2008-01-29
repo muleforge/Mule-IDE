@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.GlobalEndpointType#getAbstractSecurityFilter <em>Abstract Security Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.GlobalEndpointType#getAbstractConnectionStrategyGroup <em>Abstract Connection Strategy Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.GlobalEndpointType#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.GlobalEndpointType#getProperty <em>Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.GlobalEndpointType#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.GlobalEndpointType#getAddress <em>Address</em>}</li>
  *   <li>{@link org.mule.ide.config.core.GlobalEndpointType#getConnectorRef <em>Connector Ref</em>}</li>
@@ -273,6 +274,23 @@ public interface GlobalEndpointType extends AbstractGlobalEndpointType {
 	EList<AbstractConnectionStrategyType> getAbstractConnectionStrategy();
 
 	/**
+	 * Returns the value of the '<em><b>Property</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.core.KeyValueType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Property</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Property</em>' containment reference list.
+	 * @see org.mule.ide.config.core.CorePackage#getGlobalEndpointType_Property()
+	 * @model containment="true" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='property' namespace='##targetNamespace' group='#group:1'"
+	 * @generated
+	 */
+	EList<KeyValueType> getProperty();
+
+	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
 	 * The list contents are of type {@link org.mule.ide.config.core.MapType}.
 	 * <!-- begin-user-doc -->
@@ -281,6 +299,11 @@ public interface GlobalEndpointType extends AbstractGlobalEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Set properties via Spring's entry attribute.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Properties</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getGlobalEndpointType_Properties()
 	 * @model containment="true" transient="true" volatile="true" derived="true"

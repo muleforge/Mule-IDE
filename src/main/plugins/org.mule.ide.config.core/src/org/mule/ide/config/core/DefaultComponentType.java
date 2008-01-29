@@ -14,7 +14,7 @@ package org.mule.ide.config.core;
  *
  *
  * @see org.mule.ide.config.core.CorePackage#getDefaultComponentType()
- * @model extendedMetaData="name='defaultComponentType' kind='empty'"
+ * @model extendedMetaData="name='defaultComponentType' kind='elementOnly'"
  * @generated
  */
 public interface DefaultComponentType extends AbstractComponentType {

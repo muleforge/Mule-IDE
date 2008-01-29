@@ -169,7 +169,7 @@ public interface PropertiesContainerContextType extends EObject {
 	 * @see #unsetName()
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getPropertiesContainerContextType_Name()
-	 * @model default="properties" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model default="properties" unsettable="true" dataType="org.mule.ide.config.core.SubstitutableName"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
 	 */

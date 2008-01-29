@@ -35,7 +35,7 @@ public interface AbstractAgentType extends AbstractExtensionType {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractAgentType_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableName" required="true"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
 	 */

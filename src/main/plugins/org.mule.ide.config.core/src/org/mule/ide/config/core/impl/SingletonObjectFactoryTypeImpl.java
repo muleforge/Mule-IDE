@@ -23,7 +23,6 @@ import org.mule.ide.config.core.SingletonObjectFactoryType;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.mule.ide.config.core.impl.SingletonObjectFactoryTypeImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.SingletonObjectFactoryTypeImpl#getInstanceRef <em>Instance Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,26 +48,6 @@ public class SingletonObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImp
 	 * @ordered
 	 */
 	protected String class_ = CLASS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getInstanceRef() <em>Instance Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInstanceRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String INSTANCE_REF_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getInstanceRef() <em>Instance Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInstanceRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected String instanceRef = INSTANCE_REF_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,34 +94,11 @@ public class SingletonObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getInstanceRef() {
-		return instanceRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInstanceRef(String newInstanceRef) {
-		String oldInstanceRef = instanceRef;
-		instanceRef = newInstanceRef;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SINGLETON_OBJECT_FACTORY_TYPE__INSTANCE_REF, oldInstanceRef, instanceRef));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CorePackage.SINGLETON_OBJECT_FACTORY_TYPE__CLASS:
 				return getClass_();
-			case CorePackage.SINGLETON_OBJECT_FACTORY_TYPE__INSTANCE_REF:
-				return getInstanceRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,9 +113,6 @@ public class SingletonObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImp
 		switch (featureID) {
 			case CorePackage.SINGLETON_OBJECT_FACTORY_TYPE__CLASS:
 				setClass((String)newValue);
-				return;
-			case CorePackage.SINGLETON_OBJECT_FACTORY_TYPE__INSTANCE_REF:
-				setInstanceRef((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,9 +129,6 @@ public class SingletonObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImp
 			case CorePackage.SINGLETON_OBJECT_FACTORY_TYPE__CLASS:
 				setClass(CLASS_EDEFAULT);
 				return;
-			case CorePackage.SINGLETON_OBJECT_FACTORY_TYPE__INSTANCE_REF:
-				setInstanceRef(INSTANCE_REF_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,8 +143,6 @@ public class SingletonObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImp
 		switch (featureID) {
 			case CorePackage.SINGLETON_OBJECT_FACTORY_TYPE__CLASS:
 				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
-			case CorePackage.SINGLETON_OBJECT_FACTORY_TYPE__INSTANCE_REF:
-				return INSTANCE_REF_EDEFAULT == null ? instanceRef != null : !INSTANCE_REF_EDEFAULT.equals(instanceRef);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -211,8 +159,6 @@ public class SingletonObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImp
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (class: ");
 		result.append(class_);
-		result.append(", instanceRef: ");
-		result.append(instanceRef);
 		result.append(')');
 		return result.toString();
 	}

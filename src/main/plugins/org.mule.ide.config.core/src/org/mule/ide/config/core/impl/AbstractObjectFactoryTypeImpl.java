@@ -6,17 +6,22 @@
  */
 package org.mule.ide.config.core.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.mule.ide.config.core.AbstractObjectFactoryType;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.KeyValueType;
 import org.mule.ide.config.core.MapType;
 
 /**
@@ -26,6 +31,7 @@ import org.mule.ide.config.core.MapType;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.mule.ide.config.core.impl.AbstractObjectFactoryTypeImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AbstractObjectFactoryTypeImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
@@ -33,6 +39,15 @@ import org.mule.ide.config.core.MapType;
  * @generated
  */
 public class AbstractObjectFactoryTypeImpl extends EObjectImpl implements AbstractObjectFactoryType {
+	/**
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<KeyValueType> property;
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -60,6 +75,18 @@ public class AbstractObjectFactoryTypeImpl extends EObjectImpl implements Abstra
 	@Override
 	protected EClass eStaticClass() {
 		return CorePackage.eINSTANCE.getAbstractObjectFactoryType();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<KeyValueType> getProperty() {
+		if (property == null) {
+			property = new EObjectContainmentEList<KeyValueType>(KeyValueType.class, this, CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTY);
+		}
+		return property;
 	}
 
 	/**
@@ -113,6 +140,8 @@ public class AbstractObjectFactoryTypeImpl extends EObjectImpl implements Abstra
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTY:
+				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
 			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTIES:
 				return basicSetProperties(null, msgs);
 		}
@@ -127,6 +156,8 @@ public class AbstractObjectFactoryTypeImpl extends EObjectImpl implements Abstra
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTY:
+				return getProperty();
 			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTIES:
 				return getProperties();
 		}
@@ -138,9 +169,14 @@ public class AbstractObjectFactoryTypeImpl extends EObjectImpl implements Abstra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTY:
+				getProperty().clear();
+				getProperty().addAll((Collection<? extends KeyValueType>)newValue);
+				return;
 			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTIES:
 				setProperties((MapType)newValue);
 				return;
@@ -156,6 +192,9 @@ public class AbstractObjectFactoryTypeImpl extends EObjectImpl implements Abstra
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTY:
+				getProperty().clear();
+				return;
 			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTIES:
 				setProperties((MapType)null);
 				return;
@@ -171,6 +210,8 @@ public class AbstractObjectFactoryTypeImpl extends EObjectImpl implements Abstra
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTY:
+				return property != null && !property.isEmpty();
 			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE__PROPERTIES:
 				return properties != null;
 		}

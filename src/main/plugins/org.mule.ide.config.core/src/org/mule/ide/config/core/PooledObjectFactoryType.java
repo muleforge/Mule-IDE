@@ -33,7 +33,7 @@ public interface PooledObjectFactoryType extends AbstractObjectFactoryType {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Pooling profile to use if scope="pooled"
+	 * Characteristics of the object pool
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Pooling Profile Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getPooledObjectFactoryType_AbstractPoolingProfileGroup()
@@ -48,7 +48,7 @@ public interface PooledObjectFactoryType extends AbstractObjectFactoryType {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Pooling profile to use if scope="pooled"
+	 * Characteristics of the object pool
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Pooling Profile</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getPooledObjectFactoryType_AbstractPoolingProfile()

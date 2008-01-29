@@ -46,7 +46,8 @@ import org.mule.ide.config.spring.PropertyType;
  *   <li>{@link org.mule.ide.config.core.impl.ConnectorTypeImpl#getServiceOverrides <em>Service Overrides</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ConnectorTypeImpl#isCreateDispatcherPerRequest <em>Create Dispatcher Per Request</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ConnectorTypeImpl#isCreateMultipleTransactedReceivers <em>Create Multiple Transacted Receivers</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.ConnectorTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.ConnectorTypeImpl#isDynamicNotification <em>Dynamic Notification</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.ConnectorTypeImpl#getNumberOfConcurrentTransactedReceivers <em>Number Of Concurrent Transacted Receivers</em>}</li>
  * </ul>
  * </p>
  *
@@ -162,24 +163,62 @@ public class ConnectorTypeImpl extends AbstractConnectorTypeImpl implements Conn
 	protected boolean createMultipleTransactedReceiversESet;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #isDynamicNotification() <em>Dynamic Notification</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #isDynamicNotification()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final boolean DYNAMIC_NOTIFICATION_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #isDynamicNotification() <em>Dynamic Notification</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #isDynamicNotification()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected boolean dynamicNotification = DYNAMIC_NOTIFICATION_EDEFAULT;
+
+	/**
+	 * This is true if the Dynamic Notification attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean dynamicNotificationESet;
+
+	/**
+	 * The default value of the '{@link #getNumberOfConcurrentTransactedReceivers() <em>Number Of Concurrent Transacted Receivers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumberOfConcurrentTransactedReceivers()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NUMBER_OF_CONCURRENT_TRANSACTED_RECEIVERS_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getNumberOfConcurrentTransactedReceivers() <em>Number Of Concurrent Transacted Receivers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumberOfConcurrentTransactedReceivers()
+	 * @generated
+	 * @ordered
+	 */
+	protected int numberOfConcurrentTransactedReceivers = NUMBER_OF_CONCURRENT_TRANSACTED_RECEIVERS_EDEFAULT;
+
+	/**
+	 * This is true if the Number Of Concurrent Transacted Receivers attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean numberOfConcurrentTransactedReceiversESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -468,8 +507,8 @@ public class ConnectorTypeImpl extends AbstractConnectorTypeImpl implements Conn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public boolean isDynamicNotification() {
+		return dynamicNotification;
 	}
 
 	/**
@@ -477,11 +516,82 @@ public class ConnectorTypeImpl extends AbstractConnectorTypeImpl implements Conn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setDynamicNotification(boolean newDynamicNotification) {
+		boolean oldDynamicNotification = dynamicNotification;
+		dynamicNotification = newDynamicNotification;
+		boolean oldDynamicNotificationESet = dynamicNotificationESet;
+		dynamicNotificationESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CONNECTOR_TYPE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CONNECTOR_TYPE__DYNAMIC_NOTIFICATION, oldDynamicNotification, dynamicNotification, !oldDynamicNotificationESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetDynamicNotification() {
+		boolean oldDynamicNotification = dynamicNotification;
+		boolean oldDynamicNotificationESet = dynamicNotificationESet;
+		dynamicNotification = DYNAMIC_NOTIFICATION_EDEFAULT;
+		dynamicNotificationESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.CONNECTOR_TYPE__DYNAMIC_NOTIFICATION, oldDynamicNotification, DYNAMIC_NOTIFICATION_EDEFAULT, oldDynamicNotificationESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetDynamicNotification() {
+		return dynamicNotificationESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getNumberOfConcurrentTransactedReceivers() {
+		return numberOfConcurrentTransactedReceivers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNumberOfConcurrentTransactedReceivers(int newNumberOfConcurrentTransactedReceivers) {
+		int oldNumberOfConcurrentTransactedReceivers = numberOfConcurrentTransactedReceivers;
+		numberOfConcurrentTransactedReceivers = newNumberOfConcurrentTransactedReceivers;
+		boolean oldNumberOfConcurrentTransactedReceiversESet = numberOfConcurrentTransactedReceiversESet;
+		numberOfConcurrentTransactedReceiversESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CONNECTOR_TYPE__NUMBER_OF_CONCURRENT_TRANSACTED_RECEIVERS, oldNumberOfConcurrentTransactedReceivers, numberOfConcurrentTransactedReceivers, !oldNumberOfConcurrentTransactedReceiversESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetNumberOfConcurrentTransactedReceivers() {
+		int oldNumberOfConcurrentTransactedReceivers = numberOfConcurrentTransactedReceivers;
+		boolean oldNumberOfConcurrentTransactedReceiversESet = numberOfConcurrentTransactedReceiversESet;
+		numberOfConcurrentTransactedReceivers = NUMBER_OF_CONCURRENT_TRANSACTED_RECEIVERS_EDEFAULT;
+		numberOfConcurrentTransactedReceiversESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.CONNECTOR_TYPE__NUMBER_OF_CONCURRENT_TRANSACTED_RECEIVERS, oldNumberOfConcurrentTransactedReceivers, NUMBER_OF_CONCURRENT_TRANSACTED_RECEIVERS_EDEFAULT, oldNumberOfConcurrentTransactedReceiversESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetNumberOfConcurrentTransactedReceivers() {
+		return numberOfConcurrentTransactedReceiversESet;
 	}
 
 	/**
@@ -533,8 +643,10 @@ public class ConnectorTypeImpl extends AbstractConnectorTypeImpl implements Conn
 				return isCreateDispatcherPerRequest() ? Boolean.TRUE : Boolean.FALSE;
 			case CorePackage.CONNECTOR_TYPE__CREATE_MULTIPLE_TRANSACTED_RECEIVERS:
 				return isCreateMultipleTransactedReceivers() ? Boolean.TRUE : Boolean.FALSE;
-			case CorePackage.CONNECTOR_TYPE__NAME:
-				return getName();
+			case CorePackage.CONNECTOR_TYPE__DYNAMIC_NOTIFICATION:
+				return isDynamicNotification() ? Boolean.TRUE : Boolean.FALSE;
+			case CorePackage.CONNECTOR_TYPE__NUMBER_OF_CONCURRENT_TRANSACTED_RECEIVERS:
+				return new Integer(getNumberOfConcurrentTransactedReceivers());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -570,8 +682,11 @@ public class ConnectorTypeImpl extends AbstractConnectorTypeImpl implements Conn
 			case CorePackage.CONNECTOR_TYPE__CREATE_MULTIPLE_TRANSACTED_RECEIVERS:
 				setCreateMultipleTransactedReceivers(((Boolean)newValue).booleanValue());
 				return;
-			case CorePackage.CONNECTOR_TYPE__NAME:
-				setName((String)newValue);
+			case CorePackage.CONNECTOR_TYPE__DYNAMIC_NOTIFICATION:
+				setDynamicNotification(((Boolean)newValue).booleanValue());
+				return;
+			case CorePackage.CONNECTOR_TYPE__NUMBER_OF_CONCURRENT_TRANSACTED_RECEIVERS:
+				setNumberOfConcurrentTransactedReceivers(((Integer)newValue).intValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -606,8 +721,11 @@ public class ConnectorTypeImpl extends AbstractConnectorTypeImpl implements Conn
 			case CorePackage.CONNECTOR_TYPE__CREATE_MULTIPLE_TRANSACTED_RECEIVERS:
 				unsetCreateMultipleTransactedReceivers();
 				return;
-			case CorePackage.CONNECTOR_TYPE__NAME:
-				setName(NAME_EDEFAULT);
+			case CorePackage.CONNECTOR_TYPE__DYNAMIC_NOTIFICATION:
+				unsetDynamicNotification();
+				return;
+			case CorePackage.CONNECTOR_TYPE__NUMBER_OF_CONCURRENT_TRANSACTED_RECEIVERS:
+				unsetNumberOfConcurrentTransactedReceivers();
 				return;
 		}
 		super.eUnset(featureID);
@@ -637,8 +755,10 @@ public class ConnectorTypeImpl extends AbstractConnectorTypeImpl implements Conn
 				return isSetCreateDispatcherPerRequest();
 			case CorePackage.CONNECTOR_TYPE__CREATE_MULTIPLE_TRANSACTED_RECEIVERS:
 				return isSetCreateMultipleTransactedReceivers();
-			case CorePackage.CONNECTOR_TYPE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case CorePackage.CONNECTOR_TYPE__DYNAMIC_NOTIFICATION:
+				return isSetDynamicNotification();
+			case CorePackage.CONNECTOR_TYPE__NUMBER_OF_CONCURRENT_TRANSACTED_RECEIVERS:
+				return isSetNumberOfConcurrentTransactedReceivers();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -659,8 +779,10 @@ public class ConnectorTypeImpl extends AbstractConnectorTypeImpl implements Conn
 		if (createDispatcherPerRequestESet) result.append(createDispatcherPerRequest); else result.append("<unset>");
 		result.append(", createMultipleTransactedReceivers: ");
 		if (createMultipleTransactedReceiversESet) result.append(createMultipleTransactedReceivers); else result.append("<unset>");
-		result.append(", name: ");
-		result.append(name);
+		result.append(", dynamicNotification: ");
+		if (dynamicNotificationESet) result.append(dynamicNotification); else result.append("<unset>");
+		result.append(", numberOfConcurrentTransactedReceivers: ");
+		if (numberOfConcurrentTransactedReceiversESet) result.append(numberOfConcurrentTransactedReceivers); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

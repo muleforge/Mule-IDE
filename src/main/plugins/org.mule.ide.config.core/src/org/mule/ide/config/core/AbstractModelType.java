@@ -22,8 +22,10 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <ul>
  *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractExceptionStrategyGroup <em>Abstract Exception Strategy Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractExceptionStrategy <em>Abstract Exception Strategy</em>}</li>
- *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractEntrypointResolverGroup <em>Abstract Entrypoint Resolver Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractEntrypointResolver <em>Abstract Entrypoint Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractEntryPointResolverSetGroup <em>Abstract Entry Point Resolver Set Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractEntryPointResolverSet <em>Abstract Entry Point Resolver Set</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractEntryPointResolverGroup <em>Abstract Entry Point Resolver Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractEntryPointResolver <em>Abstract Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractServiceGroup <em>Abstract Service Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractService <em>Abstract Service</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AbstractModelType#getClass_ <em>Class</em>}</li>
@@ -70,37 +72,70 @@ public interface AbstractModelType extends EObject {
 	AbstractExceptionStrategyType getAbstractExceptionStrategy();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Entrypoint Resolver Group</b></em>' attribute list.
+	 * Returns the value of the '<em><b>Abstract Entry Point Resolver Set Group</b></em>' attribute list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Abstract Entrypoint Resolver Group</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Abstract Entry Point Resolver Set Group</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Entrypoint Resolver Group</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractEntrypointResolverGroup()
+	 * @return the value of the '<em>Abstract Entry Point Resolver Set Group</em>' attribute list.
+	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractEntryPointResolverSetGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
-	 *        extendedMetaData="kind='group' name='abstract-entrypoint-resolver:group' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='group' name='abstract-entry-point-resolver-set:group' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	FeatureMap getAbstractEntrypointResolverGroup();
+	FeatureMap getAbstractEntryPointResolverSetGroup();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Entrypoint Resolver</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Abstract Entry Point Resolver Set</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Abstract Entrypoint Resolver</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Abstract Entry Point Resolver Set</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Entrypoint Resolver</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractEntrypointResolver()
+	 * @return the value of the '<em>Abstract Entry Point Resolver Set</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractEntryPointResolverSet()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-entrypoint-resolver' namespace='##targetNamespace' group='abstract-entrypoint-resolver:group'"
+	 *        extendedMetaData="kind='element' name='abstract-entry-point-resolver-set' namespace='##targetNamespace' group='abstract-entry-point-resolver-set:group'"
 	 * @generated
 	 */
-	AbstractEntrypointResolverType getAbstractEntrypointResolver();
+	AbstractEntryPointResolverSetType getAbstractEntryPointResolverSet();
+
+	/**
+	 * Returns the value of the '<em><b>Abstract Entry Point Resolver Group</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract Entry Point Resolver Group</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Entry Point Resolver Group</em>' attribute list.
+	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractEntryPointResolverGroup()
+	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
+	 *        extendedMetaData="kind='group' name='abstract-entry-point-resolver:group' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	FeatureMap getAbstractEntryPointResolverGroup();
+
+	/**
+	 * Returns the value of the '<em><b>Abstract Entry Point Resolver</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract Entry Point Resolver</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Entry Point Resolver</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractEntryPointResolver()
+	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='abstract-entry-point-resolver' namespace='##targetNamespace' group='abstract-entry-point-resolver:group'"
+	 * @generated
+	 */
+	AbstractEntryPointResolverType getAbstractEntryPointResolver();
 
 	/**
 	 * Returns the value of the '<em><b>Abstract Service Group</b></em>' attribute list.
@@ -174,7 +209,7 @@ public interface AbstractModelType extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @model dataType="org.mule.ide.config.core.NonBlankString" required="true"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
 	 */

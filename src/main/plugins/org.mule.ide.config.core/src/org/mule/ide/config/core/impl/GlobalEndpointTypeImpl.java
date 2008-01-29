@@ -31,6 +31,7 @@ import org.mule.ide.config.core.AbstractTransformerType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CreateConnectorType;
 import org.mule.ide.config.core.GlobalEndpointType;
+import org.mule.ide.config.core.KeyValueType;
 import org.mule.ide.config.core.MapType;
 import org.mule.ide.config.core.ResponseTransformersType;
 import org.mule.ide.config.core.TransformersType;
@@ -55,6 +56,7 @@ import org.mule.ide.config.core.TransformersType;
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getAbstractSecurityFilter <em>Abstract Security Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getAbstractConnectionStrategyGroup <em>Abstract Connection Strategy Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.GlobalEndpointTypeImpl#getConnectorRef <em>Connector Ref</em>}</li>
@@ -423,6 +425,15 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<KeyValueType> getProperty() {
+		return getGroup().list(CorePackage.eINSTANCE.getGlobalEndpointType_Property());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<MapType> getProperties() {
 		return getGroup().list(CorePackage.eINSTANCE.getGlobalEndpointType_Properties());
 	}
@@ -700,6 +711,8 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return ((InternalEList<?>)getAbstractConnectionStrategyGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY:
 				return ((InternalEList<?>)getAbstractConnectionStrategy()).basicRemove(otherEnd, msgs);
+			case CorePackage.GLOBAL_ENDPOINT_TYPE__PROPERTY:
+				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__PROPERTIES:
 				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
 		}
@@ -746,6 +759,8 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return ((FeatureMap.Internal)getAbstractConnectionStrategyGroup()).getWrapper();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY:
 				return getAbstractConnectionStrategy();
+			case CorePackage.GLOBAL_ENDPOINT_TYPE__PROPERTY:
+				return getProperty();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__PROPERTIES:
 				return getProperties();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__ADDRESS:
@@ -804,6 +819,10 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
 				((FeatureMap.Internal)getAbstractConnectionStrategyGroup()).set(newValue);
+				return;
+			case CorePackage.GLOBAL_ENDPOINT_TYPE__PROPERTY:
+				getProperty().clear();
+				getProperty().addAll((Collection<? extends KeyValueType>)newValue);
 				return;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__PROPERTIES:
 				getProperties().clear();
@@ -871,6 +890,9 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
 				getAbstractConnectionStrategyGroup().clear();
+				return;
+			case CorePackage.GLOBAL_ENDPOINT_TYPE__PROPERTY:
+				getProperty().clear();
 				return;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__PROPERTIES:
 				getProperties().clear();
@@ -940,6 +962,8 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return !getAbstractConnectionStrategyGroup().isEmpty();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY:
 				return !getAbstractConnectionStrategy().isEmpty();
+			case CorePackage.GLOBAL_ENDPOINT_TYPE__PROPERTY:
+				return !getProperty().isEmpty();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__PROPERTIES:
 				return !getProperties().isEmpty();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__ADDRESS:

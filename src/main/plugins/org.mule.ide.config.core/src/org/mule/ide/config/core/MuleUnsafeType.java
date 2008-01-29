@@ -32,8 +32,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractSecurityManager <em>Abstract Security Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractTransactionManagerGroup <em>Abstract Transaction Manager Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractTransactionManager <em>Abstract Transaction Manager</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractTransactionFactoryGroup <em>Abstract Transaction Factory Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractTransactionFactory <em>Abstract Transaction Factory</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractConnectorGroup <em>Abstract Connector Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractConnector <em>Abstract Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractGlobalEndpointGroup <em>Abstract Global Endpoint Group</em>}</li>
@@ -269,40 +267,6 @@ public interface MuleUnsafeType extends EObject {
 	EList<AbstractTransactionManagerType> getAbstractTransactionManager();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Transaction Factory Group</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Transaction Factory Group</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Transaction Factory Group</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getMuleUnsafeType_AbstractTransactionFactoryGroup()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-transaction-factory:group' namespace='##targetNamespace' group='#group:0'"
-	 * @generated
-	 */
-	FeatureMap getAbstractTransactionFactoryGroup();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Transaction Factory</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.AbstractTransactionFactoryType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Transaction Factory</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Transaction Factory</em>' containment reference list.
-	 * @see org.mule.ide.config.core.CorePackage#getMuleUnsafeType_AbstractTransactionFactory()
-	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-transaction-factory' namespace='##targetNamespace' group='abstract-transaction-factory:group'"
-	 * @generated
-	 */
-	EList<AbstractTransactionFactoryType> getAbstractTransactionFactory();
-
-	/**
 	 * Returns the value of the '<em><b>Abstract Connector Group</b></em>' attribute list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
 	 * <!-- begin-user-doc -->
@@ -484,7 +448,7 @@ public interface MuleUnsafeType extends EObject {
 	 * @return the value of the '<em>Any</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleUnsafeType_Any()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='elementWildcard' wildcards='##other' name=':24' processing='strict' group='#group:0'"
+	 *        extendedMetaData="kind='elementWildcard' wildcards='##other' name=':22' processing='strict' group='#group:0'"
 	 * @generated
 	 */
 	FeatureMap getAny();
@@ -500,7 +464,7 @@ public interface MuleUnsafeType extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getMuleUnsafeType_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableName"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
 	 */

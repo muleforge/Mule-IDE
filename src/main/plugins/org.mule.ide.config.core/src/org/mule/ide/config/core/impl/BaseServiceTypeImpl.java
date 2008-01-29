@@ -20,14 +20,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mule.ide.config.core.AbstractComponentType;
 import org.mule.ide.config.core.AbstractExceptionStrategyType;
-import org.mule.ide.config.core.AsyncReplyRouterCollectionType;
-import org.mule.ide.config.core.AbstractObjectFactoryType;
+import org.mule.ide.config.core.AsyncReplyCollectionType;
 import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.InboundRouterCollectionType;
+import org.mule.ide.config.core.InboundCollectionType;
 import org.mule.ide.config.core.InitialStateType;
-import org.mule.ide.config.core.MapType;
-import org.mule.ide.config.core.OutboundRouterCollectionType;
+import org.mule.ide.config.core.OutboundCollectionType;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,11 +34,11 @@ import org.mule.ide.config.core.OutboundRouterCollectionType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getInboundRouter <em>Inbound Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getInbound <em>Inbound</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAbstractComponentGroup <em>Abstract Component Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAbstractComponent <em>Abstract Component</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getOutboundRouter <em>Outbound Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAsyncReplyRouter <em>Async Reply Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getOutbound <em>Outbound</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAsyncReply <em>Async Reply</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAbstractExceptionStrategyGroup <em>Abstract Exception Strategy Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAbstractExceptionStrategy <em>Abstract Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getClass_ <em>Class</em>}</li>
@@ -52,14 +50,14 @@ import org.mule.ide.config.core.OutboundRouterCollectionType;
  */
 public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements BaseServiceType {
 	/**
-	 * The cached value of the '{@link #getInboundRouter() <em>Inbound Router</em>}' containment reference.
+	 * The cached value of the '{@link #getInbound() <em>Inbound</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInboundRouter()
+	 * @see #getInbound()
 	 * @generated
 	 * @ordered
 	 */
-	protected InboundRouterCollectionType inboundRouter;
+	protected InboundCollectionType inbound;
 
 	/**
 	 * The cached value of the '{@link #getAbstractComponentGroup() <em>Abstract Component Group</em>}' attribute list.
@@ -72,24 +70,24 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	protected FeatureMap abstractComponentGroup;
 
 	/**
-	 * The cached value of the '{@link #getOutboundRouter() <em>Outbound Router</em>}' containment reference.
+	 * The cached value of the '{@link #getOutbound() <em>Outbound</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutboundRouter()
+	 * @see #getOutbound()
 	 * @generated
 	 * @ordered
 	 */
-	protected OutboundRouterCollectionType outboundRouter;
+	protected OutboundCollectionType outbound;
 
 	/**
-	 * The cached value of the '{@link #getAsyncReplyRouter() <em>Async Reply Router</em>}' containment reference.
+	 * The cached value of the '{@link #getAsyncReply() <em>Async Reply</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAsyncReplyRouter()
+	 * @see #getAsyncReply()
 	 * @generated
 	 * @ordered
 	 */
-	protected AsyncReplyRouterCollectionType asyncReplyRouter;
+	protected AsyncReplyCollectionType asyncReply;
 
 	/**
 	 * The cached value of the '{@link #getAbstractExceptionStrategyGroup() <em>Abstract Exception Strategy Group</em>}' attribute list.
@@ -174,8 +172,8 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InboundRouterCollectionType getInboundRouter() {
-		return inboundRouter;
+	public InboundCollectionType getInbound() {
+		return inbound;
 	}
 
 	/**
@@ -183,11 +181,11 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetInboundRouter(InboundRouterCollectionType newInboundRouter, NotificationChain msgs) {
-		InboundRouterCollectionType oldInboundRouter = inboundRouter;
-		inboundRouter = newInboundRouter;
+	public NotificationChain basicSetInbound(InboundCollectionType newInbound, NotificationChain msgs) {
+		InboundCollectionType oldInbound = inbound;
+		inbound = newInbound;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER, oldInboundRouter, newInboundRouter);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__INBOUND, oldInbound, newInbound);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -198,18 +196,18 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInboundRouter(InboundRouterCollectionType newInboundRouter) {
-		if (newInboundRouter != inboundRouter) {
+	public void setInbound(InboundCollectionType newInbound) {
+		if (newInbound != inbound) {
 			NotificationChain msgs = null;
-			if (inboundRouter != null)
-				msgs = ((InternalEObject)inboundRouter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER, null, msgs);
-			if (newInboundRouter != null)
-				msgs = ((InternalEObject)newInboundRouter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER, null, msgs);
-			msgs = basicSetInboundRouter(newInboundRouter, msgs);
+			if (inbound != null)
+				msgs = ((InternalEObject)inbound).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__INBOUND, null, msgs);
+			if (newInbound != null)
+				msgs = ((InternalEObject)newInbound).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__INBOUND, null, msgs);
+			msgs = basicSetInbound(newInbound, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER, newInboundRouter, newInboundRouter));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__INBOUND, newInbound, newInbound));
 	}
 
 	/**
@@ -247,8 +245,8 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OutboundRouterCollectionType getOutboundRouter() {
-		return outboundRouter;
+	public OutboundCollectionType getOutbound() {
+		return outbound;
 	}
 
 	/**
@@ -256,11 +254,11 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutboundRouter(OutboundRouterCollectionType newOutboundRouter, NotificationChain msgs) {
-		OutboundRouterCollectionType oldOutboundRouter = outboundRouter;
-		outboundRouter = newOutboundRouter;
+	public NotificationChain basicSetOutbound(OutboundCollectionType newOutbound, NotificationChain msgs) {
+		OutboundCollectionType oldOutbound = outbound;
+		outbound = newOutbound;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER, oldOutboundRouter, newOutboundRouter);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__OUTBOUND, oldOutbound, newOutbound);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -271,18 +269,18 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutboundRouter(OutboundRouterCollectionType newOutboundRouter) {
-		if (newOutboundRouter != outboundRouter) {
+	public void setOutbound(OutboundCollectionType newOutbound) {
+		if (newOutbound != outbound) {
 			NotificationChain msgs = null;
-			if (outboundRouter != null)
-				msgs = ((InternalEObject)outboundRouter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER, null, msgs);
-			if (newOutboundRouter != null)
-				msgs = ((InternalEObject)newOutboundRouter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER, null, msgs);
-			msgs = basicSetOutboundRouter(newOutboundRouter, msgs);
+			if (outbound != null)
+				msgs = ((InternalEObject)outbound).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__OUTBOUND, null, msgs);
+			if (newOutbound != null)
+				msgs = ((InternalEObject)newOutbound).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__OUTBOUND, null, msgs);
+			msgs = basicSetOutbound(newOutbound, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER, newOutboundRouter, newOutboundRouter));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__OUTBOUND, newOutbound, newOutbound));
 	}
 
 	/**
@@ -290,8 +288,8 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AsyncReplyRouterCollectionType getAsyncReplyRouter() {
-		return asyncReplyRouter;
+	public AsyncReplyCollectionType getAsyncReply() {
+		return asyncReply;
 	}
 
 	/**
@@ -299,11 +297,11 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAsyncReplyRouter(AsyncReplyRouterCollectionType newAsyncReplyRouter, NotificationChain msgs) {
-		AsyncReplyRouterCollectionType oldAsyncReplyRouter = asyncReplyRouter;
-		asyncReplyRouter = newAsyncReplyRouter;
+	public NotificationChain basicSetAsyncReply(AsyncReplyCollectionType newAsyncReply, NotificationChain msgs) {
+		AsyncReplyCollectionType oldAsyncReply = asyncReply;
+		asyncReply = newAsyncReply;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY_ROUTER, oldAsyncReplyRouter, newAsyncReplyRouter);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY, oldAsyncReply, newAsyncReply);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -314,18 +312,18 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAsyncReplyRouter(AsyncReplyRouterCollectionType newAsyncReplyRouter) {
-		if (newAsyncReplyRouter != asyncReplyRouter) {
+	public void setAsyncReply(AsyncReplyCollectionType newAsyncReply) {
+		if (newAsyncReply != asyncReply) {
 			NotificationChain msgs = null;
-			if (asyncReplyRouter != null)
-				msgs = ((InternalEObject)asyncReplyRouter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY_ROUTER, null, msgs);
-			if (newAsyncReplyRouter != null)
-				msgs = ((InternalEObject)newAsyncReplyRouter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY_ROUTER, null, msgs);
-			msgs = basicSetAsyncReplyRouter(newAsyncReplyRouter, msgs);
+			if (asyncReply != null)
+				msgs = ((InternalEObject)asyncReply).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY, null, msgs);
+			if (newAsyncReply != null)
+				msgs = ((InternalEObject)newAsyncReply).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY, null, msgs);
+			msgs = basicSetAsyncReply(newAsyncReply, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY_ROUTER, newAsyncReplyRouter, newAsyncReplyRouter));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY, newAsyncReply, newAsyncReply));
 	}
 
 	/**
@@ -433,16 +431,16 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER:
-				return basicSetInboundRouter(null, msgs);
+			case CorePackage.BASE_SERVICE_TYPE__INBOUND:
+				return basicSetInbound(null, msgs);
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP:
 				return ((InternalEList<?>)getAbstractComponentGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT:
 				return basicSetAbstractComponent(null, msgs);
-			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER:
-				return basicSetOutboundRouter(null, msgs);
-			case CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY_ROUTER:
-				return basicSetAsyncReplyRouter(null, msgs);
+			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND:
+				return basicSetOutbound(null, msgs);
+			case CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY:
+				return basicSetAsyncReply(null, msgs);
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
 				return ((InternalEList<?>)getAbstractExceptionStrategyGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY:
@@ -459,17 +457,17 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER:
-				return getInboundRouter();
+			case CorePackage.BASE_SERVICE_TYPE__INBOUND:
+				return getInbound();
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP:
 				if (coreType) return getAbstractComponentGroup();
 				return ((FeatureMap.Internal)getAbstractComponentGroup()).getWrapper();
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT:
 				return getAbstractComponent();
-			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER:
-				return getOutboundRouter();
-			case CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY_ROUTER:
-				return getAsyncReplyRouter();
+			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND:
+				return getOutbound();
+			case CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY:
+				return getAsyncReply();
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
 				if (coreType) return getAbstractExceptionStrategyGroup();
 				return ((FeatureMap.Internal)getAbstractExceptionStrategyGroup()).getWrapper();
@@ -491,17 +489,17 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER:
-				setInboundRouter((InboundRouterCollectionType)newValue);
+			case CorePackage.BASE_SERVICE_TYPE__INBOUND:
+				setInbound((InboundCollectionType)newValue);
 				return;
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP:
 				((FeatureMap.Internal)getAbstractComponentGroup()).set(newValue);
 				return;
-			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER:
-				setOutboundRouter((OutboundRouterCollectionType)newValue);
+			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND:
+				setOutbound((OutboundCollectionType)newValue);
 				return;
-			case CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY_ROUTER:
-				setAsyncReplyRouter((AsyncReplyRouterCollectionType)newValue);
+			case CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY:
+				setAsyncReply((AsyncReplyCollectionType)newValue);
 				return;
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
 				((FeatureMap.Internal)getAbstractExceptionStrategyGroup()).set(newValue);
@@ -524,17 +522,17 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER:
-				setInboundRouter((InboundRouterCollectionType)null);
+			case CorePackage.BASE_SERVICE_TYPE__INBOUND:
+				setInbound((InboundCollectionType)null);
 				return;
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP:
 				getAbstractComponentGroup().clear();
 				return;
-			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER:
-				setOutboundRouter((OutboundRouterCollectionType)null);
+			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND:
+				setOutbound((OutboundCollectionType)null);
 				return;
-			case CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY_ROUTER:
-				setAsyncReplyRouter((AsyncReplyRouterCollectionType)null);
+			case CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY:
+				setAsyncReply((AsyncReplyCollectionType)null);
 				return;
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
 				getAbstractExceptionStrategyGroup().clear();
@@ -557,16 +555,16 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.BASE_SERVICE_TYPE__INBOUND_ROUTER:
-				return inboundRouter != null;
+			case CorePackage.BASE_SERVICE_TYPE__INBOUND:
+				return inbound != null;
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT_GROUP:
 				return abstractComponentGroup != null && !abstractComponentGroup.isEmpty();
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_COMPONENT:
 				return getAbstractComponent() != null;
-			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND_ROUTER:
-				return outboundRouter != null;
-			case CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY_ROUTER:
-				return asyncReplyRouter != null;
+			case CorePackage.BASE_SERVICE_TYPE__OUTBOUND:
+				return outbound != null;
+			case CorePackage.BASE_SERVICE_TYPE__ASYNC_REPLY:
+				return asyncReply != null;
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
 				return abstractExceptionStrategyGroup != null && !abstractExceptionStrategyGroup.isEmpty();
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY:

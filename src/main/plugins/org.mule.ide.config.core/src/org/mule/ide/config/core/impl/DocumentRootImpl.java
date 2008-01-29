@@ -33,7 +33,8 @@ import org.mule.ide.config.core.AbstractConnectionStrategyType;
 import org.mule.ide.config.core.AbstractConnectorType;
 import org.mule.ide.config.core.AbstractDefineNotificationType;
 import org.mule.ide.config.core.AbstractDisableNotificationType;
-import org.mule.ide.config.core.AbstractEntrypointResolverType;
+import org.mule.ide.config.core.AbstractEntryPointResolverSetType;
+import org.mule.ide.config.core.AbstractEntryPointResolverType;
 import org.mule.ide.config.core.AbstractExceptionStrategyType;
 import org.mule.ide.config.core.AbstractExtensionType;
 import org.mule.ide.config.core.AbstractFilterType;
@@ -51,32 +52,32 @@ import org.mule.ide.config.core.AbstractSecurityFilterType;
 import org.mule.ide.config.core.AbstractSecurityManagerType;
 import org.mule.ide.config.core.AbstractServiceType;
 import org.mule.ide.config.core.AbstractStorageType;
-import org.mule.ide.config.core.AbstractTransactionFactoryType;
 import org.mule.ide.config.core.AbstractTransactionManagerType;
 import org.mule.ide.config.core.AbstractTransactionType;
 import org.mule.ide.config.core.AbstractTransformerType;
+import org.mule.ide.config.core.AppendStringTransformerType;
 import org.mule.ide.config.core.AsyncReplyRouterType;
 import org.mule.ide.config.core.BaseContainerContextType;
-import org.mule.ide.config.core.CallableEntrypointResolverType;
 import org.mule.ide.config.core.ChunkingRouterType;
 import org.mule.ide.config.core.CollectionFilterType;
+import org.mule.ide.config.core.ComplexEntryPointResolverType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CorrelationAggregatorRouterType;
-import org.mule.ide.config.core.CorrelationRouterType;
 import org.mule.ide.config.core.CustomAsyncReplyRouterType;
 import org.mule.ide.config.core.CustomCatchAllStrategyType;
 import org.mule.ide.config.core.CustomConnectionStrategyType;
 import org.mule.ide.config.core.CustomConnectorType;
 import org.mule.ide.config.core.CustomContainerContextType;
-import org.mule.ide.config.core.CustomEntrypointResolverType;
+import org.mule.ide.config.core.CustomCorrelationAggregatorRouterType;
+import org.mule.ide.config.core.CustomEntryPointResolverSetType;
+import org.mule.ide.config.core.CustomEntryPointResolverType;
 import org.mule.ide.config.core.CustomExceptionStrategyType;
 import org.mule.ide.config.core.CustomFilterType;
 import org.mule.ide.config.core.CustomForwardingCatchAllStrategyType;
 import org.mule.ide.config.core.CustomInboundRouterType;
 import org.mule.ide.config.core.CustomOutboundRouterType;
 import org.mule.ide.config.core.CustomPropertyExtractorType;
-import org.mule.ide.config.core.CustomTransactionFactoryType;
 import org.mule.ide.config.core.CustomTransactionManagerType;
+import org.mule.ide.config.core.CustomTransactionType;
 import org.mule.ide.config.core.CustomTransformerType;
 import org.mule.ide.config.core.DefaultComponentType;
 import org.mule.ide.config.core.DefaultModelType;
@@ -88,23 +89,25 @@ import org.mule.ide.config.core.DocumentRoot;
 import org.mule.ide.config.core.EncryptionSecurityFilterType;
 import org.mule.ide.config.core.EndpointSelectorRouterType;
 import org.mule.ide.config.core.ExceptionStrategyType;
-import org.mule.ide.config.core.FilterRefType;
+import org.mule.ide.config.core.ExtensibleEntryPointResolverSet;
 import org.mule.ide.config.core.FilteredInboundRouterType;
 import org.mule.ide.config.core.FilteringOutboundRouterType;
 import org.mule.ide.config.core.ForwardingCatchAllStrategyType;
 import org.mule.ide.config.core.ForwardingRouterType;
 import org.mule.ide.config.core.GlobalEndpointType;
-import org.mule.ide.config.core.IdempotentReceiverType;
+import org.mule.ide.config.core.IdempotentReceiverRouterType;
 import org.mule.ide.config.core.InboundEndpointType;
 import org.mule.ide.config.core.IocContainerContextType;
 import org.mule.ide.config.core.JndiTransactionManagerType;
 import org.mule.ide.config.core.LoggingCatchAllStrategyType;
 import org.mule.ide.config.core.MapType;
+import org.mule.ide.config.core.MessageChunkingAggregatorRouterType;
 import org.mule.ide.config.core.MessagePropertiesTransformerType;
 import org.mule.ide.config.core.MessageSplitterOutboundRouterType;
+import org.mule.ide.config.core.MethodEntryPointResolverType;
+import org.mule.ide.config.core.MethodType;
 import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.core.MuleUnsafeType;
-import org.mule.ide.config.core.NoArgsCallComponentType;
 import org.mule.ide.config.core.OutboundEndpointType;
 import org.mule.ide.config.core.OutboundRouterType;
 import org.mule.ide.config.core.PatternFilterType;
@@ -112,8 +115,12 @@ import org.mule.ide.config.core.PojoComponentType;
 import org.mule.ide.config.core.PooledObjectFactoryType;
 import org.mule.ide.config.core.PoolingProfileType;
 import org.mule.ide.config.core.PropertiesContainerContextType;
+import org.mule.ide.config.core.PropertyEntryPointResolverType;
 import org.mule.ide.config.core.PrototypeObjectFactoryType;
 import org.mule.ide.config.core.QueueProfileType;
+import org.mule.ide.config.core.RefFilterType;
+import org.mule.ide.config.core.RefTransformerType;
+import org.mule.ide.config.core.ReflectionEntryPointResolverType;
 import org.mule.ide.config.core.RetryConnectionStrategyType;
 import org.mule.ide.config.core.RmiContainerContextType;
 import org.mule.ide.config.core.SecurityManagerType;
@@ -121,13 +128,10 @@ import org.mule.ide.config.core.SedaModelType;
 import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.core.SelectiveConsumerRouterType;
 import org.mule.ide.config.core.SingletonObjectFactoryType;
+import org.mule.ide.config.core.SpringBeanLookupType;
 import org.mule.ide.config.core.StaticRecipientListRouterType;
 import org.mule.ide.config.core.ThreadingProfileType;
 import org.mule.ide.config.core.TransactionManagerType;
-import org.mule.ide.config.core.TransactionRefFactoryType;
-import org.mule.ide.config.core.TransactionType;
-import org.mule.ide.config.core.TransformerAppendStringType;
-import org.mule.ide.config.core.TransformerRefType;
 import org.mule.ide.config.core.TypeFilterType;
 import org.mule.ide.config.core.UnitaryFilterType;
 import org.mule.ide.config.core.WildcardFilterType;
@@ -152,7 +156,8 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractConnector <em>Abstract Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractDefineNotification <em>Abstract Define Notification</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractDisableNotification <em>Abstract Disable Notification</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractEntrypointResolver <em>Abstract Entrypoint Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractEntryPointResolver <em>Abstract Entry Point Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractEntryPointResolverSet <em>Abstract Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractExceptionStrategy <em>Abstract Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractExtension <em>Abstract Extension</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractFilter <em>Abstract Filter</em>}</li>
@@ -171,17 +176,23 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractService <em>Abstract Service</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractStorage <em>Abstract Storage</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractTransaction <em>Abstract Transaction</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractTransactionFactory <em>Abstract Transaction Factory</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractTransactionManager <em>Abstract Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractTransformer <em>Abstract Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAndFilter <em>And Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAppendStringTransformer <em>Append String Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getArrayEntryPointResolver <em>Array Entry Point Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getBase64DecoderTransformer <em>Base64 Decoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getBase64EncoderTransformer <em>Base64 Encoder Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getBeanPropertyExtractor <em>Bean Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getBridgeComponent <em>Bridge Component</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCallableEntrypointResolver <em>Callable Entrypoint Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getByteArrayToHexStringTransformer <em>Byte Array To Hex String Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getByteArrayToObjectTransformer <em>Byte Array To Object Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getByteArrayToSerializableTransformer <em>Byte Array To Serializable Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getByteArrayToStringTransformer <em>Byte Array To String Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCallableEntryPointResolver <em>Callable Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getChainingRouter <em>Chaining Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getComponent <em>Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getComponentThreadingProfile <em>Component Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCorrelationAggregatorRouter <em>Correlation Aggregator Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCorrelationPropertyExtractor <em>Correlation Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCorrelationResequencerRouter <em>Correlation Resequencer Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomAsyncReplyRouter <em>Custom Async Reply Router</em>}</li>
@@ -189,16 +200,19 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomConnectionStrategy <em>Custom Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomConnector <em>Custom Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomContainer <em>Custom Container</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomEntrypointResolver <em>Custom Entrypoint Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomCorrelationAggregatorRouter <em>Custom Correlation Aggregator Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomEntryPointResolver <em>Custom Entry Point Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomEntryPointResolverSet <em>Custom Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomExceptionStrategy <em>Custom Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomFilter <em>Custom Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomForwardingCatchAllStrategy <em>Custom Forwarding Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomInboundRouter <em>Custom Inbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomOutboundRouter <em>Custom Outbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomPropertyExtractor <em>Custom Property Extractor</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomTransactionFactory <em>Custom Transaction Factory</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomTransaction <em>Custom Transaction</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomTransactionManager <em>Custom Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomTransformer <em>Custom Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getDecryptTransformer <em>Decrypt Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getDefaultConnectorExceptionStrategy <em>Default Connector Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getDefaultServiceExceptionStrategy <em>Default Service Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getDescription <em>Description</em>}</li>
@@ -206,36 +220,51 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getEchoComponent <em>Echo Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getEjbContainer <em>Ejb Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getEncryptionSecurityFilter <em>Encryption Security Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getEncryptTransformer <em>Encrypt Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getEndpointSelectorRouter <em>Endpoint Selector Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getEntryPointResolverSet <em>Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getExceptionBasedRouter <em>Exception Based Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getExceptionTypeFilter <em>Exception Type Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getFilteringRouter <em>Filtering Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getForwardingCatchAllStrategy <em>Forwarding Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getForwardingRouter <em>Forwarding Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getGzipCompressTransformer <em>Gzip Compress Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getGzipUncompressTransformer <em>Gzip Uncompress Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getHexStringToByteArrayTransformer <em>Hex String To Byte Array Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getHivemindContainer <em>Hivemind Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getIdempotentReceiverRouter <em>Idempotent Receiver Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getIdempotentSecureHashReceiverRouter <em>Idempotent Secure Hash Receiver Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getInboundEndpoint <em>Inbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getInboundPassThroughRouter <em>Inbound Pass Through Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getIncludeEntryPoint <em>Include Entry Point</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getJbossTransactionManager <em>Jboss Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getJndiContainer <em>Jndi Container</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getJndiTransactionManager <em>Jndi Transaction Manager</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getJrunTransactionManager <em>Jrun Transaction Manager</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getLegacyEntryPointResolverSet <em>Legacy Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getListMessageSplitterRouter <em>List Message Splitter Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getLogComponent <em>Log Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getLoggingCatchAllStrategy <em>Logging Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMapPropertyExtractor <em>Map Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMessageChunkingAggregatorRouter <em>Message Chunking Aggregator Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMessageChunkingRouter <em>Message Chunking Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMessagePropertiesTransformer <em>Message Properties Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMessagePropertyExtractor <em>Message Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMessagePropertyFilter <em>Message Property Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMethodEntryPointResolver <em>Method Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getModel <em>Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMule <em>Mule</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMuleUnsafe <em>Mule Unsafe</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMulticastingRouter <em>Multicasting Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getNoArgsCallComponent <em>No Args Call Component</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getNoActionTransformer <em>No Action Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getNoArgumentsEntryPointResolver <em>No Arguments Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getNotFilter <em>Not Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getNotification <em>Notification</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getNullComponent <em>Null Component</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getObjectToByteArrayTransformer <em>Object To Byte Array Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getObjectToStringTransformer <em>Object To String Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getOrFilter <em>Or Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getOutboundEndpoint <em>Outbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getOutboundPassThroughRouter <em>Outbound Pass Through Router</em>}</li>
@@ -248,54 +277,36 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getPoolingProfile <em>Pooling Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getPropertiesContainer <em>Properties Container</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getPropertyEntryPointResolver <em>Property Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getPrototypeObject <em>Prototype Object</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getQueueProfile <em>Queue Profile</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getReflectionEntryPointResolver <em>Reflection Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getRegexFilter <em>Regex Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getResinTransactionManager <em>Resin Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getRetryConnectionStrategy <em>Retry Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getRmiContainer <em>Rmi Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getSecurityManager <em>Security Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getSedaModel <em>Seda Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getSelectiveConsumerRouter <em>Selective Consumer Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getSerializableToByteArrayTransformer <em>Serializable To Byte Array Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getService <em>Service</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getSingleAsyncReplyRouter <em>Single Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getSingletonObject <em>Singleton Object</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getSpringObject <em>Spring Object</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getStaticRecipientListRouter <em>Static Recipient List Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getStringToByteArrayTransformer <em>String To Byte Array Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTemplateEndpointRouter <em>Template Endpoint Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransaction <em>Transaction</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransactionFactory <em>Transaction Factory</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransactionManagerJboss <em>Transaction Manager Jboss</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransactionManagerJndi <em>Transaction Manager Jndi</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransactionManagerJrun <em>Transaction Manager Jrun</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransactionManagerResin <em>Transaction Manager Resin</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransactionManagerWeblogic <em>Transaction Manager Weblogic</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransactionManagerWebsphere <em>Transaction Manager Websphere</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformer <em>Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerAppendString <em>Transformer Append String</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerBase64Decoder <em>Transformer Base64 Decoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerBase64Encoder <em>Transformer Base64 Encoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerByteArrayToHexString <em>Transformer Byte Array To Hex String</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerByteArrayToObject <em>Transformer Byte Array To Object</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerByteArrayToSerializable <em>Transformer Byte Array To Serializable</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerByteArrayToString <em>Transformer Byte Array To String</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerDecrypt <em>Transformer Decrypt</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerEncrypt <em>Transformer Encrypt</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerGzipCompress <em>Transformer Gzip Compress</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerGzipUncompress <em>Transformer Gzip Uncompress</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerHexStingToByteArray <em>Transformer Hex Sting To Byte Array</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerMessageProperties <em>Transformer Message Properties</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerNoAction <em>Transformer No Action</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerObjectToByteArray <em>Transformer Object To Byte Array</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerObjectToString <em>Transformer Object To String</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerSerializableToByteArray <em>Transformer Serializable To Byte Array</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerStringToByteArray <em>Transformer String To Byte Array</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerUcDecoder <em>Transformer Uc Decoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerUcEncoder <em>Transformer Uc Encoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerUuDecoder <em>Transformer Uu Decoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerUuEncoder <em>Transformer Uu Encoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerXmlEntityDecoder <em>Transformer Xml Entity Decoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getTransformerXmlEntityEncoder <em>Transformer Xml Entity Encoder</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getUcDecoderTransformer <em>Uc Decoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getUcEncoderTransformer <em>Uc Encoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getUuDecoderTransformer <em>Uu Decoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getUuEncoderTransformer <em>Uu Encoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getWeblogicTransactionManager <em>Weblogic Transaction Manager</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getWebsphereTransactionManager <em>Websphere Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getWildcardFilter <em>Wildcard Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getWireTapRouter <em>Wire Tap Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getXmlEntityDecoderTransformer <em>Xml Entity Decoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getXmlEntityEncoderTransformer <em>Xml Entity Encoder Transformer</em>}</li>
  * </ul>
  * </p>
  *
@@ -554,8 +565,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractEntrypointResolverType getAbstractEntrypointResolver() {
-		return (AbstractEntrypointResolverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_AbstractEntrypointResolver(), true);
+	public AbstractEntryPointResolverType getAbstractEntryPointResolver() {
+		return (AbstractEntryPointResolverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_AbstractEntryPointResolver(), true);
 	}
 
 	/**
@@ -563,8 +574,26 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAbstractEntrypointResolver(AbstractEntrypointResolverType newAbstractEntrypointResolver, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AbstractEntrypointResolver(), newAbstractEntrypointResolver, msgs);
+	public NotificationChain basicSetAbstractEntryPointResolver(AbstractEntryPointResolverType newAbstractEntryPointResolver, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AbstractEntryPointResolver(), newAbstractEntryPointResolver, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractEntryPointResolverSetType getAbstractEntryPointResolverSet() {
+		return (AbstractEntryPointResolverSetType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_AbstractEntryPointResolverSet(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAbstractEntryPointResolverSet(AbstractEntryPointResolverSetType newAbstractEntryPointResolverSet, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AbstractEntryPointResolverSet(), newAbstractEntryPointResolverSet, msgs);
 	}
 
 	/**
@@ -896,24 +925,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractTransactionFactoryType getAbstractTransactionFactory() {
-		return (AbstractTransactionFactoryType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_AbstractTransactionFactory(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAbstractTransactionFactory(AbstractTransactionFactoryType newAbstractTransactionFactory, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AbstractTransactionFactory(), newAbstractTransactionFactory, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AbstractTransactionManagerType getAbstractTransactionManager() {
 		return (AbstractTransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_AbstractTransactionManager(), true);
 	}
@@ -977,6 +988,114 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AppendStringTransformerType getAppendStringTransformer() {
+		return (AppendStringTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_AppendStringTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAppendStringTransformer(AppendStringTransformerType newAppendStringTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AppendStringTransformer(), newAppendStringTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAppendStringTransformer(AppendStringTransformerType newAppendStringTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_AppendStringTransformer(), newAppendStringTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComplexEntryPointResolverType getArrayEntryPointResolver() {
+		return (ComplexEntryPointResolverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ArrayEntryPointResolver(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetArrayEntryPointResolver(ComplexEntryPointResolverType newArrayEntryPointResolver, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_ArrayEntryPointResolver(), newArrayEntryPointResolver, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setArrayEntryPointResolver(ComplexEntryPointResolverType newArrayEntryPointResolver) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ArrayEntryPointResolver(), newArrayEntryPointResolver);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getBase64DecoderTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBase64DecoderTransformer(AbstractTransformerType newBase64DecoderTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer(), newBase64DecoderTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBase64DecoderTransformer(AbstractTransformerType newBase64DecoderTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer(), newBase64DecoderTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getBase64EncoderTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBase64EncoderTransformer(AbstractTransformerType newBase64EncoderTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(), newBase64EncoderTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBase64EncoderTransformer(AbstractTransformerType newBase64EncoderTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(), newBase64EncoderTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AbstractPropertyExtractorType getBeanPropertyExtractor() {
 		return (AbstractPropertyExtractorType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor(), true);
 	}
@@ -1031,8 +1150,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CallableEntrypointResolverType getCallableEntrypointResolver() {
-		return (CallableEntrypointResolverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CallableEntrypointResolver(), true);
+	public AbstractTransformerType getByteArrayToHexStringTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer(), true);
 	}
 
 	/**
@@ -1040,8 +1159,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCallableEntrypointResolver(CallableEntrypointResolverType newCallableEntrypointResolver, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CallableEntrypointResolver(), newCallableEntrypointResolver, msgs);
+	public NotificationChain basicSetByteArrayToHexStringTransformer(AbstractTransformerType newByteArrayToHexStringTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer(), newByteArrayToHexStringTransformer, msgs);
 	}
 
 	/**
@@ -1049,8 +1168,116 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCallableEntrypointResolver(CallableEntrypointResolverType newCallableEntrypointResolver) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CallableEntrypointResolver(), newCallableEntrypointResolver);
+	public void setByteArrayToHexStringTransformer(AbstractTransformerType newByteArrayToHexStringTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer(), newByteArrayToHexStringTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getByteArrayToObjectTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetByteArrayToObjectTransformer(AbstractTransformerType newByteArrayToObjectTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer(), newByteArrayToObjectTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setByteArrayToObjectTransformer(AbstractTransformerType newByteArrayToObjectTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer(), newByteArrayToObjectTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getByteArrayToSerializableTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetByteArrayToSerializableTransformer(AbstractTransformerType newByteArrayToSerializableTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer(), newByteArrayToSerializableTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setByteArrayToSerializableTransformer(AbstractTransformerType newByteArrayToSerializableTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer(), newByteArrayToSerializableTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getByteArrayToStringTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetByteArrayToStringTransformer(AbstractTransformerType newByteArrayToStringTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer(), newByteArrayToStringTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setByteArrayToStringTransformer(AbstractTransformerType newByteArrayToStringTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer(), newByteArrayToStringTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractEntryPointResolverType getCallableEntryPointResolver() {
+		return (AbstractEntryPointResolverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCallableEntryPointResolver(AbstractEntryPointResolverType newCallableEntryPointResolver, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver(), newCallableEntryPointResolver, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCallableEntryPointResolver(AbstractEntryPointResolverType newCallableEntryPointResolver) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver(), newCallableEntryPointResolver);
 	}
 
 	/**
@@ -1139,33 +1366,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CorrelationAggregatorRouterType getCorrelationAggregatorRouter() {
-		return (CorrelationAggregatorRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CorrelationAggregatorRouter(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCorrelationAggregatorRouter(CorrelationAggregatorRouterType newCorrelationAggregatorRouter, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CorrelationAggregatorRouter(), newCorrelationAggregatorRouter, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCorrelationAggregatorRouter(CorrelationAggregatorRouterType newCorrelationAggregatorRouter) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CorrelationAggregatorRouter(), newCorrelationAggregatorRouter);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AbstractPropertyExtractorType getCorrelationPropertyExtractor() {
 		return (AbstractPropertyExtractorType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(), true);
 	}
@@ -1193,8 +1393,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CorrelationRouterType getCorrelationResequencerRouter() {
-		return (CorrelationRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter(), true);
+	public SelectiveConsumerRouterType getCorrelationResequencerRouter() {
+		return (SelectiveConsumerRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter(), true);
 	}
 
 	/**
@@ -1202,7 +1402,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCorrelationResequencerRouter(CorrelationRouterType newCorrelationResequencerRouter, NotificationChain msgs) {
+	public NotificationChain basicSetCorrelationResequencerRouter(SelectiveConsumerRouterType newCorrelationResequencerRouter, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter(), newCorrelationResequencerRouter, msgs);
 	}
 
@@ -1211,7 +1411,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCorrelationResequencerRouter(CorrelationRouterType newCorrelationResequencerRouter) {
+	public void setCorrelationResequencerRouter(SelectiveConsumerRouterType newCorrelationResequencerRouter) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter(), newCorrelationResequencerRouter);
 	}
 
@@ -1355,8 +1555,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomEntrypointResolverType getCustomEntrypointResolver() {
-		return (CustomEntrypointResolverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CustomEntrypointResolver(), true);
+	public CustomCorrelationAggregatorRouterType getCustomCorrelationAggregatorRouter() {
+		return (CustomCorrelationAggregatorRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CustomCorrelationAggregatorRouter(), true);
 	}
 
 	/**
@@ -1364,8 +1564,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCustomEntrypointResolver(CustomEntrypointResolverType newCustomEntrypointResolver, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CustomEntrypointResolver(), newCustomEntrypointResolver, msgs);
+	public NotificationChain basicSetCustomCorrelationAggregatorRouter(CustomCorrelationAggregatorRouterType newCustomCorrelationAggregatorRouter, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CustomCorrelationAggregatorRouter(), newCustomCorrelationAggregatorRouter, msgs);
 	}
 
 	/**
@@ -1373,8 +1573,62 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCustomEntrypointResolver(CustomEntrypointResolverType newCustomEntrypointResolver) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomEntrypointResolver(), newCustomEntrypointResolver);
+	public void setCustomCorrelationAggregatorRouter(CustomCorrelationAggregatorRouterType newCustomCorrelationAggregatorRouter) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomCorrelationAggregatorRouter(), newCustomCorrelationAggregatorRouter);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CustomEntryPointResolverType getCustomEntryPointResolver() {
+		return (CustomEntryPointResolverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolver(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCustomEntryPointResolver(CustomEntryPointResolverType newCustomEntryPointResolver, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolver(), newCustomEntryPointResolver, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCustomEntryPointResolver(CustomEntryPointResolverType newCustomEntryPointResolver) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolver(), newCustomEntryPointResolver);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CustomEntryPointResolverSetType getCustomEntryPointResolverSet() {
+		return (CustomEntryPointResolverSetType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolverSet(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCustomEntryPointResolverSet(CustomEntryPointResolverSetType newCustomEntryPointResolverSet, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolverSet(), newCustomEntryPointResolverSet, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCustomEntryPointResolverSet(CustomEntryPointResolverSetType newCustomEntryPointResolverSet) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolverSet(), newCustomEntryPointResolverSet);
 	}
 
 	/**
@@ -1544,8 +1798,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomTransactionFactoryType getCustomTransactionFactory() {
-		return (CustomTransactionFactoryType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CustomTransactionFactory(), true);
+	public CustomTransactionType getCustomTransaction() {
+		return (CustomTransactionType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CustomTransaction(), true);
 	}
 
 	/**
@@ -1553,8 +1807,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCustomTransactionFactory(CustomTransactionFactoryType newCustomTransactionFactory, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CustomTransactionFactory(), newCustomTransactionFactory, msgs);
+	public NotificationChain basicSetCustomTransaction(CustomTransactionType newCustomTransaction, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CustomTransaction(), newCustomTransaction, msgs);
 	}
 
 	/**
@@ -1562,8 +1816,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCustomTransactionFactory(CustomTransactionFactoryType newCustomTransactionFactory) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomTransactionFactory(), newCustomTransactionFactory);
+	public void setCustomTransaction(CustomTransactionType newCustomTransaction) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomTransaction(), newCustomTransaction);
 	}
 
 	/**
@@ -1618,6 +1872,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setCustomTransformer(CustomTransformerType newCustomTransformer) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer(), newCustomTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getDecryptTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDecryptTransformer(AbstractTransformerType newDecryptTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(), newDecryptTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDecryptTransformer(AbstractTransformerType newDecryptTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(), newDecryptTransformer);
 	}
 
 	/**
@@ -1814,6 +2095,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AbstractTransformerType getEncryptTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEncryptTransformer(AbstractTransformerType newEncryptTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(), newEncryptTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEncryptTransformer(AbstractTransformerType newEncryptTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(), newEncryptTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GlobalEndpointType getEndpoint() {
 		return (GlobalEndpointType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Endpoint(), true);
 	}
@@ -1861,6 +2169,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setEndpointSelectorRouter(EndpointSelectorRouterType newEndpointSelectorRouter) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_EndpointSelectorRouter(), newEndpointSelectorRouter);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExtensibleEntryPointResolverSet getEntryPointResolverSet() {
+		return (ExtensibleEntryPointResolverSet)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_EntryPointResolverSet(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEntryPointResolverSet(ExtensibleEntryPointResolverSet newEntryPointResolverSet, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_EntryPointResolverSet(), newEntryPointResolverSet, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEntryPointResolverSet(ExtensibleEntryPointResolverSet newEntryPointResolverSet) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_EntryPointResolverSet(), newEntryPointResolverSet);
 	}
 
 	/**
@@ -1922,8 +2257,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FilterRefType getFilter() {
-		return (FilterRefType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Filter(), true);
+	public RefFilterType getFilter() {
+		return (RefFilterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Filter(), true);
 	}
 
 	/**
@@ -1931,7 +2266,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFilter(FilterRefType newFilter, NotificationChain msgs) {
+	public NotificationChain basicSetFilter(RefFilterType newFilter, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_Filter(), newFilter, msgs);
 	}
 
@@ -1940,7 +2275,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFilter(FilterRefType newFilter) {
+	public void setFilter(RefFilterType newFilter) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_Filter(), newFilter);
 	}
 
@@ -2030,6 +2365,87 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AbstractTransformerType getGzipCompressTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGzipCompressTransformer(AbstractTransformerType newGzipCompressTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer(), newGzipCompressTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGzipCompressTransformer(AbstractTransformerType newGzipCompressTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer(), newGzipCompressTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getGzipUncompressTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGzipUncompressTransformer(AbstractTransformerType newGzipUncompressTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer(), newGzipUncompressTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGzipUncompressTransformer(AbstractTransformerType newGzipUncompressTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer(), newGzipUncompressTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getHexStringToByteArrayTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetHexStringToByteArrayTransformer(AbstractTransformerType newHexStringToByteArrayTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(), newHexStringToByteArrayTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHexStringToByteArrayTransformer(AbstractTransformerType newHexStringToByteArrayTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(), newHexStringToByteArrayTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public IocContainerContextType getHivemindContainer() {
 		return (IocContainerContextType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_HivemindContainer(), true);
 	}
@@ -2057,8 +2473,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IdempotentReceiverType getIdempotentReceiverRouter() {
-		return (IdempotentReceiverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(), true);
+	public IdempotentReceiverRouterType getIdempotentReceiverRouter() {
+		return (IdempotentReceiverRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(), true);
 	}
 
 	/**
@@ -2066,7 +2482,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdempotentReceiverRouter(IdempotentReceiverType newIdempotentReceiverRouter, NotificationChain msgs) {
+	public NotificationChain basicSetIdempotentReceiverRouter(IdempotentReceiverRouterType newIdempotentReceiverRouter, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(), newIdempotentReceiverRouter, msgs);
 	}
 
@@ -2075,7 +2491,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIdempotentReceiverRouter(IdempotentReceiverType newIdempotentReceiverRouter) {
+	public void setIdempotentReceiverRouter(IdempotentReceiverRouterType newIdempotentReceiverRouter) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(), newIdempotentReceiverRouter);
 	}
 
@@ -2165,6 +2581,60 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MethodType getIncludeEntryPoint() {
+		return (MethodType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_IncludeEntryPoint(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIncludeEntryPoint(MethodType newIncludeEntryPoint, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_IncludeEntryPoint(), newIncludeEntryPoint, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIncludeEntryPoint(MethodType newIncludeEntryPoint) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_IncludeEntryPoint(), newIncludeEntryPoint);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TransactionManagerType getJbossTransactionManager() {
+		return (TransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_JbossTransactionManager(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetJbossTransactionManager(TransactionManagerType newJbossTransactionManager, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_JbossTransactionManager(), newJbossTransactionManager, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJbossTransactionManager(TransactionManagerType newJbossTransactionManager) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_JbossTransactionManager(), newJbossTransactionManager);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BaseContainerContextType getJndiContainer() {
 		return (BaseContainerContextType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_JndiContainer(), true);
 	}
@@ -2185,6 +2655,87 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setJndiContainer(BaseContainerContextType newJndiContainer) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_JndiContainer(), newJndiContainer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TransactionManagerType getJndiTransactionManager() {
+		return (TransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_JndiTransactionManager(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetJndiTransactionManager(TransactionManagerType newJndiTransactionManager, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_JndiTransactionManager(), newJndiTransactionManager, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJndiTransactionManager(TransactionManagerType newJndiTransactionManager) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_JndiTransactionManager(), newJndiTransactionManager);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TransactionManagerType getJrunTransactionManager() {
+		return (TransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_JrunTransactionManager(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetJrunTransactionManager(TransactionManagerType newJrunTransactionManager, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_JrunTransactionManager(), newJrunTransactionManager, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJrunTransactionManager(TransactionManagerType newJrunTransactionManager) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_JrunTransactionManager(), newJrunTransactionManager);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExtensibleEntryPointResolverSet getLegacyEntryPointResolverSet() {
+		return (ExtensibleEntryPointResolverSet)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_LegacyEntryPointResolverSet(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLegacyEntryPointResolverSet(ExtensibleEntryPointResolverSet newLegacyEntryPointResolverSet, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_LegacyEntryPointResolverSet(), newLegacyEntryPointResolverSet, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLegacyEntryPointResolverSet(ExtensibleEntryPointResolverSet newLegacyEntryPointResolverSet) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_LegacyEntryPointResolverSet(), newLegacyEntryPointResolverSet);
 	}
 
 	/**
@@ -2300,8 +2851,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CorrelationRouterType getMessageChunkingAggregatorRouter() {
-		return (CorrelationRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter(), true);
+	public MessageChunkingAggregatorRouterType getMessageChunkingAggregatorRouter() {
+		return (MessageChunkingAggregatorRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter(), true);
 	}
 
 	/**
@@ -2309,7 +2860,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMessageChunkingAggregatorRouter(CorrelationRouterType newMessageChunkingAggregatorRouter, NotificationChain msgs) {
+	public NotificationChain basicSetMessageChunkingAggregatorRouter(MessageChunkingAggregatorRouterType newMessageChunkingAggregatorRouter, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter(), newMessageChunkingAggregatorRouter, msgs);
 	}
 
@@ -2318,7 +2869,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMessageChunkingAggregatorRouter(CorrelationRouterType newMessageChunkingAggregatorRouter) {
+	public void setMessageChunkingAggregatorRouter(MessageChunkingAggregatorRouterType newMessageChunkingAggregatorRouter) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter(), newMessageChunkingAggregatorRouter);
 	}
 
@@ -2347,6 +2898,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setMessageChunkingRouter(ChunkingRouterType newMessageChunkingRouter) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingRouter(), newMessageChunkingRouter);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MessagePropertiesTransformerType getMessagePropertiesTransformer() {
+		return (MessagePropertiesTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMessagePropertiesTransformer(MessagePropertiesTransformerType newMessagePropertiesTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer(), newMessagePropertiesTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMessagePropertiesTransformer(MessagePropertiesTransformerType newMessagePropertiesTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer(), newMessagePropertiesTransformer);
 	}
 
 	/**
@@ -2401,6 +2979,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setMessagePropertyFilter(PatternFilterType newMessagePropertyFilter) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter(), newMessagePropertyFilter);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MethodEntryPointResolverType getMethodEntryPointResolver() {
+		return (MethodEntryPointResolverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_MethodEntryPointResolver(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMethodEntryPointResolver(MethodEntryPointResolverType newMethodEntryPointResolver, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_MethodEntryPointResolver(), newMethodEntryPointResolver, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMethodEntryPointResolver(MethodEntryPointResolverType newMethodEntryPointResolver) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_MethodEntryPointResolver(), newMethodEntryPointResolver);
 	}
 
 	/**
@@ -2516,8 +3121,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NoArgsCallComponentType getNoArgsCallComponent() {
-		return (NoArgsCallComponentType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_NoArgsCallComponent(), true);
+	public AbstractTransformerType getNoActionTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer(), true);
 	}
 
 	/**
@@ -2525,8 +3130,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNoArgsCallComponent(NoArgsCallComponentType newNoArgsCallComponent, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_NoArgsCallComponent(), newNoArgsCallComponent, msgs);
+	public NotificationChain basicSetNoActionTransformer(AbstractTransformerType newNoActionTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer(), newNoActionTransformer, msgs);
 	}
 
 	/**
@@ -2534,8 +3139,35 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNoArgsCallComponent(NoArgsCallComponentType newNoArgsCallComponent) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_NoArgsCallComponent(), newNoArgsCallComponent);
+	public void setNoActionTransformer(AbstractTransformerType newNoActionTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer(), newNoActionTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComplexEntryPointResolverType getNoArgumentsEntryPointResolver() {
+		return (ComplexEntryPointResolverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_NoArgumentsEntryPointResolver(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNoArgumentsEntryPointResolver(ComplexEntryPointResolverType newNoArgumentsEntryPointResolver, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_NoArgumentsEntryPointResolver(), newNoArgumentsEntryPointResolver, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNoArgumentsEntryPointResolver(ComplexEntryPointResolverType newNoArgumentsEntryPointResolver) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_NoArgumentsEntryPointResolver(), newNoArgumentsEntryPointResolver);
 	}
 
 	/**
@@ -2617,6 +3249,60 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setNullComponent(DefaultComponentType newNullComponent) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_NullComponent(), newNullComponent);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getObjectToByteArrayTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetObjectToByteArrayTransformer(AbstractTransformerType newObjectToByteArrayTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer(), newObjectToByteArrayTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setObjectToByteArrayTransformer(AbstractTransformerType newObjectToByteArrayTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer(), newObjectToByteArrayTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getObjectToStringTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetObjectToStringTransformer(AbstractTransformerType newObjectToStringTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer(), newObjectToStringTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setObjectToStringTransformer(AbstractTransformerType newObjectToStringTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer(), newObjectToStringTransformer);
 	}
 
 	/**
@@ -2948,6 +3634,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PropertyEntryPointResolverType getPropertyEntryPointResolver() {
+		return (PropertyEntryPointResolverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_PropertyEntryPointResolver(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPropertyEntryPointResolver(PropertyEntryPointResolverType newPropertyEntryPointResolver, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_PropertyEntryPointResolver(), newPropertyEntryPointResolver, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPropertyEntryPointResolver(PropertyEntryPointResolverType newPropertyEntryPointResolver) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_PropertyEntryPointResolver(), newPropertyEntryPointResolver);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PrototypeObjectFactoryType getPrototypeObject() {
 		return (PrototypeObjectFactoryType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_PrototypeObject(), true);
 	}
@@ -3002,6 +3715,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ReflectionEntryPointResolverType getReflectionEntryPointResolver() {
+		return (ReflectionEntryPointResolverType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ReflectionEntryPointResolver(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReflectionEntryPointResolver(ReflectionEntryPointResolverType newReflectionEntryPointResolver, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_ReflectionEntryPointResolver(), newReflectionEntryPointResolver, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReflectionEntryPointResolver(ReflectionEntryPointResolverType newReflectionEntryPointResolver) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ReflectionEntryPointResolver(), newReflectionEntryPointResolver);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PatternFilterType getRegexFilter() {
 		return (PatternFilterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(), true);
 	}
@@ -3022,6 +3762,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setRegexFilter(PatternFilterType newRegexFilter) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(), newRegexFilter);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TransactionManagerType getResinTransactionManager() {
+		return (TransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ResinTransactionManager(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetResinTransactionManager(TransactionManagerType newResinTransactionManager, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_ResinTransactionManager(), newResinTransactionManager, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResinTransactionManager(TransactionManagerType newResinTransactionManager) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ResinTransactionManager(), newResinTransactionManager);
 	}
 
 	/**
@@ -3164,6 +3931,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AbstractTransformerType getSerializableToByteArrayTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSerializableToByteArrayTransformer(AbstractTransformerType newSerializableToByteArrayTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer(), newSerializableToByteArrayTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSerializableToByteArrayTransformer(AbstractTransformerType newSerializableToByteArrayTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer(), newSerializableToByteArrayTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SedaServiceType getService() {
 		return (SedaServiceType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Service(), true);
 	}
@@ -3245,6 +4039,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SpringBeanLookupType getSpringObject() {
+		return (SpringBeanLookupType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_SpringObject(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSpringObject(SpringBeanLookupType newSpringObject, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_SpringObject(), newSpringObject, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSpringObject(SpringBeanLookupType newSpringObject) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_SpringObject(), newSpringObject);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StaticRecipientListRouterType getStaticRecipientListRouter() {
 		return (StaticRecipientListRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_StaticRecipientListRouter(), true);
 	}
@@ -3265,6 +4086,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setStaticRecipientListRouter(StaticRecipientListRouterType newStaticRecipientListRouter) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_StaticRecipientListRouter(), newStaticRecipientListRouter);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getStringToByteArrayTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStringToByteArrayTransformer(AbstractTransformerType newStringToByteArrayTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer(), newStringToByteArrayTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStringToByteArrayTransformer(AbstractTransformerType newStringToByteArrayTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer(), newStringToByteArrayTransformer);
 	}
 
 	/**
@@ -3299,8 +4147,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TransactionType getTransaction() {
-		return (TransactionType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Transaction(), true);
+	public RefTransformerType getTransformer() {
+		return (RefTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Transformer(), true);
 	}
 
 	/**
@@ -3308,223 +4156,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTransaction(TransactionType newTransaction, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_Transaction(), newTransaction, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransaction(TransactionType newTransaction) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_Transaction(), newTransaction);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TransactionRefFactoryType getTransactionFactory() {
-		return (TransactionRefFactoryType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransactionFactory(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransactionFactory(TransactionRefFactoryType newTransactionFactory, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransactionFactory(), newTransactionFactory, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransactionFactory(TransactionRefFactoryType newTransactionFactory) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransactionFactory(), newTransactionFactory);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TransactionManagerType getTransactionManagerJboss() {
-		return (TransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerJboss(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransactionManagerJboss(TransactionManagerType newTransactionManagerJboss, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerJboss(), newTransactionManagerJboss, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransactionManagerJboss(TransactionManagerType newTransactionManagerJboss) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerJboss(), newTransactionManagerJboss);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TransactionManagerType getTransactionManagerJndi() {
-		return (TransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerJndi(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransactionManagerJndi(TransactionManagerType newTransactionManagerJndi, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerJndi(), newTransactionManagerJndi, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransactionManagerJndi(TransactionManagerType newTransactionManagerJndi) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerJndi(), newTransactionManagerJndi);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TransactionManagerType getTransactionManagerJrun() {
-		return (TransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerJrun(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransactionManagerJrun(TransactionManagerType newTransactionManagerJrun, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerJrun(), newTransactionManagerJrun, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransactionManagerJrun(TransactionManagerType newTransactionManagerJrun) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerJrun(), newTransactionManagerJrun);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TransactionManagerType getTransactionManagerResin() {
-		return (TransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerResin(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransactionManagerResin(TransactionManagerType newTransactionManagerResin, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerResin(), newTransactionManagerResin, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransactionManagerResin(TransactionManagerType newTransactionManagerResin) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerResin(), newTransactionManagerResin);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JndiTransactionManagerType getTransactionManagerWeblogic() {
-		return (JndiTransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerWeblogic(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransactionManagerWeblogic(JndiTransactionManagerType newTransactionManagerWeblogic, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerWeblogic(), newTransactionManagerWeblogic, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransactionManagerWeblogic(JndiTransactionManagerType newTransactionManagerWeblogic) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerWeblogic(), newTransactionManagerWeblogic);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TransactionManagerType getTransactionManagerWebsphere() {
-		return (TransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerWebsphere(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransactionManagerWebsphere(TransactionManagerType newTransactionManagerWebsphere, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerWebsphere(), newTransactionManagerWebsphere, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransactionManagerWebsphere(TransactionManagerType newTransactionManagerWebsphere) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransactionManagerWebsphere(), newTransactionManagerWebsphere);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TransformerRefType getTransformer() {
-		return (TransformerRefType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Transformer(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformer(TransformerRefType newTransformer, NotificationChain msgs) {
+	public NotificationChain basicSetTransformer(RefTransformerType newTransformer, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_Transformer(), newTransformer, msgs);
 	}
 
@@ -3533,7 +4165,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransformer(TransformerRefType newTransformer) {
+	public void setTransformer(RefTransformerType newTransformer) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_Transformer(), newTransformer);
 	}
 
@@ -3542,8 +4174,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TransformerAppendStringType getTransformerAppendString() {
-		return (TransformerAppendStringType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerAppendString(), true);
+	public AbstractTransformerType getUcDecoderTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(), true);
 	}
 
 	/**
@@ -3551,8 +4183,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTransformerAppendString(TransformerAppendStringType newTransformerAppendString, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerAppendString(), newTransformerAppendString, msgs);
+	public NotificationChain basicSetUcDecoderTransformer(AbstractTransformerType newUcDecoderTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(), newUcDecoderTransformer, msgs);
 	}
 
 	/**
@@ -3560,8 +4192,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransformerAppendString(TransformerAppendStringType newTransformerAppendString) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerAppendString(), newTransformerAppendString);
+	public void setUcDecoderTransformer(AbstractTransformerType newUcDecoderTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(), newUcDecoderTransformer);
 	}
 
 	/**
@@ -3569,8 +4201,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractTransformerType getTransformerBase64Decoder() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Decoder(), true);
+	public AbstractTransformerType getUcEncoderTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(), true);
 	}
 
 	/**
@@ -3578,8 +4210,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTransformerBase64Decoder(AbstractTransformerType newTransformerBase64Decoder, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Decoder(), newTransformerBase64Decoder, msgs);
+	public NotificationChain basicSetUcEncoderTransformer(AbstractTransformerType newUcEncoderTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(), newUcEncoderTransformer, msgs);
 	}
 
 	/**
@@ -3587,8 +4219,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransformerBase64Decoder(AbstractTransformerType newTransformerBase64Decoder) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Decoder(), newTransformerBase64Decoder);
+	public void setUcEncoderTransformer(AbstractTransformerType newUcEncoderTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(), newUcEncoderTransformer);
 	}
 
 	/**
@@ -3596,8 +4228,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractTransformerType getTransformerBase64Encoder() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Encoder(), true);
+	public AbstractTransformerType getUuDecoderTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(), true);
 	}
 
 	/**
@@ -3605,8 +4237,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTransformerBase64Encoder(AbstractTransformerType newTransformerBase64Encoder, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Encoder(), newTransformerBase64Encoder, msgs);
+	public NotificationChain basicSetUuDecoderTransformer(AbstractTransformerType newUuDecoderTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(), newUuDecoderTransformer, msgs);
 	}
 
 	/**
@@ -3614,8 +4246,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransformerBase64Encoder(AbstractTransformerType newTransformerBase64Encoder) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerBase64Encoder(), newTransformerBase64Encoder);
+	public void setUuDecoderTransformer(AbstractTransformerType newUuDecoderTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(), newUuDecoderTransformer);
 	}
 
 	/**
@@ -3623,8 +4255,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractTransformerType getTransformerByteArrayToHexString() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToHexString(), true);
+	public AbstractTransformerType getUuEncoderTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(), true);
 	}
 
 	/**
@@ -3632,8 +4264,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTransformerByteArrayToHexString(AbstractTransformerType newTransformerByteArrayToHexString, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToHexString(), newTransformerByteArrayToHexString, msgs);
+	public NotificationChain basicSetUuEncoderTransformer(AbstractTransformerType newUuEncoderTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(), newUuEncoderTransformer, msgs);
 	}
 
 	/**
@@ -3641,8 +4273,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransformerByteArrayToHexString(AbstractTransformerType newTransformerByteArrayToHexString) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToHexString(), newTransformerByteArrayToHexString);
+	public void setUuEncoderTransformer(AbstractTransformerType newUuEncoderTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(), newUuEncoderTransformer);
 	}
 
 	/**
@@ -3650,8 +4282,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractTransformerType getTransformerByteArrayToObject() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToObject(), true);
+	public JndiTransactionManagerType getWeblogicTransactionManager() {
+		return (JndiTransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_WeblogicTransactionManager(), true);
 	}
 
 	/**
@@ -3659,8 +4291,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTransformerByteArrayToObject(AbstractTransformerType newTransformerByteArrayToObject, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToObject(), newTransformerByteArrayToObject, msgs);
+	public NotificationChain basicSetWeblogicTransactionManager(JndiTransactionManagerType newWeblogicTransactionManager, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_WeblogicTransactionManager(), newWeblogicTransactionManager, msgs);
 	}
 
 	/**
@@ -3668,8 +4300,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransformerByteArrayToObject(AbstractTransformerType newTransformerByteArrayToObject) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToObject(), newTransformerByteArrayToObject);
+	public void setWeblogicTransactionManager(JndiTransactionManagerType newWeblogicTransactionManager) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_WeblogicTransactionManager(), newWeblogicTransactionManager);
 	}
 
 	/**
@@ -3677,8 +4309,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractTransformerType getTransformerByteArrayToSerializable() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToSerializable(), true);
+	public TransactionManagerType getWebsphereTransactionManager() {
+		return (TransactionManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_WebsphereTransactionManager(), true);
 	}
 
 	/**
@@ -3686,8 +4318,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTransformerByteArrayToSerializable(AbstractTransformerType newTransformerByteArrayToSerializable, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToSerializable(), newTransformerByteArrayToSerializable, msgs);
+	public NotificationChain basicSetWebsphereTransactionManager(TransactionManagerType newWebsphereTransactionManager, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_WebsphereTransactionManager(), newWebsphereTransactionManager, msgs);
 	}
 
 	/**
@@ -3695,494 +4327,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransformerByteArrayToSerializable(AbstractTransformerType newTransformerByteArrayToSerializable) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToSerializable(), newTransformerByteArrayToSerializable);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerByteArrayToString() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToString(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerByteArrayToString(AbstractTransformerType newTransformerByteArrayToString, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToString(), newTransformerByteArrayToString, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerByteArrayToString(AbstractTransformerType newTransformerByteArrayToString) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerByteArrayToString(), newTransformerByteArrayToString);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerDecrypt() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerDecrypt(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerDecrypt(AbstractTransformerType newTransformerDecrypt, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerDecrypt(), newTransformerDecrypt, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerDecrypt(AbstractTransformerType newTransformerDecrypt) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerDecrypt(), newTransformerDecrypt);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerEncrypt() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerEncrypt(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerEncrypt(AbstractTransformerType newTransformerEncrypt, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerEncrypt(), newTransformerEncrypt, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerEncrypt(AbstractTransformerType newTransformerEncrypt) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerEncrypt(), newTransformerEncrypt);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerGzipCompress() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerGzipCompress(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerGzipCompress(AbstractTransformerType newTransformerGzipCompress, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerGzipCompress(), newTransformerGzipCompress, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerGzipCompress(AbstractTransformerType newTransformerGzipCompress) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerGzipCompress(), newTransformerGzipCompress);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerGzipUncompress() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerGzipUncompress(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerGzipUncompress(AbstractTransformerType newTransformerGzipUncompress, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerGzipUncompress(), newTransformerGzipUncompress, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerGzipUncompress(AbstractTransformerType newTransformerGzipUncompress) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerGzipUncompress(), newTransformerGzipUncompress);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerHexStingToByteArray() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerHexStingToByteArray(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerHexStingToByteArray(AbstractTransformerType newTransformerHexStingToByteArray, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerHexStingToByteArray(), newTransformerHexStingToByteArray, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerHexStingToByteArray(AbstractTransformerType newTransformerHexStingToByteArray) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerHexStingToByteArray(), newTransformerHexStingToByteArray);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MessagePropertiesTransformerType getTransformerMessageProperties() {
-		return (MessagePropertiesTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerMessageProperties(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerMessageProperties(MessagePropertiesTransformerType newTransformerMessageProperties, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerMessageProperties(), newTransformerMessageProperties, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerMessageProperties(MessagePropertiesTransformerType newTransformerMessageProperties) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerMessageProperties(), newTransformerMessageProperties);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerNoAction() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerNoAction(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerNoAction(AbstractTransformerType newTransformerNoAction, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerNoAction(), newTransformerNoAction, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerNoAction(AbstractTransformerType newTransformerNoAction) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerNoAction(), newTransformerNoAction);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerObjectToByteArray() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerObjectToByteArray(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerObjectToByteArray(AbstractTransformerType newTransformerObjectToByteArray, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerObjectToByteArray(), newTransformerObjectToByteArray, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerObjectToByteArray(AbstractTransformerType newTransformerObjectToByteArray) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerObjectToByteArray(), newTransformerObjectToByteArray);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerObjectToString() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerObjectToString(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerObjectToString(AbstractTransformerType newTransformerObjectToString, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerObjectToString(), newTransformerObjectToString, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerObjectToString(AbstractTransformerType newTransformerObjectToString) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerObjectToString(), newTransformerObjectToString);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerSerializableToByteArray() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerSerializableToByteArray(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerSerializableToByteArray(AbstractTransformerType newTransformerSerializableToByteArray, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerSerializableToByteArray(), newTransformerSerializableToByteArray, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerSerializableToByteArray(AbstractTransformerType newTransformerSerializableToByteArray) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerSerializableToByteArray(), newTransformerSerializableToByteArray);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerStringToByteArray() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerStringToByteArray(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerStringToByteArray(AbstractTransformerType newTransformerStringToByteArray, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerStringToByteArray(), newTransformerStringToByteArray, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerStringToByteArray(AbstractTransformerType newTransformerStringToByteArray) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerStringToByteArray(), newTransformerStringToByteArray);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerUcDecoder() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerUcDecoder(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerUcDecoder(AbstractTransformerType newTransformerUcDecoder, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerUcDecoder(), newTransformerUcDecoder, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerUcDecoder(AbstractTransformerType newTransformerUcDecoder) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerUcDecoder(), newTransformerUcDecoder);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerUcEncoder() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerUcEncoder(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerUcEncoder(AbstractTransformerType newTransformerUcEncoder, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerUcEncoder(), newTransformerUcEncoder, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerUcEncoder(AbstractTransformerType newTransformerUcEncoder) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerUcEncoder(), newTransformerUcEncoder);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerUuDecoder() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerUuDecoder(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerUuDecoder(AbstractTransformerType newTransformerUuDecoder, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerUuDecoder(), newTransformerUuDecoder, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerUuDecoder(AbstractTransformerType newTransformerUuDecoder) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerUuDecoder(), newTransformerUuDecoder);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerUuEncoder() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerUuEncoder(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerUuEncoder(AbstractTransformerType newTransformerUuEncoder, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerUuEncoder(), newTransformerUuEncoder, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerUuEncoder(AbstractTransformerType newTransformerUuEncoder) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerUuEncoder(), newTransformerUuEncoder);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerXmlEntityDecoder() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityDecoder(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerXmlEntityDecoder(AbstractTransformerType newTransformerXmlEntityDecoder, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityDecoder(), newTransformerXmlEntityDecoder, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerXmlEntityDecoder(AbstractTransformerType newTransformerXmlEntityDecoder) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityDecoder(), newTransformerXmlEntityDecoder);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractTransformerType getTransformerXmlEntityEncoder() {
-		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityEncoder(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransformerXmlEntityEncoder(AbstractTransformerType newTransformerXmlEntityEncoder, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityEncoder(), newTransformerXmlEntityEncoder, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransformerXmlEntityEncoder(AbstractTransformerType newTransformerXmlEntityEncoder) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_TransformerXmlEntityEncoder(), newTransformerXmlEntityEncoder);
+	public void setWebsphereTransactionManager(TransactionManagerType newWebsphereTransactionManager) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_WebsphereTransactionManager(), newWebsphereTransactionManager);
 	}
 
 	/**
@@ -4244,6 +4390,60 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AbstractTransformerType getXmlEntityDecoderTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetXmlEntityDecoderTransformer(AbstractTransformerType newXmlEntityDecoderTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(), newXmlEntityDecoderTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setXmlEntityDecoderTransformer(AbstractTransformerType newXmlEntityDecoderTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(), newXmlEntityDecoderTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractTransformerType getXmlEntityEncoderTransformer() {
+		return (AbstractTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetXmlEntityEncoderTransformer(AbstractTransformerType newXmlEntityEncoderTransformer, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer(), newXmlEntityEncoderTransformer, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setXmlEntityEncoderTransformer(AbstractTransformerType newXmlEntityEncoderTransformer) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer(), newXmlEntityEncoderTransformer);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -4271,8 +4471,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetAbstractDefineNotification(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_DISABLE_NOTIFICATION:
 				return basicSetAbstractDisableNotification(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRYPOINT_RESOLVER:
-				return basicSetAbstractEntrypointResolver(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER:
+				return basicSetAbstractEntryPointResolver(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER_SET:
+				return basicSetAbstractEntryPointResolverSet(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_EXCEPTION_STRATEGY:
 				return basicSetAbstractExceptionStrategy(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_EXTENSION:
@@ -4309,28 +4511,40 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetAbstractStorage(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSACTION:
 				return basicSetAbstractTransaction(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSACTION_FACTORY:
-				return basicSetAbstractTransactionFactory(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSACTION_MANAGER:
 				return basicSetAbstractTransactionManager(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSFORMER:
 				return basicSetAbstractTransformer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__AND_FILTER:
 				return basicSetAndFilter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__APPEND_STRING_TRANSFORMER:
+				return basicSetAppendStringTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__ARRAY_ENTRY_POINT_RESOLVER:
+				return basicSetArrayEntryPointResolver(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__BASE64_DECODER_TRANSFORMER:
+				return basicSetBase64DecoderTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__BASE64_ENCODER_TRANSFORMER:
+				return basicSetBase64EncoderTransformer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
 				return basicSetBeanPropertyExtractor(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 				return basicSetBridgeComponent(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRYPOINT_RESOLVER:
-				return basicSetCallableEntrypointResolver(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_HEX_STRING_TRANSFORMER:
+				return basicSetByteArrayToHexStringTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_OBJECT_TRANSFORMER:
+				return basicSetByteArrayToObjectTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_SERIALIZABLE_TRANSFORMER:
+				return basicSetByteArrayToSerializableTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_STRING_TRANSFORMER:
+				return basicSetByteArrayToStringTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRY_POINT_RESOLVER:
+				return basicSetCallableEntryPointResolver(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
 				return basicSetChainingRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__COMPONENT:
 				return basicSetComponent(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				return basicSetComponentThreadingProfile(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__CORRELATION_AGGREGATOR_ROUTER:
-				return basicSetCorrelationAggregatorRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_PROPERTY_EXTRACTOR:
 				return basicSetCorrelationPropertyExtractor(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_RESEQUENCER_ROUTER:
@@ -4345,8 +4559,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetCustomConnector(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONTAINER:
 				return basicSetCustomContainer(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRYPOINT_RESOLVER:
-				return basicSetCustomEntrypointResolver(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_CORRELATION_AGGREGATOR_ROUTER:
+				return basicSetCustomCorrelationAggregatorRouter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER:
+				return basicSetCustomEntryPointResolver(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER_SET:
+				return basicSetCustomEntryPointResolverSet(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_EXCEPTION_STRATEGY:
 				return basicSetCustomExceptionStrategy(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_FILTER:
@@ -4359,12 +4577,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetCustomOutboundRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
 				return basicSetCustomPropertyExtractor(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_FACTORY:
-				return basicSetCustomTransactionFactory(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION:
+				return basicSetCustomTransaction(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_MANAGER:
 				return basicSetCustomTransactionManager(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSFORMER:
 				return basicSetCustomTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__DECRYPT_TRANSFORMER:
+				return basicSetDecryptTransformer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__DEFAULT_CONNECTOR_EXCEPTION_STRATEGY:
 				return basicSetDefaultConnectorExceptionStrategy(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__DEFAULT_SERVICE_EXCEPTION_STRATEGY:
@@ -4379,10 +4599,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetEjbContainer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ENCRYPTION_SECURITY_FILTER:
 				return basicSetEncryptionSecurityFilter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__ENCRYPT_TRANSFORMER:
+				return basicSetEncryptTransformer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ENDPOINT:
 				return basicSetEndpoint(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ENDPOINT_SELECTOR_ROUTER:
 				return basicSetEndpointSelectorRouter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__ENTRY_POINT_RESOLVER_SET:
+				return basicSetEntryPointResolverSet(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_BASED_ROUTER:
 				return basicSetExceptionBasedRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_TYPE_FILTER:
@@ -4395,6 +4619,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetForwardingCatchAllStrategy(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
 				return basicSetForwardingRouter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
+				return basicSetGzipCompressTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__GZIP_UNCOMPRESS_TRANSFORMER:
+				return basicSetGzipUncompressTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__HEX_STRING_TO_BYTE_ARRAY_TRANSFORMER:
+				return basicSetHexStringToByteArrayTransformer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__HIVEMIND_CONTAINER:
 				return basicSetHivemindContainer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__IDEMPOTENT_RECEIVER_ROUTER:
@@ -4405,8 +4635,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetInboundEndpoint(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__INBOUND_PASS_THROUGH_ROUTER:
 				return basicSetInboundPassThroughRouter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__INCLUDE_ENTRY_POINT:
+				return basicSetIncludeEntryPoint(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__JBOSS_TRANSACTION_MANAGER:
+				return basicSetJbossTransactionManager(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__JNDI_CONTAINER:
 				return basicSetJndiContainer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__JNDI_TRANSACTION_MANAGER:
+				return basicSetJndiTransactionManager(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__JRUN_TRANSACTION_MANAGER:
+				return basicSetJrunTransactionManager(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__LEGACY_ENTRY_POINT_RESOLVER_SET:
+				return basicSetLegacyEntryPointResolverSet(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__LIST_MESSAGE_SPLITTER_ROUTER:
 				return basicSetListMessageSplitterRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__LOG_COMPONENT:
@@ -4419,10 +4659,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetMessageChunkingAggregatorRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_ROUTER:
 				return basicSetMessageChunkingRouter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTIES_TRANSFORMER:
+				return basicSetMessagePropertiesTransformer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_EXTRACTOR:
 				return basicSetMessagePropertyExtractor(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_FILTER:
 				return basicSetMessagePropertyFilter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__METHOD_ENTRY_POINT_RESOLVER:
+				return basicSetMethodEntryPointResolver(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MODEL:
 				return basicSetModel(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MULE:
@@ -4431,14 +4675,20 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetMuleUnsafe(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MULTICASTING_ROUTER:
 				return basicSetMulticastingRouter(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__NO_ARGS_CALL_COMPONENT:
-				return basicSetNoArgsCallComponent(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__NO_ACTION_TRANSFORMER:
+				return basicSetNoActionTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__NO_ARGUMENTS_ENTRY_POINT_RESOLVER:
+				return basicSetNoArgumentsEntryPointResolver(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__NOT_FILTER:
 				return basicSetNotFilter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__NOTIFICATION:
 				return basicSetNotification(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__NULL_COMPONENT:
 				return basicSetNullComponent(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_BYTE_ARRAY_TRANSFORMER:
+				return basicSetObjectToByteArrayTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_STRING_TRANSFORMER:
+				return basicSetObjectToStringTransformer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__OR_FILTER:
 				return basicSetOrFilter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__OUTBOUND_ENDPOINT:
@@ -4463,12 +4713,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetProperties(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__PROPERTIES_CONTAINER:
 				return basicSetPropertiesContainer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__PROPERTY_ENTRY_POINT_RESOLVER:
+				return basicSetPropertyEntryPointResolver(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__PROTOTYPE_OBJECT:
 				return basicSetPrototypeObject(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__QUEUE_PROFILE:
 				return basicSetQueueProfile(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__REFLECTION_ENTRY_POINT_RESOLVER:
+				return basicSetReflectionEntryPointResolver(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__REGEX_FILTER:
 				return basicSetRegexFilter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
+				return basicSetResinTransactionManager(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
 				return basicSetRetryConnectionStrategy(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__RMI_CONTAINER:
@@ -4479,86 +4735,44 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetSedaModel(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__SELECTIVE_CONSUMER_ROUTER:
 				return basicSetSelectiveConsumerRouter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__SERIALIZABLE_TO_BYTE_ARRAY_TRANSFORMER:
+				return basicSetSerializableToByteArrayTransformer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__SERVICE:
 				return basicSetService(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__SINGLE_ASYNC_REPLY_ROUTER:
 				return basicSetSingleAsyncReplyRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__SINGLETON_OBJECT:
 				return basicSetSingletonObject(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__SPRING_OBJECT:
+				return basicSetSpringObject(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__STATIC_RECIPIENT_LIST_ROUTER:
 				return basicSetStaticRecipientListRouter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__STRING_TO_BYTE_ARRAY_TRANSFORMER:
+				return basicSetStringToByteArrayTransformer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__TEMPLATE_ENDPOINT_ROUTER:
 				return basicSetTemplateEndpointRouter(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION:
-				return basicSetTransaction(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_FACTORY:
-				return basicSetTransactionFactory(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JBOSS:
-				return basicSetTransactionManagerJboss(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JNDI:
-				return basicSetTransactionManagerJndi(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JRUN:
-				return basicSetTransactionManagerJrun(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_RESIN:
-				return basicSetTransactionManagerResin(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_WEBLOGIC:
-				return basicSetTransactionManagerWeblogic(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_WEBSPHERE:
-				return basicSetTransactionManagerWebsphere(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__TRANSFORMER:
 				return basicSetTransformer(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_APPEND_STRING:
-				return basicSetTransformerAppendString(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BASE64_DECODER:
-				return basicSetTransformerBase64Decoder(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BASE64_ENCODER:
-				return basicSetTransformerBase64Encoder(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_HEX_STRING:
-				return basicSetTransformerByteArrayToHexString(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_OBJECT:
-				return basicSetTransformerByteArrayToObject(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_SERIALIZABLE:
-				return basicSetTransformerByteArrayToSerializable(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_STRING:
-				return basicSetTransformerByteArrayToString(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_DECRYPT:
-				return basicSetTransformerDecrypt(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_ENCRYPT:
-				return basicSetTransformerEncrypt(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_GZIP_COMPRESS:
-				return basicSetTransformerGzipCompress(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_GZIP_UNCOMPRESS:
-				return basicSetTransformerGzipUncompress(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_HEX_STING_TO_BYTE_ARRAY:
-				return basicSetTransformerHexStingToByteArray(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_MESSAGE_PROPERTIES:
-				return basicSetTransformerMessageProperties(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_NO_ACTION:
-				return basicSetTransformerNoAction(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_OBJECT_TO_BYTE_ARRAY:
-				return basicSetTransformerObjectToByteArray(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_OBJECT_TO_STRING:
-				return basicSetTransformerObjectToString(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_SERIALIZABLE_TO_BYTE_ARRAY:
-				return basicSetTransformerSerializableToByteArray(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_STRING_TO_BYTE_ARRAY:
-				return basicSetTransformerStringToByteArray(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UC_DECODER:
-				return basicSetTransformerUcDecoder(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UC_ENCODER:
-				return basicSetTransformerUcEncoder(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UU_DECODER:
-				return basicSetTransformerUuDecoder(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UU_ENCODER:
-				return basicSetTransformerUuEncoder(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_XML_ENTITY_DECODER:
-				return basicSetTransformerXmlEntityDecoder(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_XML_ENTITY_ENCODER:
-				return basicSetTransformerXmlEntityEncoder(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__UC_DECODER_TRANSFORMER:
+				return basicSetUcDecoderTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__UC_ENCODER_TRANSFORMER:
+				return basicSetUcEncoderTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__UU_DECODER_TRANSFORMER:
+				return basicSetUuDecoderTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__UU_ENCODER_TRANSFORMER:
+				return basicSetUuEncoderTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__WEBLOGIC_TRANSACTION_MANAGER:
+				return basicSetWeblogicTransactionManager(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__WEBSPHERE_TRANSACTION_MANAGER:
+				return basicSetWebsphereTransactionManager(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__WILDCARD_FILTER:
 				return basicSetWildcardFilter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__WIRE_TAP_ROUTER:
 				return basicSetWireTapRouter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__XML_ENTITY_DECODER_TRANSFORMER:
+				return basicSetXmlEntityDecoderTransformer(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__XML_ENTITY_ENCODER_TRANSFORMER:
+				return basicSetXmlEntityEncoderTransformer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -4598,8 +4812,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractDefineNotification();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_DISABLE_NOTIFICATION:
 				return getAbstractDisableNotification();
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRYPOINT_RESOLVER:
-				return getAbstractEntrypointResolver();
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER:
+				return getAbstractEntryPointResolver();
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER_SET:
+				return getAbstractEntryPointResolverSet();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_EXCEPTION_STRATEGY:
 				return getAbstractExceptionStrategy();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_EXTENSION:
@@ -4636,28 +4852,40 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractStorage();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSACTION:
 				return getAbstractTransaction();
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSACTION_FACTORY:
-				return getAbstractTransactionFactory();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSACTION_MANAGER:
 				return getAbstractTransactionManager();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSFORMER:
 				return getAbstractTransformer();
 			case CorePackage.DOCUMENT_ROOT__AND_FILTER:
 				return getAndFilter();
+			case CorePackage.DOCUMENT_ROOT__APPEND_STRING_TRANSFORMER:
+				return getAppendStringTransformer();
+			case CorePackage.DOCUMENT_ROOT__ARRAY_ENTRY_POINT_RESOLVER:
+				return getArrayEntryPointResolver();
+			case CorePackage.DOCUMENT_ROOT__BASE64_DECODER_TRANSFORMER:
+				return getBase64DecoderTransformer();
+			case CorePackage.DOCUMENT_ROOT__BASE64_ENCODER_TRANSFORMER:
+				return getBase64EncoderTransformer();
 			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
 				return getBeanPropertyExtractor();
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 				return getBridgeComponent();
-			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRYPOINT_RESOLVER:
-				return getCallableEntrypointResolver();
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_HEX_STRING_TRANSFORMER:
+				return getByteArrayToHexStringTransformer();
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_OBJECT_TRANSFORMER:
+				return getByteArrayToObjectTransformer();
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_SERIALIZABLE_TRANSFORMER:
+				return getByteArrayToSerializableTransformer();
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_STRING_TRANSFORMER:
+				return getByteArrayToStringTransformer();
+			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRY_POINT_RESOLVER:
+				return getCallableEntryPointResolver();
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
 				return getChainingRouter();
 			case CorePackage.DOCUMENT_ROOT__COMPONENT:
 				return getComponent();
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				return getComponentThreadingProfile();
-			case CorePackage.DOCUMENT_ROOT__CORRELATION_AGGREGATOR_ROUTER:
-				return getCorrelationAggregatorRouter();
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_PROPERTY_EXTRACTOR:
 				return getCorrelationPropertyExtractor();
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_RESEQUENCER_ROUTER:
@@ -4672,8 +4900,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCustomConnector();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONTAINER:
 				return getCustomContainer();
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRYPOINT_RESOLVER:
-				return getCustomEntrypointResolver();
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_CORRELATION_AGGREGATOR_ROUTER:
+				return getCustomCorrelationAggregatorRouter();
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER:
+				return getCustomEntryPointResolver();
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER_SET:
+				return getCustomEntryPointResolverSet();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_EXCEPTION_STRATEGY:
 				return getCustomExceptionStrategy();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_FILTER:
@@ -4686,12 +4918,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCustomOutboundRouter();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
 				return getCustomPropertyExtractor();
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_FACTORY:
-				return getCustomTransactionFactory();
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION:
+				return getCustomTransaction();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_MANAGER:
 				return getCustomTransactionManager();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSFORMER:
 				return getCustomTransformer();
+			case CorePackage.DOCUMENT_ROOT__DECRYPT_TRANSFORMER:
+				return getDecryptTransformer();
 			case CorePackage.DOCUMENT_ROOT__DEFAULT_CONNECTOR_EXCEPTION_STRATEGY:
 				return getDefaultConnectorExceptionStrategy();
 			case CorePackage.DOCUMENT_ROOT__DEFAULT_SERVICE_EXCEPTION_STRATEGY:
@@ -4706,10 +4940,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getEjbContainer();
 			case CorePackage.DOCUMENT_ROOT__ENCRYPTION_SECURITY_FILTER:
 				return getEncryptionSecurityFilter();
+			case CorePackage.DOCUMENT_ROOT__ENCRYPT_TRANSFORMER:
+				return getEncryptTransformer();
 			case CorePackage.DOCUMENT_ROOT__ENDPOINT:
 				return getEndpoint();
 			case CorePackage.DOCUMENT_ROOT__ENDPOINT_SELECTOR_ROUTER:
 				return getEndpointSelectorRouter();
+			case CorePackage.DOCUMENT_ROOT__ENTRY_POINT_RESOLVER_SET:
+				return getEntryPointResolverSet();
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_BASED_ROUTER:
 				return getExceptionBasedRouter();
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_TYPE_FILTER:
@@ -4722,6 +4960,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getForwardingCatchAllStrategy();
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
 				return getForwardingRouter();
+			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
+				return getGzipCompressTransformer();
+			case CorePackage.DOCUMENT_ROOT__GZIP_UNCOMPRESS_TRANSFORMER:
+				return getGzipUncompressTransformer();
+			case CorePackage.DOCUMENT_ROOT__HEX_STRING_TO_BYTE_ARRAY_TRANSFORMER:
+				return getHexStringToByteArrayTransformer();
 			case CorePackage.DOCUMENT_ROOT__HIVEMIND_CONTAINER:
 				return getHivemindContainer();
 			case CorePackage.DOCUMENT_ROOT__IDEMPOTENT_RECEIVER_ROUTER:
@@ -4732,8 +4976,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getInboundEndpoint();
 			case CorePackage.DOCUMENT_ROOT__INBOUND_PASS_THROUGH_ROUTER:
 				return getInboundPassThroughRouter();
+			case CorePackage.DOCUMENT_ROOT__INCLUDE_ENTRY_POINT:
+				return getIncludeEntryPoint();
+			case CorePackage.DOCUMENT_ROOT__JBOSS_TRANSACTION_MANAGER:
+				return getJbossTransactionManager();
 			case CorePackage.DOCUMENT_ROOT__JNDI_CONTAINER:
 				return getJndiContainer();
+			case CorePackage.DOCUMENT_ROOT__JNDI_TRANSACTION_MANAGER:
+				return getJndiTransactionManager();
+			case CorePackage.DOCUMENT_ROOT__JRUN_TRANSACTION_MANAGER:
+				return getJrunTransactionManager();
+			case CorePackage.DOCUMENT_ROOT__LEGACY_ENTRY_POINT_RESOLVER_SET:
+				return getLegacyEntryPointResolverSet();
 			case CorePackage.DOCUMENT_ROOT__LIST_MESSAGE_SPLITTER_ROUTER:
 				return getListMessageSplitterRouter();
 			case CorePackage.DOCUMENT_ROOT__LOG_COMPONENT:
@@ -4746,10 +5000,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getMessageChunkingAggregatorRouter();
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_ROUTER:
 				return getMessageChunkingRouter();
+			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTIES_TRANSFORMER:
+				return getMessagePropertiesTransformer();
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_EXTRACTOR:
 				return getMessagePropertyExtractor();
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_FILTER:
 				return getMessagePropertyFilter();
+			case CorePackage.DOCUMENT_ROOT__METHOD_ENTRY_POINT_RESOLVER:
+				return getMethodEntryPointResolver();
 			case CorePackage.DOCUMENT_ROOT__MODEL:
 				return getModel();
 			case CorePackage.DOCUMENT_ROOT__MULE:
@@ -4758,14 +5016,20 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getMuleUnsafe();
 			case CorePackage.DOCUMENT_ROOT__MULTICASTING_ROUTER:
 				return getMulticastingRouter();
-			case CorePackage.DOCUMENT_ROOT__NO_ARGS_CALL_COMPONENT:
-				return getNoArgsCallComponent();
+			case CorePackage.DOCUMENT_ROOT__NO_ACTION_TRANSFORMER:
+				return getNoActionTransformer();
+			case CorePackage.DOCUMENT_ROOT__NO_ARGUMENTS_ENTRY_POINT_RESOLVER:
+				return getNoArgumentsEntryPointResolver();
 			case CorePackage.DOCUMENT_ROOT__NOT_FILTER:
 				return getNotFilter();
 			case CorePackage.DOCUMENT_ROOT__NOTIFICATION:
 				return getNotification();
 			case CorePackage.DOCUMENT_ROOT__NULL_COMPONENT:
 				return getNullComponent();
+			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_BYTE_ARRAY_TRANSFORMER:
+				return getObjectToByteArrayTransformer();
+			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_STRING_TRANSFORMER:
+				return getObjectToStringTransformer();
 			case CorePackage.DOCUMENT_ROOT__OR_FILTER:
 				return getOrFilter();
 			case CorePackage.DOCUMENT_ROOT__OUTBOUND_ENDPOINT:
@@ -4790,12 +5054,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getProperties();
 			case CorePackage.DOCUMENT_ROOT__PROPERTIES_CONTAINER:
 				return getPropertiesContainer();
+			case CorePackage.DOCUMENT_ROOT__PROPERTY_ENTRY_POINT_RESOLVER:
+				return getPropertyEntryPointResolver();
 			case CorePackage.DOCUMENT_ROOT__PROTOTYPE_OBJECT:
 				return getPrototypeObject();
 			case CorePackage.DOCUMENT_ROOT__QUEUE_PROFILE:
 				return getQueueProfile();
+			case CorePackage.DOCUMENT_ROOT__REFLECTION_ENTRY_POINT_RESOLVER:
+				return getReflectionEntryPointResolver();
 			case CorePackage.DOCUMENT_ROOT__REGEX_FILTER:
 				return getRegexFilter();
+			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
+				return getResinTransactionManager();
 			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
 				return getRetryConnectionStrategy();
 			case CorePackage.DOCUMENT_ROOT__RMI_CONTAINER:
@@ -4806,86 +5076,44 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getSedaModel();
 			case CorePackage.DOCUMENT_ROOT__SELECTIVE_CONSUMER_ROUTER:
 				return getSelectiveConsumerRouter();
+			case CorePackage.DOCUMENT_ROOT__SERIALIZABLE_TO_BYTE_ARRAY_TRANSFORMER:
+				return getSerializableToByteArrayTransformer();
 			case CorePackage.DOCUMENT_ROOT__SERVICE:
 				return getService();
 			case CorePackage.DOCUMENT_ROOT__SINGLE_ASYNC_REPLY_ROUTER:
 				return getSingleAsyncReplyRouter();
 			case CorePackage.DOCUMENT_ROOT__SINGLETON_OBJECT:
 				return getSingletonObject();
+			case CorePackage.DOCUMENT_ROOT__SPRING_OBJECT:
+				return getSpringObject();
 			case CorePackage.DOCUMENT_ROOT__STATIC_RECIPIENT_LIST_ROUTER:
 				return getStaticRecipientListRouter();
+			case CorePackage.DOCUMENT_ROOT__STRING_TO_BYTE_ARRAY_TRANSFORMER:
+				return getStringToByteArrayTransformer();
 			case CorePackage.DOCUMENT_ROOT__TEMPLATE_ENDPOINT_ROUTER:
 				return getTemplateEndpointRouter();
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION:
-				return getTransaction();
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_FACTORY:
-				return getTransactionFactory();
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JBOSS:
-				return getTransactionManagerJboss();
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JNDI:
-				return getTransactionManagerJndi();
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JRUN:
-				return getTransactionManagerJrun();
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_RESIN:
-				return getTransactionManagerResin();
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_WEBLOGIC:
-				return getTransactionManagerWeblogic();
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_WEBSPHERE:
-				return getTransactionManagerWebsphere();
 			case CorePackage.DOCUMENT_ROOT__TRANSFORMER:
 				return getTransformer();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_APPEND_STRING:
-				return getTransformerAppendString();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BASE64_DECODER:
-				return getTransformerBase64Decoder();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BASE64_ENCODER:
-				return getTransformerBase64Encoder();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_HEX_STRING:
-				return getTransformerByteArrayToHexString();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_OBJECT:
-				return getTransformerByteArrayToObject();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_SERIALIZABLE:
-				return getTransformerByteArrayToSerializable();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_STRING:
-				return getTransformerByteArrayToString();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_DECRYPT:
-				return getTransformerDecrypt();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_ENCRYPT:
-				return getTransformerEncrypt();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_GZIP_COMPRESS:
-				return getTransformerGzipCompress();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_GZIP_UNCOMPRESS:
-				return getTransformerGzipUncompress();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_HEX_STING_TO_BYTE_ARRAY:
-				return getTransformerHexStingToByteArray();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_MESSAGE_PROPERTIES:
-				return getTransformerMessageProperties();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_NO_ACTION:
-				return getTransformerNoAction();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_OBJECT_TO_BYTE_ARRAY:
-				return getTransformerObjectToByteArray();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_OBJECT_TO_STRING:
-				return getTransformerObjectToString();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_SERIALIZABLE_TO_BYTE_ARRAY:
-				return getTransformerSerializableToByteArray();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_STRING_TO_BYTE_ARRAY:
-				return getTransformerStringToByteArray();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UC_DECODER:
-				return getTransformerUcDecoder();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UC_ENCODER:
-				return getTransformerUcEncoder();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UU_DECODER:
-				return getTransformerUuDecoder();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UU_ENCODER:
-				return getTransformerUuEncoder();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_XML_ENTITY_DECODER:
-				return getTransformerXmlEntityDecoder();
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_XML_ENTITY_ENCODER:
-				return getTransformerXmlEntityEncoder();
+			case CorePackage.DOCUMENT_ROOT__UC_DECODER_TRANSFORMER:
+				return getUcDecoderTransformer();
+			case CorePackage.DOCUMENT_ROOT__UC_ENCODER_TRANSFORMER:
+				return getUcEncoderTransformer();
+			case CorePackage.DOCUMENT_ROOT__UU_DECODER_TRANSFORMER:
+				return getUuDecoderTransformer();
+			case CorePackage.DOCUMENT_ROOT__UU_ENCODER_TRANSFORMER:
+				return getUuEncoderTransformer();
+			case CorePackage.DOCUMENT_ROOT__WEBLOGIC_TRANSACTION_MANAGER:
+				return getWeblogicTransactionManager();
+			case CorePackage.DOCUMENT_ROOT__WEBSPHERE_TRANSACTION_MANAGER:
+				return getWebsphereTransactionManager();
 			case CorePackage.DOCUMENT_ROOT__WILDCARD_FILTER:
 				return getWildcardFilter();
 			case CorePackage.DOCUMENT_ROOT__WIRE_TAP_ROUTER:
 				return getWireTapRouter();
+			case CorePackage.DOCUMENT_ROOT__XML_ENTITY_DECODER_TRANSFORMER:
+				return getXmlEntityDecoderTransformer();
+			case CorePackage.DOCUMENT_ROOT__XML_ENTITY_ENCODER_TRANSFORMER:
+				return getXmlEntityEncoderTransformer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -4910,14 +5138,38 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__AND_FILTER:
 				setAndFilter((CollectionFilterType)newValue);
 				return;
+			case CorePackage.DOCUMENT_ROOT__APPEND_STRING_TRANSFORMER:
+				setAppendStringTransformer((AppendStringTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__ARRAY_ENTRY_POINT_RESOLVER:
+				setArrayEntryPointResolver((ComplexEntryPointResolverType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__BASE64_DECODER_TRANSFORMER:
+				setBase64DecoderTransformer((AbstractTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__BASE64_ENCODER_TRANSFORMER:
+				setBase64EncoderTransformer((AbstractTransformerType)newValue);
+				return;
 			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
 				setBeanPropertyExtractor((AbstractPropertyExtractorType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 				setBridgeComponent((DefaultComponentType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRYPOINT_RESOLVER:
-				setCallableEntrypointResolver((CallableEntrypointResolverType)newValue);
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_HEX_STRING_TRANSFORMER:
+				setByteArrayToHexStringTransformer((AbstractTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_OBJECT_TRANSFORMER:
+				setByteArrayToObjectTransformer((AbstractTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_SERIALIZABLE_TRANSFORMER:
+				setByteArrayToSerializableTransformer((AbstractTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_STRING_TRANSFORMER:
+				setByteArrayToStringTransformer((AbstractTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRY_POINT_RESOLVER:
+				setCallableEntryPointResolver((AbstractEntryPointResolverType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
 				setChainingRouter((FilteringOutboundRouterType)newValue);
@@ -4928,14 +5180,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				setComponentThreadingProfile((ThreadingProfileType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__CORRELATION_AGGREGATOR_ROUTER:
-				setCorrelationAggregatorRouter((CorrelationAggregatorRouterType)newValue);
-				return;
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_PROPERTY_EXTRACTOR:
 				setCorrelationPropertyExtractor((AbstractPropertyExtractorType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_RESEQUENCER_ROUTER:
-				setCorrelationResequencerRouter((CorrelationRouterType)newValue);
+				setCorrelationResequencerRouter((SelectiveConsumerRouterType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_ASYNC_REPLY_ROUTER:
 				setCustomAsyncReplyRouter((CustomAsyncReplyRouterType)newValue);
@@ -4952,8 +5201,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONTAINER:
 				setCustomContainer((CustomContainerContextType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRYPOINT_RESOLVER:
-				setCustomEntrypointResolver((CustomEntrypointResolverType)newValue);
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_CORRELATION_AGGREGATOR_ROUTER:
+				setCustomCorrelationAggregatorRouter((CustomCorrelationAggregatorRouterType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER:
+				setCustomEntryPointResolver((CustomEntryPointResolverType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER_SET:
+				setCustomEntryPointResolverSet((CustomEntryPointResolverSetType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_EXCEPTION_STRATEGY:
 				setCustomExceptionStrategy((CustomExceptionStrategyType)newValue);
@@ -4973,14 +5228,17 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
 				setCustomPropertyExtractor((CustomPropertyExtractorType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_FACTORY:
-				setCustomTransactionFactory((CustomTransactionFactoryType)newValue);
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION:
+				setCustomTransaction((CustomTransactionType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_MANAGER:
 				setCustomTransactionManager((CustomTransactionManagerType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSFORMER:
 				setCustomTransformer((CustomTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__DECRYPT_TRANSFORMER:
+				setDecryptTransformer((AbstractTransformerType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__DEFAULT_CONNECTOR_EXCEPTION_STRATEGY:
 				setDefaultConnectorExceptionStrategy((ExceptionStrategyType)newValue);
@@ -5003,11 +5261,17 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__ENCRYPTION_SECURITY_FILTER:
 				setEncryptionSecurityFilter((EncryptionSecurityFilterType)newValue);
 				return;
+			case CorePackage.DOCUMENT_ROOT__ENCRYPT_TRANSFORMER:
+				setEncryptTransformer((AbstractTransformerType)newValue);
+				return;
 			case CorePackage.DOCUMENT_ROOT__ENDPOINT:
 				setEndpoint((GlobalEndpointType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__ENDPOINT_SELECTOR_ROUTER:
 				setEndpointSelectorRouter((EndpointSelectorRouterType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__ENTRY_POINT_RESOLVER_SET:
+				setEntryPointResolverSet((ExtensibleEntryPointResolverSet)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_BASED_ROUTER:
 				setExceptionBasedRouter((FilteringOutboundRouterType)newValue);
@@ -5016,7 +5280,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setExceptionTypeFilter((TypeFilterType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__FILTER:
-				setFilter((FilterRefType)newValue);
+				setFilter((RefFilterType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__FILTERING_ROUTER:
 				setFilteringRouter((FilteringOutboundRouterType)newValue);
@@ -5027,11 +5291,20 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
 				setForwardingRouter((ForwardingRouterType)newValue);
 				return;
+			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
+				setGzipCompressTransformer((AbstractTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__GZIP_UNCOMPRESS_TRANSFORMER:
+				setGzipUncompressTransformer((AbstractTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__HEX_STRING_TO_BYTE_ARRAY_TRANSFORMER:
+				setHexStringToByteArrayTransformer((AbstractTransformerType)newValue);
+				return;
 			case CorePackage.DOCUMENT_ROOT__HIVEMIND_CONTAINER:
 				setHivemindContainer((IocContainerContextType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__IDEMPOTENT_RECEIVER_ROUTER:
-				setIdempotentReceiverRouter((IdempotentReceiverType)newValue);
+				setIdempotentReceiverRouter((IdempotentReceiverRouterType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__IDEMPOTENT_SECURE_HASH_RECEIVER_ROUTER:
 				setIdempotentSecureHashReceiverRouter((FilteredInboundRouterType)newValue);
@@ -5042,8 +5315,23 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__INBOUND_PASS_THROUGH_ROUTER:
 				setInboundPassThroughRouter((FilteredInboundRouterType)newValue);
 				return;
+			case CorePackage.DOCUMENT_ROOT__INCLUDE_ENTRY_POINT:
+				setIncludeEntryPoint((MethodType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__JBOSS_TRANSACTION_MANAGER:
+				setJbossTransactionManager((TransactionManagerType)newValue);
+				return;
 			case CorePackage.DOCUMENT_ROOT__JNDI_CONTAINER:
 				setJndiContainer((BaseContainerContextType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__JNDI_TRANSACTION_MANAGER:
+				setJndiTransactionManager((TransactionManagerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__JRUN_TRANSACTION_MANAGER:
+				setJrunTransactionManager((TransactionManagerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__LEGACY_ENTRY_POINT_RESOLVER_SET:
+				setLegacyEntryPointResolverSet((ExtensibleEntryPointResolverSet)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__LIST_MESSAGE_SPLITTER_ROUTER:
 				setListMessageSplitterRouter((MessageSplitterOutboundRouterType)newValue);
@@ -5058,16 +5346,22 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setMapPropertyExtractor((AbstractPropertyExtractorType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_AGGREGATOR_ROUTER:
-				setMessageChunkingAggregatorRouter((CorrelationRouterType)newValue);
+				setMessageChunkingAggregatorRouter((MessageChunkingAggregatorRouterType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_ROUTER:
 				setMessageChunkingRouter((ChunkingRouterType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTIES_TRANSFORMER:
+				setMessagePropertiesTransformer((MessagePropertiesTransformerType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_EXTRACTOR:
 				setMessagePropertyExtractor((AbstractPropertyExtractorType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_FILTER:
 				setMessagePropertyFilter((PatternFilterType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__METHOD_ENTRY_POINT_RESOLVER:
+				setMethodEntryPointResolver((MethodEntryPointResolverType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MODEL:
 				setModel((DefaultModelType)newValue);
@@ -5081,8 +5375,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__MULTICASTING_ROUTER:
 				setMulticastingRouter((FilteringOutboundRouterType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__NO_ARGS_CALL_COMPONENT:
-				setNoArgsCallComponent((NoArgsCallComponentType)newValue);
+			case CorePackage.DOCUMENT_ROOT__NO_ACTION_TRANSFORMER:
+				setNoActionTransformer((AbstractTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__NO_ARGUMENTS_ENTRY_POINT_RESOLVER:
+				setNoArgumentsEntryPointResolver((ComplexEntryPointResolverType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__NOT_FILTER:
 				setNotFilter((UnitaryFilterType)newValue);
@@ -5092,6 +5389,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case CorePackage.DOCUMENT_ROOT__NULL_COMPONENT:
 				setNullComponent((DefaultComponentType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_BYTE_ARRAY_TRANSFORMER:
+				setObjectToByteArrayTransformer((AbstractTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_STRING_TRANSFORMER:
+				setObjectToStringTransformer((AbstractTransformerType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__OR_FILTER:
 				setOrFilter((CollectionFilterType)newValue);
@@ -5129,14 +5432,23 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__PROPERTIES_CONTAINER:
 				setPropertiesContainer((PropertiesContainerContextType)newValue);
 				return;
+			case CorePackage.DOCUMENT_ROOT__PROPERTY_ENTRY_POINT_RESOLVER:
+				setPropertyEntryPointResolver((PropertyEntryPointResolverType)newValue);
+				return;
 			case CorePackage.DOCUMENT_ROOT__PROTOTYPE_OBJECT:
 				setPrototypeObject((PrototypeObjectFactoryType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__QUEUE_PROFILE:
 				setQueueProfile((QueueProfileType)newValue);
 				return;
+			case CorePackage.DOCUMENT_ROOT__REFLECTION_ENTRY_POINT_RESOLVER:
+				setReflectionEntryPointResolver((ReflectionEntryPointResolverType)newValue);
+				return;
 			case CorePackage.DOCUMENT_ROOT__REGEX_FILTER:
 				setRegexFilter((PatternFilterType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
+				setResinTransactionManager((TransactionManagerType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
 				setRetryConnectionStrategy((RetryConnectionStrategyType)newValue);
@@ -5153,6 +5465,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__SELECTIVE_CONSUMER_ROUTER:
 				setSelectiveConsumerRouter((SelectiveConsumerRouterType)newValue);
 				return;
+			case CorePackage.DOCUMENT_ROOT__SERIALIZABLE_TO_BYTE_ARRAY_TRANSFORMER:
+				setSerializableToByteArrayTransformer((AbstractTransformerType)newValue);
+				return;
 			case CorePackage.DOCUMENT_ROOT__SERVICE:
 				setService((SedaServiceType)newValue);
 				return;
@@ -5162,116 +5477,50 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__SINGLETON_OBJECT:
 				setSingletonObject((SingletonObjectFactoryType)newValue);
 				return;
+			case CorePackage.DOCUMENT_ROOT__SPRING_OBJECT:
+				setSpringObject((SpringBeanLookupType)newValue);
+				return;
 			case CorePackage.DOCUMENT_ROOT__STATIC_RECIPIENT_LIST_ROUTER:
 				setStaticRecipientListRouter((StaticRecipientListRouterType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__STRING_TO_BYTE_ARRAY_TRANSFORMER:
+				setStringToByteArrayTransformer((AbstractTransformerType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__TEMPLATE_ENDPOINT_ROUTER:
 				setTemplateEndpointRouter((FilteringOutboundRouterType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION:
-				setTransaction((TransactionType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_FACTORY:
-				setTransactionFactory((TransactionRefFactoryType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JBOSS:
-				setTransactionManagerJboss((TransactionManagerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JNDI:
-				setTransactionManagerJndi((TransactionManagerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JRUN:
-				setTransactionManagerJrun((TransactionManagerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_RESIN:
-				setTransactionManagerResin((TransactionManagerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_WEBLOGIC:
-				setTransactionManagerWeblogic((JndiTransactionManagerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_WEBSPHERE:
-				setTransactionManagerWebsphere((TransactionManagerType)newValue);
-				return;
 			case CorePackage.DOCUMENT_ROOT__TRANSFORMER:
-				setTransformer((TransformerRefType)newValue);
+				setTransformer((RefTransformerType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_APPEND_STRING:
-				setTransformerAppendString((TransformerAppendStringType)newValue);
+			case CorePackage.DOCUMENT_ROOT__UC_DECODER_TRANSFORMER:
+				setUcDecoderTransformer((AbstractTransformerType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BASE64_DECODER:
-				setTransformerBase64Decoder((AbstractTransformerType)newValue);
+			case CorePackage.DOCUMENT_ROOT__UC_ENCODER_TRANSFORMER:
+				setUcEncoderTransformer((AbstractTransformerType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BASE64_ENCODER:
-				setTransformerBase64Encoder((AbstractTransformerType)newValue);
+			case CorePackage.DOCUMENT_ROOT__UU_DECODER_TRANSFORMER:
+				setUuDecoderTransformer((AbstractTransformerType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_HEX_STRING:
-				setTransformerByteArrayToHexString((AbstractTransformerType)newValue);
+			case CorePackage.DOCUMENT_ROOT__UU_ENCODER_TRANSFORMER:
+				setUuEncoderTransformer((AbstractTransformerType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_OBJECT:
-				setTransformerByteArrayToObject((AbstractTransformerType)newValue);
+			case CorePackage.DOCUMENT_ROOT__WEBLOGIC_TRANSACTION_MANAGER:
+				setWeblogicTransactionManager((JndiTransactionManagerType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_SERIALIZABLE:
-				setTransformerByteArrayToSerializable((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_STRING:
-				setTransformerByteArrayToString((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_DECRYPT:
-				setTransformerDecrypt((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_ENCRYPT:
-				setTransformerEncrypt((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_GZIP_COMPRESS:
-				setTransformerGzipCompress((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_GZIP_UNCOMPRESS:
-				setTransformerGzipUncompress((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_HEX_STING_TO_BYTE_ARRAY:
-				setTransformerHexStingToByteArray((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_MESSAGE_PROPERTIES:
-				setTransformerMessageProperties((MessagePropertiesTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_NO_ACTION:
-				setTransformerNoAction((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_OBJECT_TO_BYTE_ARRAY:
-				setTransformerObjectToByteArray((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_OBJECT_TO_STRING:
-				setTransformerObjectToString((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_SERIALIZABLE_TO_BYTE_ARRAY:
-				setTransformerSerializableToByteArray((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_STRING_TO_BYTE_ARRAY:
-				setTransformerStringToByteArray((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UC_DECODER:
-				setTransformerUcDecoder((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UC_ENCODER:
-				setTransformerUcEncoder((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UU_DECODER:
-				setTransformerUuDecoder((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UU_ENCODER:
-				setTransformerUuEncoder((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_XML_ENTITY_DECODER:
-				setTransformerXmlEntityDecoder((AbstractTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_XML_ENTITY_ENCODER:
-				setTransformerXmlEntityEncoder((AbstractTransformerType)newValue);
+			case CorePackage.DOCUMENT_ROOT__WEBSPHERE_TRANSACTION_MANAGER:
+				setWebsphereTransactionManager((TransactionManagerType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__WILDCARD_FILTER:
 				setWildcardFilter((WildcardFilterType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__WIRE_TAP_ROUTER:
 				setWireTapRouter((WireTapRouterType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__XML_ENTITY_DECODER_TRANSFORMER:
+				setXmlEntityDecoderTransformer((AbstractTransformerType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__XML_ENTITY_ENCODER_TRANSFORMER:
+				setXmlEntityEncoderTransformer((AbstractTransformerType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -5297,14 +5546,38 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__AND_FILTER:
 				setAndFilter((CollectionFilterType)null);
 				return;
+			case CorePackage.DOCUMENT_ROOT__APPEND_STRING_TRANSFORMER:
+				setAppendStringTransformer((AppendStringTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__ARRAY_ENTRY_POINT_RESOLVER:
+				setArrayEntryPointResolver((ComplexEntryPointResolverType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__BASE64_DECODER_TRANSFORMER:
+				setBase64DecoderTransformer((AbstractTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__BASE64_ENCODER_TRANSFORMER:
+				setBase64EncoderTransformer((AbstractTransformerType)null);
+				return;
 			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
 				setBeanPropertyExtractor((AbstractPropertyExtractorType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 				setBridgeComponent((DefaultComponentType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRYPOINT_RESOLVER:
-				setCallableEntrypointResolver((CallableEntrypointResolverType)null);
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_HEX_STRING_TRANSFORMER:
+				setByteArrayToHexStringTransformer((AbstractTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_OBJECT_TRANSFORMER:
+				setByteArrayToObjectTransformer((AbstractTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_SERIALIZABLE_TRANSFORMER:
+				setByteArrayToSerializableTransformer((AbstractTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_STRING_TRANSFORMER:
+				setByteArrayToStringTransformer((AbstractTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRY_POINT_RESOLVER:
+				setCallableEntryPointResolver((AbstractEntryPointResolverType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
 				setChainingRouter((FilteringOutboundRouterType)null);
@@ -5315,14 +5588,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				setComponentThreadingProfile((ThreadingProfileType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__CORRELATION_AGGREGATOR_ROUTER:
-				setCorrelationAggregatorRouter((CorrelationAggregatorRouterType)null);
-				return;
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_PROPERTY_EXTRACTOR:
 				setCorrelationPropertyExtractor((AbstractPropertyExtractorType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_RESEQUENCER_ROUTER:
-				setCorrelationResequencerRouter((CorrelationRouterType)null);
+				setCorrelationResequencerRouter((SelectiveConsumerRouterType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_ASYNC_REPLY_ROUTER:
 				setCustomAsyncReplyRouter((CustomAsyncReplyRouterType)null);
@@ -5339,8 +5609,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONTAINER:
 				setCustomContainer((CustomContainerContextType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRYPOINT_RESOLVER:
-				setCustomEntrypointResolver((CustomEntrypointResolverType)null);
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_CORRELATION_AGGREGATOR_ROUTER:
+				setCustomCorrelationAggregatorRouter((CustomCorrelationAggregatorRouterType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER:
+				setCustomEntryPointResolver((CustomEntryPointResolverType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER_SET:
+				setCustomEntryPointResolverSet((CustomEntryPointResolverSetType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_EXCEPTION_STRATEGY:
 				setCustomExceptionStrategy((CustomExceptionStrategyType)null);
@@ -5360,14 +5636,17 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
 				setCustomPropertyExtractor((CustomPropertyExtractorType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_FACTORY:
-				setCustomTransactionFactory((CustomTransactionFactoryType)null);
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION:
+				setCustomTransaction((CustomTransactionType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_MANAGER:
 				setCustomTransactionManager((CustomTransactionManagerType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSFORMER:
 				setCustomTransformer((CustomTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__DECRYPT_TRANSFORMER:
+				setDecryptTransformer((AbstractTransformerType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__DEFAULT_CONNECTOR_EXCEPTION_STRATEGY:
 				setDefaultConnectorExceptionStrategy((ExceptionStrategyType)null);
@@ -5390,11 +5669,17 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__ENCRYPTION_SECURITY_FILTER:
 				setEncryptionSecurityFilter((EncryptionSecurityFilterType)null);
 				return;
+			case CorePackage.DOCUMENT_ROOT__ENCRYPT_TRANSFORMER:
+				setEncryptTransformer((AbstractTransformerType)null);
+				return;
 			case CorePackage.DOCUMENT_ROOT__ENDPOINT:
 				setEndpoint((GlobalEndpointType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__ENDPOINT_SELECTOR_ROUTER:
 				setEndpointSelectorRouter((EndpointSelectorRouterType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__ENTRY_POINT_RESOLVER_SET:
+				setEntryPointResolverSet((ExtensibleEntryPointResolverSet)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_BASED_ROUTER:
 				setExceptionBasedRouter((FilteringOutboundRouterType)null);
@@ -5403,7 +5688,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setExceptionTypeFilter((TypeFilterType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__FILTER:
-				setFilter((FilterRefType)null);
+				setFilter((RefFilterType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__FILTERING_ROUTER:
 				setFilteringRouter((FilteringOutboundRouterType)null);
@@ -5414,11 +5699,20 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
 				setForwardingRouter((ForwardingRouterType)null);
 				return;
+			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
+				setGzipCompressTransformer((AbstractTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__GZIP_UNCOMPRESS_TRANSFORMER:
+				setGzipUncompressTransformer((AbstractTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__HEX_STRING_TO_BYTE_ARRAY_TRANSFORMER:
+				setHexStringToByteArrayTransformer((AbstractTransformerType)null);
+				return;
 			case CorePackage.DOCUMENT_ROOT__HIVEMIND_CONTAINER:
 				setHivemindContainer((IocContainerContextType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__IDEMPOTENT_RECEIVER_ROUTER:
-				setIdempotentReceiverRouter((IdempotentReceiverType)null);
+				setIdempotentReceiverRouter((IdempotentReceiverRouterType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__IDEMPOTENT_SECURE_HASH_RECEIVER_ROUTER:
 				setIdempotentSecureHashReceiverRouter((FilteredInboundRouterType)null);
@@ -5429,8 +5723,23 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__INBOUND_PASS_THROUGH_ROUTER:
 				setInboundPassThroughRouter((FilteredInboundRouterType)null);
 				return;
+			case CorePackage.DOCUMENT_ROOT__INCLUDE_ENTRY_POINT:
+				setIncludeEntryPoint((MethodType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__JBOSS_TRANSACTION_MANAGER:
+				setJbossTransactionManager((TransactionManagerType)null);
+				return;
 			case CorePackage.DOCUMENT_ROOT__JNDI_CONTAINER:
 				setJndiContainer((BaseContainerContextType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__JNDI_TRANSACTION_MANAGER:
+				setJndiTransactionManager((TransactionManagerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__JRUN_TRANSACTION_MANAGER:
+				setJrunTransactionManager((TransactionManagerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__LEGACY_ENTRY_POINT_RESOLVER_SET:
+				setLegacyEntryPointResolverSet((ExtensibleEntryPointResolverSet)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__LIST_MESSAGE_SPLITTER_ROUTER:
 				setListMessageSplitterRouter((MessageSplitterOutboundRouterType)null);
@@ -5445,16 +5754,22 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setMapPropertyExtractor((AbstractPropertyExtractorType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_AGGREGATOR_ROUTER:
-				setMessageChunkingAggregatorRouter((CorrelationRouterType)null);
+				setMessageChunkingAggregatorRouter((MessageChunkingAggregatorRouterType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_ROUTER:
 				setMessageChunkingRouter((ChunkingRouterType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTIES_TRANSFORMER:
+				setMessagePropertiesTransformer((MessagePropertiesTransformerType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_EXTRACTOR:
 				setMessagePropertyExtractor((AbstractPropertyExtractorType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_FILTER:
 				setMessagePropertyFilter((PatternFilterType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__METHOD_ENTRY_POINT_RESOLVER:
+				setMethodEntryPointResolver((MethodEntryPointResolverType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MODEL:
 				setModel((DefaultModelType)null);
@@ -5468,8 +5783,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__MULTICASTING_ROUTER:
 				setMulticastingRouter((FilteringOutboundRouterType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__NO_ARGS_CALL_COMPONENT:
-				setNoArgsCallComponent((NoArgsCallComponentType)null);
+			case CorePackage.DOCUMENT_ROOT__NO_ACTION_TRANSFORMER:
+				setNoActionTransformer((AbstractTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__NO_ARGUMENTS_ENTRY_POINT_RESOLVER:
+				setNoArgumentsEntryPointResolver((ComplexEntryPointResolverType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__NOT_FILTER:
 				setNotFilter((UnitaryFilterType)null);
@@ -5479,6 +5797,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case CorePackage.DOCUMENT_ROOT__NULL_COMPONENT:
 				setNullComponent((DefaultComponentType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_BYTE_ARRAY_TRANSFORMER:
+				setObjectToByteArrayTransformer((AbstractTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_STRING_TRANSFORMER:
+				setObjectToStringTransformer((AbstractTransformerType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__OR_FILTER:
 				setOrFilter((CollectionFilterType)null);
@@ -5516,14 +5840,23 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__PROPERTIES_CONTAINER:
 				setPropertiesContainer((PropertiesContainerContextType)null);
 				return;
+			case CorePackage.DOCUMENT_ROOT__PROPERTY_ENTRY_POINT_RESOLVER:
+				setPropertyEntryPointResolver((PropertyEntryPointResolverType)null);
+				return;
 			case CorePackage.DOCUMENT_ROOT__PROTOTYPE_OBJECT:
 				setPrototypeObject((PrototypeObjectFactoryType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__QUEUE_PROFILE:
 				setQueueProfile((QueueProfileType)null);
 				return;
+			case CorePackage.DOCUMENT_ROOT__REFLECTION_ENTRY_POINT_RESOLVER:
+				setReflectionEntryPointResolver((ReflectionEntryPointResolverType)null);
+				return;
 			case CorePackage.DOCUMENT_ROOT__REGEX_FILTER:
 				setRegexFilter((PatternFilterType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
+				setResinTransactionManager((TransactionManagerType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
 				setRetryConnectionStrategy((RetryConnectionStrategyType)null);
@@ -5540,6 +5873,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__SELECTIVE_CONSUMER_ROUTER:
 				setSelectiveConsumerRouter((SelectiveConsumerRouterType)null);
 				return;
+			case CorePackage.DOCUMENT_ROOT__SERIALIZABLE_TO_BYTE_ARRAY_TRANSFORMER:
+				setSerializableToByteArrayTransformer((AbstractTransformerType)null);
+				return;
 			case CorePackage.DOCUMENT_ROOT__SERVICE:
 				setService((SedaServiceType)null);
 				return;
@@ -5549,116 +5885,50 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__SINGLETON_OBJECT:
 				setSingletonObject((SingletonObjectFactoryType)null);
 				return;
+			case CorePackage.DOCUMENT_ROOT__SPRING_OBJECT:
+				setSpringObject((SpringBeanLookupType)null);
+				return;
 			case CorePackage.DOCUMENT_ROOT__STATIC_RECIPIENT_LIST_ROUTER:
 				setStaticRecipientListRouter((StaticRecipientListRouterType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__STRING_TO_BYTE_ARRAY_TRANSFORMER:
+				setStringToByteArrayTransformer((AbstractTransformerType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__TEMPLATE_ENDPOINT_ROUTER:
 				setTemplateEndpointRouter((FilteringOutboundRouterType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION:
-				setTransaction((TransactionType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_FACTORY:
-				setTransactionFactory((TransactionRefFactoryType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JBOSS:
-				setTransactionManagerJboss((TransactionManagerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JNDI:
-				setTransactionManagerJndi((TransactionManagerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JRUN:
-				setTransactionManagerJrun((TransactionManagerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_RESIN:
-				setTransactionManagerResin((TransactionManagerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_WEBLOGIC:
-				setTransactionManagerWeblogic((JndiTransactionManagerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_WEBSPHERE:
-				setTransactionManagerWebsphere((TransactionManagerType)null);
-				return;
 			case CorePackage.DOCUMENT_ROOT__TRANSFORMER:
-				setTransformer((TransformerRefType)null);
+				setTransformer((RefTransformerType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_APPEND_STRING:
-				setTransformerAppendString((TransformerAppendStringType)null);
+			case CorePackage.DOCUMENT_ROOT__UC_DECODER_TRANSFORMER:
+				setUcDecoderTransformer((AbstractTransformerType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BASE64_DECODER:
-				setTransformerBase64Decoder((AbstractTransformerType)null);
+			case CorePackage.DOCUMENT_ROOT__UC_ENCODER_TRANSFORMER:
+				setUcEncoderTransformer((AbstractTransformerType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BASE64_ENCODER:
-				setTransformerBase64Encoder((AbstractTransformerType)null);
+			case CorePackage.DOCUMENT_ROOT__UU_DECODER_TRANSFORMER:
+				setUuDecoderTransformer((AbstractTransformerType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_HEX_STRING:
-				setTransformerByteArrayToHexString((AbstractTransformerType)null);
+			case CorePackage.DOCUMENT_ROOT__UU_ENCODER_TRANSFORMER:
+				setUuEncoderTransformer((AbstractTransformerType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_OBJECT:
-				setTransformerByteArrayToObject((AbstractTransformerType)null);
+			case CorePackage.DOCUMENT_ROOT__WEBLOGIC_TRANSACTION_MANAGER:
+				setWeblogicTransactionManager((JndiTransactionManagerType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_SERIALIZABLE:
-				setTransformerByteArrayToSerializable((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_STRING:
-				setTransformerByteArrayToString((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_DECRYPT:
-				setTransformerDecrypt((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_ENCRYPT:
-				setTransformerEncrypt((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_GZIP_COMPRESS:
-				setTransformerGzipCompress((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_GZIP_UNCOMPRESS:
-				setTransformerGzipUncompress((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_HEX_STING_TO_BYTE_ARRAY:
-				setTransformerHexStingToByteArray((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_MESSAGE_PROPERTIES:
-				setTransformerMessageProperties((MessagePropertiesTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_NO_ACTION:
-				setTransformerNoAction((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_OBJECT_TO_BYTE_ARRAY:
-				setTransformerObjectToByteArray((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_OBJECT_TO_STRING:
-				setTransformerObjectToString((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_SERIALIZABLE_TO_BYTE_ARRAY:
-				setTransformerSerializableToByteArray((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_STRING_TO_BYTE_ARRAY:
-				setTransformerStringToByteArray((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UC_DECODER:
-				setTransformerUcDecoder((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UC_ENCODER:
-				setTransformerUcEncoder((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UU_DECODER:
-				setTransformerUuDecoder((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UU_ENCODER:
-				setTransformerUuEncoder((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_XML_ENTITY_DECODER:
-				setTransformerXmlEntityDecoder((AbstractTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_XML_ENTITY_ENCODER:
-				setTransformerXmlEntityEncoder((AbstractTransformerType)null);
+			case CorePackage.DOCUMENT_ROOT__WEBSPHERE_TRANSACTION_MANAGER:
+				setWebsphereTransactionManager((TransactionManagerType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__WILDCARD_FILTER:
 				setWildcardFilter((WildcardFilterType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__WIRE_TAP_ROUTER:
 				setWireTapRouter((WireTapRouterType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__XML_ENTITY_DECODER_TRANSFORMER:
+				setXmlEntityDecoderTransformer((AbstractTransformerType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__XML_ENTITY_ENCODER_TRANSFORMER:
+				setXmlEntityEncoderTransformer((AbstractTransformerType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -5696,8 +5966,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractDefineNotification() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_DISABLE_NOTIFICATION:
 				return getAbstractDisableNotification() != null;
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRYPOINT_RESOLVER:
-				return getAbstractEntrypointResolver() != null;
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER:
+				return getAbstractEntryPointResolver() != null;
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER_SET:
+				return getAbstractEntryPointResolverSet() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_EXCEPTION_STRATEGY:
 				return getAbstractExceptionStrategy() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_EXTENSION:
@@ -5734,28 +6006,40 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractStorage() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSACTION:
 				return getAbstractTransaction() != null;
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSACTION_FACTORY:
-				return getAbstractTransactionFactory() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSACTION_MANAGER:
 				return getAbstractTransactionManager() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSFORMER:
 				return getAbstractTransformer() != null;
 			case CorePackage.DOCUMENT_ROOT__AND_FILTER:
 				return getAndFilter() != null;
+			case CorePackage.DOCUMENT_ROOT__APPEND_STRING_TRANSFORMER:
+				return getAppendStringTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__ARRAY_ENTRY_POINT_RESOLVER:
+				return getArrayEntryPointResolver() != null;
+			case CorePackage.DOCUMENT_ROOT__BASE64_DECODER_TRANSFORMER:
+				return getBase64DecoderTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__BASE64_ENCODER_TRANSFORMER:
+				return getBase64EncoderTransformer() != null;
 			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
 				return getBeanPropertyExtractor() != null;
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 				return getBridgeComponent() != null;
-			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRYPOINT_RESOLVER:
-				return getCallableEntrypointResolver() != null;
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_HEX_STRING_TRANSFORMER:
+				return getByteArrayToHexStringTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_OBJECT_TRANSFORMER:
+				return getByteArrayToObjectTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_SERIALIZABLE_TRANSFORMER:
+				return getByteArrayToSerializableTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_STRING_TRANSFORMER:
+				return getByteArrayToStringTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRY_POINT_RESOLVER:
+				return getCallableEntryPointResolver() != null;
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
 				return getChainingRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT:
 				return getComponent() != null;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				return getComponentThreadingProfile() != null;
-			case CorePackage.DOCUMENT_ROOT__CORRELATION_AGGREGATOR_ROUTER:
-				return getCorrelationAggregatorRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_PROPERTY_EXTRACTOR:
 				return getCorrelationPropertyExtractor() != null;
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_RESEQUENCER_ROUTER:
@@ -5770,8 +6054,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCustomConnector() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONTAINER:
 				return getCustomContainer() != null;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRYPOINT_RESOLVER:
-				return getCustomEntrypointResolver() != null;
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_CORRELATION_AGGREGATOR_ROUTER:
+				return getCustomCorrelationAggregatorRouter() != null;
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER:
+				return getCustomEntryPointResolver() != null;
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER_SET:
+				return getCustomEntryPointResolverSet() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_EXCEPTION_STRATEGY:
 				return getCustomExceptionStrategy() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_FILTER:
@@ -5784,12 +6072,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCustomOutboundRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
 				return getCustomPropertyExtractor() != null;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_FACTORY:
-				return getCustomTransactionFactory() != null;
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION:
+				return getCustomTransaction() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_MANAGER:
 				return getCustomTransactionManager() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSFORMER:
 				return getCustomTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__DECRYPT_TRANSFORMER:
+				return getDecryptTransformer() != null;
 			case CorePackage.DOCUMENT_ROOT__DEFAULT_CONNECTOR_EXCEPTION_STRATEGY:
 				return getDefaultConnectorExceptionStrategy() != null;
 			case CorePackage.DOCUMENT_ROOT__DEFAULT_SERVICE_EXCEPTION_STRATEGY:
@@ -5804,10 +6094,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getEjbContainer() != null;
 			case CorePackage.DOCUMENT_ROOT__ENCRYPTION_SECURITY_FILTER:
 				return getEncryptionSecurityFilter() != null;
+			case CorePackage.DOCUMENT_ROOT__ENCRYPT_TRANSFORMER:
+				return getEncryptTransformer() != null;
 			case CorePackage.DOCUMENT_ROOT__ENDPOINT:
 				return getEndpoint() != null;
 			case CorePackage.DOCUMENT_ROOT__ENDPOINT_SELECTOR_ROUTER:
 				return getEndpointSelectorRouter() != null;
+			case CorePackage.DOCUMENT_ROOT__ENTRY_POINT_RESOLVER_SET:
+				return getEntryPointResolverSet() != null;
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_BASED_ROUTER:
 				return getExceptionBasedRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_TYPE_FILTER:
@@ -5820,6 +6114,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getForwardingCatchAllStrategy() != null;
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
 				return getForwardingRouter() != null;
+			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
+				return getGzipCompressTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__GZIP_UNCOMPRESS_TRANSFORMER:
+				return getGzipUncompressTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__HEX_STRING_TO_BYTE_ARRAY_TRANSFORMER:
+				return getHexStringToByteArrayTransformer() != null;
 			case CorePackage.DOCUMENT_ROOT__HIVEMIND_CONTAINER:
 				return getHivemindContainer() != null;
 			case CorePackage.DOCUMENT_ROOT__IDEMPOTENT_RECEIVER_ROUTER:
@@ -5830,8 +6130,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getInboundEndpoint() != null;
 			case CorePackage.DOCUMENT_ROOT__INBOUND_PASS_THROUGH_ROUTER:
 				return getInboundPassThroughRouter() != null;
+			case CorePackage.DOCUMENT_ROOT__INCLUDE_ENTRY_POINT:
+				return getIncludeEntryPoint() != null;
+			case CorePackage.DOCUMENT_ROOT__JBOSS_TRANSACTION_MANAGER:
+				return getJbossTransactionManager() != null;
 			case CorePackage.DOCUMENT_ROOT__JNDI_CONTAINER:
 				return getJndiContainer() != null;
+			case CorePackage.DOCUMENT_ROOT__JNDI_TRANSACTION_MANAGER:
+				return getJndiTransactionManager() != null;
+			case CorePackage.DOCUMENT_ROOT__JRUN_TRANSACTION_MANAGER:
+				return getJrunTransactionManager() != null;
+			case CorePackage.DOCUMENT_ROOT__LEGACY_ENTRY_POINT_RESOLVER_SET:
+				return getLegacyEntryPointResolverSet() != null;
 			case CorePackage.DOCUMENT_ROOT__LIST_MESSAGE_SPLITTER_ROUTER:
 				return getListMessageSplitterRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__LOG_COMPONENT:
@@ -5844,10 +6154,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getMessageChunkingAggregatorRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_ROUTER:
 				return getMessageChunkingRouter() != null;
+			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTIES_TRANSFORMER:
+				return getMessagePropertiesTransformer() != null;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_EXTRACTOR:
 				return getMessagePropertyExtractor() != null;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_FILTER:
 				return getMessagePropertyFilter() != null;
+			case CorePackage.DOCUMENT_ROOT__METHOD_ENTRY_POINT_RESOLVER:
+				return getMethodEntryPointResolver() != null;
 			case CorePackage.DOCUMENT_ROOT__MODEL:
 				return getModel() != null;
 			case CorePackage.DOCUMENT_ROOT__MULE:
@@ -5856,14 +6170,20 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getMuleUnsafe() != null;
 			case CorePackage.DOCUMENT_ROOT__MULTICASTING_ROUTER:
 				return getMulticastingRouter() != null;
-			case CorePackage.DOCUMENT_ROOT__NO_ARGS_CALL_COMPONENT:
-				return getNoArgsCallComponent() != null;
+			case CorePackage.DOCUMENT_ROOT__NO_ACTION_TRANSFORMER:
+				return getNoActionTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__NO_ARGUMENTS_ENTRY_POINT_RESOLVER:
+				return getNoArgumentsEntryPointResolver() != null;
 			case CorePackage.DOCUMENT_ROOT__NOT_FILTER:
 				return getNotFilter() != null;
 			case CorePackage.DOCUMENT_ROOT__NOTIFICATION:
 				return getNotification() != null;
 			case CorePackage.DOCUMENT_ROOT__NULL_COMPONENT:
 				return getNullComponent() != null;
+			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_BYTE_ARRAY_TRANSFORMER:
+				return getObjectToByteArrayTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_STRING_TRANSFORMER:
+				return getObjectToStringTransformer() != null;
 			case CorePackage.DOCUMENT_ROOT__OR_FILTER:
 				return getOrFilter() != null;
 			case CorePackage.DOCUMENT_ROOT__OUTBOUND_ENDPOINT:
@@ -5888,12 +6208,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getProperties() != null;
 			case CorePackage.DOCUMENT_ROOT__PROPERTIES_CONTAINER:
 				return getPropertiesContainer() != null;
+			case CorePackage.DOCUMENT_ROOT__PROPERTY_ENTRY_POINT_RESOLVER:
+				return getPropertyEntryPointResolver() != null;
 			case CorePackage.DOCUMENT_ROOT__PROTOTYPE_OBJECT:
 				return getPrototypeObject() != null;
 			case CorePackage.DOCUMENT_ROOT__QUEUE_PROFILE:
 				return getQueueProfile() != null;
+			case CorePackage.DOCUMENT_ROOT__REFLECTION_ENTRY_POINT_RESOLVER:
+				return getReflectionEntryPointResolver() != null;
 			case CorePackage.DOCUMENT_ROOT__REGEX_FILTER:
 				return getRegexFilter() != null;
+			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
+				return getResinTransactionManager() != null;
 			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
 				return getRetryConnectionStrategy() != null;
 			case CorePackage.DOCUMENT_ROOT__RMI_CONTAINER:
@@ -5904,86 +6230,44 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getSedaModel() != null;
 			case CorePackage.DOCUMENT_ROOT__SELECTIVE_CONSUMER_ROUTER:
 				return getSelectiveConsumerRouter() != null;
+			case CorePackage.DOCUMENT_ROOT__SERIALIZABLE_TO_BYTE_ARRAY_TRANSFORMER:
+				return getSerializableToByteArrayTransformer() != null;
 			case CorePackage.DOCUMENT_ROOT__SERVICE:
 				return getService() != null;
 			case CorePackage.DOCUMENT_ROOT__SINGLE_ASYNC_REPLY_ROUTER:
 				return getSingleAsyncReplyRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__SINGLETON_OBJECT:
 				return getSingletonObject() != null;
+			case CorePackage.DOCUMENT_ROOT__SPRING_OBJECT:
+				return getSpringObject() != null;
 			case CorePackage.DOCUMENT_ROOT__STATIC_RECIPIENT_LIST_ROUTER:
 				return getStaticRecipientListRouter() != null;
+			case CorePackage.DOCUMENT_ROOT__STRING_TO_BYTE_ARRAY_TRANSFORMER:
+				return getStringToByteArrayTransformer() != null;
 			case CorePackage.DOCUMENT_ROOT__TEMPLATE_ENDPOINT_ROUTER:
 				return getTemplateEndpointRouter() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION:
-				return getTransaction() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_FACTORY:
-				return getTransactionFactory() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JBOSS:
-				return getTransactionManagerJboss() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JNDI:
-				return getTransactionManagerJndi() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_JRUN:
-				return getTransactionManagerJrun() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_RESIN:
-				return getTransactionManagerResin() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_WEBLOGIC:
-				return getTransactionManagerWeblogic() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSACTION_MANAGER_WEBSPHERE:
-				return getTransactionManagerWebsphere() != null;
 			case CorePackage.DOCUMENT_ROOT__TRANSFORMER:
 				return getTransformer() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_APPEND_STRING:
-				return getTransformerAppendString() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BASE64_DECODER:
-				return getTransformerBase64Decoder() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BASE64_ENCODER:
-				return getTransformerBase64Encoder() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_HEX_STRING:
-				return getTransformerByteArrayToHexString() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_OBJECT:
-				return getTransformerByteArrayToObject() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_SERIALIZABLE:
-				return getTransformerByteArrayToSerializable() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_BYTE_ARRAY_TO_STRING:
-				return getTransformerByteArrayToString() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_DECRYPT:
-				return getTransformerDecrypt() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_ENCRYPT:
-				return getTransformerEncrypt() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_GZIP_COMPRESS:
-				return getTransformerGzipCompress() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_GZIP_UNCOMPRESS:
-				return getTransformerGzipUncompress() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_HEX_STING_TO_BYTE_ARRAY:
-				return getTransformerHexStingToByteArray() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_MESSAGE_PROPERTIES:
-				return getTransformerMessageProperties() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_NO_ACTION:
-				return getTransformerNoAction() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_OBJECT_TO_BYTE_ARRAY:
-				return getTransformerObjectToByteArray() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_OBJECT_TO_STRING:
-				return getTransformerObjectToString() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_SERIALIZABLE_TO_BYTE_ARRAY:
-				return getTransformerSerializableToByteArray() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_STRING_TO_BYTE_ARRAY:
-				return getTransformerStringToByteArray() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UC_DECODER:
-				return getTransformerUcDecoder() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UC_ENCODER:
-				return getTransformerUcEncoder() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UU_DECODER:
-				return getTransformerUuDecoder() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_UU_ENCODER:
-				return getTransformerUuEncoder() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_XML_ENTITY_DECODER:
-				return getTransformerXmlEntityDecoder() != null;
-			case CorePackage.DOCUMENT_ROOT__TRANSFORMER_XML_ENTITY_ENCODER:
-				return getTransformerXmlEntityEncoder() != null;
+			case CorePackage.DOCUMENT_ROOT__UC_DECODER_TRANSFORMER:
+				return getUcDecoderTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__UC_ENCODER_TRANSFORMER:
+				return getUcEncoderTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__UU_DECODER_TRANSFORMER:
+				return getUuDecoderTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__UU_ENCODER_TRANSFORMER:
+				return getUuEncoderTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__WEBLOGIC_TRANSACTION_MANAGER:
+				return getWeblogicTransactionManager() != null;
+			case CorePackage.DOCUMENT_ROOT__WEBSPHERE_TRANSACTION_MANAGER:
+				return getWebsphereTransactionManager() != null;
 			case CorePackage.DOCUMENT_ROOT__WILDCARD_FILTER:
 				return getWildcardFilter() != null;
 			case CorePackage.DOCUMENT_ROOT__WIRE_TAP_ROUTER:
 				return getWireTapRouter() != null;
+			case CorePackage.DOCUMENT_ROOT__XML_ENTITY_DECODER_TRANSFORMER:
+				return getXmlEntityDecoderTransformer() != null;
+			case CorePackage.DOCUMENT_ROOT__XML_ENTITY_ENCODER_TRANSFORMER:
+				return getXmlEntityEncoderTransformer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

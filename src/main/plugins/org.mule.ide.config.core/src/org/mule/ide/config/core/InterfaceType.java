@@ -43,16 +43,14 @@ public enum InterfaceType implements Enumerator {
 	MODEL(1, "MODEL", "MODEL"),
 
 	/**
-	 * The '<em><b>COMPONENT</b></em>' literal object.
+	 * The '<em><b>SERVICE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #COMPONENT_VALUE
+	 * @see #SERVICE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	COMPONENT(2, "COMPONENT", "COMPONENT"),
-
-	/**
+	SERVICE(2, "SERVICE", "SERVICE"), /**
 	 * The '<em><b>SECURITY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,19 +171,19 @@ public enum InterfaceType implements Enumerator {
 	public static final int MODEL_VALUE = 1;
 
 	/**
-	 * The '<em><b>COMPONENT</b></em>' literal value.
+	 * The '<em><b>SERVICE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>COMPONENT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>SERVICE</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #COMPONENT
+	 * @see #SERVICE
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPONENT_VALUE = 2;
+	public static final int SERVICE_VALUE = 2;
 
 	/**
 	 * The '<em><b>SECURITY</b></em>' literal value.
@@ -332,7 +330,7 @@ public enum InterfaceType implements Enumerator {
 		new InterfaceType[] {
 			MANAGER,
 			MODEL,
-			COMPONENT,
+			SERVICE,
 			SECURITY,
 			MANAGEMENT,
 			ADMIN,
@@ -394,7 +392,7 @@ public enum InterfaceType implements Enumerator {
 		switch (value) {
 			case MANAGER_VALUE: return MANAGER;
 			case MODEL_VALUE: return MODEL;
-			case COMPONENT_VALUE: return COMPONENT;
+			case SERVICE_VALUE: return SERVICE;
 			case SECURITY_VALUE: return SECURITY;
 			case MANAGEMENT_VALUE: return MANAGEMENT;
 			case ADMIN_VALUE: return ADMIN;

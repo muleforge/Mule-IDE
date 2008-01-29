@@ -36,7 +36,7 @@ public interface AbstractOutboundEndpointType extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractOutboundEndpointType_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.NMTOKEN"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableName"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
 	 */

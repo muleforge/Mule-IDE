@@ -151,9 +151,15 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.ABSTRACT_ENTRYPOINT_RESOLVER_TYPE: {
-				AbstractEntrypointResolverType abstractEntrypointResolverType = (AbstractEntrypointResolverType)theEObject;
-				T result = caseAbstractEntrypointResolverType(abstractEntrypointResolverType);
+			case CorePackage.ABSTRACT_ENTRY_POINT_RESOLVER_SET_TYPE: {
+				AbstractEntryPointResolverSetType abstractEntryPointResolverSetType = (AbstractEntryPointResolverSetType)theEObject;
+				T result = caseAbstractEntryPointResolverSetType(abstractEntryPointResolverSetType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.ABSTRACT_ENTRY_POINT_RESOLVER_TYPE: {
+				AbstractEntryPointResolverType abstractEntryPointResolverType = (AbstractEntryPointResolverType)theEObject;
+				T result = caseAbstractEntryPointResolverType(abstractEntryPointResolverType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -259,12 +265,6 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.ABSTRACT_TRANSACTION_FACTORY_TYPE: {
-				AbstractTransactionFactoryType abstractTransactionFactoryType = (AbstractTransactionFactoryType)theEObject;
-				T result = caseAbstractTransactionFactoryType(abstractTransactionFactoryType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CorePackage.ABSTRACT_TRANSACTION_MANAGER_TYPE: {
 				AbstractTransactionManagerType abstractTransactionManagerType = (AbstractTransactionManagerType)theEObject;
 				T result = caseAbstractTransactionManagerType(abstractTransactionManagerType);
@@ -289,9 +289,16 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.ASYNC_REPLY_ROUTER_COLLECTION_TYPE: {
-				AsyncReplyRouterCollectionType asyncReplyRouterCollectionType = (AsyncReplyRouterCollectionType)theEObject;
-				T result = caseAsyncReplyRouterCollectionType(asyncReplyRouterCollectionType);
+			case CorePackage.APPEND_STRING_TRANSFORMER_TYPE: {
+				AppendStringTransformerType appendStringTransformerType = (AppendStringTransformerType)theEObject;
+				T result = caseAppendStringTransformerType(appendStringTransformerType);
+				if (result == null) result = caseAbstractTransformerType(appendStringTransformerType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE: {
+				AsyncReplyCollectionType asyncReplyCollectionType = (AsyncReplyCollectionType)theEObject;
+				T result = caseAsyncReplyCollectionType(asyncReplyCollectionType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -308,17 +315,17 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.BASE_ENTRY_POINT_RESOLVER_TYPE: {
+				BaseEntryPointResolverType baseEntryPointResolverType = (BaseEntryPointResolverType)theEObject;
+				T result = caseBaseEntryPointResolverType(baseEntryPointResolverType);
+				if (result == null) result = caseAbstractEntryPointResolverType(baseEntryPointResolverType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.BASE_SERVICE_TYPE: {
 				BaseServiceType baseServiceType = (BaseServiceType)theEObject;
 				T result = caseBaseServiceType(baseServiceType);
 				if (result == null) result = caseAbstractServiceType(baseServiceType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.CALLABLE_ENTRYPOINT_RESOLVER_TYPE: {
-				CallableEntrypointResolverType callableEntrypointResolverType = (CallableEntrypointResolverType)theEObject;
-				T result = caseCallableEntrypointResolverType(callableEntrypointResolverType);
-				if (result == null) result = caseAbstractEntrypointResolverType(callableEntrypointResolverType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -335,6 +342,15 @@ public class CoreSwitch<T> {
 				CollectionFilterType collectionFilterType = (CollectionFilterType)theEObject;
 				T result = caseCollectionFilterType(collectionFilterType);
 				if (result == null) result = caseAbstractFilterType(collectionFilterType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.COMPLEX_ENTRY_POINT_RESOLVER_TYPE: {
+				ComplexEntryPointResolverType complexEntryPointResolverType = (ComplexEntryPointResolverType)theEObject;
+				T result = caseComplexEntryPointResolverType(complexEntryPointResolverType);
+				if (result == null) result = caseReflectionEntryPointResolverType(complexEntryPointResolverType);
+				if (result == null) result = caseBaseEntryPointResolverType(complexEntryPointResolverType);
+				if (result == null) result = caseAbstractEntryPointResolverType(complexEntryPointResolverType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -355,23 +371,6 @@ public class CoreSwitch<T> {
 			case CorePackage.CONTAINER_CONTEXT_TYPE: {
 				ContainerContextType containerContextType = (ContainerContextType)theEObject;
 				T result = caseContainerContextType(containerContextType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.CORRELATION_AGGREGATOR_ROUTER_TYPE: {
-				CorrelationAggregatorRouterType correlationAggregatorRouterType = (CorrelationAggregatorRouterType)theEObject;
-				T result = caseCorrelationAggregatorRouterType(correlationAggregatorRouterType);
-				if (result == null) result = caseCorrelationRouterType(correlationAggregatorRouterType);
-				if (result == null) result = caseFilteredInboundRouterType(correlationAggregatorRouterType);
-				if (result == null) result = caseAbstractInboundRouterType(correlationAggregatorRouterType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.CORRELATION_ROUTER_TYPE: {
-				CorrelationRouterType correlationRouterType = (CorrelationRouterType)theEObject;
-				T result = caseCorrelationRouterType(correlationRouterType);
-				if (result == null) result = caseFilteredInboundRouterType(correlationRouterType);
-				if (result == null) result = caseAbstractInboundRouterType(correlationRouterType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -401,6 +400,7 @@ public class CoreSwitch<T> {
 			case CorePackage.CUSTOM_CONNECTOR_TYPE: {
 				CustomConnectorType customConnectorType = (CustomConnectorType)theEObject;
 				T result = caseCustomConnectorType(customConnectorType);
+				if (result == null) result = caseConnectorType(customConnectorType);
 				if (result == null) result = caseAbstractConnectorType(customConnectorType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -412,6 +412,15 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.CUSTOM_CORRELATION_AGGREGATOR_ROUTER_TYPE: {
+				CustomCorrelationAggregatorRouterType customCorrelationAggregatorRouterType = (CustomCorrelationAggregatorRouterType)theEObject;
+				T result = caseCustomCorrelationAggregatorRouterType(customCorrelationAggregatorRouterType);
+				if (result == null) result = caseMessageChunkingAggregatorRouterType(customCorrelationAggregatorRouterType);
+				if (result == null) result = caseFilteredInboundRouterType(customCorrelationAggregatorRouterType);
+				if (result == null) result = caseAbstractInboundRouterType(customCorrelationAggregatorRouterType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.CUSTOM_ENCRYPTION_STRATEGY_TYPE: {
 				CustomEncryptionStrategyType customEncryptionStrategyType = (CustomEncryptionStrategyType)theEObject;
 				T result = caseCustomEncryptionStrategyType(customEncryptionStrategyType);
@@ -419,10 +428,17 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.CUSTOM_ENTRYPOINT_RESOLVER_TYPE: {
-				CustomEntrypointResolverType customEntrypointResolverType = (CustomEntrypointResolverType)theEObject;
-				T result = caseCustomEntrypointResolverType(customEntrypointResolverType);
-				if (result == null) result = caseAbstractEntrypointResolverType(customEntrypointResolverType);
+			case CorePackage.CUSTOM_ENTRY_POINT_RESOLVER_SET_TYPE: {
+				CustomEntryPointResolverSetType customEntryPointResolverSetType = (CustomEntryPointResolverSetType)theEObject;
+				T result = caseCustomEntryPointResolverSetType(customEntryPointResolverSetType);
+				if (result == null) result = caseAbstractEntryPointResolverSetType(customEntryPointResolverSetType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.CUSTOM_ENTRY_POINT_RESOLVER_TYPE: {
+				CustomEntryPointResolverType customEntryPointResolverType = (CustomEntryPointResolverType)theEObject;
+				T result = caseCustomEntryPointResolverType(customEntryPointResolverType);
+				if (result == null) result = caseAbstractEntryPointResolverType(customEntryPointResolverType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -479,18 +495,18 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.CUSTOM_TRANSACTION_FACTORY_TYPE: {
-				CustomTransactionFactoryType customTransactionFactoryType = (CustomTransactionFactoryType)theEObject;
-				T result = caseCustomTransactionFactoryType(customTransactionFactoryType);
-				if (result == null) result = caseAbstractTransactionFactoryType(customTransactionFactoryType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CorePackage.CUSTOM_TRANSACTION_MANAGER_TYPE: {
 				CustomTransactionManagerType customTransactionManagerType = (CustomTransactionManagerType)theEObject;
 				T result = caseCustomTransactionManagerType(customTransactionManagerType);
 				if (result == null) result = caseJndiTransactionManagerType(customTransactionManagerType);
 				if (result == null) result = caseAbstractTransactionManagerType(customTransactionManagerType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.CUSTOM_TRANSACTION_TYPE: {
+				CustomTransactionType customTransactionType = (CustomTransactionType)theEObject;
+				T result = caseCustomTransactionType(customTransactionType);
+				if (result == null) result = caseAbstractTransactionType(customTransactionType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -586,6 +602,13 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.EXTENSIBLE_ENTRY_POINT_RESOLVER_SET: {
+				ExtensibleEntryPointResolverSet extensibleEntryPointResolverSet = (ExtensibleEntryPointResolverSet)theEObject;
+				T result = caseExtensibleEntryPointResolverSet(extensibleEntryPointResolverSet);
+				if (result == null) result = caseAbstractEntryPointResolverSetType(extensibleEntryPointResolverSet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE: {
 				FilteredInboundRouterType filteredInboundRouterType = (FilteredInboundRouterType)theEObject;
 				T result = caseFilteredInboundRouterType(filteredInboundRouterType);
@@ -598,13 +621,6 @@ public class CoreSwitch<T> {
 				T result = caseFilteringOutboundRouterType(filteringOutboundRouterType);
 				if (result == null) result = caseOutboundRouterType(filteringOutboundRouterType);
 				if (result == null) result = caseAbstractOutboundRouterType(filteringOutboundRouterType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.FILTER_REF_TYPE: {
-				FilterRefType filterRefType = (FilterRefType)theEObject;
-				T result = caseFilterRefType(filterRefType);
-				if (result == null) result = caseAbstractFilterType(filterRefType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -626,7 +642,6 @@ public class CoreSwitch<T> {
 			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE: {
 				GenericObjectFactoryType genericObjectFactoryType = (GenericObjectFactoryType)theEObject;
 				T result = caseGenericObjectFactoryType(genericObjectFactoryType);
-				if (result == null) result = caseAbstractObjectFactoryType(genericObjectFactoryType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -637,11 +652,17 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.IDEMPOTENT_RECEIVER_TYPE: {
-				IdempotentReceiverType idempotentReceiverType = (IdempotentReceiverType)theEObject;
-				T result = caseIdempotentReceiverType(idempotentReceiverType);
-				if (result == null) result = caseFilteredInboundRouterType(idempotentReceiverType);
-				if (result == null) result = caseAbstractInboundRouterType(idempotentReceiverType);
+			case CorePackage.IDEMPOTENT_RECEIVER_ROUTER_TYPE: {
+				IdempotentReceiverRouterType idempotentReceiverRouterType = (IdempotentReceiverRouterType)theEObject;
+				T result = caseIdempotentReceiverRouterType(idempotentReceiverRouterType);
+				if (result == null) result = caseFilteredInboundRouterType(idempotentReceiverRouterType);
+				if (result == null) result = caseAbstractInboundRouterType(idempotentReceiverRouterType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.INBOUND_COLLECTION_TYPE: {
+				InboundCollectionType inboundCollectionType = (InboundCollectionType)theEObject;
+				T result = caseInboundCollectionType(inboundCollectionType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -649,12 +670,6 @@ public class CoreSwitch<T> {
 				InboundEndpointType inboundEndpointType = (InboundEndpointType)theEObject;
 				T result = caseInboundEndpointType(inboundEndpointType);
 				if (result == null) result = caseAbstractInboundEndpointType(inboundEndpointType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.INBOUND_ROUTER_COLLECTION_TYPE: {
-				InboundRouterCollectionType inboundRouterCollectionType = (InboundRouterCollectionType)theEObject;
-				T result = caseInboundRouterCollectionType(inboundRouterCollectionType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -677,6 +692,19 @@ public class CoreSwitch<T> {
 				JndiTransactionManagerType jndiTransactionManagerType = (JndiTransactionManagerType)theEObject;
 				T result = caseJndiTransactionManagerType(jndiTransactionManagerType);
 				if (result == null) result = caseAbstractTransactionManagerType(jndiTransactionManagerType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.KEY_TYPE: {
+				KeyType keyType = (KeyType)theEObject;
+				T result = caseKeyType(keyType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.KEY_VALUE_TYPE: {
+				KeyValueType keyValueType = (KeyValueType)theEObject;
+				T result = caseKeyValueType(keyValueType);
+				if (result == null) result = caseKeyType(keyValueType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -711,6 +739,14 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.MESSAGE_CHUNKING_AGGREGATOR_ROUTER_TYPE: {
+				MessageChunkingAggregatorRouterType messageChunkingAggregatorRouterType = (MessageChunkingAggregatorRouterType)theEObject;
+				T result = caseMessageChunkingAggregatorRouterType(messageChunkingAggregatorRouterType);
+				if (result == null) result = caseFilteredInboundRouterType(messageChunkingAggregatorRouterType);
+				if (result == null) result = caseAbstractInboundRouterType(messageChunkingAggregatorRouterType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE: {
 				MessagePropertiesTransformerType messagePropertiesTransformerType = (MessagePropertiesTransformerType)theEObject;
 				T result = caseMessagePropertiesTransformerType(messagePropertiesTransformerType);
@@ -727,6 +763,20 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.METHOD_ENTRY_POINT_RESOLVER_TYPE: {
+				MethodEntryPointResolverType methodEntryPointResolverType = (MethodEntryPointResolverType)theEObject;
+				T result = caseMethodEntryPointResolverType(methodEntryPointResolverType);
+				if (result == null) result = caseBaseEntryPointResolverType(methodEntryPointResolverType);
+				if (result == null) result = caseAbstractEntryPointResolverType(methodEntryPointResolverType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.METHOD_TYPE: {
+				MethodType methodType = (MethodType)theEObject;
+				T result = caseMethodType(methodType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.MULE_TYPE: {
 				MuleType muleType = (MuleType)theEObject;
 				T result = caseMuleType(muleType);
@@ -736,26 +786,6 @@ public class CoreSwitch<T> {
 			case CorePackage.MULE_UNSAFE_TYPE: {
 				MuleUnsafeType muleUnsafeType = (MuleUnsafeType)theEObject;
 				T result = caseMuleUnsafeType(muleUnsafeType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.NO_ARGS_CALL_COMPONENT_TYPE: {
-				NoArgsCallComponentType noArgsCallComponentType = (NoArgsCallComponentType)theEObject;
-				T result = caseNoArgsCallComponentType(noArgsCallComponentType);
-				if (result == null) result = caseDefaultComponentType(noArgsCallComponentType);
-				if (result == null) result = caseAbstractComponentType(noArgsCallComponentType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.NO_ARGS_CALL_DELEGATE_CLASS_TYPE: {
-				NoArgsCallDelegateClassType noArgsCallDelegateClassType = (NoArgsCallDelegateClassType)theEObject;
-				T result = caseNoArgsCallDelegateClassType(noArgsCallDelegateClassType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.NO_ARGS_CALL_DELEGATE_INSTANCE_TYPE: {
-				NoArgsCallDelegateInstanceType noArgsCallDelegateInstanceType = (NoArgsCallDelegateInstanceType)theEObject;
-				T result = caseNoArgsCallDelegateInstanceType(noArgsCallDelegateInstanceType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -771,16 +801,16 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.OUTBOUND_COLLECTION_TYPE: {
+				OutboundCollectionType outboundCollectionType = (OutboundCollectionType)theEObject;
+				T result = caseOutboundCollectionType(outboundCollectionType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.OUTBOUND_ENDPOINT_TYPE: {
 				OutboundEndpointType outboundEndpointType = (OutboundEndpointType)theEObject;
 				T result = caseOutboundEndpointType(outboundEndpointType);
 				if (result == null) result = caseAbstractOutboundEndpointType(outboundEndpointType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.OUTBOUND_ROUTER_COLLECTION_TYPE: {
-				OutboundRouterCollectionType outboundRouterCollectionType = (OutboundRouterCollectionType)theEObject;
-				T result = caseOutboundRouterCollectionType(outboundRouterCollectionType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -839,6 +869,14 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.PROPERTY_ENTRY_POINT_RESOLVER_TYPE: {
+				PropertyEntryPointResolverType propertyEntryPointResolverType = (PropertyEntryPointResolverType)theEObject;
+				T result = casePropertyEntryPointResolverType(propertyEntryPointResolverType);
+				if (result == null) result = caseBaseEntryPointResolverType(propertyEntryPointResolverType);
+				if (result == null) result = caseAbstractEntryPointResolverType(propertyEntryPointResolverType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.PROTOTYPE_OBJECT_FACTORY_TYPE: {
 				PrototypeObjectFactoryType prototypeObjectFactoryType = (PrototypeObjectFactoryType)theEObject;
 				T result = casePrototypeObjectFactoryType(prototypeObjectFactoryType);
@@ -856,6 +894,28 @@ public class CoreSwitch<T> {
 			case CorePackage.REFERENCE_TYPE: {
 				ReferenceType referenceType = (ReferenceType)theEObject;
 				T result = caseReferenceType(referenceType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.REF_FILTER_TYPE: {
+				RefFilterType refFilterType = (RefFilterType)theEObject;
+				T result = caseRefFilterType(refFilterType);
+				if (result == null) result = caseAbstractFilterType(refFilterType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.REFLECTION_ENTRY_POINT_RESOLVER_TYPE: {
+				ReflectionEntryPointResolverType reflectionEntryPointResolverType = (ReflectionEntryPointResolverType)theEObject;
+				T result = caseReflectionEntryPointResolverType(reflectionEntryPointResolverType);
+				if (result == null) result = caseBaseEntryPointResolverType(reflectionEntryPointResolverType);
+				if (result == null) result = caseAbstractEntryPointResolverType(reflectionEntryPointResolverType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.REF_TRANSFORMER_TYPE: {
+				RefTransformerType refTransformerType = (RefTransformerType)theEObject;
+				T result = caseRefTransformerType(refTransformerType);
+				if (result == null) result = caseAbstractTransformerType(refTransformerType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -942,6 +1002,13 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.SPRING_BEAN_LOOKUP_TYPE: {
+				SpringBeanLookupType springBeanLookupType = (SpringBeanLookupType)theEObject;
+				T result = caseSpringBeanLookupType(springBeanLookupType);
+				if (result == null) result = caseAbstractObjectFactoryType(springBeanLookupType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE: {
 				StaticRecipientListRouterType staticRecipientListRouterType = (StaticRecipientListRouterType)theEObject;
 				T result = caseStaticRecipientListRouterType(staticRecipientListRouterType);
@@ -996,34 +1063,6 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.TRANSACTION_REF_FACTORY_TYPE: {
-				TransactionRefFactoryType transactionRefFactoryType = (TransactionRefFactoryType)theEObject;
-				T result = caseTransactionRefFactoryType(transactionRefFactoryType);
-				if (result == null) result = caseAbstractTransactionFactoryType(transactionRefFactoryType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.TRANSACTION_TYPE: {
-				TransactionType transactionType = (TransactionType)theEObject;
-				T result = caseTransactionType(transactionType);
-				if (result == null) result = caseAbstractTransactionType(transactionType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.TRANSFORMER_APPEND_STRING_TYPE: {
-				TransformerAppendStringType transformerAppendStringType = (TransformerAppendStringType)theEObject;
-				T result = caseTransformerAppendStringType(transformerAppendStringType);
-				if (result == null) result = caseAbstractTransformerType(transformerAppendStringType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.TRANSFORMER_REF_TYPE: {
-				TransformerRefType transformerRefType = (TransformerRefType)theEObject;
-				T result = caseTransformerRefType(transformerRefType);
-				if (result == null) result = caseAbstractTransformerType(transformerRefType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CorePackage.TRANSFORMERS_TYPE: {
 				TransformersType transformersType = (TransformersType)theEObject;
 				T result = caseTransformersType(transformersType);
@@ -1041,6 +1080,12 @@ public class CoreSwitch<T> {
 				UnitaryFilterType unitaryFilterType = (UnitaryFilterType)theEObject;
 				T result = caseUnitaryFilterType(unitaryFilterType);
 				if (result == null) result = caseAbstractFilterType(unitaryFilterType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.VALUE_TYPE: {
+				ValueType valueType = (ValueType)theEObject;
+				T result = caseValueType(valueType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1215,17 +1260,32 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abstract Entrypoint Resolver Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Entry Point Resolver Set Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Abstract Entrypoint Resolver Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Entry Point Resolver Set Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAbstractEntrypointResolverType(AbstractEntrypointResolverType object) {
+	public T caseAbstractEntryPointResolverSetType(AbstractEntryPointResolverSetType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Entry Point Resolver Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Entry Point Resolver Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractEntryPointResolverType(AbstractEntryPointResolverType object) {
 		return null;
 	}
 
@@ -1485,21 +1545,6 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abstract Transaction Factory Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Abstract Transaction Factory Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAbstractTransactionFactoryType(AbstractTransactionFactoryType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Abstract Transaction Manager Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1560,17 +1605,32 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Async Reply Router Collection Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Append String Transformer Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Async Reply Router Collection Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Append String Transformer Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAsyncReplyRouterCollectionType(AsyncReplyRouterCollectionType object) {
+	public T caseAppendStringTransformerType(AppendStringTransformerType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Async Reply Collection Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Async Reply Collection Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAsyncReplyCollectionType(AsyncReplyCollectionType object) {
 		return null;
 	}
 
@@ -1605,6 +1665,21 @@ public class CoreSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Base Entry Point Resolver Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Base Entry Point Resolver Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBaseEntryPointResolverType(BaseEntryPointResolverType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Base Service Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1616,21 +1691,6 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseBaseServiceType(BaseServiceType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Callable Entrypoint Resolver Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Callable Entrypoint Resolver Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCallableEntrypointResolverType(CallableEntrypointResolverType object) {
 		return null;
 	}
 
@@ -1661,6 +1721,21 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseCollectionFilterType(CollectionFilterType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Complex Entry Point Resolver Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Complex Entry Point Resolver Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComplexEntryPointResolverType(ComplexEntryPointResolverType object) {
 		return null;
 	}
 
@@ -1706,36 +1781,6 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseContainerContextType(ContainerContextType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Correlation Aggregator Router Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Correlation Aggregator Router Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCorrelationAggregatorRouterType(CorrelationAggregatorRouterType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Correlation Router Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Correlation Router Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCorrelationRouterType(CorrelationRouterType object) {
 		return null;
 	}
 
@@ -1815,6 +1860,21 @@ public class CoreSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Custom Correlation Aggregator Router Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Custom Correlation Aggregator Router Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCustomCorrelationAggregatorRouterType(CustomCorrelationAggregatorRouterType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Custom Encryption Strategy Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1830,17 +1890,32 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Custom Entrypoint Resolver Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Custom Entry Point Resolver Set Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Custom Entrypoint Resolver Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Custom Entry Point Resolver Set Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCustomEntrypointResolverType(CustomEntrypointResolverType object) {
+	public T caseCustomEntryPointResolverSetType(CustomEntryPointResolverSetType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Custom Entry Point Resolver Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Custom Entry Point Resolver Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCustomEntryPointResolverType(CustomEntryPointResolverType object) {
 		return null;
 	}
 
@@ -1950,21 +2025,6 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Custom Transaction Factory Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Custom Transaction Factory Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCustomTransactionFactoryType(CustomTransactionFactoryType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Custom Transaction Manager Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1976,6 +2036,21 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseCustomTransactionManagerType(CustomTransactionManagerType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Custom Transaction Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Custom Transaction Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCustomTransactionType(CustomTransactionType object) {
 		return null;
 	}
 
@@ -2175,6 +2250,21 @@ public class CoreSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extensible Entry Point Resolver Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extensible Entry Point Resolver Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtensibleEntryPointResolverSet(ExtensibleEntryPointResolverSet object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Filtered Inbound Router Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2201,21 +2291,6 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseFilteringOutboundRouterType(FilteringOutboundRouterType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Filter Ref Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Filter Ref Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFilterRefType(FilterRefType object) {
 		return null;
 	}
 
@@ -2280,17 +2355,32 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Idempotent Receiver Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Idempotent Receiver Router Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Idempotent Receiver Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Idempotent Receiver Router Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIdempotentReceiverType(IdempotentReceiverType object) {
+	public T caseIdempotentReceiverRouterType(IdempotentReceiverRouterType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Inbound Collection Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Inbound Collection Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInboundCollectionType(InboundCollectionType object) {
 		return null;
 	}
 
@@ -2306,21 +2396,6 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseInboundEndpointType(InboundEndpointType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Inbound Router Collection Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Inbound Router Collection Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInboundRouterCollectionType(InboundRouterCollectionType object) {
 		return null;
 	}
 
@@ -2366,6 +2441,36 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseJndiTransactionManagerType(JndiTransactionManagerType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Key Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Key Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKeyType(KeyType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Key Value Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Key Value Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKeyValueType(KeyValueType object) {
 		return null;
 	}
 
@@ -2430,6 +2535,21 @@ public class CoreSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Message Chunking Aggregator Router Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Message Chunking Aggregator Router Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMessageChunkingAggregatorRouterType(MessageChunkingAggregatorRouterType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Message Properties Transformer Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2456,6 +2576,36 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseMessageSplitterOutboundRouterType(MessageSplitterOutboundRouterType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method Entry Point Resolver Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method Entry Point Resolver Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMethodEntryPointResolverType(MethodEntryPointResolverType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMethodType(MethodType object) {
 		return null;
 	}
 
@@ -2490,51 +2640,6 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>No Args Call Component Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>No Args Call Component Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNoArgsCallComponentType(NoArgsCallComponentType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>No Args Call Delegate Class Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>No Args Call Delegate Class Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNoArgsCallDelegateClassType(NoArgsCallDelegateClassType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>No Args Call Delegate Instance Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>No Args Call Delegate Instance Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNoArgsCallDelegateInstanceType(NoArgsCallDelegateInstanceType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Notification Listener Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2565,6 +2670,21 @@ public class CoreSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Outbound Collection Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Outbound Collection Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOutboundCollectionType(OutboundCollectionType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Outbound Endpoint Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2576,21 +2696,6 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseOutboundEndpointType(OutboundEndpointType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Outbound Router Collection Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Outbound Router Collection Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOutboundRouterCollectionType(OutboundRouterCollectionType object) {
 		return null;
 	}
 
@@ -2715,6 +2820,21 @@ public class CoreSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Property Entry Point Resolver Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Property Entry Point Resolver Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePropertyEntryPointResolverType(PropertyEntryPointResolverType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Prototype Object Factory Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2756,6 +2876,51 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseReferenceType(ReferenceType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ref Filter Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ref Filter Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRefFilterType(RefFilterType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reflection Entry Point Resolver Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reflection Entry Point Resolver Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReflectionEntryPointResolverType(ReflectionEntryPointResolverType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ref Transformer Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ref Transformer Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRefTransformerType(RefTransformerType object) {
 		return null;
 	}
 
@@ -2940,6 +3105,21 @@ public class CoreSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Spring Bean Lookup Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Spring Bean Lookup Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpringBeanLookupType(SpringBeanLookupType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Static Recipient List Router Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3060,66 +3240,6 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Transaction Ref Factory Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Transaction Ref Factory Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTransactionRefFactoryType(TransactionRefFactoryType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Transaction Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Transaction Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTransactionType(TransactionType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Transformer Append String Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Transformer Append String Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTransformerAppendStringType(TransformerAppendStringType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Transformer Ref Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Transformer Ref Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTransformerRefType(TransformerRefType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Transformers Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3161,6 +3281,21 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseUnitaryFilterType(UnitaryFilterType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Value Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Value Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValueType(ValueType object) {
 		return null;
 	}
 

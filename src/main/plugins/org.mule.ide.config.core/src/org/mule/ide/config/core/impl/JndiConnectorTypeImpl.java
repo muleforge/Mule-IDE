@@ -6,16 +6,21 @@
  */
 package org.mule.ide.config.core.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.JndiConnectorType;
+import org.mule.ide.config.core.KeyValueType;
 import org.mule.ide.config.core.MapType;
 
 /**
@@ -25,6 +30,7 @@ import org.mule.ide.config.core.MapType;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.mule.ide.config.core.impl.JndiConnectorTypeImpl#getJndiProviderProperty <em>Jndi Provider Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.JndiConnectorTypeImpl#getJndiProviderProperties <em>Jndi Provider Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.JndiConnectorTypeImpl#getJndiContextRef <em>Jndi Context Ref</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.JndiConnectorTypeImpl#getJndiInitialFactory <em>Jndi Initial Factory</em>}</li>
@@ -36,6 +42,16 @@ import org.mule.ide.config.core.MapType;
  * @generated
  */
 public class JndiConnectorTypeImpl extends ConnectorTypeImpl implements JndiConnectorType {
+	/**
+	 * The cached value of the '{@link #getJndiProviderProperty() <em>Jndi Provider Property</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJndiProviderProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<KeyValueType> jndiProviderProperty;
+
 	/**
 	 * The cached value of the '{@link #getJndiProviderProperties() <em>Jndi Provider Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -143,6 +159,18 @@ public class JndiConnectorTypeImpl extends ConnectorTypeImpl implements JndiConn
 	@Override
 	protected EClass eStaticClass() {
 		return CorePackage.eINSTANCE.getJndiConnectorType();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<KeyValueType> getJndiProviderProperty() {
+		if (jndiProviderProperty == null) {
+			jndiProviderProperty = new EObjectContainmentEList<KeyValueType>(KeyValueType.class, this, CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTY);
+		}
+		return jndiProviderProperty;
 	}
 
 	/**
@@ -280,6 +308,8 @@ public class JndiConnectorTypeImpl extends ConnectorTypeImpl implements JndiConn
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTY:
+				return ((InternalEList<?>)getJndiProviderProperty()).basicRemove(otherEnd, msgs);
 			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTIES:
 				return basicSetJndiProviderProperties(null, msgs);
 		}
@@ -294,6 +324,8 @@ public class JndiConnectorTypeImpl extends ConnectorTypeImpl implements JndiConn
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTY:
+				return getJndiProviderProperty();
 			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTIES:
 				return getJndiProviderProperties();
 			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_CONTEXT_REF:
@@ -313,9 +345,14 @@ public class JndiConnectorTypeImpl extends ConnectorTypeImpl implements JndiConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTY:
+				getJndiProviderProperty().clear();
+				getJndiProviderProperty().addAll((Collection<? extends KeyValueType>)newValue);
+				return;
 			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTIES:
 				setJndiProviderProperties((MapType)newValue);
 				return;
@@ -343,6 +380,9 @@ public class JndiConnectorTypeImpl extends ConnectorTypeImpl implements JndiConn
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTY:
+				getJndiProviderProperty().clear();
+				return;
 			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTIES:
 				setJndiProviderProperties((MapType)null);
 				return;
@@ -370,6 +410,8 @@ public class JndiConnectorTypeImpl extends ConnectorTypeImpl implements JndiConn
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTY:
+				return jndiProviderProperty != null && !jndiProviderProperty.isEmpty();
 			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_PROVIDER_PROPERTIES:
 				return jndiProviderProperties != null;
 			case CorePackage.JNDI_CONNECTOR_TYPE__JNDI_CONTEXT_REF:

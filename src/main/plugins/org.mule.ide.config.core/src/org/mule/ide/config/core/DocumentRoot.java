@@ -32,7 +32,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractConnector <em>Abstract Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractDefineNotification <em>Abstract Define Notification</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractDisableNotification <em>Abstract Disable Notification</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractEntrypointResolver <em>Abstract Entrypoint Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractEntryPointResolver <em>Abstract Entry Point Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractEntryPointResolverSet <em>Abstract Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractExceptionStrategy <em>Abstract Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractExtension <em>Abstract Extension</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractFilter <em>Abstract Filter</em>}</li>
@@ -51,17 +52,23 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractService <em>Abstract Service</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractStorage <em>Abstract Storage</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractTransaction <em>Abstract Transaction</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractTransactionFactory <em>Abstract Transaction Factory</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractTransactionManager <em>Abstract Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractTransformer <em>Abstract Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAndFilter <em>And Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAppendStringTransformer <em>Append String Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getArrayEntryPointResolver <em>Array Entry Point Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getBase64DecoderTransformer <em>Base64 Decoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getBase64EncoderTransformer <em>Base64 Encoder Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getBeanPropertyExtractor <em>Bean Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getBridgeComponent <em>Bridge Component</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCallableEntrypointResolver <em>Callable Entrypoint Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getByteArrayToHexStringTransformer <em>Byte Array To Hex String Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getByteArrayToObjectTransformer <em>Byte Array To Object Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getByteArrayToSerializableTransformer <em>Byte Array To Serializable Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getByteArrayToStringTransformer <em>Byte Array To String Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCallableEntryPointResolver <em>Callable Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getChainingRouter <em>Chaining Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getComponent <em>Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getComponentThreadingProfile <em>Component Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCorrelationAggregatorRouter <em>Correlation Aggregator Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCorrelationPropertyExtractor <em>Correlation Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCorrelationResequencerRouter <em>Correlation Resequencer Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomAsyncReplyRouter <em>Custom Async Reply Router</em>}</li>
@@ -69,16 +76,19 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomConnectionStrategy <em>Custom Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomConnector <em>Custom Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomContainer <em>Custom Container</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomEntrypointResolver <em>Custom Entrypoint Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomCorrelationAggregatorRouter <em>Custom Correlation Aggregator Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomEntryPointResolver <em>Custom Entry Point Resolver</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomEntryPointResolverSet <em>Custom Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomExceptionStrategy <em>Custom Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomFilter <em>Custom Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomForwardingCatchAllStrategy <em>Custom Forwarding Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomInboundRouter <em>Custom Inbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomOutboundRouter <em>Custom Outbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomPropertyExtractor <em>Custom Property Extractor</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransactionFactory <em>Custom Transaction Factory</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransaction <em>Custom Transaction</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransactionManager <em>Custom Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransformer <em>Custom Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDecryptTransformer <em>Decrypt Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDefaultConnectorExceptionStrategy <em>Default Connector Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDefaultServiceExceptionStrategy <em>Default Service Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDescription <em>Description</em>}</li>
@@ -86,36 +96,51 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEchoComponent <em>Echo Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEjbContainer <em>Ejb Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEncryptionSecurityFilter <em>Encryption Security Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEncryptTransformer <em>Encrypt Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEndpointSelectorRouter <em>Endpoint Selector Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEntryPointResolverSet <em>Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getExceptionBasedRouter <em>Exception Based Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getExceptionTypeFilter <em>Exception Type Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getFilteringRouter <em>Filtering Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getForwardingCatchAllStrategy <em>Forwarding Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getForwardingRouter <em>Forwarding Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getGzipCompressTransformer <em>Gzip Compress Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getGzipUncompressTransformer <em>Gzip Uncompress Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getHexStringToByteArrayTransformer <em>Hex String To Byte Array Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getHivemindContainer <em>Hivemind Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getIdempotentReceiverRouter <em>Idempotent Receiver Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getIdempotentSecureHashReceiverRouter <em>Idempotent Secure Hash Receiver Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getInboundEndpoint <em>Inbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getInboundPassThroughRouter <em>Inbound Pass Through Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getIncludeEntryPoint <em>Include Entry Point</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getJbossTransactionManager <em>Jboss Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getJndiContainer <em>Jndi Container</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getJndiTransactionManager <em>Jndi Transaction Manager</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getJrunTransactionManager <em>Jrun Transaction Manager</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getLegacyEntryPointResolverSet <em>Legacy Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getListMessageSplitterRouter <em>List Message Splitter Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getLogComponent <em>Log Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getLoggingCatchAllStrategy <em>Logging Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMapPropertyExtractor <em>Map Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMessageChunkingAggregatorRouter <em>Message Chunking Aggregator Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMessageChunkingRouter <em>Message Chunking Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMessagePropertiesTransformer <em>Message Properties Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMessagePropertyExtractor <em>Message Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMessagePropertyFilter <em>Message Property Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMethodEntryPointResolver <em>Method Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getModel <em>Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMule <em>Mule</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMuleUnsafe <em>Mule Unsafe</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMulticastingRouter <em>Multicasting Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNoArgsCallComponent <em>No Args Call Component</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNoActionTransformer <em>No Action Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNoArgumentsEntryPointResolver <em>No Arguments Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNotFilter <em>Not Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNotification <em>Notification</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNullComponent <em>Null Component</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getObjectToByteArrayTransformer <em>Object To Byte Array Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getObjectToStringTransformer <em>Object To String Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getOrFilter <em>Or Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getOutboundEndpoint <em>Outbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getOutboundPassThroughRouter <em>Outbound Pass Through Router</em>}</li>
@@ -128,54 +153,36 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPoolingProfile <em>Pooling Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPropertiesContainer <em>Properties Container</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPropertyEntryPointResolver <em>Property Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPrototypeObject <em>Prototype Object</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getQueueProfile <em>Queue Profile</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getReflectionEntryPointResolver <em>Reflection Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getRegexFilter <em>Regex Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getResinTransactionManager <em>Resin Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getRetryConnectionStrategy <em>Retry Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getRmiContainer <em>Rmi Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSecurityManager <em>Security Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSedaModel <em>Seda Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSelectiveConsumerRouter <em>Selective Consumer Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSerializableToByteArrayTransformer <em>Serializable To Byte Array Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getService <em>Service</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSingleAsyncReplyRouter <em>Single Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSingletonObject <em>Singleton Object</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSpringObject <em>Spring Object</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getStaticRecipientListRouter <em>Static Recipient List Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getStringToByteArrayTransformer <em>String To Byte Array Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTemplateEndpointRouter <em>Template Endpoint Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransaction <em>Transaction</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransactionFactory <em>Transaction Factory</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerJboss <em>Transaction Manager Jboss</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerJndi <em>Transaction Manager Jndi</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerJrun <em>Transaction Manager Jrun</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerResin <em>Transaction Manager Resin</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerWeblogic <em>Transaction Manager Weblogic</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerWebsphere <em>Transaction Manager Websphere</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformer <em>Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerAppendString <em>Transformer Append String</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerBase64Decoder <em>Transformer Base64 Decoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerBase64Encoder <em>Transformer Base64 Encoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerByteArrayToHexString <em>Transformer Byte Array To Hex String</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerByteArrayToObject <em>Transformer Byte Array To Object</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerByteArrayToSerializable <em>Transformer Byte Array To Serializable</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerByteArrayToString <em>Transformer Byte Array To String</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerDecrypt <em>Transformer Decrypt</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerEncrypt <em>Transformer Encrypt</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerGzipCompress <em>Transformer Gzip Compress</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerGzipUncompress <em>Transformer Gzip Uncompress</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerHexStingToByteArray <em>Transformer Hex Sting To Byte Array</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerMessageProperties <em>Transformer Message Properties</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerNoAction <em>Transformer No Action</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerObjectToByteArray <em>Transformer Object To Byte Array</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerObjectToString <em>Transformer Object To String</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerSerializableToByteArray <em>Transformer Serializable To Byte Array</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerStringToByteArray <em>Transformer String To Byte Array</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerUcDecoder <em>Transformer Uc Decoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerUcEncoder <em>Transformer Uc Encoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerUuDecoder <em>Transformer Uu Decoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerUuEncoder <em>Transformer Uu Encoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerXmlEntityDecoder <em>Transformer Xml Entity Decoder</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformerXmlEntityEncoder <em>Transformer Xml Entity Encoder</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getUcDecoderTransformer <em>Uc Decoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getUcEncoderTransformer <em>Uc Encoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getUuDecoderTransformer <em>Uu Decoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getUuEncoderTransformer <em>Uu Encoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getWeblogicTransactionManager <em>Weblogic Transaction Manager</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getWebsphereTransactionManager <em>Websphere Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getWildcardFilter <em>Wildcard Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getWireTapRouter <em>Wire Tap Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getXmlEntityDecoderTransformer <em>Xml Entity Decoder Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getXmlEntityEncoderTransformer <em>Xml Entity Encoder Transformer</em>}</li>
  * </ul>
  * </p>
  *
@@ -382,20 +389,36 @@ public interface DocumentRoot extends EObject {
 	AbstractDisableNotificationType getAbstractDisableNotification();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Entrypoint Resolver</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Abstract Entry Point Resolver</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Abstract Entrypoint Resolver</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Abstract Entry Point Resolver</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Entrypoint Resolver</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractEntrypointResolver()
+	 * @return the value of the '<em>Abstract Entry Point Resolver</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractEntryPointResolver()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-entrypoint-resolver' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='abstract-entry-point-resolver' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	AbstractEntrypointResolverType getAbstractEntrypointResolver();
+	AbstractEntryPointResolverType getAbstractEntryPointResolver();
+
+	/**
+	 * Returns the value of the '<em><b>Abstract Entry Point Resolver Set</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract Entry Point Resolver Set</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Entry Point Resolver Set</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractEntryPointResolverSet()
+	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='abstract-entry-point-resolver-set' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	AbstractEntryPointResolverSetType getAbstractEntryPointResolverSet();
 
 	/**
 	 * Returns the value of the '<em><b>Abstract Exception Strategy</b></em>' containment reference.
@@ -691,22 +714,6 @@ public interface DocumentRoot extends EObject {
 	AbstractTransactionType getAbstractTransaction();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Transaction Factory</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Transaction Factory</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Transaction Factory</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractTransactionFactory()
-	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-transaction-factory' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	AbstractTransactionFactoryType getAbstractTransactionFactory();
-
-	/**
 	 * Returns the value of the '<em><b>Abstract Transaction Manager</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -766,6 +773,114 @@ public interface DocumentRoot extends EObject {
 	void setAndFilter(CollectionFilterType value);
 
 	/**
+	 * Returns the value of the '<em><b>Append String Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Append String Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Append String Transformer</em>' containment reference.
+	 * @see #setAppendStringTransformer(AppendStringTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AppendStringTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='append-string-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AppendStringTransformerType getAppendStringTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getAppendStringTransformer <em>Append String Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Append String Transformer</em>' containment reference.
+	 * @see #getAppendStringTransformer()
+	 * @generated
+	 */
+	void setAppendStringTransformer(AppendStringTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Array Entry Point Resolver</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Array Entry Point Resolver</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Array Entry Point Resolver</em>' containment reference.
+	 * @see #setArrayEntryPointResolver(ComplexEntryPointResolverType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ArrayEntryPointResolver()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='array-entry-point-resolver' namespace='##targetNamespace' affiliation='abstract-entry-point-resolver'"
+	 * @generated
+	 */
+	ComplexEntryPointResolverType getArrayEntryPointResolver();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getArrayEntryPointResolver <em>Array Entry Point Resolver</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Array Entry Point Resolver</em>' containment reference.
+	 * @see #getArrayEntryPointResolver()
+	 * @generated
+	 */
+	void setArrayEntryPointResolver(ComplexEntryPointResolverType value);
+
+	/**
+	 * Returns the value of the '<em><b>Base64 Decoder Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Base64 Decoder Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Base64 Decoder Transformer</em>' containment reference.
+	 * @see #setBase64DecoderTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Base64DecoderTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='base64-decoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getBase64DecoderTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getBase64DecoderTransformer <em>Base64 Decoder Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Base64 Decoder Transformer</em>' containment reference.
+	 * @see #getBase64DecoderTransformer()
+	 * @generated
+	 */
+	void setBase64DecoderTransformer(AbstractTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Base64 Encoder Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Base64 Encoder Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Base64 Encoder Transformer</em>' containment reference.
+	 * @see #setBase64EncoderTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Base64EncoderTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='base64-encoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getBase64EncoderTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getBase64EncoderTransformer <em>Base64 Encoder Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Base64 Encoder Transformer</em>' containment reference.
+	 * @see #getBase64EncoderTransformer()
+	 * @generated
+	 */
+	void setBase64EncoderTransformer(AbstractTransformerType value);
+
+	/**
 	 * Returns the value of the '<em><b>Bean Property Extractor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -821,31 +936,139 @@ public interface DocumentRoot extends EObject {
 	void setBridgeComponent(DefaultComponentType value);
 
 	/**
-	 * Returns the value of the '<em><b>Callable Entrypoint Resolver</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Byte Array To Hex String Transformer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Callable Entrypoint Resolver</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Byte Array To Hex String Transformer</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Callable Entrypoint Resolver</em>' containment reference.
-	 * @see #setCallableEntrypointResolver(CallableEntrypointResolverType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CallableEntrypointResolver()
+	 * @return the value of the '<em>Byte Array To Hex String Transformer</em>' containment reference.
+	 * @see #setByteArrayToHexStringTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ByteArrayToHexStringTransformer()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='callable-entrypoint-resolver' namespace='##targetNamespace' affiliation='abstract-entrypoint-resolver'"
+	 *        extendedMetaData="kind='element' name='byte-array-to-hex-string-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
 	 * @generated
 	 */
-	CallableEntrypointResolverType getCallableEntrypointResolver();
+	AbstractTransformerType getByteArrayToHexStringTransformer();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCallableEntrypointResolver <em>Callable Entrypoint Resolver</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getByteArrayToHexStringTransformer <em>Byte Array To Hex String Transformer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Callable Entrypoint Resolver</em>' containment reference.
-	 * @see #getCallableEntrypointResolver()
+	 * @param value the new value of the '<em>Byte Array To Hex String Transformer</em>' containment reference.
+	 * @see #getByteArrayToHexStringTransformer()
 	 * @generated
 	 */
-	void setCallableEntrypointResolver(CallableEntrypointResolverType value);
+	void setByteArrayToHexStringTransformer(AbstractTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Byte Array To Object Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Byte Array To Object Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Byte Array To Object Transformer</em>' containment reference.
+	 * @see #setByteArrayToObjectTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ByteArrayToObjectTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='byte-array-to-object-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getByteArrayToObjectTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getByteArrayToObjectTransformer <em>Byte Array To Object Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Byte Array To Object Transformer</em>' containment reference.
+	 * @see #getByteArrayToObjectTransformer()
+	 * @generated
+	 */
+	void setByteArrayToObjectTransformer(AbstractTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Byte Array To Serializable Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Byte Array To Serializable Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Byte Array To Serializable Transformer</em>' containment reference.
+	 * @see #setByteArrayToSerializableTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ByteArrayToSerializableTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='byte-array-to-serializable-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getByteArrayToSerializableTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getByteArrayToSerializableTransformer <em>Byte Array To Serializable Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Byte Array To Serializable Transformer</em>' containment reference.
+	 * @see #getByteArrayToSerializableTransformer()
+	 * @generated
+	 */
+	void setByteArrayToSerializableTransformer(AbstractTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Byte Array To String Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Byte Array To String Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Byte Array To String Transformer</em>' containment reference.
+	 * @see #setByteArrayToStringTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ByteArrayToStringTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='byte-array-to-string-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getByteArrayToStringTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getByteArrayToStringTransformer <em>Byte Array To String Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Byte Array To String Transformer</em>' containment reference.
+	 * @see #getByteArrayToStringTransformer()
+	 * @generated
+	 */
+	void setByteArrayToStringTransformer(AbstractTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Callable Entry Point Resolver</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Callable Entry Point Resolver</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Callable Entry Point Resolver</em>' containment reference.
+	 * @see #setCallableEntryPointResolver(AbstractEntryPointResolverType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CallableEntryPointResolver()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='callable-entry-point-resolver' namespace='##targetNamespace' affiliation='abstract-entry-point-resolver'"
+	 * @generated
+	 */
+	AbstractEntryPointResolverType getCallableEntryPointResolver();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCallableEntryPointResolver <em>Callable Entry Point Resolver</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Callable Entry Point Resolver</em>' containment reference.
+	 * @see #getCallableEntryPointResolver()
+	 * @generated
+	 */
+	void setCallableEntryPointResolver(AbstractEntryPointResolverType value);
 
 	/**
 	 * Returns the value of the '<em><b>Chaining Router</b></em>' containment reference.
@@ -929,33 +1152,6 @@ public interface DocumentRoot extends EObject {
 	void setComponentThreadingProfile(ThreadingProfileType value);
 
 	/**
-	 * Returns the value of the '<em><b>Correlation Aggregator Router</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Correlation Aggregator Router</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Correlation Aggregator Router</em>' containment reference.
-	 * @see #setCorrelationAggregatorRouter(CorrelationAggregatorRouterType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CorrelationAggregatorRouter()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='correlation-aggregator-router' namespace='##targetNamespace' affiliation='abstract-inbound-router'"
-	 * @generated
-	 */
-	CorrelationAggregatorRouterType getCorrelationAggregatorRouter();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCorrelationAggregatorRouter <em>Correlation Aggregator Router</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Correlation Aggregator Router</em>' containment reference.
-	 * @see #getCorrelationAggregatorRouter()
-	 * @generated
-	 */
-	void setCorrelationAggregatorRouter(CorrelationAggregatorRouterType value);
-
-	/**
 	 * Returns the value of the '<em><b>Correlation Property Extractor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -991,13 +1187,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Correlation Resequencer Router</em>' containment reference.
-	 * @see #setCorrelationResequencerRouter(CorrelationRouterType)
+	 * @see #setCorrelationResequencerRouter(SelectiveConsumerRouterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CorrelationResequencerRouter()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='correlation-resequencer-router' namespace='##targetNamespace' affiliation='abstract-inbound-router'"
 	 * @generated
 	 */
-	CorrelationRouterType getCorrelationResequencerRouter();
+	SelectiveConsumerRouterType getCorrelationResequencerRouter();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCorrelationResequencerRouter <em>Correlation Resequencer Router</em>}' containment reference.
@@ -1007,7 +1203,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getCorrelationResequencerRouter()
 	 * @generated
 	 */
-	void setCorrelationResequencerRouter(CorrelationRouterType value);
+	void setCorrelationResequencerRouter(SelectiveConsumerRouterType value);
 
 	/**
 	 * Returns the value of the '<em><b>Custom Async Reply Router</b></em>' containment reference.
@@ -1145,31 +1341,85 @@ public interface DocumentRoot extends EObject {
 	void setCustomContainer(CustomContainerContextType value);
 
 	/**
-	 * Returns the value of the '<em><b>Custom Entrypoint Resolver</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Custom Correlation Aggregator Router</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Custom Entrypoint Resolver</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Custom Correlation Aggregator Router</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Custom Entrypoint Resolver</em>' containment reference.
-	 * @see #setCustomEntrypointResolver(CustomEntrypointResolverType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomEntrypointResolver()
+	 * @return the value of the '<em>Custom Correlation Aggregator Router</em>' containment reference.
+	 * @see #setCustomCorrelationAggregatorRouter(CustomCorrelationAggregatorRouterType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomCorrelationAggregatorRouter()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='custom-entrypoint-resolver' namespace='##targetNamespace' affiliation='abstract-entrypoint-resolver'"
+	 *        extendedMetaData="kind='element' name='custom-correlation-aggregator-router' namespace='##targetNamespace' affiliation='abstract-inbound-router'"
 	 * @generated
 	 */
-	CustomEntrypointResolverType getCustomEntrypointResolver();
+	CustomCorrelationAggregatorRouterType getCustomCorrelationAggregatorRouter();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomEntrypointResolver <em>Custom Entrypoint Resolver</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomCorrelationAggregatorRouter <em>Custom Correlation Aggregator Router</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Custom Entrypoint Resolver</em>' containment reference.
-	 * @see #getCustomEntrypointResolver()
+	 * @param value the new value of the '<em>Custom Correlation Aggregator Router</em>' containment reference.
+	 * @see #getCustomCorrelationAggregatorRouter()
 	 * @generated
 	 */
-	void setCustomEntrypointResolver(CustomEntrypointResolverType value);
+	void setCustomCorrelationAggregatorRouter(CustomCorrelationAggregatorRouterType value);
+
+	/**
+	 * Returns the value of the '<em><b>Custom Entry Point Resolver</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Custom Entry Point Resolver</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Custom Entry Point Resolver</em>' containment reference.
+	 * @see #setCustomEntryPointResolver(CustomEntryPointResolverType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomEntryPointResolver()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='custom-entry-point-resolver' namespace='##targetNamespace' affiliation='abstract-entry-point-resolver'"
+	 * @generated
+	 */
+	CustomEntryPointResolverType getCustomEntryPointResolver();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomEntryPointResolver <em>Custom Entry Point Resolver</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Custom Entry Point Resolver</em>' containment reference.
+	 * @see #getCustomEntryPointResolver()
+	 * @generated
+	 */
+	void setCustomEntryPointResolver(CustomEntryPointResolverType value);
+
+	/**
+	 * Returns the value of the '<em><b>Custom Entry Point Resolver Set</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Custom Entry Point Resolver Set</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Custom Entry Point Resolver Set</em>' containment reference.
+	 * @see #setCustomEntryPointResolverSet(CustomEntryPointResolverSetType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomEntryPointResolverSet()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='custom-entry-point-resolver-set' namespace='##targetNamespace' affiliation='abstract-entry-point-resolver-set'"
+	 * @generated
+	 */
+	CustomEntryPointResolverSetType getCustomEntryPointResolverSet();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomEntryPointResolverSet <em>Custom Entry Point Resolver Set</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Custom Entry Point Resolver Set</em>' containment reference.
+	 * @see #getCustomEntryPointResolverSet()
+	 * @generated
+	 */
+	void setCustomEntryPointResolverSet(CustomEntryPointResolverSetType value);
 
 	/**
 	 * Returns the value of the '<em><b>Custom Exception Strategy</b></em>' containment reference.
@@ -1334,34 +1584,31 @@ public interface DocumentRoot extends EObject {
 	void setCustomPropertyExtractor(CustomPropertyExtractorType value);
 
 	/**
-	 * Returns the value of the '<em><b>Custom Transaction Factory</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Custom Transaction</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Custom Transaction</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 This can be used at the top level with a name, and then referenced with
-	 *                 &lt;transaction-factory&gt;, or embedded directly in a &lt;transaction&gt;
-	 *                 (in which case name cannot be given).
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Custom Transaction Factory</em>' containment reference.
-	 * @see #setCustomTransactionFactory(CustomTransactionFactoryType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomTransactionFactory()
+	 * @return the value of the '<em>Custom Transaction</em>' containment reference.
+	 * @see #setCustomTransaction(CustomTransactionType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomTransaction()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='custom-transaction-factory' namespace='##targetNamespace' affiliation='abstract-transaction-factory'"
+	 *        extendedMetaData="kind='element' name='custom-transaction' namespace='##targetNamespace' affiliation='abstract-transaction'"
 	 * @generated
 	 */
-	CustomTransactionFactoryType getCustomTransactionFactory();
+	CustomTransactionType getCustomTransaction();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomTransactionFactory <em>Custom Transaction Factory</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomTransaction <em>Custom Transaction</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Custom Transaction Factory</em>' containment reference.
-	 * @see #getCustomTransactionFactory()
+	 * @param value the new value of the '<em>Custom Transaction</em>' containment reference.
+	 * @see #getCustomTransaction()
 	 * @generated
 	 */
-	void setCustomTransactionFactory(CustomTransactionFactoryType value);
+	void setCustomTransaction(CustomTransactionType value);
 
 	/**
 	 * Returns the value of the '<em><b>Custom Transaction Manager</b></em>' containment reference.
@@ -1416,6 +1663,33 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setCustomTransformer(CustomTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Decrypt Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Decrypt Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Decrypt Transformer</em>' containment reference.
+	 * @see #setDecryptTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_DecryptTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='decrypt-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getDecryptTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getDecryptTransformer <em>Decrypt Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Decrypt Transformer</em>' containment reference.
+	 * @see #getDecryptTransformer()
+	 * @generated
+	 */
+	void setDecryptTransformer(AbstractTransformerType value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Connector Exception Strategy</b></em>' containment reference.
@@ -1608,6 +1882,33 @@ public interface DocumentRoot extends EObject {
 	void setEncryptionSecurityFilter(EncryptionSecurityFilterType value);
 
 	/**
+	 * Returns the value of the '<em><b>Encrypt Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Encrypt Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Encrypt Transformer</em>' containment reference.
+	 * @see #setEncryptTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_EncryptTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='encrypt-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getEncryptTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getEncryptTransformer <em>Encrypt Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Encrypt Transformer</em>' containment reference.
+	 * @see #getEncryptTransformer()
+	 * @generated
+	 */
+	void setEncryptTransformer(AbstractTransformerType value);
+
+	/**
 	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1660,6 +1961,33 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setEndpointSelectorRouter(EndpointSelectorRouterType value);
+
+	/**
+	 * Returns the value of the '<em><b>Entry Point Resolver Set</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Entry Point Resolver Set</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Entry Point Resolver Set</em>' containment reference.
+	 * @see #setEntryPointResolverSet(ExtensibleEntryPointResolverSet)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_EntryPointResolverSet()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='entry-point-resolver-set' namespace='##targetNamespace' affiliation='abstract-entry-point-resolver-set'"
+	 * @generated
+	 */
+	ExtensibleEntryPointResolverSet getEntryPointResolverSet();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getEntryPointResolverSet <em>Entry Point Resolver Set</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Entry Point Resolver Set</em>' containment reference.
+	 * @see #getEntryPointResolverSet()
+	 * @generated
+	 */
+	void setEntryPointResolverSet(ExtensibleEntryPointResolverSet value);
 
 	/**
 	 * Returns the value of the '<em><b>Exception Based Router</b></em>' containment reference.
@@ -1724,13 +2052,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Filter</em>' containment reference.
-	 * @see #setFilter(FilterRefType)
+	 * @see #setFilter(RefFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Filter()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='filter' namespace='##targetNamespace' affiliation='abstract-filter'"
 	 * @generated
 	 */
-	FilterRefType getFilter();
+	RefFilterType getFilter();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getFilter <em>Filter</em>}' containment reference.
@@ -1740,7 +2068,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getFilter()
 	 * @generated
 	 */
-	void setFilter(FilterRefType value);
+	void setFilter(RefFilterType value);
 
 	/**
 	 * Returns the value of the '<em><b>Filtering Router</b></em>' containment reference.
@@ -1824,6 +2152,87 @@ public interface DocumentRoot extends EObject {
 	void setForwardingRouter(ForwardingRouterType value);
 
 	/**
+	 * Returns the value of the '<em><b>Gzip Compress Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Gzip Compress Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Gzip Compress Transformer</em>' containment reference.
+	 * @see #setGzipCompressTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_GzipCompressTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='gzip-compress-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getGzipCompressTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getGzipCompressTransformer <em>Gzip Compress Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gzip Compress Transformer</em>' containment reference.
+	 * @see #getGzipCompressTransformer()
+	 * @generated
+	 */
+	void setGzipCompressTransformer(AbstractTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Gzip Uncompress Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Gzip Uncompress Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Gzip Uncompress Transformer</em>' containment reference.
+	 * @see #setGzipUncompressTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_GzipUncompressTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='gzip-uncompress-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getGzipUncompressTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getGzipUncompressTransformer <em>Gzip Uncompress Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gzip Uncompress Transformer</em>' containment reference.
+	 * @see #getGzipUncompressTransformer()
+	 * @generated
+	 */
+	void setGzipUncompressTransformer(AbstractTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Hex String To Byte Array Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Hex String To Byte Array Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Hex String To Byte Array Transformer</em>' containment reference.
+	 * @see #setHexStringToByteArrayTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_HexStringToByteArrayTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='hex-string-to-byte-array-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getHexStringToByteArrayTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getHexStringToByteArrayTransformer <em>Hex String To Byte Array Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Hex String To Byte Array Transformer</em>' containment reference.
+	 * @see #getHexStringToByteArrayTransformer()
+	 * @generated
+	 */
+	void setHexStringToByteArrayTransformer(AbstractTransformerType value);
+
+	/**
 	 * Returns the value of the '<em><b>Hivemind Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1859,13 +2268,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Idempotent Receiver Router</em>' containment reference.
-	 * @see #setIdempotentReceiverRouter(IdempotentReceiverType)
+	 * @see #setIdempotentReceiverRouter(IdempotentReceiverRouterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_IdempotentReceiverRouter()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='idempotent-receiver-router' namespace='##targetNamespace' affiliation='abstract-inbound-router'"
 	 * @generated
 	 */
-	IdempotentReceiverType getIdempotentReceiverRouter();
+	IdempotentReceiverRouterType getIdempotentReceiverRouter();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getIdempotentReceiverRouter <em>Idempotent Receiver Router</em>}' containment reference.
@@ -1875,7 +2284,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getIdempotentReceiverRouter()
 	 * @generated
 	 */
-	void setIdempotentReceiverRouter(IdempotentReceiverType value);
+	void setIdempotentReceiverRouter(IdempotentReceiverRouterType value);
 
 	/**
 	 * Returns the value of the '<em><b>Idempotent Secure Hash Receiver Router</b></em>' containment reference.
@@ -1959,6 +2368,60 @@ public interface DocumentRoot extends EObject {
 	void setInboundPassThroughRouter(FilteredInboundRouterType value);
 
 	/**
+	 * Returns the value of the '<em><b>Include Entry Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Include Entry Point</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Include Entry Point</em>' containment reference.
+	 * @see #setIncludeEntryPoint(MethodType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_IncludeEntryPoint()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='include-entry-point' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	MethodType getIncludeEntryPoint();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getIncludeEntryPoint <em>Include Entry Point</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Include Entry Point</em>' containment reference.
+	 * @see #getIncludeEntryPoint()
+	 * @generated
+	 */
+	void setIncludeEntryPoint(MethodType value);
+
+	/**
+	 * Returns the value of the '<em><b>Jboss Transaction Manager</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Jboss Transaction Manager</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Jboss Transaction Manager</em>' containment reference.
+	 * @see #setJbossTransactionManager(TransactionManagerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_JbossTransactionManager()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='jboss-transaction-manager' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
+	 * @generated
+	 */
+	TransactionManagerType getJbossTransactionManager();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getJbossTransactionManager <em>Jboss Transaction Manager</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Jboss Transaction Manager</em>' containment reference.
+	 * @see #getJbossTransactionManager()
+	 * @generated
+	 */
+	void setJbossTransactionManager(TransactionManagerType value);
+
+	/**
 	 * Returns the value of the '<em><b>Jndi Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1984,6 +2447,87 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setJndiContainer(BaseContainerContextType value);
+
+	/**
+	 * Returns the value of the '<em><b>Jndi Transaction Manager</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Jndi Transaction Manager</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Jndi Transaction Manager</em>' containment reference.
+	 * @see #setJndiTransactionManager(TransactionManagerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_JndiTransactionManager()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='jndi-transaction-manager' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
+	 * @generated
+	 */
+	TransactionManagerType getJndiTransactionManager();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getJndiTransactionManager <em>Jndi Transaction Manager</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Jndi Transaction Manager</em>' containment reference.
+	 * @see #getJndiTransactionManager()
+	 * @generated
+	 */
+	void setJndiTransactionManager(TransactionManagerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Jrun Transaction Manager</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Jrun Transaction Manager</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Jrun Transaction Manager</em>' containment reference.
+	 * @see #setJrunTransactionManager(TransactionManagerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_JrunTransactionManager()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='jrun-transaction-manager' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
+	 * @generated
+	 */
+	TransactionManagerType getJrunTransactionManager();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getJrunTransactionManager <em>Jrun Transaction Manager</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Jrun Transaction Manager</em>' containment reference.
+	 * @see #getJrunTransactionManager()
+	 * @generated
+	 */
+	void setJrunTransactionManager(TransactionManagerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Legacy Entry Point Resolver Set</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Legacy Entry Point Resolver Set</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Legacy Entry Point Resolver Set</em>' containment reference.
+	 * @see #setLegacyEntryPointResolverSet(ExtensibleEntryPointResolverSet)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_LegacyEntryPointResolverSet()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='legacy-entry-point-resolver-set' namespace='##targetNamespace' affiliation='abstract-entry-point-resolver-set'"
+	 * @generated
+	 */
+	ExtensibleEntryPointResolverSet getLegacyEntryPointResolverSet();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getLegacyEntryPointResolverSet <em>Legacy Entry Point Resolver Set</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Legacy Entry Point Resolver Set</em>' containment reference.
+	 * @see #getLegacyEntryPointResolverSet()
+	 * @generated
+	 */
+	void setLegacyEntryPointResolverSet(ExtensibleEntryPointResolverSet value);
 
 	/**
 	 * Returns the value of the '<em><b>List Message Splitter Router</b></em>' containment reference.
@@ -2104,13 +2648,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Message Chunking Aggregator Router</em>' containment reference.
-	 * @see #setMessageChunkingAggregatorRouter(CorrelationRouterType)
+	 * @see #setMessageChunkingAggregatorRouter(MessageChunkingAggregatorRouterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_MessageChunkingAggregatorRouter()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='message-chunking-aggregator-router' namespace='##targetNamespace' affiliation='abstract-inbound-router'"
 	 * @generated
 	 */
-	CorrelationRouterType getMessageChunkingAggregatorRouter();
+	MessageChunkingAggregatorRouterType getMessageChunkingAggregatorRouter();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getMessageChunkingAggregatorRouter <em>Message Chunking Aggregator Router</em>}' containment reference.
@@ -2120,7 +2664,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getMessageChunkingAggregatorRouter()
 	 * @generated
 	 */
-	void setMessageChunkingAggregatorRouter(CorrelationRouterType value);
+	void setMessageChunkingAggregatorRouter(MessageChunkingAggregatorRouterType value);
 
 	/**
 	 * Returns the value of the '<em><b>Message Chunking Router</b></em>' containment reference.
@@ -2148,6 +2692,33 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setMessageChunkingRouter(ChunkingRouterType value);
+
+	/**
+	 * Returns the value of the '<em><b>Message Properties Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Message Properties Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Message Properties Transformer</em>' containment reference.
+	 * @see #setMessagePropertiesTransformer(MessagePropertiesTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_MessagePropertiesTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='message-properties-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	MessagePropertiesTransformerType getMessagePropertiesTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getMessagePropertiesTransformer <em>Message Properties Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Message Properties Transformer</em>' containment reference.
+	 * @see #getMessagePropertiesTransformer()
+	 * @generated
+	 */
+	void setMessagePropertiesTransformer(MessagePropertiesTransformerType value);
 
 	/**
 	 * Returns the value of the '<em><b>Message Property Extractor</b></em>' containment reference.
@@ -2202,6 +2773,33 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setMessagePropertyFilter(PatternFilterType value);
+
+	/**
+	 * Returns the value of the '<em><b>Method Entry Point Resolver</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Method Entry Point Resolver</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Method Entry Point Resolver</em>' containment reference.
+	 * @see #setMethodEntryPointResolver(MethodEntryPointResolverType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_MethodEntryPointResolver()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='method-entry-point-resolver' namespace='##targetNamespace' affiliation='abstract-entry-point-resolver'"
+	 * @generated
+	 */
+	MethodEntryPointResolverType getMethodEntryPointResolver();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getMethodEntryPointResolver <em>Method Entry Point Resolver</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Method Entry Point Resolver</em>' containment reference.
+	 * @see #getMethodEntryPointResolver()
+	 * @generated
+	 */
+	void setMethodEntryPointResolver(MethodEntryPointResolverType value);
 
 	/**
 	 * Returns the value of the '<em><b>Model</b></em>' containment reference.
@@ -2317,33 +2915,58 @@ public interface DocumentRoot extends EObject {
 	void setMulticastingRouter(FilteringOutboundRouterType value);
 
 	/**
-	 * Returns the value of the '<em><b>No Args Call Component</b></em>' containment reference.
+	 * Returns the value of the '<em><b>No Action Transformer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>No Action Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 Built-in NoArgsCallWrapper
-	 *                 There's a need to call a method having no arguments.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>No Args Call Component</em>' containment reference.
-	 * @see #setNoArgsCallComponent(NoArgsCallComponentType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_NoArgsCallComponent()
+	 * @return the value of the '<em>No Action Transformer</em>' containment reference.
+	 * @see #setNoActionTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_NoActionTransformer()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='no-args-call-component' namespace='##targetNamespace' affiliation='abstract-component'"
+	 *        extendedMetaData="kind='element' name='no-action-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
 	 * @generated
 	 */
-	NoArgsCallComponentType getNoArgsCallComponent();
+	AbstractTransformerType getNoActionTransformer();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getNoArgsCallComponent <em>No Args Call Component</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getNoActionTransformer <em>No Action Transformer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>No Args Call Component</em>' containment reference.
-	 * @see #getNoArgsCallComponent()
+	 * @param value the new value of the '<em>No Action Transformer</em>' containment reference.
+	 * @see #getNoActionTransformer()
 	 * @generated
 	 */
-	void setNoArgsCallComponent(NoArgsCallComponentType value);
+	void setNoActionTransformer(AbstractTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>No Arguments Entry Point Resolver</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>No Arguments Entry Point Resolver</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>No Arguments Entry Point Resolver</em>' containment reference.
+	 * @see #setNoArgumentsEntryPointResolver(ComplexEntryPointResolverType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_NoArgumentsEntryPointResolver()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='no-arguments-entry-point-resolver' namespace='##targetNamespace' affiliation='abstract-entry-point-resolver'"
+	 * @generated
+	 */
+	ComplexEntryPointResolverType getNoArgumentsEntryPointResolver();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getNoArgumentsEntryPointResolver <em>No Arguments Entry Point Resolver</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>No Arguments Entry Point Resolver</em>' containment reference.
+	 * @see #getNoArgumentsEntryPointResolver()
+	 * @generated
+	 */
+	void setNoArgumentsEntryPointResolver(ComplexEntryPointResolverType value);
 
 	/**
 	 * Returns the value of the '<em><b>Not Filter</b></em>' containment reference.
@@ -2426,6 +3049,60 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setNullComponent(DefaultComponentType value);
+
+	/**
+	 * Returns the value of the '<em><b>Object To Byte Array Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Object To Byte Array Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Object To Byte Array Transformer</em>' containment reference.
+	 * @see #setObjectToByteArrayTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ObjectToByteArrayTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='object-to-byte-array-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getObjectToByteArrayTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getObjectToByteArrayTransformer <em>Object To Byte Array Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Object To Byte Array Transformer</em>' containment reference.
+	 * @see #getObjectToByteArrayTransformer()
+	 * @generated
+	 */
+	void setObjectToByteArrayTransformer(AbstractTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Object To String Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Object To String Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Object To String Transformer</em>' containment reference.
+	 * @see #setObjectToStringTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ObjectToStringTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='object-to-string-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getObjectToStringTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getObjectToStringTransformer <em>Object To String Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Object To String Transformer</em>' containment reference.
+	 * @see #getObjectToStringTransformer()
+	 * @generated
+	 */
+	void setObjectToStringTransformer(AbstractTransformerType value);
 
 	/**
 	 * Returns the value of the '<em><b>Or Filter</b></em>' containment reference.
@@ -2708,6 +3385,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Set properties via Spring's entry attribute.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Properties</em>' containment reference.
 	 * @see #setProperties(MapType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Properties()
@@ -2753,6 +3435,33 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setPropertiesContainer(PropertiesContainerContextType value);
+
+	/**
+	 * Returns the value of the '<em><b>Property Entry Point Resolver</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Property Entry Point Resolver</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Property Entry Point Resolver</em>' containment reference.
+	 * @see #setPropertyEntryPointResolver(PropertyEntryPointResolverType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_PropertyEntryPointResolver()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='property-entry-point-resolver' namespace='##targetNamespace' affiliation='abstract-entry-point-resolver'"
+	 * @generated
+	 */
+	PropertyEntryPointResolverType getPropertyEntryPointResolver();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getPropertyEntryPointResolver <em>Property Entry Point Resolver</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Property Entry Point Resolver</em>' containment reference.
+	 * @see #getPropertyEntryPointResolver()
+	 * @generated
+	 */
+	void setPropertyEntryPointResolver(PropertyEntryPointResolverType value);
 
 	/**
 	 * Returns the value of the '<em><b>Prototype Object</b></em>' containment reference.
@@ -2809,6 +3518,33 @@ public interface DocumentRoot extends EObject {
 	void setQueueProfile(QueueProfileType value);
 
 	/**
+	 * Returns the value of the '<em><b>Reflection Entry Point Resolver</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reflection Entry Point Resolver</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reflection Entry Point Resolver</em>' containment reference.
+	 * @see #setReflectionEntryPointResolver(ReflectionEntryPointResolverType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ReflectionEntryPointResolver()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='reflection-entry-point-resolver' namespace='##targetNamespace' affiliation='abstract-entry-point-resolver'"
+	 * @generated
+	 */
+	ReflectionEntryPointResolverType getReflectionEntryPointResolver();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getReflectionEntryPointResolver <em>Reflection Entry Point Resolver</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reflection Entry Point Resolver</em>' containment reference.
+	 * @see #getReflectionEntryPointResolver()
+	 * @generated
+	 */
+	void setReflectionEntryPointResolver(ReflectionEntryPointResolverType value);
+
+	/**
 	 * Returns the value of the '<em><b>Regex Filter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -2834,6 +3570,33 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setRegexFilter(PatternFilterType value);
+
+	/**
+	 * Returns the value of the '<em><b>Resin Transaction Manager</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resin Transaction Manager</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resin Transaction Manager</em>' containment reference.
+	 * @see #setResinTransactionManager(TransactionManagerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ResinTransactionManager()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='resin-transaction-manager' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
+	 * @generated
+	 */
+	TransactionManagerType getResinTransactionManager();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getResinTransactionManager <em>Resin Transaction Manager</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resin Transaction Manager</em>' containment reference.
+	 * @see #getResinTransactionManager()
+	 * @generated
+	 */
+	void setResinTransactionManager(TransactionManagerType value);
 
 	/**
 	 * Returns the value of the '<em><b>Retry Connection Strategy</b></em>' containment reference.
@@ -2972,6 +3735,33 @@ public interface DocumentRoot extends EObject {
 	void setSelectiveConsumerRouter(SelectiveConsumerRouterType value);
 
 	/**
+	 * Returns the value of the '<em><b>Serializable To Byte Array Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Serializable To Byte Array Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Serializable To Byte Array Transformer</em>' containment reference.
+	 * @see #setSerializableToByteArrayTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_SerializableToByteArrayTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='serializable-to-byte-array-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getSerializableToByteArrayTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getSerializableToByteArrayTransformer <em>Serializable To Byte Array Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Serializable To Byte Array Transformer</em>' containment reference.
+	 * @see #getSerializableToByteArrayTransformer()
+	 * @generated
+	 */
+	void setSerializableToByteArrayTransformer(AbstractTransformerType value);
+
+	/**
 	 * Returns the value of the '<em><b>Service</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -3053,6 +3843,33 @@ public interface DocumentRoot extends EObject {
 	void setSingletonObject(SingletonObjectFactoryType value);
 
 	/**
+	 * Returns the value of the '<em><b>Spring Object</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Spring Object</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Spring Object</em>' containment reference.
+	 * @see #setSpringObject(SpringBeanLookupType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_SpringObject()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='spring-object' namespace='##targetNamespace' affiliation='abstract-object-factory'"
+	 * @generated
+	 */
+	SpringBeanLookupType getSpringObject();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getSpringObject <em>Spring Object</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Spring Object</em>' containment reference.
+	 * @see #getSpringObject()
+	 * @generated
+	 */
+	void setSpringObject(SpringBeanLookupType value);
+
+	/**
 	 * Returns the value of the '<em><b>Static Recipient List Router</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -3078,6 +3895,33 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setStaticRecipientListRouter(StaticRecipientListRouterType value);
+
+	/**
+	 * Returns the value of the '<em><b>String To Byte Array Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>String To Byte Array Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>String To Byte Array Transformer</em>' containment reference.
+	 * @see #setStringToByteArrayTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_StringToByteArrayTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='string-to-byte-array-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getStringToByteArrayTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getStringToByteArrayTransformer <em>String To Byte Array Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>String To Byte Array Transformer</em>' containment reference.
+	 * @see #getStringToByteArrayTransformer()
+	 * @generated
+	 */
+	void setStringToByteArrayTransformer(AbstractTransformerType value);
 
 	/**
 	 * Returns the value of the '<em><b>Template Endpoint Router</b></em>' containment reference.
@@ -3107,222 +3951,6 @@ public interface DocumentRoot extends EObject {
 	void setTemplateEndpointRouter(FilteringOutboundRouterType value);
 
 	/**
-	 * Returns the value of the '<em><b>Transaction</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transaction</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transaction</em>' containment reference.
-	 * @see #setTransaction(TransactionType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Transaction()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transaction' namespace='##targetNamespace' affiliation='abstract-transaction'"
-	 * @generated
-	 */
-	TransactionType getTransaction();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransaction <em>Transaction</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transaction</em>' containment reference.
-	 * @see #getTransaction()
-	 * @generated
-	 */
-	void setTransaction(TransactionType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transaction Factory</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transaction Factory</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transaction Factory</em>' containment reference.
-	 * @see #setTransactionFactory(TransactionRefFactoryType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransactionFactory()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transaction-factory' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	TransactionRefFactoryType getTransactionFactory();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransactionFactory <em>Transaction Factory</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transaction Factory</em>' containment reference.
-	 * @see #getTransactionFactory()
-	 * @generated
-	 */
-	void setTransactionFactory(TransactionRefFactoryType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transaction Manager Jboss</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transaction Manager Jboss</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transaction Manager Jboss</em>' containment reference.
-	 * @see #setTransactionManagerJboss(TransactionManagerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransactionManagerJboss()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transaction-manager-jboss' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
-	 * @generated
-	 */
-	TransactionManagerType getTransactionManagerJboss();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerJboss <em>Transaction Manager Jboss</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transaction Manager Jboss</em>' containment reference.
-	 * @see #getTransactionManagerJboss()
-	 * @generated
-	 */
-	void setTransactionManagerJboss(TransactionManagerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transaction Manager Jndi</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transaction Manager Jndi</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transaction Manager Jndi</em>' containment reference.
-	 * @see #setTransactionManagerJndi(TransactionManagerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransactionManagerJndi()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transaction-manager-jndi' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
-	 * @generated
-	 */
-	TransactionManagerType getTransactionManagerJndi();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerJndi <em>Transaction Manager Jndi</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transaction Manager Jndi</em>' containment reference.
-	 * @see #getTransactionManagerJndi()
-	 * @generated
-	 */
-	void setTransactionManagerJndi(TransactionManagerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transaction Manager Jrun</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transaction Manager Jrun</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transaction Manager Jrun</em>' containment reference.
-	 * @see #setTransactionManagerJrun(TransactionManagerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransactionManagerJrun()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transaction-manager-jrun' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
-	 * @generated
-	 */
-	TransactionManagerType getTransactionManagerJrun();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerJrun <em>Transaction Manager Jrun</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transaction Manager Jrun</em>' containment reference.
-	 * @see #getTransactionManagerJrun()
-	 * @generated
-	 */
-	void setTransactionManagerJrun(TransactionManagerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transaction Manager Resin</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transaction Manager Resin</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transaction Manager Resin</em>' containment reference.
-	 * @see #setTransactionManagerResin(TransactionManagerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransactionManagerResin()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transaction-manager-resin' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
-	 * @generated
-	 */
-	TransactionManagerType getTransactionManagerResin();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerResin <em>Transaction Manager Resin</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transaction Manager Resin</em>' containment reference.
-	 * @see #getTransactionManagerResin()
-	 * @generated
-	 */
-	void setTransactionManagerResin(TransactionManagerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transaction Manager Weblogic</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transaction Manager Weblogic</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transaction Manager Weblogic</em>' containment reference.
-	 * @see #setTransactionManagerWeblogic(JndiTransactionManagerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransactionManagerWeblogic()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transaction-manager-weblogic' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
-	 * @generated
-	 */
-	JndiTransactionManagerType getTransactionManagerWeblogic();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerWeblogic <em>Transaction Manager Weblogic</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transaction Manager Weblogic</em>' containment reference.
-	 * @see #getTransactionManagerWeblogic()
-	 * @generated
-	 */
-	void setTransactionManagerWeblogic(JndiTransactionManagerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transaction Manager Websphere</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transaction Manager Websphere</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transaction Manager Websphere</em>' containment reference.
-	 * @see #setTransactionManagerWebsphere(TransactionManagerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransactionManagerWebsphere()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transaction-manager-websphere' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
-	 * @generated
-	 */
-	TransactionManagerType getTransactionManagerWebsphere();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransactionManagerWebsphere <em>Transaction Manager Websphere</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transaction Manager Websphere</em>' containment reference.
-	 * @see #getTransactionManagerWebsphere()
-	 * @generated
-	 */
-	void setTransactionManagerWebsphere(TransactionManagerType value);
-
-	/**
 	 * Returns the value of the '<em><b>Transformer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -3331,13 +3959,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Transformer</em>' containment reference.
-	 * @see #setTransformer(TransformerRefType)
+	 * @see #setTransformer(RefTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Transformer()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
 	 * @generated
 	 */
-	TransformerRefType getTransformer();
+	RefTransformerType getTransformer();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformer <em>Transformer</em>}' containment reference.
@@ -3347,655 +3975,169 @@ public interface DocumentRoot extends EObject {
 	 * @see #getTransformer()
 	 * @generated
 	 */
-	void setTransformer(TransformerRefType value);
+	void setTransformer(RefTransformerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Transformer Append String</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Uc Decoder Transformer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Transformer Append String</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Uc Decoder Transformer</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Append String</em>' containment reference.
-	 * @see #setTransformerAppendString(TransformerAppendStringType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerAppendString()
+	 * @return the value of the '<em>Uc Decoder Transformer</em>' containment reference.
+	 * @see #setUcDecoderTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_UcDecoderTransformer()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-append-string' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 *        extendedMetaData="kind='element' name='uc-decoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
 	 * @generated
 	 */
-	TransformerAppendStringType getTransformerAppendString();
+	AbstractTransformerType getUcDecoderTransformer();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerAppendString <em>Transformer Append String</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getUcDecoderTransformer <em>Uc Decoder Transformer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Append String</em>' containment reference.
-	 * @see #getTransformerAppendString()
+	 * @param value the new value of the '<em>Uc Decoder Transformer</em>' containment reference.
+	 * @see #getUcDecoderTransformer()
 	 * @generated
 	 */
-	void setTransformerAppendString(TransformerAppendStringType value);
+	void setUcDecoderTransformer(AbstractTransformerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Transformer Base64 Decoder</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Uc Encoder Transformer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Transformer Base64 Decoder</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Uc Encoder Transformer</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Base64 Decoder</em>' containment reference.
-	 * @see #setTransformerBase64Decoder(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerBase64Decoder()
+	 * @return the value of the '<em>Uc Encoder Transformer</em>' containment reference.
+	 * @see #setUcEncoderTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_UcEncoderTransformer()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-base64-decoder' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 *        extendedMetaData="kind='element' name='uc-encoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
 	 * @generated
 	 */
-	AbstractTransformerType getTransformerBase64Decoder();
+	AbstractTransformerType getUcEncoderTransformer();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerBase64Decoder <em>Transformer Base64 Decoder</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getUcEncoderTransformer <em>Uc Encoder Transformer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Base64 Decoder</em>' containment reference.
-	 * @see #getTransformerBase64Decoder()
+	 * @param value the new value of the '<em>Uc Encoder Transformer</em>' containment reference.
+	 * @see #getUcEncoderTransformer()
 	 * @generated
 	 */
-	void setTransformerBase64Decoder(AbstractTransformerType value);
+	void setUcEncoderTransformer(AbstractTransformerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Transformer Base64 Encoder</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Uu Decoder Transformer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Transformer Base64 Encoder</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Uu Decoder Transformer</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Base64 Encoder</em>' containment reference.
-	 * @see #setTransformerBase64Encoder(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerBase64Encoder()
+	 * @return the value of the '<em>Uu Decoder Transformer</em>' containment reference.
+	 * @see #setUuDecoderTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_UuDecoderTransformer()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-base64-encoder' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 *        extendedMetaData="kind='element' name='uu-decoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
 	 * @generated
 	 */
-	AbstractTransformerType getTransformerBase64Encoder();
+	AbstractTransformerType getUuDecoderTransformer();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerBase64Encoder <em>Transformer Base64 Encoder</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getUuDecoderTransformer <em>Uu Decoder Transformer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Base64 Encoder</em>' containment reference.
-	 * @see #getTransformerBase64Encoder()
+	 * @param value the new value of the '<em>Uu Decoder Transformer</em>' containment reference.
+	 * @see #getUuDecoderTransformer()
 	 * @generated
 	 */
-	void setTransformerBase64Encoder(AbstractTransformerType value);
+	void setUuDecoderTransformer(AbstractTransformerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Transformer Byte Array To Hex String</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Uu Encoder Transformer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Transformer Byte Array To Hex String</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Uu Encoder Transformer</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Byte Array To Hex String</em>' containment reference.
-	 * @see #setTransformerByteArrayToHexString(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerByteArrayToHexString()
+	 * @return the value of the '<em>Uu Encoder Transformer</em>' containment reference.
+	 * @see #setUuEncoderTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_UuEncoderTransformer()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-byte-array-to-hex-string' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 *        extendedMetaData="kind='element' name='uu-encoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
 	 * @generated
 	 */
-	AbstractTransformerType getTransformerByteArrayToHexString();
+	AbstractTransformerType getUuEncoderTransformer();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerByteArrayToHexString <em>Transformer Byte Array To Hex String</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getUuEncoderTransformer <em>Uu Encoder Transformer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Byte Array To Hex String</em>' containment reference.
-	 * @see #getTransformerByteArrayToHexString()
+	 * @param value the new value of the '<em>Uu Encoder Transformer</em>' containment reference.
+	 * @see #getUuEncoderTransformer()
 	 * @generated
 	 */
-	void setTransformerByteArrayToHexString(AbstractTransformerType value);
+	void setUuEncoderTransformer(AbstractTransformerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Transformer Byte Array To Object</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Weblogic Transaction Manager</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Transformer Byte Array To Object</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Weblogic Transaction Manager</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Byte Array To Object</em>' containment reference.
-	 * @see #setTransformerByteArrayToObject(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerByteArrayToObject()
+	 * @return the value of the '<em>Weblogic Transaction Manager</em>' containment reference.
+	 * @see #setWeblogicTransactionManager(JndiTransactionManagerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_WeblogicTransactionManager()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-byte-array-to-object' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 *        extendedMetaData="kind='element' name='weblogic-transaction-manager' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
 	 * @generated
 	 */
-	AbstractTransformerType getTransformerByteArrayToObject();
+	JndiTransactionManagerType getWeblogicTransactionManager();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerByteArrayToObject <em>Transformer Byte Array To Object</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getWeblogicTransactionManager <em>Weblogic Transaction Manager</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Byte Array To Object</em>' containment reference.
-	 * @see #getTransformerByteArrayToObject()
+	 * @param value the new value of the '<em>Weblogic Transaction Manager</em>' containment reference.
+	 * @see #getWeblogicTransactionManager()
 	 * @generated
 	 */
-	void setTransformerByteArrayToObject(AbstractTransformerType value);
+	void setWeblogicTransactionManager(JndiTransactionManagerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Transformer Byte Array To Serializable</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Websphere Transaction Manager</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Transformer Byte Array To Serializable</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Websphere Transaction Manager</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Byte Array To Serializable</em>' containment reference.
-	 * @see #setTransformerByteArrayToSerializable(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerByteArrayToSerializable()
+	 * @return the value of the '<em>Websphere Transaction Manager</em>' containment reference.
+	 * @see #setWebsphereTransactionManager(TransactionManagerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_WebsphereTransactionManager()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-byte-array-to-serializable' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 *        extendedMetaData="kind='element' name='websphere-transaction-manager' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
 	 * @generated
 	 */
-	AbstractTransformerType getTransformerByteArrayToSerializable();
+	TransactionManagerType getWebsphereTransactionManager();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerByteArrayToSerializable <em>Transformer Byte Array To Serializable</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getWebsphereTransactionManager <em>Websphere Transaction Manager</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Byte Array To Serializable</em>' containment reference.
-	 * @see #getTransformerByteArrayToSerializable()
+	 * @param value the new value of the '<em>Websphere Transaction Manager</em>' containment reference.
+	 * @see #getWebsphereTransactionManager()
 	 * @generated
 	 */
-	void setTransformerByteArrayToSerializable(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Byte Array To String</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Byte Array To String</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Byte Array To String</em>' containment reference.
-	 * @see #setTransformerByteArrayToString(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerByteArrayToString()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-byte-array-to-string' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerByteArrayToString();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerByteArrayToString <em>Transformer Byte Array To String</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Byte Array To String</em>' containment reference.
-	 * @see #getTransformerByteArrayToString()
-	 * @generated
-	 */
-	void setTransformerByteArrayToString(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Decrypt</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Decrypt</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Decrypt</em>' containment reference.
-	 * @see #setTransformerDecrypt(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerDecrypt()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-decrypt' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerDecrypt();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerDecrypt <em>Transformer Decrypt</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Decrypt</em>' containment reference.
-	 * @see #getTransformerDecrypt()
-	 * @generated
-	 */
-	void setTransformerDecrypt(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Encrypt</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Encrypt</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Encrypt</em>' containment reference.
-	 * @see #setTransformerEncrypt(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerEncrypt()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-encrypt' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerEncrypt();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerEncrypt <em>Transformer Encrypt</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Encrypt</em>' containment reference.
-	 * @see #getTransformerEncrypt()
-	 * @generated
-	 */
-	void setTransformerEncrypt(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Gzip Compress</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Gzip Compress</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Gzip Compress</em>' containment reference.
-	 * @see #setTransformerGzipCompress(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerGzipCompress()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-gzip-compress' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerGzipCompress();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerGzipCompress <em>Transformer Gzip Compress</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Gzip Compress</em>' containment reference.
-	 * @see #getTransformerGzipCompress()
-	 * @generated
-	 */
-	void setTransformerGzipCompress(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Gzip Uncompress</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Gzip Uncompress</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Gzip Uncompress</em>' containment reference.
-	 * @see #setTransformerGzipUncompress(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerGzipUncompress()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-gzip-uncompress' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerGzipUncompress();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerGzipUncompress <em>Transformer Gzip Uncompress</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Gzip Uncompress</em>' containment reference.
-	 * @see #getTransformerGzipUncompress()
-	 * @generated
-	 */
-	void setTransformerGzipUncompress(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Hex Sting To Byte Array</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Hex Sting To Byte Array</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Hex Sting To Byte Array</em>' containment reference.
-	 * @see #setTransformerHexStingToByteArray(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerHexStingToByteArray()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-hex-sting-to-byte-array' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerHexStingToByteArray();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerHexStingToByteArray <em>Transformer Hex Sting To Byte Array</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Hex Sting To Byte Array</em>' containment reference.
-	 * @see #getTransformerHexStingToByteArray()
-	 * @generated
-	 */
-	void setTransformerHexStingToByteArray(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Message Properties</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Message Properties</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Message Properties</em>' containment reference.
-	 * @see #setTransformerMessageProperties(MessagePropertiesTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerMessageProperties()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-message-properties' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	MessagePropertiesTransformerType getTransformerMessageProperties();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerMessageProperties <em>Transformer Message Properties</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Message Properties</em>' containment reference.
-	 * @see #getTransformerMessageProperties()
-	 * @generated
-	 */
-	void setTransformerMessageProperties(MessagePropertiesTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer No Action</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer No Action</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer No Action</em>' containment reference.
-	 * @see #setTransformerNoAction(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerNoAction()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-no-action' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerNoAction();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerNoAction <em>Transformer No Action</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer No Action</em>' containment reference.
-	 * @see #getTransformerNoAction()
-	 * @generated
-	 */
-	void setTransformerNoAction(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Object To Byte Array</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Object To Byte Array</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Object To Byte Array</em>' containment reference.
-	 * @see #setTransformerObjectToByteArray(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerObjectToByteArray()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-object-to-byte-array' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerObjectToByteArray();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerObjectToByteArray <em>Transformer Object To Byte Array</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Object To Byte Array</em>' containment reference.
-	 * @see #getTransformerObjectToByteArray()
-	 * @generated
-	 */
-	void setTransformerObjectToByteArray(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Object To String</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Object To String</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Object To String</em>' containment reference.
-	 * @see #setTransformerObjectToString(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerObjectToString()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-object-to-string' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerObjectToString();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerObjectToString <em>Transformer Object To String</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Object To String</em>' containment reference.
-	 * @see #getTransformerObjectToString()
-	 * @generated
-	 */
-	void setTransformerObjectToString(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Serializable To Byte Array</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Serializable To Byte Array</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Serializable To Byte Array</em>' containment reference.
-	 * @see #setTransformerSerializableToByteArray(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerSerializableToByteArray()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-serializable-to-byte-array' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerSerializableToByteArray();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerSerializableToByteArray <em>Transformer Serializable To Byte Array</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Serializable To Byte Array</em>' containment reference.
-	 * @see #getTransformerSerializableToByteArray()
-	 * @generated
-	 */
-	void setTransformerSerializableToByteArray(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer String To Byte Array</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer String To Byte Array</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer String To Byte Array</em>' containment reference.
-	 * @see #setTransformerStringToByteArray(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerStringToByteArray()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-string-to-byte-array' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerStringToByteArray();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerStringToByteArray <em>Transformer String To Byte Array</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer String To Byte Array</em>' containment reference.
-	 * @see #getTransformerStringToByteArray()
-	 * @generated
-	 */
-	void setTransformerStringToByteArray(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Uc Decoder</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Uc Decoder</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Uc Decoder</em>' containment reference.
-	 * @see #setTransformerUcDecoder(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerUcDecoder()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-uc-decoder' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerUcDecoder();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerUcDecoder <em>Transformer Uc Decoder</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Uc Decoder</em>' containment reference.
-	 * @see #getTransformerUcDecoder()
-	 * @generated
-	 */
-	void setTransformerUcDecoder(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Uc Encoder</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Uc Encoder</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Uc Encoder</em>' containment reference.
-	 * @see #setTransformerUcEncoder(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerUcEncoder()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-uc-encoder' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerUcEncoder();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerUcEncoder <em>Transformer Uc Encoder</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Uc Encoder</em>' containment reference.
-	 * @see #getTransformerUcEncoder()
-	 * @generated
-	 */
-	void setTransformerUcEncoder(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Uu Decoder</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Uu Decoder</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Uu Decoder</em>' containment reference.
-	 * @see #setTransformerUuDecoder(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerUuDecoder()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-uu-decoder' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerUuDecoder();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerUuDecoder <em>Transformer Uu Decoder</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Uu Decoder</em>' containment reference.
-	 * @see #getTransformerUuDecoder()
-	 * @generated
-	 */
-	void setTransformerUuDecoder(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Uu Encoder</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Uu Encoder</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Uu Encoder</em>' containment reference.
-	 * @see #setTransformerUuEncoder(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerUuEncoder()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-uu-encoder' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerUuEncoder();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerUuEncoder <em>Transformer Uu Encoder</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Uu Encoder</em>' containment reference.
-	 * @see #getTransformerUuEncoder()
-	 * @generated
-	 */
-	void setTransformerUuEncoder(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Xml Entity Decoder</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Xml Entity Decoder</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Xml Entity Decoder</em>' containment reference.
-	 * @see #setTransformerXmlEntityDecoder(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerXmlEntityDecoder()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-xml-entity-decoder' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerXmlEntityDecoder();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerXmlEntityDecoder <em>Transformer Xml Entity Decoder</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Xml Entity Decoder</em>' containment reference.
-	 * @see #getTransformerXmlEntityDecoder()
-	 * @generated
-	 */
-	void setTransformerXmlEntityDecoder(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transformer Xml Entity Encoder</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Xml Entity Encoder</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Xml Entity Encoder</em>' containment reference.
-	 * @see #setTransformerXmlEntityEncoder(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_TransformerXmlEntityEncoder()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='transformer-xml-entity-encoder' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getTransformerXmlEntityEncoder();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getTransformerXmlEntityEncoder <em>Transformer Xml Entity Encoder</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Xml Entity Encoder</em>' containment reference.
-	 * @see #getTransformerXmlEntityEncoder()
-	 * @generated
-	 */
-	void setTransformerXmlEntityEncoder(AbstractTransformerType value);
+	void setWebsphereTransactionManager(TransactionManagerType value);
 
 	/**
 	 * Returns the value of the '<em><b>Wildcard Filter</b></em>' containment reference.
@@ -4050,5 +4192,59 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setWireTapRouter(WireTapRouterType value);
+
+	/**
+	 * Returns the value of the '<em><b>Xml Entity Decoder Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Xml Entity Decoder Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Xml Entity Decoder Transformer</em>' containment reference.
+	 * @see #setXmlEntityDecoderTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_XmlEntityDecoderTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='xml-entity-decoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getXmlEntityDecoderTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getXmlEntityDecoderTransformer <em>Xml Entity Decoder Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Xml Entity Decoder Transformer</em>' containment reference.
+	 * @see #getXmlEntityDecoderTransformer()
+	 * @generated
+	 */
+	void setXmlEntityDecoderTransformer(AbstractTransformerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Xml Entity Encoder Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Xml Entity Encoder Transformer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Xml Entity Encoder Transformer</em>' containment reference.
+	 * @see #setXmlEntityEncoderTransformer(AbstractTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_XmlEntityEncoderTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='xml-entity-encoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	AbstractTransformerType getXmlEntityEncoderTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getXmlEntityEncoderTransformer <em>Xml Entity Encoder Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Xml Entity Encoder Transformer</em>' containment reference.
+	 * @see #getXmlEntityEncoderTransformer()
+	 * @generated
+	 */
+	void setXmlEntityEncoderTransformer(AbstractTransformerType value);
 
 } // DocumentRoot

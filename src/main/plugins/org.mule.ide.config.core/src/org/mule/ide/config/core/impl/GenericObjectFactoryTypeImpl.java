@@ -12,12 +12,14 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.mule.ide.config.core.AbstractObjectFactoryType;
 import org.mule.ide.config.core.AbstractPoolingProfileType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.GenericObjectFactoryType;
@@ -30,116 +32,23 @@ import org.mule.ide.config.core.ScopeType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.GenericObjectFactoryTypeImpl#getAbstractPoolingProfileGroup <em>Abstract Pooling Profile Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.GenericObjectFactoryTypeImpl#getAbstractPoolingProfile <em>Abstract Pooling Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.GenericObjectFactoryTypeImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.GenericObjectFactoryTypeImpl#getFactoryRef <em>Factory Ref</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.GenericObjectFactoryTypeImpl#getInstanceRef <em>Instance Ref</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.GenericObjectFactoryTypeImpl#getScope <em>Scope</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.GenericObjectFactoryTypeImpl#getAbstractObjectFactoryGroup <em>Abstract Object Factory Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.GenericObjectFactoryTypeImpl#getAbstractObjectFactory <em>Abstract Object Factory</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class GenericObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImpl implements GenericObjectFactoryType {
+public class GenericObjectFactoryTypeImpl extends EObjectImpl implements GenericObjectFactoryType {
 	/**
-	 * The cached value of the '{@link #getAbstractPoolingProfileGroup() <em>Abstract Pooling Profile Group</em>}' attribute list.
+	 * The cached value of the '{@link #getAbstractObjectFactoryGroup() <em>Abstract Object Factory Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbstractPoolingProfileGroup()
+	 * @see #getAbstractObjectFactoryGroup()
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap abstractPoolingProfileGroup;
-
-	/**
-	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClass_()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CLASS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClass_()
-	 * @generated
-	 * @ordered
-	 */
-	protected String class_ = CLASS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getFactoryRef() <em>Factory Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFactoryRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String FACTORY_REF_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getFactoryRef() <em>Factory Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFactoryRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected String factoryRef = FACTORY_REF_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getInstanceRef() <em>Instance Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInstanceRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String INSTANCE_REF_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getInstanceRef() <em>Instance Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInstanceRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected String instanceRef = INSTANCE_REF_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getScope() <em>Scope</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScope()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final ScopeType SCOPE_EDEFAULT = ScopeType.PROTOTYPE;
-
-	/**
-	 * The cached value of the '{@link #getScope() <em>Scope</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScope()
-	 * @generated
-	 * @ordered
-	 */
-	protected ScopeType scope = SCOPE_EDEFAULT;
-
-	/**
-	 * This is true if the Scope attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean scopeESet;
+	protected FeatureMap abstractObjectFactoryGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,11 +74,11 @@ public class GenericObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getAbstractPoolingProfileGroup() {
-		if (abstractPoolingProfileGroup == null) {
-			abstractPoolingProfileGroup = new BasicFeatureMap(this, CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_POOLING_PROFILE_GROUP);
+	public FeatureMap getAbstractObjectFactoryGroup() {
+		if (abstractObjectFactoryGroup == null) {
+			abstractObjectFactoryGroup = new BasicFeatureMap(this, CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP);
 		}
-		return abstractPoolingProfileGroup;
+		return abstractObjectFactoryGroup;
 	}
 
 	/**
@@ -177,8 +86,8 @@ public class GenericObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractPoolingProfileType getAbstractPoolingProfile() {
-		return (AbstractPoolingProfileType)getAbstractPoolingProfileGroup().get(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractPoolingProfile(), true);
+	public AbstractObjectFactoryType getAbstractObjectFactory() {
+		return (AbstractObjectFactoryType)getAbstractObjectFactoryGroup().get(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractObjectFactory(), true);
 	}
 
 	/**
@@ -186,117 +95,8 @@ public class GenericObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAbstractPoolingProfile(AbstractPoolingProfileType newAbstractPoolingProfile, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getAbstractPoolingProfileGroup()).basicAdd(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractPoolingProfile(), newAbstractPoolingProfile, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getClass_() {
-		return class_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClass(String newClass) {
-		String oldClass = class_;
-		class_ = newClass;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.GENERIC_OBJECT_FACTORY_TYPE__CLASS, oldClass, class_));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getFactoryRef() {
-		return factoryRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFactoryRef(String newFactoryRef) {
-		String oldFactoryRef = factoryRef;
-		factoryRef = newFactoryRef;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.GENERIC_OBJECT_FACTORY_TYPE__FACTORY_REF, oldFactoryRef, factoryRef));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getInstanceRef() {
-		return instanceRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInstanceRef(String newInstanceRef) {
-		String oldInstanceRef = instanceRef;
-		instanceRef = newInstanceRef;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.GENERIC_OBJECT_FACTORY_TYPE__INSTANCE_REF, oldInstanceRef, instanceRef));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ScopeType getScope() {
-		return scope;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setScope(ScopeType newScope) {
-		ScopeType oldScope = scope;
-		scope = newScope == null ? SCOPE_EDEFAULT : newScope;
-		boolean oldScopeESet = scopeESet;
-		scopeESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.GENERIC_OBJECT_FACTORY_TYPE__SCOPE, oldScope, scope, !oldScopeESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetScope() {
-		ScopeType oldScope = scope;
-		boolean oldScopeESet = scopeESet;
-		scope = SCOPE_EDEFAULT;
-		scopeESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.GENERIC_OBJECT_FACTORY_TYPE__SCOPE, oldScope, SCOPE_EDEFAULT, oldScopeESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetScope() {
-		return scopeESet;
+	public NotificationChain basicSetAbstractObjectFactory(AbstractObjectFactoryType newAbstractObjectFactory, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getAbstractObjectFactoryGroup()).basicAdd(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractObjectFactory(), newAbstractObjectFactory, msgs);
 	}
 
 	/**
@@ -307,10 +107,10 @@ public class GenericObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImpl 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_POOLING_PROFILE_GROUP:
-				return ((InternalEList<?>)getAbstractPoolingProfileGroup()).basicRemove(otherEnd, msgs);
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_POOLING_PROFILE:
-				return basicSetAbstractPoolingProfile(null, msgs);
+			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
+				return ((InternalEList<?>)getAbstractObjectFactoryGroup()).basicRemove(otherEnd, msgs);
+			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_OBJECT_FACTORY:
+				return basicSetAbstractObjectFactory(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -323,19 +123,11 @@ public class GenericObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImpl 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_POOLING_PROFILE_GROUP:
-				if (coreType) return getAbstractPoolingProfileGroup();
-				return ((FeatureMap.Internal)getAbstractPoolingProfileGroup()).getWrapper();
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_POOLING_PROFILE:
-				return getAbstractPoolingProfile();
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__CLASS:
-				return getClass_();
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__FACTORY_REF:
-				return getFactoryRef();
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__INSTANCE_REF:
-				return getInstanceRef();
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__SCOPE:
-				return getScope();
+			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
+				if (coreType) return getAbstractObjectFactoryGroup();
+				return ((FeatureMap.Internal)getAbstractObjectFactoryGroup()).getWrapper();
+			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_OBJECT_FACTORY:
+				return getAbstractObjectFactory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -348,20 +140,8 @@ public class GenericObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImpl 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_POOLING_PROFILE_GROUP:
-				((FeatureMap.Internal)getAbstractPoolingProfileGroup()).set(newValue);
-				return;
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__CLASS:
-				setClass((String)newValue);
-				return;
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__FACTORY_REF:
-				setFactoryRef((String)newValue);
-				return;
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__INSTANCE_REF:
-				setInstanceRef((String)newValue);
-				return;
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__SCOPE:
-				setScope((ScopeType)newValue);
+			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
+				((FeatureMap.Internal)getAbstractObjectFactoryGroup()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -375,20 +155,8 @@ public class GenericObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImpl 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_POOLING_PROFILE_GROUP:
-				getAbstractPoolingProfileGroup().clear();
-				return;
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__CLASS:
-				setClass(CLASS_EDEFAULT);
-				return;
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__FACTORY_REF:
-				setFactoryRef(FACTORY_REF_EDEFAULT);
-				return;
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__INSTANCE_REF:
-				setInstanceRef(INSTANCE_REF_EDEFAULT);
-				return;
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__SCOPE:
-				unsetScope();
+			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
+				getAbstractObjectFactoryGroup().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -402,18 +170,10 @@ public class GenericObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImpl 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_POOLING_PROFILE_GROUP:
-				return abstractPoolingProfileGroup != null && !abstractPoolingProfileGroup.isEmpty();
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_POOLING_PROFILE:
-				return getAbstractPoolingProfile() != null;
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__CLASS:
-				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__FACTORY_REF:
-				return FACTORY_REF_EDEFAULT == null ? factoryRef != null : !FACTORY_REF_EDEFAULT.equals(factoryRef);
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__INSTANCE_REF:
-				return INSTANCE_REF_EDEFAULT == null ? instanceRef != null : !INSTANCE_REF_EDEFAULT.equals(instanceRef);
-			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__SCOPE:
-				return isSetScope();
+			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_OBJECT_FACTORY_GROUP:
+				return abstractObjectFactoryGroup != null && !abstractObjectFactoryGroup.isEmpty();
+			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE__ABSTRACT_OBJECT_FACTORY:
+				return getAbstractObjectFactory() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -428,16 +188,8 @@ public class GenericObjectFactoryTypeImpl extends AbstractObjectFactoryTypeImpl 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (abstractPoolingProfileGroup: ");
-		result.append(abstractPoolingProfileGroup);
-		result.append(", class: ");
-		result.append(class_);
-		result.append(", factoryRef: ");
-		result.append(factoryRef);
-		result.append(", instanceRef: ");
-		result.append(instanceRef);
-		result.append(", scope: ");
-		if (scopeESet) result.append(scope); else result.append("<unset>");
+		result.append(" (abstractObjectFactoryGroup: ");
+		result.append(abstractObjectFactoryGroup);
 		result.append(')');
 		return result.toString();
 	}

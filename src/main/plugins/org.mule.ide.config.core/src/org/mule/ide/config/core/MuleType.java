@@ -35,8 +35,6 @@ import org.mule.ide.config.spring.BeansType;
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractSecurityManager <em>Abstract Security Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractTransactionManagerGroup <em>Abstract Transaction Manager Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractTransactionManager <em>Abstract Transaction Manager</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractTransactionFactoryGroup <em>Abstract Transaction Factory Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractTransactionFactory <em>Abstract Transaction Factory</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractConnectorGroup <em>Abstract Connector Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractConnector <em>Abstract Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractGlobalEndpointGroup <em>Abstract Global Endpoint Group</em>}</li>
@@ -273,40 +271,6 @@ public interface MuleType extends EObject {
 	EList<AbstractTransactionManagerType> getAbstractTransactionManager();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Transaction Factory Group</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Transaction Factory Group</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Transaction Factory Group</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractTransactionFactoryGroup()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-transaction-factory:group' namespace='##targetNamespace' group='#group:0'"
-	 * @generated
-	 */
-	FeatureMap getAbstractTransactionFactoryGroup();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Transaction Factory</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.AbstractTransactionFactoryType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Transaction Factory</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Transaction Factory</em>' containment reference list.
-	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractTransactionFactory()
-	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-transaction-factory' namespace='##targetNamespace' group='abstract-transaction-factory:group'"
-	 * @generated
-	 */
-	EList<AbstractTransactionFactoryType> getAbstractTransactionFactory();
-
-	/**
 	 * Returns the value of the '<em><b>Abstract Connector Group</b></em>' attribute list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
 	 * <!-- begin-user-doc -->
@@ -523,7 +487,7 @@ public interface MuleType extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableName"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
 	 */

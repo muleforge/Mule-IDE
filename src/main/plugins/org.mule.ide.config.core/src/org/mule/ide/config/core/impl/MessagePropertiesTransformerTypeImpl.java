@@ -6,15 +6,21 @@
  */
 package org.mule.ide.config.core.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.KeyType;
+import org.mule.ide.config.core.KeyValueType;
 import org.mule.ide.config.core.ListOrSetType;
 import org.mule.ide.config.core.MapType;
 import org.mule.ide.config.core.MessagePropertiesTransformerType;
@@ -26,8 +32,9 @@ import org.mule.ide.config.core.MessagePropertiesTransformerType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.MessagePropertiesTransformerTypeImpl#getDeleteProperties <em>Delete Properties</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.MessagePropertiesTransformerTypeImpl#getAddProperties <em>Add Properties</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.MessagePropertiesTransformerTypeImpl#getDeleteMessageProperty <em>Delete Message Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.MessagePropertiesTransformerTypeImpl#getAddMessageProperty <em>Add Message Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.MessagePropertiesTransformerTypeImpl#getAddMessageProperties <em>Add Message Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MessagePropertiesTransformerTypeImpl#isOverwrite <em>Overwrite</em>}</li>
  * </ul>
  * </p>
@@ -36,24 +43,34 @@ import org.mule.ide.config.core.MessagePropertiesTransformerType;
  */
 public class MessagePropertiesTransformerTypeImpl extends AbstractTransformerTypeImpl implements MessagePropertiesTransformerType {
 	/**
-	 * The cached value of the '{@link #getDeleteProperties() <em>Delete Properties</em>}' containment reference.
+	 * The cached value of the '{@link #getDeleteMessageProperty() <em>Delete Message Property</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDeleteProperties()
+	 * @see #getDeleteMessageProperty()
 	 * @generated
 	 * @ordered
 	 */
-	protected ListOrSetType deleteProperties;
+	protected EList<KeyType> deleteMessageProperty;
 
 	/**
-	 * The cached value of the '{@link #getAddProperties() <em>Add Properties</em>}' containment reference.
+	 * The cached value of the '{@link #getAddMessageProperty() <em>Add Message Property</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAddProperties()
+	 * @see #getAddMessageProperty()
 	 * @generated
 	 * @ordered
 	 */
-	protected MapType addProperties;
+	protected EList<KeyValueType> addMessageProperty;
+
+	/**
+	 * The cached value of the '{@link #getAddMessageProperties() <em>Add Message Properties</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAddMessageProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected MapType addMessageProperties;
 
 	/**
 	 * The default value of the '{@link #isOverwrite() <em>Overwrite</em>}' attribute.
@@ -108,8 +125,11 @@ public class MessagePropertiesTransformerTypeImpl extends AbstractTransformerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ListOrSetType getDeleteProperties() {
-		return deleteProperties;
+	public EList<KeyType> getDeleteMessageProperty() {
+		if (deleteMessageProperty == null) {
+			deleteMessageProperty = new EObjectContainmentEList<KeyType>(KeyType.class, this, CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_MESSAGE_PROPERTY);
+		}
+		return deleteMessageProperty;
 	}
 
 	/**
@@ -117,11 +137,32 @@ public class MessagePropertiesTransformerTypeImpl extends AbstractTransformerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDeleteProperties(ListOrSetType newDeleteProperties, NotificationChain msgs) {
-		ListOrSetType oldDeleteProperties = deleteProperties;
-		deleteProperties = newDeleteProperties;
+	public EList<KeyValueType> getAddMessageProperty() {
+		if (addMessageProperty == null) {
+			addMessageProperty = new EObjectContainmentEList<KeyValueType>(KeyValueType.class, this, CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTY);
+		}
+		return addMessageProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MapType getAddMessageProperties() {
+		return addMessageProperties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAddMessageProperties(MapType newAddMessageProperties, NotificationChain msgs) {
+		MapType oldAddMessageProperties = addMessageProperties;
+		addMessageProperties = newAddMessageProperties;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_PROPERTIES, oldDeleteProperties, newDeleteProperties);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTIES, oldAddMessageProperties, newAddMessageProperties);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -132,61 +173,18 @@ public class MessagePropertiesTransformerTypeImpl extends AbstractTransformerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDeleteProperties(ListOrSetType newDeleteProperties) {
-		if (newDeleteProperties != deleteProperties) {
+	public void setAddMessageProperties(MapType newAddMessageProperties) {
+		if (newAddMessageProperties != addMessageProperties) {
 			NotificationChain msgs = null;
-			if (deleteProperties != null)
-				msgs = ((InternalEObject)deleteProperties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_PROPERTIES, null, msgs);
-			if (newDeleteProperties != null)
-				msgs = ((InternalEObject)newDeleteProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_PROPERTIES, null, msgs);
-			msgs = basicSetDeleteProperties(newDeleteProperties, msgs);
+			if (addMessageProperties != null)
+				msgs = ((InternalEObject)addMessageProperties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTIES, null, msgs);
+			if (newAddMessageProperties != null)
+				msgs = ((InternalEObject)newAddMessageProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTIES, null, msgs);
+			msgs = basicSetAddMessageProperties(newAddMessageProperties, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_PROPERTIES, newDeleteProperties, newDeleteProperties));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MapType getAddProperties() {
-		return addProperties;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAddProperties(MapType newAddProperties, NotificationChain msgs) {
-		MapType oldAddProperties = addProperties;
-		addProperties = newAddProperties;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_PROPERTIES, oldAddProperties, newAddProperties);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAddProperties(MapType newAddProperties) {
-		if (newAddProperties != addProperties) {
-			NotificationChain msgs = null;
-			if (addProperties != null)
-				msgs = ((InternalEObject)addProperties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_PROPERTIES, null, msgs);
-			if (newAddProperties != null)
-				msgs = ((InternalEObject)newAddProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_PROPERTIES, null, msgs);
-			msgs = basicSetAddProperties(newAddProperties, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_PROPERTIES, newAddProperties, newAddProperties));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTIES, newAddMessageProperties, newAddMessageProperties));
 	}
 
 	/**
@@ -243,10 +241,12 @@ public class MessagePropertiesTransformerTypeImpl extends AbstractTransformerTyp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_PROPERTIES:
-				return basicSetDeleteProperties(null, msgs);
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_PROPERTIES:
-				return basicSetAddProperties(null, msgs);
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_MESSAGE_PROPERTY:
+				return ((InternalEList<?>)getDeleteMessageProperty()).basicRemove(otherEnd, msgs);
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTY:
+				return ((InternalEList<?>)getAddMessageProperty()).basicRemove(otherEnd, msgs);
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTIES:
+				return basicSetAddMessageProperties(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -259,10 +259,12 @@ public class MessagePropertiesTransformerTypeImpl extends AbstractTransformerTyp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_PROPERTIES:
-				return getDeleteProperties();
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_PROPERTIES:
-				return getAddProperties();
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_MESSAGE_PROPERTY:
+				return getDeleteMessageProperty();
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTY:
+				return getAddMessageProperty();
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTIES:
+				return getAddMessageProperties();
 			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__OVERWRITE:
 				return isOverwrite() ? Boolean.TRUE : Boolean.FALSE;
 		}
@@ -274,14 +276,20 @@ public class MessagePropertiesTransformerTypeImpl extends AbstractTransformerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_PROPERTIES:
-				setDeleteProperties((ListOrSetType)newValue);
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_MESSAGE_PROPERTY:
+				getDeleteMessageProperty().clear();
+				getDeleteMessageProperty().addAll((Collection<? extends KeyType>)newValue);
 				return;
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_PROPERTIES:
-				setAddProperties((MapType)newValue);
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTY:
+				getAddMessageProperty().clear();
+				getAddMessageProperty().addAll((Collection<? extends KeyValueType>)newValue);
+				return;
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTIES:
+				setAddMessageProperties((MapType)newValue);
 				return;
 			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__OVERWRITE:
 				setOverwrite(((Boolean)newValue).booleanValue());
@@ -298,11 +306,14 @@ public class MessagePropertiesTransformerTypeImpl extends AbstractTransformerTyp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_PROPERTIES:
-				setDeleteProperties((ListOrSetType)null);
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_MESSAGE_PROPERTY:
+				getDeleteMessageProperty().clear();
 				return;
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_PROPERTIES:
-				setAddProperties((MapType)null);
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTY:
+				getAddMessageProperty().clear();
+				return;
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTIES:
+				setAddMessageProperties((MapType)null);
 				return;
 			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__OVERWRITE:
 				unsetOverwrite();
@@ -319,10 +330,12 @@ public class MessagePropertiesTransformerTypeImpl extends AbstractTransformerTyp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_PROPERTIES:
-				return deleteProperties != null;
-			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_PROPERTIES:
-				return addProperties != null;
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__DELETE_MESSAGE_PROPERTY:
+				return deleteMessageProperty != null && !deleteMessageProperty.isEmpty();
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTY:
+				return addMessageProperty != null && !addMessageProperty.isEmpty();
+			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__ADD_MESSAGE_PROPERTIES:
+				return addMessageProperties != null;
 			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE__OVERWRITE:
 				return isSetOverwrite();
 		}

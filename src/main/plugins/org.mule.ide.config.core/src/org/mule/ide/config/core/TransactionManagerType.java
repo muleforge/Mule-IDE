@@ -36,13 +36,13 @@ public interface TransactionManagerType extends AbstractTransactionManagerType {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #isSetName()
 	 * @see #unsetName()
-	 * @see #setName(Object)
+	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getTransactionManagerType_Name()
-	 * @model default="transactionManagerFactory" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.AnySimpleType"
+	 * @model default="transactionManagerFactory" unsettable="true" dataType="org.mule.ide.config.core.SubstitutableName"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
 	 */
-	Object getName();
+	String getName();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.TransactionManagerType#getName <em>Name</em>}' attribute.
@@ -54,7 +54,7 @@ public interface TransactionManagerType extends AbstractTransactionManagerType {
 	 * @see #getName()
 	 * @generated
 	 */
-	void setName(Object value);
+	void setName(String value);
 
 	/**
 	 * Unsets the value of the '{@link org.mule.ide.config.core.TransactionManagerType#getName <em>Name</em>}' attribute.
@@ -62,7 +62,7 @@ public interface TransactionManagerType extends AbstractTransactionManagerType {
 	 * <!-- end-user-doc -->
 	 * @see #isSetName()
 	 * @see #getName()
-	 * @see #setName(Object)
+	 * @see #setName(String)
 	 * @generated
 	 */
 	void unsetName();
@@ -74,7 +74,7 @@ public interface TransactionManagerType extends AbstractTransactionManagerType {
 	 * @return whether the value of the '<em>Name</em>' attribute is set.
 	 * @see #unsetName()
 	 * @see #getName()
-	 * @see #setName(Object)
+	 * @see #setName(String)
 	 * @generated
 	 */
 	boolean isSetName();

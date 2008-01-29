@@ -251,7 +251,7 @@
     </descriptors>
   </figures>
   <nodes
-      name="InboundRouterCollectionType"
+      name="InboundCollectionType"
       figure="CollectionFigure">
     <facets
         xsi:type="gmfgraph:DefaultSizeFacet">
@@ -261,7 +261,7 @@
     </facets>
   </nodes>
   <nodes
-      name="OutboundRouterCollectionType"
+      name="OutboundCollectionType"
       figure="CollectionFigure">
     <facets
         xsi:type="gmfgraph:DefaultSizeFacet">
@@ -271,7 +271,7 @@
     </facets>
   </nodes>
   <nodes
-      name="AsyncReplyRouterCollectionType"
+      name="AsyncReplyCollectionType"
       figure="CollectionFigure">
     <facets
         xsi:type="gmfgraph:DefaultSizeFacet">

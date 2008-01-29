@@ -137,8 +137,8 @@
           xsi:type="gmftool:PaletteSeparator"/>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Aggregator Router"
-          description="Add a new Correlation Aggregator Router to a service">
+          title="Custom Correlation Aggregator Router"
+          description="Add a new Custom Correlation Aggregator Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -200,7 +200,7 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Resequencer Router"
+          title="Correlation Resequencer Router"
           description="Add a new Correlation Resequencer Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>

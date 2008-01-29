@@ -112,8 +112,8 @@
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="NoArgsCallComponentTypeEditHelper"/>
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.0/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -129,7 +129,7 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/NoArgsCallComponentType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/PojoComponentType"/>
         <containmentMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractComponent"/>
         <childMetaFeature
@@ -778,19 +778,19 @@
     </childNodes>
     <childNodes
         visualID="2013"
-        editPartClassName="InboundRouterCollectionTypeEditPart"
-        itemSemanticEditPolicyClassName="InboundRouterCollectionTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="InboundRouterCollectionTypeViewFactory"
-        canonicalEditPolicyClassName="InboundRouterCollectionTypeCanonicalEditPolicy"
+        editPartClassName="InboundCollectionTypeEditPart"
+        itemSemanticEditPolicyClassName="InboundCollectionTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="InboundCollectionTypeViewFactory"
+        canonicalEditPolicyClassName="InboundCollectionTypeCanonicalEditPolicy"
         compartments="//@diagram/@compartments.8 //@diagram/@compartments.9"
-        graphicalNodeEditPolicyClassName="InboundRouterCollectionTypeGraphicalNodeEditPolicy"
-        createCommandClassName="InboundRouterCollectionTypeCreateCommand"
+        graphicalNodeEditPolicyClassName="InboundCollectionTypeGraphicalNodeEditPolicy"
+        createCommandClassName="InboundCollectionTypeCreateCommand"
         containers="//@diagram/@compartments.2">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="InboundRouterCollectionTypeEditHelper"/>
+          editHelperClassName="InboundCollectionTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -807,11 +807,11 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/inboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/inbound"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/inboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/inbound"/>
       </modelFacet>
     </childNodes>
     <childNodes
@@ -845,9 +845,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundEndpointType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundEndpoint"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundEndpoint"/>
       </modelFacet>
       <labels
           visualID="4016"
@@ -928,9 +928,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/ForwardingRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
       </modelFacet>
       <labels
           visualID="4018"
@@ -983,9 +983,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/FilteredInboundRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <modelElementSelector
             body="idempotentSecureReceiverRouterConstraint"
             language="java"/>
@@ -1041,9 +1041,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/FilteredInboundRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <modelElementSelector
             body="inboundPassThroughRouterConstraint"
             language="java"/>
@@ -1070,18 +1070,18 @@
     </childNodes>
     <childNodes
         visualID="2018"
-        editPartClassName="IdempotentReceiverTypeEditPart"
-        itemSemanticEditPolicyClassName="IdempotentReceiverTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="IdempotentReceiverTypeViewFactory"
-        canonicalEditPolicyClassName="IdempotentReceiverTypeCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="IdempotentReceiverTypeGraphicalNodeEditPolicy"
-        createCommandClassName="IdempotentReceiverTypeCreateCommand"
+        editPartClassName="IdempotentReceiverRouterTypeEditPart"
+        itemSemanticEditPolicyClassName="IdempotentReceiverRouterTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="IdempotentReceiverRouterTypeViewFactory"
+        canonicalEditPolicyClassName="IdempotentReceiverRouterTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="IdempotentReceiverRouterTypeGraphicalNodeEditPolicy"
+        createCommandClassName="IdempotentReceiverRouterTypeCreateCommand"
         containers="//@diagram/@compartments.9">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="IdempotentReceiverTypeEditHelper"/>
+          editHelperClassName="IdempotentReceiverRouterTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1097,11 +1097,11 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/IdempotentReceiverType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/IdempotentReceiverRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
       </modelFacet>
       <labels
           visualID="4021"
@@ -1154,9 +1154,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/WireTapRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
       </modelFacet>
       <labels
           visualID="4022"
@@ -1209,9 +1209,12 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/SelectiveConsumerRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
+        <modelElementSelector
+            body="selectiveConsumerRouterConstraint"
+            language="java"/>
       </modelFacet>
       <labels
           visualID="4023"
@@ -1262,11 +1265,11 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/CorrelationRouterType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/MessageChunkingAggregatorRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <modelElementSelector
             body="messageChunkingAggregatorRouterConstraint"
             language="java"/>
@@ -1304,7 +1307,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.20/@elementType"/>
+          metamodelType="//@diagram/@childNodes.19/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1320,11 +1323,11 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/CorrelationRouterType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/SelectiveConsumerRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <modelElementSelector
             body="correlationResequencerRouterConstraint"
             language="java"/>
@@ -1351,18 +1354,18 @@
     </childNodes>
     <childNodes
         visualID="2023"
-        editPartClassName="CorrelationAggregatorRouterTypeEditPart"
-        itemSemanticEditPolicyClassName="CorrelationAggregatorRouterTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="CorrelationAggregatorRouterTypeViewFactory"
-        canonicalEditPolicyClassName="CorrelationAggregatorRouterTypeCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="CorrelationAggregatorRouterTypeGraphicalNodeEditPolicy"
-        createCommandClassName="CorrelationAggregatorRouterTypeCreateCommand"
+        editPartClassName="CustomCorrelationAggregatorRouterTypeEditPart"
+        itemSemanticEditPolicyClassName="CustomCorrelationAggregatorRouterTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="CustomCorrelationAggregatorRouterTypeViewFactory"
+        canonicalEditPolicyClassName="CustomCorrelationAggregatorRouterTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="CustomCorrelationAggregatorRouterTypeGraphicalNodeEditPolicy"
+        createCommandClassName="CustomCorrelationAggregatorRouterTypeCreateCommand"
         containers="//@diagram/@compartments.9">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="CorrelationAggregatorRouterTypeEditHelper"/>
+          editHelperClassName="CustomCorrelationAggregatorRouterTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1378,17 +1381,20 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/CorrelationAggregatorRouterType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/CustomCorrelationAggregatorRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
+        <modelElementSelector
+            body="customCorrelationAggregatorRouterConstraint"
+            language="java"/>
       </modelFacet>
       <labels
           visualID="4026"
-          editPartClassName="CorrelationAggregatorRouterTypeLabelEditPart"
-          itemSemanticEditPolicyClassName="CorrelationAggregatorRouterTypeLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="CorrelationAggregatorRouterTypeLabelViewFactory"
+          editPartClassName="CustomCorrelationAggregatorRouterTypeLabelEditPart"
+          itemSemanticEditPolicyClassName="CustomCorrelationAggregatorRouterTypeLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="CustomCorrelationAggregatorRouterTypeLabelViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1405,9 +1411,9 @@
       </labels>
       <labels
           visualID="4027"
-          editPartClassName="CorrelationAggregatorRouterTypeClassEditPart"
-          itemSemanticEditPolicyClassName="CorrelationAggregatorRouterTypeClassItemSemanticEditPolicy"
-          notationViewFactoryClassName="CorrelationAggregatorRouterTypeClassViewFactory">
+          editPartClassName="CustomCorrelationAggregatorRouterTypeClassEditPart"
+          itemSemanticEditPolicyClassName="CustomCorrelationAggregatorRouterTypeClassItemSemanticEditPolicy"
+          notationViewFactoryClassName="CustomCorrelationAggregatorRouterTypeClassViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -1422,7 +1428,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
           <metaFeatures
-              href="../../org.mule.ide.config.core/model/core.genmodel#//core/CorrelationAggregatorRouterType/class"/>
+              href="../../org.mule.ide.config.core/model/core.genmodel#//core/CustomCorrelationAggregatorRouterType/class"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -1457,9 +1463,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/CustomInboundRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundRouterCollectionType/abstractInboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
       </modelFacet>
       <labels
           visualID="4028"
@@ -1504,13 +1510,13 @@
     </childNodes>
     <childNodes
         visualID="2025"
-        editPartClassName="AsyncReplyRouterCollectionTypeEditPart"
-        itemSemanticEditPolicyClassName="AsyncReplyRouterCollectionTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="AsyncReplyRouterCollectionTypeViewFactory"
-        canonicalEditPolicyClassName="AsyncReplyRouterCollectionTypeCanonicalEditPolicy"
+        editPartClassName="AsyncReplyCollectionTypeEditPart"
+        itemSemanticEditPolicyClassName="AsyncReplyCollectionTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="AsyncReplyCollectionTypeViewFactory"
+        canonicalEditPolicyClassName="AsyncReplyCollectionTypeCanonicalEditPolicy"
         compartments="//@diagram/@compartments.10 //@diagram/@compartments.11"
-        graphicalNodeEditPolicyClassName="AsyncReplyRouterCollectionTypeGraphicalNodeEditPolicy"
-        createCommandClassName="AsyncReplyRouterCollectionTypeCreateCommand"
+        graphicalNodeEditPolicyClassName="AsyncReplyCollectionTypeGraphicalNodeEditPolicy"
+        createCommandClassName="AsyncReplyCollectionTypeCreateCommand"
         containers="//@diagram/@compartments.3">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -1533,11 +1539,11 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyCollectionType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/asyncReplyRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/asyncReply"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/asyncReplyRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/asyncReply"/>
       </modelFacet>
     </childNodes>
     <childNodes
@@ -1571,9 +1577,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundEndpointType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractInboundEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyCollectionType/abstractInboundEndpoint"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractInboundEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyCollectionType/abstractInboundEndpoint"/>
       </modelFacet>
       <labels
           visualID="4030"
@@ -1654,9 +1660,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractAsyncReplyRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyCollectionType/abstractAsyncReplyRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractAsyncReplyRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyCollectionType/abstractAsyncReplyRouter"/>
         <modelElementSelector
             body="singleAsyncReplyRouterConstraint"
             language="java"/>
@@ -1712,9 +1718,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/CustomAsyncReplyRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractAsyncReplyRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyCollectionType/abstractAsyncReplyRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyRouterCollectionType/abstractAsyncReplyRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyCollectionType/abstractAsyncReplyRouter"/>
       </modelFacet>
       <labels
           visualID="4033"
@@ -1759,19 +1765,19 @@
     </childNodes>
     <childNodes
         visualID="2029"
-        editPartClassName="OutboundRouterCollectionTypeEditPart"
-        itemSemanticEditPolicyClassName="OutboundRouterCollectionTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="OutboundRouterCollectionTypeViewFactory"
-        canonicalEditPolicyClassName="OutboundRouterCollectionTypeCanonicalEditPolicy"
+        editPartClassName="OutboundCollectionTypeEditPart"
+        itemSemanticEditPolicyClassName="OutboundCollectionTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="OutboundCollectionTypeViewFactory"
+        canonicalEditPolicyClassName="OutboundCollectionTypeCanonicalEditPolicy"
         compartments="//@diagram/@compartments.12"
-        graphicalNodeEditPolicyClassName="OutboundRouterCollectionTypeGraphicalNodeEditPolicy"
-        createCommandClassName="OutboundRouterCollectionTypeCreateCommand"
+        graphicalNodeEditPolicyClassName="OutboundCollectionTypeGraphicalNodeEditPolicy"
+        createCommandClassName="OutboundCollectionTypeCreateCommand"
         containers="//@diagram/@compartments.4">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="OutboundRouterCollectionTypeEditHelper"/>
+          editHelperClassName="OutboundCollectionTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1788,11 +1794,11 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/outboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/outbound"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/outboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/outbound"/>
       </modelFacet>
     </childNodes>
     <childNodes
@@ -1827,9 +1833,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <modelElementSelector
             body="outboundPassThroughRouterConstraint"
             language="java"/>
@@ -1947,9 +1953,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/FilteringOutboundRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <modelElementSelector
             body="filteringRouterConstraint"
             language="java"/>
@@ -2006,9 +2012,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/FilteringOutboundRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <modelElementSelector
             body="chainingRouterConstraint"
             language="java"/>
@@ -2065,9 +2071,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/FilteringOutboundRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <modelElementSelector
             body="exceptionBasedRouterConstraint"
             language="java"/>
@@ -2124,9 +2130,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/FilteringOutboundRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <modelElementSelector
             body="multicastingRouterConstraint"
             language="java"/>
@@ -2183,9 +2189,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/FilteringOutboundRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <modelElementSelector
             body="templateEndpointRouterConstraint"
             language="java"/>
@@ -2242,9 +2248,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/EndpointSelectorRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <modelElementSelector
             body="endpointSelectorRouterConstraint"
             language="java"/>
@@ -2301,9 +2307,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/MessageSplitterOutboundRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <modelElementSelector
             body="listMessageSplitterRouterConstraint"
             language="java"/>
@@ -2360,9 +2366,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/ChunkingRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <modelElementSelector
             body="chunkingOutboundRouterConstraint"
             language="java"/>
@@ -2419,9 +2425,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/StaticRecipientListRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <modelElementSelector
             body="staticRecipientListRouterConstraint"
             language="java"/>
@@ -2478,9 +2484,9 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/CustomOutboundRouterType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterCollectionType/abstractOutboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType/abstractOutboundRouter"/>
         <modelElementSelector
             body="customOutboundRouterConstraint"
             language="java"/>
@@ -2731,10 +2737,10 @@
     </compartments>
     <compartments
         visualID="5009"
-        editPartClassName="InboundRouterCollectionTypeINBOUNDENDPOINTSEditPart"
-        itemSemanticEditPolicyClassName="InboundRouterCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy"
-        notationViewFactoryClassName="InboundRouterCollectionTypeINBOUNDENDPOINTSViewFactory"
-        canonicalEditPolicyClassName="InboundRouterCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy"
+        editPartClassName="InboundCollectionTypeINBOUNDENDPOINTSEditPart"
+        itemSemanticEditPolicyClassName="InboundCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy"
+        notationViewFactoryClassName="InboundCollectionTypeINBOUNDENDPOINTSViewFactory"
+        canonicalEditPolicyClassName="InboundCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.13"
         title="INBOUNDENDPOINTS"
         canCollapse="false"
@@ -2750,10 +2756,10 @@
     </compartments>
     <compartments
         visualID="5010"
-        editPartClassName="InboundRouterCollectionTypeINBOUNDROUTERSEditPart"
-        itemSemanticEditPolicyClassName="InboundRouterCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy"
-        notationViewFactoryClassName="InboundRouterCollectionTypeINBOUNDROUTERSViewFactory"
-        canonicalEditPolicyClassName="InboundRouterCollectionTypeINBOUNDROUTERSCanonicalEditPolicy"
+        editPartClassName="InboundCollectionTypeINBOUNDROUTERSEditPart"
+        itemSemanticEditPolicyClassName="InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy"
+        notationViewFactoryClassName="InboundCollectionTypeINBOUNDROUTERSViewFactory"
+        canonicalEditPolicyClassName="InboundCollectionTypeINBOUNDROUTERSCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.14 //@diagram/@childNodes.15 //@diagram/@childNodes.16 //@diagram/@childNodes.17 //@diagram/@childNodes.18 //@diagram/@childNodes.19 //@diagram/@childNodes.20 //@diagram/@childNodes.21 //@diagram/@childNodes.22 //@diagram/@childNodes.23"
         title="INBOUNDROUTERS"
         canCollapse="false"
@@ -2769,10 +2775,10 @@
     </compartments>
     <compartments
         visualID="5011"
-        editPartClassName="AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSEditPart"
-        itemSemanticEditPolicyClassName="AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy"
-        notationViewFactoryClassName="AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSViewFactory"
-        canonicalEditPolicyClassName="AsyncReplyRouterCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy"
+        editPartClassName="AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart"
+        itemSemanticEditPolicyClassName="AsyncReplyCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy"
+        notationViewFactoryClassName="AsyncReplyCollectionTypeINBOUNDENDPOINTSViewFactory"
+        canonicalEditPolicyClassName="AsyncReplyCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.25"
         title="INBOUNDENDPOINTS"
         canCollapse="false"
@@ -2788,10 +2794,10 @@
     </compartments>
     <compartments
         visualID="5012"
-        editPartClassName="AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSEditPart"
-        itemSemanticEditPolicyClassName="AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSItemSemanticEditPolicy"
-        notationViewFactoryClassName="AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSViewFactory"
-        canonicalEditPolicyClassName="AsyncReplyRouterCollectionTypeASYNCREPLYROUTERSCanonicalEditPolicy"
+        editPartClassName="AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart"
+        itemSemanticEditPolicyClassName="AsyncReplyCollectionTypeASYNCREPLYROUTERSItemSemanticEditPolicy"
+        notationViewFactoryClassName="AsyncReplyCollectionTypeASYNCREPLYROUTERSViewFactory"
+        canonicalEditPolicyClassName="AsyncReplyCollectionTypeASYNCREPLYROUTERSCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.26 //@diagram/@childNodes.27"
         title="ASYNCREPLYROUTERS"
         canCollapse="false"
@@ -2807,10 +2813,10 @@
     </compartments>
     <compartments
         visualID="5013"
-        editPartClassName="OutboundRouterCollectionTypeOUTBOUNDROUTERSEditPart"
-        itemSemanticEditPolicyClassName="OutboundRouterCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy"
-        notationViewFactoryClassName="OutboundRouterCollectionTypeOUTBOUNDROUTERSViewFactory"
-        canonicalEditPolicyClassName="OutboundRouterCollectionTypeOUTBOUNDROUTERSCanonicalEditPolicy"
+        editPartClassName="OutboundCollectionTypeOUTBOUNDROUTERSEditPart"
+        itemSemanticEditPolicyClassName="OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy"
+        notationViewFactoryClassName="OutboundCollectionTypeOUTBOUNDROUTERSViewFactory"
+        canonicalEditPolicyClassName="OutboundCollectionTypeOUTBOUNDROUTERSCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.29 //@diagram/@childNodes.31 //@diagram/@childNodes.32 //@diagram/@childNodes.33 //@diagram/@childNodes.34 //@diagram/@childNodes.35 //@diagram/@childNodes.36 //@diagram/@childNodes.37 //@diagram/@childNodes.38 //@diagram/@childNodes.39 //@diagram/@childNodes.40"
         title="OUTBOUNDROUTERS"
         canCollapse="false"
@@ -3103,8 +3109,8 @@
             xsi:type="gmfgen:Separator"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Aggregator Router"
-            description="Add a new Correlation Aggregator Router to a service"
+            title="Custom Correlation Aggregator Router"
+            description="Add a new Custom Correlation Aggregator Router to a service"
             genNodes="//@diagram/@childNodes.22"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
@@ -3138,7 +3144,7 @@
             genNodes="//@diagram/@childNodes.16"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Resequencer Router"
+            title="Correlation Resequencer Router"
             description="Add a new Correlation Resequencer Router to a service"
             genNodes="//@diagram/@childNodes.21"/>
         <entries
@@ -3456,6 +3462,6 @@
   <expressionProviders>
     <providers
         xsi:type="gmfgen:GenJavaExpressionProvider"
-        expressions="//@diagram/@childNodes.2/@modelFacet/@modelElementSelector //@diagram/@childNodes.3/@modelFacet/@modelElementSelector //@diagram/@childNodes.4/@modelFacet/@modelElementSelector //@diagram/@childNodes.5/@modelFacet/@modelElementSelector //@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.8/@modelFacet/@modelElementSelector //@diagram/@childNodes.10/@modelFacet/@modelElementSelector //@diagram/@childNodes.15/@modelFacet/@modelElementSelector //@diagram/@childNodes.16/@modelFacet/@modelElementSelector //@diagram/@childNodes.20/@modelFacet/@modelElementSelector //@diagram/@childNodes.21/@modelFacet/@modelElementSelector //@diagram/@childNodes.26/@modelFacet/@modelElementSelector //@diagram/@childNodes.29/@modelFacet/@modelElementSelector //@diagram/@childNodes.31/@modelFacet/@modelElementSelector //@diagram/@childNodes.32/@modelFacet/@modelElementSelector //@diagram/@childNodes.33/@modelFacet/@modelElementSelector //@diagram/@childNodes.34/@modelFacet/@modelElementSelector //@diagram/@childNodes.35/@modelFacet/@modelElementSelector //@diagram/@childNodes.36/@modelFacet/@modelElementSelector //@diagram/@childNodes.37/@modelFacet/@modelElementSelector //@diagram/@childNodes.38/@modelFacet/@modelElementSelector //@diagram/@childNodes.39/@modelFacet/@modelElementSelector //@diagram/@childNodes.40/@modelFacet/@modelElementSelector"/>
+        expressions="//@diagram/@childNodes.2/@modelFacet/@modelElementSelector //@diagram/@childNodes.3/@modelFacet/@modelElementSelector //@diagram/@childNodes.4/@modelFacet/@modelElementSelector //@diagram/@childNodes.5/@modelFacet/@modelElementSelector //@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.8/@modelFacet/@modelElementSelector //@diagram/@childNodes.10/@modelFacet/@modelElementSelector //@diagram/@childNodes.15/@modelFacet/@modelElementSelector //@diagram/@childNodes.16/@modelFacet/@modelElementSelector //@diagram/@childNodes.19/@modelFacet/@modelElementSelector //@diagram/@childNodes.20/@modelFacet/@modelElementSelector //@diagram/@childNodes.21/@modelFacet/@modelElementSelector //@diagram/@childNodes.22/@modelFacet/@modelElementSelector //@diagram/@childNodes.26/@modelFacet/@modelElementSelector //@diagram/@childNodes.29/@modelFacet/@modelElementSelector //@diagram/@childNodes.31/@modelFacet/@modelElementSelector //@diagram/@childNodes.32/@modelFacet/@modelElementSelector //@diagram/@childNodes.33/@modelFacet/@modelElementSelector //@diagram/@childNodes.34/@modelFacet/@modelElementSelector //@diagram/@childNodes.35/@modelFacet/@modelElementSelector //@diagram/@childNodes.36/@modelFacet/@modelElementSelector //@diagram/@childNodes.37/@modelFacet/@modelElementSelector //@diagram/@childNodes.38/@modelFacet/@modelElementSelector //@diagram/@childNodes.39/@modelFacet/@modelElementSelector //@diagram/@childNodes.40/@modelFacet/@modelElementSelector"/>
   </expressionProviders>
 </gmfgen:GenEditorGenerator>

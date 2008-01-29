@@ -56,7 +56,7 @@
             href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractComponent"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.mule.ide.config.core/model/core.ecore#//NoArgsCallComponentType"/>
+              href="../../org.mule.ide.config.core/model/core.ecore#//PojoComponentType"/>
           <labelMappings
               readOnly="true">
             <diagramLabel
@@ -331,16 +331,16 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.2">
         <containmentFeature
-            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/inboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/inbound"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType"/>
+              href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType"/>
           <diagramNode
-              href="services.gmfgraph#InboundRouterCollectionType"/>
+              href="services.gmfgraph#InboundCollectionType"/>
           <children
               compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundEndpoint"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundEndpoint"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//InboundEndpointType"/>
@@ -373,7 +373,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//ForwardingRouterType"/>
@@ -392,7 +392,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//FilteredInboundRouterType"/>
@@ -414,7 +414,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//FilteredInboundRouterType"/>
@@ -436,10 +436,10 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
-                  href="../../org.mule.ide.config.core/model/core.ecore#//IdempotentReceiverType"/>
+                  href="../../org.mule.ide.config.core/model/core.ecore#//IdempotentReceiverRouterType"/>
               <labelMappings
                   readOnly="true">
                 <diagramLabel
@@ -455,7 +455,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//WireTapRouterType"/>
@@ -474,10 +474,13 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//SelectiveConsumerRouterType"/>
+              <domainSpecialization
+                  body="selectiveConsumerRouterConstraint"
+                  language="java"/>
               <labelMappings
                   readOnly="true">
                 <diagramLabel
@@ -493,10 +496,10 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
-                  href="../../org.mule.ide.config.core/model/core.ecore#//CorrelationRouterType"/>
+                  href="../../org.mule.ide.config.core/model/core.ecore#//MessageChunkingAggregatorRouterType"/>
               <domainSpecialization
                   body="messageChunkingAggregatorRouterConstraint"
                   language="java"/>
@@ -515,10 +518,10 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
-                  href="../../org.mule.ide.config.core/model/core.ecore#//CorrelationRouterType"/>
+                  href="../../org.mule.ide.config.core/model/core.ecore#//SelectiveConsumerRouterType"/>
               <domainSpecialization
                   body="correlationResequencerRouterConstraint"
                   language="java"/>
@@ -537,10 +540,13 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
-                  href="../../org.mule.ide.config.core/model/core.ecore#//CorrelationAggregatorRouterType"/>
+                  href="../../org.mule.ide.config.core/model/core.ecore#//CustomCorrelationAggregatorRouterType"/>
+              <domainSpecialization
+                  body="customCorrelationAggregatorRouterConstraint"
+                  language="java"/>
               <labelMappings
                   readOnly="true">
                 <diagramLabel
@@ -552,7 +558,7 @@
                 <diagramLabel
                     href="services.gmfgraph#ClassServiceItemClassLabel"/>
                 <features
-                    href="../../org.mule.ide.config.core/model/core.ecore#//CorrelationAggregatorRouterType/class"/>
+                    href="../../org.mule.ide.config.core/model/core.ecore#//CustomCorrelationAggregatorRouterType/class"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
@@ -564,7 +570,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//InboundRouterCollectionType/abstractInboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//CustomInboundRouterType"/>
@@ -602,22 +608,22 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.3">
         <containmentFeature
-            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/asyncReplyRouter"/>
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/asyncReply"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyRouterCollectionType"/>
+              href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyCollectionType"/>
           <diagramNode
-              href="services.gmfgraph#AsyncReplyRouterCollectionType"/>
+              href="services.gmfgraph#AsyncReplyCollectionType"/>
           <children
               compartment="//@nodes.0/@ownedChild/@children.12/@ownedChild/@compartments.0"
               referencedChild="//@nodes.0/@ownedChild/@children.11/@ownedChild/@children.0/@ownedChild">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyRouterCollectionType/abstractInboundEndpoint"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyCollectionType/abstractInboundEndpoint"/>
           </children>
           <children
               compartment="//@nodes.0/@ownedChild/@children.12/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyRouterCollectionType/abstractAsyncReplyRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyCollectionType/abstractAsyncReplyRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyRouterType"/>
@@ -639,7 +645,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.12/@ownedChild/@compartments.1">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyRouterCollectionType/abstractAsyncReplyRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyCollectionType/abstractAsyncReplyRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//CustomAsyncReplyRouterType"/>
@@ -677,16 +683,16 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.4">
         <containmentFeature
-            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/outboundRouter"/>
+            href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/outbound"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType"/>
+              href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType"/>
           <diagramNode
-              href="services.gmfgraph#OutboundRouterCollectionType"/>
+              href="services.gmfgraph#OutboundCollectionType"/>
           <children
               compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType/abstractOutboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType/abstractOutboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterType"/>
@@ -719,7 +725,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType/abstractOutboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType/abstractOutboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//FilteringOutboundRouterType"/>
@@ -752,7 +758,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType/abstractOutboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType/abstractOutboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//FilteringOutboundRouterType"/>
@@ -785,7 +791,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType/abstractOutboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType/abstractOutboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//FilteringOutboundRouterType"/>
@@ -818,7 +824,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType/abstractOutboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType/abstractOutboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//FilteringOutboundRouterType"/>
@@ -851,7 +857,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType/abstractOutboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType/abstractOutboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//FilteringOutboundRouterType"/>
@@ -884,7 +890,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType/abstractOutboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType/abstractOutboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//EndpointSelectorRouterType"/>
@@ -917,7 +923,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType/abstractOutboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType/abstractOutboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//MessageSplitterOutboundRouterType"/>
@@ -950,7 +956,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType/abstractOutboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType/abstractOutboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//ChunkingRouterType"/>
@@ -983,7 +989,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType/abstractOutboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType/abstractOutboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//StaticRecipientListRouterType"/>
@@ -1016,7 +1022,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.13/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundRouterCollectionType/abstractOutboundRouter"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//OutboundCollectionType/abstractOutboundRouter"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//CustomOutboundRouterType"/>

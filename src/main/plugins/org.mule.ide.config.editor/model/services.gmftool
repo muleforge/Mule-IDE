@@ -44,15 +44,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="No Args Call Component"
-          description="Add a new No Args Call Component to a service">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="Log Component"
           description="Add a new Log Component to a service">
         <smallIcon
@@ -137,8 +128,17 @@
           xsi:type="gmftool:PaletteSeparator"/>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Custom Correlation Aggregator Router"
-          description="Add a new Custom Correlation Aggregator Router to a service">
+          title="Correlation Aggregator Router"
+          description="Add a new Correlation Aggregator Router to a service">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Correlation Resequencer Router"
+          description="Add a new Correlation Resequencer Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -193,15 +193,6 @@
           xsi:type="gmftool:CreationTool"
           title="Pass Through Inbound Router"
           description="Add a new Pass Through Router to a service">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Correlation Resequencer Router"
-          description="Add a new Correlation Resequencer Router to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

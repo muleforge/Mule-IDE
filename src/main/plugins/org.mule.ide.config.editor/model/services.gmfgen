@@ -102,78 +102,6 @@
     </childNodes>
     <childNodes
         visualID="2002"
-        editPartClassName="NoArgsCallComponentTypeEditPart"
-        itemSemanticEditPolicyClassName="NoArgsCallComponentTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="NoArgsCallComponentTypeViewFactory"
-        canonicalEditPolicyClassName="NoArgsCallComponentTypeCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="NoArgsCallComponentTypeGraphicalNodeEditPolicy"
-        createCommandClassName="NoArgsCallComponentTypeCreateCommand"
-        containers="//@diagram/@compartments.0">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.0/@elementType"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="TOOLBAR_LAYOUT"
-          className="ClassServiceItemFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ClassServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureClassServiceItemTypeLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureClassServiceItemClassLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ClassServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureClassServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureClassServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureClassServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureClassServiceItemTypeLabelFigure.setFont(FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureClassServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#xA;fFigureClassServiceItemClassLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureClassServiceItemClassLabelFigure.setText(&quot;&quot;);&#xA;&#xA;fFigureClassServiceItemClassLabelFigure.setFont(FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;fFigureClassServiceItemClassLabelFigure.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;this.add(fFigureClassServiceItemClassLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureClassServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureClassServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureClassServiceItemClassLabelFigure() {&#xA;&#x9;&#x9;return fFigureClassServiceItemClassLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 250, 250, 190);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 8, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 10, org.eclipse.swt.SWT.NORMAL);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            height="10"/>
-        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/PojoComponentType"/>
-        <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractComponent"/>
-        <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractComponent"/>
-      </modelFacet>
-      <labels
-          visualID="4003"
-          editPartClassName="NoArgsCallComponentTypeLabelEditPart"
-          itemSemanticEditPolicyClassName="NoArgsCallComponentTypeLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="NoArgsCallComponentTypeLabelViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureClassServiceItemTypeLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"
-              fixedForeground="true"/>
-        </viewmap>
-      </labels>
-      <labels
-          visualID="4004"
-          editPartClassName="NoArgsCallComponentTypeClassEditPart"
-          itemSemanticEditPolicyClassName="NoArgsCallComponentTypeClassItemSemanticEditPolicy"
-          notationViewFactoryClassName="NoArgsCallComponentTypeClassViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureClassServiceItemClassLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedFont="true"/>
-        </viewmap>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="2003"
         editPartClassName="DefaultComponentTypeEditPart"
         itemSemanticEditPolicyClassName="DefaultComponentTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="DefaultComponentTypeViewFactory"
@@ -211,7 +139,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4005"
+          visualID="4003"
           editPartClassName="DefaultComponentTypeLabelEditPart"
           itemSemanticEditPolicyClassName="DefaultComponentTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="DefaultComponentTypeLabelViewFactory"
@@ -231,7 +159,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2004"
+        visualID="2003"
         editPartClassName="BridgeComponentTypeEditPart"
         itemSemanticEditPolicyClassName="BridgeComponentTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="BridgeComponentTypeViewFactory"
@@ -243,7 +171,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.2/@elementType"/>
+          metamodelType="//@diagram/@childNodes.1/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -269,7 +197,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4006"
+          visualID="4004"
           editPartClassName="BridgeComponentTypeLabelEditPart"
           itemSemanticEditPolicyClassName="BridgeComponentTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="BridgeComponentTypeLabelViewFactory"
@@ -289,7 +217,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2005"
+        visualID="2004"
         editPartClassName="EchoComponentTypeEditPart"
         itemSemanticEditPolicyClassName="EchoComponentTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="EchoComponentTypeViewFactory"
@@ -301,7 +229,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.2/@elementType"/>
+          metamodelType="//@diagram/@childNodes.1/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -327,7 +255,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4007"
+          visualID="4005"
           editPartClassName="EchoComponentTypeLabelEditPart"
           itemSemanticEditPolicyClassName="EchoComponentTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="EchoComponentTypeLabelViewFactory"
@@ -347,7 +275,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2006"
+        visualID="2005"
         editPartClassName="LogComponentTypeEditPart"
         itemSemanticEditPolicyClassName="LogComponentTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="LogComponentTypeViewFactory"
@@ -359,7 +287,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.2/@elementType"/>
+          metamodelType="//@diagram/@childNodes.1/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -385,7 +313,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4008"
+          visualID="4006"
           editPartClassName="LogComponentTypeLabelEditPart"
           itemSemanticEditPolicyClassName="LogComponentTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="LogComponentTypeLabelViewFactory"
@@ -405,7 +333,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2007"
+        visualID="2006"
         editPartClassName="NullComponentTypeEditPart"
         itemSemanticEditPolicyClassName="NullComponentTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="NullComponentTypeViewFactory"
@@ -417,7 +345,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.2/@elementType"/>
+          metamodelType="//@diagram/@childNodes.1/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -443,7 +371,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4009"
+          visualID="4007"
           editPartClassName="NullComponentTypeLabelEditPart"
           itemSemanticEditPolicyClassName="NullComponentTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="NullComponentTypeLabelViewFactory"
@@ -463,7 +391,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2008"
+        visualID="2007"
         editPartClassName="PassThroughComponentTypeEditPart"
         itemSemanticEditPolicyClassName="PassThroughComponentTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="PassThroughComponentTypeViewFactory"
@@ -475,7 +403,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.2/@elementType"/>
+          metamodelType="//@diagram/@childNodes.1/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -501,7 +429,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4010"
+          visualID="4008"
           editPartClassName="PassThroughComponentTypeLabelEditPart"
           itemSemanticEditPolicyClassName="PassThroughComponentTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="PassThroughComponentTypeLabelViewFactory"
@@ -521,7 +449,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2009"
+        visualID="2008"
         editPartClassName="DefaultServiceExceptionStrategyTypeEditPart"
         itemSemanticEditPolicyClassName="DefaultServiceExceptionStrategyTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="DefaultServiceExceptionStrategyTypeViewFactory"
@@ -560,7 +488,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4012"
+          visualID="4010"
           editPartClassName="DefaultServiceExceptionStrategyTypeLabelEditPart"
           itemSemanticEditPolicyClassName="DefaultServiceExceptionStrategyTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="DefaultServiceExceptionStrategyTypeLabelViewFactory"
@@ -580,7 +508,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2010"
+        visualID="2009"
         editPartClassName="OutboundEndpointTypeEditPart"
         itemSemanticEditPolicyClassName="OutboundEndpointTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="OutboundEndpointTypeViewFactory"
@@ -612,7 +540,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType/abstractOutboundEndpoint"/>
       </modelFacet>
       <labels
-          visualID="4011"
+          visualID="4009"
           editPartClassName="OutboundEndpointTypeNameEditPart"
           itemSemanticEditPolicyClassName="OutboundEndpointTypeNameItemSemanticEditPolicy"
           notationViewFactoryClassName="OutboundEndpointTypeNameViewFactory"
@@ -641,7 +569,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2011"
+        visualID="2010"
         editPartClassName="DefaultConnectorExceptionStrategyTypeEditPart"
         itemSemanticEditPolicyClassName="DefaultConnectorExceptionStrategyTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="DefaultConnectorExceptionStrategyTypeViewFactory"
@@ -654,7 +582,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.8/@elementType"/>
+          metamodelType="//@diagram/@childNodes.7/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -680,7 +608,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4013"
+          visualID="4011"
           editPartClassName="DefaultConnectorExceptionStrategyTypeLabelEditPart"
           itemSemanticEditPolicyClassName="DefaultConnectorExceptionStrategyTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="DefaultConnectorExceptionStrategyTypeLabelViewFactory"
@@ -700,7 +628,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2012"
+        visualID="2011"
         editPartClassName="CustomExceptionStrategyTypeEditPart"
         itemSemanticEditPolicyClassName="CustomExceptionStrategyTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomExceptionStrategyTypeViewFactory"
@@ -736,7 +664,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractExceptionStrategy"/>
       </modelFacet>
       <labels
-          visualID="4014"
+          visualID="4012"
           editPartClassName="CustomExceptionStrategyTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CustomExceptionStrategyTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomExceptionStrategyTypeLabelViewFactory"
@@ -755,7 +683,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4015"
+          visualID="4013"
           editPartClassName="CustomExceptionStrategyTypeClassEditPart"
           itemSemanticEditPolicyClassName="CustomExceptionStrategyTypeClassItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomExceptionStrategyTypeClassViewFactory">
@@ -777,7 +705,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2013"
+        visualID="2012"
         editPartClassName="InboundCollectionTypeEditPart"
         itemSemanticEditPolicyClassName="InboundCollectionTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="InboundCollectionTypeViewFactory"
@@ -815,7 +743,7 @@
       </modelFacet>
     </childNodes>
     <childNodes
-        visualID="2014"
+        visualID="2013"
         editPartClassName="InboundEndpointServiceItemTypeEditPart"
         itemSemanticEditPolicyClassName="InboundEndpointServiceItemTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="InboundEndpointServiceItemTypeViewFactory"
@@ -850,7 +778,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundEndpoint"/>
       </modelFacet>
       <labels
-          visualID="4016"
+          visualID="4014"
           editPartClassName="InboundEndpointServiceItemTypeLabelEditPart"
           itemSemanticEditPolicyClassName="InboundEndpointServiceItemTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="InboundEndpointServiceItemTypeLabelViewFactory"
@@ -869,7 +797,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4017"
+          visualID="4015"
           editPartClassName="InboundEndpointServiceItemEndpointNameEditPart"
           itemSemanticEditPolicyClassName="InboundEndpointServiceItemEndpointNameItemSemanticEditPolicy"
           notationViewFactoryClassName="InboundEndpointServiceItemEndpointNameViewFactory"
@@ -898,7 +826,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2015"
+        visualID="2014"
         editPartClassName="ForwardingRouterTypeEditPart"
         itemSemanticEditPolicyClassName="ForwardingRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="ForwardingRouterTypeViewFactory"
@@ -933,7 +861,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
       </modelFacet>
       <labels
-          visualID="4018"
+          visualID="4016"
           editPartClassName="ForwardingRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="ForwardingRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="ForwardingRouterTypeLabelViewFactory"
@@ -953,7 +881,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2016"
+        visualID="2015"
         editPartClassName="IdempotentSecureRecieverRouterTypeEditPart"
         itemSemanticEditPolicyClassName="IdempotentSecureRecieverRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="IdempotentSecureRecieverRouterTypeViewFactory"
@@ -991,7 +919,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4019"
+          visualID="4017"
           editPartClassName="IdempotentSecureRecieverRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="IdempotentSecureRecieverRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="IdempotentSecureRecieverRouterTypeLabelViewFactory"
@@ -1011,7 +939,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2017"
+        visualID="2016"
         editPartClassName="PassThroughInboundRouterTypeEditPart"
         itemSemanticEditPolicyClassName="PassThroughInboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="PassThroughInboundRouterTypeViewFactory"
@@ -1023,7 +951,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.15/@elementType"/>
+          metamodelType="//@diagram/@childNodes.14/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1049,7 +977,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4020"
+          visualID="4018"
           editPartClassName="PassThroughInboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="PassThroughInboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="PassThroughInboundRouterTypeLabelViewFactory"
@@ -1069,7 +997,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2018"
+        visualID="2017"
         editPartClassName="IdempotentReceiverRouterTypeEditPart"
         itemSemanticEditPolicyClassName="IdempotentReceiverRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="IdempotentReceiverRouterTypeViewFactory"
@@ -1104,7 +1032,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
       </modelFacet>
       <labels
-          visualID="4021"
+          visualID="4019"
           editPartClassName="IdempotentReceiverRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="IdempotentReceiverRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="IdempotentReceiverRouterTypeLabelViewFactory"
@@ -1124,7 +1052,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2019"
+        visualID="2018"
         editPartClassName="WireTapRouterTypeEditPart"
         itemSemanticEditPolicyClassName="WireTapRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="WireTapRouterTypeViewFactory"
@@ -1159,7 +1087,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
       </modelFacet>
       <labels
-          visualID="4022"
+          visualID="4020"
           editPartClassName="WireTapRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="WireTapRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="WireTapRouterTypeLabelViewFactory"
@@ -1179,7 +1107,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2020"
+        visualID="2019"
         editPartClassName="SelectiveConsumerRouterTypeEditPart"
         itemSemanticEditPolicyClassName="SelectiveConsumerRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="SelectiveConsumerRouterTypeViewFactory"
@@ -1217,7 +1145,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4023"
+          visualID="4021"
           editPartClassName="SelectiveConsumerRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="SelectiveConsumerRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="SelectiveConsumerRouterTypeLabelViewFactory"
@@ -1237,7 +1165,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2021"
+        visualID="2020"
         editPartClassName="ChunkingInboundRouterTypeEditPart"
         itemSemanticEditPolicyClassName="ChunkingInboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="ChunkingInboundRouterTypeViewFactory"
@@ -1249,7 +1177,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="CorrelationRouterTypeEditHelper"/>
+          editHelperClassName="ChunkingInboundRouterTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1275,7 +1203,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4024"
+          visualID="4022"
           editPartClassName="ChunkingInboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="ChunkingInboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="ChunkingInboundRouterTypeLabelViewFactory"
@@ -1295,7 +1223,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2022"
+        visualID="2021"
         editPartClassName="CorrelationResequencerRouterTypeEditPart"
         itemSemanticEditPolicyClassName="CorrelationResequencerRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="CorrelationResequencerRouterTypeViewFactory"
@@ -1307,7 +1235,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.19/@elementType"/>
+          metamodelType="//@diagram/@childNodes.18/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1333,7 +1261,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4025"
+          visualID="4023"
           editPartClassName="CorrelationResequencerRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CorrelationResequencerRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CorrelationResequencerRouterTypeLabelViewFactory"
@@ -1353,7 +1281,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2023"
+        visualID="2022"
         editPartClassName="CustomCorrelationAggregatorRouterTypeEditPart"
         itemSemanticEditPolicyClassName="CustomCorrelationAggregatorRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomCorrelationAggregatorRouterTypeViewFactory"
@@ -1391,7 +1319,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4026"
+          visualID="4024"
           editPartClassName="CustomCorrelationAggregatorRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CustomCorrelationAggregatorRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomCorrelationAggregatorRouterTypeLabelViewFactory"
@@ -1410,7 +1338,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4027"
+          visualID="4025"
           editPartClassName="CustomCorrelationAggregatorRouterTypeClassEditPart"
           itemSemanticEditPolicyClassName="CustomCorrelationAggregatorRouterTypeClassItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomCorrelationAggregatorRouterTypeClassViewFactory">
@@ -1433,7 +1361,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2024"
+        visualID="2023"
         editPartClassName="CustomInboundRouterTypeEditPart"
         itemSemanticEditPolicyClassName="CustomInboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomInboundRouterTypeViewFactory"
@@ -1468,7 +1396,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
       </modelFacet>
       <labels
-          visualID="4028"
+          visualID="4026"
           editPartClassName="CustomInboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CustomInboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomInboundRouterTypeLabelViewFactory"
@@ -1487,7 +1415,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4029"
+          visualID="4027"
           editPartClassName="CustomInboundRouterTypeClassEditPart"
           itemSemanticEditPolicyClassName="CustomInboundRouterTypeClassItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomInboundRouterTypeClassViewFactory">
@@ -1509,7 +1437,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2025"
+        visualID="2024"
         editPartClassName="AsyncReplyCollectionTypeEditPart"
         itemSemanticEditPolicyClassName="AsyncReplyCollectionTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="AsyncReplyCollectionTypeViewFactory"
@@ -1522,7 +1450,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="AsyncReplyRouterCollectionTypeEditHelper"/>
+          editHelperClassName="AsyncReplyCollectionTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1547,7 +1475,7 @@
       </modelFacet>
     </childNodes>
     <childNodes
-        visualID="2026"
+        visualID="2025"
         editPartClassName="AsyncReplyInboundEndpointServiceItemTypeEditPart"
         itemSemanticEditPolicyClassName="AsyncReplyInboundEndpointServiceItemTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="AsyncReplyInboundEndpointServiceItemTypeViewFactory"
@@ -1559,7 +1487,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.13/@elementType"/>
+          metamodelType="//@diagram/@childNodes.12/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1582,7 +1510,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyCollectionType/abstractInboundEndpoint"/>
       </modelFacet>
       <labels
-          visualID="4030"
+          visualID="4028"
           editPartClassName="AsyncReplyInboundEndpointServiceItemTypeLabelEditPart"
           itemSemanticEditPolicyClassName="AsyncReplyInboundEndpointServiceItemTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="AsyncReplyInboundEndpointServiceItemTypeLabelViewFactory"
@@ -1601,7 +1529,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4031"
+          visualID="4029"
           editPartClassName="AsyncReplyInboundEndpointServiceItemEndpointNameEditPart"
           itemSemanticEditPolicyClassName="AsyncReplyInboundEndpointServiceItemEndpointNameItemSemanticEditPolicy"
           notationViewFactoryClassName="AsyncReplyInboundEndpointServiceItemEndpointNameViewFactory"
@@ -1630,7 +1558,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2027"
+        visualID="2026"
         editPartClassName="AsyncReplyRouterTypeEditPart"
         itemSemanticEditPolicyClassName="AsyncReplyRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="AsyncReplyRouterTypeViewFactory"
@@ -1668,7 +1596,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4032"
+          visualID="4030"
           editPartClassName="AsyncReplyRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="AsyncReplyRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="AsyncReplyRouterTypeLabelViewFactory"
@@ -1688,7 +1616,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2028"
+        visualID="2027"
         editPartClassName="CustomAsyncReplyRouterTypeEditPart"
         itemSemanticEditPolicyClassName="CustomAsyncReplyRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomAsyncReplyRouterTypeViewFactory"
@@ -1723,7 +1651,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyCollectionType/abstractAsyncReplyRouter"/>
       </modelFacet>
       <labels
-          visualID="4033"
+          visualID="4031"
           editPartClassName="CustomAsyncReplyRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CustomAsyncReplyRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomAsyncReplyRouterTypeLabelViewFactory"
@@ -1742,7 +1670,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4034"
+          visualID="4032"
           editPartClassName="CustomAsyncReplyRouterTypeClassEditPart"
           itemSemanticEditPolicyClassName="CustomAsyncReplyRouterTypeClassItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomAsyncReplyRouterTypeClassViewFactory">
@@ -1764,7 +1692,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2029"
+        visualID="2028"
         editPartClassName="OutboundCollectionTypeEditPart"
         itemSemanticEditPolicyClassName="OutboundCollectionTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="OutboundCollectionTypeViewFactory"
@@ -1802,7 +1730,7 @@
       </modelFacet>
     </childNodes>
     <childNodes
-        visualID="2030"
+        visualID="2029"
         editPartClassName="PassThroughOutboundRouterTypeEditPart"
         itemSemanticEditPolicyClassName="PassThroughOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="PassThroughOutboundRouterTypeViewFactory"
@@ -1841,7 +1769,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4036"
+          visualID="4034"
           editPartClassName="PassThroughOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="PassThroughOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="PassThroughOutboundRouterTypeLabelViewFactory"
@@ -1861,7 +1789,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2031"
+        visualID="2030"
         editPartClassName="OutboundRouterOutboundEndpointTypeEditPart"
         itemSemanticEditPolicyClassName="OutboundRouterOutboundEndpointTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="OutboundRouterOutboundEndpointTypeViewFactory"
@@ -1873,7 +1801,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.9/@elementType"/>
+          metamodelType="//@diagram/@childNodes.8/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1893,7 +1821,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterType/abstractOutboundEndpoint"/>
       </modelFacet>
       <labels
-          visualID="4035"
+          visualID="4033"
           editPartClassName="OutboundRouterOutboundEndpointTypeNameEditPart"
           itemSemanticEditPolicyClassName="OutboundRouterOutboundEndpointTypeNameItemSemanticEditPolicy"
           notationViewFactoryClassName="OutboundRouterOutboundEndpointTypeNameViewFactory"
@@ -1922,7 +1850,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2032"
+        visualID="2031"
         editPartClassName="FilteringOutboundRouterTypeEditPart"
         itemSemanticEditPolicyClassName="FilteringOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="FilteringOutboundRouterTypeViewFactory"
@@ -1961,7 +1889,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4037"
+          visualID="4035"
           editPartClassName="FilteringOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="FilteringOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="FilteringOutboundRouterTypeLabelViewFactory"
@@ -1981,7 +1909,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2033"
+        visualID="2032"
         editPartClassName="ChainingOutboundRouterTypeEditPart"
         itemSemanticEditPolicyClassName="ChainingOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="ChainingOutboundRouterTypeViewFactory"
@@ -1994,7 +1922,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.31/@elementType"/>
+          metamodelType="//@diagram/@childNodes.30/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -2020,7 +1948,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4038"
+          visualID="4036"
           editPartClassName="ChainingOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="ChainingOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="ChainingOutboundRouterTypeLabelViewFactory"
@@ -2040,7 +1968,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2034"
+        visualID="2033"
         editPartClassName="ExceptionOutboundRouterTypeEditPart"
         itemSemanticEditPolicyClassName="ExceptionOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="ExceptionOutboundRouterTypeViewFactory"
@@ -2053,7 +1981,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.31/@elementType"/>
+          metamodelType="//@diagram/@childNodes.30/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -2079,7 +2007,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4039"
+          visualID="4037"
           editPartClassName="ExceptionOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="ExceptionOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="ExceptionOutboundRouterTypeLabelViewFactory"
@@ -2099,7 +2027,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2035"
+        visualID="2034"
         editPartClassName="MulticastingOutboundRouterTypeEditPart"
         itemSemanticEditPolicyClassName="MulticastingOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="MulticastingOutboundRouterTypeViewFactory"
@@ -2112,7 +2040,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.31/@elementType"/>
+          metamodelType="//@diagram/@childNodes.30/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -2138,7 +2066,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4040"
+          visualID="4038"
           editPartClassName="MulticastingOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="MulticastingOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="MulticastingOutboundRouterTypeLabelViewFactory"
@@ -2158,7 +2086,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2036"
+        visualID="2035"
         editPartClassName="TemplateEndpointOutboundRouterTypeEditPart"
         itemSemanticEditPolicyClassName="TemplateEndpointOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="TemplateEndpointOutboundRouterTypeViewFactory"
@@ -2171,7 +2099,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.31/@elementType"/>
+          metamodelType="//@diagram/@childNodes.30/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -2197,7 +2125,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4041"
+          visualID="4039"
           editPartClassName="TemplateEndpointOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="TemplateEndpointOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="TemplateEndpointOutboundRouterTypeLabelViewFactory"
@@ -2217,7 +2145,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2037"
+        visualID="2036"
         editPartClassName="EndpointSelectorRouterTypeEditPart"
         itemSemanticEditPolicyClassName="EndpointSelectorRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="EndpointSelectorRouterTypeViewFactory"
@@ -2256,7 +2184,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4042"
+          visualID="4040"
           editPartClassName="EndpointSelectorRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="EndpointSelectorRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="EndpointSelectorRouterTypeLabelViewFactory"
@@ -2276,7 +2204,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2038"
+        visualID="2037"
         editPartClassName="MessageSplitterOutboundRouterTypeEditPart"
         itemSemanticEditPolicyClassName="MessageSplitterOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="MessageSplitterOutboundRouterTypeViewFactory"
@@ -2315,7 +2243,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4043"
+          visualID="4041"
           editPartClassName="MessageSplitterOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="MessageSplitterOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="MessageSplitterOutboundRouterTypeLabelViewFactory"
@@ -2335,7 +2263,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2039"
+        visualID="2038"
         editPartClassName="ChunkingRouterTypeEditPart"
         itemSemanticEditPolicyClassName="ChunkingRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="ChunkingRouterTypeViewFactory"
@@ -2374,7 +2302,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4044"
+          visualID="4042"
           editPartClassName="ChunkingRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="ChunkingRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="ChunkingRouterTypeLabelViewFactory"
@@ -2394,7 +2322,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2040"
+        visualID="2039"
         editPartClassName="StaticRecipientListRouterTypeEditPart"
         itemSemanticEditPolicyClassName="StaticRecipientListRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="StaticRecipientListRouterTypeViewFactory"
@@ -2433,7 +2361,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4045"
+          visualID="4043"
           editPartClassName="StaticRecipientListRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="StaticRecipientListRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="StaticRecipientListRouterTypeLabelViewFactory"
@@ -2453,7 +2381,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2041"
+        visualID="2040"
         editPartClassName="CustomOutboundRouterTypeEditPart"
         itemSemanticEditPolicyClassName="CustomOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomOutboundRouterTypeViewFactory"
@@ -2492,7 +2420,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4046"
+          visualID="4044"
           editPartClassName="CustomOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CustomOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomOutboundRouterTypeLabelViewFactory"
@@ -2511,7 +2439,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4047"
+          visualID="4045"
           editPartClassName="CustomOutboundRouterTypeClassEditPart"
           itemSemanticEditPolicyClassName="CustomOutboundRouterTypeClassItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomOutboundRouterTypeClassViewFactory">
@@ -2571,7 +2499,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/AbstractModelType/abstractService"/>
       </modelFacet>
       <labels
-          visualID="4048"
+          visualID="4046"
           editPartClassName="SedaServiceTypeNameEditPart"
           itemSemanticEditPolicyClassName="SedaServiceTypeNameItemSemanticEditPolicy"
           notationViewFactoryClassName="SedaServiceTypeNameViewFactory"
@@ -2602,7 +2530,7 @@
         itemSemanticEditPolicyClassName="SedaServiceTypeCOMPONENTItemSemanticEditPolicy"
         notationViewFactoryClassName="SedaServiceTypeCOMPONENTViewFactory"
         canonicalEditPolicyClassName="SedaServiceTypeCOMPONENTCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.7"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6"
         title="COMPONENT"
         node="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
@@ -2619,7 +2547,7 @@
         itemSemanticEditPolicyClassName="SedaServiceTypeEXCEPTIONItemSemanticEditPolicy"
         notationViewFactoryClassName="SedaServiceTypeEXCEPTIONViewFactory"
         canonicalEditPolicyClassName="SedaServiceTypeEXCEPTIONCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.8 //@diagram/@childNodes.10 //@diagram/@childNodes.11"
+        childNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.9 //@diagram/@childNodes.10"
         title="EXCEPTION"
         node="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
@@ -2636,7 +2564,7 @@
         itemSemanticEditPolicyClassName="SedaServiceTypeINBOUNDItemSemanticEditPolicy"
         notationViewFactoryClassName="SedaServiceTypeINBOUNDViewFactory"
         canonicalEditPolicyClassName="SedaServiceTypeINBOUNDCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.12"
+        childNodes="//@diagram/@childNodes.11"
         title="INBOUND"
         node="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
@@ -2653,7 +2581,7 @@
         itemSemanticEditPolicyClassName="SedaServiceTypeASYNCREPLYItemSemanticEditPolicy"
         notationViewFactoryClassName="SedaServiceTypeASYNCREPLYViewFactory"
         canonicalEditPolicyClassName="SedaServiceTypeASYNCREPLYCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.24"
+        childNodes="//@diagram/@childNodes.23"
         title="ASYNC REPLY"
         node="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
@@ -2670,7 +2598,7 @@
         itemSemanticEditPolicyClassName="SedaServiceTypeOUTBOUNDItemSemanticEditPolicy"
         notationViewFactoryClassName="SedaServiceTypeOUTBOUNDViewFactory"
         canonicalEditPolicyClassName="SedaServiceTypeOUTBOUNDCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.28"
+        childNodes="//@diagram/@childNodes.27"
         title="OUTBOUND"
         node="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
@@ -2687,10 +2615,10 @@
         itemSemanticEditPolicyClassName="DefaultServiceExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="DefaultServiceExceptionStrategyTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="DefaultServiceExceptionStrategyTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.9"
+        childNodes="//@diagram/@childNodes.8"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.8">
+        node="//@diagram/@childNodes.7">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2705,10 +2633,10 @@
         itemSemanticEditPolicyClassName="DefaultConnectorExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="DefaultConnectorExceptionStrategyTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="DefaultConnectorExceptionStrategyTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.9"
+        childNodes="//@diagram/@childNodes.8"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.10">
+        node="//@diagram/@childNodes.9">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2723,10 +2651,10 @@
         itemSemanticEditPolicyClassName="CustomExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomExceptionStrategyTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="CustomExceptionStrategyTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.9"
+        childNodes="//@diagram/@childNodes.8"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.11">
+        node="//@diagram/@childNodes.10">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2741,11 +2669,11 @@
         itemSemanticEditPolicyClassName="InboundCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="InboundCollectionTypeINBOUNDENDPOINTSViewFactory"
         canonicalEditPolicyClassName="InboundCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.13"
+        childNodes="//@diagram/@childNodes.12"
         title="INBOUNDENDPOINTS"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.12">
+        node="//@diagram/@childNodes.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2760,11 +2688,11 @@
         itemSemanticEditPolicyClassName="InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy"
         notationViewFactoryClassName="InboundCollectionTypeINBOUNDROUTERSViewFactory"
         canonicalEditPolicyClassName="InboundCollectionTypeINBOUNDROUTERSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.14 //@diagram/@childNodes.15 //@diagram/@childNodes.16 //@diagram/@childNodes.17 //@diagram/@childNodes.18 //@diagram/@childNodes.19 //@diagram/@childNodes.20 //@diagram/@childNodes.21 //@diagram/@childNodes.22 //@diagram/@childNodes.23"
+        childNodes="//@diagram/@childNodes.13 //@diagram/@childNodes.14 //@diagram/@childNodes.15 //@diagram/@childNodes.16 //@diagram/@childNodes.17 //@diagram/@childNodes.18 //@diagram/@childNodes.19 //@diagram/@childNodes.20 //@diagram/@childNodes.21 //@diagram/@childNodes.22"
         title="INBOUNDROUTERS"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.12">
+        node="//@diagram/@childNodes.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2779,11 +2707,11 @@
         itemSemanticEditPolicyClassName="AsyncReplyCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="AsyncReplyCollectionTypeINBOUNDENDPOINTSViewFactory"
         canonicalEditPolicyClassName="AsyncReplyCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.25"
+        childNodes="//@diagram/@childNodes.24"
         title="INBOUNDENDPOINTS"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.24">
+        node="//@diagram/@childNodes.23">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2798,11 +2726,11 @@
         itemSemanticEditPolicyClassName="AsyncReplyCollectionTypeASYNCREPLYROUTERSItemSemanticEditPolicy"
         notationViewFactoryClassName="AsyncReplyCollectionTypeASYNCREPLYROUTERSViewFactory"
         canonicalEditPolicyClassName="AsyncReplyCollectionTypeASYNCREPLYROUTERSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.26 //@diagram/@childNodes.27"
+        childNodes="//@diagram/@childNodes.25 //@diagram/@childNodes.26"
         title="ASYNCREPLYROUTERS"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.24">
+        node="//@diagram/@childNodes.23">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2817,11 +2745,11 @@
         itemSemanticEditPolicyClassName="OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy"
         notationViewFactoryClassName="OutboundCollectionTypeOUTBOUNDROUTERSViewFactory"
         canonicalEditPolicyClassName="OutboundCollectionTypeOUTBOUNDROUTERSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.29 //@diagram/@childNodes.31 //@diagram/@childNodes.32 //@diagram/@childNodes.33 //@diagram/@childNodes.34 //@diagram/@childNodes.35 //@diagram/@childNodes.36 //@diagram/@childNodes.37 //@diagram/@childNodes.38 //@diagram/@childNodes.39 //@diagram/@childNodes.40"
+        childNodes="//@diagram/@childNodes.28 //@diagram/@childNodes.30 //@diagram/@childNodes.31 //@diagram/@childNodes.32 //@diagram/@childNodes.33 //@diagram/@childNodes.34 //@diagram/@childNodes.35 //@diagram/@childNodes.36 //@diagram/@childNodes.37 //@diagram/@childNodes.38 //@diagram/@childNodes.39"
         title="OUTBOUNDROUTERS"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.28">
+        node="//@diagram/@childNodes.27">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2836,10 +2764,10 @@
         itemSemanticEditPolicyClassName="PassThroughOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="PassThroughOutboundRouterTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="PassThroughOutboundRouterTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.30"
+        childNodes="//@diagram/@childNodes.29"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.29">
+        node="//@diagram/@childNodes.28">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2854,10 +2782,10 @@
         itemSemanticEditPolicyClassName="FilteringOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="FilteringOutboundRouterTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="FilteringOutboundRouterTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.30"
+        childNodes="//@diagram/@childNodes.29"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.31">
+        node="//@diagram/@childNodes.30">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2872,10 +2800,10 @@
         itemSemanticEditPolicyClassName="ChainingOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="ChainingOutboundRouterTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="ChainingOutboundRouterTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.30"
+        childNodes="//@diagram/@childNodes.29"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.32">
+        node="//@diagram/@childNodes.31">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2890,10 +2818,10 @@
         itemSemanticEditPolicyClassName="ExceptionOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="ExceptionOutboundRouterTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="ExceptionOutboundRouterTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.30"
+        childNodes="//@diagram/@childNodes.29"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.33">
+        node="//@diagram/@childNodes.32">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2908,10 +2836,10 @@
         itemSemanticEditPolicyClassName="MulticastingOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="MulticastingOutboundRouterTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="MulticastingOutboundRouterTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.30"
+        childNodes="//@diagram/@childNodes.29"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.34">
+        node="//@diagram/@childNodes.33">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2926,10 +2854,10 @@
         itemSemanticEditPolicyClassName="TemplateEndpointOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="TemplateEndpointOutboundRouterTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="TemplateEndpointOutboundRouterTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.30"
+        childNodes="//@diagram/@childNodes.29"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.35">
+        node="//@diagram/@childNodes.34">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2944,10 +2872,10 @@
         itemSemanticEditPolicyClassName="EndpointSelectorRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="EndpointSelectorRouterTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="EndpointSelectorRouterTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.30"
+        childNodes="//@diagram/@childNodes.29"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.36">
+        node="//@diagram/@childNodes.35">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2962,10 +2890,10 @@
         itemSemanticEditPolicyClassName="MessageSplitterOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="MessageSplitterOutboundRouterTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="MessageSplitterOutboundRouterTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.30"
+        childNodes="//@diagram/@childNodes.29"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.37">
+        node="//@diagram/@childNodes.36">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2980,10 +2908,10 @@
         itemSemanticEditPolicyClassName="ChunkingRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="ChunkingRouterTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="ChunkingRouterTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.30"
+        childNodes="//@diagram/@childNodes.29"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.38">
+        node="//@diagram/@childNodes.37">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2998,10 +2926,10 @@
         itemSemanticEditPolicyClassName="StaticRecipientListRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="StaticRecipientListRouterTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="StaticRecipientListRouterTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.30"
+        childNodes="//@diagram/@childNodes.29"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.39">
+        node="//@diagram/@childNodes.38">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -3016,10 +2944,10 @@
         itemSemanticEditPolicyClassName="CustomOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomOutboundRouterTypeENDPOINTSViewFactory"
         canonicalEditPolicyClassName="CustomOutboundRouterTypeENDPOINTSCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.30"
+        childNodes="//@diagram/@childNodes.29"
         title="ENDPOINTS"
         needsTitle="false"
-        node="//@diagram/@childNodes.40">
+        node="//@diagram/@childNodes.39">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -3046,12 +2974,12 @@
             xsi:type="gmfgen:ToolEntry"
             title="Bridge Component"
             description="Add a new Bridge Component to a service"
-            genNodes="//@diagram/@childNodes.3"/>
+            genNodes="//@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Echo Component"
             description="Add a new Echo Component to a service"
-            genNodes="//@diagram/@childNodes.4"/>
+            genNodes="//@diagram/@childNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="No Args Call Component"
@@ -3061,17 +2989,17 @@
             xsi:type="gmfgen:ToolEntry"
             title="Log Component"
             description="Add a new Log Component to a service"
-            genNodes="//@diagram/@childNodes.5"/>
+            genNodes="//@diagram/@childNodes.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Null Component"
             description="Add a new Null Component to a service"
-            genNodes="//@diagram/@childNodes.6"/>
+            genNodes="//@diagram/@childNodes.5"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Pass Through Component"
             description="Add a new Pass Through Component to a service"
-            genNodes="//@diagram/@childNodes.7"/>
+            genNodes="//@diagram/@childNodes.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Pojo Component"
@@ -3085,17 +3013,17 @@
             xsi:type="gmfgen:ToolEntry"
             title="Connector Exception Strategy"
             description="Add a new Connector Exception Strategy to a service"
-            genNodes="//@diagram/@childNodes.10"/>
+            genNodes="//@diagram/@childNodes.9"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Custom Exception Strategy"
             description="Add a new Custom Exception Strategy to a service"
-            genNodes="//@diagram/@childNodes.11"/>
+            genNodes="//@diagram/@childNodes.10"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Service Exception Strategy"
             description="Add a new Service Exception Strategy to a service"
-            genNodes="//@diagram/@childNodes.8"/>
+            genNodes="//@diagram/@childNodes.7"/>
       </groups>
       <groups
           title="Inbound"
@@ -3104,59 +3032,59 @@
             xsi:type="gmfgen:ToolEntry"
             title="Inbound Endpoint"
             description="Add a new Inbound Endpoint to a service"
-            genNodes="//@diagram/@childNodes.13 //@diagram/@childNodes.25"/>
+            genNodes="//@diagram/@childNodes.12 //@diagram/@childNodes.24"/>
         <entries
             xsi:type="gmfgen:Separator"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Custom Correlation Aggregator Router"
-            description="Add a new Custom Correlation Aggregator Router to a service"
-            genNodes="//@diagram/@childNodes.22"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Chunking Inbound Router"
-            description="Add a new Message Chunking Aggregator Router to a service"
-            genNodes="//@diagram/@childNodes.20"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Custom Inbound Router"
-            description="Add a new Custom Inbound Router to a service"
-            genNodes="//@diagram/@childNodes.23"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Forwarding Router"
-            description="Add a new Forwarding Router to a service"
-            genNodes="//@diagram/@childNodes.14"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Idempotent Receiver Router"
-            description="Add a new Idempotent Receiver Router to a service"
-            genNodes="//@diagram/@childNodes.17"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Idempotent Secure Receiver Router"
-            description="Add a new Idempotent Secure Hash Receiver Router to a service"
-            genNodes="//@diagram/@childNodes.15"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Pass Through Inbound Router"
-            description="Add a new Pass Through Router to a service"
-            genNodes="//@diagram/@childNodes.16"/>
+            title="Correlation Aggregator Router"
+            description="Add a new Correlation Aggregator Router to a service"
+            genNodes="//@diagram/@childNodes.21"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Correlation Resequencer Router"
             description="Add a new Correlation Resequencer Router to a service"
-            genNodes="//@diagram/@childNodes.21"/>
+            genNodes="//@diagram/@childNodes.20"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Chunking Inbound Router"
+            description="Add a new Message Chunking Aggregator Router to a service"
+            genNodes="//@diagram/@childNodes.19"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Custom Inbound Router"
+            description="Add a new Custom Inbound Router to a service"
+            genNodes="//@diagram/@childNodes.22"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Forwarding Router"
+            description="Add a new Forwarding Router to a service"
+            genNodes="//@diagram/@childNodes.13"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Idempotent Receiver Router"
+            description="Add a new Idempotent Receiver Router to a service"
+            genNodes="//@diagram/@childNodes.16"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Idempotent Secure Receiver Router"
+            description="Add a new Idempotent Secure Hash Receiver Router to a service"
+            genNodes="//@diagram/@childNodes.14"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Pass Through Inbound Router"
+            description="Add a new Pass Through Router to a service"
+            genNodes="//@diagram/@childNodes.15"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Selective Consumer Router"
             description="Add a new Selective Consumer Router to a service"
-            genNodes="//@diagram/@childNodes.19"/>
+            genNodes="//@diagram/@childNodes.18"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Wire Tap Router"
             description="Add a new Wire Tap Router to a service"
-            genNodes="//@diagram/@childNodes.18"/>
+            genNodes="//@diagram/@childNodes.17"/>
       </groups>
       <groups
           title="Async Reply"
@@ -3165,12 +3093,12 @@
             xsi:type="gmfgen:ToolEntry"
             title="Custom Async Reply Router"
             description="Add a new Custom Async Reply Router to a service"
-            genNodes="//@diagram/@childNodes.27"/>
+            genNodes="//@diagram/@childNodes.26"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Single Async Reply Router"
             description="Add a new Single Async Reply Router to a service"
-            genNodes="//@diagram/@childNodes.26"/>
+            genNodes="//@diagram/@childNodes.25"/>
       </groups>
       <groups
           title="Outbound"
@@ -3179,64 +3107,64 @@
             xsi:type="gmfgen:ToolEntry"
             title="Outbound Endpoint"
             description="Add a new Outbound Endpoint to a service"
-            genNodes="//@diagram/@childNodes.9 //@diagram/@childNodes.30"/>
+            genNodes="//@diagram/@childNodes.8 //@diagram/@childNodes.29"/>
         <entries
             xsi:type="gmfgen:Separator"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Chaining Router"
             description="Add a new Chaining Router to a service"
-            genNodes="//@diagram/@childNodes.32"/>
+            genNodes="//@diagram/@childNodes.31"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Chunking Outbound Router"
             description="Add a new Message Chunking Router to a service"
-            genNodes="//@diagram/@childNodes.38"/>
+            genNodes="//@diagram/@childNodes.37"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Custom Outbound Router"
             description="Add a new Custom Outbound Router to a service"
-            genNodes="//@diagram/@childNodes.40"/>
+            genNodes="//@diagram/@childNodes.39"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Endpoint Selector Router"
             description="Add a new Endpoint Selector Router to a service"
-            genNodes="//@diagram/@childNodes.36"/>
+            genNodes="//@diagram/@childNodes.35"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Exception Router"
             description="Add a new Exception-Based Router to a service"
-            genNodes="//@diagram/@childNodes.33"/>
+            genNodes="//@diagram/@childNodes.32"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Filtering Router"
             description="Add a new Filtering Router to a service"
-            genNodes="//@diagram/@childNodes.31"/>
+            genNodes="//@diagram/@childNodes.30"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="List Message Splitter Router"
             description="Add a new List Message Splitter Router to a service"
-            genNodes="//@diagram/@childNodes.37"/>
+            genNodes="//@diagram/@childNodes.36"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Multicasting Router"
             description="Add a new Multicasting Router to a service"
-            genNodes="//@diagram/@childNodes.34"/>
+            genNodes="//@diagram/@childNodes.33"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Pass Through Outbound Router"
             description="Add a new Pass Through Router to a service"
-            genNodes="//@diagram/@childNodes.29"/>
+            genNodes="//@diagram/@childNodes.28"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Static Recipient List Router"
             description="Add a new Static Recipient List Router to a service"
-            genNodes="//@diagram/@childNodes.39"/>
+            genNodes="//@diagram/@childNodes.38"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Template Endpoint Router"
             description="Add a new Template Endpoint Router to a service"
-            genNodes="//@diagram/@childNodes.35"/>
+            genNodes="//@diagram/@childNodes.34"/>
       </groups>
     </palette>
     <preferencePages
@@ -3302,143 +3230,140 @@
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.6"/>
     <childReferences
+        parent="//@diagram/@childNodes.7"
+        child="//@diagram/@childNodes.8"/>
+    <childReferences
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.7"/>
     <childReferences
-        parent="//@diagram/@childNodes.8"
-        child="//@diagram/@childNodes.9"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
+        parent="//@diagram/@childNodes.9"
         child="//@diagram/@childNodes.8"/>
     <childReferences
-        parent="//@diagram/@childNodes.10"
+        parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.9"/>
+    <childReferences
+        parent="//@diagram/@childNodes.10"
+        child="//@diagram/@childNodes.8"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.10"/>
     <childReferences
         parent="//@diagram/@childNodes.11"
-        child="//@diagram/@childNodes.9"/>
+        child="//@diagram/@childNodes.12"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.13"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.14"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.15"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.16"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.17"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.18"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.19"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.20"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.21"/>
+    <childReferences
+        parent="//@diagram/@childNodes.11"
+        child="//@diagram/@childNodes.22"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.11"/>
     <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@childNodes.13"/>
-    <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@childNodes.14"/>
-    <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@childNodes.15"/>
-    <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@childNodes.16"/>
-    <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@childNodes.17"/>
-    <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@childNodes.18"/>
-    <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@childNodes.19"/>
-    <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@childNodes.20"/>
-    <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@childNodes.21"/>
-    <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@childNodes.22"/>
-    <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@childNodes.23"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.12"/>
-    <childReferences
-        parent="//@diagram/@childNodes.24"
-        child="//@diagram/@childNodes.25"/>
-    <childReferences
-        parent="//@diagram/@childNodes.24"
-        child="//@diagram/@childNodes.26"/>
-    <childReferences
-        parent="//@diagram/@childNodes.24"
-        child="//@diagram/@childNodes.27"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
+        parent="//@diagram/@childNodes.23"
         child="//@diagram/@childNodes.24"/>
     <childReferences
-        parent="//@diagram/@childNodes.29"
-        child="//@diagram/@childNodes.30"/>
+        parent="//@diagram/@childNodes.23"
+        child="//@diagram/@childNodes.25"/>
+    <childReferences
+        parent="//@diagram/@childNodes.23"
+        child="//@diagram/@childNodes.26"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.23"/>
     <childReferences
         parent="//@diagram/@childNodes.28"
         child="//@diagram/@childNodes.29"/>
     <childReferences
-        parent="//@diagram/@childNodes.31"
+        parent="//@diagram/@childNodes.27"
+        child="//@diagram/@childNodes.28"/>
+    <childReferences
+        parent="//@diagram/@childNodes.30"
+        child="//@diagram/@childNodes.29"/>
+    <childReferences
+        parent="//@diagram/@childNodes.27"
         child="//@diagram/@childNodes.30"/>
     <childReferences
-        parent="//@diagram/@childNodes.28"
+        parent="//@diagram/@childNodes.31"
+        child="//@diagram/@childNodes.29"/>
+    <childReferences
+        parent="//@diagram/@childNodes.27"
         child="//@diagram/@childNodes.31"/>
     <childReferences
         parent="//@diagram/@childNodes.32"
-        child="//@diagram/@childNodes.30"/>
+        child="//@diagram/@childNodes.29"/>
     <childReferences
-        parent="//@diagram/@childNodes.28"
+        parent="//@diagram/@childNodes.27"
         child="//@diagram/@childNodes.32"/>
     <childReferences
         parent="//@diagram/@childNodes.33"
-        child="//@diagram/@childNodes.30"/>
+        child="//@diagram/@childNodes.29"/>
     <childReferences
-        parent="//@diagram/@childNodes.28"
+        parent="//@diagram/@childNodes.27"
         child="//@diagram/@childNodes.33"/>
     <childReferences
         parent="//@diagram/@childNodes.34"
-        child="//@diagram/@childNodes.30"/>
+        child="//@diagram/@childNodes.29"/>
     <childReferences
-        parent="//@diagram/@childNodes.28"
+        parent="//@diagram/@childNodes.27"
         child="//@diagram/@childNodes.34"/>
     <childReferences
         parent="//@diagram/@childNodes.35"
-        child="//@diagram/@childNodes.30"/>
+        child="//@diagram/@childNodes.29"/>
     <childReferences
-        parent="//@diagram/@childNodes.28"
+        parent="//@diagram/@childNodes.27"
         child="//@diagram/@childNodes.35"/>
     <childReferences
         parent="//@diagram/@childNodes.36"
-        child="//@diagram/@childNodes.30"/>
+        child="//@diagram/@childNodes.29"/>
     <childReferences
-        parent="//@diagram/@childNodes.28"
+        parent="//@diagram/@childNodes.27"
         child="//@diagram/@childNodes.36"/>
     <childReferences
         parent="//@diagram/@childNodes.37"
-        child="//@diagram/@childNodes.30"/>
+        child="//@diagram/@childNodes.29"/>
     <childReferences
-        parent="//@diagram/@childNodes.28"
+        parent="//@diagram/@childNodes.27"
         child="//@diagram/@childNodes.37"/>
     <childReferences
         parent="//@diagram/@childNodes.38"
-        child="//@diagram/@childNodes.30"/>
+        child="//@diagram/@childNodes.29"/>
     <childReferences
-        parent="//@diagram/@childNodes.28"
+        parent="//@diagram/@childNodes.27"
         child="//@diagram/@childNodes.38"/>
     <childReferences
         parent="//@diagram/@childNodes.39"
-        child="//@diagram/@childNodes.30"/>
+        child="//@diagram/@childNodes.29"/>
     <childReferences
-        parent="//@diagram/@childNodes.28"
+        parent="//@diagram/@childNodes.27"
         child="//@diagram/@childNodes.39"/>
     <childReferences
-        parent="//@diagram/@childNodes.40"
-        child="//@diagram/@childNodes.30"/>
-    <childReferences
-        parent="//@diagram/@childNodes.28"
-        child="//@diagram/@childNodes.40"/>
-    <childReferences
         parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.28"/>
+        child="//@diagram/@childNodes.27"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
@@ -3462,6 +3387,6 @@
   <expressionProviders>
     <providers
         xsi:type="gmfgen:GenJavaExpressionProvider"
-        expressions="//@diagram/@childNodes.2/@modelFacet/@modelElementSelector //@diagram/@childNodes.3/@modelFacet/@modelElementSelector //@diagram/@childNodes.4/@modelFacet/@modelElementSelector //@diagram/@childNodes.5/@modelFacet/@modelElementSelector //@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.8/@modelFacet/@modelElementSelector //@diagram/@childNodes.10/@modelFacet/@modelElementSelector //@diagram/@childNodes.15/@modelFacet/@modelElementSelector //@diagram/@childNodes.16/@modelFacet/@modelElementSelector //@diagram/@childNodes.19/@modelFacet/@modelElementSelector //@diagram/@childNodes.20/@modelFacet/@modelElementSelector //@diagram/@childNodes.21/@modelFacet/@modelElementSelector //@diagram/@childNodes.22/@modelFacet/@modelElementSelector //@diagram/@childNodes.26/@modelFacet/@modelElementSelector //@diagram/@childNodes.29/@modelFacet/@modelElementSelector //@diagram/@childNodes.31/@modelFacet/@modelElementSelector //@diagram/@childNodes.32/@modelFacet/@modelElementSelector //@diagram/@childNodes.33/@modelFacet/@modelElementSelector //@diagram/@childNodes.34/@modelFacet/@modelElementSelector //@diagram/@childNodes.35/@modelFacet/@modelElementSelector //@diagram/@childNodes.36/@modelFacet/@modelElementSelector //@diagram/@childNodes.37/@modelFacet/@modelElementSelector //@diagram/@childNodes.38/@modelFacet/@modelElementSelector //@diagram/@childNodes.39/@modelFacet/@modelElementSelector //@diagram/@childNodes.40/@modelFacet/@modelElementSelector"/>
+        expressions="//@diagram/@childNodes.1/@modelFacet/@modelElementSelector //@diagram/@childNodes.2/@modelFacet/@modelElementSelector //@diagram/@childNodes.3/@modelFacet/@modelElementSelector //@diagram/@childNodes.4/@modelFacet/@modelElementSelector //@diagram/@childNodes.5/@modelFacet/@modelElementSelector //@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.9/@modelFacet/@modelElementSelector //@diagram/@childNodes.14/@modelFacet/@modelElementSelector //@diagram/@childNodes.15/@modelFacet/@modelElementSelector //@diagram/@childNodes.18/@modelFacet/@modelElementSelector //@diagram/@childNodes.19/@modelFacet/@modelElementSelector //@diagram/@childNodes.20/@modelFacet/@modelElementSelector //@diagram/@childNodes.21/@modelFacet/@modelElementSelector //@diagram/@childNodes.25/@modelFacet/@modelElementSelector //@diagram/@childNodes.28/@modelFacet/@modelElementSelector //@diagram/@childNodes.30/@modelFacet/@modelElementSelector //@diagram/@childNodes.31/@modelFacet/@modelElementSelector //@diagram/@childNodes.32/@modelFacet/@modelElementSelector //@diagram/@childNodes.33/@modelFacet/@modelElementSelector //@diagram/@childNodes.34/@modelFacet/@modelElementSelector //@diagram/@childNodes.35/@modelFacet/@modelElementSelector //@diagram/@childNodes.36/@modelFacet/@modelElementSelector //@diagram/@childNodes.37/@modelFacet/@modelElementSelector //@diagram/@childNodes.38/@modelFacet/@modelElementSelector //@diagram/@childNodes.39/@modelFacet/@modelElementSelector"/>
   </expressionProviders>
 </gmfgen:GenEditorGenerator>

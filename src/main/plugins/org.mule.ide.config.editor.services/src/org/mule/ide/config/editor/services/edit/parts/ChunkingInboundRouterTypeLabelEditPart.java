@@ -58,7 +58,7 @@ public class ChunkingInboundRouterTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4024;
+	public static final int VISUAL_ID = 4022;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class ChunkingInboundRouterTypeLabelEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.MessageChunkingAggregatorRouterType_2021,
+					CoreElementTypes.MessageChunkingAggregatorRouterType_2020,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

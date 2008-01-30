@@ -58,7 +58,7 @@ public class CorrelationResequencerRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4025;
+	public static final int VISUAL_ID = 4023;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class CorrelationResequencerRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.SelectiveConsumerRouterType_2022,
+					CoreElementTypes.SelectiveConsumerRouterType_2021,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

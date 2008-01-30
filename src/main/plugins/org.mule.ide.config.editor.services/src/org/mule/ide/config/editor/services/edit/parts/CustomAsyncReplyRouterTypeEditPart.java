@@ -37,7 +37,7 @@ public class CustomAsyncReplyRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2028;
+	public static final int VISUAL_ID = 2027;
 
 	/**
 	 * @generated

@@ -58,7 +58,7 @@ public class PassThroughComponentTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4010;
+	public static final int VISUAL_ID = 4008;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class PassThroughComponentTypeLabelEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.DefaultComponentType_2008,
+					CoreElementTypes.DefaultComponentType_2007,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

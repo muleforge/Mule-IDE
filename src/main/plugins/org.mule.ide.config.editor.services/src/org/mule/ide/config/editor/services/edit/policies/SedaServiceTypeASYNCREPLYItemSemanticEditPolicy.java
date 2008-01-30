@@ -17,7 +17,7 @@ public class SedaServiceTypeASYNCREPLYItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.AsyncReplyCollectionType_2025 == req
+		if (CoreElementTypes.AsyncReplyCollectionType_2024 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE

@@ -58,7 +58,7 @@ public class CustomInboundRouterTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4028;
+	public static final int VISUAL_ID = 4026;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class CustomInboundRouterTypeLabelEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.CustomInboundRouterType_2024,
+					CoreElementTypes.CustomInboundRouterType_2023,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

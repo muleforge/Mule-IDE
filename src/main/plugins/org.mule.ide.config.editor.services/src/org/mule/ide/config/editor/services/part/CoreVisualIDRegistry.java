@@ -146,10 +146,6 @@ public class CoreVisualIDRegistry {
 					domainElement.eClass())) {
 				return PojoComponentTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getPojoComponentType().isSuperTypeOf(
-					domainElement.eClass())) {
-				return NoArgsCallComponentTypeEditPart.VISUAL_ID;
-			}
 			if (CorePackage.eINSTANCE.getDefaultComponentType().isSuperTypeOf(
 					domainElement.eClass())
 					&& JavaConstraints.defaultComponentConstraint(
@@ -542,14 +538,6 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
-			if (NoArgsCallComponentTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (NoArgsCallComponentTypeClassEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			if (DefaultComponentTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -816,9 +804,6 @@ public class CoreVisualIDRegistry {
 			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			if (PojoComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (NoArgsCallComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (DefaultComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
@@ -1213,7 +1198,7 @@ public class CoreVisualIDRegistry {
 			FeatureMap map = container.getAbstractInboundRouterGroup();
 			List<SelectiveConsumerRouterType> routers = map
 					.list(CorePackage.eINSTANCE
-								.getDocumentRoot_SelectiveConsumerRouter());
+							.getDocumentRoot_SelectiveConsumerRouter());
 			return routers.contains(self);
 		}
 

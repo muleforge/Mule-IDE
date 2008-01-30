@@ -38,7 +38,7 @@ public class AsyncReplyCollectionTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2025;
+	public static final int VISUAL_ID = 2024;
 
 	/**
 	 * @generated
@@ -71,21 +71,21 @@ public class AsyncReplyCollectionTypeEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == CoreElementTypes.InboundEndpointType_2026) {
+								if (type == CoreElementTypes.InboundEndpointType_2025) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.AsyncReplyRouterType_2027) {
+								if (type == CoreElementTypes.AsyncReplyRouterType_2026) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.CustomAsyncReplyRouterType_2028) {
+								if (type == CoreElementTypes.CustomAsyncReplyRouterType_2027) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

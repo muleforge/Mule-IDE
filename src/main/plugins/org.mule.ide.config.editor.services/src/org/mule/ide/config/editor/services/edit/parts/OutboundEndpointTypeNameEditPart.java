@@ -58,7 +58,7 @@ public class OutboundEndpointTypeNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4011;
+	public static final int VISUAL_ID = 4009;
 
 	/**
 	 * @generated
@@ -302,7 +302,7 @@ public class OutboundEndpointTypeNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.OutboundEndpointType_2010,
+					CoreElementTypes.OutboundEndpointType_2009,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

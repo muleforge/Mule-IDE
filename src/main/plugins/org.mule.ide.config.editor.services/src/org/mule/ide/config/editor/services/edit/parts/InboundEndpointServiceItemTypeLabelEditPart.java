@@ -58,7 +58,7 @@ public class InboundEndpointServiceItemTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4016;
+	public static final int VISUAL_ID = 4014;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class InboundEndpointServiceItemTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.InboundEndpointType_2014,
+					CoreElementTypes.InboundEndpointType_2013,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

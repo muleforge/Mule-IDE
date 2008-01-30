@@ -26,7 +26,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.OutboundRouterType_2030 == req.getElementType()) {
+		if (CoreElementTypes.OutboundRouterType_2029 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getOutboundCollectionType_AbstractOutboundRouter());
@@ -34,7 +34,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new PassThroughOutboundRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.FilteringOutboundRouterType_2032 == req
+		if (CoreElementTypes.FilteringOutboundRouterType_2031 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -43,7 +43,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new FilteringOutboundRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.FilteringOutboundRouterType_2033 == req
+		if (CoreElementTypes.FilteringOutboundRouterType_2032 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -52,7 +52,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new ChainingOutboundRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.FilteringOutboundRouterType_2034 == req
+		if (CoreElementTypes.FilteringOutboundRouterType_2033 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -61,7 +61,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new ExceptionOutboundRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.FilteringOutboundRouterType_2035 == req
+		if (CoreElementTypes.FilteringOutboundRouterType_2034 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -70,7 +70,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new MulticastingOutboundRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.FilteringOutboundRouterType_2036 == req
+		if (CoreElementTypes.FilteringOutboundRouterType_2035 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -79,7 +79,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new TemplateEndpointOutboundRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.EndpointSelectorRouterType_2037 == req
+		if (CoreElementTypes.EndpointSelectorRouterType_2036 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -88,7 +88,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new EndpointSelectorRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.MessageSplitterOutboundRouterType_2038 == req
+		if (CoreElementTypes.MessageSplitterOutboundRouterType_2037 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -97,14 +97,14 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new MessageSplitterOutboundRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.ChunkingRouterType_2039 == req.getElementType()) {
+		if (CoreElementTypes.ChunkingRouterType_2038 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getOutboundCollectionType_AbstractOutboundRouter());
 			}
 			return getGEFWrapper(new ChunkingRouterTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.StaticRecipientListRouterType_2040 == req
+		if (CoreElementTypes.StaticRecipientListRouterType_2039 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -113,7 +113,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new StaticRecipientListRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.CustomOutboundRouterType_2041 == req
+		if (CoreElementTypes.CustomOutboundRouterType_2040 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE

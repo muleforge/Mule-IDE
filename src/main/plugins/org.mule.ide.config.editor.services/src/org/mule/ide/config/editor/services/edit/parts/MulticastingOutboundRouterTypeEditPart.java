@@ -44,7 +44,7 @@ public class MulticastingOutboundRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2035;
+	public static final int VISUAL_ID = 2034;
 
 	/**
 	 * @generated
@@ -77,7 +77,7 @@ public class MulticastingOutboundRouterTypeEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == CoreElementTypes.OutboundEndpointType_2031) {
+								if (type == CoreElementTypes.OutboundEndpointType_2030) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(MulticastingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

@@ -37,7 +37,7 @@ public class CustomInboundRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2024;
+	public static final int VISUAL_ID = 2023;
 
 	/**
 	 * @generated

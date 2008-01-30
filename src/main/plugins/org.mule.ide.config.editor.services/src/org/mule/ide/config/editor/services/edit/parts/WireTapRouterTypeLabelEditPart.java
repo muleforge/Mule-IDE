@@ -58,7 +58,7 @@ public class WireTapRouterTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4022;
+	public static final int VISUAL_ID = 4020;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class WireTapRouterTypeLabelEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.WireTapRouterType_2019,
+					CoreElementTypes.WireTapRouterType_2018,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

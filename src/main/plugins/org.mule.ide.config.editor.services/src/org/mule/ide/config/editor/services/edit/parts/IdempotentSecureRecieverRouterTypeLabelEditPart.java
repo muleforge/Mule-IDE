@@ -58,7 +58,7 @@ public class IdempotentSecureRecieverRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4019;
+	public static final int VISUAL_ID = 4017;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class IdempotentSecureRecieverRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.FilteredInboundRouterType_2016,
+					CoreElementTypes.FilteredInboundRouterType_2015,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

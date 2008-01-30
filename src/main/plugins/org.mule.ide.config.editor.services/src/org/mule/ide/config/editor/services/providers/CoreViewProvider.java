@@ -263,7 +263,6 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case ChunkingRouterTypeEditPart.VISUAL_ID:
 				case StaticRecipientListRouterTypeEditPart.VISUAL_ID:
 				case CustomOutboundRouterTypeEditPart.VISUAL_ID:
-				case NoArgsCallComponentTypeEditPart.VISUAL_ID:
 				case BridgeComponentTypeEditPart.VISUAL_ID:
 				case EchoComponentTypeEditPart.VISUAL_ID:
 				case LogComponentTypeEditPart.VISUAL_ID:
@@ -300,14 +299,6 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case PojoComponentTypeLabelEditPart.VISUAL_ID:
 				case PojoComponentTypeClassEditPart.VISUAL_ID:
 					if (PojoComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case NoArgsCallComponentTypeLabelEditPart.VISUAL_ID:
-				case NoArgsCallComponentTypeClassEditPart.VISUAL_ID:
-					if (NoArgsCallComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -636,12 +627,6 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return PojoComponentTypeLabelViewFactory.class;
 		case PojoComponentTypeClassEditPart.VISUAL_ID:
 			return PojoComponentTypeClassViewFactory.class;
-		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
-			return NoArgsCallComponentTypeViewFactory.class;
-		case NoArgsCallComponentTypeLabelEditPart.VISUAL_ID:
-			return NoArgsCallComponentTypeLabelViewFactory.class;
-		case NoArgsCallComponentTypeClassEditPart.VISUAL_ID:
-			return NoArgsCallComponentTypeClassViewFactory.class;
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return DefaultComponentTypeViewFactory.class;
 		case DefaultComponentTypeLabelEditPart.VISUAL_ID:

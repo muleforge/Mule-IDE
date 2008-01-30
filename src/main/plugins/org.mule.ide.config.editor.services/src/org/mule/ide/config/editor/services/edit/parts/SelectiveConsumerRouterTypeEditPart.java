@@ -37,7 +37,7 @@ public class SelectiveConsumerRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2020;
+	public static final int VISUAL_ID = 2019;
 
 	/**
 	 * @generated

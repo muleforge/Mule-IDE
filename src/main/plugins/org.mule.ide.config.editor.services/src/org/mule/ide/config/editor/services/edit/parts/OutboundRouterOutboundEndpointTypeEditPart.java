@@ -33,7 +33,7 @@ public class OutboundRouterOutboundEndpointTypeEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2031;
+	public static final int VISUAL_ID = 2030;
 
 	/**
 	 * @generated

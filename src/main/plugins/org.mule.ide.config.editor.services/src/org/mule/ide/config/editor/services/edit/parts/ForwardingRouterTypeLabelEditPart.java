@@ -58,7 +58,7 @@ public class ForwardingRouterTypeLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4018;
+	public static final int VISUAL_ID = 4016;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class ForwardingRouterTypeLabelEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.ForwardingRouterType_2015,
+					CoreElementTypes.ForwardingRouterType_2014,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

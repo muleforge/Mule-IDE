@@ -46,15 +46,6 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case PojoComponentTypeClassEditPart.VISUAL_ID:
 				return new PojoComponentTypeClassEditPart(view);
 
-			case NoArgsCallComponentTypeEditPart.VISUAL_ID:
-				return new NoArgsCallComponentTypeEditPart(view);
-
-			case NoArgsCallComponentTypeLabelEditPart.VISUAL_ID:
-				return new NoArgsCallComponentTypeLabelEditPart(view);
-
-			case NoArgsCallComponentTypeClassEditPart.VISUAL_ID:
-				return new NoArgsCallComponentTypeClassEditPart(view);
-
 			case DefaultComponentTypeEditPart.VISUAL_ID:
 				return new DefaultComponentTypeEditPart(view);
 

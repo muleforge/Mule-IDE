@@ -16,7 +16,7 @@ public class PassThroughOutboundRouterTypeENDPOINTSItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.OutboundEndpointType_2031 == req.getElementType()) {
+		if (CoreElementTypes.OutboundEndpointType_2030 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getOutboundRouterType_AbstractOutboundEndpoint());

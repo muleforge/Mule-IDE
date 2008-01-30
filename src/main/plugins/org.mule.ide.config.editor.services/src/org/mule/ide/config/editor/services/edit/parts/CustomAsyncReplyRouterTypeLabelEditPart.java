@@ -58,7 +58,7 @@ public class CustomAsyncReplyRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4033;
+	public static final int VISUAL_ID = 4031;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class CustomAsyncReplyRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.CustomAsyncReplyRouterType_2028,
+					CoreElementTypes.CustomAsyncReplyRouterType_2027,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

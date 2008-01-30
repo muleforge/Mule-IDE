@@ -58,7 +58,7 @@ public class CustomCorrelationAggregatorRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4026;
+	public static final int VISUAL_ID = 4024;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class CustomCorrelationAggregatorRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.CustomCorrelationAggregatorRouterType_2023,
+					CoreElementTypes.CustomCorrelationAggregatorRouterType_2022,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

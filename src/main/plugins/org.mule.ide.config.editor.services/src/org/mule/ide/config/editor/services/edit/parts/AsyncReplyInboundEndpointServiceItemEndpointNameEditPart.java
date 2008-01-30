@@ -58,7 +58,7 @@ public class AsyncReplyInboundEndpointServiceItemEndpointNameEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4031;
+	public static final int VISUAL_ID = 4029;
 
 	/**
 	 * @generated
@@ -302,7 +302,7 @@ public class AsyncReplyInboundEndpointServiceItemEndpointNameEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.InboundEndpointType_2026,
+					CoreElementTypes.InboundEndpointType_2025,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

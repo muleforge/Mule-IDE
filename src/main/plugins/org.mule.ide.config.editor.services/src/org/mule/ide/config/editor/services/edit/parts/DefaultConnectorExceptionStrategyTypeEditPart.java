@@ -45,7 +45,7 @@ public class DefaultConnectorExceptionStrategyTypeEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2011;
+	public static final int VISUAL_ID = 2010;
 
 	/**
 	 * @generated
@@ -78,7 +78,7 @@ public class DefaultConnectorExceptionStrategyTypeEditPart extends
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == CoreElementTypes.OutboundEndpointType_2010) {
+								if (type == CoreElementTypes.OutboundEndpointType_2009) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

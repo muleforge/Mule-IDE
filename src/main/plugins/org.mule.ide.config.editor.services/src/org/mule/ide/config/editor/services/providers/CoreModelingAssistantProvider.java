@@ -58,128 +58,127 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof SedaServiceTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.PojoComponentType_2001);
-			types.add(CoreElementTypes.PojoComponentType_2002);
+			types.add(CoreElementTypes.DefaultComponentType_2002);
 			types.add(CoreElementTypes.DefaultComponentType_2003);
 			types.add(CoreElementTypes.DefaultComponentType_2004);
 			types.add(CoreElementTypes.DefaultComponentType_2005);
 			types.add(CoreElementTypes.DefaultComponentType_2006);
 			types.add(CoreElementTypes.DefaultComponentType_2007);
-			types.add(CoreElementTypes.DefaultComponentType_2008);
-			types.add(CoreElementTypes.ExceptionStrategyType_2009);
-			types.add(CoreElementTypes.ExceptionStrategyType_2011);
-			types.add(CoreElementTypes.CustomExceptionStrategyType_2012);
-			types.add(CoreElementTypes.InboundCollectionType_2013);
-			types.add(CoreElementTypes.AsyncReplyCollectionType_2025);
-			types.add(CoreElementTypes.OutboundCollectionType_2029);
+			types.add(CoreElementTypes.ExceptionStrategyType_2008);
+			types.add(CoreElementTypes.ExceptionStrategyType_2010);
+			types.add(CoreElementTypes.CustomExceptionStrategyType_2011);
+			types.add(CoreElementTypes.InboundCollectionType_2012);
+			types.add(CoreElementTypes.AsyncReplyCollectionType_2024);
+			types.add(CoreElementTypes.OutboundCollectionType_2028);
 			return types;
 		}
 		if (editPart instanceof DefaultServiceExceptionStrategyTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2010);
+			types.add(CoreElementTypes.OutboundEndpointType_2009);
 			return types;
 		}
 		if (editPart instanceof DefaultConnectorExceptionStrategyTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2010);
+			types.add(CoreElementTypes.OutboundEndpointType_2009);
 			return types;
 		}
 		if (editPart instanceof CustomExceptionStrategyTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2010);
+			types.add(CoreElementTypes.OutboundEndpointType_2009);
 			return types;
 		}
 		if (editPart instanceof InboundCollectionTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.InboundEndpointType_2014);
-			types.add(CoreElementTypes.ForwardingRouterType_2015);
+			types.add(CoreElementTypes.InboundEndpointType_2013);
+			types.add(CoreElementTypes.ForwardingRouterType_2014);
+			types.add(CoreElementTypes.FilteredInboundRouterType_2015);
 			types.add(CoreElementTypes.FilteredInboundRouterType_2016);
-			types.add(CoreElementTypes.FilteredInboundRouterType_2017);
-			types.add(CoreElementTypes.IdempotentReceiverRouterType_2018);
-			types.add(CoreElementTypes.WireTapRouterType_2019);
-			types.add(CoreElementTypes.SelectiveConsumerRouterType_2020);
+			types.add(CoreElementTypes.IdempotentReceiverRouterType_2017);
+			types.add(CoreElementTypes.WireTapRouterType_2018);
+			types.add(CoreElementTypes.SelectiveConsumerRouterType_2019);
 			types
-					.add(CoreElementTypes.MessageChunkingAggregatorRouterType_2021);
-			types.add(CoreElementTypes.SelectiveConsumerRouterType_2022);
+					.add(CoreElementTypes.MessageChunkingAggregatorRouterType_2020);
+			types.add(CoreElementTypes.SelectiveConsumerRouterType_2021);
 			types
-					.add(CoreElementTypes.CustomCorrelationAggregatorRouterType_2023);
-			types.add(CoreElementTypes.CustomInboundRouterType_2024);
+					.add(CoreElementTypes.CustomCorrelationAggregatorRouterType_2022);
+			types.add(CoreElementTypes.CustomInboundRouterType_2023);
 			return types;
 		}
 		if (editPart instanceof AsyncReplyCollectionTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.InboundEndpointType_2026);
-			types.add(CoreElementTypes.AsyncReplyRouterType_2027);
-			types.add(CoreElementTypes.CustomAsyncReplyRouterType_2028);
+			types.add(CoreElementTypes.InboundEndpointType_2025);
+			types.add(CoreElementTypes.AsyncReplyRouterType_2026);
+			types.add(CoreElementTypes.CustomAsyncReplyRouterType_2027);
 			return types;
 		}
 		if (editPart instanceof OutboundCollectionTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundRouterType_2030);
+			types.add(CoreElementTypes.OutboundRouterType_2029);
+			types.add(CoreElementTypes.FilteringOutboundRouterType_2031);
 			types.add(CoreElementTypes.FilteringOutboundRouterType_2032);
 			types.add(CoreElementTypes.FilteringOutboundRouterType_2033);
 			types.add(CoreElementTypes.FilteringOutboundRouterType_2034);
 			types.add(CoreElementTypes.FilteringOutboundRouterType_2035);
-			types.add(CoreElementTypes.FilteringOutboundRouterType_2036);
-			types.add(CoreElementTypes.EndpointSelectorRouterType_2037);
-			types.add(CoreElementTypes.MessageSplitterOutboundRouterType_2038);
-			types.add(CoreElementTypes.ChunkingRouterType_2039);
-			types.add(CoreElementTypes.StaticRecipientListRouterType_2040);
-			types.add(CoreElementTypes.CustomOutboundRouterType_2041);
+			types.add(CoreElementTypes.EndpointSelectorRouterType_2036);
+			types.add(CoreElementTypes.MessageSplitterOutboundRouterType_2037);
+			types.add(CoreElementTypes.ChunkingRouterType_2038);
+			types.add(CoreElementTypes.StaticRecipientListRouterType_2039);
+			types.add(CoreElementTypes.CustomOutboundRouterType_2040);
 			return types;
 		}
 		if (editPart instanceof PassThroughOutboundRouterTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			types.add(CoreElementTypes.OutboundEndpointType_2030);
 			return types;
 		}
 		if (editPart instanceof FilteringOutboundRouterTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			types.add(CoreElementTypes.OutboundEndpointType_2030);
 			return types;
 		}
 		if (editPart instanceof ChainingOutboundRouterTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			types.add(CoreElementTypes.OutboundEndpointType_2030);
 			return types;
 		}
 		if (editPart instanceof ExceptionOutboundRouterTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			types.add(CoreElementTypes.OutboundEndpointType_2030);
 			return types;
 		}
 		if (editPart instanceof MulticastingOutboundRouterTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			types.add(CoreElementTypes.OutboundEndpointType_2030);
 			return types;
 		}
 		if (editPart instanceof TemplateEndpointOutboundRouterTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			types.add(CoreElementTypes.OutboundEndpointType_2030);
 			return types;
 		}
 		if (editPart instanceof EndpointSelectorRouterTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			types.add(CoreElementTypes.OutboundEndpointType_2030);
 			return types;
 		}
 		if (editPart instanceof MessageSplitterOutboundRouterTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			types.add(CoreElementTypes.OutboundEndpointType_2030);
 			return types;
 		}
 		if (editPart instanceof ChunkingRouterTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			types.add(CoreElementTypes.OutboundEndpointType_2030);
 			return types;
 		}
 		if (editPart instanceof StaticRecipientListRouterTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			types.add(CoreElementTypes.OutboundEndpointType_2030);
 			return types;
 		}
 		if (editPart instanceof CustomOutboundRouterTypeEditPart) {
 			List types = new ArrayList();
-			types.add(CoreElementTypes.OutboundEndpointType_2031);
+			types.add(CoreElementTypes.OutboundEndpointType_2030);
 			return types;
 		}
 		if (editPart instanceof DefaultModelTypeEditPart) {

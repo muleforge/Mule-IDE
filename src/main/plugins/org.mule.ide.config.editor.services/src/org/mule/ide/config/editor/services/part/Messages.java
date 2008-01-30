@@ -308,16 +308,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NoArgsCallComponent3CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String NoArgsCallComponent3CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
 	public static String LogComponent4CreationTool_title;
 
 	/**
@@ -398,82 +388,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CustomCorrelationAggregatorRouter3CreationTool_title;
+	public static String CorrelationAggregatorRouter3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomCorrelationAggregatorRouter3CreationTool_desc;
+	public static String CorrelationAggregatorRouter3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ChunkingInboundRouter4CreationTool_title;
+	public static String CorrelationResequencerRouter4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ChunkingInboundRouter4CreationTool_desc;
+	public static String CorrelationResequencerRouter4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomInboundRouter5CreationTool_title;
+	public static String ChunkingInboundRouter5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomInboundRouter5CreationTool_desc;
+	public static String ChunkingInboundRouter5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ForwardingRouter6CreationTool_title;
+	public static String CustomInboundRouter6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ForwardingRouter6CreationTool_desc;
+	public static String CustomInboundRouter6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String IdempotentReceiverRouter7CreationTool_title;
+	public static String ForwardingRouter7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String IdempotentReceiverRouter7CreationTool_desc;
+	public static String ForwardingRouter7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String IdempotentSecureReceiverRouter8CreationTool_title;
+	public static String IdempotentReceiverRouter8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String IdempotentSecureReceiverRouter8CreationTool_desc;
+	public static String IdempotentReceiverRouter8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PassThroughInboundRouter9CreationTool_title;
+	public static String IdempotentSecureReceiverRouter9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PassThroughInboundRouter9CreationTool_desc;
+	public static String IdempotentSecureReceiverRouter9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CorrelationResequencerRouter10CreationTool_title;
+	public static String PassThroughInboundRouter10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CorrelationResequencerRouter10CreationTool_desc;
+	public static String PassThroughInboundRouter10CreationTool_desc;
 
 	/**
 	 * @generated
@@ -893,11 +883,6 @@ public class Messages extends NLS {
 	 * 
 	 */
 	public static String PojoComponentTypeLabel;
-
-	/**
-	 * 
-	 */
-	public static String NoArgsCallComponentTypeLabel;
 
 	/**
 	 * 

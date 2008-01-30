@@ -64,7 +64,6 @@ import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRou
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeOUTBOUNDROUTERSEditPart;
@@ -291,12 +290,6 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 					SedaServiceTypeCOMPONENTEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					PojoComponentTypeEditPart.VISUAL_ID);
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					SedaServiceTypeCOMPONENTEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					NoArgsCallComponentTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),

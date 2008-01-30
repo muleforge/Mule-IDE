@@ -61,7 +61,7 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType PojoComponentType_2002 = getElementType("org.mule.ide.config.editor.services.PojoComponentType_2002"); //$NON-NLS-1$
+	public static final IElementType DefaultComponentType_2002 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -91,42 +91,42 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType DefaultComponentType_2008 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2008"); //$NON-NLS-1$
+	public static final IElementType ExceptionStrategyType_2008 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2008"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExceptionStrategyType_2009 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2009"); //$NON-NLS-1$
+	public static final IElementType OutboundEndpointType_2009 = getElementType("org.mule.ide.config.editor.services.OutboundEndpointType_2009"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType OutboundEndpointType_2010 = getElementType("org.mule.ide.config.editor.services.OutboundEndpointType_2010"); //$NON-NLS-1$
+	public static final IElementType ExceptionStrategyType_2010 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2010"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExceptionStrategyType_2011 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2011"); //$NON-NLS-1$
+	public static final IElementType CustomExceptionStrategyType_2011 = getElementType("org.mule.ide.config.editor.services.CustomExceptionStrategyType_2011"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CustomExceptionStrategyType_2012 = getElementType("org.mule.ide.config.editor.services.CustomExceptionStrategyType_2012"); //$NON-NLS-1$
+	public static final IElementType InboundCollectionType_2012 = getElementType("org.mule.ide.config.editor.services.InboundCollectionType_2012"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType InboundCollectionType_2013 = getElementType("org.mule.ide.config.editor.services.InboundCollectionType_2013"); //$NON-NLS-1$
+	public static final IElementType InboundEndpointType_2013 = getElementType("org.mule.ide.config.editor.services.InboundEndpointType_2013"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType InboundEndpointType_2014 = getElementType("org.mule.ide.config.editor.services.InboundEndpointType_2014"); //$NON-NLS-1$
+	public static final IElementType ForwardingRouterType_2014 = getElementType("org.mule.ide.config.editor.services.ForwardingRouterType_2014"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ForwardingRouterType_2015 = getElementType("org.mule.ide.config.editor.services.ForwardingRouterType_2015"); //$NON-NLS-1$
+	public static final IElementType FilteredInboundRouterType_2015 = getElementType("org.mule.ide.config.editor.services.FilteredInboundRouterType_2015"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -136,77 +136,77 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType FilteredInboundRouterType_2017 = getElementType("org.mule.ide.config.editor.services.FilteredInboundRouterType_2017"); //$NON-NLS-1$
+	public static final IElementType IdempotentReceiverRouterType_2017 = getElementType("org.mule.ide.config.editor.services.IdempotentReceiverRouterType_2017"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType IdempotentReceiverRouterType_2018 = getElementType("org.mule.ide.config.editor.services.IdempotentReceiverRouterType_2018"); //$NON-NLS-1$
+	public static final IElementType WireTapRouterType_2018 = getElementType("org.mule.ide.config.editor.services.WireTapRouterType_2018"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType WireTapRouterType_2019 = getElementType("org.mule.ide.config.editor.services.WireTapRouterType_2019"); //$NON-NLS-1$
+	public static final IElementType SelectiveConsumerRouterType_2019 = getElementType("org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2019"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType SelectiveConsumerRouterType_2020 = getElementType("org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2020"); //$NON-NLS-1$
+	public static final IElementType MessageChunkingAggregatorRouterType_2020 = getElementType("org.mule.ide.config.editor.services.MessageChunkingAggregatorRouterType_2020"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType MessageChunkingAggregatorRouterType_2021 = getElementType("org.mule.ide.config.editor.services.MessageChunkingAggregatorRouterType_2021"); //$NON-NLS-1$
+	public static final IElementType SelectiveConsumerRouterType_2021 = getElementType("org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2021"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType SelectiveConsumerRouterType_2022 = getElementType("org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2022"); //$NON-NLS-1$
+	public static final IElementType CustomCorrelationAggregatorRouterType_2022 = getElementType("org.mule.ide.config.editor.services.CustomCorrelationAggregatorRouterType_2022"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CustomCorrelationAggregatorRouterType_2023 = getElementType("org.mule.ide.config.editor.services.CustomCorrelationAggregatorRouterType_2023"); //$NON-NLS-1$
+	public static final IElementType CustomInboundRouterType_2023 = getElementType("org.mule.ide.config.editor.services.CustomInboundRouterType_2023"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CustomInboundRouterType_2024 = getElementType("org.mule.ide.config.editor.services.CustomInboundRouterType_2024"); //$NON-NLS-1$
+	public static final IElementType AsyncReplyCollectionType_2024 = getElementType("org.mule.ide.config.editor.services.AsyncReplyCollectionType_2024"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType AsyncReplyCollectionType_2025 = getElementType("org.mule.ide.config.editor.services.AsyncReplyCollectionType_2025"); //$NON-NLS-1$
+	public static final IElementType InboundEndpointType_2025 = getElementType("org.mule.ide.config.editor.services.InboundEndpointType_2025"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType InboundEndpointType_2026 = getElementType("org.mule.ide.config.editor.services.InboundEndpointType_2026"); //$NON-NLS-1$
+	public static final IElementType AsyncReplyRouterType_2026 = getElementType("org.mule.ide.config.editor.services.AsyncReplyRouterType_2026"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType AsyncReplyRouterType_2027 = getElementType("org.mule.ide.config.editor.services.AsyncReplyRouterType_2027"); //$NON-NLS-1$
+	public static final IElementType CustomAsyncReplyRouterType_2027 = getElementType("org.mule.ide.config.editor.services.CustomAsyncReplyRouterType_2027"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CustomAsyncReplyRouterType_2028 = getElementType("org.mule.ide.config.editor.services.CustomAsyncReplyRouterType_2028"); //$NON-NLS-1$
+	public static final IElementType OutboundCollectionType_2028 = getElementType("org.mule.ide.config.editor.services.OutboundCollectionType_2028"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType OutboundCollectionType_2029 = getElementType("org.mule.ide.config.editor.services.OutboundCollectionType_2029"); //$NON-NLS-1$
+	public static final IElementType OutboundRouterType_2029 = getElementType("org.mule.ide.config.editor.services.OutboundRouterType_2029"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType OutboundRouterType_2030 = getElementType("org.mule.ide.config.editor.services.OutboundRouterType_2030"); //$NON-NLS-1$
+	public static final IElementType OutboundEndpointType_2030 = getElementType("org.mule.ide.config.editor.services.OutboundEndpointType_2030"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType OutboundEndpointType_2031 = getElementType("org.mule.ide.config.editor.services.OutboundEndpointType_2031"); //$NON-NLS-1$
+	public static final IElementType FilteringOutboundRouterType_2031 = getElementType("org.mule.ide.config.editor.services.FilteringOutboundRouterType_2031"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -231,32 +231,27 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType FilteringOutboundRouterType_2036 = getElementType("org.mule.ide.config.editor.services.FilteringOutboundRouterType_2036"); //$NON-NLS-1$
+	public static final IElementType EndpointSelectorRouterType_2036 = getElementType("org.mule.ide.config.editor.services.EndpointSelectorRouterType_2036"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType EndpointSelectorRouterType_2037 = getElementType("org.mule.ide.config.editor.services.EndpointSelectorRouterType_2037"); //$NON-NLS-1$
+	public static final IElementType MessageSplitterOutboundRouterType_2037 = getElementType("org.mule.ide.config.editor.services.MessageSplitterOutboundRouterType_2037"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType MessageSplitterOutboundRouterType_2038 = getElementType("org.mule.ide.config.editor.services.MessageSplitterOutboundRouterType_2038"); //$NON-NLS-1$
+	public static final IElementType ChunkingRouterType_2038 = getElementType("org.mule.ide.config.editor.services.ChunkingRouterType_2038"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ChunkingRouterType_2039 = getElementType("org.mule.ide.config.editor.services.ChunkingRouterType_2039"); //$NON-NLS-1$
+	public static final IElementType StaticRecipientListRouterType_2039 = getElementType("org.mule.ide.config.editor.services.StaticRecipientListRouterType_2039"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType StaticRecipientListRouterType_2040 = getElementType("org.mule.ide.config.editor.services.StaticRecipientListRouterType_2040"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType CustomOutboundRouterType_2041 = getElementType("org.mule.ide.config.editor.services.CustomOutboundRouterType_2041"); //$NON-NLS-1$
+	public static final IElementType CustomOutboundRouterType_2040 = getElementType("org.mule.ide.config.editor.services.CustomOutboundRouterType_2040"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -378,8 +373,8 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(PojoComponentType_2001, CorePackage.eINSTANCE
 					.getPojoComponentType());
 
-			elements.put(PojoComponentType_2002, CorePackage.eINSTANCE
-					.getPojoComponentType());
+			elements.put(DefaultComponentType_2002, CorePackage.eINSTANCE
+					.getDefaultComponentType());
 
 			elements.put(DefaultComponentType_2003, CorePackage.eINSTANCE
 					.getDefaultComponentType());
@@ -396,79 +391,79 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(DefaultComponentType_2007, CorePackage.eINSTANCE
 					.getDefaultComponentType());
 
-			elements.put(DefaultComponentType_2008, CorePackage.eINSTANCE
-					.getDefaultComponentType());
-
-			elements.put(ExceptionStrategyType_2009, CorePackage.eINSTANCE
+			elements.put(ExceptionStrategyType_2008, CorePackage.eINSTANCE
 					.getExceptionStrategyType());
 
-			elements.put(OutboundEndpointType_2010, CorePackage.eINSTANCE
+			elements.put(OutboundEndpointType_2009, CorePackage.eINSTANCE
 					.getOutboundEndpointType());
 
-			elements.put(ExceptionStrategyType_2011, CorePackage.eINSTANCE
+			elements.put(ExceptionStrategyType_2010, CorePackage.eINSTANCE
 					.getExceptionStrategyType());
 
-			elements.put(CustomExceptionStrategyType_2012,
+			elements.put(CustomExceptionStrategyType_2011,
 					CorePackage.eINSTANCE.getCustomExceptionStrategyType());
 
-			elements.put(InboundCollectionType_2013, CorePackage.eINSTANCE
+			elements.put(InboundCollectionType_2012, CorePackage.eINSTANCE
 					.getInboundCollectionType());
 
-			elements.put(InboundEndpointType_2014, CorePackage.eINSTANCE
+			elements.put(InboundEndpointType_2013, CorePackage.eINSTANCE
 					.getInboundEndpointType());
 
-			elements.put(ForwardingRouterType_2015, CorePackage.eINSTANCE
+			elements.put(ForwardingRouterType_2014, CorePackage.eINSTANCE
 					.getForwardingRouterType());
+
+			elements.put(FilteredInboundRouterType_2015, CorePackage.eINSTANCE
+					.getFilteredInboundRouterType());
 
 			elements.put(FilteredInboundRouterType_2016, CorePackage.eINSTANCE
 					.getFilteredInboundRouterType());
 
-			elements.put(FilteredInboundRouterType_2017, CorePackage.eINSTANCE
-					.getFilteredInboundRouterType());
-
-			elements.put(IdempotentReceiverRouterType_2018,
+			elements.put(IdempotentReceiverRouterType_2017,
 					CorePackage.eINSTANCE.getIdempotentReceiverRouterType());
 
-			elements.put(WireTapRouterType_2019, CorePackage.eINSTANCE
+			elements.put(WireTapRouterType_2018, CorePackage.eINSTANCE
 					.getWireTapRouterType());
 
-			elements.put(SelectiveConsumerRouterType_2020,
+			elements.put(SelectiveConsumerRouterType_2019,
 					CorePackage.eINSTANCE.getSelectiveConsumerRouterType());
 
-			elements.put(MessageChunkingAggregatorRouterType_2021,
+			elements.put(MessageChunkingAggregatorRouterType_2020,
 					CorePackage.eINSTANCE
 							.getMessageChunkingAggregatorRouterType());
 
-			elements.put(SelectiveConsumerRouterType_2022,
+			elements.put(SelectiveConsumerRouterType_2021,
 					CorePackage.eINSTANCE.getSelectiveConsumerRouterType());
 
-			elements.put(CustomCorrelationAggregatorRouterType_2023,
+			elements.put(CustomCorrelationAggregatorRouterType_2022,
 					CorePackage.eINSTANCE
 							.getCustomCorrelationAggregatorRouterType());
 
-			elements.put(CustomInboundRouterType_2024, CorePackage.eINSTANCE
+			elements.put(CustomInboundRouterType_2023, CorePackage.eINSTANCE
 					.getCustomInboundRouterType());
 
-			elements.put(AsyncReplyCollectionType_2025, CorePackage.eINSTANCE
+			elements.put(AsyncReplyCollectionType_2024, CorePackage.eINSTANCE
 					.getAsyncReplyCollectionType());
 
-			elements.put(InboundEndpointType_2026, CorePackage.eINSTANCE
+			elements.put(InboundEndpointType_2025, CorePackage.eINSTANCE
 					.getInboundEndpointType());
 
-			elements.put(AsyncReplyRouterType_2027, CorePackage.eINSTANCE
+			elements.put(AsyncReplyRouterType_2026, CorePackage.eINSTANCE
 					.getAsyncReplyRouterType());
 
-			elements.put(CustomAsyncReplyRouterType_2028, CorePackage.eINSTANCE
+			elements.put(CustomAsyncReplyRouterType_2027, CorePackage.eINSTANCE
 					.getCustomAsyncReplyRouterType());
 
-			elements.put(OutboundCollectionType_2029, CorePackage.eINSTANCE
+			elements.put(OutboundCollectionType_2028, CorePackage.eINSTANCE
 					.getOutboundCollectionType());
 
-			elements.put(OutboundRouterType_2030, CorePackage.eINSTANCE
+			elements.put(OutboundRouterType_2029, CorePackage.eINSTANCE
 					.getOutboundRouterType());
 
-			elements.put(OutboundEndpointType_2031, CorePackage.eINSTANCE
+			elements.put(OutboundEndpointType_2030, CorePackage.eINSTANCE
 					.getOutboundEndpointType());
+
+			elements.put(FilteringOutboundRouterType_2031,
+					CorePackage.eINSTANCE.getFilteringOutboundRouterType());
 
 			elements.put(FilteringOutboundRouterType_2032,
 					CorePackage.eINSTANCE.getFilteringOutboundRouterType());
@@ -482,23 +477,20 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(FilteringOutboundRouterType_2035,
 					CorePackage.eINSTANCE.getFilteringOutboundRouterType());
 
-			elements.put(FilteringOutboundRouterType_2036,
-					CorePackage.eINSTANCE.getFilteringOutboundRouterType());
-
-			elements.put(EndpointSelectorRouterType_2037, CorePackage.eINSTANCE
+			elements.put(EndpointSelectorRouterType_2036, CorePackage.eINSTANCE
 					.getEndpointSelectorRouterType());
 
-			elements.put(MessageSplitterOutboundRouterType_2038,
+			elements.put(MessageSplitterOutboundRouterType_2037,
 					CorePackage.eINSTANCE
 							.getMessageSplitterOutboundRouterType());
 
-			elements.put(ChunkingRouterType_2039, CorePackage.eINSTANCE
+			elements.put(ChunkingRouterType_2038, CorePackage.eINSTANCE
 					.getChunkingRouterType());
 
-			elements.put(StaticRecipientListRouterType_2040,
+			elements.put(StaticRecipientListRouterType_2039,
 					CorePackage.eINSTANCE.getStaticRecipientListRouterType());
 
-			elements.put(CustomOutboundRouterType_2041, CorePackage.eINSTANCE
+			elements.put(CustomOutboundRouterType_2040, CorePackage.eINSTANCE
 					.getCustomOutboundRouterType());
 		}
 		return (ENamedElement) elements.get(type);
@@ -520,46 +512,45 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(DefaultModelType_79);
 			KNOWN_ELEMENT_TYPES.add(SedaServiceType_1001);
 			KNOWN_ELEMENT_TYPES.add(PojoComponentType_2001);
-			KNOWN_ELEMENT_TYPES.add(PojoComponentType_2002);
+			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2002);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2003);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2004);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2005);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2006);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2007);
-			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2008);
-			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2009);
-			KNOWN_ELEMENT_TYPES.add(OutboundEndpointType_2010);
-			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2011);
-			KNOWN_ELEMENT_TYPES.add(CustomExceptionStrategyType_2012);
-			KNOWN_ELEMENT_TYPES.add(InboundCollectionType_2013);
-			KNOWN_ELEMENT_TYPES.add(InboundEndpointType_2014);
-			KNOWN_ELEMENT_TYPES.add(ForwardingRouterType_2015);
+			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2008);
+			KNOWN_ELEMENT_TYPES.add(OutboundEndpointType_2009);
+			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2010);
+			KNOWN_ELEMENT_TYPES.add(CustomExceptionStrategyType_2011);
+			KNOWN_ELEMENT_TYPES.add(InboundCollectionType_2012);
+			KNOWN_ELEMENT_TYPES.add(InboundEndpointType_2013);
+			KNOWN_ELEMENT_TYPES.add(ForwardingRouterType_2014);
+			KNOWN_ELEMENT_TYPES.add(FilteredInboundRouterType_2015);
 			KNOWN_ELEMENT_TYPES.add(FilteredInboundRouterType_2016);
-			KNOWN_ELEMENT_TYPES.add(FilteredInboundRouterType_2017);
-			KNOWN_ELEMENT_TYPES.add(IdempotentReceiverRouterType_2018);
-			KNOWN_ELEMENT_TYPES.add(WireTapRouterType_2019);
-			KNOWN_ELEMENT_TYPES.add(SelectiveConsumerRouterType_2020);
-			KNOWN_ELEMENT_TYPES.add(MessageChunkingAggregatorRouterType_2021);
-			KNOWN_ELEMENT_TYPES.add(SelectiveConsumerRouterType_2022);
-			KNOWN_ELEMENT_TYPES.add(CustomCorrelationAggregatorRouterType_2023);
-			KNOWN_ELEMENT_TYPES.add(CustomInboundRouterType_2024);
-			KNOWN_ELEMENT_TYPES.add(AsyncReplyCollectionType_2025);
-			KNOWN_ELEMENT_TYPES.add(InboundEndpointType_2026);
-			KNOWN_ELEMENT_TYPES.add(AsyncReplyRouterType_2027);
-			KNOWN_ELEMENT_TYPES.add(CustomAsyncReplyRouterType_2028);
-			KNOWN_ELEMENT_TYPES.add(OutboundCollectionType_2029);
-			KNOWN_ELEMENT_TYPES.add(OutboundRouterType_2030);
-			KNOWN_ELEMENT_TYPES.add(OutboundEndpointType_2031);
+			KNOWN_ELEMENT_TYPES.add(IdempotentReceiverRouterType_2017);
+			KNOWN_ELEMENT_TYPES.add(WireTapRouterType_2018);
+			KNOWN_ELEMENT_TYPES.add(SelectiveConsumerRouterType_2019);
+			KNOWN_ELEMENT_TYPES.add(MessageChunkingAggregatorRouterType_2020);
+			KNOWN_ELEMENT_TYPES.add(SelectiveConsumerRouterType_2021);
+			KNOWN_ELEMENT_TYPES.add(CustomCorrelationAggregatorRouterType_2022);
+			KNOWN_ELEMENT_TYPES.add(CustomInboundRouterType_2023);
+			KNOWN_ELEMENT_TYPES.add(AsyncReplyCollectionType_2024);
+			KNOWN_ELEMENT_TYPES.add(InboundEndpointType_2025);
+			KNOWN_ELEMENT_TYPES.add(AsyncReplyRouterType_2026);
+			KNOWN_ELEMENT_TYPES.add(CustomAsyncReplyRouterType_2027);
+			KNOWN_ELEMENT_TYPES.add(OutboundCollectionType_2028);
+			KNOWN_ELEMENT_TYPES.add(OutboundRouterType_2029);
+			KNOWN_ELEMENT_TYPES.add(OutboundEndpointType_2030);
+			KNOWN_ELEMENT_TYPES.add(FilteringOutboundRouterType_2031);
 			KNOWN_ELEMENT_TYPES.add(FilteringOutboundRouterType_2032);
 			KNOWN_ELEMENT_TYPES.add(FilteringOutboundRouterType_2033);
 			KNOWN_ELEMENT_TYPES.add(FilteringOutboundRouterType_2034);
 			KNOWN_ELEMENT_TYPES.add(FilteringOutboundRouterType_2035);
-			KNOWN_ELEMENT_TYPES.add(FilteringOutboundRouterType_2036);
-			KNOWN_ELEMENT_TYPES.add(EndpointSelectorRouterType_2037);
-			KNOWN_ELEMENT_TYPES.add(MessageSplitterOutboundRouterType_2038);
-			KNOWN_ELEMENT_TYPES.add(ChunkingRouterType_2039);
-			KNOWN_ELEMENT_TYPES.add(StaticRecipientListRouterType_2040);
-			KNOWN_ELEMENT_TYPES.add(CustomOutboundRouterType_2041);
+			KNOWN_ELEMENT_TYPES.add(EndpointSelectorRouterType_2036);
+			KNOWN_ELEMENT_TYPES.add(MessageSplitterOutboundRouterType_2037);
+			KNOWN_ELEMENT_TYPES.add(ChunkingRouterType_2038);
+			KNOWN_ELEMENT_TYPES.add(StaticRecipientListRouterType_2039);
+			KNOWN_ELEMENT_TYPES.add(CustomOutboundRouterType_2040);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

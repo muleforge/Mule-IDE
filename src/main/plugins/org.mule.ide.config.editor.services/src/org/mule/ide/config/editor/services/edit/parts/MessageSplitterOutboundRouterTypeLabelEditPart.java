@@ -58,7 +58,7 @@ public class MessageSplitterOutboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4043;
+	public static final int VISUAL_ID = 4041;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class MessageSplitterOutboundRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.MessageSplitterOutboundRouterType_2038,
+					CoreElementTypes.MessageSplitterOutboundRouterType_2037,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

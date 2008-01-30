@@ -37,7 +37,7 @@ public class IdempotentReceiverRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2018;
+	public static final int VISUAL_ID = 2017;
 
 	/**
 	 * @generated

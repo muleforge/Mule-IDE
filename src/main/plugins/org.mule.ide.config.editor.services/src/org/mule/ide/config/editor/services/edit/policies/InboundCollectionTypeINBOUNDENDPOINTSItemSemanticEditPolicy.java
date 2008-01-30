@@ -16,7 +16,7 @@ public class InboundCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.InboundEndpointType_2014 == req.getElementType()) {
+		if (CoreElementTypes.InboundEndpointType_2013 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getInboundCollectionType_AbstractInboundEndpoint());

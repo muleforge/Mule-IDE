@@ -58,7 +58,7 @@ public class CustomExceptionStrategyTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4014;
+	public static final int VISUAL_ID = 4012;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class CustomExceptionStrategyTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.CustomExceptionStrategyType_2012,
+					CoreElementTypes.CustomExceptionStrategyType_2011,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

@@ -38,22 +38,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser sedaServiceTypeName_4048Parser;
+	private IParser sedaServiceTypeName_4046Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSedaServiceTypeName_4048Parser() {
-		if (sedaServiceTypeName_4048Parser == null) {
-			sedaServiceTypeName_4048Parser = createSedaServiceTypeName_4048Parser();
+	private IParser getSedaServiceTypeName_4046Parser() {
+		if (sedaServiceTypeName_4046Parser == null) {
+			sedaServiceTypeName_4046Parser = createSedaServiceTypeName_4046Parser();
 		}
-		return sedaServiceTypeName_4048Parser;
+		return sedaServiceTypeName_4046Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSedaServiceTypeName_4048Parser() {
+	protected IParser createSedaServiceTypeName_4046Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getAbstractServiceType_Name(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -88,22 +88,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser outboundEndpointTypeNameRefConnectorRefAddress_4011Parser;
+	private IParser outboundEndpointTypeNameRefConnectorRefAddress_4009Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getOutboundEndpointTypeNameRefConnectorRefAddress_4011Parser() {
-		if (outboundEndpointTypeNameRefConnectorRefAddress_4011Parser == null) {
-			outboundEndpointTypeNameRefConnectorRefAddress_4011Parser = createOutboundEndpointTypeNameRefConnectorRefAddress_4011Parser();
+	private IParser getOutboundEndpointTypeNameRefConnectorRefAddress_4009Parser() {
+		if (outboundEndpointTypeNameRefConnectorRefAddress_4009Parser == null) {
+			outboundEndpointTypeNameRefConnectorRefAddress_4009Parser = createOutboundEndpointTypeNameRefConnectorRefAddress_4009Parser();
 		}
-		return outboundEndpointTypeNameRefConnectorRefAddress_4011Parser;
+		return outboundEndpointTypeNameRefConnectorRefAddress_4009Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createOutboundEndpointTypeNameRefConnectorRefAddress_4011Parser() {
+	protected IParser createOutboundEndpointTypeNameRefConnectorRefAddress_4009Parser() {
 		EAttribute[] features = new EAttribute[] {
 				CorePackage.eINSTANCE.getAbstractOutboundEndpointType_Name(),
 				CorePackage.eINSTANCE.getOutboundEndpointType_Ref(),
@@ -116,22 +116,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser customExceptionStrategyTypeClass_4015Parser;
+	private IParser customExceptionStrategyTypeClass_4013Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCustomExceptionStrategyTypeClass_4015Parser() {
-		if (customExceptionStrategyTypeClass_4015Parser == null) {
-			customExceptionStrategyTypeClass_4015Parser = createCustomExceptionStrategyTypeClass_4015Parser();
+	private IParser getCustomExceptionStrategyTypeClass_4013Parser() {
+		if (customExceptionStrategyTypeClass_4013Parser == null) {
+			customExceptionStrategyTypeClass_4013Parser = createCustomExceptionStrategyTypeClass_4013Parser();
 		}
-		return customExceptionStrategyTypeClass_4015Parser;
+		return customExceptionStrategyTypeClass_4013Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCustomExceptionStrategyTypeClass_4015Parser() {
+	protected IParser createCustomExceptionStrategyTypeClass_4013Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getCustomExceptionStrategyType_Class(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -141,22 +141,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser inboundEndpointTypeNameRefConnectorRefAddress_4017Parser;
+	private IParser inboundEndpointTypeNameRefConnectorRefAddress_4015Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getInboundEndpointTypeNameRefConnectorRefAddress_4017Parser() {
-		if (inboundEndpointTypeNameRefConnectorRefAddress_4017Parser == null) {
-			inboundEndpointTypeNameRefConnectorRefAddress_4017Parser = createInboundEndpointTypeNameRefConnectorRefAddress_4017Parser();
+	private IParser getInboundEndpointTypeNameRefConnectorRefAddress_4015Parser() {
+		if (inboundEndpointTypeNameRefConnectorRefAddress_4015Parser == null) {
+			inboundEndpointTypeNameRefConnectorRefAddress_4015Parser = createInboundEndpointTypeNameRefConnectorRefAddress_4015Parser();
 		}
-		return inboundEndpointTypeNameRefConnectorRefAddress_4017Parser;
+		return inboundEndpointTypeNameRefConnectorRefAddress_4015Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createInboundEndpointTypeNameRefConnectorRefAddress_4017Parser() {
+	protected IParser createInboundEndpointTypeNameRefConnectorRefAddress_4015Parser() {
 		EAttribute[] features = new EAttribute[] {
 				CorePackage.eINSTANCE.getAbstractInboundEndpointType_Name(),
 				CorePackage.eINSTANCE.getInboundEndpointType_Ref(),
@@ -169,22 +169,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser customCorrelationAggregatorRouterTypeClass_4027Parser;
+	private IParser customCorrelationAggregatorRouterTypeClass_4025Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCustomCorrelationAggregatorRouterTypeClass_4027Parser() {
-		if (customCorrelationAggregatorRouterTypeClass_4027Parser == null) {
-			customCorrelationAggregatorRouterTypeClass_4027Parser = createCustomCorrelationAggregatorRouterTypeClass_4027Parser();
+	private IParser getCustomCorrelationAggregatorRouterTypeClass_4025Parser() {
+		if (customCorrelationAggregatorRouterTypeClass_4025Parser == null) {
+			customCorrelationAggregatorRouterTypeClass_4025Parser = createCustomCorrelationAggregatorRouterTypeClass_4025Parser();
 		}
-		return customCorrelationAggregatorRouterTypeClass_4027Parser;
+		return customCorrelationAggregatorRouterTypeClass_4025Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCustomCorrelationAggregatorRouterTypeClass_4027Parser() {
+	protected IParser createCustomCorrelationAggregatorRouterTypeClass_4025Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getCustomCorrelationAggregatorRouterType_Class(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -194,22 +194,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser customInboundRouterTypeClass_4029Parser;
+	private IParser customInboundRouterTypeClass_4027Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCustomInboundRouterTypeClass_4029Parser() {
-		if (customInboundRouterTypeClass_4029Parser == null) {
-			customInboundRouterTypeClass_4029Parser = createCustomInboundRouterTypeClass_4029Parser();
+	private IParser getCustomInboundRouterTypeClass_4027Parser() {
+		if (customInboundRouterTypeClass_4027Parser == null) {
+			customInboundRouterTypeClass_4027Parser = createCustomInboundRouterTypeClass_4027Parser();
 		}
-		return customInboundRouterTypeClass_4029Parser;
+		return customInboundRouterTypeClass_4027Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCustomInboundRouterTypeClass_4029Parser() {
+	protected IParser createCustomInboundRouterTypeClass_4027Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getCustomInboundRouterType_Class(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -219,22 +219,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser inboundEndpointTypeNameRefConnectorRefAddress_4031Parser;
+	private IParser inboundEndpointTypeNameRefConnectorRefAddress_4029Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getInboundEndpointTypeNameRefConnectorRefAddress_4031Parser() {
-		if (inboundEndpointTypeNameRefConnectorRefAddress_4031Parser == null) {
-			inboundEndpointTypeNameRefConnectorRefAddress_4031Parser = createInboundEndpointTypeNameRefConnectorRefAddress_4031Parser();
+	private IParser getInboundEndpointTypeNameRefConnectorRefAddress_4029Parser() {
+		if (inboundEndpointTypeNameRefConnectorRefAddress_4029Parser == null) {
+			inboundEndpointTypeNameRefConnectorRefAddress_4029Parser = createInboundEndpointTypeNameRefConnectorRefAddress_4029Parser();
 		}
-		return inboundEndpointTypeNameRefConnectorRefAddress_4031Parser;
+		return inboundEndpointTypeNameRefConnectorRefAddress_4029Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createInboundEndpointTypeNameRefConnectorRefAddress_4031Parser() {
+	protected IParser createInboundEndpointTypeNameRefConnectorRefAddress_4029Parser() {
 		EAttribute[] features = new EAttribute[] {
 				CorePackage.eINSTANCE.getAbstractInboundEndpointType_Name(),
 				CorePackage.eINSTANCE.getInboundEndpointType_Ref(),
@@ -247,22 +247,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser customAsyncReplyRouterTypeClass_4034Parser;
+	private IParser customAsyncReplyRouterTypeClass_4032Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCustomAsyncReplyRouterTypeClass_4034Parser() {
-		if (customAsyncReplyRouterTypeClass_4034Parser == null) {
-			customAsyncReplyRouterTypeClass_4034Parser = createCustomAsyncReplyRouterTypeClass_4034Parser();
+	private IParser getCustomAsyncReplyRouterTypeClass_4032Parser() {
+		if (customAsyncReplyRouterTypeClass_4032Parser == null) {
+			customAsyncReplyRouterTypeClass_4032Parser = createCustomAsyncReplyRouterTypeClass_4032Parser();
 		}
-		return customAsyncReplyRouterTypeClass_4034Parser;
+		return customAsyncReplyRouterTypeClass_4032Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCustomAsyncReplyRouterTypeClass_4034Parser() {
+	protected IParser createCustomAsyncReplyRouterTypeClass_4032Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getCustomAsyncReplyRouterType_Class(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -272,22 +272,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser outboundEndpointTypeNameRefConnectorRefAddress_4035Parser;
+	private IParser outboundEndpointTypeNameRefConnectorRefAddress_4033Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getOutboundEndpointTypeNameRefConnectorRefAddress_4035Parser() {
-		if (outboundEndpointTypeNameRefConnectorRefAddress_4035Parser == null) {
-			outboundEndpointTypeNameRefConnectorRefAddress_4035Parser = createOutboundEndpointTypeNameRefConnectorRefAddress_4035Parser();
+	private IParser getOutboundEndpointTypeNameRefConnectorRefAddress_4033Parser() {
+		if (outboundEndpointTypeNameRefConnectorRefAddress_4033Parser == null) {
+			outboundEndpointTypeNameRefConnectorRefAddress_4033Parser = createOutboundEndpointTypeNameRefConnectorRefAddress_4033Parser();
 		}
-		return outboundEndpointTypeNameRefConnectorRefAddress_4035Parser;
+		return outboundEndpointTypeNameRefConnectorRefAddress_4033Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createOutboundEndpointTypeNameRefConnectorRefAddress_4035Parser() {
+	protected IParser createOutboundEndpointTypeNameRefConnectorRefAddress_4033Parser() {
 		EAttribute[] features = new EAttribute[] {
 				CorePackage.eINSTANCE.getAbstractOutboundEndpointType_Name(),
 				CorePackage.eINSTANCE.getOutboundEndpointType_Ref(),
@@ -300,22 +300,22 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser customOutboundRouterTypeClass_4047Parser;
+	private IParser customOutboundRouterTypeClass_4045Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCustomOutboundRouterTypeClass_4047Parser() {
-		if (customOutboundRouterTypeClass_4047Parser == null) {
-			customOutboundRouterTypeClass_4047Parser = createCustomOutboundRouterTypeClass_4047Parser();
+	private IParser getCustomOutboundRouterTypeClass_4045Parser() {
+		if (customOutboundRouterTypeClass_4045Parser == null) {
+			customOutboundRouterTypeClass_4045Parser = createCustomOutboundRouterTypeClass_4045Parser();
 		}
-		return customOutboundRouterTypeClass_4047Parser;
+		return customOutboundRouterTypeClass_4045Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCustomOutboundRouterTypeClass_4047Parser() {
+	protected IParser createCustomOutboundRouterTypeClass_4045Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getCustomOutboundRouterType_Class(), };
 		MessageFormatParser parser = new MessageFormatParser(features);

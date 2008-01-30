@@ -44,7 +44,7 @@ public class FilteringOutboundRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2032;
+	public static final int VISUAL_ID = 2031;
 
 	/**
 	 * @generated
@@ -77,7 +77,7 @@ public class FilteringOutboundRouterTypeEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == CoreElementTypes.OutboundEndpointType_2031) {
+								if (type == CoreElementTypes.OutboundEndpointType_2030) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(FilteringOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

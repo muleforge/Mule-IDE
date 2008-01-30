@@ -16,7 +16,7 @@ public class AsyncReplyCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.InboundEndpointType_2026 == req.getElementType()) {
+		if (CoreElementTypes.InboundEndpointType_2025 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getAsyncReplyCollectionType_AbstractInboundEndpoint());

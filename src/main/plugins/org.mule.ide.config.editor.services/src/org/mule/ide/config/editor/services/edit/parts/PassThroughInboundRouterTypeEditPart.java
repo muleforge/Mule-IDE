@@ -37,7 +37,7 @@ public class PassThroughInboundRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2017;
+	public static final int VISUAL_ID = 2016;
 
 	/**
 	 * @generated

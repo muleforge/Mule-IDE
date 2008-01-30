@@ -58,7 +58,7 @@ public class OutboundRouterOutboundEndpointTypeNameEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4035;
+	public static final int VISUAL_ID = 4033;
 
 	/**
 	 * @generated
@@ -302,7 +302,7 @@ public class OutboundRouterOutboundEndpointTypeNameEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.OutboundEndpointType_2031,
+					CoreElementTypes.OutboundEndpointType_2030,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

@@ -37,7 +37,7 @@ public class ChunkingInboundRouterTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2021;
+	public static final int VISUAL_ID = 2020;
 
 	/**
 	 * @generated

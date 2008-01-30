@@ -39,7 +39,7 @@ public class AsyncReplyInboundEndpointServiceItemTypeEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2026;
+	public static final int VISUAL_ID = 2025;
 
 	/**
 	 * @generated

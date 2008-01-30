@@ -38,7 +38,7 @@ public class CustomCorrelationAggregatorRouterTypeEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2023;
+	public static final int VISUAL_ID = 2022;
 
 	/**
 	 * @generated

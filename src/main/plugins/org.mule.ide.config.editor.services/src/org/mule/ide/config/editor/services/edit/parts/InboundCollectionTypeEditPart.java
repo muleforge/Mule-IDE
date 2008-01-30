@@ -38,7 +38,7 @@ public class InboundCollectionTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2013;
+	public static final int VISUAL_ID = 2012;
 
 	/**
 	 * @generated
@@ -71,14 +71,21 @@ public class InboundCollectionTypeEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == CoreElementTypes.InboundEndpointType_2014) {
+								if (type == CoreElementTypes.InboundEndpointType_2013) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.ForwardingRouterType_2015) {
+								if (type == CoreElementTypes.ForwardingRouterType_2014) {
+									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
+											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+								if (type == CoreElementTypes.FilteredInboundRouterType_2015) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
@@ -92,56 +99,49 @@ public class InboundCollectionTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.FilteredInboundRouterType_2017) {
+								if (type == CoreElementTypes.IdempotentReceiverRouterType_2017) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.IdempotentReceiverRouterType_2018) {
+								if (type == CoreElementTypes.WireTapRouterType_2018) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.WireTapRouterType_2019) {
+								if (type == CoreElementTypes.SelectiveConsumerRouterType_2019) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.SelectiveConsumerRouterType_2020) {
+								if (type == CoreElementTypes.MessageChunkingAggregatorRouterType_2020) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.MessageChunkingAggregatorRouterType_2021) {
+								if (type == CoreElementTypes.SelectiveConsumerRouterType_2021) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.SelectiveConsumerRouterType_2022) {
+								if (type == CoreElementTypes.CustomCorrelationAggregatorRouterType_2022) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.CustomCorrelationAggregatorRouterType_2023) {
-									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == CoreElementTypes.CustomInboundRouterType_2024) {
+								if (type == CoreElementTypes.CustomInboundRouterType_2023) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

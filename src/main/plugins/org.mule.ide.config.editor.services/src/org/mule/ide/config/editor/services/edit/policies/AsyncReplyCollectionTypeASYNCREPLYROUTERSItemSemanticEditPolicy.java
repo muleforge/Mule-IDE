@@ -17,7 +17,7 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.AsyncReplyRouterType_2027 == req.getElementType()) {
+		if (CoreElementTypes.AsyncReplyRouterType_2026 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
 						.setContainmentFeature(CorePackage.eINSTANCE
@@ -25,7 +25,7 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSItemSemanticEditPolicy
 			}
 			return getGEFWrapper(new AsyncReplyRouterTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.CustomAsyncReplyRouterType_2028 == req
+		if (CoreElementTypes.CustomAsyncReplyRouterType_2027 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req

@@ -86,7 +86,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.PojoComponentType_2002) {
+								if (type == CoreElementTypes.DefaultComponentType_2002) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeCOMPONENTEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
@@ -128,49 +128,42 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.DefaultComponentType_2008) {
-									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(SedaServiceTypeCOMPONENTEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == CoreElementTypes.ExceptionStrategyType_2009) {
+								if (type == CoreElementTypes.ExceptionStrategyType_2008) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.ExceptionStrategyType_2011) {
+								if (type == CoreElementTypes.ExceptionStrategyType_2010) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.CustomExceptionStrategyType_2012) {
+								if (type == CoreElementTypes.CustomExceptionStrategyType_2011) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.InboundCollectionType_2013) {
+								if (type == CoreElementTypes.InboundCollectionType_2012) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeINBOUNDEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.AsyncReplyCollectionType_2025) {
+								if (type == CoreElementTypes.AsyncReplyCollectionType_2024) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.OutboundCollectionType_2029) {
+								if (type == CoreElementTypes.OutboundCollectionType_2028) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

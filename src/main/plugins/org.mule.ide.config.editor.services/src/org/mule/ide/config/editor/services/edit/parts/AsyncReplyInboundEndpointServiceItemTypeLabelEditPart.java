@@ -58,7 +58,7 @@ public class AsyncReplyInboundEndpointServiceItemTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4030;
+	public static final int VISUAL_ID = 4028;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class AsyncReplyInboundEndpointServiceItemTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.InboundEndpointType_2026,
+					CoreElementTypes.InboundEndpointType_2025,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

@@ -58,7 +58,7 @@ public class PassThroughInboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4020;
+	public static final int VISUAL_ID = 4018;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class PassThroughInboundRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.FilteredInboundRouterType_2017,
+					CoreElementTypes.FilteredInboundRouterType_2016,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

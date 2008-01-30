@@ -12,10 +12,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.DefaultComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
@@ -55,7 +53,6 @@ public class SedaServiceTypeCOMPONENTCanonicalEditPolicy extends
 		int visualID = CoreVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case PojoComponentTypeEditPart.VISUAL_ID:
-		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 		case BridgeComponentTypeEditPart.VISUAL_ID:
 		case EchoComponentTypeEditPart.VISUAL_ID:

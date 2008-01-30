@@ -72,7 +72,6 @@ import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRou
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.NoArgsCallComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeOUTBOUNDROUTERSEditPart;
@@ -181,9 +180,6 @@ public class CoreDiagramUpdater {
 			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == PojoComponentTypeEditPart.VISUAL_ID) {
-				result.add(new CoreNodeDescriptor(childElement, visualID));
-			}
-			if (visualID == NoArgsCallComponentTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == DefaultComponentTypeEditPart.VISUAL_ID) {
@@ -982,86 +978,84 @@ public class CoreDiagramUpdater {
 			return getSedaServiceType_1001ContainedLinks(view);
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2001ContainedLinks(view);
-		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
-			return getPojoComponentType_2002ContainedLinks(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2003ContainedLinks(view);
+			return getDefaultComponentType_2002ContainedLinks(view);
 		case BridgeComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2004ContainedLinks(view);
+			return getDefaultComponentType_2003ContainedLinks(view);
 		case EchoComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2005ContainedLinks(view);
+			return getDefaultComponentType_2004ContainedLinks(view);
 		case LogComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2006ContainedLinks(view);
+			return getDefaultComponentType_2005ContainedLinks(view);
 		case NullComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2007ContainedLinks(view);
+			return getDefaultComponentType_2006ContainedLinks(view);
 		case PassThroughComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2008ContainedLinks(view);
+			return getDefaultComponentType_2007ContainedLinks(view);
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2009ContainedLinks(view);
+			return getExceptionStrategyType_2008ContainedLinks(view);
 		case OutboundEndpointTypeEditPart.VISUAL_ID:
-			return getOutboundEndpointType_2010ContainedLinks(view);
+			return getOutboundEndpointType_2009ContainedLinks(view);
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2011ContainedLinks(view);
+			return getExceptionStrategyType_2010ContainedLinks(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyType_2012ContainedLinks(view);
+			return getCustomExceptionStrategyType_2011ContainedLinks(view);
 		case InboundCollectionTypeEditPart.VISUAL_ID:
-			return getInboundCollectionType_2013ContainedLinks(view);
+			return getInboundCollectionType_2012ContainedLinks(view);
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
-			return getInboundEndpointType_2014ContainedLinks(view);
+			return getInboundEndpointType_2013ContainedLinks(view);
 		case ForwardingRouterTypeEditPart.VISUAL_ID:
-			return getForwardingRouterType_2015ContainedLinks(view);
+			return getForwardingRouterType_2014ContainedLinks(view);
 		case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
-			return getFilteredInboundRouterType_2016ContainedLinks(view);
+			return getFilteredInboundRouterType_2015ContainedLinks(view);
 		case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteredInboundRouterType_2017ContainedLinks(view);
+			return getFilteredInboundRouterType_2016ContainedLinks(view);
 		case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
-			return getIdempotentReceiverRouterType_2018ContainedLinks(view);
+			return getIdempotentReceiverRouterType_2017ContainedLinks(view);
 		case WireTapRouterTypeEditPart.VISUAL_ID:
-			return getWireTapRouterType_2019ContainedLinks(view);
+			return getWireTapRouterType_2018ContainedLinks(view);
 		case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
-			return getSelectiveConsumerRouterType_2020ContainedLinks(view);
+			return getSelectiveConsumerRouterType_2019ContainedLinks(view);
 		case ChunkingInboundRouterTypeEditPart.VISUAL_ID:
-			return getMessageChunkingAggregatorRouterType_2021ContainedLinks(view);
+			return getMessageChunkingAggregatorRouterType_2020ContainedLinks(view);
 		case CorrelationResequencerRouterTypeEditPart.VISUAL_ID:
-			return getSelectiveConsumerRouterType_2022ContainedLinks(view);
+			return getSelectiveConsumerRouterType_2021ContainedLinks(view);
 		case CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
-			return getCustomCorrelationAggregatorRouterType_2023ContainedLinks(view);
+			return getCustomCorrelationAggregatorRouterType_2022ContainedLinks(view);
 		case CustomInboundRouterTypeEditPart.VISUAL_ID:
-			return getCustomInboundRouterType_2024ContainedLinks(view);
+			return getCustomInboundRouterType_2023ContainedLinks(view);
 		case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
-			return getAsyncReplyCollectionType_2025ContainedLinks(view);
+			return getAsyncReplyCollectionType_2024ContainedLinks(view);
 		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
-			return getInboundEndpointType_2026ContainedLinks(view);
+			return getInboundEndpointType_2025ContainedLinks(view);
 		case AsyncReplyRouterTypeEditPart.VISUAL_ID:
-			return getAsyncReplyRouterType_2027ContainedLinks(view);
+			return getAsyncReplyRouterType_2026ContainedLinks(view);
 		case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
-			return getCustomAsyncReplyRouterType_2028ContainedLinks(view);
+			return getCustomAsyncReplyRouterType_2027ContainedLinks(view);
 		case OutboundCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundCollectionType_2029ContainedLinks(view);
+			return getOutboundCollectionType_2028ContainedLinks(view);
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
-			return getOutboundRouterType_2030ContainedLinks(view);
+			return getOutboundRouterType_2029ContainedLinks(view);
 		case OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID:
-			return getOutboundEndpointType_2031ContainedLinks(view);
+			return getOutboundEndpointType_2030ContainedLinks(view);
 		case FilteringOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2032ContainedLinks(view);
+			return getFilteringOutboundRouterType_2031ContainedLinks(view);
 		case ChainingOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2033ContainedLinks(view);
+			return getFilteringOutboundRouterType_2032ContainedLinks(view);
 		case ExceptionOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2034ContainedLinks(view);
+			return getFilteringOutboundRouterType_2033ContainedLinks(view);
 		case MulticastingOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2035ContainedLinks(view);
+			return getFilteringOutboundRouterType_2034ContainedLinks(view);
 		case TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2036ContainedLinks(view);
+			return getFilteringOutboundRouterType_2035ContainedLinks(view);
 		case EndpointSelectorRouterTypeEditPart.VISUAL_ID:
-			return getEndpointSelectorRouterType_2037ContainedLinks(view);
+			return getEndpointSelectorRouterType_2036ContainedLinks(view);
 		case MessageSplitterOutboundRouterTypeEditPart.VISUAL_ID:
-			return getMessageSplitterOutboundRouterType_2038ContainedLinks(view);
+			return getMessageSplitterOutboundRouterType_2037ContainedLinks(view);
 		case ChunkingRouterTypeEditPart.VISUAL_ID:
-			return getChunkingRouterType_2039ContainedLinks(view);
+			return getChunkingRouterType_2038ContainedLinks(view);
 		case StaticRecipientListRouterTypeEditPart.VISUAL_ID:
-			return getStaticRecipientListRouterType_2040ContainedLinks(view);
+			return getStaticRecipientListRouterType_2039ContainedLinks(view);
 		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
-			return getCustomOutboundRouterType_2041ContainedLinks(view);
+			return getCustomOutboundRouterType_2040ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -1075,86 +1069,84 @@ public class CoreDiagramUpdater {
 			return getSedaServiceType_1001IncomingLinks(view);
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2001IncomingLinks(view);
-		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
-			return getPojoComponentType_2002IncomingLinks(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2003IncomingLinks(view);
+			return getDefaultComponentType_2002IncomingLinks(view);
 		case BridgeComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2004IncomingLinks(view);
+			return getDefaultComponentType_2003IncomingLinks(view);
 		case EchoComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2005IncomingLinks(view);
+			return getDefaultComponentType_2004IncomingLinks(view);
 		case LogComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2006IncomingLinks(view);
+			return getDefaultComponentType_2005IncomingLinks(view);
 		case NullComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2007IncomingLinks(view);
+			return getDefaultComponentType_2006IncomingLinks(view);
 		case PassThroughComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2008IncomingLinks(view);
+			return getDefaultComponentType_2007IncomingLinks(view);
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2009IncomingLinks(view);
+			return getExceptionStrategyType_2008IncomingLinks(view);
 		case OutboundEndpointTypeEditPart.VISUAL_ID:
-			return getOutboundEndpointType_2010IncomingLinks(view);
+			return getOutboundEndpointType_2009IncomingLinks(view);
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2011IncomingLinks(view);
+			return getExceptionStrategyType_2010IncomingLinks(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyType_2012IncomingLinks(view);
+			return getCustomExceptionStrategyType_2011IncomingLinks(view);
 		case InboundCollectionTypeEditPart.VISUAL_ID:
-			return getInboundCollectionType_2013IncomingLinks(view);
+			return getInboundCollectionType_2012IncomingLinks(view);
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
-			return getInboundEndpointType_2014IncomingLinks(view);
+			return getInboundEndpointType_2013IncomingLinks(view);
 		case ForwardingRouterTypeEditPart.VISUAL_ID:
-			return getForwardingRouterType_2015IncomingLinks(view);
+			return getForwardingRouterType_2014IncomingLinks(view);
 		case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
-			return getFilteredInboundRouterType_2016IncomingLinks(view);
+			return getFilteredInboundRouterType_2015IncomingLinks(view);
 		case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteredInboundRouterType_2017IncomingLinks(view);
+			return getFilteredInboundRouterType_2016IncomingLinks(view);
 		case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
-			return getIdempotentReceiverRouterType_2018IncomingLinks(view);
+			return getIdempotentReceiverRouterType_2017IncomingLinks(view);
 		case WireTapRouterTypeEditPart.VISUAL_ID:
-			return getWireTapRouterType_2019IncomingLinks(view);
+			return getWireTapRouterType_2018IncomingLinks(view);
 		case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
-			return getSelectiveConsumerRouterType_2020IncomingLinks(view);
+			return getSelectiveConsumerRouterType_2019IncomingLinks(view);
 		case ChunkingInboundRouterTypeEditPart.VISUAL_ID:
-			return getMessageChunkingAggregatorRouterType_2021IncomingLinks(view);
+			return getMessageChunkingAggregatorRouterType_2020IncomingLinks(view);
 		case CorrelationResequencerRouterTypeEditPart.VISUAL_ID:
-			return getSelectiveConsumerRouterType_2022IncomingLinks(view);
+			return getSelectiveConsumerRouterType_2021IncomingLinks(view);
 		case CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
-			return getCustomCorrelationAggregatorRouterType_2023IncomingLinks(view);
+			return getCustomCorrelationAggregatorRouterType_2022IncomingLinks(view);
 		case CustomInboundRouterTypeEditPart.VISUAL_ID:
-			return getCustomInboundRouterType_2024IncomingLinks(view);
+			return getCustomInboundRouterType_2023IncomingLinks(view);
 		case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
-			return getAsyncReplyCollectionType_2025IncomingLinks(view);
+			return getAsyncReplyCollectionType_2024IncomingLinks(view);
 		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
-			return getInboundEndpointType_2026IncomingLinks(view);
+			return getInboundEndpointType_2025IncomingLinks(view);
 		case AsyncReplyRouterTypeEditPart.VISUAL_ID:
-			return getAsyncReplyRouterType_2027IncomingLinks(view);
+			return getAsyncReplyRouterType_2026IncomingLinks(view);
 		case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
-			return getCustomAsyncReplyRouterType_2028IncomingLinks(view);
+			return getCustomAsyncReplyRouterType_2027IncomingLinks(view);
 		case OutboundCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundCollectionType_2029IncomingLinks(view);
+			return getOutboundCollectionType_2028IncomingLinks(view);
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
-			return getOutboundRouterType_2030IncomingLinks(view);
+			return getOutboundRouterType_2029IncomingLinks(view);
 		case OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID:
-			return getOutboundEndpointType_2031IncomingLinks(view);
+			return getOutboundEndpointType_2030IncomingLinks(view);
 		case FilteringOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2032IncomingLinks(view);
+			return getFilteringOutboundRouterType_2031IncomingLinks(view);
 		case ChainingOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2033IncomingLinks(view);
+			return getFilteringOutboundRouterType_2032IncomingLinks(view);
 		case ExceptionOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2034IncomingLinks(view);
+			return getFilteringOutboundRouterType_2033IncomingLinks(view);
 		case MulticastingOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2035IncomingLinks(view);
+			return getFilteringOutboundRouterType_2034IncomingLinks(view);
 		case TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2036IncomingLinks(view);
+			return getFilteringOutboundRouterType_2035IncomingLinks(view);
 		case EndpointSelectorRouterTypeEditPart.VISUAL_ID:
-			return getEndpointSelectorRouterType_2037IncomingLinks(view);
+			return getEndpointSelectorRouterType_2036IncomingLinks(view);
 		case MessageSplitterOutboundRouterTypeEditPart.VISUAL_ID:
-			return getMessageSplitterOutboundRouterType_2038IncomingLinks(view);
+			return getMessageSplitterOutboundRouterType_2037IncomingLinks(view);
 		case ChunkingRouterTypeEditPart.VISUAL_ID:
-			return getChunkingRouterType_2039IncomingLinks(view);
+			return getChunkingRouterType_2038IncomingLinks(view);
 		case StaticRecipientListRouterTypeEditPart.VISUAL_ID:
-			return getStaticRecipientListRouterType_2040IncomingLinks(view);
+			return getStaticRecipientListRouterType_2039IncomingLinks(view);
 		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
-			return getCustomOutboundRouterType_2041IncomingLinks(view);
+			return getCustomOutboundRouterType_2040IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -1168,86 +1160,84 @@ public class CoreDiagramUpdater {
 			return getSedaServiceType_1001OutgoingLinks(view);
 		case PojoComponentTypeEditPart.VISUAL_ID:
 			return getPojoComponentType_2001OutgoingLinks(view);
-		case NoArgsCallComponentTypeEditPart.VISUAL_ID:
-			return getPojoComponentType_2002OutgoingLinks(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2003OutgoingLinks(view);
+			return getDefaultComponentType_2002OutgoingLinks(view);
 		case BridgeComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2004OutgoingLinks(view);
+			return getDefaultComponentType_2003OutgoingLinks(view);
 		case EchoComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2005OutgoingLinks(view);
+			return getDefaultComponentType_2004OutgoingLinks(view);
 		case LogComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2006OutgoingLinks(view);
+			return getDefaultComponentType_2005OutgoingLinks(view);
 		case NullComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2007OutgoingLinks(view);
+			return getDefaultComponentType_2006OutgoingLinks(view);
 		case PassThroughComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2008OutgoingLinks(view);
+			return getDefaultComponentType_2007OutgoingLinks(view);
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2009OutgoingLinks(view);
+			return getExceptionStrategyType_2008OutgoingLinks(view);
 		case OutboundEndpointTypeEditPart.VISUAL_ID:
-			return getOutboundEndpointType_2010OutgoingLinks(view);
+			return getOutboundEndpointType_2009OutgoingLinks(view);
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2011OutgoingLinks(view);
+			return getExceptionStrategyType_2010OutgoingLinks(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyType_2012OutgoingLinks(view);
+			return getCustomExceptionStrategyType_2011OutgoingLinks(view);
 		case InboundCollectionTypeEditPart.VISUAL_ID:
-			return getInboundCollectionType_2013OutgoingLinks(view);
+			return getInboundCollectionType_2012OutgoingLinks(view);
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
-			return getInboundEndpointType_2014OutgoingLinks(view);
+			return getInboundEndpointType_2013OutgoingLinks(view);
 		case ForwardingRouterTypeEditPart.VISUAL_ID:
-			return getForwardingRouterType_2015OutgoingLinks(view);
+			return getForwardingRouterType_2014OutgoingLinks(view);
 		case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
-			return getFilteredInboundRouterType_2016OutgoingLinks(view);
+			return getFilteredInboundRouterType_2015OutgoingLinks(view);
 		case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteredInboundRouterType_2017OutgoingLinks(view);
+			return getFilteredInboundRouterType_2016OutgoingLinks(view);
 		case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
-			return getIdempotentReceiverRouterType_2018OutgoingLinks(view);
+			return getIdempotentReceiverRouterType_2017OutgoingLinks(view);
 		case WireTapRouterTypeEditPart.VISUAL_ID:
-			return getWireTapRouterType_2019OutgoingLinks(view);
+			return getWireTapRouterType_2018OutgoingLinks(view);
 		case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
-			return getSelectiveConsumerRouterType_2020OutgoingLinks(view);
+			return getSelectiveConsumerRouterType_2019OutgoingLinks(view);
 		case ChunkingInboundRouterTypeEditPart.VISUAL_ID:
-			return getMessageChunkingAggregatorRouterType_2021OutgoingLinks(view);
+			return getMessageChunkingAggregatorRouterType_2020OutgoingLinks(view);
 		case CorrelationResequencerRouterTypeEditPart.VISUAL_ID:
-			return getSelectiveConsumerRouterType_2022OutgoingLinks(view);
+			return getSelectiveConsumerRouterType_2021OutgoingLinks(view);
 		case CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
-			return getCustomCorrelationAggregatorRouterType_2023OutgoingLinks(view);
+			return getCustomCorrelationAggregatorRouterType_2022OutgoingLinks(view);
 		case CustomInboundRouterTypeEditPart.VISUAL_ID:
-			return getCustomInboundRouterType_2024OutgoingLinks(view);
+			return getCustomInboundRouterType_2023OutgoingLinks(view);
 		case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
-			return getAsyncReplyCollectionType_2025OutgoingLinks(view);
+			return getAsyncReplyCollectionType_2024OutgoingLinks(view);
 		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
-			return getInboundEndpointType_2026OutgoingLinks(view);
+			return getInboundEndpointType_2025OutgoingLinks(view);
 		case AsyncReplyRouterTypeEditPart.VISUAL_ID:
-			return getAsyncReplyRouterType_2027OutgoingLinks(view);
+			return getAsyncReplyRouterType_2026OutgoingLinks(view);
 		case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
-			return getCustomAsyncReplyRouterType_2028OutgoingLinks(view);
+			return getCustomAsyncReplyRouterType_2027OutgoingLinks(view);
 		case OutboundCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundCollectionType_2029OutgoingLinks(view);
+			return getOutboundCollectionType_2028OutgoingLinks(view);
 		case PassThroughOutboundRouterTypeEditPart.VISUAL_ID:
-			return getOutboundRouterType_2030OutgoingLinks(view);
+			return getOutboundRouterType_2029OutgoingLinks(view);
 		case OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID:
-			return getOutboundEndpointType_2031OutgoingLinks(view);
+			return getOutboundEndpointType_2030OutgoingLinks(view);
 		case FilteringOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2032OutgoingLinks(view);
+			return getFilteringOutboundRouterType_2031OutgoingLinks(view);
 		case ChainingOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2033OutgoingLinks(view);
+			return getFilteringOutboundRouterType_2032OutgoingLinks(view);
 		case ExceptionOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2034OutgoingLinks(view);
+			return getFilteringOutboundRouterType_2033OutgoingLinks(view);
 		case MulticastingOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2035OutgoingLinks(view);
+			return getFilteringOutboundRouterType_2034OutgoingLinks(view);
 		case TemplateEndpointOutboundRouterTypeEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterType_2036OutgoingLinks(view);
+			return getFilteringOutboundRouterType_2035OutgoingLinks(view);
 		case EndpointSelectorRouterTypeEditPart.VISUAL_ID:
-			return getEndpointSelectorRouterType_2037OutgoingLinks(view);
+			return getEndpointSelectorRouterType_2036OutgoingLinks(view);
 		case MessageSplitterOutboundRouterTypeEditPart.VISUAL_ID:
-			return getMessageSplitterOutboundRouterType_2038OutgoingLinks(view);
+			return getMessageSplitterOutboundRouterType_2037OutgoingLinks(view);
 		case ChunkingRouterTypeEditPart.VISUAL_ID:
-			return getChunkingRouterType_2039OutgoingLinks(view);
+			return getChunkingRouterType_2038OutgoingLinks(view);
 		case StaticRecipientListRouterTypeEditPart.VISUAL_ID:
-			return getStaticRecipientListRouterType_2040OutgoingLinks(view);
+			return getStaticRecipientListRouterType_2039OutgoingLinks(view);
 		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
-			return getCustomOutboundRouterType_2041OutgoingLinks(view);
+			return getCustomOutboundRouterType_2040OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -1276,7 +1266,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getPojoComponentType_2002ContainedLinks(View view) {
+	public static List getDefaultComponentType_2002ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1318,35 +1308,28 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getDefaultComponentType_2008ContainedLinks(View view) {
+	public static List getExceptionStrategyType_2008ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2009ContainedLinks(View view) {
+	public static List getOutboundEndpointType_2009ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutboundEndpointType_2010ContainedLinks(View view) {
+	public static List getExceptionStrategyType_2010ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2011ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCustomExceptionStrategyType_2012ContainedLinks(
+	public static List getCustomExceptionStrategyType_2011ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1354,21 +1337,28 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getInboundCollectionType_2013ContainedLinks(View view) {
+	public static List getInboundCollectionType_2012ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInboundEndpointType_2014ContainedLinks(View view) {
+	public static List getInboundEndpointType_2013ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getForwardingRouterType_2015ContainedLinks(View view) {
+	public static List getForwardingRouterType_2014ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getFilteredInboundRouterType_2015ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1382,14 +1372,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getFilteredInboundRouterType_2017ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getIdempotentReceiverRouterType_2018ContainedLinks(
+	public static List getIdempotentReceiverRouterType_2017ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1397,14 +1380,14 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getWireTapRouterType_2019ContainedLinks(View view) {
+	public static List getWireTapRouterType_2018ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSelectiveConsumerRouterType_2020ContainedLinks(
+	public static List getSelectiveConsumerRouterType_2019ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1412,7 +1395,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getMessageChunkingAggregatorRouterType_2021ContainedLinks(
+	public static List getMessageChunkingAggregatorRouterType_2020ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1420,7 +1403,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSelectiveConsumerRouterType_2022ContainedLinks(
+	public static List getSelectiveConsumerRouterType_2021ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1428,7 +1411,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCustomCorrelationAggregatorRouterType_2023ContainedLinks(
+	public static List getCustomCorrelationAggregatorRouterType_2022ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1436,35 +1419,35 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCustomInboundRouterType_2024ContainedLinks(View view) {
+	public static List getCustomInboundRouterType_2023ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getAsyncReplyCollectionType_2025ContainedLinks(View view) {
+	public static List getAsyncReplyCollectionType_2024ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInboundEndpointType_2026ContainedLinks(View view) {
+	public static List getInboundEndpointType_2025ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getAsyncReplyRouterType_2027ContainedLinks(View view) {
+	public static List getAsyncReplyRouterType_2026ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCustomAsyncReplyRouterType_2028ContainedLinks(
+	public static List getCustomAsyncReplyRouterType_2027ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1472,21 +1455,29 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundCollectionType_2029ContainedLinks(View view) {
+	public static List getOutboundCollectionType_2028ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutboundRouterType_2030ContainedLinks(View view) {
+	public static List getOutboundRouterType_2029ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutboundEndpointType_2031ContainedLinks(View view) {
+	public static List getOutboundEndpointType_2030ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getFilteringOutboundRouterType_2031ContainedLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1525,7 +1516,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getFilteringOutboundRouterType_2036ContainedLinks(
+	public static List getEndpointSelectorRouterType_2036ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1533,7 +1524,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getEndpointSelectorRouterType_2037ContainedLinks(
+	public static List getMessageSplitterOutboundRouterType_2037ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1541,7 +1532,14 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getMessageSplitterOutboundRouterType_2038ContainedLinks(
+	public static List getChunkingRouterType_2038ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getStaticRecipientListRouterType_2039ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1549,22 +1547,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getChunkingRouterType_2039ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getStaticRecipientListRouterType_2040ContainedLinks(
-			View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCustomOutboundRouterType_2041ContainedLinks(View view) {
+	public static List getCustomOutboundRouterType_2040ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1585,7 +1568,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getPojoComponentType_2002IncomingLinks(View view) {
+	public static List getDefaultComponentType_2002IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1627,35 +1610,28 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getDefaultComponentType_2008IncomingLinks(View view) {
+	public static List getExceptionStrategyType_2008IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2009IncomingLinks(View view) {
+	public static List getOutboundEndpointType_2009IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutboundEndpointType_2010IncomingLinks(View view) {
+	public static List getExceptionStrategyType_2010IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2011IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCustomExceptionStrategyType_2012IncomingLinks(
+	public static List getCustomExceptionStrategyType_2011IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1663,21 +1639,28 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getInboundCollectionType_2013IncomingLinks(View view) {
+	public static List getInboundCollectionType_2012IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInboundEndpointType_2014IncomingLinks(View view) {
+	public static List getInboundEndpointType_2013IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getForwardingRouterType_2015IncomingLinks(View view) {
+	public static List getForwardingRouterType_2014IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getFilteredInboundRouterType_2015IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1691,14 +1674,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getFilteredInboundRouterType_2017IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getIdempotentReceiverRouterType_2018IncomingLinks(
+	public static List getIdempotentReceiverRouterType_2017IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1706,14 +1682,14 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getWireTapRouterType_2019IncomingLinks(View view) {
+	public static List getWireTapRouterType_2018IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSelectiveConsumerRouterType_2020IncomingLinks(
+	public static List getSelectiveConsumerRouterType_2019IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1721,7 +1697,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getMessageChunkingAggregatorRouterType_2021IncomingLinks(
+	public static List getMessageChunkingAggregatorRouterType_2020IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1729,7 +1705,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSelectiveConsumerRouterType_2022IncomingLinks(
+	public static List getSelectiveConsumerRouterType_2021IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1737,7 +1713,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCustomCorrelationAggregatorRouterType_2023IncomingLinks(
+	public static List getCustomCorrelationAggregatorRouterType_2022IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1745,56 +1721,64 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCustomInboundRouterType_2024IncomingLinks(View view) {
+	public static List getCustomInboundRouterType_2023IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getAsyncReplyCollectionType_2025IncomingLinks(View view) {
+	public static List getAsyncReplyCollectionType_2024IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInboundEndpointType_2026IncomingLinks(View view) {
+	public static List getInboundEndpointType_2025IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getAsyncReplyRouterType_2027IncomingLinks(View view) {
+	public static List getAsyncReplyRouterType_2026IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCustomAsyncReplyRouterType_2028IncomingLinks(View view) {
+	public static List getCustomAsyncReplyRouterType_2027IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutboundCollectionType_2029IncomingLinks(View view) {
+	public static List getOutboundCollectionType_2028IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutboundRouterType_2030IncomingLinks(View view) {
+	public static List getOutboundRouterType_2029IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutboundEndpointType_2031IncomingLinks(View view) {
+	public static List getOutboundEndpointType_2030IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getFilteringOutboundRouterType_2031IncomingLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1833,7 +1817,14 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getFilteringOutboundRouterType_2036IncomingLinks(
+	public static List getEndpointSelectorRouterType_2036IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getMessageSplitterOutboundRouterType_2037IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1841,14 +1832,14 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getEndpointSelectorRouterType_2037IncomingLinks(View view) {
+	public static List getChunkingRouterType_2038IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getMessageSplitterOutboundRouterType_2038IncomingLinks(
+	public static List getStaticRecipientListRouterType_2039IncomingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1856,22 +1847,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getChunkingRouterType_2039IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getStaticRecipientListRouterType_2040IncomingLinks(
-			View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCustomOutboundRouterType_2041IncomingLinks(View view) {
+	public static List getCustomOutboundRouterType_2040IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1892,7 +1868,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getPojoComponentType_2002OutgoingLinks(View view) {
+	public static List getDefaultComponentType_2002OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1934,35 +1910,28 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getDefaultComponentType_2008OutgoingLinks(View view) {
+	public static List getExceptionStrategyType_2008OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2009OutgoingLinks(View view) {
+	public static List getOutboundEndpointType_2009OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutboundEndpointType_2010OutgoingLinks(View view) {
+	public static List getExceptionStrategyType_2010OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2011OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCustomExceptionStrategyType_2012OutgoingLinks(
+	public static List getCustomExceptionStrategyType_2011OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1970,21 +1939,28 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getInboundCollectionType_2013OutgoingLinks(View view) {
+	public static List getInboundCollectionType_2012OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInboundEndpointType_2014OutgoingLinks(View view) {
+	public static List getInboundEndpointType_2013OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getForwardingRouterType_2015OutgoingLinks(View view) {
+	public static List getForwardingRouterType_2014OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getFilteredInboundRouterType_2015OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1998,14 +1974,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getFilteredInboundRouterType_2017OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getIdempotentReceiverRouterType_2018OutgoingLinks(
+	public static List getIdempotentReceiverRouterType_2017OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -2013,14 +1982,14 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getWireTapRouterType_2019OutgoingLinks(View view) {
+	public static List getWireTapRouterType_2018OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSelectiveConsumerRouterType_2020OutgoingLinks(
+	public static List getSelectiveConsumerRouterType_2019OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -2028,7 +1997,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getMessageChunkingAggregatorRouterType_2021OutgoingLinks(
+	public static List getMessageChunkingAggregatorRouterType_2020OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -2036,7 +2005,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSelectiveConsumerRouterType_2022OutgoingLinks(
+	public static List getSelectiveConsumerRouterType_2021OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -2044,7 +2013,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCustomCorrelationAggregatorRouterType_2023OutgoingLinks(
+	public static List getCustomCorrelationAggregatorRouterType_2022OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -2052,56 +2021,64 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCustomInboundRouterType_2024OutgoingLinks(View view) {
+	public static List getCustomInboundRouterType_2023OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getAsyncReplyCollectionType_2025OutgoingLinks(View view) {
+	public static List getAsyncReplyCollectionType_2024OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInboundEndpointType_2026OutgoingLinks(View view) {
+	public static List getInboundEndpointType_2025OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getAsyncReplyRouterType_2027OutgoingLinks(View view) {
+	public static List getAsyncReplyRouterType_2026OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCustomAsyncReplyRouterType_2028OutgoingLinks(View view) {
+	public static List getCustomAsyncReplyRouterType_2027OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutboundCollectionType_2029OutgoingLinks(View view) {
+	public static List getOutboundCollectionType_2028OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutboundRouterType_2030OutgoingLinks(View view) {
+	public static List getOutboundRouterType_2029OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutboundEndpointType_2031OutgoingLinks(View view) {
+	public static List getOutboundEndpointType_2030OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getFilteringOutboundRouterType_2031OutgoingLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -2140,7 +2117,14 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getFilteringOutboundRouterType_2036OutgoingLinks(
+	public static List getEndpointSelectorRouterType_2036OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getMessageSplitterOutboundRouterType_2037OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -2148,14 +2132,14 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getEndpointSelectorRouterType_2037OutgoingLinks(View view) {
+	public static List getChunkingRouterType_2038OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getMessageSplitterOutboundRouterType_2038OutgoingLinks(
+	public static List getStaticRecipientListRouterType_2039OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -2163,22 +2147,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getChunkingRouterType_2039OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getStaticRecipientListRouterType_2040OutgoingLinks(
-			View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCustomOutboundRouterType_2041OutgoingLinks(View view) {
+	public static List getCustomOutboundRouterType_2040OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

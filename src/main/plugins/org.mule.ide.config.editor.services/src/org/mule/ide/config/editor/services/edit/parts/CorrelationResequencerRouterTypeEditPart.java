@@ -37,7 +37,7 @@ public class CorrelationResequencerRouterTypeEditPart extends ShapeNodeEditPart 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2022;
+	public static final int VISUAL_ID = 2021;
 
 	/**
 	 * @generated

@@ -25,14 +25,14 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.ForwardingRouterType_2015 == req.getElementType()) {
+		if (CoreElementTypes.ForwardingRouterType_2014 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getInboundCollectionType_AbstractInboundRouter());
 			}
 			return getGEFWrapper(new ForwardingRouterTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.FilteredInboundRouterType_2016 == req
+		if (CoreElementTypes.FilteredInboundRouterType_2015 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -41,7 +41,7 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new IdempotentSecureRecieverRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.FilteredInboundRouterType_2017 == req
+		if (CoreElementTypes.FilteredInboundRouterType_2016 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -50,7 +50,7 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new PassThroughInboundRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.IdempotentReceiverRouterType_2018 == req
+		if (CoreElementTypes.IdempotentReceiverRouterType_2017 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -59,14 +59,14 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new IdempotentReceiverRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.WireTapRouterType_2019 == req.getElementType()) {
+		if (CoreElementTypes.WireTapRouterType_2018 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getInboundCollectionType_AbstractInboundRouter());
 			}
 			return getGEFWrapper(new WireTapRouterTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.SelectiveConsumerRouterType_2020 == req
+		if (CoreElementTypes.SelectiveConsumerRouterType_2019 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -75,7 +75,7 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new SelectiveConsumerRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.MessageChunkingAggregatorRouterType_2021 == req
+		if (CoreElementTypes.MessageChunkingAggregatorRouterType_2020 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -83,7 +83,7 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 			}
 			return getGEFWrapper(new ChunkingInboundRouterTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.SelectiveConsumerRouterType_2022 == req
+		if (CoreElementTypes.SelectiveConsumerRouterType_2021 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -92,7 +92,7 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new CorrelationResequencerRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.CustomCorrelationAggregatorRouterType_2023 == req
+		if (CoreElementTypes.CustomCorrelationAggregatorRouterType_2022 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -101,7 +101,7 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new CustomCorrelationAggregatorRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.CustomInboundRouterType_2024 == req
+		if (CoreElementTypes.CustomInboundRouterType_2023 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE

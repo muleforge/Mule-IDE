@@ -9,7 +9,7 @@
             contributorClass="org.mule.ide.config.editor.editors.MuleConfigEditorContributor"
             extensions="xml"
             filenames="mule-config.xml"
-            icon="icons/sample.gif"
+            icon="icons/config-file.gif"
             id="org.mule.ide.config.editor.editors.MuleConfigEditor"
             name="Mule Configuration Editor">
       </editor>
@@ -22,7 +22,7 @@
       </category>
       <wizard
             name="Mule Configuration File"
-            icon="icons/sample.gif"
+            icon="icons/config-file.gif"
             category="org.mule.ide.MuleWizards"
             class="org.mule.ide.config.editor.wizards.MuleConfigNewWizard"
             id="org.mule.ide.config.editor.wizards.MuleConfigNewWizard">

@@ -96,7 +96,7 @@ public class MuleConfigNewWizard extends Wizard implements INewWizard {
 		this.selection = selection;
 		setWindowTitle(Messages.NewFileWizard_Title);
 		setDefaultPageImageDescriptor(Activator
-				.getBundledImageDescriptor("icons/wizban/NewCoreWizard.gif")); //$NON-NLS-1$
+				.getBundledImageDescriptor("icons/wizban/NewConfigWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);
 	}
 

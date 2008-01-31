@@ -6,19 +6,23 @@
  */
 package org.mule.ide.config.core.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mule.ide.config.core.AbstractQueueProfileType;
+import org.mule.ide.config.core.Connection;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.SedaModelType;
 
@@ -32,6 +36,7 @@ import org.mule.ide.config.core.SedaModelType;
  *   <li>{@link org.mule.ide.config.core.impl.SedaModelTypeImpl#getAbstractQueueProfileGroup <em>Abstract Queue Profile Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.SedaModelTypeImpl#getAbstractQueueProfile <em>Abstract Queue Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.SedaModelTypeImpl#isInherit <em>Inherit</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.SedaModelTypeImpl#getConnections <em>Connections</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,12 +83,23 @@ public class SedaModelTypeImpl extends AbstractModelTypeImpl implements SedaMode
 	protected boolean inheritESet;
 
 	/**
+	 * The cached value of the '{@link #getConnections() <em>Connections</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getConnections()
 	 * @generated
+	 * @ordered
+	 */
+	protected EList<Connection> connections;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * customization
 	 */
 	protected SedaModelTypeImpl() {
 		super();
+		//new ConnectionsAdapter().observeModel(this);
 	}
 
 	/**
@@ -177,6 +193,18 @@ public class SedaModelTypeImpl extends AbstractModelTypeImpl implements SedaMode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Connection> getConnections() {
+		if (connections == null) {
+			connections = new EObjectContainmentEList<Connection>(Connection.class, this, CorePackage.SEDA_MODEL_TYPE__CONNECTIONS);
+		}
+		return connections;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -184,6 +212,8 @@ public class SedaModelTypeImpl extends AbstractModelTypeImpl implements SedaMode
 				return ((InternalEList<?>)getAbstractQueueProfileGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.SEDA_MODEL_TYPE__ABSTRACT_QUEUE_PROFILE:
 				return basicSetAbstractQueueProfile(null, msgs);
+			case CorePackage.SEDA_MODEL_TYPE__CONNECTIONS:
+				return ((InternalEList<?>)getConnections()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -203,6 +233,8 @@ public class SedaModelTypeImpl extends AbstractModelTypeImpl implements SedaMode
 				return getAbstractQueueProfile();
 			case CorePackage.SEDA_MODEL_TYPE__INHERIT:
 				return isInherit() ? Boolean.TRUE : Boolean.FALSE;
+			case CorePackage.SEDA_MODEL_TYPE__CONNECTIONS:
+				return getConnections();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -212,6 +244,7 @@ public class SedaModelTypeImpl extends AbstractModelTypeImpl implements SedaMode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -220,6 +253,10 @@ public class SedaModelTypeImpl extends AbstractModelTypeImpl implements SedaMode
 				return;
 			case CorePackage.SEDA_MODEL_TYPE__INHERIT:
 				setInherit(((Boolean)newValue).booleanValue());
+				return;
+			case CorePackage.SEDA_MODEL_TYPE__CONNECTIONS:
+				getConnections().clear();
+				getConnections().addAll((Collection<? extends Connection>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -239,6 +276,9 @@ public class SedaModelTypeImpl extends AbstractModelTypeImpl implements SedaMode
 			case CorePackage.SEDA_MODEL_TYPE__INHERIT:
 				unsetInherit();
 				return;
+			case CorePackage.SEDA_MODEL_TYPE__CONNECTIONS:
+				getConnections().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -257,6 +297,8 @@ public class SedaModelTypeImpl extends AbstractModelTypeImpl implements SedaMode
 				return getAbstractQueueProfile() != null;
 			case CorePackage.SEDA_MODEL_TYPE__INHERIT:
 				return isSetInherit();
+			case CorePackage.SEDA_MODEL_TYPE__CONNECTIONS:
+				return connections != null && !connections.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -3872,13 +3872,22 @@ public interface CorePackage extends EPackage {
 	int SEDA_MODEL_TYPE__INHERIT = ABSTRACT_MODEL_TYPE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Connections</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEDA_MODEL_TYPE__CONNECTIONS = ABSTRACT_MODEL_TYPE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Seda Model Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEDA_MODEL_TYPE_FEATURE_COUNT = ABSTRACT_MODEL_TYPE_FEATURE_COUNT + 3;
+	int SEDA_MODEL_TYPE_FEATURE_COUNT = ABSTRACT_MODEL_TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.impl.DefaultModelTypeImpl <em>Default Model Type</em>}' class.
@@ -4006,6 +4015,15 @@ public interface CorePackage extends EPackage {
 	 * @ordered
 	 */
 	int DEFAULT_MODEL_TYPE__INHERIT = SEDA_MODEL_TYPE__INHERIT;
+
+	/**
+	 * The feature id for the '<em><b>Connections</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFAULT_MODEL_TYPE__CONNECTIONS = SEDA_MODEL_TYPE__CONNECTIONS;
 
 	/**
 	 * The number of structural features of the '<em>Default Model Type</em>' class.
@@ -10990,6 +11008,52 @@ public interface CorePackage extends EPackage {
 	int WIRE_TAP_ROUTER_TYPE_FEATURE_COUNT = FILTERED_INBOUND_ROUTER_TYPE_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.mule.ide.config.core.impl.ConnectionImpl <em>Connection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.mule.ide.config.core.impl.ConnectionImpl
+	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getConnection()
+	 * @generated
+	 */
+	int CONNECTION = 148;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTION__ENDPOINT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTION__SOURCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTION__TARGET = 2;
+
+	/**
+	 * The number of structural features of the '<em>Connection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTION_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.ActionType <em>Action Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10997,7 +11061,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getActionType()
 	 * @generated
 	 */
-	int ACTION_TYPE = 148;
+	int ACTION_TYPE = 149;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.EnableCorrelationType <em>Enable Correlation Type</em>}' enum.
@@ -11007,7 +11071,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEnableCorrelationType()
 	 * @generated
 	 */
-	int ENABLE_CORRELATION_TYPE = 149;
+	int ENABLE_CORRELATION_TYPE = 150;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.EventType <em>Event Type</em>}' enum.
@@ -11017,7 +11081,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEventType()
 	 * @generated
 	 */
-	int EVENT_TYPE = 150;
+	int EVENT_TYPE = 151;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.EventType1 <em>Event Type1</em>}' enum.
@@ -11027,7 +11091,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEventType1()
 	 * @generated
 	 */
-	int EVENT_TYPE1 = 151;
+	int EVENT_TYPE1 = 152;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.ExhaustedActionType <em>Exhausted Action Type</em>}' enum.
@@ -11037,7 +11101,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getExhaustedActionType()
 	 * @generated
 	 */
-	int EXHAUSTED_ACTION_TYPE = 152;
+	int EXHAUSTED_ACTION_TYPE = 153;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.InitialisationPolicyType <em>Initialisation Policy Type</em>}' enum.
@@ -11047,7 +11111,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInitialisationPolicyType()
 	 * @generated
 	 */
-	int INITIALISATION_POLICY_TYPE = 153;
+	int INITIALISATION_POLICY_TYPE = 154;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.InitialStateType <em>Initial State Type</em>}' enum.
@@ -11057,7 +11121,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInitialStateType()
 	 * @generated
 	 */
-	int INITIAL_STATE_TYPE = 154;
+	int INITIAL_STATE_TYPE = 155;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.InterfaceType <em>Interface Type</em>}' enum.
@@ -11067,7 +11131,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInterfaceType()
 	 * @generated
 	 */
-	int INTERFACE_TYPE = 155;
+	int INTERFACE_TYPE = 156;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.InterfaceType1 <em>Interface Type1</em>}' enum.
@@ -11077,7 +11141,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInterfaceType1()
 	 * @generated
 	 */
-	int INTERFACE_TYPE1 = 156;
+	int INTERFACE_TYPE1 = 157;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.PoolExhaustedActionType <em>Pool Exhausted Action Type</em>}' enum.
@@ -11087,7 +11151,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPoolExhaustedActionType()
 	 * @generated
 	 */
-	int POOL_EXHAUSTED_ACTION_TYPE = 157;
+	int POOL_EXHAUSTED_ACTION_TYPE = 158;
 
 	/**
 	 * The meta object id for the '<em>Action Type Object</em>' data type.
@@ -11097,7 +11161,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getActionTypeObject()
 	 * @generated
 	 */
-	int ACTION_TYPE_OBJECT = 158;
+	int ACTION_TYPE_OBJECT = 159;
 
 	/**
 	 * The meta object id for the '<em>Enable Correlation Type Object</em>' data type.
@@ -11107,7 +11171,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEnableCorrelationTypeObject()
 	 * @generated
 	 */
-	int ENABLE_CORRELATION_TYPE_OBJECT = 159;
+	int ENABLE_CORRELATION_TYPE_OBJECT = 160;
 
 	/**
 	 * The meta object id for the '<em>Event Type Object</em>' data type.
@@ -11117,7 +11181,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEventTypeObject()
 	 * @generated
 	 */
-	int EVENT_TYPE_OBJECT = 160;
+	int EVENT_TYPE_OBJECT = 161;
 
 	/**
 	 * The meta object id for the '<em>Event Type Object1</em>' data type.
@@ -11127,7 +11191,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEventTypeObject1()
 	 * @generated
 	 */
-	int EVENT_TYPE_OBJECT1 = 161;
+	int EVENT_TYPE_OBJECT1 = 162;
 
 	/**
 	 * The meta object id for the '<em>Exhausted Action Type Object</em>' data type.
@@ -11137,7 +11201,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getExhaustedActionTypeObject()
 	 * @generated
 	 */
-	int EXHAUSTED_ACTION_TYPE_OBJECT = 162;
+	int EXHAUSTED_ACTION_TYPE_OBJECT = 163;
 
 	/**
 	 * The meta object id for the '<em>Initialisation Policy Type Object</em>' data type.
@@ -11147,7 +11211,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInitialisationPolicyTypeObject()
 	 * @generated
 	 */
-	int INITIALISATION_POLICY_TYPE_OBJECT = 163;
+	int INITIALISATION_POLICY_TYPE_OBJECT = 164;
 
 	/**
 	 * The meta object id for the '<em>Initial State Type Object</em>' data type.
@@ -11157,7 +11221,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInitialStateTypeObject()
 	 * @generated
 	 */
-	int INITIAL_STATE_TYPE_OBJECT = 164;
+	int INITIAL_STATE_TYPE_OBJECT = 165;
 
 	/**
 	 * The meta object id for the '<em>Interface Type Object</em>' data type.
@@ -11167,7 +11231,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInterfaceTypeObject()
 	 * @generated
 	 */
-	int INTERFACE_TYPE_OBJECT = 165;
+	int INTERFACE_TYPE_OBJECT = 166;
 
 	/**
 	 * The meta object id for the '<em>Interface Type Object1</em>' data type.
@@ -11177,7 +11241,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInterfaceTypeObject1()
 	 * @generated
 	 */
-	int INTERFACE_TYPE_OBJECT1 = 166;
+	int INTERFACE_TYPE_OBJECT1 = 167;
 
 	/**
 	 * The meta object id for the '<em>Non Blank String</em>' data type.
@@ -11187,7 +11251,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getNonBlankString()
 	 * @generated
 	 */
-	int NON_BLANK_STRING = 167;
+	int NON_BLANK_STRING = 168;
 
 	/**
 	 * The meta object id for the '<em>Non Blank String Member0</em>' data type.
@@ -11197,7 +11261,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getNonBlankStringMember0()
 	 * @generated
 	 */
-	int NON_BLANK_STRING_MEMBER0 = 168;
+	int NON_BLANK_STRING_MEMBER0 = 169;
 
 	/**
 	 * The meta object id for the '<em>Pool Exhausted Action Type Object</em>' data type.
@@ -11207,7 +11271,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPoolExhaustedActionTypeObject()
 	 * @generated
 	 */
-	int POOL_EXHAUSTED_ACTION_TYPE_OBJECT = 169;
+	int POOL_EXHAUSTED_ACTION_TYPE_OBJECT = 170;
 
 	/**
 	 * The meta object id for the '<em>Property Placeholder Type</em>' data type.
@@ -11217,7 +11281,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPropertyPlaceholderType()
 	 * @generated
 	 */
-	int PROPERTY_PLACEHOLDER_TYPE = 170;
+	int PROPERTY_PLACEHOLDER_TYPE = 171;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Boolean</em>' data type.
@@ -11226,7 +11290,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableBoolean()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_BOOLEAN = 171;
+	int SUBSTITUTABLE_BOOLEAN = 172;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Boolean Member0</em>' data type.
@@ -11235,7 +11299,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableBooleanMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_BOOLEAN_MEMBER0 = 172;
+	int SUBSTITUTABLE_BOOLEAN_MEMBER0 = 173;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Boolean Member0 Object</em>' data type.
@@ -11245,7 +11309,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableBooleanMember0Object()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_BOOLEAN_MEMBER0_OBJECT = 173;
+	int SUBSTITUTABLE_BOOLEAN_MEMBER0_OBJECT = 174;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Boolean Object</em>' data type.
@@ -11255,7 +11319,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableBooleanObject()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_BOOLEAN_OBJECT = 174;
+	int SUBSTITUTABLE_BOOLEAN_OBJECT = 175;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Class</em>' data type.
@@ -11265,7 +11329,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableClass()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_CLASS = 175;
+	int SUBSTITUTABLE_CLASS = 176;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Class Member0</em>' data type.
@@ -11275,7 +11339,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableClassMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_CLASS_MEMBER0 = 176;
+	int SUBSTITUTABLE_CLASS_MEMBER0 = 177;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Int</em>' data type.
@@ -11284,7 +11348,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableInt()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_INT = 177;
+	int SUBSTITUTABLE_INT = 178;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Int Member0</em>' data type.
@@ -11293,7 +11357,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableIntMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_INT_MEMBER0 = 178;
+	int SUBSTITUTABLE_INT_MEMBER0 = 179;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Int Member0 Object</em>' data type.
@@ -11303,7 +11367,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableIntMember0Object()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_INT_MEMBER0_OBJECT = 179;
+	int SUBSTITUTABLE_INT_MEMBER0_OBJECT = 180;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Int Object</em>' data type.
@@ -11313,7 +11377,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableIntObject()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_INT_OBJECT = 180;
+	int SUBSTITUTABLE_INT_OBJECT = 181;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Long</em>' data type.
@@ -11322,7 +11386,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableLong()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_LONG = 181;
+	int SUBSTITUTABLE_LONG = 182;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Long Member0</em>' data type.
@@ -11331,7 +11395,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableLongMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_LONG_MEMBER0 = 182;
+	int SUBSTITUTABLE_LONG_MEMBER0 = 183;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Long Member0 Object</em>' data type.
@@ -11341,7 +11405,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableLongMember0Object()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_LONG_MEMBER0_OBJECT = 183;
+	int SUBSTITUTABLE_LONG_MEMBER0_OBJECT = 184;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Long Object</em>' data type.
@@ -11351,7 +11415,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableLongObject()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_LONG_OBJECT = 184;
+	int SUBSTITUTABLE_LONG_OBJECT = 185;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Name</em>' data type.
@@ -11361,7 +11425,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableName()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_NAME = 185;
+	int SUBSTITUTABLE_NAME = 186;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Name Member0</em>' data type.
@@ -11371,7 +11435,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableNameMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_NAME_MEMBER0 = 186;
+	int SUBSTITUTABLE_NAME_MEMBER0 = 187;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Port Number</em>' data type.
@@ -11380,7 +11444,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutablePortNumber()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_PORT_NUMBER = 187;
+	int SUBSTITUTABLE_PORT_NUMBER = 188;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Port Number Member0</em>' data type.
@@ -11389,7 +11453,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutablePortNumberMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_PORT_NUMBER_MEMBER0 = 188;
+	int SUBSTITUTABLE_PORT_NUMBER_MEMBER0 = 189;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Port Number Member0 Object</em>' data type.
@@ -11399,7 +11463,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutablePortNumberMember0Object()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_PORT_NUMBER_MEMBER0_OBJECT = 189;
+	int SUBSTITUTABLE_PORT_NUMBER_MEMBER0_OBJECT = 190;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Port Number Object</em>' data type.
@@ -11409,7 +11473,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutablePortNumberObject()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_PORT_NUMBER_OBJECT = 190;
+	int SUBSTITUTABLE_PORT_NUMBER_OBJECT = 191;
 
 
 	/**
@@ -18808,6 +18872,17 @@ public interface CorePackage extends EPackage {
 	EAttribute getSedaModelType_Inherit();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.SedaModelType#getConnections <em>Connections</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Connections</em>'.
+	 * @see org.mule.ide.config.core.SedaModelType#getConnections()
+	 * @see #getSedaModelType()
+	 * @generated
+	 */
+	EReference getSedaModelType_Connections();
+
+	/**
 	 * Returns the meta object for class '{@link org.mule.ide.config.core.SedaServiceType <em>Seda Service Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -19634,6 +19709,49 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getWireTapRouterType_AbstractOutboundEndpoint();
+
+	/**
+	 * Returns the meta object for class '{@link org.mule.ide.config.core.Connection <em>Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Connection</em>'.
+	 * @see org.mule.ide.config.core.Connection
+	 * @generated
+	 */
+	EClass getConnection();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.mule.ide.config.core.Connection#getEndpoint <em>Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Endpoint</em>'.
+	 * @see org.mule.ide.config.core.Connection#getEndpoint()
+	 * @see #getConnection()
+	 * @generated
+	 */
+	EReference getConnection_Endpoint();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.mule.ide.config.core.Connection#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see org.mule.ide.config.core.Connection#getSource()
+	 * @see #getConnection()
+	 * @generated
+	 */
+	EReference getConnection_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.mule.ide.config.core.Connection#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see org.mule.ide.config.core.Connection#getTarget()
+	 * @see #getConnection()
+	 * @generated
+	 */
+	EReference getConnection_Target();
 
 	/**
 	 * Returns the meta object for enum '{@link org.mule.ide.config.core.ActionType <em>Action Type</em>}'.

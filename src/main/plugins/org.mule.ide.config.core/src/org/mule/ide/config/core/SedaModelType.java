@@ -6,6 +6,7 @@
  */
 package org.mule.ide.config.core;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.SedaModelType#getAbstractQueueProfileGroup <em>Abstract Queue Profile Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.SedaModelType#getAbstractQueueProfile <em>Abstract Queue Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.SedaModelType#isInherit <em>Inherit</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.SedaModelType#getConnections <em>Connections</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,5 +115,21 @@ public interface SedaModelType extends AbstractModelType {
 	 * @generated
 	 */
 	boolean isSetInherit();
+
+	/**
+	 * Returns the value of the '<em><b>Connections</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.core.Connection}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Connections</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Connections</em>' containment reference list.
+	 * @see org.mule.ide.config.core.CorePackage#getSedaModelType_Connections()
+	 * @model containment="true" transient="true"
+	 * @generated
+	 */
+	EList<Connection> getConnections();
 
 } // SedaModelType

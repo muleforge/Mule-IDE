@@ -214,6 +214,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.VALUE_TYPE: return createValueType();
 			case CorePackage.WILDCARD_FILTER_TYPE: return createWildcardFilterType();
 			case CorePackage.WIRE_TAP_ROUTER_TYPE: return createWireTapRouterType();
+			case CorePackage.CONNECTION: return createConnection();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1895,6 +1896,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public WireTapRouterType createWireTapRouterType() {
 		WireTapRouterTypeImpl wireTapRouterType = new WireTapRouterTypeImpl();
 		return wireTapRouterType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Connection createConnection() {
+		ConnectionImpl connection = new ConnectionImpl();
+		return connection;
 	}
 
 	/**

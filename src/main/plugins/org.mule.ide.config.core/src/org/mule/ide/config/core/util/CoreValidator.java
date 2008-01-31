@@ -398,6 +398,8 @@ public class CoreValidator extends EObjectValidator {
 				return validateWildcardFilterType((WildcardFilterType)value, diagnostics, context);
 			case CorePackage.WIRE_TAP_ROUTER_TYPE:
 				return validateWireTapRouterType((WireTapRouterType)value, diagnostics, context);
+			case CorePackage.CONNECTION:
+				return validateConnection((Connection)value, diagnostics, context);
 			case CorePackage.ACTION_TYPE:
 				return validateActionType((ActionType)value, diagnostics, context);
 			case CorePackage.ENABLE_CORRELATION_TYPE:
@@ -1819,6 +1821,15 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateWireTapRouterType(WireTapRouterType wireTapRouterType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(wireTapRouterType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConnection(Connection connection, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(connection, diagnostics, context);
 	}
 
 	/**

@@ -880,6 +880,11 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
+				 CoreFactory.eINSTANCE.createConnection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 SpringFactory.eINSTANCE.createBaseCollectionType()));
 
 		newChildDescriptors.add

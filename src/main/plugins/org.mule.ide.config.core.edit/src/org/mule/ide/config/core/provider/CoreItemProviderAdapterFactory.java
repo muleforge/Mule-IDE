@@ -3480,6 +3480,29 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.Connection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConnectionItemProvider connectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mule.ide.config.core.Connection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConnectionAdapter() {
+		if (connectionItemProvider == null) {
+			connectionItemProvider = new ConnectionItemProvider(this);
+		}
+
+		return connectionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3726,6 +3749,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		if (valueTypeItemProvider != null) valueTypeItemProvider.dispose();
 		if (wildcardFilterTypeItemProvider != null) wildcardFilterTypeItemProvider.dispose();
 		if (wireTapRouterTypeItemProvider != null) wireTapRouterTypeItemProvider.dispose();
+		if (connectionItemProvider != null) connectionItemProvider.dispose();
 	}
 
 }

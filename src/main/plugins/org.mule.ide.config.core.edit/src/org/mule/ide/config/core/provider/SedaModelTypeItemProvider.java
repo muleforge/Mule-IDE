@@ -109,6 +109,7 @@ public class SedaModelTypeItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CorePackage.eINSTANCE.getSedaModelType_AbstractQueueProfileGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getSedaModelType_Connections());
 		}
 		return childrenFeatures;
 	}
@@ -167,6 +168,7 @@ public class SedaModelTypeItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CorePackage.SEDA_MODEL_TYPE__ABSTRACT_QUEUE_PROFILE_GROUP:
+			case CorePackage.SEDA_MODEL_TYPE__CONNECTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -190,6 +192,11 @@ public class SedaModelTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_QueueProfile(),
 					 CoreFactory.eINSTANCE.createQueueProfileType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getSedaModelType_Connections(),
+				 CoreFactory.eINSTANCE.createConnection()));
 	}
 
 	/**

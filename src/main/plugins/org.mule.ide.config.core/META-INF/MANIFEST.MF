@@ -15,5 +15,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.mule.ide.config.spring;visibility:=reexport,
  org.mule.ide.config.common,
- org.eclipse.wst.xml.core
+ org.eclipse.wst.xml.core,
+ org.eclipse.emf.edit
 Eclipse-LazyStart: true

@@ -11018,7 +11018,7 @@ public interface CorePackage extends EPackage {
 	int CONNECTION = 148;
 
 	/**
-	 * The feature id for the '<em><b>Endpoint</b></em>' reference.
+	 * The feature id for the '<em><b>Endpoint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -19721,15 +19721,15 @@ public interface CorePackage extends EPackage {
 	EClass getConnection();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.mule.ide.config.core.Connection#getEndpoint <em>Endpoint</em>}'.
+	 * Returns the meta object for the attribute '{@link org.mule.ide.config.core.Connection#getEndpoint <em>Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Endpoint</em>'.
+	 * @return the meta object for the attribute '<em>Endpoint</em>'.
 	 * @see org.mule.ide.config.core.Connection#getEndpoint()
 	 * @see #getConnection()
 	 * @generated
 	 */
-	EReference getConnection_Endpoint();
+	EAttribute getConnection_Endpoint();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.mule.ide.config.core.Connection#getSource <em>Source</em>}'.

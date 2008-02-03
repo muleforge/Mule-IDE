@@ -37,14 +37,24 @@ import org.mule.ide.config.core.SedaServiceType;
  */
 public class ConnectionImpl extends EObjectImpl implements Connection {
 	/**
-	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' reference.
+	 * The default value of the '{@link #getEndpoint() <em>Endpoint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEndpoint()
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractGlobalEndpointType endpoint;
+	protected static final String ENDPOINT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected String endpoint = ENDPOINT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -90,15 +100,7 @@ public class ConnectionImpl extends EObjectImpl implements Connection {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractGlobalEndpointType getEndpoint() {
-		if (endpoint != null && endpoint.eIsProxy()) {
-			InternalEObject oldEndpoint = (InternalEObject)endpoint;
-			endpoint = (AbstractGlobalEndpointType)eResolveProxy(oldEndpoint);
-			if (endpoint != oldEndpoint) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.CONNECTION__ENDPOINT, oldEndpoint, endpoint));
-			}
-		}
+	public String getEndpoint() {
 		return endpoint;
 	}
 
@@ -107,17 +109,8 @@ public class ConnectionImpl extends EObjectImpl implements Connection {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractGlobalEndpointType basicGetEndpoint() {
-		return endpoint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEndpoint(AbstractGlobalEndpointType newEndpoint) {
-		AbstractGlobalEndpointType oldEndpoint = endpoint;
+	public void setEndpoint(String newEndpoint) {
+		String oldEndpoint = endpoint;
 		endpoint = newEndpoint;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CONNECTION__ENDPOINT, oldEndpoint, endpoint));
@@ -208,8 +201,7 @@ public class ConnectionImpl extends EObjectImpl implements Connection {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CorePackage.CONNECTION__ENDPOINT:
-				if (resolve) return getEndpoint();
-				return basicGetEndpoint();
+				return getEndpoint();
 			case CorePackage.CONNECTION__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
@@ -229,7 +221,7 @@ public class ConnectionImpl extends EObjectImpl implements Connection {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CorePackage.CONNECTION__ENDPOINT:
-				setEndpoint((AbstractGlobalEndpointType)newValue);
+				setEndpoint((String)newValue);
 				return;
 			case CorePackage.CONNECTION__SOURCE:
 				setSource((SedaServiceType)newValue);
@@ -250,7 +242,7 @@ public class ConnectionImpl extends EObjectImpl implements Connection {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CorePackage.CONNECTION__ENDPOINT:
-				setEndpoint((AbstractGlobalEndpointType)null);
+				setEndpoint(ENDPOINT_EDEFAULT);
 				return;
 			case CorePackage.CONNECTION__SOURCE:
 				setSource((SedaServiceType)null);
@@ -271,7 +263,7 @@ public class ConnectionImpl extends EObjectImpl implements Connection {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CorePackage.CONNECTION__ENDPOINT:
-				return endpoint != null;
+				return ENDPOINT_EDEFAULT == null ? endpoint != null : !ENDPOINT_EDEFAULT.equals(endpoint);
 			case CorePackage.CONNECTION__SOURCE:
 				return source != null;
 			case CorePackage.CONNECTION__TARGET:

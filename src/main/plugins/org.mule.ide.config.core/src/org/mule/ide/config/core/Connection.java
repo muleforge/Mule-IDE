@@ -28,30 +28,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Connection extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Endpoint</b></em>' reference.
+	 * Returns the value of the '<em><b>Endpoint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Endpoint</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Endpoint</em>' reference.
-	 * @see #setEndpoint(AbstractGlobalEndpointType)
+	 * @return the value of the '<em>Endpoint</em>' attribute.
+	 * @see #setEndpoint(String)
 	 * @see org.mule.ide.config.core.CorePackage#getConnection_Endpoint()
-	 * @model transient="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 * @generated
 	 */
-	AbstractGlobalEndpointType getEndpoint();
+	String getEndpoint();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.Connection#getEndpoint <em>Endpoint</em>}' reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.Connection#getEndpoint <em>Endpoint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Endpoint</em>' reference.
+	 * @param value the new value of the '<em>Endpoint</em>' attribute.
 	 * @see #getEndpoint()
 	 * @generated
 	 */
-	void setEndpoint(AbstractGlobalEndpointType value);
+	void setEndpoint(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.

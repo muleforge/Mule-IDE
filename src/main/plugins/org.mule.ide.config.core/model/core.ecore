@@ -6650,8 +6650,7 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connection">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" eType="#//AbstractGlobalEndpointType"
-        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpoint" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//SedaServiceType"
         transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//SedaServiceType"

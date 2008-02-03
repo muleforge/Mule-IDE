@@ -5,42 +5,85 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.DeleteCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.mule.ide.config.core.AbstractGlobalEndpointType;
+import org.mule.ide.config.core.AbstractInboundEndpointType;
+import org.mule.ide.config.core.AbstractOutboundEndpointType;
+import org.mule.ide.config.core.AbstractOutboundRouterType;
+import org.mule.ide.config.core.AbstractServiceType;
+import org.mule.ide.config.core.AsyncReplyCollectionType;
 import org.mule.ide.config.core.Connection;
 import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.GlobalEndpointType;
+import org.mule.ide.config.core.InboundCollectionType;
 import org.mule.ide.config.core.InboundEndpointType;
 import org.mule.ide.config.core.MuleType;
+import org.mule.ide.config.core.OutboundCollectionType;
 import org.mule.ide.config.core.OutboundEndpointType;
+import org.mule.ide.config.core.OutboundRouterType;
 import org.mule.ide.config.core.SedaModelType;
 import org.mule.ide.config.core.SedaServiceType;
 
 public class ConnectionsAdapter extends EContentAdapter {
 	
 	private SedaModelType model;
+	private EditingDomain editingDomain;
 	// Keep a map of global endpoint name to Connections in the Model list.
 	private HashMap<String, List<Connection>> mapNameToConnection = new HashMap<String, List<Connection>>();
 	// Map of endpoint name to reference count.
 	private HashMap<String, List<SourceEndpointReference>> sourceRefs = new HashMap<String, List<SourceEndpointReference>>();
 	private HashMap<String, List<TargetEndpointReference>> targetRefs = new HashMap<String, List<TargetEndpointReference>>();
 	
-    public void observeModel(SedaModelType model){
-    	// TODO  may need to listen on root element to react to global endpoint
-    	// deletions.  Or perhaps some other validation listener will automatically
-    	// update stale refs?
+    public ConnectionsAdapter(SedaModelType model) {
         model.eAdapters().add(this);
         this.model = model;
-        
     }
+    
+    public void initialize(EditingDomain editingDomain) {
+    	this.editingDomain = editingDomain;
+    	
+    	//model.getConnections().clear();
+    	//mapNameToConnection.clear();
+    	//sourceRefs.clear();
+    	//targetRefs.clear();
+    	
+    	// Walk the model looking for inbound and outbound endpoints
+    	EList<AbstractServiceType> services = model.getAbstractService();
+    	List<Connection> results = new ArrayList<Connection>();
+    	for (AbstractServiceType service : services) {
+    		if (service instanceof SedaServiceType) {
+    			SedaServiceType sedaService = (SedaServiceType) service;
+    			AsyncReplyCollectionType asyncCollection = sedaService.getAsyncReply();
+    			if (asyncCollection != null) {
+    				initInboundEndpoints(sedaService, asyncCollection.getAbstractInboundEndpoint(), results);
+    			}
+    			InboundCollectionType inboundCollection = sedaService.getInbound();
+    			if (inboundCollection != null) {
+    				initInboundEndpoints(sedaService, inboundCollection.getAbstractInboundEndpoint(), results);
+    			}
+    			OutboundCollectionType outboundCollection = sedaService.getOutbound();
+    			if (outboundCollection != null) {
+    				initOutboundRouters(sedaService, outboundCollection.getAbstractOutboundRouter(), results);
+    			}
+    		}
+    	}
+    	addConnection(results);
+    }
+    
 
-    //override the notifyChanged method
+    @Override
     public void notifyChanged(Notification n){
         
         super.notifyChanged(n);
@@ -60,61 +103,123 @@ public class ConnectionsAdapter extends EContentAdapter {
         } else if (n.getEventType() == Notification.ADD
         		&& n.getNewValue() instanceof InboundEndpointType) {
         	
+        	List<Connection> results = new ArrayList<Connection>();
+        	handleInboundEndpointAdd((InboundEndpointType) n.getNewValue(), results);
+        	addConnection(results);
 
-        } else if (n.getEventType() == Notification.REMOVE
-        		&& n.getOldValue() instanceof InboundEndpointType) {
+        } else if (n.getEventType() == Notification.ADD
+        		&& n.getNewValue() instanceof OutboundEndpointType) {
+        	
+        	List<Connection> results = new ArrayList<Connection>();
+        	handleOutboundEndpointAdd((OutboundEndpointType) n.getNewValue(), results);
+        	addConnection(results);
 
         }
+        
+        // TODO Endpoint Notification.DELETE
 
     }
-
+    
     private void handleInboundEndpointRefSet(Notification n) {
+    	String oldRef = n.getOldStringValue();
+    	//AbstractGlobalEndpointType oldGlobalEndpoint = getGlobalEndpoint(oldRef);
+    	String newRef = n.getNewStringValue();
+    	//AbstractGlobalEndpointType newGlobalEndpoint = getGlobalEndpoint(newRef);
+    	if (oldRef == null && newRef == null) return;
+    	
     	InboundEndpointType inboundEndpoint = (InboundEndpointType) n.getNotifier();
     	SedaServiceType service = getContainingService(inboundEndpoint);
     	if (service == null) return;
     	
-    	String oldRef = n.getOldStringValue();
-    	AbstractGlobalEndpointType oldGlobalEndpoint = getGlobalEndpoint(oldRef);
-    	String newRef = n.getNewStringValue();
-    	AbstractGlobalEndpointType newGlobalEndpoint = getGlobalEndpoint(newRef);
-    	
-    	System.out.println("INBOUND ENDPOINT REF SET");
-        System.out.println("  Inbound endpoint ["+inboundEndpoint.getName()+"] ref ["+inboundEndpoint.getRef()+"] service ["+service.getName()+"]");;
-        System.out.println("  Old value ["+oldRef+"] New value ["+newRef+"]");;
-    	
-        if (oldGlobalEndpoint != null) {
-        	removeSourceRef(service, oldGlobalEndpoint);
+        if (oldRef != null) {
+        	List<Connection> results = new ArrayList<Connection>();
+        	removeTargetRef(service, oldRef, results);
+        	removeConnection(results);
         }
  
-        if (newGlobalEndpoint != null) {
-        	addSourceRef(service, newGlobalEndpoint);
+        if (newRef != null) {
+        	List<Connection> results = new ArrayList<Connection>();
+        	addTargetRef(service, newRef, results);
+        	addConnection(results);
         }
     }
 
 
     private void handleOutboundEndpointRefSet(Notification n) {
+    	String oldRef = n.getOldStringValue();
+    	//AbstractGlobalEndpointType oldGlobalEndpoint = getGlobalEndpoint(oldRef);
+    	String newRef = n.getNewStringValue();
+    	//AbstractGlobalEndpointType newGlobalEndpoint = getGlobalEndpoint(newRef);
+    	if (oldRef == null && newRef == null) return;
+   	
     	OutboundEndpointType outboundEndpoint = (OutboundEndpointType) n.getNotifier();
     	SedaServiceType service = getContainingService(outboundEndpoint);
     	if (service == null) return;
     	
-    	String oldRef = n.getOldStringValue();
-    	AbstractGlobalEndpointType oldGlobalEndpoint = getGlobalEndpoint(oldRef);
-    	String newRef = n.getNewStringValue();
-    	AbstractGlobalEndpointType newGlobalEndpoint = getGlobalEndpoint(newRef);
-    	
-    	System.out.println("OUTBOUND ENDPOINT REF SET");
-        System.out.println("  Outbound endpoint ["+outboundEndpoint.getName()+"] ref ["+outboundEndpoint.getRef()+"] service ["+service.getName()+"]");;
-        System.out.println("  Old value ["+oldRef+"] New value ["+newRef+"]");;
-    	
-        if (oldGlobalEndpoint != null) {
-        	removeTargetRef(service, oldGlobalEndpoint);
+        if (oldRef != null) {
+        	List<Connection> results = new ArrayList<Connection>();
+        	removeSourceRef(service, oldRef, results);
+        	removeConnection(results);
         }
  
-        if (newGlobalEndpoint != null) {
-        	addTargetRef(service, newGlobalEndpoint);
+        if (newRef != null) {
+        	List<Connection> results = new ArrayList<Connection>();
+        	addSourceRef(service, newRef, results);
+        	addConnection(results);
         }
     }
 
+    private void initOutboundRouters(SedaServiceType service, EList<AbstractOutboundRouterType> outboundRouters, List<Connection> results) {
+		for (AbstractOutboundRouterType outboundRouter : outboundRouters) {
+			if (outboundRouter instanceof OutboundRouterType) {
+				initOutboundEndpoints(service, ((OutboundRouterType) outboundRouter).getAbstractOutboundEndpoint(), results);
+			}
+		}    	
+    }
+    
+    private void initInboundEndpoints(SedaServiceType service, EList<AbstractInboundEndpointType> inboundEndpoints, List<Connection> results) {
+		for (AbstractInboundEndpointType inboundEndpoint : inboundEndpoints) {
+			if (inboundEndpoint instanceof InboundEndpointType) {
+				handleInboundEndpointAdd(service, (InboundEndpointType) inboundEndpoint, results);
+			}
+		}    	
+    }
+
+    private void initOutboundEndpoints(SedaServiceType service, EList<AbstractOutboundEndpointType> outboundEndpoints, List<Connection> results) {
+		for (AbstractOutboundEndpointType outboundEndpoint : outboundEndpoints) {
+			if (outboundEndpoint instanceof OutboundEndpointType) {
+				handleOutboundEndpointAdd(service, (OutboundEndpointType) outboundEndpoint, results);
+			}
+		}    	
+    }
+
+    private void handleInboundEndpointAdd(InboundEndpointType inboundEndpoint, List<Connection> results) {
+    	SedaServiceType service = getContainingService(inboundEndpoint);
+    	if (service == null) return;
+    	handleInboundEndpointAdd(service, inboundEndpoint, results);
+    }
+
+    private void handleInboundEndpointAdd(SedaServiceType service, InboundEndpointType inboundEndpoint, List<Connection> results) {
+    	String ref = inboundEndpoint.getRef();
+    	if (ref == null) return;
+    	
+    	addTargetRef(service, ref, results);   	
+    }
+    
+    private void handleOutboundEndpointAdd(OutboundEndpointType outboundEndpoint, List<Connection> results) {
+    	SedaServiceType service = getContainingService(outboundEndpoint);
+    	if (service == null) return;
+    	handleOutboundEndpointAdd(service, outboundEndpoint, results);
+    }
+
+    private void handleOutboundEndpointAdd(SedaServiceType service, OutboundEndpointType outboundEndpoint, List<Connection> results) {
+    	String ref = outboundEndpoint.getRef();
+    	if (ref == null) return;
+    	
+    	addSourceRef(service, ref, results);   	
+    }
+    
+    /*
     private AbstractGlobalEndpointType getGlobalEndpoint(String name) {
     	if (name == null || name.length() == 0) return null;
     	
@@ -127,6 +232,7 @@ public class ConnectionsAdapter extends EContentAdapter {
     	}
     	return null;
     }
+    */
     
     private SedaServiceType getContainingService(EObject obj) {
     	if (obj == null) {
@@ -138,8 +244,8 @@ public class ConnectionsAdapter extends EContentAdapter {
     	return getContainingService(obj.eContainer());
     }
     
-    private SourceEndpointReference getSourceRef(SedaServiceType service, AbstractGlobalEndpointType endpoint) {
-    	List<SourceEndpointReference> refs = sourceRefs.get(endpoint.getName());
+    private SourceEndpointReference getSourceRef(SedaServiceType service, String endpointName) {
+    	List<SourceEndpointReference> refs = sourceRefs.get(endpointName);
     	if (refs == null) {
     		return null;
     	}
@@ -151,8 +257,8 @@ public class ConnectionsAdapter extends EContentAdapter {
     	return null;
 	}
 	
-    private TargetEndpointReference getTargetRef(SedaServiceType service, AbstractGlobalEndpointType endpoint) {
-    	List<TargetEndpointReference> refs = targetRefs.get(endpoint.getName());
+    private TargetEndpointReference getTargetRef(SedaServiceType service, String endpointName) {
+    	List<TargetEndpointReference> refs = targetRefs.get(endpointName);
     	if (refs == null) {
     		return null;
     	}
@@ -164,50 +270,55 @@ public class ConnectionsAdapter extends EContentAdapter {
     	return null;
 	}
 	
-	private void addSourceRef(SedaServiceType service, AbstractGlobalEndpointType endpoint) {
-		SourceEndpointReference ref = getSourceRef(service, endpoint);
+	private void addSourceRef(SedaServiceType service, String endpointName, List<Connection> results) {
+    	System.out.println("SOURCE (OUTBOUND) REF SET");
+        System.out.println("  Global endpoint ["+endpointName+"] service ["+service.getName()+"]");;
+    	
+		SourceEndpointReference ref = getSourceRef(service, endpointName);
 		if (ref != null) {
 			// If ref exists, then connections must already exist.
 			ref.incrementRefCount();
 			return;
 		}
-    	List<SourceEndpointReference> refs = sourceRefs.get(endpoint.getName());
+    	List<SourceEndpointReference> refs = sourceRefs.get(endpointName);
     	if (refs == null) {
     		refs = new ArrayList<SourceEndpointReference>();
-    		sourceRefs.put(endpoint.getName(), refs);
+    		sourceRefs.put(endpointName, refs);
     	}
     	ref = new SourceEndpointReference(service);
     	refs.add(ref);
     	// First time this service has been a source for this endpoint type
     	// Create connections with all targets using this endpoint.
-    	createConnections(endpoint, service, targetRefs.get(endpoint.getName()));
+    	createConnections(endpointName, service, targetRefs.get(endpointName), results);
 	}
 	
-	private void addTargetRef(SedaServiceType service, AbstractGlobalEndpointType endpoint) {
-		TargetEndpointReference ref = getTargetRef(service, endpoint);
+	private void addTargetRef(SedaServiceType service, String endpointName, List<Connection> results) {
+    	System.out.println("TARGET (INBOUND) REF SET");
+        System.out.println("  Global endpoint ["+endpointName+"] service ["+service.getName()+"]");;
+    	
+		TargetEndpointReference ref = getTargetRef(service, endpointName);
 		if (ref != null) {
 			// If ref exists, then connections must already exist.
 			ref.incrementRefCount();
 			return;
 		}
-    	List<TargetEndpointReference> refs = targetRefs.get(endpoint.getName());
+    	List<TargetEndpointReference> refs = targetRefs.get(endpointName);
     	if (refs == null) {
     		refs = new ArrayList<TargetEndpointReference>();
-    		targetRefs.put(endpoint.getName(), refs);
+    		targetRefs.put(endpointName, refs);
     	}
     	ref = new TargetEndpointReference(service);
     	refs.add(ref);
     	// First time this service has been a target for this endpoint type
     	// Create connections with all sources using this endpoint.
-    	createConnections(endpoint, sourceRefs.get(endpoint.getName()), service);
+    	createConnections(endpointName, sourceRefs.get(endpointName), service, results);
 	}
 	
-	private void removeSourceRef(SedaServiceType service, AbstractGlobalEndpointType endpoint) {
-		SourceEndpointReference ref = getSourceRef(service, endpoint);
+	private void removeSourceRef(SedaServiceType service, String endpointName, List<Connection> results) {
+		SourceEndpointReference ref = getSourceRef(service, endpointName);
 		assert (ref != null);
 		ref.decrementRefCount();
 		if (ref.getRefCount() == 0) {
-	    	String endpointName = endpoint.getName();
 			// Remove ref from ref cache
         	List<SourceEndpointReference> refs = sourceRefs.get(endpointName);
 			refs.remove(ref);
@@ -216,20 +327,21 @@ public class ConnectionsAdapter extends EContentAdapter {
 			}
 			// Remove all connections which had this service as a source
 	    	List<Connection> connections = mapNameToConnection.get(endpointName);
-	    	for (Connection connection : connections) {
-	    		if (connection.getSource() == service) {
-	    	    	removeConnection(connection);
-	    		}
+	    	if (connections != null) {
+		    	for (Connection connection : connections) {
+		    		if (connection.getSource() == service) {
+		    	    	results.add(connection);
+		    		}
+		    	}
 	    	}
 		}	
 	}
 
-	private void removeTargetRef(SedaServiceType service, AbstractGlobalEndpointType endpoint) {
-		TargetEndpointReference ref = getTargetRef(service, endpoint);
+	private void removeTargetRef(SedaServiceType service, String endpointName, List<Connection> results) {
+		TargetEndpointReference ref = getTargetRef(service, endpointName);
 		assert (ref != null);
 		ref.decrementRefCount();
 		if (ref.getRefCount() == 0) {
-	    	String endpointName = endpoint.getName();
 			// Remove ref from ref cache
         	List<TargetEndpointReference> refs = targetRefs.get(endpointName);
 			refs.remove(ref);
@@ -238,69 +350,91 @@ public class ConnectionsAdapter extends EContentAdapter {
 			}
 			// Remove all connections which had this service as a source
 	    	List<Connection> connections = mapNameToConnection.get(endpointName);
-	    	for (Connection connection : connections) {
-	    		if (connection.getTarget() == service) {
-	    	    	removeConnection(connection);
-	    		}
+	    	if (connections != null) {
+		    	for (Connection connection : connections) {
+		    		if (connection.getTarget() == service) {
+		    	    	results.add(connection);
+		    		}
+		    	}
 	    	}
 		}	
 	}
 
-	public void createConnections(AbstractGlobalEndpointType endpoint, 
-			SedaServiceType source, List<TargetEndpointReference> targetReferences) {
+	public void createConnections(String endpointName, 
+			SedaServiceType source, List<TargetEndpointReference> targetReferences, List<Connection> results) {
 		if (targetReferences == null) return;
 		
 		for (TargetEndpointReference targetReference : targetReferences) {
 			Connection connection = CoreFactory.eINSTANCE.createConnection();
-			connection.setEndpoint(endpoint);
+			connection.setEndpoint(endpointName);
 			connection.setSource(source);
 			connection.setTarget(targetReference.getService());
-			addConnection(connection);
+			results.add(connection);
 		}  		
 	}
 
-	public void createConnections(AbstractGlobalEndpointType endpoint, 
-			List<SourceEndpointReference> sourceReferences, SedaServiceType target) {
+	public void createConnections(String endpointName, 
+			List<SourceEndpointReference> sourceReferences, SedaServiceType target, List<Connection> results) {
 		if (sourceReferences == null) return;
 		
 		for (SourceEndpointReference sourceReference : sourceReferences) {
 			Connection connection = CoreFactory.eINSTANCE.createConnection();
-			connection.setEndpoint(endpoint);
+			connection.setEndpoint(endpointName);
 			connection.setSource(sourceReference.getService());
 			connection.setTarget(target);
-			addConnection(connection);
+			results.add(connection);
 		}  		
 	}
 
-    private void addConnection(Connection connection) {
-    	assert (connection.getEndpoint() != null && connection.getSource() != null && connection.getTarget() != null);
-    	
+    private void addConnection(List<Connection> results) {
+    	if (results.isEmpty()) return;
     	// Add it to the model list
-    	model.getConnections().add(connection);
-		// Index it in the local map
-    	String endpointName = connection.getEndpoint().getName();
-    	List<Connection> connections = mapNameToConnection.get(endpointName);
-    	if (connections == null) {
-    		connections = new ArrayList<Connection>();
-    		mapNameToConnection.put(endpointName, connections);
-    	}
-    	connections.add(connection);
-    	
-    	System.out.println("CONNECTION ADDED");
-        System.out.println("  Endpoint ["+connection.getEndpoint().getName()+"]");
-        System.out.println("  Source   ["+connection.getSource()+"]");
-        System.out.println("  Target   ["+connection.getTarget()+"]");;
+		Command command = AddCommand.create(editingDomain, model, CorePackage.eINSTANCE.getSedaModelType_Connections(), results);
+		if (command.canExecute()) {
+			editingDomain.getCommandStack().execute(command);
+			for (Connection connection : results) {
+				assert (connection.getEndpoint() != null && connection.getSource() != null && connection.getTarget() != null);
+				// Index it in the local map
+		    	String endpointName = connection.getEndpoint();
+		    	List<Connection> connections = mapNameToConnection.get(endpointName);
+		    	if (connections == null) {
+		    		connections = new ArrayList<Connection>();
+		    		mapNameToConnection.put(endpointName, connections);
+		    	}
+		    	connections.add(connection);
+		    	
+		    	System.out.println("CONNECTION ADDED");
+		        System.out.println("  Endpoint ["+connection.getEndpoint()+"]");
+		        System.out.println("  Source   ["+connection.getSource().getName()+"]");
+		        System.out.println("  Target   ["+connection.getTarget().getName()+"]");
+			}
+		}
     }
     
-    private void removeConnection(Connection connection) {
-    	String endpointName = connection.getEndpoint().getName();
-    	model.getConnections().remove(connection);
-    	List<Connection> connections = mapNameToConnection.get(endpointName);
-		if (connections.isEmpty()) {
-			mapNameToConnection.remove(endpointName);
-		} 	
+    private void removeConnection(List<Connection> results) {
+    	if (results.isEmpty()) return;
+		Command command = RemoveCommand.create(editingDomain, model, CorePackage.eINSTANCE.getSedaModelType_Connections(), results);
+		if (command.canExecute()) {
+			editingDomain.getCommandStack().execute(command);
+			for (Connection connection : results) {			
+		    	String endpointName = connection.getEndpoint();
+		    	List<Connection> connections = mapNameToConnection.get(endpointName);
+				if (connections.isEmpty()) {
+					mapNameToConnection.remove(endpointName);
+				} 	
+		    	
+		    	System.out.println("CONNECTION REMOVED");
+		        System.out.println("  Endpoint ["+connection.getEndpoint()+"]");
+		        System.out.println("  Source   ["+connection.getSource().getName()+"]");
+		        System.out.println("  Target   ["+connection.getTarget().getName()+"]");
+			}
+		}
     }
     
+    /**
+     *  Used for reference counting.  
+     *  There can be multiple refs to the same global endpoint from a service.
+     */
     static abstract class AbstractEndpointReference {
     	private SedaServiceType service;
     	private int refCount;

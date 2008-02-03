@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.edit.domain.EditingDomain;
 
 import org.mule.ide.config.core.AbstractQueueProfileType;
 import org.mule.ide.config.core.Connection;
@@ -91,6 +92,8 @@ public class SedaModelTypeImpl extends AbstractModelTypeImpl implements SedaMode
 	 * @ordered
 	 */
 	protected EList<Connection> connections;
+	
+	protected ConnectionsAdapter connectionsAdapter;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -99,7 +102,11 @@ public class SedaModelTypeImpl extends AbstractModelTypeImpl implements SedaMode
 	 */
 	protected SedaModelTypeImpl() {
 		super();
-		//new ConnectionsAdapter().observeModel(this);
+		connectionsAdapter = new ConnectionsAdapter(this);
+	}
+	
+	public void initializeConnections(EditingDomain editingDomain) {
+		connectionsAdapter.initialize(editingDomain);		
 	}
 
 	/**

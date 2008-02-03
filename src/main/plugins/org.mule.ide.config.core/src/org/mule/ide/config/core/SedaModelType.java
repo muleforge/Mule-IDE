@@ -8,6 +8,7 @@ package org.mule.ide.config.core;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.edit.domain.EditingDomain;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +30,15 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @generated
  */
 public interface SedaModelType extends AbstractModelType {
+
+	/**
+	 * Initializes the Connections data model.
+	 * Connection information is not serialized, therefore this
+	 * method must be called to initialize the model and start change
+	 * listening.
+	 */
+	public void initializeConnections(EditingDomain editingDomain);
+
 	/**
 	 * Returns the value of the '<em><b>Abstract Queue Profile Group</b></em>' attribute list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.

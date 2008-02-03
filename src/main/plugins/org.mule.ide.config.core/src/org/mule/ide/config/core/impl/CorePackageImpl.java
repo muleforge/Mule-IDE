@@ -8796,8 +8796,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConnection_Endpoint() {
-        return (EReference)getConnection().getEStructuralFeatures().get(0);
+	public EAttribute getConnection_Endpoint() {
+        return (EAttribute)getConnection().getEStructuralFeatures().get(0);
 	}
 
 	/**

@@ -73,9 +73,11 @@ import org.eclipse.ui.ide.undo.WorkspaceUndoUtil;
 import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.wst.sse.ui.StructuredTextEditor;
 import org.eclipse.wst.xml.core.internal.provisional.contenttype.ContentTypeIdForXML;
+import org.mule.ide.config.core.AbstractModelType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DocumentRoot;
 import org.mule.ide.config.core.MuleType;
+import org.mule.ide.config.core.SedaModelType;
 import org.mule.ide.config.editor.Activator;
 import org.mule.ide.config.editor.Messages;
 import org.mule.ide.config.editor.internal.overview.OverviewPage;
@@ -247,7 +249,41 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 			throw new PartInitException("Unable to load resource: " + domainModelURI); //$NON-NLS-1$
 		}
 		
+		initializeConnections();
+		
 		super.init(site, editorInput);
+	}
+	
+	private void initializeConnections() {
+		MuleType mule = documentRoot.getMule();
+		if (mule == null) return;  // Listen for a mule element to be added?
+		
+		/*
+		Adapter modelListener = new AdapterImpl() {
+			public boolean isAdapterForType(Object type) {
+				return (type == MuleConfigEditor.class);
+			}	
+			public void notifyChanged(Notification msg) {
+				if (msg.getEventType() == Notification.ADD) {
+					Object feature = msg.getFeature();
+					if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) feature)) {
+				         FeatureMap.Entry entry = (FeatureMap.Entry) msg.getNewValue();
+				         if (entry.getValue() instanceof SedaModelType) {
+				        	 ((SedaModelType) entry.getValue()).initializeConnections();
+				         }
+					}
+				}
+			}
+		};
+		mule.eAdapters().add(modelListener);
+		*/
+		
+		EList<AbstractModelType> models = mule.getAbstractModel();
+		for (AbstractModelType model : models) {
+			if (model instanceof SedaModelType) {
+				((SedaModelType) model).initializeConnections(editingDomain);
+			}
+		}
 	}
 	
 	public MuleType getMuleElement() {

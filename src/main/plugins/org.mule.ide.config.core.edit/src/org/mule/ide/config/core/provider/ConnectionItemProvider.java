@@ -29,8 +29,11 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.mule.ide.config.core.Connection;
 import org.mule.ide.config.core.CorePackage;
 
 /**
@@ -91,8 +94,8 @@ public class ConnectionItemProvider
 				 CorePackage.eINSTANCE.getConnection_Endpoint(),
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -160,7 +163,10 @@ public class ConnectionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Connection_type");
+		String label = ((Connection)object).getEndpoint();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Connection_type") :
+			getString("_UI_Connection_type") + " " + label;
 	}
 
 	/**
@@ -173,6 +179,12 @@ public class ConnectionItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Connection.class)) {
+			case CorePackage.CONNECTION__ENDPOINT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

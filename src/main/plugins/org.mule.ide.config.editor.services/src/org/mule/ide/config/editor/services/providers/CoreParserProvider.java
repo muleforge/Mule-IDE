@@ -324,6 +324,31 @@ public class CoreParserProvider extends AbstractProvider implements
 	}
 
 	/**
+	 * @generated
+	 */
+	private IParser connectionEndpoint_4047Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getConnectionEndpoint_4047Parser() {
+		if (connectionEndpoint_4047Parser == null) {
+			connectionEndpoint_4047Parser = createConnectionEndpoint_4047Parser();
+		}
+		return connectionEndpoint_4047Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createConnectionEndpoint_4047Parser() {
+		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+				.getConnection_Endpoint(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
 	 *
 	 */
 	private IParser connectionEndpoint_Parser;

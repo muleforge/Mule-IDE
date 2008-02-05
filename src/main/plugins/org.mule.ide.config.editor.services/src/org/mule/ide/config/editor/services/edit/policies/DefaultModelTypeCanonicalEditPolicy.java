@@ -127,7 +127,8 @@ public class DefaultModelTypeCanonicalEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * customization
+	 *   - watch for model change notifications for connections
 	 */
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {

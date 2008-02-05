@@ -17,7 +17,7 @@ import org.w3c.dom.Node;
 
 public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAdapter {
 
-	protected boolean DEBUG = true;
+	protected boolean DEBUG = false;
 	
 	protected boolean updateEnabled = true;
 	

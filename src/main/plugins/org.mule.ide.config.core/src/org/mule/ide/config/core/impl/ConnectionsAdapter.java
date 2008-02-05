@@ -37,7 +37,9 @@ import org.mule.ide.config.core.SedaModelType;
 import org.mule.ide.config.core.SedaServiceType;
 
 public class ConnectionsAdapter extends EContentAdapter {
-	
+
+	private static final boolean DEBUG = false;
+
 	private SedaModelType model;
 	private EditingDomain editingDomain;
 	// Keep a map of global endpoint name to Connections in the Model list.
@@ -271,8 +273,10 @@ public class ConnectionsAdapter extends EContentAdapter {
 	}
 	
 	private void addSourceRef(SedaServiceType service, String endpointName, List<Connection> results) {
-    	System.out.println("SOURCE (OUTBOUND) REF SET");
-        System.out.println("  Global endpoint ["+endpointName+"] service ["+service.getName()+"]");;
+    	if (DEBUG) {
+	    	System.out.println("SOURCE (OUTBOUND) REF SET");
+	        System.out.println("  Global endpoint ["+endpointName+"] service ["+service.getName()+"]");
+    	}
     	
 		SourceEndpointReference ref = getSourceRef(service, endpointName);
 		if (ref != null) {
@@ -293,8 +297,10 @@ public class ConnectionsAdapter extends EContentAdapter {
 	}
 	
 	private void addTargetRef(SedaServiceType service, String endpointName, List<Connection> results) {
-    	System.out.println("TARGET (INBOUND) REF SET");
-        System.out.println("  Global endpoint ["+endpointName+"] service ["+service.getName()+"]");;
+    	if (DEBUG) {
+	    	System.out.println("TARGET (INBOUND) REF SET");
+	        System.out.println("  Global endpoint ["+endpointName+"] service ["+service.getName()+"]");
+    	}
     	
 		TargetEndpointReference ref = getTargetRef(service, endpointName);
 		if (ref != null) {
@@ -403,10 +409,12 @@ public class ConnectionsAdapter extends EContentAdapter {
 		    	}
 		    	connections.add(connection);
 		    	
-		    	System.out.println("CONNECTION ADDED");
-		        System.out.println("  Endpoint ["+connection.getEndpoint()+"]");
-		        System.out.println("  Source   ["+connection.getSource().getName()+"]");
-		        System.out.println("  Target   ["+connection.getTarget().getName()+"]");
+		    	if (DEBUG) {
+			    	System.out.println("CONNECTION ADDED");
+			        System.out.println("  Endpoint ["+connection.getEndpoint()+"]");
+			        System.out.println("  Source   ["+connection.getSource().getName()+"]");
+			        System.out.println("  Target   ["+connection.getTarget().getName()+"]");
+		    	}
 			}
 		}
     }
@@ -423,10 +431,12 @@ public class ConnectionsAdapter extends EContentAdapter {
 					mapNameToConnection.remove(endpointName);
 				} 	
 		    	
-		    	System.out.println("CONNECTION REMOVED");
-		        System.out.println("  Endpoint ["+connection.getEndpoint()+"]");
-		        System.out.println("  Source   ["+connection.getSource().getName()+"]");
-		        System.out.println("  Target   ["+connection.getTarget().getName()+"]");
+		    	if (DEBUG) {
+			    	System.out.println("CONNECTION REMOVED");
+			        System.out.println("  Endpoint ["+connection.getEndpoint()+"]");
+			        System.out.println("  Source   ["+connection.getSource().getName()+"]");
+			        System.out.println("  Target   ["+connection.getTarget().getName()+"]");
+		    	}
 			}
 		}
     }

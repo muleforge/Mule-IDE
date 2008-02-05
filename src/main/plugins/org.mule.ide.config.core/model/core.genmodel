@@ -915,6 +915,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//SedaModelType/abstractQueueProfileGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//SedaModelType/abstractQueueProfile"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//SedaModelType/inherit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//SedaModelType/connections"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//SedaServiceType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//SedaServiceType/abstractComponentThreadingProfileGroup"/>
@@ -1010,6 +1011,11 @@
     <genClasses ecoreClass="core.ecore#//WireTapRouterType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//WireTapRouterType/abstractOutboundEndpointGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//WireTapRouterType/abstractOutboundEndpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//Connection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//Connection/endpoint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//Connection/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//Connection/target"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

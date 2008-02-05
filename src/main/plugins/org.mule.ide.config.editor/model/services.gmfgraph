@@ -249,6 +249,23 @@
       <accessors
           figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
     </descriptors>
+    <descriptors
+        name="ServiceConnectionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ServiceConnectionFigure"
+          targetDecoration="//@figures.0/@descriptors.10/@actualFigure/@children.0">
+        <children
+            xsi:type="gmfgraph:PolylineDecoration"
+            name="OpenArrow"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ServiceConnectionLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ServiceConnectionLabelFigure"/>
+    </descriptors>
   </figures>
   <nodes
       name="InboundCollectionType"
@@ -330,6 +347,9 @@
           dy="10"/>
     </facets>
   </nodes>
+  <connections
+      name="ServiceConnection"
+      figure="ServiceConnectionFigure"/>
   <compartments
       name="COMPONENT"
       figure="CompartmentFigure"
@@ -414,4 +434,8 @@
       figure="EndpointServiceItemFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.9/@accessors.1"/>
+  <labels
+      name="ServiceConnectionLabel"
+      figure="ServiceConnectionLabelFigure"
+      elementIcon="false"/>
 </gmfgraph:Canvas>

@@ -38,6 +38,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.SedaModelType;
+import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.editor.services.edit.helpers.CoreBaseEditHelper;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
@@ -345,6 +347,22 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		 * @generated
 		 */
 		private static final String OPPOSITE_END_VAR = "oppositeEnd"; //$NON-NLS-1$
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateConnection_3001(SedaModelType container,
+				SedaServiceType source, SedaServiceType target) {
+			return canExistConnection_3001(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistConnection_3001(SedaModelType container,
+				SedaServiceType source, SedaServiceType target) {
+			return true;
+		}
 
 		/**
 		 * @generated

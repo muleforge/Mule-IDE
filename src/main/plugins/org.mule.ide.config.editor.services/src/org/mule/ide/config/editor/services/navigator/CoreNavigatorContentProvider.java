@@ -31,6 +31,7 @@ import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterType
 import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ConnectionEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomCorrelationAggregatorRouterTypeEditPart;
@@ -87,6 +88,7 @@ import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRo
 import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
+import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * @generated
@@ -276,15 +278,32 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 
 		case DefaultModelTypeEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
+			CoreNavigatorGroup links = new CoreNavigatorGroup(
+					Messages.NavigatorGroupName_DefaultModelType_79_links,
+					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
 					.singleton(view), SedaServiceTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(view),
+					ConnectionEditPart.VISUAL_ID);
+			links
+					.addChildren(createNavigatorItems(connectedViews, links,
+							false));
+			if (!links.isEmpty()) {
+				result.add(links);
+			}
 			return result.toArray();
 		}
 
 		case SedaServiceTypeEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
+			CoreNavigatorGroup incominglinks = new CoreNavigatorGroup(
+					Messages.NavigatorGroupName_SedaServiceType_1001_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			CoreNavigatorGroup outgoinglinks = new CoreNavigatorGroup(
+					Messages.NavigatorGroupName_SedaServiceType_1001_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
 					.singleton(view),
 					SedaServiceTypeCOMPONENTEditPart.VISUAL_ID);
@@ -364,6 +383,20 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 					OutboundCollectionTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view), ConnectionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view), ConnectionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
 			return result.toArray();
 		}
 
@@ -700,6 +733,31 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 					OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			return result.toArray();
+		}
+
+		case ConnectionEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			CoreNavigatorGroup target = new CoreNavigatorGroup(
+					Messages.NavigatorGroupName_Connection_3001_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			CoreNavigatorGroup source = new CoreNavigatorGroup(
+					Messages.NavigatorGroupName_Connection_3001_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getLinksTargetByType(Collections
+					.singleton(view), SedaServiceTypeEditPart.VISUAL_ID);
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(view),
+					SedaServiceTypeEditPart.VISUAL_ID);
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
 			return result.toArray();
 		}
 		}

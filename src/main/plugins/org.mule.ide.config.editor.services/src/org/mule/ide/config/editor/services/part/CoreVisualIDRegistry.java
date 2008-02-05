@@ -1011,6 +1011,11 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ConnectionEditPart.VISUAL_ID:
+			if (ConnectionEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		}
 		return false;
 	}
@@ -1021,6 +1026,10 @@ public class CoreVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
+		}
+		if (CorePackage.eINSTANCE.getConnection().isSuperTypeOf(
+				domainElement.eClass())) {
+			return ConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

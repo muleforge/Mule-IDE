@@ -600,6 +600,13 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
+				case ConnectionEndpointEditPart.VISUAL_ID:
+					if (ConnectionEditPart.VISUAL_ID != CoreVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
 				default:
 					return null;
 				}
@@ -839,6 +846,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return StaticRecipientListRouterTypeENDPOINTSViewFactory.class;
 		case CustomOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 			return CustomOutboundRouterTypeENDPOINTSViewFactory.class;
+		case ConnectionEndpointEditPart.VISUAL_ID:
+			return ConnectionEndpointViewFactory.class;
 		}
 		return null;
 	}
@@ -875,6 +884,8 @@ public class CoreViewProvider extends AbstractViewProvider {
 	 */
 	protected Class getEdgeViewClass(int visualID) {
 		switch (visualID) {
+		case ConnectionEditPart.VISUAL_ID:
+			return ConnectionViewFactory.class;
 		}
 		return null;
 	}

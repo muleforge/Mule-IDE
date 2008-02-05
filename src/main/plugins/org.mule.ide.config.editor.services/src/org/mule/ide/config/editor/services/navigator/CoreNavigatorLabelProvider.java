@@ -36,6 +36,8 @@ import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeE
 import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ConnectionEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ConnectionEndpointEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeEditPart;
@@ -295,6 +297,9 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?CustomOutboundRouterType", CoreElementTypes.CustomOutboundRouterType_2040); //$NON-NLS-1$
+		case ConnectionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://www.mulesource.org/schema/mule/core/2.0?Connection", CoreElementTypes.Connection_3001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -431,6 +436,8 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return getStaticRecipientListRouterType_2039Text(view);
 		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
 			return getCustomOutboundRouterType_2040Text(view);
+		case ConnectionEditPart.VISUAL_ID:
+			return getConnection_3001Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -1256,6 +1263,28 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
 					.intValue());
 		} else {
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getConnection_3001Text(View view) {
+		IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
+				CoreElementTypes.Connection_3001,
+				(view.getElement() != null ? view.getElement() : view),
+				CoreVisualIDRegistry
+						.getType(ConnectionEndpointEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			ServicesEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 4047); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 

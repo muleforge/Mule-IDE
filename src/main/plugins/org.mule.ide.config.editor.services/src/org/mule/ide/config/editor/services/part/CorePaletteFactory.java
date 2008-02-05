@@ -51,10 +51,10 @@ public class CorePaletteFactory {
 				Messages.Components2Group_title);
 		paletteContainer.add(createBridgeComponent1CreationTool());
 		paletteContainer.add(createEchoComponent2CreationTool());
-		paletteContainer.add(createLogComponent4CreationTool());
-		paletteContainer.add(createNullComponent5CreationTool());
-		paletteContainer.add(createPassThroughComponent6CreationTool());
-		paletteContainer.add(createPojoComponent7CreationTool());
+		paletteContainer.add(createLogComponent3CreationTool());
+		paletteContainer.add(createNullComponent4CreationTool());
+		paletteContainer.add(createPassThroughComponent5CreationTool());
+		paletteContainer.add(createPojoComponent6CreationTool());
 		return paletteContainer;
 	}
 
@@ -179,12 +179,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createLogComponent4CreationTool() {
+	private ToolEntry createLogComponent3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.DefaultComponentType_2005);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.LogComponent4CreationTool_title,
-				Messages.LogComponent4CreationTool_desc, types);
+				Messages.LogComponent3CreationTool_title,
+				Messages.LogComponent3CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.DefaultComponentType_2005));
@@ -195,12 +195,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createNullComponent5CreationTool() {
+	private ToolEntry createNullComponent4CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.DefaultComponentType_2006);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.NullComponent5CreationTool_title,
-				Messages.NullComponent5CreationTool_desc, types);
+				Messages.NullComponent4CreationTool_title,
+				Messages.NullComponent4CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.DefaultComponentType_2006));
@@ -211,12 +211,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPassThroughComponent6CreationTool() {
+	private ToolEntry createPassThroughComponent5CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.DefaultComponentType_2007);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PassThroughComponent6CreationTool_title,
-				Messages.PassThroughComponent6CreationTool_desc, types);
+				Messages.PassThroughComponent5CreationTool_title,
+				Messages.PassThroughComponent5CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.DefaultComponentType_2007));
@@ -227,12 +227,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPojoComponent7CreationTool() {
+	private ToolEntry createPojoComponent6CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.PojoComponentType_2001);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PojoComponent7CreationTool_title,
-				Messages.PojoComponent7CreationTool_desc, types);
+				Messages.PojoComponent6CreationTool_title,
+				Messages.PojoComponent6CreationTool_desc, types);
 		entry.setSmallIcon(CoreElementTypes
 				.getImageDescriptor(CoreElementTypes.PojoComponentType_2001));
 		entry.setLargeIcon(entry.getSmallIcon());

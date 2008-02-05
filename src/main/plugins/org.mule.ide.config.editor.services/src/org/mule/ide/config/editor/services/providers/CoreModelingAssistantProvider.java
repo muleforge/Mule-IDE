@@ -195,6 +195,11 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof SedaServiceTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.Connection_3001);
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -204,6 +209,11 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof SedaServiceTypeEditPart) {
+			List types = new ArrayList();
+			types.add(CoreElementTypes.Connection_3001);
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -216,6 +226,13 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof SedaServiceTypeEditPart) {
+			List types = new ArrayList();
+			if (targetEditPart instanceof SedaServiceTypeEditPart) {
+				types.add(CoreElementTypes.Connection_3001);
+			}
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -226,6 +243,13 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof SedaServiceTypeEditPart) {
+			List types = new ArrayList();
+			if (relationshipType == CoreElementTypes.Connection_3001) {
+				types.add(CoreElementTypes.SedaServiceType_1001);
+			}
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -236,6 +260,13 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof SedaServiceTypeEditPart) {
+			List types = new ArrayList();
+			if (relationshipType == CoreElementTypes.Connection_3001) {
+				types.add(CoreElementTypes.SedaServiceType_1001);
+			}
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 

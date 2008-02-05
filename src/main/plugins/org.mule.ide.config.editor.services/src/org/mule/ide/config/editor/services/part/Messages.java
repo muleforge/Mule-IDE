@@ -308,42 +308,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String LogComponent4CreationTool_title;
+	public static String LogComponent3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String LogComponent4CreationTool_desc;
+	public static String LogComponent3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String NullComponent5CreationTool_title;
+	public static String NullComponent4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String NullComponent5CreationTool_desc;
+	public static String NullComponent4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PassThroughComponent6CreationTool_title;
+	public static String PassThroughComponent5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PassThroughComponent6CreationTool_desc;
+	public static String PassThroughComponent5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PojoComponent7CreationTool_title;
+	public static String PojoComponent6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PojoComponent7CreationTool_desc;
+	public static String PojoComponent6CreationTool_desc;
 
 	/**
 	 * @generated
@@ -749,6 +749,31 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DefaultModelType_79_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SedaServiceType_1001_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SedaServiceType_1001_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Connection_3001_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Connection_3001_source;
 
 	/**
 	 * @generated

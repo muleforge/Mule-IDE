@@ -376,6 +376,12 @@ public class CoreEditPartFactory implements EditPartFactory {
 
 			case CustomOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
 				return new CustomOutboundRouterTypeENDPOINTSEditPart(view);
+
+			case ConnectionEditPart.VISUAL_ID:
+				return new ConnectionEditPart(view);
+
+			case ConnectionEndpointEditPart.VISUAL_ID:
+				return new ConnectionEndpointEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

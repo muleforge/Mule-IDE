@@ -256,6 +256,11 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Connection_3001 = getElementType("org.mule.ide.config.editor.services.Connection_3001"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	private static ImageRegistry getImageRegistry() {
 		if (imageRegistry == null) {
 			imageRegistry = new ImageRegistry();
@@ -492,6 +497,9 @@ public class CoreElementTypes extends ElementInitializers {
 
 			elements.put(CustomOutboundRouterType_2040, CorePackage.eINSTANCE
 					.getCustomOutboundRouterType());
+
+			elements
+					.put(Connection_3001, CorePackage.eINSTANCE.getConnection());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -551,6 +559,7 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(ChunkingRouterType_2038);
 			KNOWN_ELEMENT_TYPES.add(StaticRecipientListRouterType_2039);
 			KNOWN_ELEMENT_TYPES.add(CustomOutboundRouterType_2040);
+			KNOWN_ELEMENT_TYPES.add(Connection_3001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

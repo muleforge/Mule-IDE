@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyInboundEndpointServiceItemEndpointNameEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ConnectionEndpointEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomCorrelationAggregatorRouterTypeClassEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomExceptionStrategyTypeClassEditPart;
@@ -325,6 +326,31 @@ public class CoreParserProvider extends AbstractProvider implements
 	/**
 	 *
 	 */
+	private IParser connectionEndpoint_Parser;
+
+	/**
+	 *
+	 */
+	private IParser getConnectionEndpoint_Parser() {
+		if (connectionEndpoint_Parser == null) {
+			connectionEndpoint_Parser = createConnectionEndpoint_Parser();
+		}
+		return connectionEndpoint_Parser;
+	}
+
+	/**
+	 *
+	 */
+	protected IParser createConnectionEndpoint_Parser() {
+		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+				.getConnection_Endpoint(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 *
+	 */
 	private IParser sedaServiceTypeName_Parser;
 
 	/**
@@ -581,7 +607,8 @@ public class CoreParserProvider extends AbstractProvider implements
 			return getCustomAsyncReplyRouterTypeClass_Parser();
 		case CustomOutboundRouterTypeClassEditPart.VISUAL_ID:
 			return getCustomOutboundRouterTypeClass_Parser();
-
+		case ConnectionEndpointEditPart.VISUAL_ID:
+			return getConnectionEndpoint_Parser();
 		}
 		return null;
 	}

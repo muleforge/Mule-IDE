@@ -476,6 +476,9 @@ public class CoreDomainModelElementTester extends PropertyTester {
 		if (eClass == CorePackage.eINSTANCE.getWireTapRouterType()) {
 			return true;
 		}
+		if (eClass == CorePackage.eINSTANCE.getConnection()) {
+			return true;
+		}
 		return false;
 	}
 

@@ -1,10 +1,15 @@
 package org.mule.ide.config.editor.services.part;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Map;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.AbstractAsyncReplyRouterType;
 import org.mule.ide.config.core.AbstractComponentType;
@@ -16,6 +21,8 @@ import org.mule.ide.config.core.AbstractOutboundRouterType;
 import org.mule.ide.config.core.AbstractServiceType;
 import org.mule.ide.config.core.AsyncReplyCollectionType;
 import org.mule.ide.config.core.ChunkingRouterType;
+import org.mule.ide.config.core.Connection;
+import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CustomExceptionStrategyType;
 import org.mule.ide.config.core.CustomOutboundRouterType;
 import org.mule.ide.config.core.DefaultModelType;
@@ -26,6 +33,7 @@ import org.mule.ide.config.core.InboundCollectionType;
 import org.mule.ide.config.core.MessageSplitterOutboundRouterType;
 import org.mule.ide.config.core.OutboundCollectionType;
 import org.mule.ide.config.core.OutboundRouterType;
+import org.mule.ide.config.core.SedaModelType;
 import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.core.StaticRecipientListRouterType;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart;
@@ -39,6 +47,7 @@ import org.mule.ide.config.editor.services.edit.parts.ChainingOutboundRouterType
 import org.mule.ide.config.editor.services.edit.parts.ChunkingInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ChunkingRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.ConnectionEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CorrelationResequencerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomCorrelationAggregatorRouterTypeEditPart;
@@ -94,6 +103,7 @@ import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterT
 import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.TemplateEndpointOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
+import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
 /**
  * @generated
@@ -1056,6 +1066,8 @@ public class CoreDiagramUpdater {
 			return getStaticRecipientListRouterType_2039ContainedLinks(view);
 		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
 			return getCustomOutboundRouterType_2040ContainedLinks(view);
+		case ConnectionEditPart.VISUAL_ID:
+			return getConnection_3001ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -1147,6 +1159,8 @@ public class CoreDiagramUpdater {
 			return getStaticRecipientListRouterType_2039IncomingLinks(view);
 		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
 			return getCustomOutboundRouterType_2040IncomingLinks(view);
+		case ConnectionEditPart.VISUAL_ID:
+			return getConnection_3001IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -1238,6 +1252,8 @@ public class CoreDiagramUpdater {
 			return getStaticRecipientListRouterType_2039OutgoingLinks(view);
 		case CustomOutboundRouterTypeEditPart.VISUAL_ID:
 			return getCustomOutboundRouterType_2040OutgoingLinks(view);
+		case ConnectionEditPart.VISUAL_ID:
+			return getConnection_3001OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -1246,7 +1262,11 @@ public class CoreDiagramUpdater {
 	 * @generated
 	 */
 	public static List getDefaultModelType_79ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
+		DefaultModelType modelElement = (DefaultModelType) view.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getContainedTypeModelFacetLinks_Connection_3001(modelElement));
+		return result;
 	}
 
 	/**
@@ -1554,8 +1574,21 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSedaServiceType_1001IncomingLinks(View view) {
+	public static List getConnection_3001ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getSedaServiceType_1001IncomingLinks(View view) {
+		SedaServiceType modelElement = (SedaServiceType) view.getElement();
+		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
+				.getResourceSet().getResources());
+		List result = new LinkedList();
+		result.addAll(getIncomingTypeModelFacetLinks_Connection_3001(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -1854,8 +1887,19 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSedaServiceType_1001OutgoingLinks(View view) {
+	public static List getConnection_3001IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getSedaServiceType_1001OutgoingLinks(View view) {
+		SedaServiceType modelElement = (SedaServiceType) view.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getOutgoingTypeModelFacetLinks_Connection_3001(modelElement));
+		return result;
 	}
 
 	/**
@@ -2149,6 +2193,109 @@ public class CoreDiagramUpdater {
 	 */
 	public static List getCustomOutboundRouterType_2040OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getConnection_3001OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getContainedTypeModelFacetLinks_Connection_3001(
+			SedaModelType container) {
+		Collection result = new LinkedList();
+		for (Iterator links = container.getConnections().iterator(); links
+				.hasNext();) {
+			Object linkObject = links.next();
+			if (false == linkObject instanceof Connection) {
+				continue;
+			}
+			Connection link = (Connection) linkObject;
+			if (ConnectionEditPart.VISUAL_ID != CoreVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			SedaServiceType dst = link.getTarget();
+			SedaServiceType src = link.getSource();
+			result.add(new CoreLinkDescriptor(src, dst, link,
+					CoreElementTypes.Connection_3001,
+					ConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getIncomingTypeModelFacetLinks_Connection_3001(
+			SedaServiceType target, Map crossReferences) {
+		Collection result = new LinkedList();
+		Collection settings = (Collection) crossReferences.get(target);
+		for (Iterator it = settings.iterator(); it.hasNext();) {
+			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
+					.next();
+			if (setting.getEStructuralFeature() != CorePackage.eINSTANCE
+					.getConnection_Target()
+					|| false == setting.getEObject() instanceof Connection) {
+				continue;
+			}
+			Connection link = (Connection) setting.getEObject();
+			if (ConnectionEditPart.VISUAL_ID != CoreVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			SedaServiceType src = link.getSource();
+			result.add(new CoreLinkDescriptor(src, target, link,
+					CoreElementTypes.Connection_3001,
+					ConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getOutgoingTypeModelFacetLinks_Connection_3001(
+			SedaServiceType source) {
+		SedaModelType container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof SedaModelType) {
+				container = (SedaModelType) element;
+			}
+		}
+		if (container == null) {
+			return Collections.EMPTY_LIST;
+		}
+		Collection result = new LinkedList();
+		for (Iterator links = container.getConnections().iterator(); links
+				.hasNext();) {
+			Object linkObject = links.next();
+			if (false == linkObject instanceof Connection) {
+				continue;
+			}
+			Connection link = (Connection) linkObject;
+			if (ConnectionEditPart.VISUAL_ID != CoreVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			SedaServiceType dst = link.getTarget();
+			SedaServiceType src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new CoreLinkDescriptor(src, dst, link,
+					CoreElementTypes.Connection_3001,
+					ConnectionEditPart.VISUAL_ID));
+		}
+		return result;
 	}
 
 }

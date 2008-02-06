@@ -8,6 +8,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.AsyncReplyCollectionType;
 import org.mule.ide.config.editor.services.edit.policies.AsyncReplyCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.AsyncReplyCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.Messages;
@@ -80,6 +81,14 @@ public class AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart extends
 		// super.setRatio(ratio); 
 	}
 
+	@Override
+	protected void handleNotificationEvent(Notification notification) {
+		if (notification.getNotifier() instanceof AsyncReplyCollectionType) {
+			((CustomListCompartmentEditPart) (getParent().getParent())).updateFace();
+		}
+		super.handleNotificationEvent(notification);
+	}
+	
 	@Override
 	public String getToolTip() {
 		return Messages.InboundEndpointsCompartment_tooltip;

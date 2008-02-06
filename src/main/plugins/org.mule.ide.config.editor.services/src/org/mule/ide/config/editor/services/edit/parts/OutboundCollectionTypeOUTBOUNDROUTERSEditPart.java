@@ -7,7 +7,9 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.OutboundCollectionType;
 import org.mule.ide.config.editor.services.edit.policies.OutboundCollectionTypeOUTBOUNDROUTERSCanonicalEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.Messages;
@@ -69,6 +71,14 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSEditPart extends
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new OutboundCollectionTypeOUTBOUNDROUTERSCanonicalEditPolicy());
+	}
+
+	@Override
+	protected void handleNotificationEvent(Notification notification) {
+		if (notification.getNotifier() instanceof OutboundCollectionType) {
+			((CustomListCompartmentEditPart) (getParent().getParent())).updateFace();
+		}
+		super.handleNotificationEvent(notification);
 	}
 
 	/**

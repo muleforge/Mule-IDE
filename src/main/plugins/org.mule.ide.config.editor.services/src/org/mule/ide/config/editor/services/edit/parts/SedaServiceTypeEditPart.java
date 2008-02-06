@@ -3,6 +3,7 @@ package org.mule.ide.config.editor.services.edit.parts;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
@@ -355,6 +356,8 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 			this.setForegroundColor(ColorConstants.black);
 
 			this.setFont(THIS_FONT);
+			
+			this.setBorder(new MarginBorder(2,0,2,0));
 
 			createContents();
 		}

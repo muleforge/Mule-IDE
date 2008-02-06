@@ -1,7 +1,9 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
@@ -12,7 +14,9 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditP
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.diagram.ui.internal.figures.NestedResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeEXCEPTIONCanonicalEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeEXCEPTIONItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.Messages;
@@ -65,6 +69,24 @@ public class SedaServiceTypeEXCEPTIONEditPart extends
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new SedaServiceTypeEXCEPTIONCanonicalEditPolicy());
+	}
+
+	@Override
+	protected void handleNotificationEvent(Notification notification) {
+		if (notification.getNotifier() instanceof BaseServiceType) {
+			updateFace(getFigure());
+		}
+		super.handleNotificationEvent(notification);
+	}
+	
+	@Override
+	protected void updateFace(IFigure figure) {
+		BaseServiceType service = (BaseServiceType) ((Node) getModel()).getElement();
+		if (service.getAbstractExceptionStrategy() == null) {
+			setCompartmentEmpty(figure);
+		} else {
+			setCompartmentNonEmpty(figure);
+		}
 	}
 
 	/**

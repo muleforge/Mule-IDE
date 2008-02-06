@@ -8,6 +8,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.InboundCollectionType;
 import org.mule.ide.config.editor.services.edit.policies.InboundCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.InboundCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.Messages;
@@ -79,6 +80,14 @@ public class InboundCollectionTypeINBOUNDENDPOINTSEditPart extends
 		// super.setRatio(ratio); 
 	}
 
+	@Override
+	protected void handleNotificationEvent(Notification notification) {
+		if (notification.getNotifier() instanceof InboundCollectionType) {
+			((CustomListCompartmentEditPart) (getParent().getParent())).updateFace();
+		}
+		super.handleNotificationEvent(notification);
+	}
+	
 	@Override
 	public String getToolTip() {
 		return Messages.InboundEndpointsCompartment_tooltip;

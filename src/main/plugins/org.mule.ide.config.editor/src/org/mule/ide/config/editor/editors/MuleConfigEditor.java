@@ -26,12 +26,14 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
@@ -57,6 +59,7 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.ISaveablePart2;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.FileEditorInput;
@@ -91,7 +94,7 @@ import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
  * 
  */
 // See also PDEFormEditor for functionality that we may want to add.
-public class MuleConfigEditor extends FormEditor implements IResourceChangeListener {
+public class MuleConfigEditor extends FormEditor implements IResourceChangeListener, ISaveablePart2 {
 
 	public static final String ID = "org.mule.ide.config.editor.editors.MuleConfigEditor"; //$NON-NLS-1$
 	
@@ -195,14 +198,42 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 		super.dispose();
 	}
 	
-	/**
+	public boolean isDirty() {
+		if (xmlEditor.isDirty()) {
+			return true;
+		}
+		return isModelDirty || isDiagramDirtyOnClose;
+	}
+
+    public boolean isSaveOnCloseNeeded() {
+    	if (isDirty()) {
+    		return true;
+    	}
+    	if (servicesEditor != null && servicesEditor.isDiagramDirty()) {
+    		// Even after this call is made, SaveableHelper calls isDirty()
+    		// to double check that the file is dirty.  So need make isDirty()
+    		// return true while closing.
+    		// TODO Optimize the save on close such that the EMF model isn't saved unnecessarily.
+    		isDiagramDirtyOnClose = true;
+    		return true;
+    	}
+        return false;
+    }
+
+    /**
 	 * 
 	 */
 	public void doSave(IProgressMonitor monitor) {
 		IEditorPart activeEditor = getActiveEditor();
 		if (activeEditor != null) {
-			// TODO temporarily, only perform save on active page's editor
-			activeEditor.doSave(monitor);
+			if (activeEditor == xmlEditor) {
+				xmlEditor.doSave(monitor);
+			} else if (servicesEditor != null) {
+				// For now, use the services editor to save the EMF model
+				// it will save the diagram model at the same time.
+				servicesEditor.doSave(monitor);
+				setModelDirty(false);
+			}
 		}
 	}
 	
@@ -251,9 +282,56 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 		
 		initializeConnections();
 		
+		initializeDirtyListener();
+		
 		super.init(site, editorInput);
 	}
+
+	// We may want to change how this is done, but for now maintain
+	// a model dirty flag here by listening on over entire mule element for
+	// edit notifications.
+	private boolean isModelDirty;
+	private boolean isDiagramDirtyOnClose = false;
 	
+    private void setModelDirty(boolean dirty) {
+    	isModelDirty = dirty;
+        firePropertyChange(IEditorPart.PROP_DIRTY);
+     }
+    
+	private void initializeDirtyListener() {
+		isModelDirty = false;
+		
+		MuleType mule = documentRoot.getMule();
+		if (mule == null) return;  // Listen for a mule element to be added?
+
+		mule.eAdapters().add(new EContentAdapter() {
+		    public void notifyChanged(Notification n) {
+		    	if (isModelDirty) return;
+		    	int eventType = n.getEventType();
+		    	if (eventType == Notification.SET
+		    			|| eventType == Notification.UNSET
+		    			|| eventType == Notification.ADD
+		    			|| eventType == Notification.REMOVE
+		    			|| eventType == Notification.ADD_MANY
+		    			|| eventType == Notification.REMOVE_MANY
+		    			|| eventType == Notification.MOVE) {
+		    		setModelDirty(true);
+		    	}
+		    	super.notifyChanged(n);
+		    }
+		});
+	}
+
+	public int promptToSaveOnClose() {
+		// Needed to implement this so that we can have silent save of the
+		// diagram model on close.
+		if (isDiagramDirtyOnClose) {
+			return ISaveablePart2.YES;
+		} else {
+			return ISaveablePart2.DEFAULT;
+		}
+	}	
+
 	private void initializeConnections() {
 		MuleType mule = documentRoot.getMule();
 		if (mule == null) return;  // Listen for a mule element to be added?
@@ -445,7 +523,7 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 	}
 
 	public void contributeToToolbar(IToolBarManager manager) {
-	}	
+	}
 
 	/*  TODO need to revisit:  when an OverviewPage section widget called setSelection here,
 	 * getSite().getSelectionProvider().setSelection() caused an infinite loop. 

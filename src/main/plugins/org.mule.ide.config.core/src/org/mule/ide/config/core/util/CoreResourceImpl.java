@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.xmi.XMLOptions;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
-import org.mule.ide.config.common.impl.SyncResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.mule.ide.config.common.impl.SyncResourceImpl;
  * customization
  *   - use SyncResourceImpl
  */
-public class CoreResourceImpl extends SyncResourceImpl {
+public class CoreResourceImpl extends XMLResourceImpl {
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->

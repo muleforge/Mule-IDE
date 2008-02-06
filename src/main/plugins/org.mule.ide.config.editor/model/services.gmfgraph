@@ -25,6 +25,12 @@
             faceName=""
             height="8"
             style="ITALIC"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="2"
+              bottom="2"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="ServiceNameFigure">

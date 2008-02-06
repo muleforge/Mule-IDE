@@ -78,10 +78,11 @@ public class SedaServiceTypeEXCEPTIONEditPart extends
 		}
 		super.handleNotificationEvent(notification);
 	}
-	
+
 	@Override
 	protected void updateFace(IFigure figure) {
-		BaseServiceType service = (BaseServiceType) ((Node) getModel()).getElement();
+		BaseServiceType service = (BaseServiceType) ((Node) getModel())
+				.getElement();
 		if (service.getAbstractExceptionStrategy() == null) {
 			setCompartmentEmpty(figure);
 		} else {

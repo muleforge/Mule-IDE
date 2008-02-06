@@ -76,7 +76,8 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSEditPart extends
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
 		if (notification.getNotifier() instanceof OutboundCollectionType) {
-			((CustomListCompartmentEditPart) (getParent().getParent())).updateFace();
+			((CustomListCompartmentEditPart) (getParent().getParent()))
+					.updateFace();
 		}
 		super.handleNotificationEvent(notification);
 	}

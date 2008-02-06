@@ -84,11 +84,12 @@ public class AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart extends
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
 		if (notification.getNotifier() instanceof AsyncReplyCollectionType) {
-			((CustomListCompartmentEditPart) (getParent().getParent())).updateFace();
+			((CustomListCompartmentEditPart) (getParent().getParent()))
+					.updateFace();
 		}
 		super.handleNotificationEvent(notification);
 	}
-	
+
 	@Override
 	public String getToolTip() {
 		return Messages.InboundEndpointsCompartment_tooltip;

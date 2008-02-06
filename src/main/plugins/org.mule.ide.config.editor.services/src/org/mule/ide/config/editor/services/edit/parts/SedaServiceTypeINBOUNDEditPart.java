@@ -84,13 +84,14 @@ public class SedaServiceTypeINBOUNDEditPart extends
 		}
 		super.handleNotificationEvent(notification);
 	}
-	
+
 	@Override
 	protected void updateFace(IFigure figure) {
-		BaseServiceType service = (BaseServiceType) ((Node) getModel()).getElement();
+		BaseServiceType service = (BaseServiceType) ((Node) getModel())
+				.getElement();
 		if (service.getInbound() == null
-				|| (service.getInbound().getAbstractInboundRouter().isEmpty()
-						&& service.getInbound().getAbstractInboundEndpoint().isEmpty())) {
+				|| (service.getInbound().getAbstractInboundRouter().isEmpty() && service
+						.getInbound().getAbstractInboundEndpoint().isEmpty())) {
 			setCompartmentEmpty(figure);
 		} else {
 			setCompartmentNonEmpty(figure);

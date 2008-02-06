@@ -82,7 +82,8 @@ public class InboundCollectionTypeINBOUNDROUTERSEditPart extends
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
 		if (notification.getNotifier() instanceof InboundCollectionType) {
-			((CustomListCompartmentEditPart) (getParent().getParent())).updateFace();
+			((CustomListCompartmentEditPart) (getParent().getParent()))
+					.updateFace();
 		}
 		super.handleNotificationEvent(notification);
 	}

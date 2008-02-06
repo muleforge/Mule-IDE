@@ -83,13 +83,15 @@ public class SedaServiceTypeASYNCREPLYEditPart extends
 		}
 		super.handleNotificationEvent(notification);
 	}
-	
+
 	@Override
 	protected void updateFace(IFigure figure) {
-		BaseServiceType service = (BaseServiceType) ((Node) getModel()).getElement();
+		BaseServiceType service = (BaseServiceType) ((Node) getModel())
+				.getElement();
 		if (service.getAsyncReply() == null
-				|| (service.getAsyncReply().getAbstractAsyncReplyRouter().isEmpty()
-						&& service.getAsyncReply().getAbstractInboundEndpoint().isEmpty())) {
+				|| (service.getAsyncReply().getAbstractAsyncReplyRouter()
+						.isEmpty() && service.getAsyncReply()
+						.getAbstractInboundEndpoint().isEmpty())) {
 			setCompartmentEmpty(figure);
 		} else {
 			setCompartmentNonEmpty(figure);

@@ -84,7 +84,8 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart extends
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
 		if (notification.getNotifier() instanceof AsyncReplyCollectionType) {
-			((CustomListCompartmentEditPart) (getParent().getParent())).updateFace();
+			((CustomListCompartmentEditPart) (getParent().getParent()))
+					.updateFace();
 		}
 		super.handleNotificationEvent(notification);
 	}

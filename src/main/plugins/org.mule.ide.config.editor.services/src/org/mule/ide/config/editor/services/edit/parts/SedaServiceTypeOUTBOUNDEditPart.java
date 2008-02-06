@@ -84,10 +84,11 @@ public class SedaServiceTypeOUTBOUNDEditPart extends
 		}
 		super.handleNotificationEvent(notification);
 	}
-	
+
 	@Override
 	protected void updateFace(IFigure figure) {
-		BaseServiceType service = (BaseServiceType) ((Node) getModel()).getElement();
+		BaseServiceType service = (BaseServiceType) ((Node) getModel())
+				.getElement();
 		if (service.getOutbound() == null
 				|| service.getOutbound().getAbstractOutboundRouter().isEmpty()) {
 			setCompartmentEmpty(figure);
@@ -95,7 +96,6 @@ public class SedaServiceTypeOUTBOUNDEditPart extends
 			setCompartmentNonEmpty(figure);
 		}
 	}
-
 
 	@Override
 	public String getToolTip() {

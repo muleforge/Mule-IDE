@@ -356,9 +356,10 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 			this.setForegroundColor(ColorConstants.black);
 
 			this.setFont(THIS_FONT);
-			
-			this.setBorder(new MarginBorder(2,0,2,0));
 
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+					getMapMode().DPtoLP(0)));
 			createContents();
 		}
 

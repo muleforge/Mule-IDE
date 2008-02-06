@@ -150,13 +150,13 @@ public class CoreDiagramEditor extends DiagramDocumentEditor implements
 	public void gotoMarker(IMarker marker) {
 		MarkerNavigationService.getInstance().gotoMarker(this, marker);
 	}
-	
+
 	public boolean isDiagramDirty() {
 		return isDirty();
 	}
 
 	protected void firePropertyChange(int property) {
-		if (property == PROP_DIRTY  && isDirty()) {
+		if (property == PROP_DIRTY && isDirty()) {
 			// Intercept diagram model dirty events
 			// Diagram model will be saved on config model saves,
 			// or on document close if needed.
@@ -164,9 +164,9 @@ public class CoreDiagramEditor extends DiagramDocumentEditor implements
 		} else {
 			super.firePropertyChange(property);
 		}
-		
+
 	}
-	
+
 	/**
 	 * @generated
 	 */

@@ -88,17 +88,18 @@ public class SedaServiceTypeCOMPONENTEditPart extends
 		}
 		super.handleNotificationEvent(notification);
 	}
-	
+
 	@Override
 	protected void updateFace(IFigure figure) {
-		BaseServiceType service = (BaseServiceType) ((Node) getModel()).getElement();
+		BaseServiceType service = (BaseServiceType) ((Node) getModel())
+				.getElement();
 		if (service.getAbstractComponent() == null) {
 			setCompartmentEmpty(figure);
 		} else {
 			setCompartmentNonEmpty(figure);
 		}
 	}
-	
+
 	@Override
 	public String getToolTip() {
 		// TODO Auto-generated method stub

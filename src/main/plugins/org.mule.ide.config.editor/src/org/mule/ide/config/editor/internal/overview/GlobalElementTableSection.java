@@ -56,7 +56,8 @@ public abstract class GlobalElementTableSection extends TableSection
     private static final int DOWN_INDEX = 3;
     
     private static final String[] BUTTON_LABELS = 
-    	{ Messages.TableSection_Add, Messages.TableSection_Remove, Messages.TableSection_Up, Messages.TableSection_Down };
+	{ Messages.TableSection_Add, Messages.TableSection_Remove };
+	//{ Messages.TableSection_Add, Messages.TableSection_Remove, Messages.TableSection_Up, Messages.TableSection_Down };
     
 	private TableViewer fViewer;
 	private Action fAddAction;

@@ -11,6 +11,7 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
+import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.mule.ide.config.core.AbstractTransformerType;
 import org.mule.ide.config.core.CoreFactory;
@@ -26,8 +27,12 @@ public class TransformersSection extends GlobalElementTableSection {
 	
 	public TransformersSection(OverviewPage page, Composite parent, int style) {
 		super(page, parent, Section.DESCRIPTION|ExpandableComposite.TITLE_BAR|style);
-		getSection().setText(Messages.TransformersSection_Title); 
-		getSection().setDescription(Messages.TransformersSection_Desc); 
+	}
+
+	public void createClient(Section section, FormToolkit toolkit) {
+		section.setText(Messages.TransformersSection_Title); 
+		section.setDescription(Messages.TransformersSection_Desc); 
+		super.createClient(section, toolkit);
 	}
 	
 	@Override

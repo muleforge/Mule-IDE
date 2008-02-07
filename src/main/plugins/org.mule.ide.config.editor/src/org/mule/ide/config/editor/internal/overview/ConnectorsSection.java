@@ -11,6 +11,7 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
+import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.mule.ide.config.core.AbstractConnectorType;
 import org.mule.ide.config.core.CoreFactory;
@@ -26,10 +27,14 @@ public class ConnectorsSection extends GlobalElementTableSection {
 	
 	public ConnectorsSection(OverviewPage page, Composite parent, int style) {
 		super(page, parent, Section.DESCRIPTION|ExpandableComposite.TITLE_BAR|style);
-		getSection().setText(Messages.ConnectorsSection_Title); 
-		getSection().setDescription(Messages.ConnectorsSection_Desc); 
 	}
-	
+
+	public void createClient(Section section, FormToolkit toolkit) {
+		section.setText(Messages.ConnectorsSection_Title); 
+		section.setDescription(Messages.ConnectorsSection_Desc); 
+		super.createClient(section, toolkit);
+	}
+
 	@Override
 	protected EList<? extends EObject> getGlobalElements() {
 		MuleType mule = getMuleElement();

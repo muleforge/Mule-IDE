@@ -17,7 +17,7 @@ import org.mule.ide.config.core.BaseServiceType;
 public abstract class CustomListCompartmentEditPart extends ListCompartmentEditPart {
 
 	// Background color to display when compartment is empty.
-	static final Color EMPTY_BACKGROUND = new Color(null, 228, 228, 228);
+	static final Color EMPTY_BACKGROUND = new Color(null, 240, 240, 240);
 	static final Color EMPTY_FONT = new Color(null, 96, 96, 96);
 	
 	public CustomListCompartmentEditPart(EObject model) {
@@ -61,6 +61,7 @@ public abstract class CustomListCompartmentEditPart extends ListCompartmentEditP
 		layout.setStretchMajorAxis(true);
 		layout.setStretchMinorAxis(true);
 		layout.setMinorAlignment(ConstrainedToolbarLayout.ALIGN_TOPLEFT);
+		layout.setSpacing(1);
 		rcf.getContentPane().setLayoutManager(layout);
 		
 		rcf.setToolTip(getToolTip());

@@ -306,16 +306,17 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 
 		mule.eAdapters().add(new EContentAdapter() {
 		    public void notifyChanged(Notification n) {
-		    	if (isModelDirty) return;
-		    	int eventType = n.getEventType();
-		    	if (eventType == Notification.SET
-		    			|| eventType == Notification.UNSET
-		    			|| eventType == Notification.ADD
-		    			|| eventType == Notification.REMOVE
-		    			|| eventType == Notification.ADD_MANY
-		    			|| eventType == Notification.REMOVE_MANY
-		    			|| eventType == Notification.MOVE) {
-		    		setModelDirty(true);
+		    	if (! isModelDirty) {
+			    	int eventType = n.getEventType();
+			    	if (eventType == Notification.SET
+			    			|| eventType == Notification.UNSET
+			    			|| eventType == Notification.ADD
+			    			|| eventType == Notification.REMOVE
+			    			|| eventType == Notification.ADD_MANY
+			    			|| eventType == Notification.REMOVE_MANY
+			    			|| eventType == Notification.MOVE) {
+			    		setModelDirty(true);
+			    	}
 		    	}
 		    	super.notifyChanged(n);
 		    }

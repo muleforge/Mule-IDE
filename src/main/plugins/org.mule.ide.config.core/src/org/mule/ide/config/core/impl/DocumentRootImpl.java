@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EMap;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -82,7 +81,6 @@ import org.mule.ide.config.core.CustomTransformerType;
 import org.mule.ide.config.core.DefaultComponentType;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.DefineNotificationType;
-import org.mule.ide.config.core.DefaultServiceType;
 import org.mule.ide.config.core.DescriptionType;
 import org.mule.ide.config.core.DisableNotificationType;
 import org.mule.ide.config.core.DocumentRoot;

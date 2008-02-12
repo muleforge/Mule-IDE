@@ -27,7 +27,6 @@ import org.mule.ide.config.core.AbstractInboundEndpointType;
 import org.mule.ide.config.core.AbstractInboundRouterType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.InboundCollectionType;
-import org.mule.ide.config.core.impl.OutboundCollectionTypeImpl.IDEPlaceholderListener;
 
 /**
  * <!-- begin-user-doc -->

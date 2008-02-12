@@ -6,24 +6,19 @@
  */
 package org.mule.ide.config.core.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mule.ide.config.core.AbstractObjectFactoryType;
-import org.mule.ide.config.core.AbstractPoolingProfileType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.GenericObjectFactoryType;
-import org.mule.ide.config.core.ScopeType;
 
 /**
  * <!-- begin-user-doc -->

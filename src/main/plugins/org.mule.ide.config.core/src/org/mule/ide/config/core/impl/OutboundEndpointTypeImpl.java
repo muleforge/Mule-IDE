@@ -30,7 +30,6 @@ import org.mule.ide.config.core.AbstractTransactionType;
 import org.mule.ide.config.core.AbstractTransformerType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.KeyValueType;
-import org.mule.ide.config.core.CreateConnectorType;
 import org.mule.ide.config.core.MapType;
 import org.mule.ide.config.core.OutboundEndpointType;
 import org.mule.ide.config.core.ResponseTransformersType;

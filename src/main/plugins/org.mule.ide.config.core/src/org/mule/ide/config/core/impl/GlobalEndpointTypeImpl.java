@@ -29,7 +29,6 @@ import org.mule.ide.config.core.AbstractSecurityFilterType;
 import org.mule.ide.config.core.AbstractTransactionType;
 import org.mule.ide.config.core.AbstractTransformerType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CreateConnectorType;
 import org.mule.ide.config.core.GlobalEndpointType;
 import org.mule.ide.config.core.KeyValueType;
 import org.mule.ide.config.core.MapType;

@@ -29,7 +29,6 @@ import org.mule.ide.config.core.AbstractInboundEndpointType;
 import org.mule.ide.config.core.AbstractTransformerType;
 import org.mule.ide.config.core.AsyncReplyCollectionType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.impl.OutboundCollectionTypeImpl.IDEPlaceholderListener;
 
 /**
  * <!-- begin-user-doc -->

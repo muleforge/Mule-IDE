@@ -14,10 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.mule.ide.config.core.AbstractGlobalEndpointType;
 import org.mule.ide.config.core.Connection;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.GlobalEndpointType;
 import org.mule.ide.config.core.SedaServiceType;
 
 /**

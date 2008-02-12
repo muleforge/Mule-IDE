@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.KeyType;
 import org.mule.ide.config.core.KeyValueType;
-import org.mule.ide.config.core.ListOrSetType;
 import org.mule.ide.config.core.MapType;
 import org.mule.ide.config.core.MessagePropertiesTransformerType;
 

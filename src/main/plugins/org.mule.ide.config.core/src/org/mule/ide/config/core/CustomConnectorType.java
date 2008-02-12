@@ -6,12 +6,6 @@
  */
 package org.mule.ide.config.core;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.util.FeatureMap;
-
-import org.mule.ide.config.spring.PropertyType;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Custom Connector Type</b></em>'.

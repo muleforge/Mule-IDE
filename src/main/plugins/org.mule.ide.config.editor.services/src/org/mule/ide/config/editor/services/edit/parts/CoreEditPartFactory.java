@@ -311,9 +311,6 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
 				return new SedaServiceTypeASYNCREPLYEditPart(view);
 
-			case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
-				return new SedaServiceTypeOUTBOUNDEditPart(view);
-
 			case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 				return new DefaultServiceExceptionStrategyTypeENDPOINTSEditPart(
 						view);

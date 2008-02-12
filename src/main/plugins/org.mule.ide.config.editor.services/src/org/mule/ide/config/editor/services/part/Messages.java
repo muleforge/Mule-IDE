@@ -648,11 +648,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String SedaServiceTypeOUTBOUNDEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String PassThroughOutboundRouterTypeENDPOINTSEditPart_title;
 
 	/**

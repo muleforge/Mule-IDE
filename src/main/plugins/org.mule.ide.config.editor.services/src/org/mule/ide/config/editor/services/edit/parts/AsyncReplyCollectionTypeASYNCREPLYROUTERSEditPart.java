@@ -23,7 +23,7 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5012;
+	public static final int VISUAL_ID = 5011;
 
 	/**
 	 * @generated

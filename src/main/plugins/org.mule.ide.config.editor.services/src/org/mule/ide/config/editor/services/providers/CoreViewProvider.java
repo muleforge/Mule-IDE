@@ -73,7 +73,6 @@ import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEd
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeNameEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeEditPart;
@@ -156,7 +155,6 @@ import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeCOMPONE
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeEXCEPTIONViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeINBOUNDViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeNameViewFactory;
-import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeOUTBOUNDViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SelectiveConsumerRouterTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SelectiveConsumerRouterTypeViewFactory;
@@ -289,7 +287,6 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:
 				case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
 				case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
-				case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
 					if (SedaServiceTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -806,8 +803,6 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return SedaServiceTypeINBOUNDViewFactory.class;
 		case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
 			return SedaServiceTypeASYNCREPLYViewFactory.class;
-		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
-			return SedaServiceTypeOUTBOUNDViewFactory.class;
 		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 			return DefaultServiceExceptionStrategyTypeENDPOINTSViewFactory.class;
 		case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:

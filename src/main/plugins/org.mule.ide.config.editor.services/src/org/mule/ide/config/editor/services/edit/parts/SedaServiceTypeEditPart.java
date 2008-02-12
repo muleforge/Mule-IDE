@@ -35,6 +35,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeCanonicalEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.SedaServiceTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
@@ -164,13 +165,6 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.OutboundCollectionType_2028) {
-									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
 							}
 							return super.getCommand(request);
 						}
@@ -181,6 +175,10 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new SedaServiceTypeItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new SedaServiceTypeCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);

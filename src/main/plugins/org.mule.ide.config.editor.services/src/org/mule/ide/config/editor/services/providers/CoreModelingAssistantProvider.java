@@ -35,6 +35,7 @@ import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeEditP
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeOUTBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
@@ -57,6 +58,7 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof SedaServiceTypeEditPart) {
 			List types = new ArrayList();
+			types.add(CoreElementTypes.OutboundCollectionType_2028);
 			types.add(CoreElementTypes.PojoComponentType_2001);
 			types.add(CoreElementTypes.DefaultComponentType_2002);
 			types.add(CoreElementTypes.DefaultComponentType_2003);
@@ -69,7 +71,6 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.CustomExceptionStrategyType_2011);
 			types.add(CoreElementTypes.InboundCollectionType_2012);
 			types.add(CoreElementTypes.AsyncReplyCollectionType_2024);
-			types.add(CoreElementTypes.OutboundCollectionType_2028);
 			return types;
 		}
 		if (editPart instanceof DefaultServiceExceptionStrategyTypeEditPart) {

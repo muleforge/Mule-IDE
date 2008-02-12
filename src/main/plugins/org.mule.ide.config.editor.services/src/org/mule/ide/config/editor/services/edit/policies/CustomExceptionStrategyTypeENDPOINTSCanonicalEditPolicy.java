@@ -33,7 +33,7 @@ public class CustomExceptionStrategyTypeENDPOINTSCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getCustomExceptionStrategyTypeENDPOINTS_5008SemanticChildren(
+				.getCustomExceptionStrategyTypeENDPOINTS_5007SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}

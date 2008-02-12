@@ -18,8 +18,7 @@ import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 /**
  * @generated
  */
-public class SedaServiceTypeOUTBOUNDCanonicalEditPolicy extends
-		CanonicalEditPolicy {
+public class SedaServiceTypeCanonicalEditPolicy extends CanonicalEditPolicy {
 
 	/**
 	 * @generated
@@ -33,8 +32,8 @@ public class SedaServiceTypeOUTBOUNDCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getSedaServiceTypeOUTBOUND_5005SemanticChildren(viewObject)
-				.iterator(); it.hasNext();) {
+				.getSedaServiceType_1001SemanticChildren(viewObject).iterator(); it
+				.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}
 		return result;

@@ -24,7 +24,7 @@ public class MessageSplitterOutboundRouterTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5021;
+	public static final int VISUAL_ID = 5020;
 
 	/**
 	 * @generated

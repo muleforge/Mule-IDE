@@ -24,7 +24,7 @@ public class ChainingOutboundRouterTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5016;
+	public static final int VISUAL_ID = 5015;
 
 	/**
 	 * @generated

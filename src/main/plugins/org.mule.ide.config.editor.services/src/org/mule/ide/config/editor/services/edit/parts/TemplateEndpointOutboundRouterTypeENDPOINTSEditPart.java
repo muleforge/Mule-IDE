@@ -24,7 +24,7 @@ public class TemplateEndpointOutboundRouterTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5019;
+	public static final int VISUAL_ID = 5018;
 
 	/**
 	 * @generated

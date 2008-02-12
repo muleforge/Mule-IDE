@@ -24,7 +24,7 @@ public class ChunkingRouterTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5022;
+	public static final int VISUAL_ID = 5021;
 
 	/**
 	 * @generated

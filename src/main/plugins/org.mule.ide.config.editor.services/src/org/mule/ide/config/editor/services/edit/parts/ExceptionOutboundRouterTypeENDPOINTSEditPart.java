@@ -24,7 +24,7 @@ public class ExceptionOutboundRouterTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5017;
+	public static final int VISUAL_ID = 5016;
 
 	/**
 	 * @generated

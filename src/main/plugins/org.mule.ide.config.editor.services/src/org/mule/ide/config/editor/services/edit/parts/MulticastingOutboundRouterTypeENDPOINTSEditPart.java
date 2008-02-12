@@ -24,7 +24,7 @@ public class MulticastingOutboundRouterTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5018;
+	public static final int VISUAL_ID = 5017;
 
 	/**
 	 * @generated

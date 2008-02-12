@@ -24,7 +24,7 @@ public class PassThroughOutboundRouterTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5014;
+	public static final int VISUAL_ID = 5013;
 
 	/**
 	 * @generated

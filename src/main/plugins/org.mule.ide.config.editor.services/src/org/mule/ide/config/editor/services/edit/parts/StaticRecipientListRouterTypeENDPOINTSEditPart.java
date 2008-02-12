@@ -24,7 +24,7 @@ public class StaticRecipientListRouterTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5023;
+	public static final int VISUAL_ID = 5022;
 
 	/**
 	 * @generated

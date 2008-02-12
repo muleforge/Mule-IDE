@@ -24,6 +24,8 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSViewFactory extends
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
+		styles.add(NotationFactory.eINSTANCE.createDrawerStyle());
+		styles.add(NotationFactory.eINSTANCE.createTitleStyle());
 		styles.add(NotationFactory.eINSTANCE.createSortingStyle());
 		styles.add(NotationFactory.eINSTANCE.createFilteringStyle());
 		return styles;

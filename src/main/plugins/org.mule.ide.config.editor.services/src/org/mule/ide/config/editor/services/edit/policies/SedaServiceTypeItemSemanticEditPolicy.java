@@ -5,13 +5,16 @@ import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.commands.ConnectionCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.ConnectionReorientCommand;
+import org.mule.ide.config.editor.services.edit.commands.OutboundCollectionTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.ConnectionEditPart;
@@ -30,7 +33,6 @@ import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeASYNCREPLYE
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeOUTBOUNDEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
@@ -39,6 +41,21 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
  */
 public class SedaServiceTypeItemSemanticEditPolicy extends
 		CoreBaseItemSemanticEditPolicy {
+
+	/**
+	 * @generated
+	 */
+	protected Command getCreateCommand(CreateElementRequest req) {
+		if (CoreElementTypes.OutboundCollectionType_2028 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(CorePackage.eINSTANCE
+						.getBaseServiceType_Outbound());
+			}
+			return getGEFWrapper(new OutboundCollectionTypeCreateCommand(req));
+		}
+		return super.getCreateCommand(req);
+	}
 
 	/**
 	 * @generated
@@ -67,6 +84,9 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (CoreVisualIDRegistry.getVisualID(node)) {
+			case OutboundCollectionTypeEditPart.VISUAL_ID:
+				cmd.add(getDestroyElementCommand(node));
+				break;
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
@@ -130,17 +150,6 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 					Node cnode = (Node) cit.next();
 					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
 					case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
-						cmd.add(getDestroyElementCommand(cnode));
-						break;
-					}
-				}
-				break;
-			case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
-				for (Iterator cit = node.getChildren().iterator(); cit
-						.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
-					case OutboundCollectionTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					}

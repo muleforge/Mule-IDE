@@ -141,6 +141,12 @@ public class CoreVisualIDRegistry {
 			}
 		}
 		switch (containerVisualID) {
+		case SedaServiceTypeEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getOutboundCollectionType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return OutboundCollectionTypeEditPart.VISUAL_ID;
+			}
+			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getPojoComponentType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -221,12 +227,6 @@ public class CoreVisualIDRegistry {
 			if (CorePackage.eINSTANCE.getAsyncReplyCollectionType()
 					.isSuperTypeOf(domainElement.eClass())) {
 				return AsyncReplyCollectionTypeEditPart.VISUAL_ID;
-			}
-			break;
-		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getOutboundCollectionType()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return OutboundCollectionTypeEditPart.VISUAL_ID;
 			}
 			break;
 		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
@@ -526,7 +526,7 @@ public class CoreVisualIDRegistry {
 			if (SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID == nodeVisualID) {
+			if (OutboundCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -843,11 +843,6 @@ public class CoreVisualIDRegistry {
 			break;
 		case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
 			if (AsyncReplyCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case SedaServiceTypeOUTBOUNDEditPart.VISUAL_ID:
-			if (OutboundCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

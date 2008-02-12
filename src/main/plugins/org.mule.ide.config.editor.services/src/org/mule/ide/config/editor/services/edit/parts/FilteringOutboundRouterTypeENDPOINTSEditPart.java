@@ -24,7 +24,7 @@ public class FilteringOutboundRouterTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5015;
+	public static final int VISUAL_ID = 5014;
 
 	/**
 	 * @generated

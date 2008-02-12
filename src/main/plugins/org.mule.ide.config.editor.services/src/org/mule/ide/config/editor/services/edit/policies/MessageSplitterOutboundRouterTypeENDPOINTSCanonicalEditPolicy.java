@@ -33,7 +33,7 @@ public class MessageSplitterOutboundRouterTypeENDPOINTSCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getMessageSplitterOutboundRouterTypeENDPOINTS_5021SemanticChildren(
+				.getMessageSplitterOutboundRouterTypeENDPOINTS_5020SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}

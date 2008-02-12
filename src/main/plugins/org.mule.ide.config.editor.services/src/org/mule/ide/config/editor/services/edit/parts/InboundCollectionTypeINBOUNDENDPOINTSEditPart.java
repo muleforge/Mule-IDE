@@ -23,7 +23,7 @@ public class InboundCollectionTypeINBOUNDENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5009;
+	public static final int VISUAL_ID = 5008;
 
 	/**
 	 * @generated

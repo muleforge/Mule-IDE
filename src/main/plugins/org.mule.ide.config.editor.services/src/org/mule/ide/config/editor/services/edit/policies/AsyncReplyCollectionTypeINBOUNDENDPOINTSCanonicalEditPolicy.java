@@ -33,7 +33,7 @@ public class AsyncReplyCollectionTypeINBOUNDENDPOINTSCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getAsyncReplyCollectionTypeINBOUNDENDPOINTS_5011SemanticChildren(
+				.getAsyncReplyCollectionTypeINBOUNDENDPOINTS_5010SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}

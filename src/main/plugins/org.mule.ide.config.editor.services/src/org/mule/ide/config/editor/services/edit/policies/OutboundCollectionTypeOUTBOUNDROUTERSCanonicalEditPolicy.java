@@ -43,7 +43,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getOutboundCollectionTypeOUTBOUNDROUTERS_5013SemanticChildren(
+				.getOutboundCollectionTypeOUTBOUNDROUTERS_5012SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}

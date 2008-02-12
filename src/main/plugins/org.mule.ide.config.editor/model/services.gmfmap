@@ -657,8 +657,7 @@
           </compartments>
         </ownedChild>
       </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.4">
+      <children>
         <containmentFeature
             href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/outbound"/>
         <ownedChild>
@@ -1063,11 +1062,6 @@
           children="//@nodes.0/@ownedChild/@children.11">
         <compartment
             href="services.gmfgraph#ASYNC REPLY"/>
-      </compartments>
-      <compartments
-          children="//@nodes.0/@ownedChild/@children.12">
-        <compartment
-            href="services.gmfgraph#OUTBOUND"/>
       </compartments>
     </ownedChild>
   </nodes>

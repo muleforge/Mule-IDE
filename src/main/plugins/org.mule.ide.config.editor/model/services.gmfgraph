@@ -398,7 +398,9 @@
       figure="CompartmentFigure"/>
   <compartments
       name="OUTBOUNDROUTERS"
-      figure="CompartmentFigure"/>
+      figure="CompartmentFigure"
+      collapsible="true"
+      needsTitle="true"/>
   <compartments
       name="ASYNCREPLYROUTERS"
       figure="CompartmentFigure"/>

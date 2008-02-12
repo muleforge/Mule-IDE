@@ -454,7 +454,7 @@
         itemSemanticEditPolicyClassName="DefaultServiceExceptionStrategyTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="DefaultServiceExceptionStrategyTypeViewFactory"
         canonicalEditPolicyClassName="DefaultServiceExceptionStrategyTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.5"
+        compartments="//@diagram/@compartments.4"
         graphicalNodeEditPolicyClassName="DefaultServiceExceptionStrategyTypeGraphicalNodeEditPolicy"
         createCommandClassName="DefaultServiceExceptionStrategyTypeCreateCommand"
         containers="//@diagram/@compartments.1">
@@ -515,7 +515,7 @@
         canonicalEditPolicyClassName="OutboundEndpointTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="OutboundEndpointTypeGraphicalNodeEditPolicy"
         createCommandClassName="OutboundEndpointTypeCreateCommand"
-        containers="//@diagram/@compartments.5 //@diagram/@compartments.6 //@diagram/@compartments.7">
+        containers="//@diagram/@compartments.4 //@diagram/@compartments.5 //@diagram/@compartments.6">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -574,7 +574,7 @@
         itemSemanticEditPolicyClassName="DefaultConnectorExceptionStrategyTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="DefaultConnectorExceptionStrategyTypeViewFactory"
         canonicalEditPolicyClassName="DefaultConnectorExceptionStrategyTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.6"
+        compartments="//@diagram/@compartments.5"
         graphicalNodeEditPolicyClassName="DefaultConnectorExceptionStrategyTypeGraphicalNodeEditPolicy"
         createCommandClassName="DefaultConnectorExceptionStrategyTypeCreateCommand"
         containers="//@diagram/@compartments.1">
@@ -633,7 +633,7 @@
         itemSemanticEditPolicyClassName="CustomExceptionStrategyTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomExceptionStrategyTypeViewFactory"
         canonicalEditPolicyClassName="CustomExceptionStrategyTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.7"
+        compartments="//@diagram/@compartments.6"
         graphicalNodeEditPolicyClassName="CustomExceptionStrategyTypeGraphicalNodeEditPolicy"
         createCommandClassName="CustomExceptionStrategyTypeCreateCommand"
         containers="//@diagram/@compartments.1">
@@ -710,7 +710,7 @@
         itemSemanticEditPolicyClassName="InboundCollectionTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="InboundCollectionTypeViewFactory"
         canonicalEditPolicyClassName="InboundCollectionTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.8 //@diagram/@compartments.9"
+        compartments="//@diagram/@compartments.7 //@diagram/@compartments.8"
         graphicalNodeEditPolicyClassName="InboundCollectionTypeGraphicalNodeEditPolicy"
         createCommandClassName="InboundCollectionTypeCreateCommand"
         containers="//@diagram/@compartments.2">
@@ -750,7 +750,7 @@
         canonicalEditPolicyClassName="InboundEndpointServiceItemTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="InboundEndpointServiceItemTypeGraphicalNodeEditPolicy"
         createCommandClassName="InboundEndpointServiceItemTypeCreateCommand"
-        containers="//@diagram/@compartments.8">
+        containers="//@diagram/@compartments.7">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -833,7 +833,7 @@
         canonicalEditPolicyClassName="ForwardingRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ForwardingRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="ForwardingRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -888,7 +888,7 @@
         canonicalEditPolicyClassName="IdempotentSecureRecieverRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="IdempotentSecureRecieverRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="IdempotentSecureRecieverRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -946,7 +946,7 @@
         canonicalEditPolicyClassName="PassThroughInboundRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="PassThroughInboundRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="PassThroughInboundRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1004,7 +1004,7 @@
         canonicalEditPolicyClassName="IdempotentReceiverRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="IdempotentReceiverRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="IdempotentReceiverRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1059,7 +1059,7 @@
         canonicalEditPolicyClassName="WireTapRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="WireTapRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="WireTapRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1114,7 +1114,7 @@
         canonicalEditPolicyClassName="SelectiveConsumerRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="SelectiveConsumerRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="SelectiveConsumerRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1172,7 +1172,7 @@
         canonicalEditPolicyClassName="ChunkingInboundRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ChunkingInboundRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="ChunkingInboundRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1230,7 +1230,7 @@
         canonicalEditPolicyClassName="CorrelationResequencerRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CorrelationResequencerRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="CorrelationResequencerRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1288,7 +1288,7 @@
         canonicalEditPolicyClassName="CustomCorrelationAggregatorRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CustomCorrelationAggregatorRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="CustomCorrelationAggregatorRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1368,7 +1368,7 @@
         canonicalEditPolicyClassName="CustomInboundRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CustomInboundRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="CustomInboundRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1442,7 +1442,7 @@
         itemSemanticEditPolicyClassName="AsyncReplyCollectionTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="AsyncReplyCollectionTypeViewFactory"
         canonicalEditPolicyClassName="AsyncReplyCollectionTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.10 //@diagram/@compartments.11"
+        compartments="//@diagram/@compartments.9 //@diagram/@compartments.10"
         graphicalNodeEditPolicyClassName="AsyncReplyCollectionTypeGraphicalNodeEditPolicy"
         createCommandClassName="AsyncReplyCollectionTypeCreateCommand"
         containers="//@diagram/@compartments.3">
@@ -1482,7 +1482,7 @@
         canonicalEditPolicyClassName="AsyncReplyInboundEndpointServiceItemTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="AsyncReplyInboundEndpointServiceItemTypeGraphicalNodeEditPolicy"
         createCommandClassName="AsyncReplyInboundEndpointServiceItemTypeCreateCommand"
-        containers="//@diagram/@compartments.10">
+        containers="//@diagram/@compartments.9">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1565,7 +1565,7 @@
         canonicalEditPolicyClassName="AsyncReplyRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="AsyncReplyRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="AsyncReplyRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.11">
+        containers="//@diagram/@compartments.10">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1623,7 +1623,7 @@
         canonicalEditPolicyClassName="CustomAsyncReplyRouterTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CustomAsyncReplyRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="CustomAsyncReplyRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.11">
+        containers="//@diagram/@compartments.10">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1697,10 +1697,10 @@
         itemSemanticEditPolicyClassName="OutboundCollectionTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="OutboundCollectionTypeViewFactory"
         canonicalEditPolicyClassName="OutboundCollectionTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.12"
+        compartments="//@diagram/@compartments.11"
         graphicalNodeEditPolicyClassName="OutboundCollectionTypeGraphicalNodeEditPolicy"
         createCommandClassName="OutboundCollectionTypeCreateCommand"
-        containers="//@diagram/@compartments.4">
+        containers="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1735,10 +1735,10 @@
         itemSemanticEditPolicyClassName="PassThroughOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="PassThroughOutboundRouterTypeViewFactory"
         canonicalEditPolicyClassName="PassThroughOutboundRouterTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.13"
+        compartments="//@diagram/@compartments.12"
         graphicalNodeEditPolicyClassName="PassThroughOutboundRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="PassThroughOutboundRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.12">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1796,7 +1796,7 @@
         canonicalEditPolicyClassName="OutboundRouterOutboundEndpointTypeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="OutboundRouterOutboundEndpointTypeGraphicalNodeEditPolicy"
         createCommandClassName="OutboundRouterOutboundEndpointTypeCreateCommand"
-        containers="//@diagram/@compartments.13 //@diagram/@compartments.14 //@diagram/@compartments.15 //@diagram/@compartments.16 //@diagram/@compartments.17 //@diagram/@compartments.18 //@diagram/@compartments.19 //@diagram/@compartments.20 //@diagram/@compartments.21 //@diagram/@compartments.22 //@diagram/@compartments.23">
+        containers="//@diagram/@compartments.12 //@diagram/@compartments.13 //@diagram/@compartments.14 //@diagram/@compartments.15 //@diagram/@compartments.16 //@diagram/@compartments.17 //@diagram/@compartments.18 //@diagram/@compartments.19 //@diagram/@compartments.20 //@diagram/@compartments.21 //@diagram/@compartments.22">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1855,10 +1855,10 @@
         itemSemanticEditPolicyClassName="FilteringOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="FilteringOutboundRouterTypeViewFactory"
         canonicalEditPolicyClassName="FilteringOutboundRouterTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.14"
+        compartments="//@diagram/@compartments.13"
         graphicalNodeEditPolicyClassName="FilteringOutboundRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="FilteringOutboundRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.12">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1914,10 +1914,10 @@
         itemSemanticEditPolicyClassName="ChainingOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="ChainingOutboundRouterTypeViewFactory"
         canonicalEditPolicyClassName="ChainingOutboundRouterTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.15"
+        compartments="//@diagram/@compartments.14"
         graphicalNodeEditPolicyClassName="ChainingOutboundRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="ChainingOutboundRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.12">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1973,10 +1973,10 @@
         itemSemanticEditPolicyClassName="ExceptionOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="ExceptionOutboundRouterTypeViewFactory"
         canonicalEditPolicyClassName="ExceptionOutboundRouterTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.16"
+        compartments="//@diagram/@compartments.15"
         graphicalNodeEditPolicyClassName="ExceptionOutboundRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="ExceptionOutboundRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.12">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -2032,10 +2032,10 @@
         itemSemanticEditPolicyClassName="MulticastingOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="MulticastingOutboundRouterTypeViewFactory"
         canonicalEditPolicyClassName="MulticastingOutboundRouterTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.17"
+        compartments="//@diagram/@compartments.16"
         graphicalNodeEditPolicyClassName="MulticastingOutboundRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="MulticastingOutboundRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.12">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -2091,10 +2091,10 @@
         itemSemanticEditPolicyClassName="TemplateEndpointOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="TemplateEndpointOutboundRouterTypeViewFactory"
         canonicalEditPolicyClassName="TemplateEndpointOutboundRouterTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.18"
+        compartments="//@diagram/@compartments.17"
         graphicalNodeEditPolicyClassName="TemplateEndpointOutboundRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="TemplateEndpointOutboundRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.12">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -2150,10 +2150,10 @@
         itemSemanticEditPolicyClassName="EndpointSelectorRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="EndpointSelectorRouterTypeViewFactory"
         canonicalEditPolicyClassName="EndpointSelectorRouterTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.19"
+        compartments="//@diagram/@compartments.18"
         graphicalNodeEditPolicyClassName="EndpointSelectorRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="EndpointSelectorRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.12">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -2209,10 +2209,10 @@
         itemSemanticEditPolicyClassName="MessageSplitterOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="MessageSplitterOutboundRouterTypeViewFactory"
         canonicalEditPolicyClassName="MessageSplitterOutboundRouterTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.20"
+        compartments="//@diagram/@compartments.19"
         graphicalNodeEditPolicyClassName="MessageSplitterOutboundRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="MessageSplitterOutboundRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.12">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -2268,10 +2268,10 @@
         itemSemanticEditPolicyClassName="ChunkingRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="ChunkingRouterTypeViewFactory"
         canonicalEditPolicyClassName="ChunkingRouterTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.21"
+        compartments="//@diagram/@compartments.20"
         graphicalNodeEditPolicyClassName="ChunkingRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="ChunkingRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.12">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -2327,10 +2327,10 @@
         itemSemanticEditPolicyClassName="StaticRecipientListRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="StaticRecipientListRouterTypeViewFactory"
         canonicalEditPolicyClassName="StaticRecipientListRouterTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.22"
+        compartments="//@diagram/@compartments.21"
         graphicalNodeEditPolicyClassName="StaticRecipientListRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="StaticRecipientListRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.12">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -2386,10 +2386,10 @@
         itemSemanticEditPolicyClassName="CustomOutboundRouterTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomOutboundRouterTypeViewFactory"
         canonicalEditPolicyClassName="CustomOutboundRouterTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.23"
+        compartments="//@diagram/@compartments.22"
         graphicalNodeEditPolicyClassName="CustomOutboundRouterTypeGraphicalNodeEditPolicy"
         createCommandClassName="CustomOutboundRouterTypeCreateCommand"
-        containers="//@diagram/@compartments.12">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -2467,7 +2467,8 @@
         itemSemanticEditPolicyClassName="SedaServiceTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="SedaServiceTypeViewFactory"
         canonicalEditPolicyClassName="SedaServiceTypeCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3 //@diagram/@compartments.4"
+        childNodes="//@diagram/@childNodes.27"
+        compartments="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3"
         graphicalNodeEditPolicyClassName="SedaServiceTypeGraphicalNodeEditPolicy"
         createCommandClassName="SedaServiceTypeCreateCommand">
       <diagramRunTimeClass
@@ -2648,23 +2649,6 @@
     </compartments>
     <compartments
         visualID="5005"
-        editPartClassName="SedaServiceTypeOUTBOUNDEditPart"
-        itemSemanticEditPolicyClassName="SedaServiceTypeOUTBOUNDItemSemanticEditPolicy"
-        notationViewFactoryClassName="SedaServiceTypeOUTBOUNDViewFactory"
-        canonicalEditPolicyClassName="SedaServiceTypeOUTBOUNDCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.27"
-        title="OUTBOUND"
-        node="//@diagram/@topLevelNodes.0">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.LabeledContainer">
-        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
-      </viewmap>
-    </compartments>
-    <compartments
-        visualID="5006"
         editPartClassName="DefaultServiceExceptionStrategyTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="DefaultServiceExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="DefaultServiceExceptionStrategyTypeENDPOINTSViewFactory"
@@ -2682,7 +2666,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5007"
+        visualID="5006"
         editPartClassName="DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="DefaultConnectorExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="DefaultConnectorExceptionStrategyTypeENDPOINTSViewFactory"
@@ -2700,7 +2684,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5008"
+        visualID="5007"
         editPartClassName="CustomExceptionStrategyTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="CustomExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomExceptionStrategyTypeENDPOINTSViewFactory"
@@ -2718,7 +2702,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5009"
+        visualID="5008"
         editPartClassName="InboundCollectionTypeINBOUNDENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="InboundCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="InboundCollectionTypeINBOUNDENDPOINTSViewFactory"
@@ -2737,7 +2721,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5010"
+        visualID="5009"
         editPartClassName="InboundCollectionTypeINBOUNDROUTERSEditPart"
         itemSemanticEditPolicyClassName="InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy"
         notationViewFactoryClassName="InboundCollectionTypeINBOUNDROUTERSViewFactory"
@@ -2756,7 +2740,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5011"
+        visualID="5010"
         editPartClassName="AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="AsyncReplyCollectionTypeINBOUNDENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="AsyncReplyCollectionTypeINBOUNDENDPOINTSViewFactory"
@@ -2775,7 +2759,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5012"
+        visualID="5011"
         editPartClassName="AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart"
         itemSemanticEditPolicyClassName="AsyncReplyCollectionTypeASYNCREPLYROUTERSItemSemanticEditPolicy"
         notationViewFactoryClassName="AsyncReplyCollectionTypeASYNCREPLYROUTERSViewFactory"
@@ -2794,15 +2778,13 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5013"
+        visualID="5012"
         editPartClassName="OutboundCollectionTypeOUTBOUNDROUTERSEditPart"
         itemSemanticEditPolicyClassName="OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy"
         notationViewFactoryClassName="OutboundCollectionTypeOUTBOUNDROUTERSViewFactory"
         canonicalEditPolicyClassName="OutboundCollectionTypeOUTBOUNDROUTERSCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.28 //@diagram/@childNodes.30 //@diagram/@childNodes.31 //@diagram/@childNodes.32 //@diagram/@childNodes.33 //@diagram/@childNodes.34 //@diagram/@childNodes.35 //@diagram/@childNodes.36 //@diagram/@childNodes.37 //@diagram/@childNodes.38 //@diagram/@childNodes.39"
         title="OUTBOUNDROUTERS"
-        canCollapse="false"
-        needsTitle="false"
         node="//@diagram/@childNodes.27">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -2813,7 +2795,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5014"
+        visualID="5013"
         editPartClassName="PassThroughOutboundRouterTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="PassThroughOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="PassThroughOutboundRouterTypeENDPOINTSViewFactory"
@@ -2831,7 +2813,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5015"
+        visualID="5014"
         editPartClassName="FilteringOutboundRouterTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="FilteringOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="FilteringOutboundRouterTypeENDPOINTSViewFactory"
@@ -2849,7 +2831,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5016"
+        visualID="5015"
         editPartClassName="ChainingOutboundRouterTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="ChainingOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="ChainingOutboundRouterTypeENDPOINTSViewFactory"
@@ -2867,7 +2849,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5017"
+        visualID="5016"
         editPartClassName="ExceptionOutboundRouterTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="ExceptionOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="ExceptionOutboundRouterTypeENDPOINTSViewFactory"
@@ -2885,7 +2867,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5018"
+        visualID="5017"
         editPartClassName="MulticastingOutboundRouterTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="MulticastingOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="MulticastingOutboundRouterTypeENDPOINTSViewFactory"
@@ -2903,7 +2885,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5019"
+        visualID="5018"
         editPartClassName="TemplateEndpointOutboundRouterTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="TemplateEndpointOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="TemplateEndpointOutboundRouterTypeENDPOINTSViewFactory"
@@ -2921,7 +2903,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5020"
+        visualID="5019"
         editPartClassName="EndpointSelectorRouterTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="EndpointSelectorRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="EndpointSelectorRouterTypeENDPOINTSViewFactory"
@@ -2939,7 +2921,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5021"
+        visualID="5020"
         editPartClassName="MessageSplitterOutboundRouterTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="MessageSplitterOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="MessageSplitterOutboundRouterTypeENDPOINTSViewFactory"
@@ -2957,7 +2939,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5022"
+        visualID="5021"
         editPartClassName="ChunkingRouterTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="ChunkingRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="ChunkingRouterTypeENDPOINTSViewFactory"
@@ -2975,7 +2957,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5023"
+        visualID="5022"
         editPartClassName="StaticRecipientListRouterTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="StaticRecipientListRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="StaticRecipientListRouterTypeENDPOINTSViewFactory"
@@ -2993,7 +2975,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5024"
+        visualID="5023"
         editPartClassName="CustomOutboundRouterTypeENDPOINTSEditPart"
         itemSemanticEditPolicyClassName="CustomOutboundRouterTypeENDPOINTSItemSemanticEditPolicy"
         notationViewFactoryClassName="CustomOutboundRouterTypeENDPOINTSViewFactory"

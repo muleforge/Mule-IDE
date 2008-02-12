@@ -2,7 +2,6 @@ package org.mule.ide.config.common;
 
 
 import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.ecore.EObject;
 import org.w3c.dom.Node;
 
 public interface SyncAdapter extends Adapter {

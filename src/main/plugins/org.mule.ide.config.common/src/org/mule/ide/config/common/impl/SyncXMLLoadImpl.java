@@ -2,7 +2,6 @@ package org.mule.ide.config.common.impl;
 
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLLoad;
-import org.eclipse.emf.ecore.xmi.impl.SAXXMLHandler;
 import org.eclipse.emf.ecore.xmi.impl.XMLLoadImpl;
 import org.mule.ide.config.common.SyncHandler;
 import org.w3c.dom.Node;

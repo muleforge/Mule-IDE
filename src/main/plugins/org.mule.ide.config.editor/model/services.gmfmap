@@ -305,8 +305,7 @@
           </compartments>
         </ownedChild>
       </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.2">
+      <children>
         <containmentFeature
             href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/inbound"/>
         <ownedChild>
@@ -348,7 +347,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
@@ -367,7 +366,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
@@ -389,7 +388,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
@@ -411,7 +410,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
@@ -430,7 +429,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
@@ -449,7 +448,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
@@ -471,7 +470,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
@@ -493,7 +492,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
@@ -515,7 +514,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
@@ -545,7 +544,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.10/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
@@ -571,19 +570,13 @@
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.0/@ownedChild/@children.10/@ownedChild/@children.0">
-            <compartment
-                href="services.gmfgraph#INBOUNDENDPOINTS"/>
-          </compartments>
-          <compartments
-              children="//@nodes.0/@ownedChild/@children.10/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.10">
+              children="//@nodes.0/@ownedChild/@children.10/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.0">
             <compartment
                 href="services.gmfgraph#INBOUNDROUTERS"/>
           </compartments>
         </ownedChild>
       </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.3">
+      <children>
         <containmentFeature
             href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/asyncReply"/>
         <ownedChild>
@@ -598,7 +591,7 @@
                 href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyCollectionType/abstractInboundEndpoint"/>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyCollectionType/abstractAsyncReplyRouter"/>
             <ownedChild>
@@ -620,7 +613,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.1">
+              compartment="//@nodes.0/@ownedChild/@children.11/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.mule.ide.config.core/model/core.ecore#//AsyncReplyCollectionType/abstractAsyncReplyRouter"/>
             <ownedChild>
@@ -646,12 +639,7 @@
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.0/@ownedChild/@children.11/@ownedChild/@children.0">
-            <compartment
-                href="services.gmfgraph#INBOUNDENDPOINTS"/>
-          </compartments>
-          <compartments
-              children="//@nodes.0/@ownedChild/@children.11/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.11/@ownedChild/@children.2">
+              children="//@nodes.0/@ownedChild/@children.11/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.11/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.11/@ownedChild/@children.0">
             <compartment
                 href="services.gmfgraph#ASYNCREPLYROUTERS"/>
           </compartments>
@@ -1052,16 +1040,6 @@
           children="//@nodes.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.9">
         <compartment
             href="services.gmfgraph#EXCEPTION"/>
-      </compartments>
-      <compartments
-          children="//@nodes.0/@ownedChild/@children.10">
-        <compartment
-            href="services.gmfgraph#INBOUND"/>
-      </compartments>
-      <compartments
-          children="//@nodes.0/@ownedChild/@children.11">
-        <compartment
-            href="services.gmfgraph#ASYNC REPLY"/>
       </compartments>
     </ownedChild>
   </nodes>

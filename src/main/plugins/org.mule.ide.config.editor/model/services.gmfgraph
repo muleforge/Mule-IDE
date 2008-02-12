@@ -395,7 +395,9 @@
       collapsible="true"/>
   <compartments
       name="INBOUNDROUTERS"
-      figure="CompartmentFigure"/>
+      figure="CompartmentFigure"
+      collapsible="true"
+      needsTitle="true"/>
   <compartments
       name="OUTBOUNDROUTERS"
       figure="CompartmentFigure"
@@ -403,7 +405,9 @@
       needsTitle="true"/>
   <compartments
       name="ASYNCREPLYROUTERS"
-      figure="CompartmentFigure"/>
+      figure="CompartmentFigure"
+      collapsible="true"
+      needsTitle="true"/>
   <compartments
       name="INBOUNDENDPOINTS"
       figure="CompartmentFigure"/>

@@ -1,6 +1,5 @@
 package org.mule.ide.config.editor.internal.form;
 
-import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.events.PaintEvent;

@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -28,6 +29,7 @@ import org.mule.ide.config.core.AbstractInboundEndpointType;
 import org.mule.ide.config.core.AbstractTransformerType;
 import org.mule.ide.config.core.AsyncReplyCollectionType;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.impl.OutboundCollectionTypeImpl.IDEPlaceholderListener;
 
 /**
  * <!-- begin-user-doc -->
@@ -405,5 +407,53 @@ public class AsyncReplyCollectionTypeImpl extends EObjectImpl implements AsyncRe
 		result.append(')');
 		return result.toString();
 	}
+	
+	private boolean isIDEPlaceholder = false;
+	private IDEPlaceholderListener placeholderListener = null;
+	
+	/**
+	 * Return whether this object is a placeholder element in the model
+	 * which should not be serialized.
+	 */
+	public boolean isIDEPlaceholder() {
+		return isIDEPlaceholder;
+	}
+	
+	/**
+	 * Flag this object as a placeholder element in the model
+	 * which should not be serialized.
+	 */
+	public void setIDEPlaceholder() {
+		isIDEPlaceholder = true;
+		if (placeholderListener == null) {
+			placeholderListener = new IDEPlaceholderListener();
+			eAdapters().add(placeholderListener);
+		}
+	}
+	
+	/*
+	 * If any feature on this object is set then assume this is
+	 * no longer a placeholder.
+	 * Needs synchronization?
+	 * TODO Probably need to figure out Undo handling
+	 */
+	private void unsetIDEPlaceholder() {
+		isIDEPlaceholder = false;
+		if (placeholderListener != null) {
+			eAdapters().remove(placeholderListener);
+			placeholderListener = null;
+		}
+	}
+	
+	class IDEPlaceholderListener extends AdapterImpl {
+		public void notifyChanged(Notification msg) {
+			int eventType = msg.getEventType();
+			if (eventType == Notification.ADD || eventType == Notification.ADD_MANY
+					|| eventType == Notification.SET ) {
+				unsetIDEPlaceholder();
+			}
+		}
+	}
+
 
 } //AsyncReplyCollectionTypeImpl

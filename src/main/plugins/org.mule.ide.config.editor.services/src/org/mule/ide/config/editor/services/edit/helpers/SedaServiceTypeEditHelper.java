@@ -13,6 +13,9 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl;
+import org.mule.ide.config.core.impl.InboundCollectionTypeImpl;
+import org.mule.ide.config.core.impl.OutboundCollectionTypeImpl;
 
 /**
  * @generated
@@ -51,18 +54,17 @@ public class SedaServiceTypeEditHelper extends CoreBaseEditHelper {
 		 */
 		protected void doConfiguration(BaseServiceType service,
 				IProgressMonitor monitor) {
+			
+			//TODO figure out how to consolidate this with the corresponding
+			// load/save handling in CoreResourceImpl
+			
 			EClass collectionClass = CorePackage.eINSTANCE
 					.getInboundCollectionType();
 			EReference collectionContainer = CorePackage.eINSTANCE
 					.getBaseServiceType_Inbound();
 			EObject result = EMFCoreUtil.create(service, collectionContainer,
 					collectionClass);
-
-			collectionClass = CorePackage.eINSTANCE.getOutboundCollectionType();
-			collectionContainer = CorePackage.eINSTANCE
-					.getBaseServiceType_Outbound();
-			result = EMFCoreUtil.create(service, collectionContainer,
-					collectionClass);
+			((InboundCollectionTypeImpl) result).setIDEPlaceholder();
 
 			collectionClass = CorePackage.eINSTANCE
 					.getAsyncReplyCollectionType();
@@ -70,6 +72,14 @@ public class SedaServiceTypeEditHelper extends CoreBaseEditHelper {
 					.getBaseServiceType_AsyncReply();
 			result = EMFCoreUtil.create(service, collectionContainer,
 					collectionClass);
+			((AsyncReplyCollectionTypeImpl) result).setIDEPlaceholder();
+
+			collectionClass = CorePackage.eINSTANCE.getOutboundCollectionType();
+			collectionContainer = CorePackage.eINSTANCE
+					.getBaseServiceType_Outbound();
+			result = EMFCoreUtil.create(service, collectionContainer,
+					collectionClass);
+			((OutboundCollectionTypeImpl) result).setIDEPlaceholder();
 		}
 	}
 }

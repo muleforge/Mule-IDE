@@ -22,7 +22,6 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyInboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
@@ -57,7 +56,6 @@ import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeEditPa
 import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
@@ -75,11 +73,9 @@ import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTy
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeASYNCREPLYEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeEditPart;
@@ -365,14 +361,10 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					SedaServiceTypeINBOUNDEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
 					InboundCollectionTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
 					AsyncReplyCollectionTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
@@ -437,7 +429,7 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 			Collection result = new ArrayList();
 			Collection connectedViews = getChildrenByType(Collections
 					.singleton(view),
-					InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID);
+					InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					InboundEndpointServiceItemTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
@@ -509,7 +501,7 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 			Collection result = new ArrayList();
 			Collection connectedViews = getChildrenByType(Collections
 					.singleton(view),
-					AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID);
+					AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,

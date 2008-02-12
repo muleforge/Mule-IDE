@@ -54,10 +54,10 @@ public class SedaServiceTypeEditHelper extends CoreBaseEditHelper {
 		 */
 		protected void doConfiguration(BaseServiceType service,
 				IProgressMonitor monitor) {
-			
+
 			//TODO figure out how to consolidate this with the corresponding
 			// load/save handling in CoreResourceImpl
-			
+
 			EClass collectionClass = CorePackage.eINSTANCE
 					.getInboundCollectionType();
 			EReference collectionContainer = CorePackage.eINSTANCE

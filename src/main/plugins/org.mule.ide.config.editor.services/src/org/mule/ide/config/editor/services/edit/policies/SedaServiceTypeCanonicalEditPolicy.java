@@ -10,6 +10,8 @@ import java.util.Set;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramUpdater;
 import org.mule.ide.config.editor.services.part.CoreNodeDescriptor;
@@ -45,6 +47,8 @@ public class SedaServiceTypeCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = CoreVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
+		case InboundCollectionTypeEditPart.VISUAL_ID:
+		case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
 		case OutboundCollectionTypeEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())
 					|| visualID != CoreVisualIDRegistry.getNodeVisualID(
@@ -66,6 +70,10 @@ public class SedaServiceTypeCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getBaseServiceType_Inbound());
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getBaseServiceType_AsyncReply());
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getBaseServiceType_Outbound());
 		}

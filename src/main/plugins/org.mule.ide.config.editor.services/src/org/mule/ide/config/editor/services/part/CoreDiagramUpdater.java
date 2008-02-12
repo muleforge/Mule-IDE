@@ -38,7 +38,6 @@ import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.core.StaticRecipientListRouterType;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyInboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
@@ -73,7 +72,6 @@ import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeEditPa
 import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
@@ -91,11 +89,9 @@ import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTy
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeASYNCREPLYEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeEditPart;
@@ -120,48 +116,40 @@ public class CoreDiagramUpdater {
 			return getSedaServiceTypeCOMPONENT_5001SemanticChildren(view);
 		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:
 			return getSedaServiceTypeEXCEPTION_5002SemanticChildren(view);
-		case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
-			return getSedaServiceTypeINBOUND_5003SemanticChildren(view);
-		case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
-			return getSedaServiceTypeASYNCREPLY_5004SemanticChildren(view);
 		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
-			return getExceptionStrategyTypeENDPOINTS_5005SemanticChildren(view);
+			return getExceptionStrategyTypeENDPOINTS_5003SemanticChildren(view);
 		case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
-			return getExceptionStrategyTypeENDPOINTS_5006SemanticChildren(view);
+			return getExceptionStrategyTypeENDPOINTS_5004SemanticChildren(view);
 		case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
-			return getCustomExceptionStrategyTypeENDPOINTS_5007SemanticChildren(view);
-		case InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-			return getInboundCollectionTypeINBOUNDENDPOINTS_5008SemanticChildren(view);
+			return getCustomExceptionStrategyTypeENDPOINTS_5005SemanticChildren(view);
 		case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-			return getInboundCollectionTypeINBOUNDROUTERS_5009SemanticChildren(view);
-		case AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-			return getAsyncReplyCollectionTypeINBOUNDENDPOINTS_5010SemanticChildren(view);
+			return getInboundCollectionTypeINBOUNDROUTERS_5006SemanticChildren(view);
 		case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
-			return getAsyncReplyCollectionTypeASYNCREPLYROUTERS_5011SemanticChildren(view);
+			return getAsyncReplyCollectionTypeASYNCREPLYROUTERS_5007SemanticChildren(view);
 		case OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
-			return getOutboundCollectionTypeOUTBOUNDROUTERS_5012SemanticChildren(view);
+			return getOutboundCollectionTypeOUTBOUNDROUTERS_5008SemanticChildren(view);
 		case PassThroughOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
-			return getOutboundRouterTypeENDPOINTS_5013SemanticChildren(view);
+			return getOutboundRouterTypeENDPOINTS_5009SemanticChildren(view);
 		case FilteringOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterTypeENDPOINTS_5014SemanticChildren(view);
+			return getFilteringOutboundRouterTypeENDPOINTS_5010SemanticChildren(view);
 		case ChainingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterTypeENDPOINTS_5015SemanticChildren(view);
+			return getFilteringOutboundRouterTypeENDPOINTS_5011SemanticChildren(view);
 		case ExceptionOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterTypeENDPOINTS_5016SemanticChildren(view);
+			return getFilteringOutboundRouterTypeENDPOINTS_5012SemanticChildren(view);
 		case MulticastingOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterTypeENDPOINTS_5017SemanticChildren(view);
+			return getFilteringOutboundRouterTypeENDPOINTS_5013SemanticChildren(view);
 		case TemplateEndpointOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
-			return getFilteringOutboundRouterTypeENDPOINTS_5018SemanticChildren(view);
+			return getFilteringOutboundRouterTypeENDPOINTS_5014SemanticChildren(view);
 		case EndpointSelectorRouterTypeENDPOINTSEditPart.VISUAL_ID:
-			return getEndpointSelectorRouterTypeENDPOINTS_5019SemanticChildren(view);
+			return getEndpointSelectorRouterTypeENDPOINTS_5015SemanticChildren(view);
 		case MessageSplitterOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
-			return getMessageSplitterOutboundRouterTypeENDPOINTS_5020SemanticChildren(view);
+			return getMessageSplitterOutboundRouterTypeENDPOINTS_5016SemanticChildren(view);
 		case ChunkingRouterTypeENDPOINTSEditPart.VISUAL_ID:
-			return getChunkingRouterTypeENDPOINTS_5021SemanticChildren(view);
+			return getChunkingRouterTypeENDPOINTS_5017SemanticChildren(view);
 		case StaticRecipientListRouterTypeENDPOINTSEditPart.VISUAL_ID:
-			return getStaticRecipientListRouterTypeENDPOINTS_5022SemanticChildren(view);
+			return getStaticRecipientListRouterTypeENDPOINTS_5018SemanticChildren(view);
 		case CustomOutboundRouterTypeENDPOINTSEditPart.VISUAL_ID:
-			return getCustomOutboundRouterTypeENDPOINTS_5023SemanticChildren(view);
+			return getCustomOutboundRouterTypeENDPOINTS_5019SemanticChildren(view);
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			return getDefaultModelType_79SemanticChildren(view);
 		}
@@ -177,6 +165,23 @@ public class CoreDiagramUpdater {
 		}
 		SedaServiceType modelElement = (SedaServiceType) view.getElement();
 		List result = new LinkedList();
+		{
+			InboundCollectionType childElement = modelElement.getInbound();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == InboundCollectionTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			AsyncReplyCollectionType childElement = modelElement
+					.getAsyncReply();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == AsyncReplyCollectionTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+			}
+		}
 		{
 			OutboundCollectionType childElement = modelElement.getOutbound();
 			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
@@ -269,59 +274,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSedaServiceTypeINBOUND_5003SemanticChildren(View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.EMPTY_LIST;
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.EMPTY_LIST;
-		}
-		SedaServiceType modelElement = (SedaServiceType) containerView
-				.getElement();
-		List result = new LinkedList();
-		{
-			InboundCollectionType childElement = modelElement.getInbound();
-			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == InboundCollectionTypeEditPart.VISUAL_ID) {
-				result.add(new CoreNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getSedaServiceTypeASYNCREPLY_5004SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.EMPTY_LIST;
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.EMPTY_LIST;
-		}
-		SedaServiceType modelElement = (SedaServiceType) containerView
-				.getElement();
-		List result = new LinkedList();
-		{
-			AsyncReplyCollectionType childElement = modelElement
-					.getAsyncReply();
-			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == AsyncReplyCollectionTypeEditPart.VISUAL_ID) {
-				result.add(new CoreNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getExceptionStrategyTypeENDPOINTS_5005SemanticChildren(
+	public static List getExceptionStrategyTypeENDPOINTS_5003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -350,7 +303,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyTypeENDPOINTS_5006SemanticChildren(
+	public static List getExceptionStrategyTypeENDPOINTS_5004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -379,7 +332,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCustomExceptionStrategyTypeENDPOINTS_5007SemanticChildren(
+	public static List getCustomExceptionStrategyTypeENDPOINTS_5005SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -408,7 +361,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getInboundCollectionTypeINBOUNDENDPOINTS_5008SemanticChildren(
+	public static List getInboundCollectionTypeINBOUNDROUTERS_5006SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -431,24 +384,6 @@ public class CoreDiagramUpdater {
 				continue;
 			}
 		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getInboundCollectionTypeINBOUNDROUTERS_5009SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.EMPTY_LIST;
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.EMPTY_LIST;
-		}
-		InboundCollectionType modelElement = (InboundCollectionType) containerView
-				.getElement();
-		List result = new LinkedList();
 		for (Iterator it = modelElement.getAbstractInboundRouter().iterator(); it
 				.hasNext();) {
 			AbstractInboundRouterType childElement = (AbstractInboundRouterType) it
@@ -502,7 +437,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAsyncReplyCollectionTypeINBOUNDENDPOINTS_5010SemanticChildren(
+	public static List getAsyncReplyCollectionTypeASYNCREPLYROUTERS_5007SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -525,24 +460,6 @@ public class CoreDiagramUpdater {
 				continue;
 			}
 		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getAsyncReplyCollectionTypeASYNCREPLYROUTERS_5011SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.EMPTY_LIST;
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.EMPTY_LIST;
-		}
-		AsyncReplyCollectionType modelElement = (AsyncReplyCollectionType) containerView
-				.getElement();
-		List result = new LinkedList();
 		for (Iterator it = modelElement.getAbstractAsyncReplyRouter()
 				.iterator(); it.hasNext();) {
 			AbstractAsyncReplyRouterType childElement = (AbstractAsyncReplyRouterType) it
@@ -564,7 +481,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundCollectionTypeOUTBOUNDROUTERS_5012SemanticChildren(
+	public static List getOutboundCollectionTypeOUTBOUNDROUTERS_5008SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -633,7 +550,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundRouterTypeENDPOINTS_5013SemanticChildren(
+	public static List getOutboundRouterTypeENDPOINTS_5009SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -643,6 +560,122 @@ public class CoreDiagramUpdater {
 			return Collections.EMPTY_LIST;
 		}
 		OutboundRouterType modelElement = (OutboundRouterType) containerView
+				.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
+				.iterator(); it.hasNext();) {
+			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
+					.next();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getFilteringOutboundRouterTypeENDPOINTS_5010SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		FilteringOutboundRouterType modelElement = (FilteringOutboundRouterType) containerView
+				.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
+				.iterator(); it.hasNext();) {
+			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
+					.next();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getFilteringOutboundRouterTypeENDPOINTS_5011SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		FilteringOutboundRouterType modelElement = (FilteringOutboundRouterType) containerView
+				.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
+				.iterator(); it.hasNext();) {
+			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
+					.next();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getFilteringOutboundRouterTypeENDPOINTS_5012SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		FilteringOutboundRouterType modelElement = (FilteringOutboundRouterType) containerView
+				.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
+				.iterator(); it.hasNext();) {
+			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
+					.next();
+			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID) {
+				result.add(new CoreNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getFilteringOutboundRouterTypeENDPOINTS_5013SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		FilteringOutboundRouterType modelElement = (FilteringOutboundRouterType) containerView
 				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
@@ -691,123 +724,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getFilteringOutboundRouterTypeENDPOINTS_5015SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.EMPTY_LIST;
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.EMPTY_LIST;
-		}
-		FilteringOutboundRouterType modelElement = (FilteringOutboundRouterType) containerView
-				.getElement();
-		List result = new LinkedList();
-		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
-				.iterator(); it.hasNext();) {
-			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
-					.next();
-			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID) {
-				result.add(new CoreNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getFilteringOutboundRouterTypeENDPOINTS_5016SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.EMPTY_LIST;
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.EMPTY_LIST;
-		}
-		FilteringOutboundRouterType modelElement = (FilteringOutboundRouterType) containerView
-				.getElement();
-		List result = new LinkedList();
-		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
-				.iterator(); it.hasNext();) {
-			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
-					.next();
-			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID) {
-				result.add(new CoreNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getFilteringOutboundRouterTypeENDPOINTS_5017SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.EMPTY_LIST;
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.EMPTY_LIST;
-		}
-		FilteringOutboundRouterType modelElement = (FilteringOutboundRouterType) containerView
-				.getElement();
-		List result = new LinkedList();
-		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
-				.iterator(); it.hasNext();) {
-			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
-					.next();
-			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID) {
-				result.add(new CoreNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getFilteringOutboundRouterTypeENDPOINTS_5018SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.EMPTY_LIST;
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.EMPTY_LIST;
-		}
-		FilteringOutboundRouterType modelElement = (FilteringOutboundRouterType) containerView
-				.getElement();
-		List result = new LinkedList();
-		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
-				.iterator(); it.hasNext();) {
-			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
-					.next();
-			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID) {
-				result.add(new CoreNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getEndpointSelectorRouterTypeENDPOINTS_5019SemanticChildren(
+	public static List getEndpointSelectorRouterTypeENDPOINTS_5015SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -836,7 +753,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getMessageSplitterOutboundRouterTypeENDPOINTS_5020SemanticChildren(
+	public static List getMessageSplitterOutboundRouterTypeENDPOINTS_5016SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -865,7 +782,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getChunkingRouterTypeENDPOINTS_5021SemanticChildren(
+	public static List getChunkingRouterTypeENDPOINTS_5017SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -894,7 +811,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getStaticRecipientListRouterTypeENDPOINTS_5022SemanticChildren(
+	public static List getStaticRecipientListRouterTypeENDPOINTS_5018SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -923,7 +840,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCustomOutboundRouterTypeENDPOINTS_5023SemanticChildren(
+	public static List getCustomOutboundRouterTypeENDPOINTS_5019SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;

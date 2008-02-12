@@ -1,10 +1,8 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
@@ -13,9 +11,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.editpolicies.FlowLayoutEditPolicy;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
@@ -147,20 +143,6 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 								if (type == CoreElementTypes.CustomExceptionStrategyType_2011) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == CoreElementTypes.InboundCollectionType_2012) {
-									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(SedaServiceTypeINBOUNDEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == CoreElementTypes.AsyncReplyCollectionType_2024) {
-									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);

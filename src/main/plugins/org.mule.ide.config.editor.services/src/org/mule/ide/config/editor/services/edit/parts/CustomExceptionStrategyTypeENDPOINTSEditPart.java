@@ -1,10 +1,8 @@
 package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -25,7 +23,7 @@ public class CustomExceptionStrategyTypeENDPOINTSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5007;
+	public static final int VISUAL_ID = 5005;
 
 	/**
 	 * @generated

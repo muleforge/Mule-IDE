@@ -305,12 +305,6 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:
 				return new SedaServiceTypeEXCEPTIONEditPart(view);
 
-			case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
-				return new SedaServiceTypeINBOUNDEditPart(view);
-
-			case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
-				return new SedaServiceTypeASYNCREPLYEditPart(view);
-
 			case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 				return new DefaultServiceExceptionStrategyTypeENDPOINTSEditPart(
 						view);
@@ -322,15 +316,8 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 				return new CustomExceptionStrategyTypeENDPOINTSEditPart(view);
 
-			case InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-				return new InboundCollectionTypeINBOUNDENDPOINTSEditPart(view);
-
 			case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 				return new InboundCollectionTypeINBOUNDROUTERSEditPart(view);
-
-			case AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
-				return new AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart(
-						view);
 
 			case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
 				return new AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart(

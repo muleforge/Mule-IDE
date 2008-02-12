@@ -33,7 +33,7 @@ public class EndpointSelectorRouterTypeENDPOINTSCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getEndpointSelectorRouterTypeENDPOINTS_5019SemanticChildren(
+				.getEndpointSelectorRouterTypeENDPOINTS_5015SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}

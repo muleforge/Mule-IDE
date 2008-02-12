@@ -10,9 +10,7 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.diagram.ui.internal.figures.NestedResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.OneLineBorder;
-import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.swt.graphics.Color;
-import org.mule.ide.config.core.BaseServiceType;
 
 public abstract class CustomListCompartmentEditPart extends ListCompartmentEditPart {
 

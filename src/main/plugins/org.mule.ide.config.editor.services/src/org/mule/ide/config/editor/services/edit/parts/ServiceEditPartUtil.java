@@ -2,8 +2,6 @@ package org.mule.ide.config.editor.services.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
-import org.eclipse.gmf.runtime.draw2d.ui.mapmode.IMapMode;
-import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 
 public class ServiceEditPartUtil {

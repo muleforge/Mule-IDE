@@ -10,7 +10,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart;
-import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyInboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeEditPart;
@@ -45,7 +44,7 @@ public class AsyncReplyCollectionTypeItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (CoreVisualIDRegistry.getVisualID(node)) {
-			case AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+			case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
@@ -53,14 +52,6 @@ public class AsyncReplyCollectionTypeItemSemanticEditPolicy extends
 					case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
-					}
-				}
-				break;
-			case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
-				for (Iterator cit = node.getChildren().iterator(); cit
-						.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
 					case AsyncReplyRouterTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;

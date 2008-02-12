@@ -1,7 +1,5 @@
 package org.mule.ide.config.editor.services.parsers;
 
-import java.text.FieldPosition;
-
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;

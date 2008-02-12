@@ -17,6 +17,7 @@ import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEdi
 import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.WireTapRouterTypeEditPart;
@@ -42,7 +43,7 @@ public class InboundCollectionTypeINBOUNDROUTERSCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getInboundCollectionTypeINBOUNDROUTERS_5009SemanticChildren(
+				.getInboundCollectionTypeINBOUNDROUTERS_5006SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}
@@ -55,6 +56,7 @@ public class InboundCollectionTypeINBOUNDROUTERSCanonicalEditPolicy extends
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = CoreVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
+		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 		case ForwardingRouterTypeEditPart.VISUAL_ID:
 		case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
 		case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
@@ -85,6 +87,8 @@ public class InboundCollectionTypeINBOUNDROUTERSCanonicalEditPolicy extends
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getInboundCollectionType_AbstractInboundEndpoint());
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getInboundCollectionType_AbstractInboundRouter());
 		}

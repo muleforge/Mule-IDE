@@ -33,7 +33,7 @@ public class StaticRecipientListRouterTypeENDPOINTSCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getStaticRecipientListRouterTypeENDPOINTS_5022SemanticChildren(
+				.getStaticRecipientListRouterTypeENDPOINTS_5018SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}

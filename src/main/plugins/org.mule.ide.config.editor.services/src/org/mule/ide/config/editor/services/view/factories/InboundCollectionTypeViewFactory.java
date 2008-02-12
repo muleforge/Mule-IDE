@@ -11,7 +11,6 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
@@ -49,13 +48,6 @@ public class InboundCollectionTypeViewFactory extends AbstractShapeViewFactory {
 		if (eObject != null) {
 			eObjectAdapter = new EObjectAdapter(eObject);
 		}
-		getViewService()
-				.createNode(
-						eObjectAdapter,
-						view,
-						CoreVisualIDRegistry
-								.getType(InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService()
 				.createNode(
 						eObjectAdapter,

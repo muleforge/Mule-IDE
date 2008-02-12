@@ -73,7 +73,7 @@ public class AsyncReplyCollectionTypeEditPart extends ShapeNodeEditPart {
 										.getAdapter(IElementType.class);
 								if (type == CoreElementTypes.InboundEndpointType_2025) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID));
+											.getType(AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);

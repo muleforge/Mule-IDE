@@ -3,16 +3,12 @@ package org.mule.ide.config.editor.services.edit.parts;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.OutboundCollectionType;
 import org.mule.ide.config.editor.services.edit.policies.OutboundCollectionTypeOUTBOUNDROUTERSCanonicalEditPolicy;
 import org.mule.ide.config.editor.services.edit.policies.OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy;
@@ -28,7 +24,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5012;
+	public static final int VISUAL_ID = 5008;
 
 	/**
 	 * @generated

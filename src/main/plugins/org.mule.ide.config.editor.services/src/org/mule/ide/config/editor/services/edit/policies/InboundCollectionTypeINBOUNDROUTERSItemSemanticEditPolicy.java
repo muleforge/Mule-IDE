@@ -10,6 +10,7 @@ import org.mule.ide.config.editor.services.edit.commands.CustomInboundRouterType
 import org.mule.ide.config.editor.services.edit.commands.ForwardingRouterTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.IdempotentReceiverRouterTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.IdempotentSecureRecieverRouterTypeCreateCommand;
+import org.mule.ide.config.editor.services.edit.commands.InboundEndpointServiceItemTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.PassThroughInboundRouterTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.SelectiveConsumerRouterTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.WireTapRouterTypeCreateCommand;
@@ -25,6 +26,14 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
+		if (CoreElementTypes.InboundEndpointType_2013 == req.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(CorePackage.eINSTANCE
+						.getInboundCollectionType_AbstractInboundEndpoint());
+			}
+			return getGEFWrapper(new InboundEndpointServiceItemTypeCreateCommand(
+					req));
+		}
 		if (CoreElementTypes.ForwardingRouterType_2014 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE

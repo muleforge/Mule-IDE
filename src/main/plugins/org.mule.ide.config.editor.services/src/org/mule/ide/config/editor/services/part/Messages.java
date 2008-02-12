@@ -638,16 +638,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String SedaServiceTypeINBOUNDEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String SedaServiceTypeASYNCREPLYEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String PassThroughOutboundRouterTypeENDPOINTSEditPart_title;
 
 	/**
@@ -718,17 +708,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String InboundCollectionTypeINBOUNDENDPOINTSEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String InboundCollectionTypeINBOUNDROUTERSEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart_title;
 
 	/**
 	 * @generated

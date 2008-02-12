@@ -3,7 +3,6 @@ package org.mule.ide.config.editor.services.part;
 import java.util.List;
 
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.FeatureMap;
@@ -30,7 +29,6 @@ import org.mule.ide.config.core.OutboundRouterType;
 import org.mule.ide.config.core.SelectiveConsumerRouterType;
 import org.mule.ide.config.core.StaticRecipientListRouterType;
 import org.mule.ide.config.editor.services.edit.parts.*;
-import org.mule.ide.config.editor.services.expressions.CoreAbstractExpression;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -142,6 +140,14 @@ public class CoreVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case SedaServiceTypeEditPart.VISUAL_ID:
+			if (CorePackage.eINSTANCE.getInboundCollectionType().isSuperTypeOf(
+					domainElement.eClass())) {
+				return InboundCollectionTypeEditPart.VISUAL_ID;
+			}
+			if (CorePackage.eINSTANCE.getAsyncReplyCollectionType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return AsyncReplyCollectionTypeEditPart.VISUAL_ID;
+			}
 			if (CorePackage.eINSTANCE.getOutboundCollectionType()
 					.isSuperTypeOf(domainElement.eClass())) {
 				return OutboundCollectionTypeEditPart.VISUAL_ID;
@@ -217,18 +223,6 @@ public class CoreVisualIDRegistry {
 				return CustomExceptionStrategyTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getInboundCollectionType().isSuperTypeOf(
-					domainElement.eClass())) {
-				return InboundCollectionTypeEditPart.VISUAL_ID;
-			}
-			break;
-		case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getAsyncReplyCollectionType()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return AsyncReplyCollectionTypeEditPart.VISUAL_ID;
-			}
-			break;
 		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -247,13 +241,11 @@ public class CoreVisualIDRegistry {
 				return OutboundEndpointTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+		case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getInboundEndpointType().isSuperTypeOf(
 					domainElement.eClass())) {
 				return InboundEndpointServiceItemTypeEditPart.VISUAL_ID;
 			}
-			break;
-		case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getForwardingRouterType().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ForwardingRouterTypeEditPart.VISUAL_ID;
@@ -317,13 +309,11 @@ public class CoreVisualIDRegistry {
 				return CustomInboundRouterTypeEditPart.VISUAL_ID;
 			}
 			break;
-		case AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+		case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getInboundEndpointType().isSuperTypeOf(
 					domainElement.eClass())) {
 				return AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID;
 			}
-			break;
-		case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
 			if (CorePackage.eINSTANCE.getAsyncReplyRouterType().isSuperTypeOf(
 					domainElement.eClass())
 					&& JavaConstraints.singleAsyncReplyRouterConstraint(
@@ -520,10 +510,10 @@ public class CoreVisualIDRegistry {
 			if (SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SedaServiceTypeINBOUNDEditPart.VISUAL_ID == nodeVisualID) {
+			if (InboundCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID == nodeVisualID) {
+			if (AsyncReplyCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (OutboundCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
@@ -601,9 +591,6 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case InboundCollectionTypeEditPart.VISUAL_ID:
-			if (InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -673,9 +660,6 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
-			if (AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -836,16 +820,6 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
-			if (InboundCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
-			if (AsyncReplyCollectionTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 			if (OutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -861,12 +835,10 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+		case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 			if (InboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			break;
-		case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 			if (ForwardingRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -898,12 +870,10 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+		case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
 			if (AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			break;
-		case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
 			if (AsyncReplyRouterTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

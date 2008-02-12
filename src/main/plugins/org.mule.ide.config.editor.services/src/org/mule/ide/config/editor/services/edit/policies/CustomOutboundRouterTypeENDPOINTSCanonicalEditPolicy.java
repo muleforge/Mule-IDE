@@ -33,7 +33,7 @@ public class CustomOutboundRouterTypeENDPOINTSCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getCustomOutboundRouterTypeENDPOINTS_5023SemanticChildren(
+				.getCustomOutboundRouterTypeENDPOINTS_5019SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}

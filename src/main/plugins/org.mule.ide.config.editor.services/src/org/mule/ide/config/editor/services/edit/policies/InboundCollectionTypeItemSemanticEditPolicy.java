@@ -16,7 +16,6 @@ import org.mule.ide.config.editor.services.edit.parts.CustomInboundRouterTypeEdi
 import org.mule.ide.config.editor.services.edit.parts.ForwardingRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
@@ -53,7 +52,7 @@ public class InboundCollectionTypeItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (CoreVisualIDRegistry.getVisualID(node)) {
-			case InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID:
+			case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
@@ -61,14 +60,6 @@ public class InboundCollectionTypeItemSemanticEditPolicy extends
 					case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
-					}
-				}
-				break;
-			case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
-				for (Iterator cit = node.getChildren().iterator(); cit
-						.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
 					case ForwardingRouterTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;

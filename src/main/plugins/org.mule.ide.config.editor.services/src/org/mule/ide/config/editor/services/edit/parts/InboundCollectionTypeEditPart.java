@@ -73,7 +73,7 @@ public class InboundCollectionTypeEditPart extends ShapeNodeEditPart {
 										.getAdapter(IElementType.class);
 								if (type == CoreElementTypes.InboundEndpointType_2013) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
-											.getType(InboundCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID));
+											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);

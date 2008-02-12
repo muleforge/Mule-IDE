@@ -12,7 +12,6 @@ import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
@@ -50,13 +49,6 @@ public class AsyncReplyCollectionTypeViewFactory extends
 		if (eObject != null) {
 			eObjectAdapter = new EObjectAdapter(eObject);
 		}
-		getViewService()
-				.createNode(
-						eObjectAdapter,
-						view,
-						CoreVisualIDRegistry
-								.getType(AsyncReplyCollectionTypeINBOUNDENDPOINTSEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService()
 				.createNode(
 						eObjectAdapter,

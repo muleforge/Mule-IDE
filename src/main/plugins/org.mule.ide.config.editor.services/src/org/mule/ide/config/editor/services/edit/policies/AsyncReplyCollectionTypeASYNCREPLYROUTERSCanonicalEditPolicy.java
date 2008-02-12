@@ -10,6 +10,7 @@ import java.util.Set;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyInboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.CustomAsyncReplyRouterTypeEditPart;
 import org.mule.ide.config.editor.services.part.CoreDiagramUpdater;
@@ -34,7 +35,7 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getAsyncReplyCollectionTypeASYNCREPLYROUTERS_5011SemanticChildren(
+				.getAsyncReplyCollectionTypeASYNCREPLYROUTERS_5007SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}
@@ -47,6 +48,7 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSCanonicalEditPolicy
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = CoreVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
+		case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 		case AsyncReplyRouterTypeEditPart.VISUAL_ID:
 		case CustomAsyncReplyRouterTypeEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())
@@ -69,6 +71,8 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSCanonicalEditPolicy
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getAsyncReplyCollectionType_AbstractInboundEndpoint());
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getAsyncReplyCollectionType_AbstractAsyncReplyRouter());
 		}

@@ -12,8 +12,10 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.editor.services.edit.commands.AsyncReplyCollectionTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.ConnectionCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.ConnectionReorientCommand;
+import org.mule.ide.config.editor.services.edit.commands.InboundCollectionTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.OutboundCollectionTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.BridgeComponentTypeEditPart;
@@ -29,10 +31,8 @@ import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeASYNCREPLYEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
-import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeINBOUNDEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
@@ -46,6 +46,21 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
+		if (CoreElementTypes.InboundCollectionType_2012 == req.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(CorePackage.eINSTANCE
+						.getBaseServiceType_Inbound());
+			}
+			return getGEFWrapper(new InboundCollectionTypeCreateCommand(req));
+		}
+		if (CoreElementTypes.AsyncReplyCollectionType_2024 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(CorePackage.eINSTANCE
+						.getBaseServiceType_AsyncReply());
+			}
+			return getGEFWrapper(new AsyncReplyCollectionTypeCreateCommand(req));
+		}
 		if (CoreElementTypes.OutboundCollectionType_2028 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
@@ -84,6 +99,12 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (CoreVisualIDRegistry.getVisualID(node)) {
+			case InboundCollectionTypeEditPart.VISUAL_ID:
+				cmd.add(getDestroyElementCommand(node));
+				break;
+			case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
+				cmd.add(getDestroyElementCommand(node));
+				break;
 			case OutboundCollectionTypeEditPart.VISUAL_ID:
 				cmd.add(getDestroyElementCommand(node));
 				break;
@@ -128,28 +149,6 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
-						cmd.add(getDestroyElementCommand(cnode));
-						break;
-					}
-				}
-				break;
-			case SedaServiceTypeINBOUNDEditPart.VISUAL_ID:
-				for (Iterator cit = node.getChildren().iterator(); cit
-						.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
-					case InboundCollectionTypeEditPart.VISUAL_ID:
-						cmd.add(getDestroyElementCommand(cnode));
-						break;
-					}
-				}
-				break;
-			case SedaServiceTypeASYNCREPLYEditPart.VISUAL_ID:
-				for (Iterator cit = node.getChildren().iterator(); cit
-						.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
-					case AsyncReplyCollectionTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					}

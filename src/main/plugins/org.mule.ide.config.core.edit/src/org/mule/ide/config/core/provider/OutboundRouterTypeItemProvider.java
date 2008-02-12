@@ -20,8 +20,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 
-import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -36,8 +34,6 @@ import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.EnableCorrelationType;
 import org.mule.ide.config.core.OutboundRouterType;
-
-import org.mule.ide.config.spring.SpringFactory;
 
 /**
  * This is the item provider adapter for a {@link org.mule.ide.config.core.OutboundRouterType} object.

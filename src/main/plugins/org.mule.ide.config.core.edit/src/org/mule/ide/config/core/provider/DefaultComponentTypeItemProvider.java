@@ -26,7 +26,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.DefaultComponentType;
 
 /**
  * This is the item provider adapter for a {@link org.mule.ide.config.core.DefaultComponentType} object.

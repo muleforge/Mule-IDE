@@ -30,11 +30,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CustomConnectorType;
-
-import org.mule.ide.config.spring.SpringFactory;
 
 /**
  * This is the item provider adapter for a {@link org.mule.ide.config.core.CustomConnectorType} object.

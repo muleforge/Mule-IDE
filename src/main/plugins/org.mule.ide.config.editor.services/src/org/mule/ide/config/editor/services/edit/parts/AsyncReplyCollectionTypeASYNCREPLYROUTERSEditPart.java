@@ -3,6 +3,7 @@ package org.mule.ide.config.editor.services.edit.parts;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -87,8 +88,8 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart extends
 		AsyncReplyCollectionType collection = (AsyncReplyCollectionType) ((Node) getModel())
 				.getElement();
 		if (collection == null
-				|| (collection.getAbstractAsyncReplyRouter().isEmpty()
-						&& collection.getAbstractInboundEndpoint().isEmpty())) {
+				|| (collection.getAbstractAsyncReplyRouter().isEmpty() && collection
+						.getAbstractInboundEndpoint().isEmpty())) {
 			setCompartmentEmpty(figure);
 		} else {
 			setCompartmentNonEmpty(figure);

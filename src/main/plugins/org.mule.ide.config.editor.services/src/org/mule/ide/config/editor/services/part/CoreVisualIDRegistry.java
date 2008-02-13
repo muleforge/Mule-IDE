@@ -29,6 +29,7 @@ import org.mule.ide.config.core.OutboundRouterType;
 import org.mule.ide.config.core.SelectiveConsumerRouterType;
 import org.mule.ide.config.core.StaticRecipientListRouterType;
 import org.mule.ide.config.editor.services.edit.parts.*;
+import org.mule.ide.config.editor.services.expressions.CoreAbstractExpression;
 
 /**
  * This registry is used to determine which type of visual object should be

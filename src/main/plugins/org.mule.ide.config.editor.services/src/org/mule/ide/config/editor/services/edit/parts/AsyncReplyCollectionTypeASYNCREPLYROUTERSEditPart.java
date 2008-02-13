@@ -85,13 +85,13 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart extends
 	//TODO  Probably should figure out how to use the GMF Style mechanism instead of overriding.
 	protected List getSortedChildren() {
 		EList allChildren;
-        Object model = getModel();
-        if(model!=null && model instanceof View){
-        	allChildren = ((View)model).getVisibleChildren();
-        } else {
-        	return Collections.EMPTY_LIST;
-        }
-		
+		Object model = getModel();
+		if (model != null && model instanceof View) {
+			allChildren = ((View) model).getVisibleChildren();
+		} else {
+			return Collections.EMPTY_LIST;
+		}
+
 		List<View> sorted = new ArrayList<View>(allChildren.size());
 		int i = 0;
 		for (int j = 0; j < allChildren.size(); j++) {
@@ -104,7 +104,7 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart extends
 		}
 		return sorted;
 	}
-	
+
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
 		if (notification.getNotifier() instanceof AsyncReplyCollectionType) {

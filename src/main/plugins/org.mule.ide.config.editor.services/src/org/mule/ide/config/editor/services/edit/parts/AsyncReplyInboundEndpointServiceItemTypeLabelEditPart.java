@@ -53,7 +53,7 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
  * customization
  */
 public class AsyncReplyInboundEndpointServiceItemTypeLabelEditPart extends
-	ReadOnlyLabelCompartmentEditPart implements ITextAwareEditPart {
+		ReadOnlyLabelCompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated

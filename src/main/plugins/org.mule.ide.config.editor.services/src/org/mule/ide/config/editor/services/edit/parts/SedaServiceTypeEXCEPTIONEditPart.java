@@ -33,7 +33,7 @@ public class SedaServiceTypeEXCEPTIONEditPart extends
 	public SedaServiceTypeEXCEPTIONEditPart(View view) {
 		super(view);
 	}
-	
+
 	@Override
 	public boolean isSelectable() {
 		return false;

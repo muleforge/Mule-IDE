@@ -50,9 +50,9 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 
 /**
- * @generated
+ * customization
  */
-public class CustomInboundRouterTypeLabelEditPart extends CompartmentEditPart
+public class CustomInboundRouterTypeLabelEditPart extends ReadOnlyLabelCompartmentEditPart
 		implements ITextAwareEditPart {
 
 	/**

@@ -50,9 +50,9 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 
 /**
- * @generated
+ * customization
  */
-public class ChunkingInboundRouterTypeLabelEditPart extends CompartmentEditPart
+public class ChunkingInboundRouterTypeLabelEditPart extends ReadOnlyLabelCompartmentEditPart
 		implements ITextAwareEditPart {
 
 	/**

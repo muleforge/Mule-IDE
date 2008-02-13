@@ -50,10 +50,10 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 
 /**
- * @generated
+ * customization
  */
 public class ExceptionOutboundRouterTypeLabelEditPart extends
-		CompartmentEditPart implements ITextAwareEditPart {
+		ReadOnlyLabelCompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated

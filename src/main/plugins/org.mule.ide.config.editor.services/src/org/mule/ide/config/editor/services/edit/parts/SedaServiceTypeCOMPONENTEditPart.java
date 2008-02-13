@@ -32,6 +32,11 @@ public class SedaServiceTypeCOMPONENTEditPart extends
 	public SedaServiceTypeCOMPONENTEditPart(View view) {
 		super(view);
 	}
+	
+	@Override
+	public boolean isSelectable() {
+		return false;
+	}
 
 	/**
 	 * @generated

@@ -4,13 +4,24 @@ import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.CompoundBorder;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.diagram.ui.internal.figures.NestedResizableCompartmentFigure;
+import org.eclipse.gmf.runtime.diagram.ui.internal.properties.Properties;
+import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
+import org.eclipse.gmf.runtime.diagram.ui.requests.ChangePropertyValueRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.OneLineBorder;
+import org.eclipse.gmf.runtime.notation.DrawerStyle;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
 
 public abstract class CustomListCompartmentEditPart extends ListCompartmentEditPart {
 
@@ -20,6 +31,38 @@ public abstract class CustomListCompartmentEditPart extends ListCompartmentEditP
 	
 	public CustomListCompartmentEditPart(EObject model) {
 		super(model);
+		
+		// Add support for automatically expanding the compartment
+		// on child add events.
+		model.eAdapters().add(new AdapterImpl() {
+			  public void notifyChanged(Notification msg) {
+				  if (expandOnNotification(msg)) {
+					  Display.getDefault().asyncExec(new Runnable(){
+						  public void run(){
+							  View view  = getNotationView();
+							  DrawerStyle style = (DrawerStyle) view.getStyle(NotationPackage.eINSTANCE.getDrawerStyle());
+							  if (style != null && style.isCollapsed()) {
+								  ChangePropertyValueRequest request = new ChangePropertyValueRequest(
+										  DiagramUIMessages.PropertyDescriptorFactory_CollapseCompartment,
+										  Properties.ID_COLLAPSED, false);
+									  Command command = getCommand(request);
+									  if (command.canExecute()) {
+										  executeCommand(command);
+									  }
+							  }
+						  }
+					  });
+				  }
+			  }
+		});
+	}
+	
+	protected boolean expandOnNotification(Notification msg) {
+		if (msg.getEventType() == Notification.ADD
+				|| msg.getEventType() == Notification.ADD_MANY) {
+			return true;
+		}
+		return false;
 	}
 	
 	public abstract String getToolTip();

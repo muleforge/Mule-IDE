@@ -30,9 +30,9 @@ import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
- * @generated
+ * customization
  */
-public class AsyncReplyRouterTypeEditPart extends ShapeNodeEditPart {
+public class AsyncReplyRouterTypeEditPart extends ServiceItemNodeEditPart {
 
 	/**
 	 * @generated

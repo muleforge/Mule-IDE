@@ -30,9 +30,9 @@ import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
- * @generated
+ * customization
  */
-public class BridgeComponentTypeEditPart extends ShapeNodeEditPart {
+public class BridgeComponentTypeEditPart extends ServiceItemNodeEditPart {
 
 	/**
 	 * @generated

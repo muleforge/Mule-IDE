@@ -37,9 +37,9 @@ import org.mule.ide.config.editor.services.part.Messages;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
 /**
- * @generated
+ * customization
  */
-public class ChunkingRouterTypeEditPart extends ShapeNodeEditPart {
+public class ChunkingRouterTypeEditPart extends ServiceItemNodeEditPart {
 
 	/**
 	 * @generated

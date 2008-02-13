@@ -29,9 +29,9 @@ import org.mule.ide.config.editor.services.edit.policies.DefaultComponentTypeIte
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
- * @generated
+ * customization
  */
-public class DefaultComponentTypeEditPart extends ShapeNodeEditPart {
+public class DefaultComponentTypeEditPart extends ServiceItemNodeEditPart {
 
 	/**
 	 * @generated

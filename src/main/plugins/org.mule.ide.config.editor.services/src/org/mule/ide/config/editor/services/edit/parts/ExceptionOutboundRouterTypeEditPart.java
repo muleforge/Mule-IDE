@@ -37,9 +37,10 @@ import org.mule.ide.config.editor.services.part.Messages;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
 /**
- * @generated
+ * customization
  */
-public class ExceptionOutboundRouterTypeEditPart extends ShapeNodeEditPart {
+public class ExceptionOutboundRouterTypeEditPart extends
+		ServiceItemNodeEditPart {
 
 	/**
 	 * @generated

@@ -119,9 +119,6 @@ public class CoreDomainModelElementTester extends PropertyTester {
 		if (eClass == CorePackage.eINSTANCE.getAbstractTransformerType()) {
 			return true;
 		}
-		if (eClass == CorePackage.eINSTANCE.getAdminAgentType()) {
-			return true;
-		}
 		if (eClass == CorePackage.eINSTANCE.getAppendStringTransformerType()) {
 			return true;
 		}
@@ -153,9 +150,6 @@ public class CoreDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getConnectorType()) {
-			return true;
-		}
-		if (eClass == CorePackage.eINSTANCE.getContainerContextType()) {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getCustomAsyncReplyRouterType()) {
@@ -331,9 +325,6 @@ public class CoreDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getMuleType()) {
-			return true;
-		}
-		if (eClass == CorePackage.eINSTANCE.getMuleUnsafeType()) {
 			return true;
 		}
 		if (eClass == CorePackage.eINSTANCE.getNotificationListenerType()) {

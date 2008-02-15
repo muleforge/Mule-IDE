@@ -812,29 +812,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.AdminAgentType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AdminAgentTypeItemProvider adminAgentTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.AdminAgentType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAdminAgentTypeAdapter() {
-		if (adminAgentTypeItemProvider == null) {
-			adminAgentTypeItemProvider = new AdminAgentTypeItemProvider(this);
-		}
-
-		return adminAgentTypeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.AppendStringTransformerType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1085,29 +1062,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return connectorTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.ContainerContextType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ContainerContextTypeItemProvider containerContextTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.ContainerContextType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createContainerContextTypeAdapter() {
-		if (containerContextTypeItemProvider == null) {
-			containerContextTypeItemProvider = new ContainerContextTypeItemProvider(this);
-		}
-
-		return containerContextTypeItemProvider;
 	}
 
 	/**
@@ -2399,29 +2353,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.MuleUnsafeType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MuleUnsafeTypeItemProvider muleUnsafeTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.MuleUnsafeType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMuleUnsafeTypeAdapter() {
-		if (muleUnsafeTypeItemProvider == null) {
-			muleUnsafeTypeItemProvider = new MuleUnsafeTypeItemProvider(this);
-		}
-
-		return muleUnsafeTypeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.NotificationListenerType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3633,7 +3564,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		if (abstractTransactionManagerTypeItemProvider != null) abstractTransactionManagerTypeItemProvider.dispose();
 		if (abstractTransactionTypeItemProvider != null) abstractTransactionTypeItemProvider.dispose();
 		if (abstractTransformerTypeItemProvider != null) abstractTransformerTypeItemProvider.dispose();
-		if (adminAgentTypeItemProvider != null) adminAgentTypeItemProvider.dispose();
 		if (appendStringTransformerTypeItemProvider != null) appendStringTransformerTypeItemProvider.dispose();
 		if (asyncReplyCollectionTypeItemProvider != null) asyncReplyCollectionTypeItemProvider.dispose();
 		if (asyncReplyRouterTypeItemProvider != null) asyncReplyRouterTypeItemProvider.dispose();
@@ -3645,7 +3575,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		if (complexEntryPointResolverTypeItemProvider != null) complexEntryPointResolverTypeItemProvider.dispose();
 		if (connectionStrategyTypeItemProvider != null) connectionStrategyTypeItemProvider.dispose();
 		if (connectorTypeItemProvider != null) connectorTypeItemProvider.dispose();
-		if (containerContextTypeItemProvider != null) containerContextTypeItemProvider.dispose();
 		if (customAsyncReplyRouterTypeItemProvider != null) customAsyncReplyRouterTypeItemProvider.dispose();
 		if (customCatchAllStrategyTypeItemProvider != null) customCatchAllStrategyTypeItemProvider.dispose();
 		if (customConnectionStrategyTypeItemProvider != null) customConnectionStrategyTypeItemProvider.dispose();
@@ -3702,7 +3631,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		if (methodEntryPointResolverTypeItemProvider != null) methodEntryPointResolverTypeItemProvider.dispose();
 		if (methodTypeItemProvider != null) methodTypeItemProvider.dispose();
 		if (muleTypeItemProvider != null) muleTypeItemProvider.dispose();
-		if (muleUnsafeTypeItemProvider != null) muleUnsafeTypeItemProvider.dispose();
 		if (notificationListenerTypeItemProvider != null) notificationListenerTypeItemProvider.dispose();
 		if (notificationManagerTypeItemProvider != null) notificationManagerTypeItemProvider.dispose();
 		if (outboundCollectionTypeItemProvider != null) outboundCollectionTypeItemProvider.dispose();

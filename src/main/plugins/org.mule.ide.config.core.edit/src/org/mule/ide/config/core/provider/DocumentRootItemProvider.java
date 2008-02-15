@@ -194,7 +194,6 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_MethodEntryPointResolver());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Model());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Mule());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_MuleUnsafe());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_MulticastingRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_NoArgumentsEntryPointResolver());
@@ -394,7 +393,6 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__METHOD_ENTRY_POINT_RESOLVER:
 			case CorePackage.DOCUMENT_ROOT__MODEL:
 			case CorePackage.DOCUMENT_ROOT__MULE:
-			case CorePackage.DOCUMENT_ROOT__MULE_UNSAFE:
 			case CorePackage.DOCUMENT_ROOT__MULTICASTING_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__NO_ACTION_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__NO_ARGUMENTS_ENTRY_POINT_RESOLVER:
@@ -1145,6 +1143,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_JndiContainer(),
+				 CoreFactory.eINSTANCE.createPropertiesContainerContextType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_JndiContainer(),
 				 CoreFactory.eINSTANCE.createRmiContainerContextType()));
 
 		newChildDescriptors.add
@@ -1231,11 +1234,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_Mule(),
 				 CoreFactory.eINSTANCE.createMuleType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_MuleUnsafe(),
-				 CoreFactory.eINSTANCE.createMuleUnsafeType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1865,6 +1863,7 @@ public class DocumentRootItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_JrunTransactionManager() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ResinTransactionManager() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WebsphereTransactionManager() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PropertiesContainer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter() ||

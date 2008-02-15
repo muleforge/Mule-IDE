@@ -189,13 +189,6 @@ public class MuleTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getMuleType_AdminAgent(),
-					 CoreFactory.eINSTANCE.createAdminAgentType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getMuleType_Configuration(),
 					 CoreFactory.eINSTANCE.createManagementContextType())));
 

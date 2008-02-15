@@ -47,7 +47,7 @@ import org.mule.ide.config.spring.SpringPackage;
  * @generated
  */
 public class PropertiesContainerContextTypeItemProvider
-	extends ItemProviderAdapter
+	extends BaseContainerContextTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -149,36 +149,6 @@ public class PropertiesContainerContextTypeItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any());
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,9 +179,6 @@ public class PropertiesContainerContextTypeItemProvider
 			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__ANY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -226,181 +193,6 @@ public class PropertiesContainerContextTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__ALIAS,
-					 SpringFactory.eINSTANCE.createAliasType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__ARG_TYPE,
-					 SpringFactory.eINSTANCE.createArgTypeType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__BEAN,
-					 SpringFactory.eINSTANCE.createBeanType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__BEANS,
-					 SpringFactory.eINSTANCE.createBeansType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__CONSTRUCTOR_ARG,
-					 SpringFactory.eINSTANCE.createConstructorArgType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__DESCRIPTION,
-					 SpringFactory.eINSTANCE.createDescriptionType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__ENTRY,
-					 SpringFactory.eINSTANCE.createEntryType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__IDREF,
-					 SpringFactory.eINSTANCE.createIdrefType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__IMPORT,
-					 SpringFactory.eINSTANCE.createImportType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__KEY,
-					 SpringFactory.eINSTANCE.createKeyType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__LIST,
-					 CoreFactory.eINSTANCE.createListOrSetType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__LIST,
-					 SpringFactory.eINSTANCE.createListOrSetType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__LOOKUP_METHOD,
-					 SpringFactory.eINSTANCE.createLookupMethodType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__MAP,
-					 CoreFactory.eINSTANCE.createMapType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__MAP,
-					 SpringFactory.eINSTANCE.createMapType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__META,
-					 SpringFactory.eINSTANCE.createMetaType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__NULL,
-					 SpringFactory.eINSTANCE.createNullType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__PROP,
-					 SpringFactory.eINSTANCE.createPropType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__PROPERTY,
-					 SpringFactory.eINSTANCE.createPropertyType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__PROPS,
-					 SpringFactory.eINSTANCE.createPropsType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__REF,
-					 SpringFactory.eINSTANCE.createRefType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__REPLACED_METHOD,
-					 SpringFactory.eINSTANCE.createReplacedMethodType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__SET,
-					 CoreFactory.eINSTANCE.createListOrSetType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__SET,
-					 SpringFactory.eINSTANCE.createListOrSetType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getPropertiesContainerContextType_Any(),
-				 FeatureMapUtil.createEntry
-					(SpringPackage.Literals.DOCUMENT_ROOT__VALUE,
-					 SpringFactory.eINSTANCE.createValueType())));
 	}
 
 	/**
@@ -430,34 +222,6 @@ public class PropertiesContainerContextTypeItemProvider
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
-		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)child;
-			feature = entry.getEStructuralFeature();
-			child = entry.getValue();        
-		}
-
-		if (feature instanceof EReference && child instanceof EObject) {
-			String name = "full/obj16/" + ((EObject)child).eClass().getName();
-
-			try {
-				return getResourceLocator().getImage(name);
-			}
-			catch (Exception e) {
-				CoreEditPlugin.INSTANCE.log(e);
-			}
-		}
-
-		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

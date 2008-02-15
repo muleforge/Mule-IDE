@@ -309,11 +309,6 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createAdminAgentType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createAsyncReplyCollectionType()));
 
 		newChildDescriptors.add
@@ -375,11 +370,6 @@ public class ReflectionEntryPointResolverTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createConnectorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createContainerContextType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -665,11 +655,6 @@ public class ReflectionEntryPointResolverTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createMuleType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createMuleUnsafeType()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -71,16 +71,6 @@ public enum EventType implements Enumerator {
 	MANAGEMENT(4, "MANAGEMENT", "MANAGEMENT"),
 
 	/**
-	 * The '<em><b>ADMIN</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ADMIN_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ADMIN(5, "ADMIN", "ADMIN"),
-
-	/**
 	 * The '<em><b>CONNECTION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,7 +78,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONNECTION(6, "CONNECTION", "CONNECTION"),
+	CONNECTION(5, "CONNECTION", "CONNECTION"),
 
 	/**
 	 * The '<em><b>REGISTRY</b></em>' literal object.
@@ -98,7 +88,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REGISTRY(7, "REGISTRY", "REGISTRY"),
+	REGISTRY(6, "REGISTRY", "REGISTRY"),
 
 	/**
 	 * The '<em><b>CUSTOM</b></em>' literal object.
@@ -108,7 +98,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CUSTOM(8, "CUSTOM", "CUSTOM"),
+	CUSTOM(7, "CUSTOM", "CUSTOM"),
 
 	/**
 	 * The '<em><b>MESSAGE</b></em>' literal object.
@@ -118,7 +108,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MESSAGE(9, "MESSAGE", "MESSAGE"),
+	MESSAGE(8, "MESSAGE", "MESSAGE"),
 
 	/**
 	 * The '<em><b>EXCEPTION</b></em>' literal object.
@@ -128,7 +118,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EXCEPTION(10, "EXCEPTION", "EXCEPTION"),
+	EXCEPTION(9, "EXCEPTION", "EXCEPTION"),
 
 	/**
 	 * The '<em><b>TRANSACTION</b></em>' literal object.
@@ -138,7 +128,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TRANSACTION(11, "TRANSACTION", "TRANSACTION");
+	TRANSACTION(10, "TRANSACTION", "TRANSACTION");
 
 	/**
 	 * The '<em><b>MANAGER</b></em>' literal value.
@@ -216,21 +206,6 @@ public enum EventType implements Enumerator {
 	public static final int MANAGEMENT_VALUE = 4;
 
 	/**
-	 * The '<em><b>ADMIN</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ADMIN</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #ADMIN
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ADMIN_VALUE = 5;
-
-	/**
 	 * The '<em><b>CONNECTION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -243,7 +218,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONNECTION_VALUE = 6;
+	public static final int CONNECTION_VALUE = 5;
 
 	/**
 	 * The '<em><b>REGISTRY</b></em>' literal value.
@@ -258,7 +233,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REGISTRY_VALUE = 7;
+	public static final int REGISTRY_VALUE = 6;
 
 	/**
 	 * The '<em><b>CUSTOM</b></em>' literal value.
@@ -273,7 +248,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CUSTOM_VALUE = 8;
+	public static final int CUSTOM_VALUE = 7;
 
 	/**
 	 * The '<em><b>MESSAGE</b></em>' literal value.
@@ -288,7 +263,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MESSAGE_VALUE = 9;
+	public static final int MESSAGE_VALUE = 8;
 
 	/**
 	 * The '<em><b>EXCEPTION</b></em>' literal value.
@@ -303,7 +278,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EXCEPTION_VALUE = 10;
+	public static final int EXCEPTION_VALUE = 9;
 
 	/**
 	 * The '<em><b>TRANSACTION</b></em>' literal value.
@@ -318,7 +293,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TRANSACTION_VALUE = 11;
+	public static final int TRANSACTION_VALUE = 10;
 
 	/**
 	 * An array of all the '<em><b>Event Type</b></em>' enumerators.
@@ -333,7 +308,6 @@ public enum EventType implements Enumerator {
 			SERVICE,
 			SECURITY,
 			MANAGEMENT,
-			ADMIN,
 			CONNECTION,
 			REGISTRY,
 			CUSTOM,
@@ -395,7 +369,6 @@ public enum EventType implements Enumerator {
 			case SERVICE_VALUE: return SERVICE;
 			case SECURITY_VALUE: return SECURITY;
 			case MANAGEMENT_VALUE: return MANAGEMENT;
-			case ADMIN_VALUE: return ADMIN;
 			case CONNECTION_VALUE: return CONNECTION;
 			case REGISTRY_VALUE: return REGISTRY;
 			case CUSTOM_VALUE: return CUSTOM;

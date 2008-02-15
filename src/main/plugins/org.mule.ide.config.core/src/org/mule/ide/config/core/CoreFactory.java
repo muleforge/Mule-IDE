@@ -314,15 +314,6 @@ public interface CoreFactory extends EFactory {
 	AbstractTransformerType createAbstractTransformerType();
 
 	/**
-	 * Returns a new object of class '<em>Admin Agent Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Admin Agent Type</em>'.
-	 * @generated
-	 */
-	AdminAgentType createAdminAgentType();
-
-	/**
 	 * Returns a new object of class '<em>Append String Transformer Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -420,15 +411,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	ConnectorType createConnectorType();
-
-	/**
-	 * Returns a new object of class '<em>Container Context Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Container Context Type</em>'.
-	 * @generated
-	 */
-	ContainerContextType createContainerContextType();
 
 	/**
 	 * Returns a new object of class '<em>Custom Async Reply Router Type</em>'.
@@ -933,15 +915,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	MuleType createMuleType();
-
-	/**
-	 * Returns a new object of class '<em>Mule Unsafe Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mule Unsafe Type</em>'.
-	 * @generated
-	 */
-	MuleUnsafeType createMuleUnsafeType();
 
 	/**
 	 * Returns a new object of class '<em>Notification Listener Type</em>'.

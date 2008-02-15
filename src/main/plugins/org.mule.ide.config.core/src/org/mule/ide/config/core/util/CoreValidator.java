@@ -166,8 +166,6 @@ public class CoreValidator extends EObjectValidator {
 				return validateAbstractTransactionType((AbstractTransactionType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_TRANSFORMER_TYPE:
 				return validateAbstractTransformerType((AbstractTransformerType)value, diagnostics, context);
-			case CorePackage.ADMIN_AGENT_TYPE:
-				return validateAdminAgentType((AdminAgentType)value, diagnostics, context);
 			case CorePackage.APPEND_STRING_TRANSFORMER_TYPE:
 				return validateAppendStringTransformerType((AppendStringTransformerType)value, diagnostics, context);
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE:
@@ -190,8 +188,6 @@ public class CoreValidator extends EObjectValidator {
 				return validateConnectionStrategyType((ConnectionStrategyType)value, diagnostics, context);
 			case CorePackage.CONNECTOR_TYPE:
 				return validateConnectorType((ConnectorType)value, diagnostics, context);
-			case CorePackage.CONTAINER_CONTEXT_TYPE:
-				return validateContainerContextType((ContainerContextType)value, diagnostics, context);
 			case CorePackage.CUSTOM_ASYNC_REPLY_ROUTER_TYPE:
 				return validateCustomAsyncReplyRouterType((CustomAsyncReplyRouterType)value, diagnostics, context);
 			case CorePackage.CUSTOM_CATCH_ALL_STRATEGY_TYPE:
@@ -304,8 +300,6 @@ public class CoreValidator extends EObjectValidator {
 				return validateMethodType((MethodType)value, diagnostics, context);
 			case CorePackage.MULE_TYPE:
 				return validateMuleType((MuleType)value, diagnostics, context);
-			case CorePackage.MULE_UNSAFE_TYPE:
-				return validateMuleUnsafeType((MuleUnsafeType)value, diagnostics, context);
 			case CorePackage.NOTIFICATION_LISTENER_TYPE:
 				return validateNotificationListenerType((NotificationListenerType)value, diagnostics, context);
 			case CorePackage.NOTIFICATION_MANAGER_TYPE:
@@ -784,15 +778,6 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAdminAgentType(AdminAgentType adminAgentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(adminAgentType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateAppendStringTransformerType(AppendStringTransformerType appendStringTransformerType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(appendStringTransformerType, diagnostics, context);
 	}
@@ -885,15 +870,6 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateConnectorType(ConnectorType connectorType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(connectorType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateContainerContextType(ContainerContextType containerContextType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(containerContextType, diagnostics, context);
 	}
 
 	/**
@@ -1398,15 +1374,6 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateMuleType(MuleType muleType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(muleType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMuleUnsafeType(MuleUnsafeType muleUnsafeType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(muleUnsafeType, diagnostics, context);
 	}
 
 	/**

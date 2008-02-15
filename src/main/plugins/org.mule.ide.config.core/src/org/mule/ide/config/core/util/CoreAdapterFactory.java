@@ -203,10 +203,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractTransformerTypeAdapter();
 			}
 			@Override
-			public Adapter caseAdminAgentType(AdminAgentType object) {
-				return createAdminAgentTypeAdapter();
-			}
-			@Override
 			public Adapter caseAppendStringTransformerType(AppendStringTransformerType object) {
 				return createAppendStringTransformerTypeAdapter();
 			}
@@ -249,10 +245,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseConnectorType(ConnectorType object) {
 				return createConnectorTypeAdapter();
-			}
-			@Override
-			public Adapter caseContainerContextType(ContainerContextType object) {
-				return createContainerContextTypeAdapter();
 			}
 			@Override
 			public Adapter caseCustomAsyncReplyRouterType(CustomAsyncReplyRouterType object) {
@@ -477,10 +469,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMuleType(MuleType object) {
 				return createMuleTypeAdapter();
-			}
-			@Override
-			public Adapter caseMuleUnsafeType(MuleUnsafeType object) {
-				return createMuleUnsafeTypeAdapter();
 			}
 			@Override
 			public Adapter caseNotificationListenerType(NotificationListenerType object) {
@@ -1155,20 +1143,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.AdminAgentType <em>Admin Agent Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.AdminAgentType
-	 * @generated
-	 */
-	public Adapter createAdminAgentTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.AppendStringTransformerType <em>Append String Transformer Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1319,20 +1293,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConnectorTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.ContainerContextType <em>Container Context Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.ContainerContextType
-	 * @generated
-	 */
-	public Adapter createContainerContextTypeAdapter() {
 		return null;
 	}
 
@@ -2117,20 +2077,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMuleTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.MuleUnsafeType <em>Mule Unsafe Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.MuleUnsafeType
-	 * @generated
-	 */
-	public Adapter createMuleUnsafeTypeAdapter() {
 		return null;
 	}
 

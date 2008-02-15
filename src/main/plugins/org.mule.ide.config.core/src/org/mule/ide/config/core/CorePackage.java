@@ -983,43 +983,6 @@ public interface CorePackage extends EPackage {
 	int ABSTRACT_TRANSFORMER_TYPE_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.mule.ide.config.core.impl.AdminAgentTypeImpl <em>Admin Agent Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.mule.ide.config.core.impl.AdminAgentTypeImpl
-	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getAdminAgentType()
-	 * @generated
-	 */
-	int ADMIN_AGENT_TYPE = 32;
-
-	/**
-	 * The feature id for the '<em><b>Property</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADMIN_AGENT_TYPE__PROPERTY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Server Uri</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADMIN_AGENT_TYPE__SERVER_URI = 1;
-
-	/**
-	 * The number of structural features of the '<em>Admin Agent Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADMIN_AGENT_TYPE_FEATURE_COUNT = 2;
-
-	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.impl.AppendStringTransformerTypeImpl <em>Append String Transformer Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1027,7 +990,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getAppendStringTransformerType()
 	 * @generated
 	 */
-	int APPEND_STRING_TRANSFORMER_TYPE = 33;
+	int APPEND_STRING_TRANSFORMER_TYPE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Ignore Bad Input</b></em>' attribute.
@@ -1082,7 +1045,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getAsyncReplyCollectionType()
 	 * @generated
 	 */
-	int ASYNC_REPLY_COLLECTION_TYPE = 34;
+	int ASYNC_REPLY_COLLECTION_TYPE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Inbound Endpoint Group</b></em>' attribute list.
@@ -1173,7 +1136,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getAsyncReplyRouterType()
 	 * @generated
 	 */
-	int ASYNC_REPLY_ROUTER_TYPE = 35;
+	int ASYNC_REPLY_ROUTER_TYPE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Inbound Endpoint Group</b></em>' attribute list.
@@ -1237,7 +1200,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getBaseContainerContextType()
 	 * @generated
 	 */
-	int BASE_CONTAINER_CONTEXT_TYPE = 36;
+	int BASE_CONTAINER_CONTEXT_TYPE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Any</b></em>' attribute list.
@@ -1265,7 +1228,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getBaseEntryPointResolverType()
 	 * @generated
 	 */
-	int BASE_ENTRY_POINT_RESOLVER_TYPE = 37;
+	int BASE_ENTRY_POINT_RESOLVER_TYPE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Accept Void Methods</b></em>' attribute.
@@ -1302,7 +1265,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getBaseServiceType()
 	 * @generated
 	 */
-	int BASE_SERVICE_TYPE = 38;
+	int BASE_SERVICE_TYPE = 37;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1411,7 +1374,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getOutboundRouterType()
 	 * @generated
 	 */
-	int OUTBOUND_ROUTER_TYPE = 106;
+	int OUTBOUND_ROUTER_TYPE = 103;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -1511,7 +1474,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getFilteringOutboundRouterType()
 	 * @generated
 	 */
-	int FILTERING_OUTBOUND_ROUTER_TYPE = 78;
+	int FILTERING_OUTBOUND_ROUTER_TYPE = 76;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -1656,7 +1619,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getChunkingRouterType()
 	 * @generated
 	 */
-	int CHUNKING_ROUTER_TYPE = 39;
+	int CHUNKING_ROUTER_TYPE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -1819,7 +1782,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCollectionFilterType()
 	 * @generated
 	 */
-	int COLLECTION_FILTER_TYPE = 40;
+	int COLLECTION_FILTER_TYPE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1874,7 +1837,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getReflectionEntryPointResolverType()
 	 * @generated
 	 */
-	int REFLECTION_ENTRY_POINT_RESOLVER_TYPE = 119;
+	int REFLECTION_ENTRY_POINT_RESOLVER_TYPE = 116;
 
 	/**
 	 * The feature id for the '<em><b>Accept Void Methods</b></em>' attribute.
@@ -1929,7 +1892,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getComplexEntryPointResolverType()
 	 * @generated
 	 */
-	int COMPLEX_ENTRY_POINT_RESOLVER_TYPE = 41;
+	int COMPLEX_ENTRY_POINT_RESOLVER_TYPE = 40;
 
 	/**
 	 * The feature id for the '<em><b>Accept Void Methods</b></em>' attribute.
@@ -2002,7 +1965,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getConnectionStrategyType()
 	 * @generated
 	 */
-	int CONNECTION_STRATEGY_TYPE = 42;
+	int CONNECTION_STRATEGY_TYPE = 41;
 
 	/**
 	 * The number of structural features of the '<em>Connection Strategy Type</em>' class.
@@ -2021,7 +1984,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getConnectorType()
 	 * @generated
 	 */
-	int CONNECTOR_TYPE = 43;
+	int CONNECTOR_TYPE = 42;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2132,52 +2095,6 @@ public interface CorePackage extends EPackage {
 	int CONNECTOR_TYPE_FEATURE_COUNT = ABSTRACT_CONNECTOR_TYPE_FEATURE_COUNT + 10;
 
 	/**
-	 * The meta object id for the '{@link org.mule.ide.config.core.impl.ContainerContextTypeImpl <em>Container Context Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.mule.ide.config.core.impl.ContainerContextTypeImpl
-	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getContainerContextType()
-	 * @generated
-	 */
-	int CONTAINER_CONTEXT_TYPE = 44;
-
-	/**
-	 * The feature id for the '<em><b>Any</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_CONTEXT_TYPE__ANY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_CONTEXT_TYPE__CLASS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_CONTEXT_TYPE__NAME = 2;
-
-	/**
-	 * The number of structural features of the '<em>Container Context Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_CONTEXT_TYPE_FEATURE_COUNT = 3;
-
-	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.impl.FilteredInboundRouterTypeImpl <em>Filtered Inbound Router Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2185,7 +2102,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getFilteredInboundRouterType()
 	 * @generated
 	 */
-	int FILTERED_INBOUND_ROUTER_TYPE = 77;
+	int FILTERED_INBOUND_ROUTER_TYPE = 75;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.impl.MessageChunkingAggregatorRouterTypeImpl <em>Message Chunking Aggregator Router Type</em>}' class.
@@ -2195,7 +2112,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getMessageChunkingAggregatorRouterType()
 	 * @generated
 	 */
-	int MESSAGE_CHUNKING_AGGREGATOR_ROUTER_TYPE = 95;
+	int MESSAGE_CHUNKING_AGGREGATOR_ROUTER_TYPE = 93;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.impl.CustomCorrelationAggregatorRouterTypeImpl <em>Custom Correlation Aggregator Router Type</em>}' class.
@@ -2205,7 +2122,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomCorrelationAggregatorRouterType()
 	 * @generated
 	 */
-	int CUSTOM_CORRELATION_AGGREGATOR_ROUTER_TYPE = 50;
+	int CUSTOM_CORRELATION_AGGREGATOR_ROUTER_TYPE = 48;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.impl.CustomAsyncReplyRouterTypeImpl <em>Custom Async Reply Router Type</em>}' class.
@@ -2215,7 +2132,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomAsyncReplyRouterType()
 	 * @generated
 	 */
-	int CUSTOM_ASYNC_REPLY_ROUTER_TYPE = 45;
+	int CUSTOM_ASYNC_REPLY_ROUTER_TYPE = 43;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Inbound Endpoint Group</b></em>' attribute list.
@@ -2297,7 +2214,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomCatchAllStrategyType()
 	 * @generated
 	 */
-	int CUSTOM_CATCH_ALL_STRATEGY_TYPE = 46;
+	int CUSTOM_CATCH_ALL_STRATEGY_TYPE = 44;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -2334,7 +2251,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomConnectionStrategyType()
 	 * @generated
 	 */
-	int CUSTOM_CONNECTION_STRATEGY_TYPE = 47;
+	int CUSTOM_CONNECTION_STRATEGY_TYPE = 45;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -2371,7 +2288,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomConnectorType()
 	 * @generated
 	 */
-	int CUSTOM_CONNECTOR_TYPE = 48;
+	int CUSTOM_CONNECTOR_TYPE = 46;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2498,7 +2415,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomContainerContextType()
 	 * @generated
 	 */
-	int CUSTOM_CONTAINER_CONTEXT_TYPE = 49;
+	int CUSTOM_CONTAINER_CONTEXT_TYPE = 47;
 
 	/**
 	 * The feature id for the '<em><b>Any</b></em>' attribute list.
@@ -2733,7 +2650,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEncryptionStrategyType()
 	 * @generated
 	 */
-	int ENCRYPTION_STRATEGY_TYPE = 72;
+	int ENCRYPTION_STRATEGY_TYPE = 70;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2761,7 +2678,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomEncryptionStrategyType()
 	 * @generated
 	 */
-	int CUSTOM_ENCRYPTION_STRATEGY_TYPE = 51;
+	int CUSTOM_ENCRYPTION_STRATEGY_TYPE = 49;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2807,7 +2724,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomEntryPointResolverSetType()
 	 * @generated
 	 */
-	int CUSTOM_ENTRY_POINT_RESOLVER_SET_TYPE = 52;
+	int CUSTOM_ENTRY_POINT_RESOLVER_SET_TYPE = 50;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -2844,7 +2761,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomEntryPointResolverType()
 	 * @generated
 	 */
-	int CUSTOM_ENTRY_POINT_RESOLVER_TYPE = 53;
+	int CUSTOM_ENTRY_POINT_RESOLVER_TYPE = 51;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -2881,7 +2798,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getExceptionStrategyType()
 	 * @generated
 	 */
-	int EXCEPTION_STRATEGY_TYPE = 75;
+	int EXCEPTION_STRATEGY_TYPE = 73;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -2918,7 +2835,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomExceptionStrategyType()
 	 * @generated
 	 */
-	int CUSTOM_EXCEPTION_STRATEGY_TYPE = 54;
+	int CUSTOM_EXCEPTION_STRATEGY_TYPE = 52;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -2973,7 +2890,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomFilterType()
 	 * @generated
 	 */
-	int CUSTOM_FILTER_TYPE = 55;
+	int CUSTOM_FILTER_TYPE = 53;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3028,7 +2945,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getForwardingCatchAllStrategyType()
 	 * @generated
 	 */
-	int FORWARDING_CATCH_ALL_STRATEGY_TYPE = 79;
+	int FORWARDING_CATCH_ALL_STRATEGY_TYPE = 77;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -3065,7 +2982,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomForwardingCatchAllStrategyType()
 	 * @generated
 	 */
-	int CUSTOM_FORWARDING_CATCH_ALL_STRATEGY_TYPE = 56;
+	int CUSTOM_FORWARDING_CATCH_ALL_STRATEGY_TYPE = 54;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -3120,7 +3037,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomInboundRouterType()
 	 * @generated
 	 */
-	int CUSTOM_INBOUND_ROUTER_TYPE = 57;
+	int CUSTOM_INBOUND_ROUTER_TYPE = 55;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Filter Group</b></em>' attribute list.
@@ -3220,7 +3137,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomOutboundRouterType()
 	 * @generated
 	 */
-	int CUSTOM_OUTBOUND_ROUTER_TYPE = 58;
+	int CUSTOM_OUTBOUND_ROUTER_TYPE = 56;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -3383,7 +3300,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomPropertyExtractorType()
 	 * @generated
 	 */
-	int CUSTOM_PROPERTY_EXTRACTOR_TYPE = 59;
+	int CUSTOM_PROPERTY_EXTRACTOR_TYPE = 57;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -3420,7 +3337,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSecurityProviderType()
 	 * @generated
 	 */
-	int SECURITY_PROVIDER_TYPE = 127;
+	int SECURITY_PROVIDER_TYPE = 124;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3448,7 +3365,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomSecurityProviderType()
 	 * @generated
 	 */
-	int CUSTOM_SECURITY_PROVIDER_TYPE = 60;
+	int CUSTOM_SECURITY_PROVIDER_TYPE = 58;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3494,7 +3411,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getJndiTransactionManagerType()
 	 * @generated
 	 */
-	int JNDI_TRANSACTION_MANAGER_TYPE = 88;
+	int JNDI_TRANSACTION_MANAGER_TYPE = 86;
 
 	/**
 	 * The feature id for the '<em><b>Environment</b></em>' containment reference.
@@ -3522,7 +3439,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomTransactionManagerType()
 	 * @generated
 	 */
-	int CUSTOM_TRANSACTION_MANAGER_TYPE = 61;
+	int CUSTOM_TRANSACTION_MANAGER_TYPE = 59;
 
 	/**
 	 * The feature id for the '<em><b>Environment</b></em>' containment reference.
@@ -3568,7 +3485,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomTransactionType()
 	 * @generated
 	 */
-	int CUSTOM_TRANSACTION_TYPE = 62;
+	int CUSTOM_TRANSACTION_TYPE = 60;
 
 	/**
 	 * The feature id for the '<em><b>Action</b></em>' attribute.
@@ -3623,7 +3540,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getCustomTransformerType()
 	 * @generated
 	 */
-	int CUSTOM_TRANSFORMER_TYPE = 63;
+	int CUSTOM_TRANSFORMER_TYPE = 61;
 
 	/**
 	 * The feature id for the '<em><b>Ignore Bad Input</b></em>' attribute.
@@ -3687,7 +3604,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPooledObjectFactoryType()
 	 * @generated
 	 */
-	int POOLED_OBJECT_FACTORY_TYPE = 111;
+	int POOLED_OBJECT_FACTORY_TYPE = 108;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.impl.DefaultComponentTypeImpl <em>Default Component Type</em>}' class.
@@ -3697,7 +3614,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getDefaultComponentType()
 	 * @generated
 	 */
-	int DEFAULT_COMPONENT_TYPE = 64;
+	int DEFAULT_COMPONENT_TYPE = 62;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Entry Point Resolver Set Group</b></em>' attribute list.
@@ -3752,7 +3669,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSedaModelType()
 	 * @generated
 	 */
-	int SEDA_MODEL_TYPE = 128;
+	int SEDA_MODEL_TYPE = 125;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Exception Strategy Group</b></em>' attribute list.
@@ -3897,7 +3814,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getDefaultModelType()
 	 * @generated
 	 */
-	int DEFAULT_MODEL_TYPE = 65;
+	int DEFAULT_MODEL_TYPE = 63;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Exception Strategy Group</b></em>' attribute list.
@@ -4042,7 +3959,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSedaServiceType()
 	 * @generated
 	 */
-	int SEDA_SERVICE_TYPE = 129;
+	int SEDA_SERVICE_TYPE = 126;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4196,7 +4113,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getDefaultServiceType()
 	 * @generated
 	 */
-	int DEFAULT_SERVICE_TYPE = 66;
+	int DEFAULT_SERVICE_TYPE = 64;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4350,7 +4267,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getDefineNotificationType()
 	 * @generated
 	 */
-	int DEFINE_NOTIFICATION_TYPE = 67;
+	int DEFINE_NOTIFICATION_TYPE = 65;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' attribute.
@@ -4405,7 +4322,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getDescriptionType()
 	 * @generated
 	 */
-	int DESCRIPTION_TYPE = 68;
+	int DESCRIPTION_TYPE = 66;
 
 	/**
 	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -4433,7 +4350,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getDisableNotificationType()
 	 * @generated
 	 */
-	int DISABLE_NOTIFICATION_TYPE = 69;
+	int DISABLE_NOTIFICATION_TYPE = 67;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' attribute.
@@ -4488,7 +4405,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getDocumentRoot()
 	 * @generated
 	 */
-	int DOCUMENT_ROOT = 70;
+	int DOCUMENT_ROOT = 68;
 
 	/**
 	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -5499,22 +5416,13 @@ public interface CorePackage extends EPackage {
 	int DOCUMENT_ROOT__MULE = 111;
 
 	/**
-	 * The feature id for the '<em><b>Mule Unsafe</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__MULE_UNSAFE = 112;
-
-	/**
 	 * The feature id for the '<em><b>Multicasting Router</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__MULTICASTING_ROUTER = 113;
+	int DOCUMENT_ROOT__MULTICASTING_ROUTER = 112;
 
 	/**
 	 * The feature id for the '<em><b>No Action Transformer</b></em>' containment reference.
@@ -5523,7 +5431,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__NO_ACTION_TRANSFORMER = 114;
+	int DOCUMENT_ROOT__NO_ACTION_TRANSFORMER = 113;
 
 	/**
 	 * The feature id for the '<em><b>No Arguments Entry Point Resolver</b></em>' containment reference.
@@ -5532,7 +5440,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__NO_ARGUMENTS_ENTRY_POINT_RESOLVER = 115;
+	int DOCUMENT_ROOT__NO_ARGUMENTS_ENTRY_POINT_RESOLVER = 114;
 
 	/**
 	 * The feature id for the '<em><b>Not Filter</b></em>' containment reference.
@@ -5541,7 +5449,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__NOT_FILTER = 116;
+	int DOCUMENT_ROOT__NOT_FILTER = 115;
 
 	/**
 	 * The feature id for the '<em><b>Notification</b></em>' containment reference.
@@ -5550,7 +5458,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__NOTIFICATION = 117;
+	int DOCUMENT_ROOT__NOTIFICATION = 116;
 
 	/**
 	 * The feature id for the '<em><b>Null Component</b></em>' containment reference.
@@ -5559,7 +5467,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__NULL_COMPONENT = 118;
+	int DOCUMENT_ROOT__NULL_COMPONENT = 117;
 
 	/**
 	 * The feature id for the '<em><b>Object To Byte Array Transformer</b></em>' containment reference.
@@ -5568,7 +5476,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__OBJECT_TO_BYTE_ARRAY_TRANSFORMER = 119;
+	int DOCUMENT_ROOT__OBJECT_TO_BYTE_ARRAY_TRANSFORMER = 118;
 
 	/**
 	 * The feature id for the '<em><b>Object To String Transformer</b></em>' containment reference.
@@ -5577,7 +5485,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__OBJECT_TO_STRING_TRANSFORMER = 120;
+	int DOCUMENT_ROOT__OBJECT_TO_STRING_TRANSFORMER = 119;
 
 	/**
 	 * The feature id for the '<em><b>Or Filter</b></em>' containment reference.
@@ -5586,7 +5494,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__OR_FILTER = 121;
+	int DOCUMENT_ROOT__OR_FILTER = 120;
 
 	/**
 	 * The feature id for the '<em><b>Outbound Endpoint</b></em>' containment reference.
@@ -5595,7 +5503,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__OUTBOUND_ENDPOINT = 122;
+	int DOCUMENT_ROOT__OUTBOUND_ENDPOINT = 121;
 
 	/**
 	 * The feature id for the '<em><b>Outbound Pass Through Router</b></em>' containment reference.
@@ -5604,7 +5512,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__OUTBOUND_PASS_THROUGH_ROUTER = 123;
+	int DOCUMENT_ROOT__OUTBOUND_PASS_THROUGH_ROUTER = 122;
 
 	/**
 	 * The feature id for the '<em><b>Pass Through Component</b></em>' containment reference.
@@ -5613,7 +5521,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PASS_THROUGH_COMPONENT = 124;
+	int DOCUMENT_ROOT__PASS_THROUGH_COMPONENT = 123;
 
 	/**
 	 * The feature id for the '<em><b>Payload Property Extractor</b></em>' containment reference.
@@ -5622,7 +5530,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PAYLOAD_PROPERTY_EXTRACTOR = 125;
+	int DOCUMENT_ROOT__PAYLOAD_PROPERTY_EXTRACTOR = 124;
 
 	/**
 	 * The feature id for the '<em><b>Payload Type Filter</b></em>' containment reference.
@@ -5631,7 +5539,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PAYLOAD_TYPE_FILTER = 126;
+	int DOCUMENT_ROOT__PAYLOAD_TYPE_FILTER = 125;
 
 	/**
 	 * The feature id for the '<em><b>Pico Container</b></em>' containment reference.
@@ -5640,7 +5548,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PICO_CONTAINER = 127;
+	int DOCUMENT_ROOT__PICO_CONTAINER = 126;
 
 	/**
 	 * The feature id for the '<em><b>Plexus Container</b></em>' containment reference.
@@ -5649,7 +5557,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PLEXUS_CONTAINER = 128;
+	int DOCUMENT_ROOT__PLEXUS_CONTAINER = 127;
 
 	/**
 	 * The feature id for the '<em><b>Pooled Object</b></em>' containment reference.
@@ -5658,7 +5566,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__POOLED_OBJECT = 129;
+	int DOCUMENT_ROOT__POOLED_OBJECT = 128;
 
 	/**
 	 * The feature id for the '<em><b>Pooling Profile</b></em>' containment reference.
@@ -5667,7 +5575,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__POOLING_PROFILE = 130;
+	int DOCUMENT_ROOT__POOLING_PROFILE = 129;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference.
@@ -5676,7 +5584,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PROPERTIES = 131;
+	int DOCUMENT_ROOT__PROPERTIES = 130;
 
 	/**
 	 * The feature id for the '<em><b>Properties Container</b></em>' containment reference.
@@ -5685,7 +5593,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PROPERTIES_CONTAINER = 132;
+	int DOCUMENT_ROOT__PROPERTIES_CONTAINER = 131;
 
 	/**
 	 * The feature id for the '<em><b>Property Entry Point Resolver</b></em>' containment reference.
@@ -5694,7 +5602,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PROPERTY_ENTRY_POINT_RESOLVER = 133;
+	int DOCUMENT_ROOT__PROPERTY_ENTRY_POINT_RESOLVER = 132;
 
 	/**
 	 * The feature id for the '<em><b>Prototype Object</b></em>' containment reference.
@@ -5703,7 +5611,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PROTOTYPE_OBJECT = 134;
+	int DOCUMENT_ROOT__PROTOTYPE_OBJECT = 133;
 
 	/**
 	 * The feature id for the '<em><b>Queue Profile</b></em>' containment reference.
@@ -5712,7 +5620,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__QUEUE_PROFILE = 135;
+	int DOCUMENT_ROOT__QUEUE_PROFILE = 134;
 
 	/**
 	 * The feature id for the '<em><b>Reflection Entry Point Resolver</b></em>' containment reference.
@@ -5721,7 +5629,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__REFLECTION_ENTRY_POINT_RESOLVER = 136;
+	int DOCUMENT_ROOT__REFLECTION_ENTRY_POINT_RESOLVER = 135;
 
 	/**
 	 * The feature id for the '<em><b>Regex Filter</b></em>' containment reference.
@@ -5730,7 +5638,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__REGEX_FILTER = 137;
+	int DOCUMENT_ROOT__REGEX_FILTER = 136;
 
 	/**
 	 * The feature id for the '<em><b>Resin Transaction Manager</b></em>' containment reference.
@@ -5739,7 +5647,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER = 138;
+	int DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER = 137;
 
 	/**
 	 * The feature id for the '<em><b>Retry Connection Strategy</b></em>' containment reference.
@@ -5748,7 +5656,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY = 139;
+	int DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY = 138;
 
 	/**
 	 * The feature id for the '<em><b>Rmi Container</b></em>' containment reference.
@@ -5757,7 +5665,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__RMI_CONTAINER = 140;
+	int DOCUMENT_ROOT__RMI_CONTAINER = 139;
 
 	/**
 	 * The feature id for the '<em><b>Security Manager</b></em>' containment reference.
@@ -5766,7 +5674,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__SECURITY_MANAGER = 141;
+	int DOCUMENT_ROOT__SECURITY_MANAGER = 140;
 
 	/**
 	 * The feature id for the '<em><b>Seda Model</b></em>' containment reference.
@@ -5775,7 +5683,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__SEDA_MODEL = 142;
+	int DOCUMENT_ROOT__SEDA_MODEL = 141;
 
 	/**
 	 * The feature id for the '<em><b>Selective Consumer Router</b></em>' containment reference.
@@ -5784,7 +5692,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__SELECTIVE_CONSUMER_ROUTER = 143;
+	int DOCUMENT_ROOT__SELECTIVE_CONSUMER_ROUTER = 142;
 
 	/**
 	 * The feature id for the '<em><b>Serializable To Byte Array Transformer</b></em>' containment reference.
@@ -5793,7 +5701,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__SERIALIZABLE_TO_BYTE_ARRAY_TRANSFORMER = 144;
+	int DOCUMENT_ROOT__SERIALIZABLE_TO_BYTE_ARRAY_TRANSFORMER = 143;
 
 	/**
 	 * The feature id for the '<em><b>Service</b></em>' containment reference.
@@ -5802,7 +5710,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__SERVICE = 145;
+	int DOCUMENT_ROOT__SERVICE = 144;
 
 	/**
 	 * The feature id for the '<em><b>Single Async Reply Router</b></em>' containment reference.
@@ -5811,7 +5719,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__SINGLE_ASYNC_REPLY_ROUTER = 146;
+	int DOCUMENT_ROOT__SINGLE_ASYNC_REPLY_ROUTER = 145;
 
 	/**
 	 * The feature id for the '<em><b>Singleton Object</b></em>' containment reference.
@@ -5820,7 +5728,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__SINGLETON_OBJECT = 147;
+	int DOCUMENT_ROOT__SINGLETON_OBJECT = 146;
 
 	/**
 	 * The feature id for the '<em><b>Spring Object</b></em>' containment reference.
@@ -5829,7 +5737,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__SPRING_OBJECT = 148;
+	int DOCUMENT_ROOT__SPRING_OBJECT = 147;
 
 	/**
 	 * The feature id for the '<em><b>Static Recipient List Router</b></em>' containment reference.
@@ -5838,7 +5746,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__STATIC_RECIPIENT_LIST_ROUTER = 149;
+	int DOCUMENT_ROOT__STATIC_RECIPIENT_LIST_ROUTER = 148;
 
 	/**
 	 * The feature id for the '<em><b>String To Byte Array Transformer</b></em>' containment reference.
@@ -5847,7 +5755,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__STRING_TO_BYTE_ARRAY_TRANSFORMER = 150;
+	int DOCUMENT_ROOT__STRING_TO_BYTE_ARRAY_TRANSFORMER = 149;
 
 	/**
 	 * The feature id for the '<em><b>Template Endpoint Router</b></em>' containment reference.
@@ -5856,7 +5764,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__TEMPLATE_ENDPOINT_ROUTER = 151;
+	int DOCUMENT_ROOT__TEMPLATE_ENDPOINT_ROUTER = 150;
 
 	/**
 	 * The feature id for the '<em><b>Transformer</b></em>' containment reference.
@@ -5865,7 +5773,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__TRANSFORMER = 152;
+	int DOCUMENT_ROOT__TRANSFORMER = 151;
 
 	/**
 	 * The feature id for the '<em><b>Uc Decoder Transformer</b></em>' containment reference.
@@ -5874,7 +5782,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__UC_DECODER_TRANSFORMER = 153;
+	int DOCUMENT_ROOT__UC_DECODER_TRANSFORMER = 152;
 
 	/**
 	 * The feature id for the '<em><b>Uc Encoder Transformer</b></em>' containment reference.
@@ -5883,7 +5791,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__UC_ENCODER_TRANSFORMER = 154;
+	int DOCUMENT_ROOT__UC_ENCODER_TRANSFORMER = 153;
 
 	/**
 	 * The feature id for the '<em><b>Uu Decoder Transformer</b></em>' containment reference.
@@ -5892,7 +5800,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__UU_DECODER_TRANSFORMER = 155;
+	int DOCUMENT_ROOT__UU_DECODER_TRANSFORMER = 154;
 
 	/**
 	 * The feature id for the '<em><b>Uu Encoder Transformer</b></em>' containment reference.
@@ -5901,7 +5809,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__UU_ENCODER_TRANSFORMER = 156;
+	int DOCUMENT_ROOT__UU_ENCODER_TRANSFORMER = 155;
 
 	/**
 	 * The feature id for the '<em><b>Weblogic Transaction Manager</b></em>' containment reference.
@@ -5910,7 +5818,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__WEBLOGIC_TRANSACTION_MANAGER = 157;
+	int DOCUMENT_ROOT__WEBLOGIC_TRANSACTION_MANAGER = 156;
 
 	/**
 	 * The feature id for the '<em><b>Websphere Transaction Manager</b></em>' containment reference.
@@ -5919,7 +5827,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__WEBSPHERE_TRANSACTION_MANAGER = 158;
+	int DOCUMENT_ROOT__WEBSPHERE_TRANSACTION_MANAGER = 157;
 
 	/**
 	 * The feature id for the '<em><b>Wildcard Filter</b></em>' containment reference.
@@ -5928,7 +5836,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__WILDCARD_FILTER = 159;
+	int DOCUMENT_ROOT__WILDCARD_FILTER = 158;
 
 	/**
 	 * The feature id for the '<em><b>Wire Tap Router</b></em>' containment reference.
@@ -5937,7 +5845,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__WIRE_TAP_ROUTER = 160;
+	int DOCUMENT_ROOT__WIRE_TAP_ROUTER = 159;
 
 	/**
 	 * The feature id for the '<em><b>Xml Entity Decoder Transformer</b></em>' containment reference.
@@ -5946,7 +5854,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__XML_ENTITY_DECODER_TRANSFORMER = 161;
+	int DOCUMENT_ROOT__XML_ENTITY_DECODER_TRANSFORMER = 160;
 
 	/**
 	 * The feature id for the '<em><b>Xml Entity Encoder Transformer</b></em>' containment reference.
@@ -5955,7 +5863,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__XML_ENTITY_ENCODER_TRANSFORMER = 162;
+	int DOCUMENT_ROOT__XML_ENTITY_ENCODER_TRANSFORMER = 161;
 
 	/**
 	 * The number of structural features of the '<em>Document Root</em>' class.
@@ -5964,7 +5872,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT_FEATURE_COUNT = 163;
+	int DOCUMENT_ROOT_FEATURE_COUNT = 162;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.impl.EncryptionSecurityFilterTypeImpl <em>Encryption Security Filter Type</em>}' class.
@@ -5974,7 +5882,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEncryptionSecurityFilterType()
 	 * @generated
 	 */
-	int ENCRYPTION_SECURITY_FILTER_TYPE = 71;
+	int ENCRYPTION_SECURITY_FILTER_TYPE = 69;
 
 	/**
 	 * The feature id for the '<em><b>Strategy Ref</b></em>' attribute.
@@ -6002,7 +5910,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEndpointSelectorRouterType()
 	 * @generated
 	 */
-	int ENDPOINT_SELECTOR_ROUTER_TYPE = 73;
+	int ENDPOINT_SELECTOR_ROUTER_TYPE = 71;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -6156,7 +6064,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEnvironmentPropertyType()
 	 * @generated
 	 */
-	int ENVIRONMENT_PROPERTY_TYPE = 74;
+	int ENVIRONMENT_PROPERTY_TYPE = 72;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6193,7 +6101,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getExtensibleEntryPointResolverSet()
 	 * @generated
 	 */
-	int EXTENSIBLE_ENTRY_POINT_RESOLVER_SET = 76;
+	int EXTENSIBLE_ENTRY_POINT_RESOLVER_SET = 74;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Entry Point Resolver Group</b></em>' attribute list.
@@ -6230,7 +6138,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getForwardingRouterType()
 	 * @generated
 	 */
-	int FORWARDING_ROUTER_TYPE = 80;
+	int FORWARDING_ROUTER_TYPE = 78;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Filter Group</b></em>' attribute list.
@@ -6312,7 +6220,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getGenericObjectFactoryType()
 	 * @generated
 	 */
-	int GENERIC_OBJECT_FACTORY_TYPE = 81;
+	int GENERIC_OBJECT_FACTORY_TYPE = 79;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Object Factory Group</b></em>' attribute list.
@@ -6349,7 +6257,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getGlobalEndpointType()
 	 * @generated
 	 */
-	int GLOBAL_ENDPOINT_TYPE = 82;
+	int GLOBAL_ENDPOINT_TYPE = 80;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6593,7 +6501,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getIdempotentReceiverRouterType()
 	 * @generated
 	 */
-	int IDEMPOTENT_RECEIVER_ROUTER_TYPE = 83;
+	int IDEMPOTENT_RECEIVER_ROUTER_TYPE = 81;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Filter Group</b></em>' attribute list.
@@ -6675,7 +6583,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInboundCollectionType()
 	 * @generated
 	 */
-	int INBOUND_COLLECTION_TYPE = 84;
+	int INBOUND_COLLECTION_TYPE = 82;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Catch All Strategy Group</b></em>' attribute list.
@@ -6757,7 +6665,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInboundEndpointType()
 	 * @generated
 	 */
-	int INBOUND_ENDPOINT_TYPE = 85;
+	int INBOUND_ENDPOINT_TYPE = 83;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -7001,7 +6909,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getIocContainerContextType()
 	 * @generated
 	 */
-	int IOC_CONTAINER_CONTEXT_TYPE = 86;
+	int IOC_CONTAINER_CONTEXT_TYPE = 84;
 
 	/**
 	 * The feature id for the '<em><b>Any</b></em>' attribute list.
@@ -7047,7 +6955,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getJndiConnectorType()
 	 * @generated
 	 */
-	int JNDI_CONNECTOR_TYPE = 87;
+	int JNDI_CONNECTOR_TYPE = 85;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -7219,7 +7127,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getKeyType()
 	 * @generated
 	 */
-	int KEY_TYPE = 89;
+	int KEY_TYPE = 87;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -7247,7 +7155,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getKeyValueType()
 	 * @generated
 	 */
-	int KEY_VALUE_TYPE = 90;
+	int KEY_VALUE_TYPE = 88;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -7293,7 +7201,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getListOrSetType()
 	 * @generated
 	 */
-	int LIST_OR_SET_TYPE = 91;
+	int LIST_OR_SET_TYPE = 89;
 
 	/**
 	 * The feature id for the '<em><b>Merge</b></em>' attribute.
@@ -7429,7 +7337,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getLoggingCatchAllStrategyType()
 	 * @generated
 	 */
-	int LOGGING_CATCH_ALL_STRATEGY_TYPE = 92;
+	int LOGGING_CATCH_ALL_STRATEGY_TYPE = 90;
 
 	/**
 	 * The number of structural features of the '<em>Logging Catch All Strategy Type</em>' class.
@@ -7448,7 +7356,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getManagementContextType()
 	 * @generated
 	 */
-	int MANAGEMENT_CONTEXT_TYPE = 93;
+	int MANAGEMENT_CONTEXT_TYPE = 91;
 
 	/**
 	 * The feature id for the '<em><b>Default Threading Profile</b></em>' containment reference.
@@ -7611,7 +7519,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getMapType()
 	 * @generated
 	 */
-	int MAP_TYPE = 94;
+	int MAP_TYPE = 92;
 
 	/**
 	 * The feature id for the '<em><b>Merge</b></em>' attribute.
@@ -7675,7 +7583,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getMessagePropertiesTransformerType()
 	 * @generated
 	 */
-	int MESSAGE_PROPERTIES_TRANSFORMER_TYPE = 96;
+	int MESSAGE_PROPERTIES_TRANSFORMER_TYPE = 94;
 
 	/**
 	 * The feature id for the '<em><b>Ignore Bad Input</b></em>' attribute.
@@ -7757,7 +7665,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getMessageSplitterOutboundRouterType()
 	 * @generated
 	 */
-	int MESSAGE_SPLITTER_OUTBOUND_ROUTER_TYPE = 97;
+	int MESSAGE_SPLITTER_OUTBOUND_ROUTER_TYPE = 95;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -7911,7 +7819,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getMethodEntryPointResolverType()
 	 * @generated
 	 */
-	int METHOD_ENTRY_POINT_RESOLVER_TYPE = 98;
+	int METHOD_ENTRY_POINT_RESOLVER_TYPE = 96;
 
 	/**
 	 * The feature id for the '<em><b>Accept Void Methods</b></em>' attribute.
@@ -7957,7 +7865,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getMethodType()
 	 * @generated
 	 */
-	int METHOD_TYPE = 99;
+	int METHOD_TYPE = 97;
 
 	/**
 	 * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -7985,7 +7893,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getMuleType()
 	 * @generated
 	 */
-	int MULE_TYPE = 100;
+	int MULE_TYPE = 98;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
@@ -8006,22 +7914,13 @@ public interface CorePackage extends EPackage {
 	int MULE_TYPE__ENVIRONMENT_PROPERTY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Admin Agent</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_TYPE__ADMIN_AGENT = 2;
-
-	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__CONFIGURATION = 3;
+	int MULE_TYPE__CONFIGURATION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Notifications</b></em>' containment reference list.
@@ -8030,7 +7929,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__NOTIFICATIONS = 4;
+	int MULE_TYPE__NOTIFICATIONS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference list.
@@ -8039,7 +7938,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__DESCRIPTION = 5;
+	int MULE_TYPE__DESCRIPTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Extension Group</b></em>' attribute list.
@@ -8048,7 +7947,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_EXTENSION_GROUP = 6;
+	int MULE_TYPE__ABSTRACT_EXTENSION_GROUP = 5;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Extension</b></em>' containment reference list.
@@ -8057,7 +7956,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_EXTENSION = 7;
+	int MULE_TYPE__ABSTRACT_EXTENSION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Security Manager Group</b></em>' attribute list.
@@ -8066,7 +7965,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_SECURITY_MANAGER_GROUP = 8;
+	int MULE_TYPE__ABSTRACT_SECURITY_MANAGER_GROUP = 7;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Security Manager</b></em>' containment reference list.
@@ -8075,7 +7974,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_SECURITY_MANAGER = 9;
+	int MULE_TYPE__ABSTRACT_SECURITY_MANAGER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Transaction Manager Group</b></em>' attribute list.
@@ -8084,7 +7983,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_TRANSACTION_MANAGER_GROUP = 10;
+	int MULE_TYPE__ABSTRACT_TRANSACTION_MANAGER_GROUP = 9;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Transaction Manager</b></em>' containment reference list.
@@ -8093,7 +7992,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_TRANSACTION_MANAGER = 11;
+	int MULE_TYPE__ABSTRACT_TRANSACTION_MANAGER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Connector Group</b></em>' attribute list.
@@ -8102,7 +8001,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_CONNECTOR_GROUP = 12;
+	int MULE_TYPE__ABSTRACT_CONNECTOR_GROUP = 11;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Connector</b></em>' containment reference list.
@@ -8111,7 +8010,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_CONNECTOR = 13;
+	int MULE_TYPE__ABSTRACT_CONNECTOR = 12;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Global Endpoint Group</b></em>' attribute list.
@@ -8120,7 +8019,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_GLOBAL_ENDPOINT_GROUP = 14;
+	int MULE_TYPE__ABSTRACT_GLOBAL_ENDPOINT_GROUP = 13;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Global Endpoint</b></em>' containment reference list.
@@ -8129,7 +8028,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_GLOBAL_ENDPOINT = 15;
+	int MULE_TYPE__ABSTRACT_GLOBAL_ENDPOINT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Transformer Group</b></em>' attribute list.
@@ -8138,7 +8037,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_TRANSFORMER_GROUP = 16;
+	int MULE_TYPE__ABSTRACT_TRANSFORMER_GROUP = 15;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Transformer</b></em>' containment reference list.
@@ -8147,7 +8046,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_TRANSFORMER = 17;
+	int MULE_TYPE__ABSTRACT_TRANSFORMER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Filter Group</b></em>' attribute list.
@@ -8156,7 +8055,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_FILTER_GROUP = 18;
+	int MULE_TYPE__ABSTRACT_FILTER_GROUP = 17;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Filter</b></em>' containment reference list.
@@ -8165,7 +8064,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_FILTER = 19;
+	int MULE_TYPE__ABSTRACT_FILTER = 18;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Model Group</b></em>' attribute list.
@@ -8174,7 +8073,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_MODEL_GROUP = 20;
+	int MULE_TYPE__ABSTRACT_MODEL_GROUP = 19;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Model</b></em>' containment reference list.
@@ -8183,7 +8082,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__ABSTRACT_MODEL = 21;
+	int MULE_TYPE__ABSTRACT_MODEL = 20;
 
 	/**
 	 * The feature id for the '<em><b>Beans</b></em>' containment reference list.
@@ -8192,7 +8091,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__BEANS = 22;
+	int MULE_TYPE__BEANS = 21;
 
 	/**
 	 * The feature id for the '<em><b>Bean</b></em>' containment reference list.
@@ -8201,7 +8100,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__BEAN = 23;
+	int MULE_TYPE__BEAN = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -8210,7 +8109,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE__NAME = 24;
+	int MULE_TYPE__NAME = 23;
 
 	/**
 	 * The number of structural features of the '<em>Mule Type</em>' class.
@@ -8219,242 +8118,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULE_TYPE_FEATURE_COUNT = 25;
-
-	/**
-	 * The meta object id for the '{@link org.mule.ide.config.core.impl.MuleUnsafeTypeImpl <em>Mule Unsafe Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.mule.ide.config.core.impl.MuleUnsafeTypeImpl
-	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getMuleUnsafeType()
-	 * @generated
-	 */
-	int MULE_UNSAFE_TYPE = 101;
-
-	/**
-	 * The feature id for the '<em><b>Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__GROUP = 0;
-
-	/**
-	 * The feature id for the '<em><b>Environment Property</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ENVIRONMENT_PROPERTY = 1;
-
-	/**
-	 * The feature id for the '<em><b>Admin Agent</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ADMIN_AGENT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__CONFIGURATION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Notifications</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__NOTIFICATIONS = 4;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__DESCRIPTION = 5;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Extension Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_EXTENSION_GROUP = 6;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Extension</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_EXTENSION = 7;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Security Manager Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_SECURITY_MANAGER_GROUP = 8;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Security Manager</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_SECURITY_MANAGER = 9;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Transaction Manager Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_MANAGER_GROUP = 10;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Transaction Manager</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_TRANSACTION_MANAGER = 11;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Connector Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_CONNECTOR_GROUP = 12;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Connector</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_CONNECTOR = 13;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Global Endpoint Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_GLOBAL_ENDPOINT_GROUP = 14;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Global Endpoint</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_GLOBAL_ENDPOINT = 15;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Transformer Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_TRANSFORMER_GROUP = 16;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Transformer</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_TRANSFORMER = 17;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Filter Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_FILTER_GROUP = 18;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Filter</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_FILTER = 19;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Model Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_MODEL_GROUP = 20;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Model</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ABSTRACT_MODEL = 21;
-
-	/**
-	 * The feature id for the '<em><b>Any</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__ANY = 22;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE__NAME = 23;
-
-	/**
-	 * The number of structural features of the '<em>Mule Unsafe Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULE_UNSAFE_TYPE_FEATURE_COUNT = 24;
+	int MULE_TYPE_FEATURE_COUNT = 24;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.impl.NotificationListenerTypeImpl <em>Notification Listener Type</em>}' class.
@@ -8464,7 +8128,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getNotificationListenerType()
 	 * @generated
 	 */
-	int NOTIFICATION_LISTENER_TYPE = 102;
+	int NOTIFICATION_LISTENER_TYPE = 99;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -8501,7 +8165,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getNotificationManagerType()
 	 * @generated
 	 */
-	int NOTIFICATION_MANAGER_TYPE = 103;
+	int NOTIFICATION_MANAGER_TYPE = 100;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
@@ -8601,7 +8265,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getOutboundCollectionType()
 	 * @generated
 	 */
-	int OUTBOUND_COLLECTION_TYPE = 104;
+	int OUTBOUND_COLLECTION_TYPE = 101;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Catch All Strategy Group</b></em>' attribute list.
@@ -8665,7 +8329,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getOutboundEndpointType()
 	 * @generated
 	 */
-	int OUTBOUND_ENDPOINT_TYPE = 105;
+	int OUTBOUND_ENDPOINT_TYPE = 102;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -8909,7 +8573,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPasswordEncryptionStrategyType()
 	 * @generated
 	 */
-	int PASSWORD_ENCRYPTION_STRATEGY_TYPE = 107;
+	int PASSWORD_ENCRYPTION_STRATEGY_TYPE = 104;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -8964,7 +8628,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPatternFilterType()
 	 * @generated
 	 */
-	int PATTERN_FILTER_TYPE = 108;
+	int PATTERN_FILTER_TYPE = 105;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -9010,7 +8674,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPojoBindingType()
 	 * @generated
 	 */
-	int POJO_BINDING_TYPE = 109;
+	int POJO_BINDING_TYPE = 106;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -9065,7 +8729,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPojoComponentType()
 	 * @generated
 	 */
-	int POJO_COMPONENT_TYPE = 110;
+	int POJO_COMPONENT_TYPE = 107;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Entry Point Resolver Set Group</b></em>' attribute list.
@@ -9210,7 +8874,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPoolingProfileType()
 	 * @generated
 	 */
-	int POOLING_PROFILE_TYPE = 112;
+	int POOLING_PROFILE_TYPE = 109;
 
 	/**
 	 * The feature id for the '<em><b>Exhausted Action</b></em>' attribute.
@@ -9274,7 +8938,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPropertiesContainerContextType()
 	 * @generated
 	 */
-	int PROPERTIES_CONTAINER_CONTEXT_TYPE = 113;
+	int PROPERTIES_CONTAINER_CONTEXT_TYPE = 110;
 
 	/**
 	 * The feature id for the '<em><b>Any</b></em>' attribute list.
@@ -9283,7 +8947,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTIES_CONTAINER_CONTEXT_TYPE__ANY = 0;
+	int PROPERTIES_CONTAINER_CONTEXT_TYPE__ANY = BASE_CONTAINER_CONTEXT_TYPE__ANY;
 
 	/**
 	 * The feature id for the '<em><b>Enable Templates</b></em>' attribute.
@@ -9292,7 +8956,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTIES_CONTAINER_CONTEXT_TYPE__ENABLE_TEMPLATES = 1;
+	int PROPERTIES_CONTAINER_CONTEXT_TYPE__ENABLE_TEMPLATES = BASE_CONTAINER_CONTEXT_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Include System Properties</b></em>' attribute.
@@ -9301,7 +8965,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTIES_CONTAINER_CONTEXT_TYPE__INCLUDE_SYSTEM_PROPERTIES = 2;
+	int PROPERTIES_CONTAINER_CONTEXT_TYPE__INCLUDE_SYSTEM_PROPERTIES = BASE_CONTAINER_CONTEXT_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -9310,7 +8974,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTIES_CONTAINER_CONTEXT_TYPE__NAME = 3;
+	int PROPERTIES_CONTAINER_CONTEXT_TYPE__NAME = BASE_CONTAINER_CONTEXT_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Properties Container Context Type</em>' class.
@@ -9319,7 +8983,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTIES_CONTAINER_CONTEXT_TYPE_FEATURE_COUNT = 4;
+	int PROPERTIES_CONTAINER_CONTEXT_TYPE_FEATURE_COUNT = BASE_CONTAINER_CONTEXT_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.impl.PropertyEntryPointResolverTypeImpl <em>Property Entry Point Resolver Type</em>}' class.
@@ -9329,7 +8993,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPropertyEntryPointResolverType()
 	 * @generated
 	 */
-	int PROPERTY_ENTRY_POINT_RESOLVER_TYPE = 114;
+	int PROPERTY_ENTRY_POINT_RESOLVER_TYPE = 111;
 
 	/**
 	 * The feature id for the '<em><b>Accept Void Methods</b></em>' attribute.
@@ -9375,7 +9039,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPrototypeObjectFactoryType()
 	 * @generated
 	 */
-	int PROTOTYPE_OBJECT_FACTORY_TYPE = 115;
+	int PROTOTYPE_OBJECT_FACTORY_TYPE = 112;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -9421,7 +9085,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getQueueProfileType()
 	 * @generated
 	 */
-	int QUEUE_PROFILE_TYPE = 116;
+	int QUEUE_PROFILE_TYPE = 113;
 
 	/**
 	 * The feature id for the '<em><b>Max Outstanding Messages</b></em>' attribute.
@@ -9458,7 +9122,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getReferenceType()
 	 * @generated
 	 */
-	int REFERENCE_TYPE = 117;
+	int REFERENCE_TYPE = 114;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -9486,7 +9150,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getRefFilterType()
 	 * @generated
 	 */
-	int REF_FILTER_TYPE = 118;
+	int REF_FILTER_TYPE = 115;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -9532,7 +9196,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getRefTransformerType()
 	 * @generated
 	 */
-	int REF_TRANSFORMER_TYPE = 120;
+	int REF_TRANSFORMER_TYPE = 117;
 
 	/**
 	 * The feature id for the '<em><b>Ignore Bad Input</b></em>' attribute.
@@ -9587,7 +9251,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getReplyToType()
 	 * @generated
 	 */
-	int REPLY_TO_TYPE = 121;
+	int REPLY_TO_TYPE = 118;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' attribute.
@@ -9615,7 +9279,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getResponseTransformersType()
 	 * @generated
 	 */
-	int RESPONSE_TRANSFORMERS_TYPE = 122;
+	int RESPONSE_TRANSFORMERS_TYPE = 119;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Transformer Group</b></em>' attribute list.
@@ -9652,7 +9316,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getRetryConnectionStrategyType()
 	 * @generated
 	 */
-	int RETRY_CONNECTION_STRATEGY_TYPE = 123;
+	int RETRY_CONNECTION_STRATEGY_TYPE = 120;
 
 	/**
 	 * The feature id for the '<em><b>Retry Count</b></em>' attribute.
@@ -9689,7 +9353,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getRmiContainerContextType()
 	 * @generated
 	 */
-	int RMI_CONTAINER_CONTEXT_TYPE = 124;
+	int RMI_CONTAINER_CONTEXT_TYPE = 121;
 
 	/**
 	 * The feature id for the '<em><b>Any</b></em>' attribute list.
@@ -9744,7 +9408,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSecretKeyEncryptionStrategyType()
 	 * @generated
 	 */
-	int SECRET_KEY_ENCRYPTION_STRATEGY_TYPE = 125;
+	int SECRET_KEY_ENCRYPTION_STRATEGY_TYPE = 122;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -9790,7 +9454,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSecurityManagerType()
 	 * @generated
 	 */
-	int SECURITY_MANAGER_TYPE = 126;
+	int SECURITY_MANAGER_TYPE = 123;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9863,7 +9527,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSelectiveConsumerRouterType()
 	 * @generated
 	 */
-	int SELECTIVE_CONSUMER_ROUTER_TYPE = 130;
+	int SELECTIVE_CONSUMER_ROUTER_TYPE = 127;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Filter Group</b></em>' attribute list.
@@ -9963,7 +9627,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getServiceOverridesType()
 	 * @generated
 	 */
-	int SERVICE_OVERRIDES_TYPE = 131;
+	int SERVICE_OVERRIDES_TYPE = 128;
 
 	/**
 	 * The feature id for the '<em><b>Dispatcher Factory</b></em>' attribute.
@@ -10072,7 +9736,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSingletonObjectFactoryType()
 	 * @generated
 	 */
-	int SINGLETON_OBJECT_FACTORY_TYPE = 132;
+	int SINGLETON_OBJECT_FACTORY_TYPE = 129;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -10118,7 +9782,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSpringBeanLookupType()
 	 * @generated
 	 */
-	int SPRING_BEAN_LOOKUP_TYPE = 133;
+	int SPRING_BEAN_LOOKUP_TYPE = 130;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -10164,7 +9828,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getStaticRecipientListRouterType()
 	 * @generated
 	 */
-	int STATIC_RECIPIENT_LIST_ROUTER_TYPE = 134;
+	int STATIC_RECIPIENT_LIST_ROUTER_TYPE = 131;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
@@ -10336,7 +10000,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getThreadingProfileType()
 	 * @generated
 	 */
-	int THREADING_PROFILE_TYPE = 135;
+	int THREADING_PROFILE_TYPE = 132;
 
 	/**
 	 * The feature id for the '<em><b>Do Threading</b></em>' attribute.
@@ -10427,7 +10091,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getTlsClientKeyStoreType()
 	 * @generated
 	 */
-	int TLS_CLIENT_KEY_STORE_TYPE = 136;
+	int TLS_CLIENT_KEY_STORE_TYPE = 133;
 
 	/**
 	 * The feature id for the '<em><b>Client Key Store</b></em>' attribute.
@@ -10473,7 +10137,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getTlsKeyStoreType()
 	 * @generated
 	 */
-	int TLS_KEY_STORE_TYPE = 137;
+	int TLS_KEY_STORE_TYPE = 134;
 
 	/**
 	 * The feature id for the '<em><b>Key Manager Algorithm</b></em>' attribute.
@@ -10537,7 +10201,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getTlsProtocolHandler()
 	 * @generated
 	 */
-	int TLS_PROTOCOL_HANDLER = 138;
+	int TLS_PROTOCOL_HANDLER = 135;
 
 	/**
 	 * The feature id for the '<em><b>Protocol Handler</b></em>' attribute.
@@ -10565,7 +10229,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getTlsTrustStoreType()
 	 * @generated
 	 */
-	int TLS_TRUST_STORE_TYPE = 140;
+	int TLS_TRUST_STORE_TYPE = 137;
 
 	/**
 	 * The feature id for the '<em><b>Trust Store</b></em>' attribute.
@@ -10602,7 +10266,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getTlsServerTrustStoreType()
 	 * @generated
 	 */
-	int TLS_SERVER_TRUST_STORE_TYPE = 139;
+	int TLS_SERVER_TRUST_STORE_TYPE = 136;
 
 	/**
 	 * The feature id for the '<em><b>Trust Store</b></em>' attribute.
@@ -10684,7 +10348,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getTransactionManagerType()
 	 * @generated
 	 */
-	int TRANSACTION_MANAGER_TYPE = 141;
+	int TRANSACTION_MANAGER_TYPE = 138;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -10712,7 +10376,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getTransformersType()
 	 * @generated
 	 */
-	int TRANSFORMERS_TYPE = 142;
+	int TRANSFORMERS_TYPE = 139;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Transformer Group</b></em>' attribute list.
@@ -10749,7 +10413,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getTypeFilterType()
 	 * @generated
 	 */
-	int TYPE_FILTER_TYPE = 143;
+	int TYPE_FILTER_TYPE = 140;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -10795,7 +10459,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getUnitaryFilterType()
 	 * @generated
 	 */
-	int UNITARY_FILTER_TYPE = 144;
+	int UNITARY_FILTER_TYPE = 141;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -10850,7 +10514,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getValueType()
 	 * @generated
 	 */
-	int VALUE_TYPE = 145;
+	int VALUE_TYPE = 142;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -10887,7 +10551,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getWildcardFilterType()
 	 * @generated
 	 */
-	int WILDCARD_FILTER_TYPE = 146;
+	int WILDCARD_FILTER_TYPE = 143;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -10933,7 +10597,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getWireTapRouterType()
 	 * @generated
 	 */
-	int WIRE_TAP_ROUTER_TYPE = 147;
+	int WIRE_TAP_ROUTER_TYPE = 144;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Filter Group</b></em>' attribute list.
@@ -11015,7 +10679,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getConnection()
 	 * @generated
 	 */
-	int CONNECTION = 148;
+	int CONNECTION = 145;
 
 	/**
 	 * The feature id for the '<em><b>Endpoint</b></em>' attribute.
@@ -11061,7 +10725,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getActionType()
 	 * @generated
 	 */
-	int ACTION_TYPE = 149;
+	int ACTION_TYPE = 146;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.EnableCorrelationType <em>Enable Correlation Type</em>}' enum.
@@ -11071,7 +10735,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEnableCorrelationType()
 	 * @generated
 	 */
-	int ENABLE_CORRELATION_TYPE = 150;
+	int ENABLE_CORRELATION_TYPE = 147;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.EventType <em>Event Type</em>}' enum.
@@ -11081,7 +10745,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEventType()
 	 * @generated
 	 */
-	int EVENT_TYPE = 151;
+	int EVENT_TYPE = 148;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.EventType1 <em>Event Type1</em>}' enum.
@@ -11091,7 +10755,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEventType1()
 	 * @generated
 	 */
-	int EVENT_TYPE1 = 152;
+	int EVENT_TYPE1 = 149;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.ExhaustedActionType <em>Exhausted Action Type</em>}' enum.
@@ -11101,7 +10765,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getExhaustedActionType()
 	 * @generated
 	 */
-	int EXHAUSTED_ACTION_TYPE = 153;
+	int EXHAUSTED_ACTION_TYPE = 150;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.InitialisationPolicyType <em>Initialisation Policy Type</em>}' enum.
@@ -11111,7 +10775,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInitialisationPolicyType()
 	 * @generated
 	 */
-	int INITIALISATION_POLICY_TYPE = 154;
+	int INITIALISATION_POLICY_TYPE = 151;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.InitialStateType <em>Initial State Type</em>}' enum.
@@ -11121,7 +10785,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInitialStateType()
 	 * @generated
 	 */
-	int INITIAL_STATE_TYPE = 155;
+	int INITIAL_STATE_TYPE = 152;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.InterfaceType <em>Interface Type</em>}' enum.
@@ -11131,7 +10795,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInterfaceType()
 	 * @generated
 	 */
-	int INTERFACE_TYPE = 156;
+	int INTERFACE_TYPE = 153;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.InterfaceType1 <em>Interface Type1</em>}' enum.
@@ -11141,7 +10805,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInterfaceType1()
 	 * @generated
 	 */
-	int INTERFACE_TYPE1 = 157;
+	int INTERFACE_TYPE1 = 154;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.core.PoolExhaustedActionType <em>Pool Exhausted Action Type</em>}' enum.
@@ -11151,7 +10815,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPoolExhaustedActionType()
 	 * @generated
 	 */
-	int POOL_EXHAUSTED_ACTION_TYPE = 158;
+	int POOL_EXHAUSTED_ACTION_TYPE = 155;
 
 	/**
 	 * The meta object id for the '<em>Action Type Object</em>' data type.
@@ -11161,7 +10825,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getActionTypeObject()
 	 * @generated
 	 */
-	int ACTION_TYPE_OBJECT = 159;
+	int ACTION_TYPE_OBJECT = 156;
 
 	/**
 	 * The meta object id for the '<em>Enable Correlation Type Object</em>' data type.
@@ -11171,7 +10835,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEnableCorrelationTypeObject()
 	 * @generated
 	 */
-	int ENABLE_CORRELATION_TYPE_OBJECT = 160;
+	int ENABLE_CORRELATION_TYPE_OBJECT = 157;
 
 	/**
 	 * The meta object id for the '<em>Event Type Object</em>' data type.
@@ -11181,7 +10845,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEventTypeObject()
 	 * @generated
 	 */
-	int EVENT_TYPE_OBJECT = 161;
+	int EVENT_TYPE_OBJECT = 158;
 
 	/**
 	 * The meta object id for the '<em>Event Type Object1</em>' data type.
@@ -11191,7 +10855,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getEventTypeObject1()
 	 * @generated
 	 */
-	int EVENT_TYPE_OBJECT1 = 162;
+	int EVENT_TYPE_OBJECT1 = 159;
 
 	/**
 	 * The meta object id for the '<em>Exhausted Action Type Object</em>' data type.
@@ -11201,7 +10865,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getExhaustedActionTypeObject()
 	 * @generated
 	 */
-	int EXHAUSTED_ACTION_TYPE_OBJECT = 163;
+	int EXHAUSTED_ACTION_TYPE_OBJECT = 160;
 
 	/**
 	 * The meta object id for the '<em>Initialisation Policy Type Object</em>' data type.
@@ -11211,7 +10875,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInitialisationPolicyTypeObject()
 	 * @generated
 	 */
-	int INITIALISATION_POLICY_TYPE_OBJECT = 164;
+	int INITIALISATION_POLICY_TYPE_OBJECT = 161;
 
 	/**
 	 * The meta object id for the '<em>Initial State Type Object</em>' data type.
@@ -11221,7 +10885,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInitialStateTypeObject()
 	 * @generated
 	 */
-	int INITIAL_STATE_TYPE_OBJECT = 165;
+	int INITIAL_STATE_TYPE_OBJECT = 162;
 
 	/**
 	 * The meta object id for the '<em>Interface Type Object</em>' data type.
@@ -11231,7 +10895,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInterfaceTypeObject()
 	 * @generated
 	 */
-	int INTERFACE_TYPE_OBJECT = 166;
+	int INTERFACE_TYPE_OBJECT = 163;
 
 	/**
 	 * The meta object id for the '<em>Interface Type Object1</em>' data type.
@@ -11241,7 +10905,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getInterfaceTypeObject1()
 	 * @generated
 	 */
-	int INTERFACE_TYPE_OBJECT1 = 167;
+	int INTERFACE_TYPE_OBJECT1 = 164;
 
 	/**
 	 * The meta object id for the '<em>Non Blank String</em>' data type.
@@ -11251,7 +10915,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getNonBlankString()
 	 * @generated
 	 */
-	int NON_BLANK_STRING = 168;
+	int NON_BLANK_STRING = 165;
 
 	/**
 	 * The meta object id for the '<em>Non Blank String Member0</em>' data type.
@@ -11261,7 +10925,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getNonBlankStringMember0()
 	 * @generated
 	 */
-	int NON_BLANK_STRING_MEMBER0 = 169;
+	int NON_BLANK_STRING_MEMBER0 = 166;
 
 	/**
 	 * The meta object id for the '<em>Pool Exhausted Action Type Object</em>' data type.
@@ -11271,7 +10935,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPoolExhaustedActionTypeObject()
 	 * @generated
 	 */
-	int POOL_EXHAUSTED_ACTION_TYPE_OBJECT = 170;
+	int POOL_EXHAUSTED_ACTION_TYPE_OBJECT = 167;
 
 	/**
 	 * The meta object id for the '<em>Property Placeholder Type</em>' data type.
@@ -11281,7 +10945,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getPropertyPlaceholderType()
 	 * @generated
 	 */
-	int PROPERTY_PLACEHOLDER_TYPE = 171;
+	int PROPERTY_PLACEHOLDER_TYPE = 168;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Boolean</em>' data type.
@@ -11290,7 +10954,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableBoolean()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_BOOLEAN = 172;
+	int SUBSTITUTABLE_BOOLEAN = 169;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Boolean Member0</em>' data type.
@@ -11299,7 +10963,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableBooleanMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_BOOLEAN_MEMBER0 = 173;
+	int SUBSTITUTABLE_BOOLEAN_MEMBER0 = 170;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Boolean Member0 Object</em>' data type.
@@ -11309,7 +10973,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableBooleanMember0Object()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_BOOLEAN_MEMBER0_OBJECT = 174;
+	int SUBSTITUTABLE_BOOLEAN_MEMBER0_OBJECT = 171;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Boolean Object</em>' data type.
@@ -11319,7 +10983,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableBooleanObject()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_BOOLEAN_OBJECT = 175;
+	int SUBSTITUTABLE_BOOLEAN_OBJECT = 172;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Class</em>' data type.
@@ -11329,7 +10993,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableClass()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_CLASS = 176;
+	int SUBSTITUTABLE_CLASS = 173;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Class Member0</em>' data type.
@@ -11339,7 +11003,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableClassMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_CLASS_MEMBER0 = 177;
+	int SUBSTITUTABLE_CLASS_MEMBER0 = 174;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Int</em>' data type.
@@ -11348,7 +11012,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableInt()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_INT = 178;
+	int SUBSTITUTABLE_INT = 175;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Int Member0</em>' data type.
@@ -11357,7 +11021,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableIntMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_INT_MEMBER0 = 179;
+	int SUBSTITUTABLE_INT_MEMBER0 = 176;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Int Member0 Object</em>' data type.
@@ -11367,7 +11031,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableIntMember0Object()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_INT_MEMBER0_OBJECT = 180;
+	int SUBSTITUTABLE_INT_MEMBER0_OBJECT = 177;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Int Object</em>' data type.
@@ -11377,7 +11041,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableIntObject()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_INT_OBJECT = 181;
+	int SUBSTITUTABLE_INT_OBJECT = 178;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Long</em>' data type.
@@ -11386,7 +11050,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableLong()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_LONG = 182;
+	int SUBSTITUTABLE_LONG = 179;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Long Member0</em>' data type.
@@ -11395,7 +11059,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableLongMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_LONG_MEMBER0 = 183;
+	int SUBSTITUTABLE_LONG_MEMBER0 = 180;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Long Member0 Object</em>' data type.
@@ -11405,7 +11069,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableLongMember0Object()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_LONG_MEMBER0_OBJECT = 184;
+	int SUBSTITUTABLE_LONG_MEMBER0_OBJECT = 181;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Long Object</em>' data type.
@@ -11415,7 +11079,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableLongObject()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_LONG_OBJECT = 185;
+	int SUBSTITUTABLE_LONG_OBJECT = 182;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Name</em>' data type.
@@ -11425,7 +11089,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableName()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_NAME = 186;
+	int SUBSTITUTABLE_NAME = 183;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Name Member0</em>' data type.
@@ -11435,7 +11099,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutableNameMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_NAME_MEMBER0 = 187;
+	int SUBSTITUTABLE_NAME_MEMBER0 = 184;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Port Number</em>' data type.
@@ -11444,7 +11108,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutablePortNumber()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_PORT_NUMBER = 188;
+	int SUBSTITUTABLE_PORT_NUMBER = 185;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Port Number Member0</em>' data type.
@@ -11453,7 +11117,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutablePortNumberMember0()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_PORT_NUMBER_MEMBER0 = 189;
+	int SUBSTITUTABLE_PORT_NUMBER_MEMBER0 = 186;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Port Number Member0 Object</em>' data type.
@@ -11463,7 +11127,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutablePortNumberMember0Object()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_PORT_NUMBER_MEMBER0_OBJECT = 190;
+	int SUBSTITUTABLE_PORT_NUMBER_MEMBER0_OBJECT = 187;
 
 	/**
 	 * The meta object id for the '<em>Substitutable Port Number Object</em>' data type.
@@ -11473,7 +11137,7 @@ public interface CorePackage extends EPackage {
 	 * @see org.mule.ide.config.core.impl.CorePackageImpl#getSubstitutablePortNumberObject()
 	 * @generated
 	 */
-	int SUBSTITUTABLE_PORT_NUMBER_OBJECT = 191;
+	int SUBSTITUTABLE_PORT_NUMBER_OBJECT = 188;
 
 
 	/**
@@ -12138,38 +11802,6 @@ public interface CorePackage extends EPackage {
 	EAttribute getAbstractTransformerType_ReturnClass();
 
 	/**
-	 * Returns the meta object for class '{@link org.mule.ide.config.core.AdminAgentType <em>Admin Agent Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Admin Agent Type</em>'.
-	 * @see org.mule.ide.config.core.AdminAgentType
-	 * @generated
-	 */
-	EClass getAdminAgentType();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.mule.ide.config.core.AdminAgentType#getProperty <em>Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Property</em>'.
-	 * @see org.mule.ide.config.core.AdminAgentType#getProperty()
-	 * @see #getAdminAgentType()
-	 * @generated
-	 */
-	EReference getAdminAgentType_Property();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.mule.ide.config.core.AdminAgentType#getServerUri <em>Server Uri</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Server Uri</em>'.
-	 * @see org.mule.ide.config.core.AdminAgentType#getServerUri()
-	 * @see #getAdminAgentType()
-	 * @generated
-	 */
-	EAttribute getAdminAgentType_ServerUri();
-
-	/**
 	 * Returns the meta object for class '{@link org.mule.ide.config.core.AppendStringTransformerType <em>Append String Transformer Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12740,49 +12372,6 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConnectorType_NumberOfConcurrentTransactedReceivers();
-
-	/**
-	 * Returns the meta object for class '{@link org.mule.ide.config.core.ContainerContextType <em>Container Context Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Container Context Type</em>'.
-	 * @see org.mule.ide.config.core.ContainerContextType
-	 * @generated
-	 */
-	EClass getContainerContextType();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.ContainerContextType#getAny <em>Any</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Any</em>'.
-	 * @see org.mule.ide.config.core.ContainerContextType#getAny()
-	 * @see #getContainerContextType()
-	 * @generated
-	 */
-	EAttribute getContainerContextType_Any();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.mule.ide.config.core.ContainerContextType#getClass_ <em>Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Class</em>'.
-	 * @see org.mule.ide.config.core.ContainerContextType#getClass_()
-	 * @see #getContainerContextType()
-	 * @generated
-	 */
-	EAttribute getContainerContextType_Class();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.mule.ide.config.core.ContainerContextType#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.mule.ide.config.core.ContainerContextType#getName()
-	 * @see #getContainerContextType()
-	 * @generated
-	 */
-	EAttribute getContainerContextType_Name();
 
 	/**
 	 * Returns the meta object for class '{@link org.mule.ide.config.core.CustomAsyncReplyRouterType <em>Custom Async Reply Router Type</em>}'.
@@ -14792,17 +14381,6 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDocumentRoot_Mule();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.mule.ide.config.core.DocumentRoot#getMuleUnsafe <em>Mule Unsafe</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Mule Unsafe</em>'.
-	 * @see org.mule.ide.config.core.DocumentRoot#getMuleUnsafe()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EReference getDocumentRoot_MuleUnsafe();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.mule.ide.config.core.DocumentRoot#getMulticastingRouter <em>Multicasting Router</em>}'.
@@ -16975,17 +16553,6 @@ public interface CorePackage extends EPackage {
 	EReference getMuleType_EnvironmentProperty();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleType#getAdminAgent <em>Admin Agent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Admin Agent</em>'.
-	 * @see org.mule.ide.config.core.MuleType#getAdminAgent()
-	 * @see #getMuleType()
-	 * @generated
-	 */
-	EReference getMuleType_AdminAgent();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleType#getConfiguration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17226,280 +16793,6 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMuleType_Name();
-
-	/**
-	 * Returns the meta object for class '{@link org.mule.ide.config.core.MuleUnsafeType <em>Mule Unsafe Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mule Unsafe Type</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType
-	 * @generated
-	 */
-	EClass getMuleUnsafeType();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.MuleUnsafeType#getGroup <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Group</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getGroup()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EAttribute getMuleUnsafeType_Group();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getEnvironmentProperty <em>Environment Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Environment Property</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getEnvironmentProperty()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_EnvironmentProperty();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getAdminAgent <em>Admin Agent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Admin Agent</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAdminAgent()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_AdminAgent();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getConfiguration <em>Configuration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Configuration</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getConfiguration()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_Configuration();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getNotifications <em>Notifications</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Notifications</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getNotifications()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_Notifications();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Description</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getDescription()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_Description();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractExtensionGroup <em>Abstract Extension Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Abstract Extension Group</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractExtensionGroup()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EAttribute getMuleUnsafeType_AbstractExtensionGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractExtension <em>Abstract Extension</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abstract Extension</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractExtension()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_AbstractExtension();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractSecurityManagerGroup <em>Abstract Security Manager Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Abstract Security Manager Group</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractSecurityManagerGroup()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EAttribute getMuleUnsafeType_AbstractSecurityManagerGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractSecurityManager <em>Abstract Security Manager</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abstract Security Manager</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractSecurityManager()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_AbstractSecurityManager();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractTransactionManagerGroup <em>Abstract Transaction Manager Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Abstract Transaction Manager Group</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractTransactionManagerGroup()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EAttribute getMuleUnsafeType_AbstractTransactionManagerGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractTransactionManager <em>Abstract Transaction Manager</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abstract Transaction Manager</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractTransactionManager()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_AbstractTransactionManager();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractConnectorGroup <em>Abstract Connector Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Abstract Connector Group</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractConnectorGroup()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EAttribute getMuleUnsafeType_AbstractConnectorGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractConnector <em>Abstract Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abstract Connector</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractConnector()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_AbstractConnector();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractGlobalEndpointGroup <em>Abstract Global Endpoint Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Abstract Global Endpoint Group</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractGlobalEndpointGroup()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EAttribute getMuleUnsafeType_AbstractGlobalEndpointGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractGlobalEndpoint <em>Abstract Global Endpoint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abstract Global Endpoint</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractGlobalEndpoint()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_AbstractGlobalEndpoint();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractTransformerGroup <em>Abstract Transformer Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Abstract Transformer Group</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractTransformerGroup()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EAttribute getMuleUnsafeType_AbstractTransformerGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractTransformer <em>Abstract Transformer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abstract Transformer</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractTransformer()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_AbstractTransformer();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractFilterGroup <em>Abstract Filter Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Abstract Filter Group</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractFilterGroup()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EAttribute getMuleUnsafeType_AbstractFilterGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractFilter <em>Abstract Filter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abstract Filter</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractFilter()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_AbstractFilter();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractModelGroup <em>Abstract Model Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Abstract Model Group</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractModelGroup()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EAttribute getMuleUnsafeType_AbstractModelGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.core.MuleUnsafeType#getAbstractModel <em>Abstract Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abstract Model</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAbstractModel()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EReference getMuleUnsafeType_AbstractModel();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.MuleUnsafeType#getAny <em>Any</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Any</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getAny()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EAttribute getMuleUnsafeType_Any();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.mule.ide.config.core.MuleUnsafeType#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.mule.ide.config.core.MuleUnsafeType#getName()
-	 * @see #getMuleUnsafeType()
-	 * @generated
-	 */
-	EAttribute getMuleUnsafeType_Name();
 
 	/**
 	 * Returns the meta object for class '{@link org.mule.ide.config.core.NotificationListenerType <em>Notification Listener Type</em>}'.
@@ -18379,17 +17672,6 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPropertiesContainerContextType();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.PropertiesContainerContextType#getAny <em>Any</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Any</em>'.
-	 * @see org.mule.ide.config.core.PropertiesContainerContextType#getAny()
-	 * @see #getPropertiesContainerContextType()
-	 * @generated
-	 */
-	EAttribute getPropertiesContainerContextType_Any();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.mule.ide.config.core.PropertiesContainerContextType#isEnableTemplates <em>Enable Templates</em>}'.

@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.PropertiesContainerContextType#getAny <em>Any</em>}</li>
  *   <li>{@link org.mule.ide.config.core.PropertiesContainerContextType#isEnableTemplates <em>Enable Templates</em>}</li>
  *   <li>{@link org.mule.ide.config.core.PropertiesContainerContextType#isIncludeSystemProperties <em>Include System Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.PropertiesContainerContextType#getName <em>Name</em>}</li>
@@ -29,24 +28,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='propertiesContainerContextType' kind='elementOnly'"
  * @generated
  */
-public interface PropertiesContainerContextType extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Any</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Any</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Any</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getPropertiesContainerContextType_Any()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
-	 *        extendedMetaData="kind='elementWildcard' wildcards='##other' name=':0' processing='strict'"
-	 * @generated
-	 */
-	FeatureMap getAny();
-
+public interface PropertiesContainerContextType extends BaseContainerContextType {
 	/**
 	 * Returns the value of the '<em><b>Enable Templates</b></em>' attribute.
 	 * <!-- begin-user-doc -->

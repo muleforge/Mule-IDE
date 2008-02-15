@@ -132,7 +132,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMethodEntryPointResolver <em>Method Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getModel <em>Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMule <em>Mule</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMuleUnsafe <em>Mule Unsafe</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMulticastingRouter <em>Multicasting Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNoActionTransformer <em>No Action Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNoArgumentsEntryPointResolver <em>No Arguments Entry Point Resolver</em>}</li>
@@ -2856,36 +2855,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setMule(MuleType value);
-
-	/**
-	 * Returns the value of the '<em><b>Mule Unsafe</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 An aternative root element that is more flexible, but which is less
-	 *                 likely to detect configuration errors during schema validation.
-	 *                 In addition, IDEs may give less useful prompts when using this element.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Mule Unsafe</em>' containment reference.
-	 * @see #setMuleUnsafe(MuleUnsafeType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_MuleUnsafe()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='mule-unsafe' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	MuleUnsafeType getMuleUnsafe();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getMuleUnsafe <em>Mule Unsafe</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mule Unsafe</em>' containment reference.
-	 * @see #getMuleUnsafe()
-	 * @generated
-	 */
-	void setMuleUnsafe(MuleUnsafeType value);
 
 	/**
 	 * Returns the value of the '<em><b>Multicasting Router</b></em>' containment reference.

@@ -25,7 +25,6 @@ import org.mule.ide.config.spring.BeansType;
  * <ul>
  *   <li>{@link org.mule.ide.config.core.MuleType#getGroup <em>Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getEnvironmentProperty <em>Environment Property</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleType#getAdminAgent <em>Admin Agent</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getNotifications <em>Notifications</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getDescription <em>Description</em>}</li>
@@ -89,23 +88,6 @@ public interface MuleType extends EObject {
 	 * @generated
 	 */
 	EList<EnvironmentPropertyType> getEnvironmentProperty();
-
-	/**
-	 * Returns the value of the '<em><b>Admin Agent</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.AdminAgentType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Admin Agent</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Admin Agent</em>' containment reference list.
-	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AdminAgent()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='admin-agent' namespace='##targetNamespace' group='#group:0'"
-	 * @generated
-	 */
-	EList<AdminAgentType> getAdminAgent();
 
 	/**
 	 * Returns the value of the '<em><b>Configuration</b></em>' containment reference list.

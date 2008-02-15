@@ -31,7 +31,6 @@ import org.mule.ide.config.core.AbstractModelType;
 import org.mule.ide.config.core.AbstractSecurityManagerType;
 import org.mule.ide.config.core.AbstractTransactionManagerType;
 import org.mule.ide.config.core.AbstractTransformerType;
-import org.mule.ide.config.core.AdminAgentType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DescriptionType;
 import org.mule.ide.config.core.EnvironmentPropertyType;
@@ -51,7 +50,6 @@ import org.mule.ide.config.spring.BeansType;
  * <ul>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getEnvironmentProperty <em>Environment Property</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getAdminAgent <em>Admin Agent</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getNotifications <em>Notifications</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getDescription <em>Description</em>}</li>
@@ -148,15 +146,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	 */
 	public EList<EnvironmentPropertyType> getEnvironmentProperty() {
 		return getGroup().list(CorePackage.eINSTANCE.getMuleType_EnvironmentProperty());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<AdminAgentType> getAdminAgent() {
-		return getGroup().list(CorePackage.eINSTANCE.getMuleType_AdminAgent());
 	}
 
 	/**
@@ -381,8 +370,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
 				return ((InternalEList<?>)getEnvironmentProperty()).basicRemove(otherEnd, msgs);
-			case CorePackage.MULE_TYPE__ADMIN_AGENT:
-				return ((InternalEList<?>)getAdminAgent()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return ((InternalEList<?>)getConfiguration()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__NOTIFICATIONS:
@@ -442,8 +429,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return ((FeatureMap.Internal)getGroup()).getWrapper();
 			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
 				return getEnvironmentProperty();
-			case CorePackage.MULE_TYPE__ADMIN_AGENT:
-				return getAdminAgent();
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return getConfiguration();
 			case CorePackage.MULE_TYPE__NOTIFICATIONS:
@@ -516,10 +501,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				getEnvironmentProperty().clear();
 				getEnvironmentProperty().addAll((Collection<? extends EnvironmentPropertyType>)newValue);
 				return;
-			case CorePackage.MULE_TYPE__ADMIN_AGENT:
-				getAdminAgent().clear();
-				getAdminAgent().addAll((Collection<? extends AdminAgentType>)newValue);
-				return;
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				getConfiguration().clear();
 				getConfiguration().addAll((Collection<? extends ManagementContextType>)newValue);
@@ -585,9 +566,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
 				getEnvironmentProperty().clear();
 				return;
-			case CorePackage.MULE_TYPE__ADMIN_AGENT:
-				getAdminAgent().clear();
-				return;
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				getConfiguration().clear();
 				return;
@@ -646,8 +624,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return group != null && !group.isEmpty();
 			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
 				return !getEnvironmentProperty().isEmpty();
-			case CorePackage.MULE_TYPE__ADMIN_AGENT:
-				return !getAdminAgent().isEmpty();
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return !getConfiguration().isEmpty();
 			case CorePackage.MULE_TYPE__NOTIFICATIONS:

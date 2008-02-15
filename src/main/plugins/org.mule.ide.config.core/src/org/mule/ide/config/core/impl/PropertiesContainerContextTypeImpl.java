@@ -29,7 +29,6 @@ import org.mule.ide.config.core.PropertiesContainerContextType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.PropertiesContainerContextTypeImpl#getAny <em>Any</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.PropertiesContainerContextTypeImpl#isEnableTemplates <em>Enable Templates</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.PropertiesContainerContextTypeImpl#isIncludeSystemProperties <em>Include System Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.PropertiesContainerContextTypeImpl#getName <em>Name</em>}</li>
@@ -38,17 +37,7 @@ import org.mule.ide.config.core.PropertiesContainerContextType;
  *
  * @generated
  */
-public class PropertiesContainerContextTypeImpl extends EObjectImpl implements PropertiesContainerContextType {
-	/**
-	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAny()
-	 * @generated
-	 * @ordered
-	 */
-	protected FeatureMap any;
-
+public class PropertiesContainerContextTypeImpl extends BaseContainerContextTypeImpl implements PropertiesContainerContextType {
 	/**
 	 * The default value of the '{@link #isEnableTemplates() <em>Enable Templates</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -153,18 +142,6 @@ public class PropertiesContainerContextTypeImpl extends EObjectImpl implements P
 	@Override
 	protected EClass eStaticClass() {
 		return CorePackage.eINSTANCE.getPropertiesContainerContextType();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FeatureMap getAny() {
-		if (any == null) {
-			any = new BasicFeatureMap(this, CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__ANY);
-		}
-		return any;
 	}
 
 	/**
@@ -311,25 +288,8 @@ public class PropertiesContainerContextTypeImpl extends EObjectImpl implements P
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__ANY:
-				return ((InternalEList<?>)getAny()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__ANY:
-				if (coreType) return getAny();
-				return ((FeatureMap.Internal)getAny()).getWrapper();
 			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__ENABLE_TEMPLATES:
 				return isEnableTemplates() ? Boolean.TRUE : Boolean.FALSE;
 			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__INCLUDE_SYSTEM_PROPERTIES:
@@ -348,9 +308,6 @@ public class PropertiesContainerContextTypeImpl extends EObjectImpl implements P
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__ANY:
-				((FeatureMap.Internal)getAny()).set(newValue);
-				return;
 			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__ENABLE_TEMPLATES:
 				setEnableTemplates(((Boolean)newValue).booleanValue());
 				return;
@@ -372,9 +329,6 @@ public class PropertiesContainerContextTypeImpl extends EObjectImpl implements P
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__ANY:
-				getAny().clear();
-				return;
 			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__ENABLE_TEMPLATES:
 				unsetEnableTemplates();
 				return;
@@ -396,8 +350,6 @@ public class PropertiesContainerContextTypeImpl extends EObjectImpl implements P
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__ANY:
-				return any != null && !any.isEmpty();
 			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__ENABLE_TEMPLATES:
 				return isSetEnableTemplates();
 			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE__INCLUDE_SYSTEM_PROPERTIES:
@@ -418,9 +370,7 @@ public class PropertiesContainerContextTypeImpl extends EObjectImpl implements P
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (any: ");
-		result.append(any);
-		result.append(", enableTemplates: ");
+		result.append(" (enableTemplates: ");
 		if (enableTemplatesESet) result.append(enableTemplates); else result.append("<unset>");
 		result.append(", includeSystemProperties: ");
 		if (includeSystemPropertiesESet) result.append(includeSystemProperties); else result.append("<unset>");

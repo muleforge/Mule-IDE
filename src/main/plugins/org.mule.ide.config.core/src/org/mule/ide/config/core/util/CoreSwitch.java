@@ -283,12 +283,6 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.ADMIN_AGENT_TYPE: {
-				AdminAgentType adminAgentType = (AdminAgentType)theEObject;
-				T result = caseAdminAgentType(adminAgentType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CorePackage.APPEND_STRING_TRANSFORMER_TYPE: {
 				AppendStringTransformerType appendStringTransformerType = (AppendStringTransformerType)theEObject;
 				T result = caseAppendStringTransformerType(appendStringTransformerType);
@@ -365,12 +359,6 @@ public class CoreSwitch<T> {
 				ConnectorType connectorType = (ConnectorType)theEObject;
 				T result = caseConnectorType(connectorType);
 				if (result == null) result = caseAbstractConnectorType(connectorType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.CONTAINER_CONTEXT_TYPE: {
-				ContainerContextType containerContextType = (ContainerContextType)theEObject;
-				T result = caseContainerContextType(containerContextType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -783,12 +771,6 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.MULE_UNSAFE_TYPE: {
-				MuleUnsafeType muleUnsafeType = (MuleUnsafeType)theEObject;
-				T result = caseMuleUnsafeType(muleUnsafeType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CorePackage.NOTIFICATION_LISTENER_TYPE: {
 				NotificationListenerType notificationListenerType = (NotificationListenerType)theEObject;
 				T result = caseNotificationListenerType(notificationListenerType);
@@ -866,6 +848,7 @@ public class CoreSwitch<T> {
 			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE: {
 				PropertiesContainerContextType propertiesContainerContextType = (PropertiesContainerContextType)theEObject;
 				T result = casePropertiesContainerContextType(propertiesContainerContextType);
+				if (result == null) result = caseBaseContainerContextType(propertiesContainerContextType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1596,21 +1579,6 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Admin Agent Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Admin Agent Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAdminAgentType(AdminAgentType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Append String Transformer Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1772,21 +1740,6 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseConnectorType(ConnectorType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Container Context Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Container Context Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseContainerContextType(ContainerContextType object) {
 		return null;
 	}
 
@@ -2627,21 +2580,6 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseMuleType(MuleType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mule Unsafe Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Mule Unsafe Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMuleUnsafeType(MuleUnsafeType object) {
 		return null;
 	}
 

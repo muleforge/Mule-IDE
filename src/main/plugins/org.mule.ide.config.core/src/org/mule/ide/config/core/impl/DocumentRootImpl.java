@@ -105,7 +105,6 @@ import org.mule.ide.config.core.MessageSplitterOutboundRouterType;
 import org.mule.ide.config.core.MethodEntryPointResolverType;
 import org.mule.ide.config.core.MethodType;
 import org.mule.ide.config.core.MuleType;
-import org.mule.ide.config.core.MuleUnsafeType;
 import org.mule.ide.config.core.OutboundEndpointType;
 import org.mule.ide.config.core.OutboundRouterType;
 import org.mule.ide.config.core.PatternFilterType;
@@ -254,7 +253,6 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMethodEntryPointResolver <em>Method Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getModel <em>Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMule <em>Mule</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMuleUnsafe <em>Mule Unsafe</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMulticastingRouter <em>Multicasting Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getNoActionTransformer <em>No Action Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getNoArgumentsEntryPointResolver <em>No Arguments Entry Point Resolver</em>}</li>
@@ -3065,33 +3063,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MuleUnsafeType getMuleUnsafe() {
-		return (MuleUnsafeType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_MuleUnsafe(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMuleUnsafe(MuleUnsafeType newMuleUnsafe, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_MuleUnsafe(), newMuleUnsafe, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMuleUnsafe(MuleUnsafeType newMuleUnsafe) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_MuleUnsafe(), newMuleUnsafe);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public FilteringOutboundRouterType getMulticastingRouter() {
 		return (FilteringOutboundRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_MulticastingRouter(), true);
 	}
@@ -4669,8 +4640,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetModel(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MULE:
 				return basicSetMule(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__MULE_UNSAFE:
-				return basicSetMuleUnsafe(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MULTICASTING_ROUTER:
 				return basicSetMulticastingRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__NO_ACTION_TRANSFORMER:
@@ -5010,8 +4979,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getModel();
 			case CorePackage.DOCUMENT_ROOT__MULE:
 				return getMule();
-			case CorePackage.DOCUMENT_ROOT__MULE_UNSAFE:
-				return getMuleUnsafe();
 			case CorePackage.DOCUMENT_ROOT__MULTICASTING_ROUTER:
 				return getMulticastingRouter();
 			case CorePackage.DOCUMENT_ROOT__NO_ACTION_TRANSFORMER:
@@ -5366,9 +5333,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case CorePackage.DOCUMENT_ROOT__MULE:
 				setMule((MuleType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__MULE_UNSAFE:
-				setMuleUnsafe((MuleUnsafeType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MULTICASTING_ROUTER:
 				setMulticastingRouter((FilteringOutboundRouterType)newValue);
@@ -5775,9 +5739,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__MULE:
 				setMule((MuleType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__MULE_UNSAFE:
-				setMuleUnsafe((MuleUnsafeType)null);
-				return;
 			case CorePackage.DOCUMENT_ROOT__MULTICASTING_ROUTER:
 				setMulticastingRouter((FilteringOutboundRouterType)null);
 				return;
@@ -6164,8 +6125,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getModel() != null;
 			case CorePackage.DOCUMENT_ROOT__MULE:
 				return getMule() != null;
-			case CorePackage.DOCUMENT_ROOT__MULE_UNSAFE:
-				return getMuleUnsafe() != null;
 			case CorePackage.DOCUMENT_ROOT__MULTICASTING_ROUTER:
 				return getMulticastingRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__NO_ACTION_TRANSFORMER:

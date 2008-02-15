@@ -98,7 +98,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.ABSTRACT_TRANSACTION_MANAGER_TYPE: return createAbstractTransactionManagerType();
 			case CorePackage.ABSTRACT_TRANSACTION_TYPE: return createAbstractTransactionType();
 			case CorePackage.ABSTRACT_TRANSFORMER_TYPE: return createAbstractTransformerType();
-			case CorePackage.ADMIN_AGENT_TYPE: return createAdminAgentType();
 			case CorePackage.APPEND_STRING_TRANSFORMER_TYPE: return createAppendStringTransformerType();
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE: return createAsyncReplyCollectionType();
 			case CorePackage.ASYNC_REPLY_ROUTER_TYPE: return createAsyncReplyRouterType();
@@ -110,7 +109,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.COMPLEX_ENTRY_POINT_RESOLVER_TYPE: return createComplexEntryPointResolverType();
 			case CorePackage.CONNECTION_STRATEGY_TYPE: return createConnectionStrategyType();
 			case CorePackage.CONNECTOR_TYPE: return createConnectorType();
-			case CorePackage.CONTAINER_CONTEXT_TYPE: return createContainerContextType();
 			case CorePackage.CUSTOM_ASYNC_REPLY_ROUTER_TYPE: return createCustomAsyncReplyRouterType();
 			case CorePackage.CUSTOM_CATCH_ALL_STRATEGY_TYPE: return createCustomCatchAllStrategyType();
 			case CorePackage.CUSTOM_CONNECTION_STRATEGY_TYPE: return createCustomConnectionStrategyType();
@@ -167,7 +165,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.METHOD_ENTRY_POINT_RESOLVER_TYPE: return createMethodEntryPointResolverType();
 			case CorePackage.METHOD_TYPE: return createMethodType();
 			case CorePackage.MULE_TYPE: return createMuleType();
-			case CorePackage.MULE_UNSAFE_TYPE: return createMuleUnsafeType();
 			case CorePackage.NOTIFICATION_LISTENER_TYPE: return createNotificationListenerType();
 			case CorePackage.NOTIFICATION_MANAGER_TYPE: return createNotificationManagerType();
 			case CorePackage.OUTBOUND_COLLECTION_TYPE: return createOutboundCollectionType();
@@ -743,16 +740,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AdminAgentType createAdminAgentType() {
-		AdminAgentTypeImpl adminAgentType = new AdminAgentTypeImpl();
-		return adminAgentType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AppendStringTransformerType createAppendStringTransformerType() {
 		AppendStringTransformerTypeImpl appendStringTransformerType = new AppendStringTransformerTypeImpl();
 		return appendStringTransformerType;
@@ -856,16 +843,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public ConnectorType createConnectorType() {
 		ConnectorTypeImpl connectorType = new ConnectorTypeImpl();
 		return connectorType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ContainerContextType createContainerContextType() {
-		ContainerContextTypeImpl containerContextType = new ContainerContextTypeImpl();
-		return containerContextType;
 	}
 
 	/**
@@ -1426,16 +1403,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public MuleType createMuleType() {
 		MuleTypeImpl muleType = new MuleTypeImpl();
 		return muleType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MuleUnsafeType createMuleUnsafeType() {
-		MuleUnsafeTypeImpl muleUnsafeType = new MuleUnsafeTypeImpl();
-		return muleUnsafeType;
 	}
 
 	/**

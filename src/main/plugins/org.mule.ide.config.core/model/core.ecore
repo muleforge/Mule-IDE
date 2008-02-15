@@ -457,29 +457,6 @@
       <details key="baseType" value="action_._type"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AdminAgentType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="adminAgentType"/>
-      <details key="kind" value="elementOnly"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="ecore:EClass ../../org.mule.ide.config.spring/model/spring.ecore#//PropertyType"
-        containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Bean definitions can have zero or more properties.&#xD;&#xA;&#x9;Property elements correspond to JavaBean setter methods exposed&#xD;&#xA;&#x9;by the bean classes. Spring supports primitives, references to other&#xD;&#xA;&#x9;beans in the same or related factories, lists, maps and properties.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="property"/>
-        <details key="namespace" value="http://www.springframework.org/schema/beans"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serverUri" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="serverUri"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AppendStringTransformerType" eSuperTypes="#//AbstractTransformerType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="append-string-transformer_._type"/>
@@ -888,33 +865,6 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="numberOfConcurrentTransactedReceivers"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ContainerContextType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="container-contextType"/>
-      <details key="kind" value="elementOnly"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="elementWildcard"/>
-        <details key="wildcards" value="##other"/>
-        <details key="name" value=":0"/>
-        <details key="processing" value="strict"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" lowerBound="1" eType="#//SubstitutableClass">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="class"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//SubstitutableName">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -2581,18 +2531,6 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="muleUnsafe" upperBound="-2"
-        eType="#//MuleUnsafeType" volatile="true" transient="true" derived="true"
-        containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                An aternative root element that is more flexible, but which is less&#xD;&#xA;                likely to detect configuration errors during schema validation.&#xD;&#xA;                In addition, IDEs may give less useful prompts when using this element.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="mule-unsafe"/>
-        <details key="namespace" value="##targetNamespace"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="multicastingRouter" upperBound="-2"
         eType="#//FilteringOutboundRouterType" volatile="true" transient="true" derived="true"
         containment="true" resolveProxies="false">
@@ -3185,13 +3123,12 @@
     <eLiterals name="SERVICE" value="2"/>
     <eLiterals name="SECURITY" value="3"/>
     <eLiterals name="MANAGEMENT" value="4"/>
-    <eLiterals name="ADMIN" value="5"/>
-    <eLiterals name="CONNECTION" value="6"/>
-    <eLiterals name="REGISTRY" value="7"/>
-    <eLiterals name="CUSTOM" value="8"/>
-    <eLiterals name="MESSAGE" value="9"/>
-    <eLiterals name="EXCEPTION" value="10"/>
-    <eLiterals name="TRANSACTION" value="11"/>
+    <eLiterals name="CONNECTION" value="5"/>
+    <eLiterals name="REGISTRY" value="6"/>
+    <eLiterals name="CUSTOM" value="7"/>
+    <eLiterals name="MESSAGE" value="8"/>
+    <eLiterals name="EXCEPTION" value="9"/>
+    <eLiterals name="TRANSACTION" value="10"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EventType1">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -3202,12 +3139,11 @@
     <eLiterals name="SERVICE" value="2"/>
     <eLiterals name="SECURITY" value="3"/>
     <eLiterals name="MANAGEMENT" value="4"/>
-    <eLiterals name="ADMIN" value="5"/>
-    <eLiterals name="CONNECTION" value="6"/>
-    <eLiterals name="REGISTRY" value="7"/>
-    <eLiterals name="CUSTOM" value="8"/>
-    <eLiterals name="EXCEPTION" value="9"/>
-    <eLiterals name="TRANSACTION" value="10"/>
+    <eLiterals name="CONNECTION" value="5"/>
+    <eLiterals name="REGISTRY" value="6"/>
+    <eLiterals name="CUSTOM" value="7"/>
+    <eLiterals name="EXCEPTION" value="8"/>
+    <eLiterals name="TRANSACTION" value="9"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EventTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -4004,13 +3940,12 @@
     <eLiterals name="SERVICE" value="2"/>
     <eLiterals name="SECURITY" value="3"/>
     <eLiterals name="MANAGEMENT" value="4"/>
-    <eLiterals name="ADMIN" value="5"/>
-    <eLiterals name="CONNECTION" value="6"/>
-    <eLiterals name="REGISTRY" value="7"/>
-    <eLiterals name="CUSTOM" value="8"/>
-    <eLiterals name="MESSAGE" value="9"/>
-    <eLiterals name="EXCEPTION" value="10"/>
-    <eLiterals name="TRANSACTION" value="11"/>
+    <eLiterals name="CONNECTION" value="5"/>
+    <eLiterals name="REGISTRY" value="6"/>
+    <eLiterals name="CUSTOM" value="7"/>
+    <eLiterals name="MESSAGE" value="8"/>
+    <eLiterals name="EXCEPTION" value="9"/>
+    <eLiterals name="TRANSACTION" value="10"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="InterfaceType1">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -4021,12 +3956,11 @@
     <eLiterals name="SERVICE" value="2"/>
     <eLiterals name="SECURITY" value="3"/>
     <eLiterals name="MANAGEMENT" value="4"/>
-    <eLiterals name="ADMIN" value="5"/>
-    <eLiterals name="CONNECTION" value="6"/>
-    <eLiterals name="REGISTRY" value="7"/>
-    <eLiterals name="CUSTOM" value="8"/>
-    <eLiterals name="EXCEPTION" value="9"/>
-    <eLiterals name="TRANSACTION" value="10"/>
+    <eLiterals name="CONNECTION" value="5"/>
+    <eLiterals name="REGISTRY" value="6"/>
+    <eLiterals name="CUSTOM" value="7"/>
+    <eLiterals name="EXCEPTION" value="8"/>
+    <eLiterals name="TRANSACTION" value="9"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="InterfaceTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -4424,16 +4358,6 @@
         <details key="group" value="#group:0"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="adminAgent" upperBound="-1"
-        eType="#//AdminAgentType" volatile="true" transient="true" derived="true"
-        containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="admin-agent"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configuration" upperBound="-1"
         eType="#//ManagementContextType" volatile="true" transient="true" derived="true"
         containment="true" resolveProxies="false">
@@ -4658,258 +4582,6 @@
         <details key="kind" value="element"/>
         <details key="name" value="bean"/>
         <details key="namespace" value="http://www.springframework.org/schema/beans"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//SubstitutableName">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="name"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MuleUnsafeType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="muleUnsafeType"/>
-      <details key="kind" value="elementOnly"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="environmentProperty" upperBound="-1"
-        eType="#//EnvironmentPropertyType" volatile="true" transient="true" derived="true"
-        containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="environment-property"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="adminAgent" upperBound="-1"
-        eType="#//AdminAgentType" volatile="true" transient="true" derived="true"
-        containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="admin-agent"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration" upperBound="-1"
-        eType="#//ManagementContextType" volatile="true" transient="true" derived="true"
-        containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="configuration"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="notifications" upperBound="-1"
-        eType="#//NotificationManagerType" volatile="true" transient="true" derived="true"
-        containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="notifications"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="description" upperBound="-1"
-        eType="#//DescriptionType" volatile="true" transient="true" derived="true"
-        containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="description"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractExtensionGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                Abstract base for arbitrary extensions as children of the mule element.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-extension:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractExtension" upperBound="-1"
-        eType="#//AbstractExtensionType" changeable="false" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                Abstract base for arbitrary extensions as children of the mule element.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-extension"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-extension:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractSecurityManagerGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A security manager is a container for security providers. More than one&#xD;&#xA;                security manager may be configured; each contains providers from a particular&#xD;&#xA;                module and has that module's type. This element is abstract - a security&#xD;&#xA;                related module or transport will provide a suitable implementation.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-security-manager:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractSecurityManager"
-        upperBound="-1" eType="#//AbstractSecurityManagerType" changeable="false"
-        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A security manager is a container for security providers. More than one&#xD;&#xA;                security manager may be configured; each contains providers from a particular&#xD;&#xA;                module and has that module's type. This element is abstract - a security&#xD;&#xA;                related module or transport will provide a suitable implementation.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-security-manager"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-security-manager:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractTransactionManagerGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-transaction-manager:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractTransactionManager"
-        upperBound="-1" eType="#//AbstractTransactionManagerType" changeable="false"
-        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-transaction-manager"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-transaction-manager:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractConnectorGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-connector:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractConnector" upperBound="-1"
-        eType="#//AbstractConnectorType" changeable="false" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-connector"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-connector:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractGlobalEndpointGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-global-endpoint:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractGlobalEndpoint"
-        upperBound="-1" eType="#//AbstractGlobalEndpointType" changeable="false" volatile="true"
-        transient="true" derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-global-endpoint"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-global-endpoint:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractTransformerGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-transformer:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractTransformer" upperBound="-1"
-        eType="#//AbstractTransformerType" changeable="false" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-transformer"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-transformer:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractFilterGroup" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-filter:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractFilter" upperBound="-1"
-        eType="#//AbstractFilterType" changeable="false" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-filter"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-filter:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractModelGroup" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-model:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:0"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractModel" upperBound="-1"
-        eType="#//AbstractModelType" changeable="false" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-model"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-model:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="elementWildcard"/>
-        <details key="wildcards" value="##other"/>
-        <details key="name" value=":22"/>
-        <details key="processing" value="strict"/>
         <details key="group" value="#group:0"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -5602,20 +5274,11 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertiesContainerContextType">
+  <eClassifiers xsi:type="ecore:EClass" name="PropertiesContainerContextType" eSuperTypes="#//BaseContainerContextType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="propertiesContainerContextType"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="elementWildcard"/>
-        <details key="wildcards" value="##other"/>
-        <details key="name" value=":0"/>
-        <details key="processing" value="strict"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableTemplates" eType="#//SubstitutableBoolean"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

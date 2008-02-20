@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.mule.ide.config.vm.edit; singleton:=true
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
-Bundle-Activator: org.mule.ide.config.vm.provider.MulevmEditPlugin$Implementation
+Bundle-Activator: org.mule.ide.config.vm.provider.VMEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

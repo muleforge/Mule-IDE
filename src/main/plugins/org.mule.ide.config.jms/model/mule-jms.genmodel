@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.mule.ide.config.jms/src"
+    modelPluginID="org.mule.ide.config.jms" modelName="Mule-jms" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.mule.ide.config.core/model/core.genmodel#//core ../../org.mule.ide.config.spring/model/spring-beans-2.0.genmodel#//spring platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+  <foreignModel>mule-jms.xsd</foreignModel>
+  <genPackages prefix="JMS" basePackage="org.mule.ide.config" resource="XML" disposableProviderFactory="true"
+      ecorePackage="jms.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jms.ecore#//AcknowledgementModeType">
+      <genEnumLiterals ecoreEnumLiteral="jms.ecore#//AcknowledgementModeType/AUTOACKNOWLEDGE"/>
+      <genEnumLiterals ecoreEnumLiteral="jms.ecore#//AcknowledgementModeType/CLIENTACKNOWLEDGE"/>
+      <genEnumLiterals ecoreEnumLiteral="jms.ecore#//AcknowledgementModeType/DUPSOKACKNOWLEDGE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jms.ecore#//SpecificationType">
+      <genEnumLiterals ecoreEnumLiteral="jms.ecore#//SpecificationType/_102b"/>
+      <genEnumLiterals ecoreEnumLiteral="jms.ecore#//SpecificationType/_11"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="jms.ecore#//AcknowledgementModeTypeObject"/>
+    <genDataTypes ecoreDataType="jms.ecore#//SpecificationTypeObject"/>
+    <genClasses ecoreClass="jms.ecore#//ActiveMqConnectorType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//ActiveMqConnectorType/brokerURL"/>
+    </genClasses>
+    <genClasses ecoreClass="jms.ecore#//CustomConnectorType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/acknowledgementMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/cacheJmsSessions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/clientId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/durable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/eagerConsumer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/honorQosHeaders"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/maxRedelivery"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/noLocal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/persistentDelivery"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/recoverJmsConnections"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/redeliveryHandlerRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/specification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/username"/>
+    </genClasses>
+    <genClasses ecoreClass="jms.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/activemqConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/activemqXaConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/clientAckTransaction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/connector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/customConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/endpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/inboundEndpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/jmsmessageToObjectTransformer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/objectToJmsmessageTransformer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/outboundEndpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/propertyFilter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/transaction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/weblogicConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/websphereConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/xaTransaction"/>
+    </genClasses>
+    <genClasses ecoreClass="jms.ecore#//GenericConnectorType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/acknowledgementMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/cacheJmsSessions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/clientId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/connectionFactoryRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/durable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/eagerConsumer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/honorQosHeaders"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/maxRedelivery"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/noLocal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/persistentDelivery"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/recoverJmsConnections"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/redeliveryHandlerRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/specification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/username"/>
+    </genClasses>
+    <genClasses ecoreClass="jms.ecore#//GlobalEndpointType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/abstractTransformerGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/abstractTransformer"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/transformers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/responseTransformers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/abstractTransactionGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/abstractTransaction"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/abstractFilterGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/abstractFilter"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/selector"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/abstractSecurityFilterGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/abstractSecurityFilter"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/abstractConnectionStrategyGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/abstractConnectionStrategy"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/properties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/address"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/connectorRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/encoding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/queue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/ref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/remoteSync"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/remoteSyncTimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/responseTransformerRefs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/synchronous"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/topic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/transformerRefs"/>
+    </genClasses>
+    <genClasses ecoreClass="jms.ecore#//InboundEndpointType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/abstractTransformerGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/abstractTransformer"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/transformers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/responseTransformers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/abstractTransactionGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/abstractTransaction"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/abstractFilterGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/abstractFilter"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/selector"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/abstractSecurityFilterGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/abstractSecurityFilter"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/abstractConnectionStrategyGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/abstractConnectionStrategy"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/properties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/address"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/connectorRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/encoding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/queue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/ref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/remoteSync"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/remoteSyncTimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/responseTransformerRefs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/synchronous"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/topic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/transformerRefs"/>
+    </genClasses>
+    <genClasses ecoreClass="jms.ecore#//JmsSelectorFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//JmsSelectorFilter/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="jms.ecore#//JmsTransactionType"/>
+    <genClasses ecoreClass="jms.ecore#//OutboundEndpointType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/abstractTransformerGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/abstractTransformer"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/transformers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/responseTransformers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/abstractTransactionGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/abstractTransaction"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/abstractFilterGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/abstractFilter"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/selector"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/abstractSecurityFilterGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/abstractSecurityFilter"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/abstractConnectionStrategyGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/abstractConnectionStrategy"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/properties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/address"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/connectorRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/encoding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/queue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/ref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/remoteSync"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/remoteSyncTimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/responseTransformerRefs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/synchronous"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/topic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/transformerRefs"/>
+    </genClasses>
+    <genClasses ecoreClass="jms.ecore#//PropertyFilterType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//PropertyFilterType/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//PropertyFilterType/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//PropertyFilterType/propertyClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//PropertyFilterType/propertyName"/>
+    </genClasses>
+    <genClasses ecoreClass="jms.ecore#//VendorJmsConnectorType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/acknowledgementMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/cacheJmsSessions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/clientId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/connectionFactoryRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/durable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/eagerConsumer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/honorQosHeaders"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/maxRedelivery"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/noLocal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/persistentDelivery"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/recoverJmsConnections"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/redeliveryHandlerRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/specification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/username"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -6,6 +6,7 @@
  */
 package org.mule.ide.config.tests.park.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,11 +17,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mule.ide.config.tests.park.ParkPackage;
 import org.mule.ide.config.tests.park.ParkType;
+import org.mule.ide.config.tests.park.PersonType;
 import org.mule.ide.config.tests.park.VehicleType;
 
 /**
@@ -33,6 +36,8 @@ import org.mule.ide.config.tests.park.VehicleType;
  *   <li>{@link org.mule.ide.config.tests.park.impl.ParkTypeImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.impl.ParkTypeImpl#getAbstractVehicleGroup <em>Abstract Vehicle Group</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.impl.ParkTypeImpl#getAbstractVehicle <em>Abstract Vehicle</em>}</li>
+ *   <li>{@link org.mule.ide.config.tests.park.impl.ParkTypeImpl#getPersonsGroup <em>Persons Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.tests.park.impl.ParkTypeImpl#getPersons <em>Persons</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,6 +53,16 @@ public class ParkTypeImpl extends EObjectImpl implements ParkType {
 	 * @ordered
 	 */
 	protected FeatureMap group;
+
+	/**
+	 * The cached value of the '{@link #getPersons() <em>Persons</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPersons()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PersonType> persons;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,6 +118,27 @@ public class ParkTypeImpl extends EObjectImpl implements ParkType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FeatureMap getPersonsGroup() {
+		return (FeatureMap)getGroup().<FeatureMap.Entry>list(ParkPackage.Literals.PARK_TYPE__PERSONS_GROUP);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<PersonType> getPersons() {
+		if (persons == null) {
+			persons = new EObjectContainmentEList<PersonType>(PersonType.class, this, ParkPackage.PARK_TYPE__PERSONS);
+		}
+		return persons;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -112,6 +148,10 @@ public class ParkTypeImpl extends EObjectImpl implements ParkType {
 				return ((InternalEList<?>)getAbstractVehicleGroup()).basicRemove(otherEnd, msgs);
 			case ParkPackage.PARK_TYPE__ABSTRACT_VEHICLE:
 				return ((InternalEList<?>)getAbstractVehicle()).basicRemove(otherEnd, msgs);
+			case ParkPackage.PARK_TYPE__PERSONS_GROUP:
+				return ((InternalEList<?>)getPersonsGroup()).basicRemove(otherEnd, msgs);
+			case ParkPackage.PARK_TYPE__PERSONS:
+				return ((InternalEList<?>)getPersons()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -132,6 +172,11 @@ public class ParkTypeImpl extends EObjectImpl implements ParkType {
 				return ((FeatureMap.Internal)getAbstractVehicleGroup()).getWrapper();
 			case ParkPackage.PARK_TYPE__ABSTRACT_VEHICLE:
 				return getAbstractVehicle();
+			case ParkPackage.PARK_TYPE__PERSONS_GROUP:
+				if (coreType) return getPersonsGroup();
+				return ((FeatureMap.Internal)getPersonsGroup()).getWrapper();
+			case ParkPackage.PARK_TYPE__PERSONS:
+				return getPersons();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -141,6 +186,7 @@ public class ParkTypeImpl extends EObjectImpl implements ParkType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -149,6 +195,13 @@ public class ParkTypeImpl extends EObjectImpl implements ParkType {
 				return;
 			case ParkPackage.PARK_TYPE__ABSTRACT_VEHICLE_GROUP:
 				((FeatureMap.Internal)getAbstractVehicleGroup()).set(newValue);
+				return;
+			case ParkPackage.PARK_TYPE__PERSONS_GROUP:
+				((FeatureMap.Internal)getPersonsGroup()).set(newValue);
+				return;
+			case ParkPackage.PARK_TYPE__PERSONS:
+				getPersons().clear();
+				getPersons().addAll((Collection<? extends PersonType>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -168,6 +221,12 @@ public class ParkTypeImpl extends EObjectImpl implements ParkType {
 			case ParkPackage.PARK_TYPE__ABSTRACT_VEHICLE_GROUP:
 				getAbstractVehicleGroup().clear();
 				return;
+			case ParkPackage.PARK_TYPE__PERSONS_GROUP:
+				getPersonsGroup().clear();
+				return;
+			case ParkPackage.PARK_TYPE__PERSONS:
+				getPersons().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -186,6 +245,10 @@ public class ParkTypeImpl extends EObjectImpl implements ParkType {
 				return !getAbstractVehicleGroup().isEmpty();
 			case ParkPackage.PARK_TYPE__ABSTRACT_VEHICLE:
 				return !getAbstractVehicle().isEmpty();
+			case ParkPackage.PARK_TYPE__PERSONS_GROUP:
+				return !getPersonsGroup().isEmpty();
+			case ParkPackage.PARK_TYPE__PERSONS:
+				return persons != null && !persons.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

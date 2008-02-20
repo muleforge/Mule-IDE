@@ -152,49 +152,13 @@ public interface ParkPackage extends EPackage {
 	int DOCUMENT_ROOT__ABSTRACT_VEHICLE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Decal</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__DECAL = 4;
-
-	/**
-	 * The feature id for the '<em><b>Make</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__MAKE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Model</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__MODEL = 6;
-
-	/**
-	 * The feature id for the '<em><b>Paint</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__PAINT = 7;
-
-	/**
 	 * The feature id for the '<em><b>Park</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PARK = 8;
+	int DOCUMENT_ROOT__PARK = 4;
 
 	/**
 	 * The feature id for the '<em><b>Vehicle</b></em>' containment reference.
@@ -203,7 +167,7 @@ public interface ParkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__VEHICLE = 9;
+	int DOCUMENT_ROOT__VEHICLE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Document Root</em>' class.
@@ -212,7 +176,7 @@ public interface ParkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT_FEATURE_COUNT = 10;
+	int DOCUMENT_ROOT_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.tests.park.impl.ParkTypeImpl <em>Type</em>}' class.
@@ -252,13 +216,31 @@ public interface ParkPackage extends EPackage {
 	int PARK_TYPE__ABSTRACT_VEHICLE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Persons Group</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARK_TYPE__PERSONS_GROUP = 3;
+
+	/**
+	 * The feature id for the '<em><b>Persons</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARK_TYPE__PERSONS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARK_TYPE_FEATURE_COUNT = 3;
+	int PARK_TYPE_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.tests.park.impl.VehicleTypeImpl <em>Vehicle Type</em>}' class.
@@ -316,13 +298,160 @@ public interface ParkPackage extends EPackage {
 	int VEHICLE_TYPE__PAINT = 4;
 
 	/**
+	 * The feature id for the '<em><b>License Plate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VEHICLE_TYPE__LICENSE_PLATE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Nicknames</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VEHICLE_TYPE__NICKNAMES = 6;
+
+	/**
+	 * The feature id for the '<em><b>Current Insurance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VEHICLE_TYPE__CURRENT_INSURANCE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Policy History</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VEHICLE_TYPE__POLICY_HISTORY = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VEHICLE_TYPE__ID = 9;
+
+	/**
+	 * The feature id for the '<em><b>Current Owner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VEHICLE_TYPE__CURRENT_OWNER = 10;
+
+	/**
 	 * The number of structural features of the '<em>Vehicle Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VEHICLE_TYPE_FEATURE_COUNT = 5;
+	int VEHICLE_TYPE_FEATURE_COUNT = 11;
+
+
+	/**
+	 * The meta object id for the '{@link org.mule.ide.config.tests.park.impl.InsuranceTypeImpl <em>Insurance Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.mule.ide.config.tests.park.impl.InsuranceTypeImpl
+	 * @see org.mule.ide.config.tests.park.impl.ParkPackageImpl#getInsuranceType()
+	 * @generated
+	 */
+	int INSURANCE_TYPE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSURANCE_TYPE__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSURANCE_TYPE__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Client</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSURANCE_TYPE__CLIENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>History</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSURANCE_TYPE__HISTORY = 3;
+
+	/**
+	 * The number of structural features of the '<em>Insurance Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSURANCE_TYPE_FEATURE_COUNT = 4;
+
+	/**
+	 * The meta object id for the '{@link org.mule.ide.config.tests.park.impl.PersonTypeImpl <em>Person Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.mule.ide.config.tests.park.impl.PersonTypeImpl
+	 * @see org.mule.ide.config.tests.park.impl.ParkPackageImpl#getPersonType()
+	 * @generated
+	 */
+	int PERSON_TYPE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON_TYPE__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON_TYPE__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Person Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON_TYPE_FEATURE_COUNT = 2;
 
 
 	/**
@@ -423,50 +552,6 @@ public interface ParkPackage extends EPackage {
 	EReference getDocumentRoot_AbstractVehicle();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.mule.ide.config.tests.park.DocumentRoot#getDecal <em>Decal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Decal</em>'.
-	 * @see org.mule.ide.config.tests.park.DocumentRoot#getDecal()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EReference getDocumentRoot_Decal();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.mule.ide.config.tests.park.DocumentRoot#getMake <em>Make</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Make</em>'.
-	 * @see org.mule.ide.config.tests.park.DocumentRoot#getMake()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EAttribute getDocumentRoot_Make();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.mule.ide.config.tests.park.DocumentRoot#getModel <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Model</em>'.
-	 * @see org.mule.ide.config.tests.park.DocumentRoot#getModel()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EAttribute getDocumentRoot_Model();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.mule.ide.config.tests.park.DocumentRoot#getPaint <em>Paint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Paint</em>'.
-	 * @see org.mule.ide.config.tests.park.DocumentRoot#getPaint()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EAttribute getDocumentRoot_Paint();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link org.mule.ide.config.tests.park.DocumentRoot#getPark <em>Park</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -532,6 +617,28 @@ public interface ParkPackage extends EPackage {
 	EReference getParkType_AbstractVehicle();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.tests.park.ParkType#getPersonsGroup <em>Persons Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Persons Group</em>'.
+	 * @see org.mule.ide.config.tests.park.ParkType#getPersonsGroup()
+	 * @see #getParkType()
+	 * @generated
+	 */
+	EAttribute getParkType_PersonsGroup();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.tests.park.ParkType#getPersons <em>Persons</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Persons</em>'.
+	 * @see org.mule.ide.config.tests.park.ParkType#getPersons()
+	 * @see #getParkType()
+	 * @generated
+	 */
+	EReference getParkType_Persons();
+
+	/**
 	 * Returns the meta object for class '{@link org.mule.ide.config.tests.park.VehicleType <em>Vehicle Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -595,6 +702,158 @@ public interface ParkPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getVehicleType_Paint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.mule.ide.config.tests.park.VehicleType#getLicensePlate <em>License Plate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>License Plate</em>'.
+	 * @see org.mule.ide.config.tests.park.VehicleType#getLicensePlate()
+	 * @see #getVehicleType()
+	 * @generated
+	 */
+	EAttribute getVehicleType_LicensePlate();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.tests.park.VehicleType#getNicknames <em>Nicknames</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Nicknames</em>'.
+	 * @see org.mule.ide.config.tests.park.VehicleType#getNicknames()
+	 * @see #getVehicleType()
+	 * @generated
+	 */
+	EAttribute getVehicleType_Nicknames();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.mule.ide.config.tests.park.VehicleType#getCurrentInsurance <em>Current Insurance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Current Insurance</em>'.
+	 * @see org.mule.ide.config.tests.park.VehicleType#getCurrentInsurance()
+	 * @see #getVehicleType()
+	 * @generated
+	 */
+	EReference getVehicleType_CurrentInsurance();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.tests.park.VehicleType#getPolicyHistory <em>Policy History</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Policy History</em>'.
+	 * @see org.mule.ide.config.tests.park.VehicleType#getPolicyHistory()
+	 * @see #getVehicleType()
+	 * @generated
+	 */
+	EReference getVehicleType_PolicyHistory();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.mule.ide.config.tests.park.VehicleType#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.mule.ide.config.tests.park.VehicleType#getId()
+	 * @see #getVehicleType()
+	 * @generated
+	 */
+	EAttribute getVehicleType_Id();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.mule.ide.config.tests.park.VehicleType#getCurrentOwner <em>Current Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Current Owner</em>'.
+	 * @see org.mule.ide.config.tests.park.VehicleType#getCurrentOwner()
+	 * @see #getVehicleType()
+	 * @generated
+	 */
+	EReference getVehicleType_CurrentOwner();
+
+	/**
+	 * Returns the meta object for class '{@link org.mule.ide.config.tests.park.InsuranceType <em>Insurance Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Insurance Type</em>'.
+	 * @see org.mule.ide.config.tests.park.InsuranceType
+	 * @generated
+	 */
+	EClass getInsuranceType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.mule.ide.config.tests.park.InsuranceType#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.mule.ide.config.tests.park.InsuranceType#getId()
+	 * @see #getInsuranceType()
+	 * @generated
+	 */
+	EAttribute getInsuranceType_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.mule.ide.config.tests.park.InsuranceType#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.mule.ide.config.tests.park.InsuranceType#getName()
+	 * @see #getInsuranceType()
+	 * @generated
+	 */
+	EAttribute getInsuranceType_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.mule.ide.config.tests.park.InsuranceType#getClient <em>Client</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Client</em>'.
+	 * @see org.mule.ide.config.tests.park.InsuranceType#getClient()
+	 * @see #getInsuranceType()
+	 * @generated
+	 */
+	EReference getInsuranceType_Client();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.tests.park.InsuranceType#getHistory <em>History</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>History</em>'.
+	 * @see org.mule.ide.config.tests.park.InsuranceType#getHistory()
+	 * @see #getInsuranceType()
+	 * @generated
+	 */
+	EAttribute getInsuranceType_History();
+
+	/**
+	 * Returns the meta object for class '{@link org.mule.ide.config.tests.park.PersonType <em>Person Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Person Type</em>'.
+	 * @see org.mule.ide.config.tests.park.PersonType
+	 * @generated
+	 */
+	EClass getPersonType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.mule.ide.config.tests.park.PersonType#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.mule.ide.config.tests.park.PersonType#getId()
+	 * @see #getPersonType()
+	 * @generated
+	 */
+	EAttribute getPersonType_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.mule.ide.config.tests.park.PersonType#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.mule.ide.config.tests.park.PersonType#getName()
+	 * @see #getPersonType()
+	 * @generated
+	 */
+	EAttribute getPersonType_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -695,38 +954,6 @@ public interface ParkPackage extends EPackage {
 		EReference DOCUMENT_ROOT__ABSTRACT_VEHICLE = eINSTANCE.getDocumentRoot_AbstractVehicle();
 
 		/**
-		 * The meta object literal for the '<em><b>Decal</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOCUMENT_ROOT__DECAL = eINSTANCE.getDocumentRoot_Decal();
-
-		/**
-		 * The meta object literal for the '<em><b>Make</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOCUMENT_ROOT__MAKE = eINSTANCE.getDocumentRoot_Make();
-
-		/**
-		 * The meta object literal for the '<em><b>Model</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOCUMENT_ROOT__MODEL = eINSTANCE.getDocumentRoot_Model();
-
-		/**
-		 * The meta object literal for the '<em><b>Paint</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOCUMENT_ROOT__PAINT = eINSTANCE.getDocumentRoot_Paint();
-
-		/**
 		 * The meta object literal for the '<em><b>Park</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -777,6 +1004,22 @@ public interface ParkPackage extends EPackage {
 		EReference PARK_TYPE__ABSTRACT_VEHICLE = eINSTANCE.getParkType_AbstractVehicle();
 
 		/**
+		 * The meta object literal for the '<em><b>Persons Group</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARK_TYPE__PERSONS_GROUP = eINSTANCE.getParkType_PersonsGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Persons</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARK_TYPE__PERSONS = eINSTANCE.getParkType_Persons();
+
+		/**
 		 * The meta object literal for the '{@link org.mule.ide.config.tests.park.impl.VehicleTypeImpl <em>Vehicle Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -825,6 +1068,122 @@ public interface ParkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VEHICLE_TYPE__PAINT = eINSTANCE.getVehicleType_Paint();
+
+		/**
+		 * The meta object literal for the '<em><b>License Plate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VEHICLE_TYPE__LICENSE_PLATE = eINSTANCE.getVehicleType_LicensePlate();
+
+		/**
+		 * The meta object literal for the '<em><b>Nicknames</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VEHICLE_TYPE__NICKNAMES = eINSTANCE.getVehicleType_Nicknames();
+
+		/**
+		 * The meta object literal for the '<em><b>Current Insurance</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VEHICLE_TYPE__CURRENT_INSURANCE = eINSTANCE.getVehicleType_CurrentInsurance();
+
+		/**
+		 * The meta object literal for the '<em><b>Policy History</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VEHICLE_TYPE__POLICY_HISTORY = eINSTANCE.getVehicleType_PolicyHistory();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VEHICLE_TYPE__ID = eINSTANCE.getVehicleType_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Current Owner</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VEHICLE_TYPE__CURRENT_OWNER = eINSTANCE.getVehicleType_CurrentOwner();
+
+		/**
+		 * The meta object literal for the '{@link org.mule.ide.config.tests.park.impl.InsuranceTypeImpl <em>Insurance Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.mule.ide.config.tests.park.impl.InsuranceTypeImpl
+		 * @see org.mule.ide.config.tests.park.impl.ParkPackageImpl#getInsuranceType()
+		 * @generated
+		 */
+		EClass INSURANCE_TYPE = eINSTANCE.getInsuranceType();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INSURANCE_TYPE__ID = eINSTANCE.getInsuranceType_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INSURANCE_TYPE__NAME = eINSTANCE.getInsuranceType_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Client</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INSURANCE_TYPE__CLIENT = eINSTANCE.getInsuranceType_Client();
+
+		/**
+		 * The meta object literal for the '<em><b>History</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INSURANCE_TYPE__HISTORY = eINSTANCE.getInsuranceType_History();
+
+		/**
+		 * The meta object literal for the '{@link org.mule.ide.config.tests.park.impl.PersonTypeImpl <em>Person Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.mule.ide.config.tests.park.impl.PersonTypeImpl
+		 * @see org.mule.ide.config.tests.park.impl.ParkPackageImpl#getPersonType()
+		 * @generated
+		 */
+		EClass PERSON_TYPE = eINSTANCE.getPersonType();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSON_TYPE__ID = eINSTANCE.getPersonType_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSON_TYPE__NAME = eINSTANCE.getPersonType_Name();
 
 	}
 

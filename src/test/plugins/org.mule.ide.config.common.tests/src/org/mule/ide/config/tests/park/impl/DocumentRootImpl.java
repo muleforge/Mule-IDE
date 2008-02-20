@@ -40,10 +40,6 @@ import org.mule.ide.config.tests.park.VehicleType;
  *   <li>{@link org.mule.ide.config.tests.park.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.impl.DocumentRootImpl#getAbstractVehicle <em>Abstract Vehicle</em>}</li>
- *   <li>{@link org.mule.ide.config.tests.park.impl.DocumentRootImpl#getDecal <em>Decal</em>}</li>
- *   <li>{@link org.mule.ide.config.tests.park.impl.DocumentRootImpl#getMake <em>Make</em>}</li>
- *   <li>{@link org.mule.ide.config.tests.park.impl.DocumentRootImpl#getModel <em>Model</em>}</li>
- *   <li>{@link org.mule.ide.config.tests.park.impl.DocumentRootImpl#getPaint <em>Paint</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.impl.DocumentRootImpl#getPark <em>Park</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.impl.DocumentRootImpl#getVehicle <em>Vehicle</em>}</li>
  * </ul>
@@ -81,36 +77,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @ordered
 	 */
 	protected EMap<String, String> xSISchemaLocation;
-
-	/**
-	 * The default value of the '{@link #getMake() <em>Make</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMake()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MAKE_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getModel() <em>Model</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MODEL_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getPaint() <em>Paint</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPaint()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PAINT_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,87 +156,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DecalType getDecal() {
-		return (DecalType)getMixed().get(ParkPackage.Literals.DOCUMENT_ROOT__DECAL, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDecal(DecalType newDecal, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(ParkPackage.Literals.DOCUMENT_ROOT__DECAL, newDecal, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDecal(DecalType newDecal) {
-		((FeatureMap.Internal)getMixed()).set(ParkPackage.Literals.DOCUMENT_ROOT__DECAL, newDecal);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getMake() {
-		return (String)getMixed().get(ParkPackage.Literals.DOCUMENT_ROOT__MAKE, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMake(String newMake) {
-		((FeatureMap.Internal)getMixed()).set(ParkPackage.Literals.DOCUMENT_ROOT__MAKE, newMake);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getModel() {
-		return (String)getMixed().get(ParkPackage.Literals.DOCUMENT_ROOT__MODEL, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setModel(String newModel) {
-		((FeatureMap.Internal)getMixed()).set(ParkPackage.Literals.DOCUMENT_ROOT__MODEL, newModel);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getPaint() {
-		return (String)getMixed().get(ParkPackage.Literals.DOCUMENT_ROOT__PAINT, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPaint(String newPaint) {
-		((FeatureMap.Internal)getMixed()).set(ParkPackage.Literals.DOCUMENT_ROOT__PAINT, newPaint);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ParkType getPark() {
 		return (ParkType)getMixed().get(ParkPackage.Literals.DOCUMENT_ROOT__PARK, true);
 	}
@@ -336,8 +221,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return ((InternalEList<?>)getXSISchemaLocation()).basicRemove(otherEnd, msgs);
 			case ParkPackage.DOCUMENT_ROOT__ABSTRACT_VEHICLE:
 				return basicSetAbstractVehicle(null, msgs);
-			case ParkPackage.DOCUMENT_ROOT__DECAL:
-				return basicSetDecal(null, msgs);
 			case ParkPackage.DOCUMENT_ROOT__PARK:
 				return basicSetPark(null, msgs);
 			case ParkPackage.DOCUMENT_ROOT__VEHICLE:
@@ -365,14 +248,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				else return getXSISchemaLocation().map();
 			case ParkPackage.DOCUMENT_ROOT__ABSTRACT_VEHICLE:
 				return getAbstractVehicle();
-			case ParkPackage.DOCUMENT_ROOT__DECAL:
-				return getDecal();
-			case ParkPackage.DOCUMENT_ROOT__MAKE:
-				return getMake();
-			case ParkPackage.DOCUMENT_ROOT__MODEL:
-				return getModel();
-			case ParkPackage.DOCUMENT_ROOT__PAINT:
-				return getPaint();
 			case ParkPackage.DOCUMENT_ROOT__PARK:
 				return getPark();
 			case ParkPackage.DOCUMENT_ROOT__VEHICLE:
@@ -397,18 +272,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case ParkPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
 				((EStructuralFeature.Setting)getXSISchemaLocation()).set(newValue);
-				return;
-			case ParkPackage.DOCUMENT_ROOT__DECAL:
-				setDecal((DecalType)newValue);
-				return;
-			case ParkPackage.DOCUMENT_ROOT__MAKE:
-				setMake((String)newValue);
-				return;
-			case ParkPackage.DOCUMENT_ROOT__MODEL:
-				setModel((String)newValue);
-				return;
-			case ParkPackage.DOCUMENT_ROOT__PAINT:
-				setPaint((String)newValue);
 				return;
 			case ParkPackage.DOCUMENT_ROOT__PARK:
 				setPark((ParkType)newValue);
@@ -437,18 +300,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case ParkPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
 				getXSISchemaLocation().clear();
 				return;
-			case ParkPackage.DOCUMENT_ROOT__DECAL:
-				setDecal((DecalType)null);
-				return;
-			case ParkPackage.DOCUMENT_ROOT__MAKE:
-				setMake(MAKE_EDEFAULT);
-				return;
-			case ParkPackage.DOCUMENT_ROOT__MODEL:
-				setModel(MODEL_EDEFAULT);
-				return;
-			case ParkPackage.DOCUMENT_ROOT__PAINT:
-				setPaint(PAINT_EDEFAULT);
-				return;
 			case ParkPackage.DOCUMENT_ROOT__PARK:
 				setPark((ParkType)null);
 				return;
@@ -475,14 +326,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
 			case ParkPackage.DOCUMENT_ROOT__ABSTRACT_VEHICLE:
 				return getAbstractVehicle() != null;
-			case ParkPackage.DOCUMENT_ROOT__DECAL:
-				return getDecal() != null;
-			case ParkPackage.DOCUMENT_ROOT__MAKE:
-				return MAKE_EDEFAULT == null ? getMake() != null : !MAKE_EDEFAULT.equals(getMake());
-			case ParkPackage.DOCUMENT_ROOT__MODEL:
-				return MODEL_EDEFAULT == null ? getModel() != null : !MODEL_EDEFAULT.equals(getModel());
-			case ParkPackage.DOCUMENT_ROOT__PAINT:
-				return PAINT_EDEFAULT == null ? getPaint() != null : !PAINT_EDEFAULT.equals(getPaint());
 			case ParkPackage.DOCUMENT_ROOT__PARK:
 				return getPark() != null;
 			case ParkPackage.DOCUMENT_ROOT__VEHICLE:

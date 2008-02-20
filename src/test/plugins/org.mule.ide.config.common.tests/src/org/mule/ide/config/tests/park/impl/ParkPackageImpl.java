@@ -77,6 +77,20 @@ public class ParkPackageImpl extends EPackageImpl implements ParkPackage {
 	private EClass vehicleTypeEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass insuranceTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass personTypeEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -242,7 +256,7 @@ public class ParkPackageImpl extends EPackageImpl implements ParkPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Decal() {
+	public EReference getDocumentRoot_Park() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(4);
 	}
 
@@ -251,44 +265,8 @@ public class ParkPackageImpl extends EPackageImpl implements ParkPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDocumentRoot_Make() {
-        return (EAttribute)getDocumentRoot().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDocumentRoot_Model() {
-        return (EAttribute)getDocumentRoot().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDocumentRoot_Paint() {
-        return (EAttribute)getDocumentRoot().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Park() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDocumentRoot_Vehicle() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(9);
+        return (EReference)getDocumentRoot().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -328,6 +306,24 @@ public class ParkPackageImpl extends EPackageImpl implements ParkPackage {
 	 */
 	public EReference getParkType_AbstractVehicle() {
         return (EReference)getParkType().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParkType_PersonsGroup() {
+        return (EAttribute)getParkType().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParkType_Persons() {
+        return (EReference)getParkType().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -385,6 +381,138 @@ public class ParkPackageImpl extends EPackageImpl implements ParkPackage {
 	 */
 	public EAttribute getVehicleType_Paint() {
         return (EAttribute)getVehicleType().getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVehicleType_LicensePlate() {
+        return (EAttribute)getVehicleType().getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVehicleType_Nicknames() {
+        return (EAttribute)getVehicleType().getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVehicleType_CurrentInsurance() {
+        return (EReference)getVehicleType().getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVehicleType_PolicyHistory() {
+        return (EReference)getVehicleType().getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVehicleType_Id() {
+        return (EAttribute)getVehicleType().getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVehicleType_CurrentOwner() {
+        return (EReference)getVehicleType().getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInsuranceType() {
+		if (insuranceTypeEClass == null) {
+			insuranceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(ParkPackage.eNS_URI).getEClassifiers().get(4);
+		}
+		return insuranceTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInsuranceType_Id() {
+        return (EAttribute)getInsuranceType().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInsuranceType_Name() {
+        return (EAttribute)getInsuranceType().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInsuranceType_Client() {
+        return (EReference)getInsuranceType().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInsuranceType_History() {
+        return (EAttribute)getInsuranceType().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPersonType() {
+		if (personTypeEClass == null) {
+			personTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(ParkPackage.eNS_URI).getEClassifiers().get(5);
+		}
+		return personTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersonType_Id() {
+        return (EAttribute)getPersonType().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersonType_Name() {
+        return (EAttribute)getPersonType().getEStructuralFeatures().get(1);
 	}
 
 	/**

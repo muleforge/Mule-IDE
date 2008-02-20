@@ -9,10 +9,16 @@
     			<element ref="vp:Decal"></element>
     			<element ref="vp:Paint"></element>
     		</choice>
+    		<element ref="vp:LicensePlate" minOccurs="0" maxOccurs="1"></element>
+    		<element name="Nickname" minOccurs="0" maxOccurs="unbounded" type="string"></element>
+    		<element ref="vp:InsurancePolicy" minOccurs="0" maxOccurs="unbounded"></element>
+    		<element name="Owner" minOccurs="0" maxOccurs="1" type="IDREF"></element>
     	</sequence>
     </complexType>
 
     <element name="Make" type="string"></element>
+
+    <element name="LicensePlate" type="string"></element>
 
     <element name="Model" type="string"></element>
 
@@ -24,6 +30,27 @@
     		<attribute name="color" type="string"></attribute>
     	</complexType>
     </element>
+
+    <element name="InsurancePolicy">
+    	<complexType>
+			<sequence>
+			    <element name="Name" type="string"></element>
+			    <element name="Client" type="IDREF"></element>
+			    <element name="HistoryEntry" type="string" maxOccurs="unbounded"></element>		
+			</sequence>
+    		<attribute name="id" type="ID"></attribute>
+    	</complexType>
+    </element>
+
+    <element name="Person">
+    	<complexType>
+			<sequence>
+			    <element name="Name" type="string"></element>
+			</sequence>
+    		<attribute name="id" type="ID"></attribute>
+    	</complexType>
+    </element>
+
 
     <element name="AbstractVehicle" type="vp:VehicleType" abstract="true"></element>
 

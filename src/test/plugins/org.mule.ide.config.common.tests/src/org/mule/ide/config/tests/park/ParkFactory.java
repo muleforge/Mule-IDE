@@ -62,6 +62,24 @@ public interface ParkFactory extends EFactory {
 	VehicleType createVehicleType();
 
 	/**
+	 * Returns a new object of class '<em>Insurance Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Insurance Type</em>'.
+	 * @generated
+	 */
+	InsuranceType createInsuranceType();
+
+	/**
+	 * Returns a new object of class '<em>Person Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Person Type</em>'.
+	 * @generated
+	 */
+	PersonType createPersonType();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

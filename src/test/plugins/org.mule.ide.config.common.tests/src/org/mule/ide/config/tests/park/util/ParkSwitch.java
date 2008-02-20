@@ -111,6 +111,18 @@ public class ParkSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ParkPackage.INSURANCE_TYPE: {
+				InsuranceType insuranceType = (InsuranceType)theEObject;
+				T result = caseInsuranceType(insuranceType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ParkPackage.PERSON_TYPE: {
+				PersonType personType = (PersonType)theEObject;
+				T result = casePersonType(personType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -172,6 +184,36 @@ public class ParkSwitch<T> {
 	 * @generated
 	 */
 	public T caseVehicleType(VehicleType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Insurance Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Insurance Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInsuranceType(InsuranceType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Person Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Person Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePersonType(PersonType object) {
 		return null;
 	}
 

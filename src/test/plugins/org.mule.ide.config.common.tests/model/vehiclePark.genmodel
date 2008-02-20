@@ -11,6 +11,7 @@
       disposableProviderFactory="true" loadInitialization="true" multipleEditorPages="false"
       ecorePackage="park.ecore#/">
     <genClasses ecoreClass="park.ecore#//DecalType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//DecalType/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//DecalType/color"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//DecalType/style"/>
     </genClasses>
@@ -19,10 +20,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference park.ecore#//DocumentRoot/xMLNSPrefixMap"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference park.ecore#//DocumentRoot/xSISchemaLocation"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference park.ecore#//DocumentRoot/abstractVehicle"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference park.ecore#//DocumentRoot/decal"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//DocumentRoot/make"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//DocumentRoot/model"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//DocumentRoot/paint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference park.ecore#//DocumentRoot/park"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference park.ecore#//DocumentRoot/vehicle"/>
     </genClasses>
@@ -30,6 +27,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute park.ecore#//ParkType/group"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//ParkType/abstractVehicleGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference park.ecore#//ParkType/abstractVehicle"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//ParkType/personsGroup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference park.ecore#//ParkType/persons"/>
     </genClasses>
     <genClasses ecoreClass="park.ecore#//VehicleType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//VehicleType/make"/>
@@ -37,6 +36,21 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute park.ecore#//VehicleType/group"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference park.ecore#//VehicleType/decal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//VehicleType/paint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//VehicleType/licensePlate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//VehicleType/nicknames"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference park.ecore#//VehicleType/insurancePolicies"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//VehicleType/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference park.ecore#//VehicleType/currentOwner"/>
+    </genClasses>
+    <genClasses ecoreClass="park.ecore#//InsuranceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//InsuranceType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//InsuranceType/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference park.ecore#//InsuranceType/client"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//InsuranceType/history"/>
+    </genClasses>
+    <genClasses ecoreClass="park.ecore#//PersonType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//PersonType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute park.ecore#//PersonType/name"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Cars" basePackage="org.mule.ide.config.tests" resource="XML"

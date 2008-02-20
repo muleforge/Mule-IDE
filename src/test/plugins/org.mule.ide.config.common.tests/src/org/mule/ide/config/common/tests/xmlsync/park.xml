@@ -8,6 +8,10 @@
     <vp:Paint>egg shell</vp:Paint>
     <vp:Decal color="blue" style="stripe">3</vp:Decal>
     <vp:Decal style="tribal">32</vp:Decal>
+    <vp:LicensePlate>abc</vp:LicensePlate>
+    <vp:InsurancePolicy id="fisk">
+    	<Name>Endnu en fisk</Name>
+    </vp:InsurancePolicy>    	
   </vp:Vehicle>
   
   <cs:Car>

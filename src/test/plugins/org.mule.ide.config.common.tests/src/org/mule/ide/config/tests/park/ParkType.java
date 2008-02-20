@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.tests.park.ParkType#getGroup <em>Group</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.ParkType#getAbstractVehicleGroup <em>Abstract Vehicle Group</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.ParkType#getAbstractVehicle <em>Abstract Vehicle</em>}</li>
+ *   <li>{@link org.mule.ide.config.tests.park.ParkType#getPersonsGroup <em>Persons Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.tests.park.ParkType#getPersons <em>Persons</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,5 +83,39 @@ public interface ParkType extends EObject {
 	 * @generated
 	 */
 	EList<VehicleType> getAbstractVehicle();
+
+	/**
+	 * Returns the value of the '<em><b>Persons Group</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Persons Group</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Persons Group</em>' attribute list.
+	 * @see org.mule.ide.config.tests.park.ParkPackage#getParkType_PersonsGroup()
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='group' name='Person:group' namespace='##targetNamespace' group='#group:0'"
+	 * @generated
+	 */
+	FeatureMap getPersonsGroup();
+
+	/**
+	 * Returns the value of the '<em><b>Persons</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.tests.park.PersonType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Persons</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Persons</em>' containment reference list.
+	 * @see org.mule.ide.config.tests.park.ParkPackage#getParkType_Persons()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Person' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<PersonType> getPersons();
 
 } // ParkType

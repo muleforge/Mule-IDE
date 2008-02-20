@@ -24,10 +24,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.tests.park.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.DocumentRoot#getAbstractVehicle <em>Abstract Vehicle</em>}</li>
- *   <li>{@link org.mule.ide.config.tests.park.DocumentRoot#getDecal <em>Decal</em>}</li>
- *   <li>{@link org.mule.ide.config.tests.park.DocumentRoot#getMake <em>Make</em>}</li>
- *   <li>{@link org.mule.ide.config.tests.park.DocumentRoot#getModel <em>Model</em>}</li>
- *   <li>{@link org.mule.ide.config.tests.park.DocumentRoot#getPaint <em>Paint</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.DocumentRoot#getPark <em>Park</em>}</li>
  *   <li>{@link org.mule.ide.config.tests.park.DocumentRoot#getVehicle <em>Vehicle</em>}</li>
  * </ul>
@@ -106,114 +102,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	VehicleType getAbstractVehicle();
-
-	/**
-	 * Returns the value of the '<em><b>Decal</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Decal</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Decal</em>' containment reference.
-	 * @see #setDecal(DecalType)
-	 * @see org.mule.ide.config.tests.park.ParkPackage#getDocumentRoot_Decal()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='Decal' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DecalType getDecal();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.tests.park.DocumentRoot#getDecal <em>Decal</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Decal</em>' containment reference.
-	 * @see #getDecal()
-	 * @generated
-	 */
-	void setDecal(DecalType value);
-
-	/**
-	 * Returns the value of the '<em><b>Make</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Make</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Make</em>' attribute.
-	 * @see #setMake(String)
-	 * @see org.mule.ide.config.tests.park.ParkPackage#getDocumentRoot_Make()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='Make' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	String getMake();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.tests.park.DocumentRoot#getMake <em>Make</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Make</em>' attribute.
-	 * @see #getMake()
-	 * @generated
-	 */
-	void setMake(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Model</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Model</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model</em>' attribute.
-	 * @see #setModel(String)
-	 * @see org.mule.ide.config.tests.park.ParkPackage#getDocumentRoot_Model()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='Model' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	String getModel();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.tests.park.DocumentRoot#getModel <em>Model</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model</em>' attribute.
-	 * @see #getModel()
-	 * @generated
-	 */
-	void setModel(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Paint</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Paint</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Paint</em>' attribute.
-	 * @see #setPaint(String)
-	 * @see org.mule.ide.config.tests.park.ParkPackage#getDocumentRoot_Paint()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='Paint' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	String getPaint();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.tests.park.DocumentRoot#getPaint <em>Paint</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Paint</em>' attribute.
-	 * @see #getPaint()
-	 * @generated
-	 */
-	void setPaint(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Park</b></em>' containment reference.

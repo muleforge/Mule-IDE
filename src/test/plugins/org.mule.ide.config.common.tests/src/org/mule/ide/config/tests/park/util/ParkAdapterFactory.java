@@ -88,6 +88,14 @@ public class ParkAdapterFactory extends AdapterFactoryImpl {
 				return createVehicleTypeAdapter();
 			}
 			@Override
+			public Adapter caseInsuranceType(InsuranceType object) {
+				return createInsuranceTypeAdapter();
+			}
+			@Override
+			public Adapter casePersonType(PersonType object) {
+				return createPersonTypeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -160,6 +168,34 @@ public class ParkAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVehicleTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.tests.park.InsuranceType <em>Insurance Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.tests.park.InsuranceType
+	 * @generated
+	 */
+	public Adapter createInsuranceTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.tests.park.PersonType <em>Person Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.tests.park.PersonType
+	 * @generated
+	 */
+	public Adapter createPersonTypeAdapter() {
 		return null;
 	}
 

@@ -64,6 +64,8 @@ public class ParkFactoryImpl extends EFactoryImpl implements ParkFactory {
 			case ParkPackage.DOCUMENT_ROOT: return createDocumentRoot();
 			case ParkPackage.PARK_TYPE: return createParkType();
 			case ParkPackage.VEHICLE_TYPE: return createVehicleType();
+			case ParkPackage.INSURANCE_TYPE: return createInsuranceType();
+			case ParkPackage.PERSON_TYPE: return createPersonType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -107,6 +109,26 @@ public class ParkFactoryImpl extends EFactoryImpl implements ParkFactory {
 	public VehicleType createVehicleType() {
 		VehicleTypeImpl vehicleType = new VehicleTypeImpl();
 		return vehicleType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InsuranceType createInsuranceType() {
+		InsuranceTypeImpl insuranceType = new InsuranceTypeImpl();
+		return insuranceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PersonType createPersonType() {
+		PersonTypeImpl personType = new PersonTypeImpl();
+		return personType;
 	}
 
 	/**

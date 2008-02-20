@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.mule.ide.config.vm/src"
+    modelPluginID="org.mule.ide.config.vm" modelName="VM" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.mule.ide.config.core/model/core.genmodel#//core ../../org.mule.ide.config.spring/model/spring-beans-2.0.genmodel#//spring platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+  <foreignModel>mule-vm.xsd</foreignModel>
+  <genPackages prefix="VM" basePackage="org.mule.ide.config" resource="XML" disposableProviderFactory="true"
+      ecorePackage="vm.ecore#/">
+    <genClasses ecoreClass="vm.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute vm.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vm.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vm.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vm.ecore#//DocumentRoot/connector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vm.ecore#//DocumentRoot/endpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vm.ecore#//DocumentRoot/inboundEndpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vm.ecore#//DocumentRoot/outboundEndpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="vm.ecore#//GlobalEndpointType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vm.ecore#//GlobalEndpointType/path"/>
+    </genClasses>
+    <genClasses ecoreClass="vm.ecore#//InboundEndpointType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vm.ecore#//InboundEndpointType/path"/>
+    </genClasses>
+    <genClasses ecoreClass="vm.ecore#//OutboundEndpointType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vm.ecore#//OutboundEndpointType/path"/>
+    </genClasses>
+    <genClasses ecoreClass="vm.ecore#//VmConnectorType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vm.ecore#//VmConnectorType/queueProfile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vm.ecore#//VmConnectorType/queueEvents"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vm.ecore#//VmConnectorType/queueTimeout"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="vm"
+    nsURI="http://www.mulesource.org/schema/mule/vm/2.0" nsPrefix="vm">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Spring XML Beans Schema, version 2.0&#xD;&#xA;&#x9;Authors: Rob Harrop, Juergen Hoeller&#xD;&#xA;&#xD;&#xA;&#x9;This defines a simple and consistent way of creating a namespace&#xD;&#xA;&#x9;of JavaBeans objects, managed by a Spring BeanFactory, read by&#xD;&#xA;&#x9;XmlBeanDefinitionReader (with DefaultBeanDefinitionDocumentReader).&#xD;&#xA;&#xD;&#xA;&#x9;This document type is used by most Spring functionality, including&#xD;&#xA;&#x9;web application contexts, which are based on bean factories.&#xD;&#xA;&#xD;&#xA;&#x9;Each &quot;bean&quot; element in this document defines a JavaBean.&#xD;&#xA;&#x9;Typically the bean class is specified, along with JavaBean properties&#xD;&#xA;&#x9;and/or constructor arguments.&#xD;&#xA;&#xD;&#xA;&#x9;A bean instance can be a &quot;singleton&quot; (shared instance) or a &quot;prototype&quot;&#xD;&#xA;&#x9;(independent instance). Further scopes can be provided by extended&#xD;&#xA;&#x9;bean factories, for example in a web environment.&#xD;&#xA;&#xD;&#xA;&#x9;References among beans are supported, that is, setting a JavaBean property&#xD;&#xA;&#x9;or a constructor argument to refer to another bean in the same factory&#xD;&#xA;&#x9;(or an ancestor factory).&#xD;&#xA;&#xD;&#xA;&#x9;As alternative to bean references, &quot;inner bean definitions&quot; can be used.&#xD;&#xA;&#x9;Singleton flags of such inner bean definitions are effectively ignored:&#xD;&#xA;&#x9;inner beans are typically anonymous prototypes.&#xD;&#xA;&#xD;&#xA;&#x9;There is also support for lists, sets, maps, and java.util.Properties&#xD;&#xA;&#x9;as bean property types or constructor argument types.&#xD;&#xA;&#x9;&#x9;]]>"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentRoot">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value=""/>
+      <details key="kind" value="mixed"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xMLNSPrefixMap" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="xmlns:prefix"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xSISchemaLocation" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="xsi:schemaLocation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" upperBound="-2"
+        eType="#//VmConnectorType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="connector"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="affiliation" value="http://www.mulesource.org/schema/mule/core/2.0#abstract-connector"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" upperBound="-2"
+        eType="#//GlobalEndpointType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="endpoint"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="affiliation" value="http://www.mulesource.org/schema/mule/core/2.0#abstract-global-endpoint"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inboundEndpoint" upperBound="-2"
+        eType="#//InboundEndpointType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="inbound-endpoint"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="affiliation" value="http://www.mulesource.org/schema/mule/core/2.0#abstract-inbound-endpoint"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outboundEndpoint" upperBound="-2"
+        eType="#//OutboundEndpointType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="outbound-endpoint"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="affiliation" value="http://www.mulesource.org/schema/mule/core/2.0#abstract-outbound-endpoint"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GlobalEndpointType" eSuperTypes="../../org.mule.ide.config.core/model/core.ecore#//GlobalEndpointType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="globalEndpointType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="path"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InboundEndpointType" eSuperTypes="../../org.mule.ide.config.core/model/core.ecore#//InboundEndpointType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="inboundEndpointType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="path"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutboundEndpointType" eSuperTypes="../../org.mule.ide.config.core/model/core.ecore#//OutboundEndpointType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="outboundEndpointType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="path"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VmConnectorType" eSuperTypes="../../org.mule.ide.config.core/model/core.ecore#//ConnectorType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="vmConnectorType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="queueProfile" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//QueueProfileType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="queueProfile"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueEvents" eType="ecore:EDataType ../../org.mule.ide.config.core/model/core.ecore#//SubstitutableBoolean"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="queueEvents"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//PositiveInteger">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="queueTimeout"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

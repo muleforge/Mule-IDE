@@ -1,8 +1,12 @@
 package org.mule.ide.config.common.impl;
 
+import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeMap;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.wst.sse.core.internal.provisional.INodeAdapter;
 import org.eclipse.wst.sse.core.internal.provisional.INodeNotifier;
 import org.eclipse.wst.xml.core.internal.Logger;
@@ -10,8 +14,8 @@ import org.eclipse.wst.xml.core.internal.provisional.document.IDOMModel;
 import org.eclipse.wst.xml.core.internal.provisional.document.IDOMNode;
 import org.mule.ide.config.common.SyncAdapter;
 import org.mule.ide.config.common.SyncResource;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-
 
 public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAdapter {
 
@@ -25,6 +29,8 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 
 	protected EObject theObject;
 	
+	protected Map<EStructuralFeature, Element> featureToElementMap;
+	
 	/**
 	 * Construct an Adapter given an EObject and a node
 	 */
@@ -33,12 +39,16 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 		this.syncResource = resource;
 		this.theObject = object;
 		domNode = node;
-		addEMFAdapter();
-		addDOMAdapter();
 	}
 
-	private void addDOMAdapter() {
-		// Spejlblank
+	public void wireAdapters() {
+		getEObject().eAdapters().add(this);
+		this.domNode.addAdapter(this);
+	}
+
+	public void unwireAdapters() {
+		this.domNode.removeAdapter(this);
+		theObject.eAdapters().remove(this);		
 	}
 
 	/**
@@ -61,14 +71,9 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 	public boolean isUpdateInEffect() {
 		return updateEnabled && syncResource.isUpdateEnabled();
 	}
-
 	
 	public boolean isAdapterForType(Object type) {
 		return SyncAdapter.ADAPTER_CLASS == type;
-	}
-
-	protected void addEMFAdapter() {
-		getEObject().eAdapters().add(this);
 	}
 
 	public String toString() {
@@ -135,10 +140,18 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 		super.notifyChanged(msg);
 		
 		if (! isUpdateInEffect()) return;
+		if (msg.isTouch()) return; // Only do the work if state is changed
 		
 		debugEMFNotify(msg);
 
-		syncResource.notify(msg, getEObject(), getNode());
+		boolean wasUpdatable = this.syncResource.isUpdateEnabled();
+		try {
+			this.syncResource.setUpdateEnabled(false);
+	
+			syncResource.notify(msg, getEObject(), getNode(), this);
+		} finally {
+			this.syncResource.setUpdateEnabled(wasUpdatable);
+		}
 	}
 	
 	public EObject getEObject() {
@@ -159,42 +172,41 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 	}
 
 	public void setNode(Node node) {
-		// TODO Auto-generated method stub
+		if (node instanceof IDOMNode)
+			this.domNode = (IDOMNode)node;
 	}
 
-	public void updateDOM() {
-		// TODO Auto-generated method stub
-	}
-
-	public void updateEMF() {
-		// Not sure we are going to be using this for M2
-	}
-	
 	/*
 	 * This method is called when the DOM node changes. It attempts to update
 	 * MOF object based on the changes.
 	 */
 	public void notifyChanged(INodeNotifier notifier, int eventType, Object changedFeature, Object oldValue, Object newValue, int pos) {
-
 		if (!isUpdateInEffect())
 			return;
 
 		debugDOMNotify(notifier, eventType, changedFeature, oldValue, newValue);
+		
+		boolean wasUpdatable = this.syncResource.isUpdateEnabled();
+		try {
+			this.syncResource.setUpdateEnabled(false);
+			
+			if (notifier != getNode() && eventType != INodeNotifier.CHANGE) {
+				// This is the case where the notification was sent from a
+				// child.
+			}
+			else {
+				// Update everything on STRUCTURE_CHANGE or CONTENT_CHANGE.
+				// Other event types occur too often.
+				if (eventType == INodeNotifier.STRUCTURE_CHANGED || eventType == INodeNotifier.CONTENT_CHANGED) {
+					//updateMOF();
+				}
+				// Update just the attribute that changed.
+				else if (eventType == INodeNotifier.CHANGE) {
+				}
+			}
 
-		if (notifier != getNode() && eventType != INodeNotifier.CHANGE) {
-			// This is the case where the notification was sent from a
-			// sub node. Use the notifiers name to determine which
-			// MOF feature to update.
-		}
-		else {
-			// Update everything on STRUCTURE_CHANGE or CONTENT_CHANGE.
-			// Other event types occur too often.
-			if (eventType == INodeNotifier.STRUCTURE_CHANGED || eventType == INodeNotifier.CONTENT_CHANGED) {
-				//updateMOF();
-			}
-			// Update just the attribute that changed.
-			else if (eventType == INodeNotifier.CHANGE) {
-			}
+		} finally {
+			this.syncResource.setUpdateEnabled(wasUpdatable);
 		}
 	}
 
@@ -252,5 +264,35 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 	protected void primAddDOMAdapter(Node aNode, SyncAdapter anAdapter) {
 		domNode.addAdapter((SyncAdapterImpl) anAdapter);
 	}
+
+	public Element getFeatureElement(EStructuralFeature ef) {
+		return featureToElementMap == null ? null : featureToElementMap.get(ef);
+	}
+
+	public void clearFeatureElement(EStructuralFeature f) {
+		if (featureToElementMap != null) {
+			featureToElementMap.remove(f);
+		}
+	}
+
+	public void setFeatureElement(EStructuralFeature f, Element e) {
+		if (e != null) {
+			if (featureToElementMap == null) {
+				featureToElementMap = new TreeMap<EStructuralFeature, Element>(COMPARATOR_INSTANCE);				
+			}
+			featureToElementMap.put(f, e);
+		} else {
+			clearFeatureElement(f);		
+		}
+	}
+
+	static class FeatureComparator implements Comparator<EStructuralFeature> {
+
+		public int compare(EStructuralFeature o1, EStructuralFeature o2){
+			return o1.getFeatureID() - o2.getFeatureID();
+		}
+		
+	};
+	private static final FeatureComparator COMPARATOR_INSTANCE = new FeatureComparator();
 
 }

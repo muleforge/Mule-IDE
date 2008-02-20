@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.wst.sse.core.StructuredModelManager;
 import org.eclipse.wst.sse.core.internal.provisional.IModelManager;
 import org.eclipse.wst.xml.core.internal.provisional.document.IDOMModel;
+import org.mule.ide.config.common.SyncAdapter;
 import org.mule.ide.config.common.SyncResource;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -76,13 +77,15 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 
 	@Override
 	public void save(Map<?, ?> options) throws IOException {
-		super.save(options);
-
-		// try {
-		// getXMLModel().save();
-		// } catch (CoreException e) {
-		// throw new IOException("Unable to save SSE model", e);
-		// }
+		
+		if (options != null && options.containsKey(SAVE_OPTION_SUPRESS_TEXT_SAVE)) {		
+			super.save(options);
+		} else
+			try {
+				getXMLModel().save();
+			} catch (CoreException e) {
+				throw new IOException("Unable to save SSE model", e);
+			}
 	}
 
 	private IDOMModel initializeXMLModel(IFile file, boolean forWrite)
@@ -141,7 +144,7 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 
 	public void doUnload() {
 		super.doUnload();
-		// TODO: Release from IModelManager
+		this.xmlModel.releaseFromEdit();
 	};
 
 	protected IModelManager getModelManager() {
@@ -160,53 +163,54 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 	}
 
 	public boolean isUpdateEnabled() {
-		return SyncResourceImpl.this.deliver;
+		return this.deliver;
 	}
 
-	public void notify(Notification msg, EObject object, Node node) {
+	public void notify(Notification msg, EObject object, Node node, SyncAdapter adapter) {
 
-		switch (msg.getEventType()) {
-		case Notification.ADD:
-			addedToList(msg, object, node);
-			break;
-		case Notification.REMOVE:
-			removedFromList(msg, object, node);
-			break;
-		case Notification.ADD_MANY:
-			addedToList(msg, object, node);
-			break;
-		case Notification.REMOVE_MANY:
-			removedFromList(msg, object, node);
-			break;
-		case Notification.SET:
-			setOrReplaceSimple(msg, object, node);
-			break;
-		case Notification.UNSET:
-			unsetSimple(msg, object, node);
-			break;
+		try {
+			getXMLModel().disableUndoManagement();
+			switch (msg.getEventType()) {
+			case Notification.ADD:
+				addedToList(msg, object, node, adapter);
+				break;
+			case Notification.REMOVE:
+				removedFromList(msg, object, node, adapter);
+				break;
+			case Notification.ADD_MANY:
+				addedToList(msg, object, node, adapter);
+				break;
+			case Notification.REMOVE_MANY:
+				removedFromList(msg, object, node, adapter);
+				break;
+			case Notification.SET:
+				setOrReplaceSingle(msg, object, node, adapter);
+				break;
+			case Notification.UNSET:
+				notifyUnsetSingle(msg, object, node, adapter);
+				break;
+			}
+		} finally {
+			getXMLModel().enableUndoManagement();
 		}
 	}
 
-	protected void unsetSimple(Notification msg, EObject object, Node node) {
-		// TODO Auto-generated method stub
-		getXMLSave(node).unSetSimple(msg, object, node);
+	protected void notifyUnsetSingle(Notification msg, EObject object, Node node, SyncAdapter adapter) {
+		getXMLSave(node).notifyUnSetSingle(msg, object, node, adapter);
 	}
 
-	protected void setOrReplaceSimple(Notification msg, EObject object,
-			Node node) {
-		getXMLSave(node).setOrReplaceSimple(msg, object, node);
-
+	protected void setOrReplaceSingle(Notification msg, EObject object,
+			Node node, SyncAdapter adapter) {
+		getXMLSave(node).notifySetOrReplaceSingle(msg, object, node, adapter);
 	}
 
 	protected void removedFromList(Notification msg, EObject object,
-			Node node) {
-		// TODO Auto-generated method stub
-
+			Node node, SyncAdapter adapter) {
+		getXMLSave(node).notifyRemovedFromList(msg, object, node, adapter);
 	}
 
-	protected void addedToList(Notification msg, EObject object, Node node) {
-		// TODO Auto-generated method stub
-
+	protected void addedToList(Notification msg, EObject object, Node node, SyncAdapter adapter) {
+		getXMLSave(node).notifyAddedToList(msg, object, node, adapter);
 	}
 
 	private SyncXMLSaveImpl cachedSave = null;
@@ -217,5 +221,10 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 		}
 		cachedSave.setContext(SyncResourceImpl.this, n);
 		return cachedSave;
+	}
+
+	public void setUpdateEnabled(boolean enabled) {
+		// TODO Auto-generated method stub
+		
 	}
 }

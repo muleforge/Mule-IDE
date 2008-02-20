@@ -54,7 +54,6 @@ import org.eclipse.ui.ide.undo.WorkspaceUndoUtil;
 import org.eclipse.wst.sse.ui.StructuredTextEditor;
 import org.eclipse.wst.xml.core.internal.provisional.contenttype.ContentTypeIdForXML;
 import org.mule.ide.config.core.AbstractModelType;
-import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DocumentRoot;
 import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.core.SedaModelType;
@@ -128,7 +127,7 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 	 * Creates the services editor page.
 	 */
 	void createServicesPage() throws PartInitException {
-    	final IFile sourceFile = ((FileEditorInput) getEditorInput()).getFile();
+    	final IFile sourceFile = ((IFileEditorInput) getEditorInput()).getFile();
     	final IFile diagramFile = getServicesDiagramFile(sourceFile);
     	if (! diagramFile.exists()) {
     		 try {
@@ -366,7 +365,7 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 				public void run(){
 					IWorkbenchPage[] pages = getSite().getWorkbenchWindow().getPages();
 					for (int i = 0; i<pages.length; i++){
-						if(((FileEditorInput)xmlEditor.getEditorInput()).getFile().getProject().equals(event.getResource())){
+						if(((IFileEditorInput)xmlEditor.getEditorInput()).getFile().getProject().equals(event.getResource())){
 							IEditorPart editorPart = pages[i].findEditor(xmlEditor.getEditorInput());
 							pages[i].closeEditor(editorPart,true);
 						}
@@ -421,11 +420,12 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 	 */
 	public void generateServicesDiagramFile(IFile sourceFile, IFile diagramFile, IProgressMonitor monitor) 
 			throws InvocationTargetException, CoreException {
-		EObject muleElement = (EObject) documentRoot.eGet(CorePackage.eINSTANCE.getDocumentRoot_Mule());
+		MuleType muleElement = documentRoot.getMule();
 		if (muleElement == null) {
 			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Configuration file has no <mule> element."));			
 		}
-		EList modelElementList = (EList) muleElement.eGet(CorePackage.eINSTANCE.getDocumentRoot_Model());
+		EList<AbstractModelType> modelElementList = muleElement.getAbstractModel();
+		
 		final EObject modelElement;
 		if (modelElementList.size() > 0) {
 			// TODO handle multiple model elements.  For now just use the first one.
@@ -447,7 +447,7 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error creating services diagram file", e));			
 		}
 		CoreDiagramEditorUtil.setCharset(diagramFile);
-		List affectedFiles = new LinkedList();
+		List<IFile> affectedFiles = new LinkedList<IFile>();
 		affectedFiles.add(diagramFile);
 		URI diagramModelURI = URI.createPlatformResourceURI(diagramFile
 				.getFullPath().toString(), true);

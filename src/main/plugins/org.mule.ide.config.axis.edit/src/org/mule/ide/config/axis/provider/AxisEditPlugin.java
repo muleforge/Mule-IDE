@@ -15,19 +15,19 @@ import org.mule.ide.config.core.provider.CoreEditPlugin;
 import org.mule.ide.config.spring.provider.Springbeans2EditPlugin;
 
 /**
- * This is the central singleton for the Mule-axis edit plugin.
+ * This is the central singleton for the Axis edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class MuleaxisEditPlugin extends EMFPlugin {
+public final class AxisEditPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final MuleaxisEditPlugin INSTANCE = new MuleaxisEditPlugin();
+	public static final AxisEditPlugin INSTANCE = new AxisEditPlugin();
 
 	/**
 	 * Keep track of the singleton.
@@ -43,7 +43,7 @@ public final class MuleaxisEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MuleaxisEditPlugin() {
+	public AxisEditPlugin() {
 		super
 		  (new ResourceLocator [] {
 		     CoreEditPlugin.INSTANCE,

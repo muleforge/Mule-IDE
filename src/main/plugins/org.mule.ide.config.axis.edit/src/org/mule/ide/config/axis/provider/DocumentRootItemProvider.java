@@ -15,8 +15,12 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -104,17 +108,6 @@ public class DocumentRootItemProvider
 	}
 
 	/**
-	 * This returns DocumentRoot.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DocumentRoot"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,6 +179,34 @@ public class DocumentRootItemProvider
 	}
 
 	/**
+	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)child;
+			feature = entry.getEStructuralFeature();
+			child = entry.getValue();        
+		}
+
+		if (feature instanceof EReference && child instanceof EObject) {
+			String name = "full/obj16/" + ((EObject)child).eClass().getName();
+
+			try {
+				return getResourceLocator().getImage(name);
+			}
+			catch (Exception e) {
+				AxisEditPlugin.INSTANCE.log(e);
+			}
+		}
+
+		return super.getCreateChildImage(owner, feature, child, selection);
+	}
+
+	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,7 +214,7 @@ public class DocumentRootItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return MuleaxisEditPlugin.INSTANCE;
+		return AxisEditPlugin.INSTANCE;
 	}
 
 }

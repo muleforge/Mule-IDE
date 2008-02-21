@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.mule.ide.config.axis.edit; singleton:=true
 Bundle-Version: 1.0.0.vqualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.mule.ide.config.axis.provider.MuleaxisEditPlugin$Implementation
+Bundle-Activator: org.mule.ide.config.axis.provider.AxisEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

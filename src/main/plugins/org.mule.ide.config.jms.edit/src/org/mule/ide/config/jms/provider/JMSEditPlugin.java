@@ -15,19 +15,19 @@ import org.mule.ide.config.core.provider.CoreEditPlugin;
 import org.mule.ide.config.spring.provider.Springbeans2EditPlugin;
 
 /**
- * This is the central singleton for the Mule-jms edit plugin.
+ * This is the central singleton for the JMS edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class MulejmsEditPlugin extends EMFPlugin {
+public final class JMSEditPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final MulejmsEditPlugin INSTANCE = new MulejmsEditPlugin();
+	public static final JMSEditPlugin INSTANCE = new JMSEditPlugin();
 
 	/**
 	 * Keep track of the singleton.
@@ -43,7 +43,7 @@ public final class MulejmsEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MulejmsEditPlugin() {
+	public JMSEditPlugin() {
 		super
 		  (new ResourceLocator [] {
 		     CoreEditPlugin.INSTANCE,

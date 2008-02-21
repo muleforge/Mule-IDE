@@ -98,17 +98,6 @@ public class ActiveMqConnectorTypeItemProvider
 	}
 
 	/**
-	 * This returns ActiveMqConnectorType.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActiveMqConnectorType"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,7 +182,7 @@ public class ActiveMqConnectorTypeItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return MulejmsEditPlugin.INSTANCE;
+		return JMSEditPlugin.INSTANCE;
 	}
 
 }

@@ -2,8 +2,9 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.mule.ide.config.axis/src"
-    modelPluginID="org.mule.ide.config.axis" modelName="Mule-axis" importerID="org.eclipse.xsd.ecore.importer"
-    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.mule.ide.config.core/model/core.genmodel#//core ../../org.mule.ide.config.spring/model/spring-beans-2.0.genmodel#//spring platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+    creationIcons="false" modelPluginID="org.mule.ide.config.axis" modelName="Axis"
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="../../org.mule.ide.config.core/model/core.genmodel#//core ../../org.mule.ide.config.spring/model/spring-beans-2.0.genmodel#//spring platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
   <foreignModel>mule-axis.xsd</foreignModel>
   <genPackages prefix="Axis" basePackage="org.mule.ide.config" resource="XML" disposableProviderFactory="true"
       ecorePackage="axis.ecore#/">
@@ -25,7 +26,7 @@
     <genDataTypes ecoreDataType="axis.ecore#//ModeTypeObject"/>
     <genDataTypes ecoreDataType="axis.ecore#//StyleTypeObject"/>
     <genDataTypes ecoreDataType="axis.ecore#//UseTypeObject"/>
-    <genClasses ecoreClass="axis.ecore#//AxisConnectorType">
+    <genClasses image="false" ecoreClass="axis.ecore#//AxisConnectorType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//AxisConnectorType/beanType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//AxisConnectorType/supportedScheme"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//AxisConnectorType/axisRef"/>
@@ -36,10 +37,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//AxisConnectorType/serverProviderRef"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//AxisConnectorType/treatMapAsNamedParams"/>
     </genClasses>
-    <genClasses ecoreClass="axis.ecore#//BeanTypeType">
+    <genClasses image="false" ecoreClass="axis.ecore#//BeanTypeType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//BeanTypeType/interface"/>
     </genClasses>
-    <genClasses ecoreClass="axis.ecore#//DocumentRoot">
+    <genClasses image="false" ecoreClass="axis.ecore#//DocumentRoot">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//DocumentRoot/mixed"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference axis.ecore#//DocumentRoot/xMLNSPrefixMap"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference axis.ecore#//DocumentRoot/xSISchemaLocation"/>
@@ -49,7 +50,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//DocumentRoot/inboundEndpoint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//DocumentRoot/outboundEndpoint"/>
     </genClasses>
-    <genClasses ecoreClass="axis.ecore#//GlobalEndpointType">
+    <genClasses image="false" ecoreClass="axis.ecore#//GlobalEndpointType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//GlobalEndpointType/options"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//GlobalEndpointType/beanType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//GlobalEndpointType/soapService"/>
@@ -64,7 +65,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//GlobalEndpointType/use"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//GlobalEndpointType/wsdlFile"/>
     </genClasses>
-    <genClasses ecoreClass="axis.ecore#//InboundEndpointType">
+    <genClasses image="false" ecoreClass="axis.ecore#//InboundEndpointType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//InboundEndpointType/options"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//InboundEndpointType/beanType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//InboundEndpointType/soapService"/>
@@ -79,7 +80,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//InboundEndpointType/use"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//InboundEndpointType/wsdlFile"/>
     </genClasses>
-    <genClasses ecoreClass="axis.ecore#//OptionsType">
+    <genClasses image="false" ecoreClass="axis.ecore#//OptionsType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//OptionsType/option"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//OptionsType/allowedMethods"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//OptionsType/extraClasses"/>
@@ -91,7 +92,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//OptionsType/wsdlSoapActionMode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//OptionsType/wsdlTargetNamespace"/>
     </genClasses>
-    <genClasses ecoreClass="axis.ecore#//OutboundEndpointType">
+    <genClasses image="false" ecoreClass="axis.ecore#//OutboundEndpointType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//OutboundEndpointType/soapService"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//OutboundEndpointType/soapMethod"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//OutboundEndpointType/property1"/>
@@ -103,20 +104,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//OutboundEndpointType/style"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//OutboundEndpointType/use"/>
     </genClasses>
-    <genClasses ecoreClass="axis.ecore#//SoapMethodType">
+    <genClasses image="false" ecoreClass="axis.ecore#//SoapMethodType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//SoapMethodType/soapParameter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference axis.ecore#//SoapMethodType/soapReturn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//SoapMethodType/method"/>
     </genClasses>
-    <genClasses ecoreClass="axis.ecore#//SoapParameterType">
+    <genClasses image="false" ecoreClass="axis.ecore#//SoapParameterType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//SoapParameterType/mode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//SoapParameterType/parameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//SoapParameterType/type"/>
     </genClasses>
-    <genClasses ecoreClass="axis.ecore#//SoapReturnType">
+    <genClasses image="false" ecoreClass="axis.ecore#//SoapReturnType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//SoapReturnType/type"/>
     </genClasses>
-    <genClasses ecoreClass="axis.ecore#//SoapServiceType">
+    <genClasses image="false" ecoreClass="axis.ecore#//SoapServiceType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute axis.ecore#//SoapServiceType/interface"/>
     </genClasses>
   </genPackages>

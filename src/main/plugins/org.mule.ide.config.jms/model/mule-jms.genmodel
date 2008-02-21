@@ -2,8 +2,9 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.mule.ide.config.jms/src"
-    modelPluginID="org.mule.ide.config.jms" modelName="Mule-jms" importerID="org.eclipse.xsd.ecore.importer"
-    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.mule.ide.config.core/model/core.genmodel#//core ../../org.mule.ide.config.spring/model/spring-beans-2.0.genmodel#//spring platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+    creationIcons="false" modelPluginID="org.mule.ide.config.jms" modelName="JMS"
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="../../org.mule.ide.config.core/model/core.genmodel#//core ../../org.mule.ide.config.spring/model/spring-beans-2.0.genmodel#//spring platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
   <foreignModel>mule-jms.xsd</foreignModel>
   <genPackages prefix="JMS" basePackage="org.mule.ide.config" resource="XML" disposableProviderFactory="true"
       ecorePackage="jms.ecore#/">
@@ -18,10 +19,10 @@
     </genEnums>
     <genDataTypes ecoreDataType="jms.ecore#//AcknowledgementModeTypeObject"/>
     <genDataTypes ecoreDataType="jms.ecore#//SpecificationTypeObject"/>
-    <genClasses ecoreClass="jms.ecore#//ActiveMqConnectorType">
+    <genClasses image="false" ecoreClass="jms.ecore#//ActiveMqConnectorType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//ActiveMqConnectorType/brokerURL"/>
     </genClasses>
-    <genClasses ecoreClass="jms.ecore#//CustomConnectorType">
+    <genClasses image="false" ecoreClass="jms.ecore#//CustomConnectorType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/acknowledgementMode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/cacheJmsSessions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/clientId"/>
@@ -37,7 +38,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/specification"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//CustomConnectorType/username"/>
     </genClasses>
-    <genClasses ecoreClass="jms.ecore#//DocumentRoot">
+    <genClasses image="false" ecoreClass="jms.ecore#//DocumentRoot">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//DocumentRoot/mixed"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/xMLNSPrefixMap"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/xSISchemaLocation"/>
@@ -57,7 +58,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/websphereConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jms.ecore#//DocumentRoot/xaTransaction"/>
     </genClasses>
-    <genClasses ecoreClass="jms.ecore#//GenericConnectorType">
+    <genClasses image="false" ecoreClass="jms.ecore#//GenericConnectorType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/acknowledgementMode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/cacheJmsSessions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/clientId"/>
@@ -74,7 +75,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/specification"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GenericConnectorType/username"/>
     </genClasses>
-    <genClasses ecoreClass="jms.ecore#//GlobalEndpointType">
+    <genClasses image="false" ecoreClass="jms.ecore#//GlobalEndpointType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/group"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/abstractTransformerGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/abstractTransformer"/>
@@ -102,7 +103,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/topic"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/transformerRefs"/>
     </genClasses>
-    <genClasses ecoreClass="jms.ecore#//InboundEndpointType">
+    <genClasses image="false" ecoreClass="jms.ecore#//InboundEndpointType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/group"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/abstractTransformerGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/abstractTransformer"/>
@@ -130,11 +131,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/topic"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/transformerRefs"/>
     </genClasses>
-    <genClasses ecoreClass="jms.ecore#//JmsSelectorFilter">
+    <genClasses image="false" ecoreClass="jms.ecore#//JmsSelectorFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//JmsSelectorFilter/expression"/>
     </genClasses>
-    <genClasses ecoreClass="jms.ecore#//JmsTransactionType"/>
-    <genClasses ecoreClass="jms.ecore#//OutboundEndpointType">
+    <genClasses image="false" ecoreClass="jms.ecore#//JmsTransactionType"/>
+    <genClasses image="false" ecoreClass="jms.ecore#//OutboundEndpointType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/group"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/abstractTransformerGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/abstractTransformer"/>
@@ -162,13 +163,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/topic"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/transformerRefs"/>
     </genClasses>
-    <genClasses ecoreClass="jms.ecore#//PropertyFilterType">
+    <genClasses image="false" ecoreClass="jms.ecore#//PropertyFilterType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//PropertyFilterType/expression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//PropertyFilterType/pattern"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//PropertyFilterType/propertyClass"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//PropertyFilterType/propertyName"/>
     </genClasses>
-    <genClasses ecoreClass="jms.ecore#//VendorJmsConnectorType">
+    <genClasses image="false" ecoreClass="jms.ecore#//VendorJmsConnectorType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/acknowledgementMode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/cacheJmsSessions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//VendorJmsConnectorType/clientId"/>

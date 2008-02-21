@@ -286,7 +286,7 @@ public class UpdateXML extends TestCase {
 		vehicle.setModel("Verso");
 		assertEquals("Verso", xpath("//park:Park/park:Vehicle[2]/park:Model"));
 		vehicle.getPaint().add("Red");
-//		assertEquals("Red", xpath("//park:Park/park:Vehicle[2]/park:Paint"));
+		assertEquals("Red", xpath("//park:Park/park:Vehicle[2]/park:Paint"));
 		
 		verifySaveLoadEquivalence();
 	}

@@ -6,4 +6,7 @@ public interface SyncXMLHelper {
 	void resetPrefixContext();
 	
 	void setPrefixContext(Element element);
+	
+	void setCurrentElement(Element element);
+	
 }

@@ -21,6 +21,7 @@ import org.eclipse.wst.xml.core.internal.provisional.document.IDOMNode;
 import org.mule.ide.config.common.SyncAdapter;
 import org.mule.ide.config.common.SyncHandler;
 import org.mule.ide.config.common.SyncResource;
+import org.mule.ide.config.common.SyncXMLHelper;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -42,6 +43,9 @@ public class SyncSAXXMLHandler extends SAXXMLHandler implements SyncHandler {
 
 	public void setCurrentNode(Node node) {
 		this.currentNode = node;
+		if (helper instanceof SyncXMLHelper && node != null &&node.getNodeType()==Node.ELEMENT_NODE) {
+			((SyncXMLHelper)helper).setCurrentElement((Element)node);
+		}
 	}
 
 	@Override
@@ -51,13 +55,16 @@ public class SyncSAXXMLHandler extends SAXXMLHandler implements SyncHandler {
 	}
 
 	private EObject adapt(EObject object) {
-		if (object instanceof Resource)
+		if (object instanceof Resource) 
 			return null;
 
-		SyncAdapter newAdapter = createAdapter(object, currentNode);
-		newAdapter.wireAdapters();
-
-		addedObjects.add(object);
+		if (EcoreUtil.getExistingAdapter(object, SyncAdapter.class) == null) {
+		
+			SyncAdapter newAdapter = createAdapter(object, currentNode);
+			newAdapter.wireAdapters();
+	
+			addedObjects.add(object);
+		}
 		return object;
 	}
 
@@ -110,7 +117,7 @@ public class SyncSAXXMLHandler extends SAXXMLHandler implements SyncHandler {
 	    if (currentNode != null && currentNode instanceof Element) {
 	    	EStructuralFeature feature = getFeature(peekObject, prefix, name, true);
 	    	SyncAdapter sync = (SyncAdapter)EcoreUtil.getExistingAdapter(peekObject, SyncAdapter.class);
-	    	if (sync != null) sync.setFeatureElement(feature, (Element)currentNode);
+	    	if (sync != null && !feature.isTransient()) sync.setFeatureElement(feature, (Element)currentNode);
 	    }
 	    super.handleFeature(prefix, name);
 	}
@@ -123,4 +130,16 @@ public class SyncSAXXMLHandler extends SAXXMLHandler implements SyncHandler {
 		return obj;
 	}
 
+	  @Deprecated
+	  protected EObject createObjectFromFactory(EFactory factory, String typeName) {
+		  EObject o = super.createObjectFromFactory(factory, typeName);
+		  if (o != null) adapt(o);
+		  return o;
+	  }
+
+	@Override
+	protected void setFeatureValue(EObject object, EStructuralFeature feature,
+			Object value, int position) {
+		super.setFeatureValue(object, feature, value, position);
+	}
 }

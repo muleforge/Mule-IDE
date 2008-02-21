@@ -8,8 +8,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -55,7 +53,14 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		boolean pastTheEnd = false;
 
 		public Element reuseElement(NameInfo nameInfo) {
-			boolean tryReuse = true;
+			return createElement(nameInfo, true);
+		}
+
+		public Element insertElement(NameInfo nameInfo) {
+			return createElement(nameInfo, false);
+		}
+
+		private Element createElement(NameInfo nameInfo, boolean tryReuse) {
 			// Try to match first
 			if (tryReuse) {
 				while (currentElement != null) {
@@ -94,6 +99,23 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 					return;
 				}
 			} while (cursor != null && cursor != nextNode);
+			// None found before end, so no current
+			currentElement = null;
+		}
+
+		/**
+		 * Advance 'currentElement' to next element. currentElement
+		 * must be non-null.
+		 */
+		private void simpleAdvance() {
+			Node cursor = currentElement;
+			if (cursor != null) do {
+				cursor = cursor.getNextSibling();
+				if (cursor != null && cursor.getNodeType() == Node.ELEMENT_NODE) {
+					currentElement = (Element) cursor;
+					return;
+				}
+			} while (cursor != null);
 			// None found before end, so no current
 			currentElement = null;
 		}
@@ -166,6 +188,11 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 						System.out.println("This is in group " + group);
 					}
 					targetFeature = group;
+//					do {
+//						EStructuralFeature realGroup = extendedMetaData.getGroup(group);
+//						if (targetFeature == realGroup || realGroup == null) break;
+//						targetFeature = realGroup;
+//					} while (true);
 		        } else {
 		        	targetFeature = feature;
 		        }
@@ -184,14 +211,19 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		int kind = featureKinds[i];
 		EStructuralFeature f = features[i];
 
-		if (kind == TRANSIENT)
+		if (f.isTransient() && targetFeature.isTransient())
 			return;
+		
 		if (!shouldSaveFeature(o, f)) {
 			notifyUnSetSingle(msg, o, node, adapter);
 			return;
 		}
 
 		switch (kind) {
+		case TRANSIENT:
+			checkElement = true;
+			break;
+			
 		case DATATYPE_ELEMENT_SINGLE: {
 			if (contentKind == ExtendedMetaData.SIMPLE_CONTENT) {
 				replaceDataTypeElementSingleSimple(o, f);
@@ -449,6 +481,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 
 	private void updateDataTypeMany(EObject o, EStructuralFeature f,
 			FeatureCursor fc) {
+
 		// TODO Auto-generated method stub
 
 	}
@@ -487,7 +520,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 						+ name);
 				ni.setNamespaceURI(uri);
 
-				currentNode = fc.reuseElement(ni);
+				currentNode = fc.insertElement(ni);
 				saveElementID(o);
 				return (Element) currentNode;
 			}
@@ -498,7 +531,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			if (info != null
 					&& info.getXMLRepresentation() == XMLResource.XMLInfo.ELEMENT) {
 				helper.populateNameInfo(nameInfo, eClass);
-				fc.reuseElement(nameInfo);
+				fc.insertElement(nameInfo);
 				updateElementID(o, fc);
 				return (Element) currentNode;
 			}
@@ -518,7 +551,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		}
 
 		helper.populateNameInfo(nameInfo, f);
-		Element resultNode = fc.reuseElement(nameInfo);
+		Element resultNode = fc.insertElement(nameInfo);
 		currentNode = resultNode;
 
 		if (saveTypeInfo ? xmlTypeInfo.shouldSaveType(eClass, eType, f)
@@ -865,7 +898,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		}
 		if (adapter != null) {
 			if (text != null && text.getNodeType() == Node.ELEMENT_NODE) {
-				adapter.setFeatureElement(f, (Element) text);
+				if (! f.isTransient()) adapter.setFeatureElement(f, (Element) text);
 			} else {
 				adapter.clearFeatureElement(f);
 			}
@@ -1112,6 +1145,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		case OBJECT_ELEMENT_IDREF_MANY:
 			if (contentKind == ExtendedMetaData.SIMPLE_CONTENT) {
 				notifySetOrReplaceSingle(msg, object, node, adapter);
+				return;
 			}
 			// Drop though
 		case OBJECT_CONTAIN_MANY:
@@ -1122,7 +1156,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			// locate individual nodes...
 			FeatureCursor fc = locateFeature(adapter, features, i, targetFeature);
 			for (int ii = 0; ii < msg.getPosition(); ++ii)
-				fc.advance();
+				fc.simpleAdvance();
 
 			Element newElement = insertObjectElement((EObject) msg
 					.getNewValue(), feature, fc);
@@ -1135,20 +1169,18 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		case ELEMENT_FEATURE_MAP:
 			// TODO - Deep thought
 			// locate individual nodes...
-			FeatureCursor fc = locateFeature(adapter, features, i, targetFeature);
+			FeatureCursor fc = locateFeature(adapter, features, i, feature);
 			for (int ii = 0; ii < msg.getPosition(); ++ii)
-				fc.advance();
+				fc.simpleAdvance();
 
 			FeatureMap.Entry fme = (FeatureMap.Entry)msg.getNewValue();
 			feature = fme.getEStructuralFeature();
 			
+			Element newElement = null;
 			if (fme.getValue() instanceof EObject) {
 				EObject value = (EObject)fme.getValue();
 				
-				Element newElement = insertObjectElement(value, feature, fc);
-				if (msg.getPosition() == 0)
-					recordNewValues(newElement, object, targetFeature, (EObject) msg
-							.getNewValue());
+				newElement = insertObjectElement(value, feature, fc);
 				SyncAdapter entryAdapter = findAdapter((EObject)value);
 				if (entryAdapter != null) {
 					entryAdapter.setNode(newElement);
@@ -1156,13 +1188,30 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 					entryAdapter = new SyncAdapterImpl((EObject)value,  (IDOMNode)newElement, (SyncResource) xmlResource);
 					((EObject)value).eAdapters().add(entryAdapter);
 				}
+			} else {
+				newElement = insertValueElement(fme.getValue(), feature, fc);
 			}
+			if (msg.getPosition() == 0)
+				recordNewValues(newElement, object, targetFeature, msg.getNewValue());
 			break;
 
 		case ATTRIBUTE_FEATURE_MAP:
 			System.out.println("*** What to do about this one?");
 			break;
 		}
+	}
+
+	protected Element insertValueElement(Object value,
+			EStructuralFeature feature, FeatureCursor fc) {
+
+		helper.populateNameInfo(nameInfo, feature);
+		Element resultNode = fc.insertElement(nameInfo);
+	
+		String svalue = getDatatypeValue(value, feature, false);
+
+		replaceText(resultNode, svalue, true);
+
+		return resultNode;
 	}
 
 }

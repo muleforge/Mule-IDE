@@ -7,7 +7,9 @@ Bundle-ClassPath: .
 Bundle-Activator: org.mule.ide.config.editor.services.part.ServicesEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.mule.ide.config.editor.services.edit.parts,
+Export-Package: org.mule.ide.config.editor.services.edit.commands,
+ org.mule.ide.config.editor.services.edit.parts,
+ org.mule.ide.config.editor.services.edit.policies,
  org.mule.ide.config.editor.services.part,
  org.mule.ide.config.editor.services.providers,
  org.mule.ide.config.editor.services.sheet

@@ -387,8 +387,14 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 					return ContentTypeIdForXML.ContentTypeID_XML + ".source"; //$NON-NLS-1$;
 				}
 			};
-		}
-		else {
+		} if (page == servicesEditor) {
+			site = new MultiPageEditorSite(this, page) {
+				public String getId() {
+					// Needed to make the palette extension work.
+					return CoreDiagramEditor.ID;
+				}
+			};
+		} else {
 			site = super.createSite(page);
 		}
 		return site;

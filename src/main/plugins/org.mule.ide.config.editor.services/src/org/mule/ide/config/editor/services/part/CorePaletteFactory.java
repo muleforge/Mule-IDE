@@ -1,15 +1,18 @@
 package org.mule.ide.config.editor.services.part;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
+import org.eclipse.gef.palette.PaletteEntry;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.PaletteSeparator;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
 /**
@@ -18,15 +21,132 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 public class CorePaletteFactory {
 
 	/**
-	 * @generated
+	 * customization
+	 *   - use drawers defined in extension xml
 	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
-		paletteRoot.add(createServices1Group());
-		paletteRoot.add(createComponents2Group());
-		paletteRoot.add(createExceptionStrategies3Group());
-		paletteRoot.add(createInbound4Group());
-		paletteRoot.add(createAsyncReply5Group());
-		paletteRoot.add(createOutbound6Group());
+		PaletteContainer group = null;
+		Iterator itr = paletteRoot.getChildren().iterator();
+		while (itr.hasNext()) {
+			PaletteContainer next = (PaletteContainer) itr.next();
+			if ("org.mule.ide.config.editor.services.Services".equals(next
+					.getId())) {
+				group = next;
+				break;
+			}
+		}
+		if (group == null)
+			return; // or assert?
+
+		// TODO:  Probably be getting the images for the abstract types directly.
+		// TODO:  May need different default icon for endpoint vs router
+
+		PaletteContainer paletteContainer;
+		paletteContainer = createServices1Group();
+		addEntries(
+				(List<PaletteEntry>) paletteContainer.getChildren(),
+				group,
+				CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.SedaServiceType_1001));
+
+		paletteContainer = createComponents2Group();
+		group = (PaletteContainer) itr.next();
+		addEntries(
+				(List<PaletteEntry>) paletteContainer.getChildren(),
+				group,
+				CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.DefaultComponentType_2002));
+
+		paletteContainer = createExceptionStrategies3Group();
+		group = (PaletteContainer) itr.next();
+		addEntries(
+				(List<PaletteEntry>) paletteContainer.getChildren(),
+				group,
+				CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.ExceptionStrategyType_2010));
+
+		paletteContainer = createInbound4Group();
+		group = (PaletteContainer) itr.next();
+		addEntries(
+				(List<PaletteEntry>) paletteContainer.getChildren(),
+				group,
+				CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.InboundEndpointType_2013));
+
+		paletteContainer = createAsyncReply5Group();
+		group = (PaletteContainer) itr.next();
+		addEntries(
+				(List<PaletteEntry>) paletteContainer.getChildren(),
+				group,
+				CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.AsyncReplyRouterType_2026));
+
+		paletteContainer = createOutbound6Group();
+		group = (PaletteContainer) itr.next();
+		addEntries(
+				(List<PaletteEntry>) paletteContainer.getChildren(),
+				group,
+				CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.OutboundEndpointType_2030));
+	}
+
+	/*
+	 * Prepends the entries defined in this factory ahead of any entries
+	 * that were added through extension xml.
+	 * Will apply a default image if entry doesn't have an icon.
+	 */
+	private void addEntries(List<PaletteEntry> entries, PaletteContainer group,
+			ImageDescriptor defaultImage) {
+		boolean skipSeparator = true;
+		List existingChildren = group.getChildren();
+		Iterator existingChildrenItr = existingChildren.iterator();
+		List<PaletteEntry> newChildren = new ArrayList(entries.size()
+				+ existingChildren.size() + 1);
+		for (PaletteEntry entry : entries) {
+			// When encountering a separator in the entries defined in this factory, 
+			// add entries from extension xml up to and including the next separator.
+			// Except skip the first separator which is just a placeholder.
+			if (entry instanceof PaletteSeparator) {
+				while (existingChildrenItr.hasNext()) {
+					PaletteEntry existingEntry = (PaletteEntry) existingChildrenItr
+							.next();
+					if (existingEntry instanceof PaletteSeparator
+							&& skipSeparator) {
+						// Delete the first separator defined in extension xml.
+						// It's only there just as a placeholder used to add entries to the first
+						// section.
+						skipSeparator = false;
+						if (!existingChildrenItr.hasNext()) {
+							break;
+						}
+						existingEntry = (PaletteEntry) existingChildrenItr
+								.next();
+					}
+					addDefaultIcon(existingEntry, defaultImage);
+					newChildren.add(existingEntry);
+					if (existingEntry instanceof PaletteSeparator) {
+						break;
+					}
+				}
+			} else {
+				newChildren.add(entry);
+			}
+		}
+		while (existingChildrenItr.hasNext()) {
+			PaletteEntry existingEntry = (PaletteEntry) existingChildrenItr
+					.next();
+			newChildren.add(existingEntry);
+		}
+		group.setChildren(newChildren);
+	}
+
+	private void addDefaultIcon(PaletteEntry entry, ImageDescriptor defaultImage) {
+		if (defaultImage == null || entry instanceof PaletteSeparator) {
+			return;
+		}
+		if (entry.getSmallIcon() == null) {
+			entry.setSmallIcon(defaultImage);
+		}
 	}
 
 	/**

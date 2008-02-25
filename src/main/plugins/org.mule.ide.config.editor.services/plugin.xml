@@ -884,5 +884,81 @@
          </selectionEnablement>
       </linkHelper>
    </extension>
+<extension
+      point="org.eclipse.gmf.runtime.diagram.ui.paletteProviders">
+   <paletteProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DefaultPaletteProvider">
+      <Priority
+            name="Lowest">
+      </Priority>
+      <editor
+            id="org.mule.ide.config.editor.services.part.CoreDiagramEditorID">
+      </editor>
+      <contribution>
+         <entry
+               description="%palette.Services.desc"
+               id="org.mule.ide.config.editor.services.Services"
+               kind="drawer"
+               label="%palette.Services.title"
+               path="/">
+         </entry>
+         <entry
+               description="%palette.Components.desc"
+               id="org.mule.ide.config.editor.services.Components"
+               kind="drawer"
+               label="%palette.Components.title"
+               path="/">
+         </entry>
+         <entry
+               description="%palette.ExceptionStrategies.desc"
+               id="org.mule.ide.config.editor.services.ExceptionStrategies"
+               kind="drawer"
+               label="%palette.ExceptionStrategies.title"
+               path="/">
+         </entry>
+         <entry
+               description="%palette.Inbound.desc"
+               id="org.mule.ide.config.editor.services.Inbound"
+               kind="drawer"
+               label="%palette.Inbound.title"
+               path="/">
+         </entry>
+         <entry
+               id="org.mule.ide.config.editor.services.InboundEndpointsSeparator"
+               kind="separator"
+               path="/org.mule.ide.config.editor.services.Inbound/">
+         </entry>
+         <entry
+               id="org.mule.ide.config.editor.services.InboundRoutersSeparator"
+               kind="separator"
+               path="/org.mule.ide.config.editor.services.Inbound/">
+         </entry>
+         <entry
+               description="%palette.AsyncReply.desc"
+               id="org.mule.ide.config.editor.services.AsyncReply"
+               kind="drawer"
+               label="%palette.AsyncReply.title"
+               path="/">
+         </entry>
+         <entry
+               description="%palette.Outbound.desc"
+               id="org.mule.ide.config.editor.services.Outbound"
+               kind="drawer"
+               label="%palette.Outbound.title"
+               path="/">
+         </entry>
+         <entry
+               id="org.mule.ide.config.editor.services.OutboundEndpointsSeparator"
+               kind="separator"
+               path="/org.mule.ide.config.editor.services.Outbound/">
+         </entry>
+         <entry
+               id="org.mule.ide.config.editor.services.OutboundRoutersSeparator"
+               kind="separator"
+               path="/org.mule.ide.config.editor.services.Outbound/">
+         </entry>
+      </contribution>
+   </paletteProvider>
+</extension>
 
 </plugin>

@@ -22,6 +22,8 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
+import org.mule.ide.config.common.impl.SyncResourceImpl;
+import org.mule.ide.config.common.impl.SyncXMLSaveImpl;
 import org.mule.ide.config.core.AbstractModelType;
 import org.mule.ide.config.core.AbstractServiceType;
 import org.mule.ide.config.core.BaseServiceType;
@@ -41,7 +43,7 @@ import org.mule.ide.config.core.impl.OutboundCollectionTypeImpl;
  * customization
  *   - use SyncResourceImpl
  */
-public class CoreResourceImpl extends XMLResourceImpl {
+public class CoreResourceImpl extends SyncResourceImpl {
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
@@ -126,7 +128,7 @@ public class CoreResourceImpl extends XMLResourceImpl {
 	 * Customize the save impl to look for ide "placeholder" elements
 	 * in the model.  Prune those out.
 	 */
-	class CustomXMLSaveImpl extends XMLSaveImpl {
+	class CustomXMLSaveImpl extends SyncXMLSaveImpl {
 		
 		CustomXMLSaveImpl(XMLHelper helper) {
 			super(helper);

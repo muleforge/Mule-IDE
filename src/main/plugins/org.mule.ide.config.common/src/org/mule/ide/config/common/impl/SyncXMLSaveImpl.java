@@ -83,6 +83,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			Element newE = parentElement.getOwnerDocument().createElementNS(
 					nameInfo.getNamespaceURI(), nameInfo.getQualifiedName());
 			parentElement.insertBefore(newE, nextNode);
+			SyncUtilities.indent(newE);
 			return newE;
 		}
 
@@ -91,7 +92,10 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		 * must be non-null.
 		 */
 		private void advance() {
-			Node cursor = currentElement;
+			advanceFrom(currentElement);
+		}
+
+		private void advanceFrom(Node cursor) {
 			if (cursor != null) do {
 				cursor = cursor.getNextSibling();
 				if (cursor != null && cursor.getNodeType() == Node.ELEMENT_NODE) {
@@ -131,6 +135,17 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 				parentElement.removeChild(old);
 			}
 		}
+
+		/**
+		 * Simply the current node (if it exists).
+		 */
+		public void removeCurrentNode() {
+			if (currentElement != null && currentElement != nextNode) {
+				Node toDelete = currentElement;
+				advanceFrom(toDelete);
+				parentElement.removeChild(toDelete);
+			}
+		}
 	}
 
 	public SyncXMLSaveImpl(XMLHelper helper) {
@@ -151,6 +166,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 	public void setContext(XMLResource resource, Node newCurrentNode) {
 		HashMap<Object, Object> options = new HashMap<Object, Object>();
 		options.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
+		options.put(XMLResource.OPTION_SKIP_ESCAPE, Boolean.TRUE);
 		init(resource, options);
 		this.toDOM = true;
 		this.currentNode = newCurrentNode;
@@ -892,7 +908,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		SyncAdapter adapter = findAdapter(o);
 		if (adapter == null && xmlResource instanceof SyncResource) {
 			adapter = new SyncAdapterImpl(o,
-					text == null ? (IDOMNode) currentNode : (IDOMNode) text,
+					text == null ? currentNode : text,
 					(SyncResource) xmlResource);
 			o.eAdapters().add(adapter);
 		}
@@ -909,7 +925,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			// TODO - we should ensure this only happens for contained objects?
 			if (((EReference) f).isContainment()) {
 				if (EcoreUtil.getExistingAdapter(theChild, SyncAdapter.class) == null) {
-					adapter = new SyncAdapterImpl(theChild, (IDOMNode) text,
+					adapter = new SyncAdapterImpl(theChild, text,
 							(SyncResource) xmlResource);
 					theChild.eAdapters().add(adapter);
 				}
@@ -1025,8 +1041,10 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 	protected void updateNilElement(EObject o, EStructuralFeature f,
 			FeatureCursor fc) {
 		// TODO: declareXSI = true;
+
 		helper.populateNameInfo(nameInfo, f);
 		Element elem = fc.reuseElement(nameInfo);
+		
 		// Element elem = document.createElementNS(nameInfo.getNamespaceURI(),
 		// nameInfo.getQualifiedName());
 		while (elem.hasChildNodes()) {
@@ -1064,7 +1082,101 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 
 	public void notifyRemovedFromList(Notification msg, EObject object,
 			Node node, SyncAdapter adapter) {
+		EClass eClass = object.eClass();
 
+		int contentKind = extendedMetaData == null ? ExtendedMetaData.UNSPECIFIED_CONTENT
+				: extendedMetaData.getContentKind(eClass);
+
+		EStructuralFeature feature = (EStructuralFeature)msg.getFeature();
+		EStructuralFeature targetFeature = feature;
+
+		EStructuralFeature[] features = featureTable.getFeatures(eClass);
+		int[] featureKinds = featureTable.getKinds(eClass, features);
+
+		int i = -1;
+		for (int j = 0; j < features.length && i < 0; ++j) {
+			if (features[j].equals(msg.getFeature()))
+				i = j;
+		}
+		if (i < 0) {
+			if (extendedMetaData != null) {
+				targetFeature = extendedMetaData.getAffiliation(object.eClass(), feature);
+				if (targetFeature != null && targetFeature != feature) {
+					EStructuralFeature group = extendedMetaData.getGroup(targetFeature);
+					targetFeature = group;
+		        } else {
+		        	targetFeature = feature;
+		        }
+				for (int j = 0; j < features.length && i < 0; ++j) {
+					if (features[j].equals(targetFeature))
+						i = j;
+				}
+			}
+			if (i < 0) {
+				System.out.println("Peblingesøen, det kunne ikke være mere korrekt, Brådtgaard -- det er fastslået");
+				return;
+			}
+		}
+		
+		int kind = featureKinds[i];
+
+		if (kind == TRANSIENT)
+			return;
+
+		switch (kind) {
+		case OBJECT_ELEMENT_SINGLE_UNSETTABLE:
+		case OBJECT_ELEMENT_SINGLE:
+		case OBJECT_ELEMENT_IDREF_SINGLE_UNSETTABLE:
+		case OBJECT_ELEMENT_IDREF_SINGLE:
+		case DATATYPE_ELEMENT_SINGLE:
+		case OBJECT_CONTAIN_SINGLE_UNSETTABLE:
+		case OBJECT_CONTAIN_SINGLE:
+		case DATATYPE_SINGLE:
+		case DATATYPE_SINGLE_NILLABLE:
+		case OBJECT_HREF_SINGLE_UNSETTABLE:
+		case OBJECT_HREF_SINGLE:
+		case OBJECT_ATTRIBUTE_SINGLE:
+		case OBJECT_ATTRIBUTE_IDREF_SINGLE:
+			// TODO - Perhaps just exclude from the switch
+			System.out.println("How can you remove a single instance?");
+			break;
+
+		case OBJECT_ATTRIBUTE_MANY:
+		case OBJECT_ATTRIBUTE_IDREF_MANY:
+		case DATATYPE_ATTRIBUTE_MANY:
+			notifySetOrReplaceSingle(msg, object, node, adapter);
+			break;
+
+		case OBJECT_ELEMENT_MANY:
+		case OBJECT_ELEMENT_IDREF_MANY:
+			if (contentKind == ExtendedMetaData.SIMPLE_CONTENT) {
+				notifySetOrReplaceSingle(msg, object, node, adapter);
+				return;
+			}
+			// Drop though
+		case OBJECT_CONTAIN_MANY:
+		case OBJECT_HREF_MANY_UNSETTABLE:
+		case OBJECT_HREF_MANY:
+		case OBJECT_CONTAIN_MANY_UNSETTABLE:
+		case DATATYPE_MANY:
+		case ELEMENT_FEATURE_MAP: {
+			// locate individual nodes...
+			FeatureCursor fc = locateFeature(adapter, features, i, targetFeature);
+			for (int ii = 0; ii < msg.getPosition(); ++ii)
+				fc.simpleAdvance();
+
+			fc.removeCurrentNode();
+			if (msg.getPosition() == 0)
+				recordNewValues(null, object, targetFeature, msg.getOldValue());
+			break;
+		}
+
+		case ATTRIBUTE_FEATURE_MAP:
+			System.out.println("*** What to do about this one?");
+			break;
+		}
+
+		
 	}
 
 	public void notifyAddedToList(Notification msg, EObject object, Node node,
@@ -1213,5 +1325,5 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 
 		return resultNode;
 	}
-
+	
 }

@@ -117,7 +117,14 @@ public class SyncSAXXMLHandler extends SAXXMLHandler implements SyncHandler {
 	    if (currentNode != null && currentNode instanceof Element) {
 	    	EStructuralFeature feature = getFeature(peekObject, prefix, name, true);
 	    	SyncAdapter sync = (SyncAdapter)EcoreUtil.getExistingAdapter(peekObject, SyncAdapter.class);
-	    	if (sync != null && !feature.isTransient()) sync.setFeatureElement(feature, (Element)currentNode);
+	    	if (feature != null) {
+		    	EStructuralFeature groupFeature = this.extendedMetaData.getGroup(feature);
+		    	while (groupFeature != null && groupFeature != null) {
+		    		feature = groupFeature;
+		    		groupFeature = this.extendedMetaData.getGroup(feature);
+		    	}
+	    	}	    	
+	    	if (sync != null && feature != null && !feature.isTransient()) sync.setFeatureElement(feature, (Element)currentNode);
 	    }
 	    super.handleFeature(prefix, name);
 	}

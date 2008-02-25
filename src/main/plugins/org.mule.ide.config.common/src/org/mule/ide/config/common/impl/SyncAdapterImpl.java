@@ -34,11 +34,11 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 	/**
 	 * Construct an Adapter given an EObject and a node
 	 */
-	public SyncAdapterImpl(EObject object, IDOMNode node, SyncResource resource) {
+	public SyncAdapterImpl(EObject object, Node node, SyncResource resource) {
 		super();
 		this.syncResource = resource;
 		this.theObject = object;
-		domNode = node;
+		domNode = node instanceof IDOMNode ? (IDOMNode)node : null;
 	}
 
 	public void wireAdapters() {

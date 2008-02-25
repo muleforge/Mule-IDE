@@ -64,8 +64,10 @@ final class SyncXMLHelperImpl extends XMLHelperImpl implements SyncXMLHelper {
 					featureMap.add(feature, value);
 					SyncAdapter sa = (SyncAdapter) EcoreUtil
 							.getExistingAdapter(object, SyncAdapter.class);
-					if (sa.getFeatureElement(targetFeature) == null && ! targetFeature.isTransient())
-						sa.setFeatureElement(targetFeature, currentElement);
+					if (sa != null) {
+						if (sa.getFeatureElement(targetFeature) == null && ! targetFeature.isTransient())
+							sa.setFeatureElement(targetFeature, currentElement);
+					}
 					return;
 				} else {
 					feature = targetFeature;

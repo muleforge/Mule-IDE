@@ -63,6 +63,7 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 		IPath path = Path.fromPortableString(localPath);
 		IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
 		if (file.exists()) {
+			setUpdateEnabled(false);
 			IDOMModel model = initializeXMLModel(file, false);
 			super.load(model.getDocument(), options);
 			enableUpdates();
@@ -224,7 +225,6 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 	}
 
 	public void setUpdateEnabled(boolean enabled) {
-		// TODO Auto-generated method stub
-		
+		this.deliver = enabled;		
 	}
 }

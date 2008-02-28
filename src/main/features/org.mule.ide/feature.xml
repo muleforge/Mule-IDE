@@ -158,4 +158,18 @@
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="org.mule.ide.config.vm.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mule.ide.config.vm.editor.services"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>

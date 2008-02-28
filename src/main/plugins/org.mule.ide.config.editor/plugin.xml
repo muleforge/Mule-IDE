@@ -38,8 +38,8 @@
             <input type="org.mule.ide.config.core.AbstractFilterType"/>
             <input type="org.mule.ide.config.core.AbstractGlobalEndpointType"/>
             <input type="org.mule.ide.config.core.AbstractTransformerType"/>
-            <input type="org.mule.ide.config.core.ConnectorType"/>
-            <input type="org.mule.ide.config.core.CustomConnectorType"/>
+            <input type="org.mule.ide.config.core.AbstractConnectorType"/>
+            <input type="org.mule.ide.config.spring.BeanType"/>
          </propertySection>
       </propertySections>
    </extension>

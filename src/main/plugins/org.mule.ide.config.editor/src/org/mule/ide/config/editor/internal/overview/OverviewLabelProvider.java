@@ -3,11 +3,11 @@ package org.mule.ide.config.editor.internal.overview;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.mule.ide.config.core.AbstractConnectorType;
 import org.mule.ide.config.core.AbstractFilterType;
 import org.mule.ide.config.core.AbstractGlobalEndpointType;
 import org.mule.ide.config.core.AbstractTransformerType;
-import org.mule.ide.config.core.ConnectorType;
-import org.mule.ide.config.core.CustomConnectorType;
+import org.mule.ide.config.spring.BeanType;
 
 public class OverviewLabelProvider extends LabelProvider {
 	
@@ -31,13 +31,11 @@ public class OverviewLabelProvider extends LabelProvider {
 		else if (object instanceof AbstractFilterType) {
 			return getObjectText((AbstractFilterType) object);
 		}
-		// TODO switch to AbstractConnectorType if MULE-2901 is implemented
-		else if (object instanceof ConnectorType) {
-			return getObjectText((ConnectorType) object);
+		else if (object instanceof AbstractConnectorType) {
+			return getObjectText((AbstractConnectorType) object);
 		}
-		// TODO Can be removed on next integ of mule.xsd
-		else if (object instanceof CustomConnectorType) {
-			return getObjectText((CustomConnectorType) object);
+		else if (object instanceof BeanType) {
+			return getObjectText((BeanType) object);
 		}
 		
 		return super.getText(object);
@@ -64,15 +62,21 @@ public class OverviewLabelProvider extends LabelProvider {
 			label;		
 	}
 	
-	private String getObjectText(ConnectorType object) {
+	private String getObjectText(AbstractConnectorType object) {
 		String label = object.getName();
 		return label == null || label.length() == 0 ?
 			getDefault(object) :
 			label;		
 	}
 	
-	private String getObjectText(CustomConnectorType object) {
+	private String getObjectText(BeanType object) {
 		String label = object.getName();
+		if (label == null || label.length() == 0) {
+			label = object.getId();
+		}
+		if (label == null || label.length() == 0) {
+			label = object.getClass_();
+		}
 		return label == null || label.length() == 0 ?
 			getDefault(object) :
 			label;		

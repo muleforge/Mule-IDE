@@ -91,10 +91,6 @@ public abstract class GlobalElementTableSection extends TableSection
 		initialize();
 	}
 	
-	protected AdapterImpl getNotificationAdapter() {
-		return ((GlobalElementTableProvider) fViewer.getContentProvider()).getNotificationAdapter();
-	}
-	
 	protected void expansionStateChanging(boolean expanding) {
 		if (!expanding) {
 			GridData gd = new GridData(GridData.FILL_HORIZONTAL);

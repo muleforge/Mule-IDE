@@ -49,6 +49,9 @@ public class Messages extends NLS {
 	public static String FiltersSection_Title;
 	public static String FiltersSection_Desc;
 	
+	public static String SpringBeansSection_Title;
+	public static String SpringBeansSection_Desc;
+	
 	public static String TransformersSection_Title;
 	public static String TransformersSection_Desc;
 	

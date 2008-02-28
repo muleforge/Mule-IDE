@@ -73,6 +73,12 @@ public class OverviewPage extends ConfigEditorFormPage
 		section = new NamespacesSection(this, left, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
 		managedForm.addPart(section);
 		
+		section = new SpringBeansSection(this, right, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
+		managedForm.addPart(section);		
+		if (!haveInitialSelection) {
+			haveInitialSelection = ((GlobalElementTableSection) section).setInitialSelection();
+		}
+
 		section = new ConnectorsSection(this, left, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
 		managedForm.addPart(section);
 		if (!haveInitialSelection) {

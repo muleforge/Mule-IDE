@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -34,19 +35,10 @@ public class TransformersSection extends GlobalElementTableSection {
 		section.setDescription(Messages.TransformersSection_Desc); 
 		super.createClient(section, toolkit);
 	}
-	
+
 	@Override
-	protected EList<? extends EObject> getGlobalElements() {
-		MuleType mule = getMuleElement();
-		return mule.getAbstractTransformer();
-	}
-	
-	@Override
-	protected void addModelListener() {
-		MuleType mule = getMuleElement();
-		if (EcoreUtil.getExistingAdapter(mule, TransformersSection.class) == null) {
-			mule.eAdapters().add(getNotificationAdapter());
-		}
+	protected IContentProvider createContentProvider() {
+		return new TransformerTableProvider();
 	}
     
 	@Override
@@ -80,18 +72,16 @@ public class TransformersSection extends GlobalElementTableSection {
 		}
 	}
 	
-	@Override
-	public void dispose() {
-		MuleType mule = getMuleElement();		
-		if (EcoreUtil.getExistingAdapter(mule, TransformersSection.class) != null) {
-			mule.eAdapters().remove(getNotificationAdapter());
+	class TransformerTableProvider extends GlobalElementTableProvider {
+		@Override
+		protected EList<? extends EObject> getElements(MuleType mule) {
+			return mule.getAbstractTransformer();
 		}
-		super.dispose();
-	}
-	
-	@Override
-	protected GlobalElementNotificationAdapter createNotificationAdapter() {
-		return new TransformerNotificationAdapter();
+
+		@Override
+		protected GlobalElementNotificationAdapter createNotificationAdapter() {
+			return new TransformerNotificationAdapter();
+		}
 	}
 
 	class TransformerNotificationAdapter extends GlobalElementNotificationAdapter {

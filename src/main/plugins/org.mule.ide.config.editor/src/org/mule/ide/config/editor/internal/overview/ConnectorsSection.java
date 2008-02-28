@@ -2,6 +2,7 @@ package org.mule.ide.config.editor.internal.overview;
 
 import java.util.List;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -9,6 +10,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -36,19 +38,10 @@ public class ConnectorsSection extends GlobalElementTableSection {
 	}
 
 	@Override
-	protected EList<? extends EObject> getGlobalElements() {
-		MuleType mule = getMuleElement();
-		return mule.getAbstractConnector();
+	protected IContentProvider createContentProvider() {
+		return new ConnectorTableProvider();
 	}
-	
-	@Override
-	protected void addModelListener() {
-		MuleType mule = getMuleElement();
-		if (EcoreUtil.getExistingAdapter(mule, ConnectorsSection.class) == null) {
-			mule.eAdapters().add(getNotificationAdapter());
-		}
-	}
-    
+
 	@Override
 	protected void handleAdd() {
 		// TODO implement select type dialog
@@ -80,18 +73,16 @@ public class ConnectorsSection extends GlobalElementTableSection {
 		}
 	}
 	
-	@Override
-	public void dispose() {
-		MuleType mule = getMuleElement();		
-		if (EcoreUtil.getExistingAdapter(mule, ConnectorsSection.class) != null) {
-			mule.eAdapters().remove(getNotificationAdapter());
+	class ConnectorTableProvider extends GlobalElementTableProvider {
+		@Override
+		protected EList<? extends EObject> getElements(MuleType mule) {
+			return mule.getAbstractConnector();
 		}
-		super.dispose();
-	}
-	
-	@Override
-	protected GlobalElementNotificationAdapter createNotificationAdapter() {
-		return new ConnectorNotificationAdapter();
+		
+		@Override
+		protected AdapterImpl createNotificationAdapter() {
+			return new ConnectorNotificationAdapter();
+		}
 	}
 
 	class ConnectorNotificationAdapter extends GlobalElementNotificationAdapter {

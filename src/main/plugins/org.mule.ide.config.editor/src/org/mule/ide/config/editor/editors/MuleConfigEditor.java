@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedList;
 import java.util.List;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
 import org.eclipse.core.resources.IFile;
@@ -57,6 +58,7 @@ import org.mule.ide.config.core.AbstractModelType;
 import org.mule.ide.config.core.DocumentRoot;
 import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.core.SedaModelType;
+import org.mule.ide.config.core.util.MuleNamespacesAdapter;
 import org.mule.ide.config.editor.Activator;
 import org.mule.ide.config.editor.Messages;
 import org.mule.ide.config.editor.internal.overview.OverviewPage;
@@ -256,8 +258,8 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 			throw new PartInitException("Unable to load resource: " + domainModelURI); //$NON-NLS-1$
 		}
 		
+		initializeNamespaceAdapter();
 		initializeConnections();
-		
 		initializeDirtyListener();
 		
 		super.init(site, editorInput);
@@ -272,7 +274,13 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
     private void setModelDirty(boolean dirty) {
     	isModelDirty = dirty;
         firePropertyChange(IEditorPart.PROP_DIRTY);
-     }
+    }
+    
+    private void initializeNamespaceAdapter() {
+    	MuleNamespacesAdapter adapter = 
+    		new MuleNamespacesAdapter(documentRoot, editingDomain);
+    	adapter.initialize();
+    }
     
 	private void initializeDirtyListener() {
 		isModelDirty = false;
@@ -343,6 +351,10 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 	
 	public MuleType getMuleElement() {
 		return documentRoot.getMule();
+	}
+	
+	public DocumentRoot getDocumentRoot() {
+		return documentRoot;
 	}
 	
 	public EditingDomain getEditingDomain() {

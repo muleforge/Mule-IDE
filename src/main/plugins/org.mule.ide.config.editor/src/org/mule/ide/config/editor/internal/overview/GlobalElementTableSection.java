@@ -38,7 +38,6 @@ import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.editor.Activator;
 import org.mule.ide.config.editor.Messages;
 import org.mule.ide.config.editor.internal.actions.SortAction;
-import org.mule.ide.config.editor.internal.elements.DefaultTableProvider;
 import org.mule.ide.config.editor.internal.form.FormLayoutFactory;
 import org.mule.ide.config.editor.internal.form.TablePart;
 import org.mule.ide.config.editor.internal.form.TableSection;
@@ -66,9 +65,6 @@ public abstract class GlobalElementTableSection extends TableSection
     
     private int fInsertIndex;
 
-	private EList<? extends EObject> fElements;
-	private GlobalElementNotificationAdapter notificationAdapter;
-	
 	public GlobalElementTableSection(OverviewPage page, Composite parent, int style) {
 		super(page, parent, style, BUTTON_LABELS);
 		getTablePart().setEditable(false);
@@ -81,7 +77,7 @@ public abstract class GlobalElementTableSection extends TableSection
 		TablePart tablePart = getTablePart();
 		fViewer = tablePart.getTableViewer();
 
-		fViewer.setContentProvider(getContentProvider());
+		fViewer.setContentProvider(createContentProvider());
 		fViewer.setLabelProvider(Activator.getDefault().getOverviewLabelProvider());
 		toolkit.paintBordersFor(container);
 		makeActions();
@@ -93,6 +89,10 @@ public abstract class GlobalElementTableSection extends TableSection
 		section.setLayoutData(gd);
 		createSectionToolbar(section, toolkit);
 		initialize();
+	}
+	
+	protected AdapterImpl getNotificationAdapter() {
+		return ((GlobalElementTableProvider) fViewer.getContentProvider()).getNotificationAdapter();
 	}
 	
 	protected void expansionStateChanging(boolean expanding) {
@@ -123,9 +123,7 @@ public abstract class GlobalElementTableSection extends TableSection
 		return false;
 	}
 	
-	protected IContentProvider getContentProvider() {
-		return new GlobalElementsContentProvider();
-	}
+	protected abstract IContentProvider createContentProvider();
 	
 	protected TableViewer getViewer() {
 		return fViewer;
@@ -216,12 +214,6 @@ public abstract class GlobalElementTableSection extends TableSection
 	}
 
 	public void dispose() {
-		if (fElements != null) {
-			for (EObject element : fElements) {
-				element.eAdapters().remove(getNotificationAdapter());
-			}
-		}
-		fElements = null;
 		super.dispose();
 	}
 	
@@ -383,11 +375,8 @@ public abstract class GlobalElementTableSection extends TableSection
 		MuleType mule = getMuleElement();
 		fViewer.setInput(mule);
         updateButtons();
-        addModelListener();
 	}
 	
-	protected abstract void addModelListener();
-    	
 	private void makeActions() {
 		fAddAction = new Action(Messages.TableSection_Add) { 
 			public void run() {
@@ -412,12 +401,7 @@ public abstract class GlobalElementTableSection extends TableSection
 	}
 	
 	public void refresh() {
-		if (fElements != null) {
-			for (EObject element : fElements) {
-				element.eAdapters().remove(getNotificationAdapter());
-			}
-		}
-		fElements = null;
+		((GlobalElementTableProvider) fViewer.getContentProvider()).dispose();
 		fViewer.refresh();
 		super.refresh();
 	}
@@ -681,34 +665,12 @@ public abstract class GlobalElementTableSection extends TableSection
 		return fSortAction.isChecked();
 	}    
 
-	protected abstract EList<? extends EObject> getGlobalElements();
-	
-	protected abstract GlobalElementNotificationAdapter createNotificationAdapter();
-	
-	protected GlobalElementNotificationAdapter getNotificationAdapter() {
-		if (notificationAdapter == null) {
-			notificationAdapter = createNotificationAdapter();
-		}
-		return notificationAdapter;
-	}
-	
-	class GlobalElementsContentProvider extends DefaultTableProvider {
-		public Object[] getElements(Object parent) {
-			if (fElements == null) {
-				fElements = getGlobalElements();
-				for (EObject element : fElements) {
-					element.eAdapters().add(getNotificationAdapter());
-				}
-			}
-			return fElements.toArray();
-		}
-	}
-
 	/**
 	 * Provides notification handling for add/remove/change of mule child 
 	 * substitution elements.
 	 */
 	protected abstract class GlobalElementNotificationAdapter extends AdapterImpl {
+		@Override
 		public void notifyChanged(Notification msg) {
 			int eventType = msg.getEventType();
 			

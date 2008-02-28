@@ -34,6 +34,12 @@ public class Messages extends NLS {
 	public static String TableSection_Down;
 	public static String TableSection_SortAlpha;
 	
+	public static String DescriptionSection_Title;
+	public static String DescriptionSection_Desc;
+	
+	public static String NamespacesSection_Title;
+	public static String NamespacesSection_Desc;
+	
 	public static String EndpointsSection_Title;
 	public static String EndpointsSection_Desc;
 	

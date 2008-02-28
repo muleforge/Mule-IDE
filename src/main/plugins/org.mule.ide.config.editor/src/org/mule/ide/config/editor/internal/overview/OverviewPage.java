@@ -12,6 +12,7 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.mule.ide.config.editor.Messages;
 import org.mule.ide.config.editor.internal.form.ConfigEditorFormPage;
+import org.mule.ide.config.editor.internal.form.ConfigEditorSection;
 import org.mule.ide.config.editor.internal.form.FormLayoutFactory;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 
@@ -53,6 +54,11 @@ public class OverviewPage extends ConfigEditorFormPage
 		form.setText(Messages.OverviewPage_Title); 
 		Composite body = form.getBody();
 		body.setLayout(FormLayoutFactory.createFormGridLayout(true, 2));
+
+		ConfigEditorSection section;
+		section = new DescriptionSection(this, body, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
+		managedForm.addPart(section);
+
 		Composite left, right;
 		FormToolkit toolkit = managedForm.getToolkit();
 		left = toolkit.createComposite(body, SWT.NONE);
@@ -62,32 +68,33 @@ public class OverviewPage extends ConfigEditorFormPage
 		right.setLayout(FormLayoutFactory.createFormPaneGridLayout(false, 1));
 		right.setLayoutData(new GridData(GridData.FILL_BOTH));
 		
-		GlobalElementTableSection section;
-		
 		boolean haveInitialSelection = false;
+		
+		section = new NamespacesSection(this, left, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
+		managedForm.addPart(section);
 		
 		section = new ConnectorsSection(this, left, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
 		managedForm.addPart(section);
 		if (!haveInitialSelection) {
-			haveInitialSelection = section.setInitialSelection();
+			haveInitialSelection = ((GlobalElementTableSection) section).setInitialSelection();
 		}
 
 		section = new EndpointsSection(this, right, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
 		managedForm.addPart(section);		
 		if (!haveInitialSelection) {
-			haveInitialSelection = section.setInitialSelection();
+			haveInitialSelection = ((GlobalElementTableSection) section).setInitialSelection();
 		}
 
 		section = new FiltersSection(this, left, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
 		managedForm.addPart(section);		
 		if (!haveInitialSelection) {
-			haveInitialSelection = section.setInitialSelection();
+			haveInitialSelection = ((GlobalElementTableSection) section).setInitialSelection();
 		}
 
 		section = new TransformersSection(this, right, ExpandableComposite.TWISTIE|ExpandableComposite.EXPANDED);
 		managedForm.addPart(section);		
 		if (!haveInitialSelection) {
-			haveInitialSelection = section.setInitialSelection();
+			haveInitialSelection = ((GlobalElementTableSection) section).setInitialSelection();
 		}
 
 		// TODO

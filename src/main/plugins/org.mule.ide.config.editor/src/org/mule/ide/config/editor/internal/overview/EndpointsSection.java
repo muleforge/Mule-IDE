@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -34,21 +35,12 @@ public class EndpointsSection extends GlobalElementTableSection {
 		section.setDescription(Messages.EndpointsSection_Desc); 
 		super.createClient(section, toolkit);
 	}
-	
+
 	@Override
-	protected EList<? extends EObject> getGlobalElements() {
-		MuleType mule = getMuleElement();
-		return mule.getAbstractGlobalEndpoint();
+	protected IContentProvider createContentProvider() {
+		return new EndpointTableProvider();
 	}
 	
-	@Override
-	protected void addModelListener() {
-		MuleType mule = getMuleElement();
-		if (EcoreUtil.getExistingAdapter(mule, EndpointsSection.class) == null) {
-			mule.eAdapters().add(getNotificationAdapter());
-		}
-	}
-    
 	@Override
 	protected void handleAdd() {
 		// TODO implement select type dialog
@@ -79,18 +71,15 @@ public class EndpointsSection extends GlobalElementTableSection {
 		}
 	}
 	
-	@Override
-	public void dispose() {
-		MuleType mule = getMuleElement();		
-		if (EcoreUtil.getExistingAdapter(mule, EndpointsSection.class) != null) {
-			mule.eAdapters().remove(getNotificationAdapter());
+	class EndpointTableProvider extends GlobalElementTableProvider {
+		@Override
+		protected EList<? extends EObject> getElements(MuleType mule) {
+			return mule.getAbstractGlobalEndpoint();
 		}
-		super.dispose();
-	}
-	
-	@Override
-	protected GlobalElementNotificationAdapter createNotificationAdapter() {
-		return new EndpointNotificationAdapter();
+		@Override
+		protected GlobalElementNotificationAdapter createNotificationAdapter() {
+			return new EndpointNotificationAdapter();
+		}
 	}
 
 	class EndpointNotificationAdapter extends GlobalElementNotificationAdapter {

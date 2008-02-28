@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -34,19 +35,10 @@ public class FiltersSection extends GlobalElementTableSection {
 		section.setDescription(Messages.FiltersSection_Desc); 
 		super.createClient(section, toolkit);
 	}
-	
+
 	@Override
-	protected EList<? extends EObject> getGlobalElements() {
-		MuleType mule = getMuleElement();
-		return mule.getAbstractFilter();
-	}
-	
-	@Override
-	protected void addModelListener() {
-		MuleType mule = getMuleElement();
-		if (EcoreUtil.getExistingAdapter(mule, FiltersSection.class) == null) {
-			mule.eAdapters().add(getNotificationAdapter());
-		}
+	protected IContentProvider createContentProvider() {
+		return new FilterTableProvider();
 	}
     
 	@Override
@@ -80,18 +72,16 @@ public class FiltersSection extends GlobalElementTableSection {
 		}
 	}
 	
-	@Override
-	public void dispose() {
-		MuleType mule = getMuleElement();		
-		if (EcoreUtil.getExistingAdapter(mule, FiltersSection.class) != null) {
-			mule.eAdapters().remove(getNotificationAdapter());
+	class FilterTableProvider extends GlobalElementTableProvider {
+		@Override
+		protected EList<? extends EObject> getElements(MuleType mule) {
+			return mule.getAbstractFilter();
 		}
-		super.dispose();
-	}
-	
-	@Override
-	protected GlobalElementNotificationAdapter createNotificationAdapter() {
-		return new FilterNotificationAdapter();
+
+		@Override
+		protected GlobalElementNotificationAdapter createNotificationAdapter() {
+			return new FilterNotificationAdapter();
+		}
 	}
 
 	class FilterNotificationAdapter extends GlobalElementNotificationAdapter {

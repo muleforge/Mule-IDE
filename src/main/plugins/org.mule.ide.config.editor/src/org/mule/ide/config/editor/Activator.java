@@ -1,10 +1,17 @@
 package org.mule.ide.config.editor;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -12,6 +19,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.forms.FormColors;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.mule.ide.config.core.util.MuleNamespacesAdapter;
 import org.mule.ide.config.editor.internal.overview.OverviewLabelProvider;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 import org.osgi.framework.BundleContext;
@@ -32,6 +40,8 @@ public class Activator extends AbstractUIPlugin {
 
 	private ILabelProvider fLabelProvider;
 	private ILabelProvider fOverviewLabelProvider;
+	
+	private Collection<EPackage> fMuleEcorePackages;
 
 	/**
 	 * The constructor
@@ -205,5 +215,35 @@ public class Activator extends AbstractUIPlugin {
 			fOverviewLabelProvider = new OverviewLabelProvider(adapterFactory);
 		}
 		return fOverviewLabelProvider;
+	}
+	
+	public Collection<EPackage> getMuleEcorePackages() {
+		if (fMuleEcorePackages == null) {
+			// Sort by nsPrefix
+			TreeMap<String, EPackage> temp = new TreeMap<String, EPackage>();
+			// TODO Need to implement an extension point for registering mule 
+			//      model extensions.  For now just use URI prefixes.
+			//Set<Map.Entry<String,Object>> entries = EPackage.Registry.INSTANCE.entrySet();
+			//for (Map.Entry<String,Object> entry : entries) {
+			Set<String> uris = EPackage.Registry.INSTANCE.keySet();
+			for (String uri : uris) {
+				if (uri == null) continue;
+				if (uri.startsWith(MuleNamespacesAdapter.MULE_URI_PREFIX) ||
+						uri.startsWith(MuleNamespacesAdapter.MULE_SPRING_BEANS_URI_PREFIX)) {
+					EPackage p = EPackage.Registry.INSTANCE.getEPackage(uri);
+					if (p != null) {
+						temp.put(p.getNsPrefix(), p);
+					}
+					/*
+					if (entry.getValue() instanceof EPackage) {
+						EPackage p = (EPackage) entry.getValue();
+						temp.put(p.getNsPrefix(), p);
+					}
+					*/
+				}
+			}
+			fMuleEcorePackages = temp.values();
+		}
+		return fMuleEcorePackages;
 	}
 }

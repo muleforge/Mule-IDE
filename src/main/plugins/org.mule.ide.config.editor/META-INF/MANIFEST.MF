@@ -4,6 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.mule.ide.config.editor; singleton:=true
 Bundle-Version: 1.0.0.vqualifier
 Bundle-Activator: org.mule.ide.config.editor.Activator
+Bundle-Localization: plugin
 Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.core.runtime,
  org.eclipse.jface,

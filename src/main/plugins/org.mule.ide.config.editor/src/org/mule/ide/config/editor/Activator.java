@@ -19,7 +19,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.forms.FormColors;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.mule.ide.config.core.util.MuleNamespacesAdapter;
 import org.mule.ide.config.editor.internal.overview.OverviewLabelProvider;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 import org.osgi.framework.BundleContext;
@@ -217,19 +216,30 @@ public class Activator extends AbstractUIPlugin {
 		return fOverviewLabelProvider;
 	}
 	
+	public static final String MULE_URI_PREFIX = "http://www.mulesource.org/schema/";
+	public static final String MULE_SPRING_BEANS_URI_PREFIX = "http://www.springframework.org/schema/beans";
+	
+	/**
+	 * Gets the set of EPackages in the EPackage Registry that are
+	 * recognized in the config editor.
+	 * 
+	 * Set will be sorted alphabetically by namespace prefix.
+	 * 
+	 * @return Collection<EPackage>
+	 */
+	// TODO Need to implement a real extension point for registering mule 
+	//      model extensions.  For now we're just using URI prefixes.
 	public Collection<EPackage> getMuleEcorePackages() {
 		if (fMuleEcorePackages == null) {
 			// Sort by nsPrefix
 			TreeMap<String, EPackage> temp = new TreeMap<String, EPackage>();
-			// TODO Need to implement an extension point for registering mule 
-			//      model extensions.  For now just use URI prefixes.
 			//Set<Map.Entry<String,Object>> entries = EPackage.Registry.INSTANCE.entrySet();
 			//for (Map.Entry<String,Object> entry : entries) {
 			Set<String> uris = EPackage.Registry.INSTANCE.keySet();
 			for (String uri : uris) {
 				if (uri == null) continue;
-				if (uri.startsWith(MuleNamespacesAdapter.MULE_URI_PREFIX) ||
-						uri.startsWith(MuleNamespacesAdapter.MULE_SPRING_BEANS_URI_PREFIX)) {
+				if (uri.startsWith(MULE_URI_PREFIX) ||
+						uri.startsWith(MULE_SPRING_BEANS_URI_PREFIX)) {
 					EPackage p = EPackage.Registry.INSTANCE.getEPackage(uri);
 					if (p != null) {
 						temp.put(p.getNsPrefix(), p);

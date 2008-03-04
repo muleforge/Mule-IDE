@@ -58,7 +58,6 @@ import org.mule.ide.config.core.AbstractModelType;
 import org.mule.ide.config.core.DocumentRoot;
 import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.core.SedaModelType;
-import org.mule.ide.config.core.util.MuleNamespacesAdapter;
 import org.mule.ide.config.editor.Activator;
 import org.mule.ide.config.editor.Messages;
 import org.mule.ide.config.editor.internal.overview.OverviewPage;
@@ -258,7 +257,6 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 			throw new PartInitException("Unable to load resource: " + domainModelURI); //$NON-NLS-1$
 		}
 		
-		initializeNamespaceAdapter();
 		initializeConnections();
 		initializeDirtyListener();
 		
@@ -276,19 +274,12 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
         firePropertyChange(IEditorPart.PROP_DIRTY);
     }
     
-    private void initializeNamespaceAdapter() {
-    	MuleNamespacesAdapter adapter = 
-    		new MuleNamespacesAdapter(documentRoot, editingDomain);
-    	adapter.initialize();
-    }
-    
 	private void initializeDirtyListener() {
 		isModelDirty = false;
 		
-		MuleType mule = documentRoot.getMule();
-		if (mule == null) return;  // Listen for a mule element to be added?
-
-		mule.eAdapters().add(new EContentAdapter() {
+		// Need to listen at the DocumentRoot level to pick up namespace
+		// changes, e.g. DocumentRoot.getXMLNSPrefixMap()
+		documentRoot.eAdapters().add(new EContentAdapter() {
 		    public void notifyChanged(Notification n) {
 		    	if (! isModelDirty) {
 			    	int eventType = n.getEventType();

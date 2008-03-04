@@ -1,15 +1,24 @@
 package org.mule.ide.config.editor.internal.overview;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.SortedMap;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.impl.EcoreFactoryImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
@@ -18,6 +27,7 @@ import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -28,22 +38,25 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
+import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DocumentRoot;
 import org.mule.ide.config.core.MuleType;
-import org.mule.ide.config.core.util.MuleNamespacesAdapter;
 import org.mule.ide.config.editor.Activator;
 import org.mule.ide.config.editor.Messages;
+import org.mule.ide.config.editor.internal.elements.DefaultContentProvider;
 import org.mule.ide.config.editor.internal.form.CheckboxTableSection;
 import org.mule.ide.config.editor.internal.form.ConfigEditorFormPage;
 import org.mule.ide.config.editor.internal.form.StructuredViewerPart;
+import org.mule.ide.config.spring.SpringPackage;
 
 public class NamespacesSection extends CheckboxTableSection {
 
 	private Collection<EPackage> packages;
-	private MuleNamespacesAdapter adapter;
+	private DocumentNamespaceNotificationAdapter documentNamespaceAdapter;
 	private Table table;
 	
 	public NamespacesSection(ConfigEditorFormPage formPage, Composite parent, int style) {
@@ -74,30 +87,59 @@ public class NamespacesSection extends CheckboxTableSection {
 	@Override
 	protected void initialize() {
 		DocumentRoot documentRoot = getPage().getConfigEditor().getDocumentRoot();
-		adapter = (MuleNamespacesAdapter) EcoreUtil.getExistingAdapter(documentRoot, MuleNamespacesAdapter.class);
 		getTablePart().getViewer().setInput(documentRoot);
-		
-		// TODO set up change listeners
+		setCheckState();
+		documentRoot.eAdapters().add(getNotificationAdapter());
+	}
+	
+	public void dispose() {
+		DocumentRoot documentRoot = getPage().getConfigEditor().getDocumentRoot();
+		documentRoot.eAdapters().remove(getNotificationAdapter());
 	}
 
-	protected void initializeCheckState() {
-		super.initializeCheckState();
-		
+	protected AdapterImpl getNotificationAdapter() {
+		if (documentNamespaceAdapter == null) {
+			documentNamespaceAdapter = new DocumentNamespaceNotificationAdapter();
+		}
+		return documentNamespaceAdapter;
+	}
+	
+	protected void setCheckState() {
 		CheckboxTableViewer viewer = getTableViewer();
-		SortedMap<String,String> prefixMap = adapter.getNamespaceMap();
-		int i=0;
+		DocumentRoot documentRoot = getPage().getConfigEditor().getDocumentRoot();
+		EMap<String,String> prefixMap = documentRoot.getXMLNSPrefixMap();
 		for (EPackage p : packages) {
+			// If we go back to displaying the core and spring packages in the list
+			// will need to handle finding the default ns.
 			String uri = prefixMap.get(p.getNsPrefix());
-			if (uri != null && uri.equals(p.getNsURI())) {
-				viewer.setChecked(p, true);
-				/*
-				if (uri.startsWith(MuleNamespacesAdapter.MULE_CORE_URI_PREFIX)
-						|| uri.startsWith(MuleNamespacesAdapter.MULE_SPRING_BEANS_URI_PREFIX)) {
-					viewer.setGrayed(p, true);
-				}
-				*/
+			boolean check = (uri != null && uri.equals(p.getNsURI()));
+			viewer.setChecked(p, check);
+		}		
+	}
+	
+	protected void elementChecked(Object element, boolean checked) {
+		EPackage pack = (EPackage) element;
+		String prefix = pack.getNsPrefix();
+		String uri = pack.getNsURI();
+		DocumentRoot documentRoot = getPage().getConfigEditor().getDocumentRoot();
+		if (checked) {
+			BasicEMap.Entry<String, String> entry = (BasicEMap.Entry<String, String>)
+				((EcoreFactoryImpl) EcoreFactory.eINSTANCE).createEStringToStringMapEntry();
+			entry.setKey(prefix);
+			entry.setValue(uri);
+			Command command = AddCommand.create(getEditingDomain(), documentRoot, CorePackage.eINSTANCE.getDocumentRoot_XMLNSPrefixMap(), entry);
+			if (command.canExecute()) {
+				getEditingDomain().getCommandStack().execute(command);
+			}		
+		} else {
+			EMap<String,String> prefixMap = documentRoot.getXMLNSPrefixMap();
+			int index = prefixMap.indexOfKey(prefix);
+			Map.Entry<String, String> entry = prefixMap.get(index);
+			Command command = 
+				RemoveCommand.create(getEditingDomain(), documentRoot, CorePackage.eINSTANCE.getDocumentRoot_XMLNSPrefixMap(), entry);
+			if (command.canExecute()) {
+				getEditingDomain().getCommandStack().execute(command);
 			}
-			i++;
 		}
 	}
 
@@ -171,32 +213,31 @@ public class NamespacesSection extends CheckboxTableSection {
 		}		
 	}
 	
-	class NamespaceTableProvider extends GlobalElementTableProvider {
-		@Override
-		protected EList<? extends EObject> getElements(MuleType mule) {
-			return null;
-		}
-		
+	class NamespaceTableProvider extends DefaultContentProvider implements
+			IStructuredContentProvider {
 		public Object[] getElements(Object parent) {
-			if (adapter != null) {
-				packages = Activator.getDefault().getMuleEcorePackages();
-				return packages.toArray();
-			} else {
-				return new Object[] {};
+			packages = Activator.getDefault().getMuleEcorePackages();
+			ArrayList<EPackage> temp = new ArrayList<EPackage>(packages.size());
+			// Filter out the core and spring namespaces, since they cannot be deselected.
+			for (EPackage p : packages) {
+				String uri = p.getNsURI();
+				if (! (uri.equals(CorePackage.eNS_URI)
+						|| uri.equals(SpringPackage.eNS_URI))) {
+					temp.add(p);
+				}
 			}
-		}
-		
-		@Override
-		protected AdapterImpl createNotificationAdapter() {
-			return new NamespaceNotificationAdapter();
+			return temp.toArray();
 		}
 	}
 
-	class NamespaceNotificationAdapter extends AdapterImpl {
-		@Override
-		public void notifyChanged(Notification msg) {
-			int eventType = msg.getEventType();
-		}
+	class DocumentNamespaceNotificationAdapter extends AdapterImpl {
+	    @Override
+	    public void notifyChanged(Notification msg) {
+			Object feature = msg.getFeature();
+			if (feature != null && feature == CorePackage.eINSTANCE.getDocumentRoot_XMLNSPrefixMap()) {
+				setCheckState();
+			}
+	    }
 		@Override
 		public boolean isAdapterForType(Object type) {
 			return (type == NamespacesSection.class);

@@ -70,15 +70,6 @@ public abstract class CheckboxTableSection extends StructuredViewerSection {
 		return fViewer;
 	}
 	
-	public void refresh() {
-		initializeCheckState();
-		super.refresh();
-	}
-
-	protected void initializeCheckState() {
-		uncheckAll();
-	}
-
 	public void uncheckAll() {
 		fViewer.setCheckedElements(new Object[0]);
 	}

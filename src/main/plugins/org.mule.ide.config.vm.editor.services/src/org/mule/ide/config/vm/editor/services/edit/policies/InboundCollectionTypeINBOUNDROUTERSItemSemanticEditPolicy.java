@@ -10,12 +10,18 @@ import org.mule.ide.config.vm.editor.services.providers.VMElementTypes;
  * customization
  */
 public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
-		VMBaseItemSemanticEditPolicy implements org.mule.ide.config.editor.services.edit.policies.InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy.Extension {
+		VMBaseItemSemanticEditPolicy
+		implements
+		org.mule.ide.config.editor.services.edit.policies.InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy.Extension {
+
+	public Command getCreateCommandX(CreateElementRequest req) {
+		return getCreateCommand(req);
+	}
 
 	/**
 	 * @generated
 	 */
-	public Command getCreateCommand(CreateElementRequest req) {
+	protected Command getCreateCommand(CreateElementRequest req) {
 		if (VMElementTypes.InboundEndpointType_2002 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE

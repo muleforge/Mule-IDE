@@ -243,32 +243,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Inbound1Group_title;
+	public static String InboundEndpoints1Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Outbound2Group_title;
+	public static String OutboundEndpoints2Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String VMInboundEndpoint1CreationTool_title;
+	public static String vmInboundEndpoint1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String VMInboundEndpoint1CreationTool_desc;
+	public static String vmInboundEndpoint1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String VMOutboundEndpoint1CreationTool_title;
+	public static String vmOutboundEndpoint1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String VMOutboundEndpoint1CreationTool_desc;
+	public static String vmOutboundEndpoint1CreationTool_desc;
 
 	/**
 	 * @generated
@@ -331,7 +331,7 @@ public class Messages extends NLS {
 	public static String VMModelingAssistantProviderMessage;
 
 	//TODO: put accessor fields manually	
-	
+
 	/**
 	 * 
 	 */

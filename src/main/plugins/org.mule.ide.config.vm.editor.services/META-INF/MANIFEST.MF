@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.mule.ide.config.vm.editor.services.part.VMDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.mule.ide.config.vm.editor.services.edit.parts, 
+Export-Package: org.mule.ide.config.vm.editor.services.edit.parts,
  org.mule.ide.config.vm.editor.services.part,
  org.mule.ide.config.vm.editor.services.providers
 Require-Bundle: org.eclipse.core.runtime,

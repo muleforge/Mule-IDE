@@ -6,13 +6,22 @@ import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.vm.VMPackage;
+import org.mule.ide.config.vm.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemEndpointNameEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeLabelEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeOUTBOUNDROUTERSEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -22,10 +31,9 @@ import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceI
  * customization
  */
 public class VMVisualIDRegistry {
-	
+
 	public final static String CORE_MODEL_ID = org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart.MODEL_ID;
 	public final static String VM_MODEL_ID = org.mule.ide.config.vm.editor.services.edit.parts.DefaultModelTypeEditPart.MODEL_ID;
-	
 
 	/**
 	 * @generated
@@ -109,14 +117,14 @@ public class VMVisualIDRegistry {
 				.getModelID(containerView);
 		if (CORE_MODEL_ID.equals(containerModelID)) {
 			isCoreContainer = true;
-		} else if (! VM_MODEL_ID.equals(containerModelID)) {
+		} else if (!VM_MODEL_ID.equals(containerModelID)) {
 			return -1;
 		}
 		int containerVisualID;
 		if (isCoreContainer) {
-			containerVisualID = CoreVisualIDRegistry.getVisualID(containerView);			
+			containerVisualID = CoreVisualIDRegistry.getVisualID(containerView);
 		} else {
-			containerVisualID = VMVisualIDRegistry.getVisualID(containerView);			
+			containerVisualID = VMVisualIDRegistry.getVisualID(containerView);
 		}
 		if (isCoreContainer) {
 			switch (containerVisualID) {
@@ -131,7 +139,7 @@ public class VMVisualIDRegistry {
 		} else {
 			switch (containerVisualID) {
 			}
-			return -1;			
+			return -1;
 		}
 	}
 
@@ -144,14 +152,14 @@ public class VMVisualIDRegistry {
 				.getModelID(containerView);
 		if (CORE_MODEL_ID.equals(containerModelID)) {
 			isCoreContainer = true;
-		} else if (! VM_MODEL_ID.equals(containerModelID)) {
+		} else if (!VM_MODEL_ID.equals(containerModelID)) {
 			return false;
 		}
 		int containerVisualID;
 		if (isCoreContainer) {
-			containerVisualID = CoreVisualIDRegistry.getVisualID(containerView);			
+			containerVisualID = CoreVisualIDRegistry.getVisualID(containerView);
 		} else {
-			containerVisualID = VMVisualIDRegistry.getVisualID(containerView);			
+			containerVisualID = VMVisualIDRegistry.getVisualID(containerView);
 		}
 		if (isCoreContainer) {
 			switch (containerVisualID) {
@@ -173,7 +181,7 @@ public class VMVisualIDRegistry {
 				}
 				break;
 			}
-			return false;			
+			return false;
 		}
 	}
 

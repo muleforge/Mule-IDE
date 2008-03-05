@@ -34,7 +34,7 @@ import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
 /**
  * customization
  */
-public class InboundEndpointServiceItemTypeEditPart extends 
+public class InboundEndpointServiceItemTypeEditPart extends
 		ServiceItemNodeEditPart {
 
 	/**

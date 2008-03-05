@@ -503,23 +503,14 @@
    <extension
          point="org.eclipse.gmf.runtime.diagram.ui.paletteProviders">
       <paletteProvider
-            class="org.eclipse.gmf.runtime.diagram.ui.providers.DefaultPaletteProvider">
+            class="org.mule.ide.config.vm.editor.services.part.VMPaletteFactory$PaletteProvider">
          <Priority
-               name="High">
+               name="Medium">
          </Priority>
          <editor
                id="org.mule.ide.config.editor.services.part.CoreDiagramEditorID"></editor>
-         <contribution
-               factoryClass="org.mule.ide.config.vm.editor.services.part.VMPaletteFactory">
-            <entry
-                  id="org.mule.ide.config.vm.editor.services.InboundEndpoint"
-                  kind="tool"
-                  label="VM : Inbound Endpoint"
-                  path="/org.mule.ide.config.editor.services.Inbound/org.mule.ide.config.editor.services.InboundEndpointsSeparator">
-            </entry>
-         </contribution>
       </paletteProvider>
-	</extension>
+   </extension>
 	
 	<extension
 	      point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">

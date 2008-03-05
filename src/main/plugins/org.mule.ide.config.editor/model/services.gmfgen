@@ -2981,15 +2981,16 @@
             genNodes="//@diagram/@childNodes.7"/>
       </groups>
       <groups
-          title="Inbound"
+          title="Inbound Endpoints"
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Inbound Endpoint"
             description="Add a new Inbound Endpoint to a service"
             genNodes="//@diagram/@childNodes.12 //@diagram/@childNodes.24"/>
-        <entries
-            xsi:type="gmfgen:Separator"/>
+      </groups>
+      <groups
+          title="Inbound Routers">
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Correlation Aggregator Router"
@@ -3056,15 +3057,16 @@
             genNodes="//@diagram/@childNodes.25"/>
       </groups>
       <groups
-          title="Outbound"
+          title="Outbound Endpoints"
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Outbound Endpoint"
             description="Add a new Outbound Endpoint to a service"
             genNodes="//@diagram/@childNodes.8 //@diagram/@childNodes.29"/>
-        <entries
-            xsi:type="gmfgen:Separator"/>
+      </groups>
+      <groups
+          title="Outbound Routers">
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Chaining Router"

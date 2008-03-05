@@ -66,6 +66,7 @@ import org.mule.ide.config.editor.services.part.CoreDiagramEditor;
 import org.mule.ide.config.editor.services.part.CoreDiagramEditorUtil;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
+import org.mule.ide.config.editor.services.part.ServicesPaletteManager;
 
 /**
  * 
@@ -150,6 +151,7 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
     		 }
     	}
     	servicesEditor = new CoreDiagramEditor();
+    	servicesEditor.setPaletteManager(new ServicesPaletteManager(documentRoot));
     	FileEditorInput diagramEditorInput = new FileEditorInput(diagramFile);
     	int index = addPage(servicesEditor, diagramEditorInput);
     	setPageText(index, "Services");
@@ -163,6 +165,13 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 		xmlEditor.setEditorPart(this);
 		int index = addPage(xmlEditor, getEditorInput());
 		setPageText(index, "Source");
+	}
+	
+	protected void pageChange(int newPageIndex) {
+		super.pageChange(newPageIndex);
+		if (pages.get(newPageIndex) == servicesEditor) {
+			servicesEditor.updatePalette();
+		}
 	}
 	
 	/**

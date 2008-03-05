@@ -223,7 +223,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.0"/>
+                  href="services.gmftool#//@palette/@tools.6/@tools.0"/>
               <diagramNode
                   href="services.gmfgraph#Endpoint"/>
             </ownedChild>
@@ -360,7 +360,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.3/@tools.6"/>
+                  href="services.gmftool#//@palette/@tools.4/@tools.4"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
             </ownedChild>
@@ -382,7 +382,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.3/@tools.8"/>
+                  href="services.gmftool#//@palette/@tools.4/@tools.6"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
             </ownedChild>
@@ -404,7 +404,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.3/@tools.9"/>
+                  href="services.gmftool#//@palette/@tools.4/@tools.7"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
             </ownedChild>
@@ -423,7 +423,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.3/@tools.7"/>
+                  href="services.gmftool#//@palette/@tools.4/@tools.5"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
             </ownedChild>
@@ -442,7 +442,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.3/@tools.11"/>
+                  href="services.gmftool#//@palette/@tools.4/@tools.9"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
             </ownedChild>
@@ -464,7 +464,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.3/@tools.10"/>
+                  href="services.gmftool#//@palette/@tools.4/@tools.8"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
             </ownedChild>
@@ -486,7 +486,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.3/@tools.4"/>
+                  href="services.gmftool#//@palette/@tools.4/@tools.2"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
             </ownedChild>
@@ -508,7 +508,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.3/@tools.3"/>
+                  href="services.gmftool#//@palette/@tools.4/@tools.1"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
             </ownedChild>
@@ -538,7 +538,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.3/@tools.2"/>
+                  href="services.gmftool#//@palette/@tools.4/@tools.0"/>
               <diagramNode
                   href="services.gmfgraph#ClassServiceItem"/>
             </ownedChild>
@@ -564,7 +564,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.3/@tools.5"/>
+                  href="services.gmftool#//@palette/@tools.4/@tools.3"/>
               <diagramNode
                   href="services.gmfgraph#ClassServiceItem"/>
             </ownedChild>
@@ -607,7 +607,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.4/@tools.1"/>
+                  href="services.gmftool#//@palette/@tools.5/@tools.1"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
             </ownedChild>
@@ -633,7 +633,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.4/@tools.0"/>
+                  href="services.gmftool#//@palette/@tools.5/@tools.0"/>
               <diagramNode
                   href="services.gmfgraph#ClassServiceItem"/>
             </ownedChild>
@@ -670,7 +670,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.10"/>
+                  href="services.gmftool#//@palette/@tools.7/@tools.8"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
               <children
@@ -703,7 +703,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.7"/>
+                  href="services.gmftool#//@palette/@tools.7/@tools.5"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
               <children
@@ -736,7 +736,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.2"/>
+                  href="services.gmftool#//@palette/@tools.7/@tools.0"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
               <children
@@ -769,7 +769,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.6"/>
+                  href="services.gmftool#//@palette/@tools.7/@tools.4"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
               <children
@@ -802,7 +802,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.9"/>
+                  href="services.gmftool#//@palette/@tools.7/@tools.7"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
               <children
@@ -835,7 +835,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.12"/>
+                  href="services.gmftool#//@palette/@tools.7/@tools.10"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
               <children
@@ -868,7 +868,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.5"/>
+                  href="services.gmftool#//@palette/@tools.7/@tools.3"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
               <children
@@ -901,7 +901,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.8"/>
+                  href="services.gmftool#//@palette/@tools.7/@tools.6"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
               <children
@@ -934,7 +934,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.3"/>
+                  href="services.gmftool#//@palette/@tools.7/@tools.1"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
               <children
@@ -967,7 +967,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.11"/>
+                  href="services.gmftool#//@palette/@tools.7/@tools.9"/>
               <diagramNode
                   href="services.gmfgraph#ServiceItem"/>
               <children
@@ -1008,7 +1008,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="services.gmftool#//@palette/@tools.5/@tools.4"/>
+                  href="services.gmftool#//@palette/@tools.7/@tools.2"/>
               <diagramNode
                   href="services.gmfgraph#ClassServiceItem"/>
               <children

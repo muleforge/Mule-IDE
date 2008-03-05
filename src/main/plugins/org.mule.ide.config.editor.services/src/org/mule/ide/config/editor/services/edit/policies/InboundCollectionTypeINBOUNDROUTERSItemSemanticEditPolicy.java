@@ -1,8 +1,5 @@
 package org.mule.ide.config.editor.services.edit.policies;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.mule.ide.config.core.CorePackage;
@@ -24,12 +21,6 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
  */
 public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 		CoreBaseItemSemanticEditPolicy {
-
-	List<Extension> extensions = new ArrayList<Extension>();
-
-	public void addExtension(Extension extension) {
-		extensions.add(extension);
-	}
 
 	/**
 	 * @generated
@@ -127,16 +118,6 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 			}
 			return getGEFWrapper(new CustomInboundRouterTypeCreateCommand(req));
 		}
-		for (Extension extension : extensions) {
-			Command cmd = extension.getCreateCommandX(req);
-			if (cmd != null) {
-				return cmd;
-			}
-		}
 		return super.getCreateCommand(req);
-	}
-
-	public interface Extension {
-		Command getCreateCommandX(CreateElementRequest req);
 	}
 }

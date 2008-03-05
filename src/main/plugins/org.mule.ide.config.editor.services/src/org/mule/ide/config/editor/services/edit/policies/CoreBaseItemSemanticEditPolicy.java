@@ -1,7 +1,9 @@
 package org.mule.ide.config.editor.services.edit.policies;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -54,6 +56,20 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	 * @generated
 	 */
 	public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
+
+	private List<ISemanticEditPolicyX> extensions;
+
+	/**
+	 * Support for extending this policy.
+	 * 
+	 * @param extension
+	 */
+	public void addPolicyExtension(ISemanticEditPolicyX extension) {
+		if (extensions == null) {
+			extensions = new ArrayList<ISemanticEditPolicyX>();
+		}
+		extensions.add(extension);
+	}
 
 	/**
 	 * Extended request data key to hold editpart visual id.
@@ -193,9 +209,18 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	}
 
 	/**
-	 * @generated
+	 * customization
+	 *   - check if extensions provide a create command
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
+		if (extensions != null) {
+			for (ISemanticEditPolicyX extension : extensions) {
+				Command cmd = extension.getCreateCommandX(req);
+				if (cmd != null) {
+					return cmd;
+				}
+			}
+		}
 		return null;
 	}
 

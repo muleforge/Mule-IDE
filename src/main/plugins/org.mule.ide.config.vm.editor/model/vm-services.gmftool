@@ -7,11 +7,11 @@
       title="vmPalette">
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Inbound"
+        title="Inbound Endpoints"
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="VM : Inbound Endpoint"
+          title="[vm] Inbound Endpoint"
           description="Add a new Inbound Endpoint to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
@@ -21,11 +21,11 @@
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Outbound"
+        title="Outbound Endpoints"
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="VM : Outbound Endpoint"
+          title="[vm] Outbound Endpoint"
           description="Add a new Outbound Endpoint to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>

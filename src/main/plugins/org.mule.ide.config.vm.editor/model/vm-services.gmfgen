@@ -10,6 +10,8 @@
       itemSemanticEditPolicyClassName="DefaultModelTypeItemSemanticEditPolicy"
       notationViewFactoryClassName="DefaultModelTypeViewFactory"
       canonicalEditPolicyClassName="DefaultModelTypeCanonicalEditPolicy"
+      notationViewProviderPriority="Medium"
+      editPartProviderPriority="Medium"
       iconProviderPriority="Low"
       validationProviderPriority="Low">
     <diagramRunTimeClass
@@ -312,20 +314,20 @@
     </compartments>
     <palette>
       <groups
-          title="Inbound"
+          title="Inbound Endpoints"
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="VM : Inbound Endpoint"
+            title="[vm] Inbound Endpoint"
             description="Add a new Inbound Endpoint to a service"
             genNodes="//@diagram/@childNodes.1"/>
       </groups>
       <groups
-          title="Outbound"
+          title="Outbound Endpoints"
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="VM : Outbound Endpoint"
+            title="[vm] Outbound Endpoint"
             description="Add a new Outbound Endpoint to a service"/>
       </groups>
     </palette>

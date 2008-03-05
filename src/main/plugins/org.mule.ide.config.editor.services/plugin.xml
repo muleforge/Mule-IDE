@@ -959,6 +959,15 @@
          </entry>
       </contribution>
    </paletteProvider>
+   <paletteProvider
+         class="org.mule.ide.config.editor.services.part.CorePaletteFactory$PaletteProvider">
+      <Priority
+            name="Medium">
+      </Priority>
+      <editor
+            id="org.mule.ide.config.editor.services.part.CoreDiagramEditorID">
+      </editor>
+   </paletteProvider>
 </extension>
 
 </plugin>

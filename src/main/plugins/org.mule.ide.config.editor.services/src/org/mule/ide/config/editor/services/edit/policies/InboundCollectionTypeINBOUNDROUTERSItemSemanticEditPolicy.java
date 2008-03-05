@@ -26,11 +26,11 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 		CoreBaseItemSemanticEditPolicy {
 
 	List<Extension> extensions = new ArrayList<Extension>();
-	
+
 	public void addExtension(Extension extension) {
 		extensions.add(extension);
 	}
-	
+
 	/**
 	 * @generated
 	 */
@@ -128,7 +128,7 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new CustomInboundRouterTypeCreateCommand(req));
 		}
 		for (Extension extension : extensions) {
-			Command cmd = extension.getCreateCommand(req);
+			Command cmd = extension.getCreateCommandX(req);
 			if (cmd != null) {
 				return cmd;
 			}
@@ -137,6 +137,6 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 	}
 
 	public interface Extension {
-		Command getCreateCommand(CreateElementRequest req);
+		Command getCreateCommandX(CreateElementRequest req);
 	}
 }

@@ -8,12 +8,15 @@ import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteEntry;
+import org.eclipse.gef.palette.PaletteGroup;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.PaletteSeparator;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
+import org.mule.ide.config.editor.services.providers.ServicesPaletteProvider;
 
 /**
  * @generated
@@ -21,10 +24,25 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 public class CorePaletteFactory {
 
 	/**
+	 * @generated
+	 */
+	public void fillPalette(PaletteRoot paletteRoot) {
+		paletteRoot.add(createServices1Group());
+		paletteRoot.add(createComponents2Group());
+		paletteRoot.add(createExceptionStrategies3Group());
+		paletteRoot.add(createInboundEndpoints4Group());
+		paletteRoot.add(createInboundRouters5Group());
+		paletteRoot.add(createAsyncReply6Group());
+		paletteRoot.add(createOutboundEndpoints7Group());
+		paletteRoot.add(createOutboundRouters8Group());
+	}
+
+	/**
 	 * customization
 	 *   - use drawers defined in extension xml
 	 */
-	public void fillPalette(PaletteRoot paletteRoot) {
+	/*
+	public void fillPaletteOld(PaletteRoot paletteRoot) {
 		PaletteContainer group = null;
 		Iterator itr = paletteRoot.getChildren().iterator();
 		while (itr.hasNext()) {
@@ -89,12 +107,14 @@ public class CorePaletteFactory {
 				CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.OutboundEndpointType_2030));
 	}
+	*/
 
 	/*
 	 * Prepends the entries defined in this factory ahead of any entries
 	 * that were added through extension xml.
 	 * Will apply a default image if entry doesn't have an icon.
 	 */
+	/*
 	private void addEntries(List<PaletteEntry> entries, PaletteContainer group,
 			ImageDescriptor defaultImage) {
 		boolean skipSeparator = true;
@@ -139,7 +159,9 @@ public class CorePaletteFactory {
 		}
 		group.setChildren(newChildren);
 	}
+	*/
 
+	/*
 	private void addDefaultIcon(PaletteEntry entry, ImageDescriptor defaultImage) {
 		if (defaultImage == null || entry instanceof PaletteSeparator) {
 			return;
@@ -148,6 +170,7 @@ public class CorePaletteFactory {
 			entry.setSmallIcon(defaultImage);
 		}
 	}
+	*/
 
 	/**
 	 * Creates "Services" palette tool group
@@ -191,25 +214,34 @@ public class CorePaletteFactory {
 	}
 
 	/**
-	 * Creates "Inbound" palette tool group
+	 * Creates "Inbound Endpoints" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createInbound4Group() {
+	private PaletteContainer createInboundEndpoints4Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
-				Messages.Inbound4Group_title);
+				Messages.InboundEndpoints4Group_title);
 		paletteContainer.add(createInboundEndpoint1CreationTool());
-		paletteContainer.add(new PaletteSeparator());
-		paletteContainer.add(createCorrelationAggregatorRouter3CreationTool());
-		paletteContainer.add(createCorrelationResequencerRouter4CreationTool());
-		paletteContainer.add(createChunkingInboundRouter5CreationTool());
-		paletteContainer.add(createCustomInboundRouter6CreationTool());
-		paletteContainer.add(createForwardingRouter7CreationTool());
-		paletteContainer.add(createIdempotentReceiverRouter8CreationTool());
+		return paletteContainer;
+	}
+
+	/**
+	 * Creates "Inbound Routers" palette tool group
+	 * @generated
+	 */
+	private PaletteContainer createInboundRouters5Group() {
+		PaletteGroup paletteContainer = new PaletteGroup(
+				Messages.InboundRouters5Group_title);
+		paletteContainer.add(createCorrelationAggregatorRouter1CreationTool());
+		paletteContainer.add(createCorrelationResequencerRouter2CreationTool());
+		paletteContainer.add(createChunkingInboundRouter3CreationTool());
+		paletteContainer.add(createCustomInboundRouter4CreationTool());
+		paletteContainer.add(createForwardingRouter5CreationTool());
+		paletteContainer.add(createIdempotentReceiverRouter6CreationTool());
 		paletteContainer
-				.add(createIdempotentSecureReceiverRouter9CreationTool());
-		paletteContainer.add(createPassThroughInboundRouter10CreationTool());
-		paletteContainer.add(createSelectiveConsumerRouter11CreationTool());
-		paletteContainer.add(createWireTapRouter12CreationTool());
+				.add(createIdempotentSecureReceiverRouter7CreationTool());
+		paletteContainer.add(createPassThroughInboundRouter8CreationTool());
+		paletteContainer.add(createSelectiveConsumerRouter9CreationTool());
+		paletteContainer.add(createWireTapRouter10CreationTool());
 		return paletteContainer;
 	}
 
@@ -217,34 +249,43 @@ public class CorePaletteFactory {
 	 * Creates "Async Reply" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createAsyncReply5Group() {
+	private PaletteContainer createAsyncReply6Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
-				Messages.AsyncReply5Group_title);
+				Messages.AsyncReply6Group_title);
 		paletteContainer.add(createCustomAsyncReplyRouter1CreationTool());
 		paletteContainer.add(createSingleAsyncReplyRouter2CreationTool());
 		return paletteContainer;
 	}
 
 	/**
-	 * Creates "Outbound" palette tool group
+	 * Creates "Outbound Endpoints" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createOutbound6Group() {
+	private PaletteContainer createOutboundEndpoints7Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
-				Messages.Outbound6Group_title);
+				Messages.OutboundEndpoints7Group_title);
 		paletteContainer.add(createOutboundEndpoint1CreationTool());
-		paletteContainer.add(new PaletteSeparator());
-		paletteContainer.add(createChainingRouter3CreationTool());
-		paletteContainer.add(createChunkingOutboundRouter4CreationTool());
-		paletteContainer.add(createCustomOutboundRouter5CreationTool());
-		paletteContainer.add(createEndpointSelectorRouter6CreationTool());
-		paletteContainer.add(createExceptionRouter7CreationTool());
-		paletteContainer.add(createFilteringRouter8CreationTool());
-		paletteContainer.add(createListMessageSplitterRouter9CreationTool());
-		paletteContainer.add(createMulticastingRouter10CreationTool());
-		paletteContainer.add(createPassThroughOutboundRouter11CreationTool());
-		paletteContainer.add(createStaticRecipientListRouter12CreationTool());
-		paletteContainer.add(createTemplateEndpointRouter13CreationTool());
+		return paletteContainer;
+	}
+
+	/**
+	 * Creates "Outbound Routers" palette tool group
+	 * @generated
+	 */
+	private PaletteContainer createOutboundRouters8Group() {
+		PaletteGroup paletteContainer = new PaletteGroup(
+				Messages.OutboundRouters8Group_title);
+		paletteContainer.add(createChainingRouter1CreationTool());
+		paletteContainer.add(createChunkingOutboundRouter2CreationTool());
+		paletteContainer.add(createCustomOutboundRouter3CreationTool());
+		paletteContainer.add(createEndpointSelectorRouter4CreationTool());
+		paletteContainer.add(createExceptionRouter5CreationTool());
+		paletteContainer.add(createFilteringRouter6CreationTool());
+		paletteContainer.add(createListMessageSplitterRouter7CreationTool());
+		paletteContainer.add(createMulticastingRouter8CreationTool());
+		paletteContainer.add(createPassThroughOutboundRouter9CreationTool());
+		paletteContainer.add(createStaticRecipientListRouter10CreationTool());
+		paletteContainer.add(createTemplateEndpointRouter11CreationTool());
 		return paletteContainer;
 	}
 
@@ -425,12 +466,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCorrelationAggregatorRouter3CreationTool() {
+	private ToolEntry createCorrelationAggregatorRouter1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.CustomCorrelationAggregatorRouterType_2022);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CorrelationAggregatorRouter3CreationTool_title,
-				Messages.CorrelationAggregatorRouter3CreationTool_desc, types);
+				Messages.CorrelationAggregatorRouter1CreationTool_title,
+				Messages.CorrelationAggregatorRouter1CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.CustomCorrelationAggregatorRouterType_2022));
@@ -441,12 +482,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCorrelationResequencerRouter4CreationTool() {
+	private ToolEntry createCorrelationResequencerRouter2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.SelectiveConsumerRouterType_2021);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CorrelationResequencerRouter4CreationTool_title,
-				Messages.CorrelationResequencerRouter4CreationTool_desc, types);
+				Messages.CorrelationResequencerRouter2CreationTool_title,
+				Messages.CorrelationResequencerRouter2CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.SelectiveConsumerRouterType_2021));
@@ -457,12 +498,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createChunkingInboundRouter5CreationTool() {
+	private ToolEntry createChunkingInboundRouter3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.MessageChunkingAggregatorRouterType_2020);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ChunkingInboundRouter5CreationTool_title,
-				Messages.ChunkingInboundRouter5CreationTool_desc, types);
+				Messages.ChunkingInboundRouter3CreationTool_title,
+				Messages.ChunkingInboundRouter3CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.MessageChunkingAggregatorRouterType_2020));
@@ -473,12 +514,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCustomInboundRouter6CreationTool() {
+	private ToolEntry createCustomInboundRouter4CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.CustomInboundRouterType_2023);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CustomInboundRouter6CreationTool_title,
-				Messages.CustomInboundRouter6CreationTool_desc, types);
+				Messages.CustomInboundRouter4CreationTool_title,
+				Messages.CustomInboundRouter4CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.CustomInboundRouterType_2023));
@@ -489,12 +530,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createForwardingRouter7CreationTool() {
+	private ToolEntry createForwardingRouter5CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.ForwardingRouterType_2014);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ForwardingRouter7CreationTool_title,
-				Messages.ForwardingRouter7CreationTool_desc, types);
+				Messages.ForwardingRouter5CreationTool_title,
+				Messages.ForwardingRouter5CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.ForwardingRouterType_2014));
@@ -505,12 +546,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createIdempotentReceiverRouter8CreationTool() {
+	private ToolEntry createIdempotentReceiverRouter6CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.IdempotentReceiverRouterType_2017);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.IdempotentReceiverRouter8CreationTool_title,
-				Messages.IdempotentReceiverRouter8CreationTool_desc, types);
+				Messages.IdempotentReceiverRouter6CreationTool_title,
+				Messages.IdempotentReceiverRouter6CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.IdempotentReceiverRouterType_2017));
@@ -521,12 +562,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createIdempotentSecureReceiverRouter9CreationTool() {
+	private ToolEntry createIdempotentSecureReceiverRouter7CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.FilteredInboundRouterType_2015);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.IdempotentSecureReceiverRouter9CreationTool_title,
-				Messages.IdempotentSecureReceiverRouter9CreationTool_desc,
+				Messages.IdempotentSecureReceiverRouter7CreationTool_title,
+				Messages.IdempotentSecureReceiverRouter7CreationTool_desc,
 				types);
 		entry
 				.setSmallIcon(CoreElementTypes
@@ -538,12 +579,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPassThroughInboundRouter10CreationTool() {
+	private ToolEntry createPassThroughInboundRouter8CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.FilteredInboundRouterType_2016);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PassThroughInboundRouter10CreationTool_title,
-				Messages.PassThroughInboundRouter10CreationTool_desc, types);
+				Messages.PassThroughInboundRouter8CreationTool_title,
+				Messages.PassThroughInboundRouter8CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.FilteredInboundRouterType_2016));
@@ -554,12 +595,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSelectiveConsumerRouter11CreationTool() {
+	private ToolEntry createSelectiveConsumerRouter9CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.SelectiveConsumerRouterType_2019);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.SelectiveConsumerRouter11CreationTool_title,
-				Messages.SelectiveConsumerRouter11CreationTool_desc, types);
+				Messages.SelectiveConsumerRouter9CreationTool_title,
+				Messages.SelectiveConsumerRouter9CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.SelectiveConsumerRouterType_2019));
@@ -570,12 +611,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createWireTapRouter12CreationTool() {
+	private ToolEntry createWireTapRouter10CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.WireTapRouterType_2018);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.WireTapRouter12CreationTool_title,
-				Messages.WireTapRouter12CreationTool_desc, types);
+				Messages.WireTapRouter10CreationTool_title,
+				Messages.WireTapRouter10CreationTool_desc, types);
 		entry.setSmallIcon(CoreElementTypes
 				.getImageDescriptor(CoreElementTypes.WireTapRouterType_2018));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -634,12 +675,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createChainingRouter3CreationTool() {
+	private ToolEntry createChainingRouter1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.FilteringOutboundRouterType_2032);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ChainingRouter3CreationTool_title,
-				Messages.ChainingRouter3CreationTool_desc, types);
+				Messages.ChainingRouter1CreationTool_title,
+				Messages.ChainingRouter1CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.FilteringOutboundRouterType_2032));
@@ -650,12 +691,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createChunkingOutboundRouter4CreationTool() {
+	private ToolEntry createChunkingOutboundRouter2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.ChunkingRouterType_2038);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ChunkingOutboundRouter4CreationTool_title,
-				Messages.ChunkingOutboundRouter4CreationTool_desc, types);
+				Messages.ChunkingOutboundRouter2CreationTool_title,
+				Messages.ChunkingOutboundRouter2CreationTool_desc, types);
 		entry.setSmallIcon(CoreElementTypes
 				.getImageDescriptor(CoreElementTypes.ChunkingRouterType_2038));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -665,12 +706,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCustomOutboundRouter5CreationTool() {
+	private ToolEntry createCustomOutboundRouter3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.CustomOutboundRouterType_2040);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CustomOutboundRouter5CreationTool_title,
-				Messages.CustomOutboundRouter5CreationTool_desc, types);
+				Messages.CustomOutboundRouter3CreationTool_title,
+				Messages.CustomOutboundRouter3CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.CustomOutboundRouterType_2040));
@@ -681,12 +722,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createEndpointSelectorRouter6CreationTool() {
+	private ToolEntry createEndpointSelectorRouter4CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.EndpointSelectorRouterType_2036);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.EndpointSelectorRouter6CreationTool_title,
-				Messages.EndpointSelectorRouter6CreationTool_desc, types);
+				Messages.EndpointSelectorRouter4CreationTool_title,
+				Messages.EndpointSelectorRouter4CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.EndpointSelectorRouterType_2036));
@@ -697,12 +738,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createExceptionRouter7CreationTool() {
+	private ToolEntry createExceptionRouter5CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.FilteringOutboundRouterType_2033);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ExceptionRouter7CreationTool_title,
-				Messages.ExceptionRouter7CreationTool_desc, types);
+				Messages.ExceptionRouter5CreationTool_title,
+				Messages.ExceptionRouter5CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.FilteringOutboundRouterType_2033));
@@ -713,12 +754,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createFilteringRouter8CreationTool() {
+	private ToolEntry createFilteringRouter6CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.FilteringOutboundRouterType_2031);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.FilteringRouter8CreationTool_title,
-				Messages.FilteringRouter8CreationTool_desc, types);
+				Messages.FilteringRouter6CreationTool_title,
+				Messages.FilteringRouter6CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.FilteringOutboundRouterType_2031));
@@ -729,12 +770,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createListMessageSplitterRouter9CreationTool() {
+	private ToolEntry createListMessageSplitterRouter7CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.MessageSplitterOutboundRouterType_2037);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ListMessageSplitterRouter9CreationTool_title,
-				Messages.ListMessageSplitterRouter9CreationTool_desc, types);
+				Messages.ListMessageSplitterRouter7CreationTool_title,
+				Messages.ListMessageSplitterRouter7CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.MessageSplitterOutboundRouterType_2037));
@@ -745,12 +786,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createMulticastingRouter10CreationTool() {
+	private ToolEntry createMulticastingRouter8CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.FilteringOutboundRouterType_2034);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.MulticastingRouter10CreationTool_title,
-				Messages.MulticastingRouter10CreationTool_desc, types);
+				Messages.MulticastingRouter8CreationTool_title,
+				Messages.MulticastingRouter8CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.FilteringOutboundRouterType_2034));
@@ -761,12 +802,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPassThroughOutboundRouter11CreationTool() {
+	private ToolEntry createPassThroughOutboundRouter9CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.OutboundRouterType_2029);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PassThroughOutboundRouter11CreationTool_title,
-				Messages.PassThroughOutboundRouter11CreationTool_desc, types);
+				Messages.PassThroughOutboundRouter9CreationTool_title,
+				Messages.PassThroughOutboundRouter9CreationTool_desc, types);
 		entry.setSmallIcon(CoreElementTypes
 				.getImageDescriptor(CoreElementTypes.OutboundRouterType_2029));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -776,12 +817,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createStaticRecipientListRouter12CreationTool() {
+	private ToolEntry createStaticRecipientListRouter10CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.StaticRecipientListRouterType_2039);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.StaticRecipientListRouter12CreationTool_title,
-				Messages.StaticRecipientListRouter12CreationTool_desc, types);
+				Messages.StaticRecipientListRouter10CreationTool_title,
+				Messages.StaticRecipientListRouter10CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.StaticRecipientListRouterType_2039));
@@ -792,12 +833,12 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTemplateEndpointRouter13CreationTool() {
+	private ToolEntry createTemplateEndpointRouter11CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(CoreElementTypes.FilteringOutboundRouterType_2035);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.TemplateEndpointRouter13CreationTool_title,
-				Messages.TemplateEndpointRouter13CreationTool_desc, types);
+				Messages.TemplateEndpointRouter11CreationTool_title,
+				Messages.TemplateEndpointRouter11CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.FilteringOutboundRouterType_2035));
@@ -833,4 +874,21 @@ public class CorePaletteFactory {
 			return tool;
 		}
 	}
+
+	static public class PaletteProvider extends ServicesPaletteProvider {
+
+		public PaletteProvider() {
+			super();
+		}
+
+		public String getNSURI() {
+			return CorePackage.eNS_URI;
+		}
+
+		public void getPaletteContributions(PaletteRoot paletteRoot) {
+			new CorePaletteFactory().fillPalette(paletteRoot);
+		}
+
+	}
+
 }

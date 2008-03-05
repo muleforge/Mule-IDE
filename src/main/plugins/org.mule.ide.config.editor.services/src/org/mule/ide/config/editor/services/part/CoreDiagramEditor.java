@@ -40,12 +40,15 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.IShowInTargetList;
 import org.eclipse.ui.part.ShowInContext;
 import org.mule.ide.config.editor.services.navigator.CoreNavigatorItem;
+import org.mule.ide.config.editor.services.providers.IServicesPaletteProvider;
 
 /**
  * @generated
  */
 public class CoreDiagramEditor extends DiagramDocumentEditor implements
 		IGotoMarker {
+
+	private ServicesPaletteManager paletteManager;
 
 	/**
 	 * @generated
@@ -72,12 +75,31 @@ public class CoreDiagramEditor extends DiagramDocumentEditor implements
 	}
 
 	/**
-	 * @generated
+	 * customization
 	 */
 	protected PaletteRoot createPaletteRoot(PaletteRoot existingPaletteRoot) {
 		PaletteRoot root = super.createPaletteRoot(existingPaletteRoot);
-		new CorePaletteFactory().fillPalette(root);
+		if (paletteManager != null) {
+			paletteManager.setPaletteRoot(root);
+			paletteManager.updatePalette();
+		}
 		return root;
+	}
+
+	public void setPaletteManager(ServicesPaletteManager paletteManager) {
+		this.paletteManager = paletteManager;
+	}
+
+	public void updatePalette() {
+		if (paletteManager != null) {
+			paletteManager.updatePalette();
+		}
+	}
+
+	public void registerPaletteProvider(IServicesPaletteProvider provider) {
+		if (paletteManager != null) {
+			paletteManager.registerPaletteProvider(provider);
+		}
 	}
 
 	/**

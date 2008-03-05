@@ -263,17 +263,27 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Inbound4Group_title;
+	public static String InboundEndpoints4Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String AsyncReply5Group_title;
+	public static String InboundRouters5Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Outbound6Group_title;
+	public static String AsyncReply6Group_title;
+
+	/**
+	 * @generated
+	 */
+	public static String OutboundEndpoints7Group_title;
+
+	/**
+	 * @generated
+	 */
+	public static String OutboundRouters8Group_title;
 
 	/**
 	 * @generated
@@ -388,102 +398,102 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CorrelationAggregatorRouter3CreationTool_title;
+	public static String CorrelationAggregatorRouter1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CorrelationAggregatorRouter3CreationTool_desc;
+	public static String CorrelationAggregatorRouter1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CorrelationResequencerRouter4CreationTool_title;
+	public static String CorrelationResequencerRouter2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CorrelationResequencerRouter4CreationTool_desc;
+	public static String CorrelationResequencerRouter2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ChunkingInboundRouter5CreationTool_title;
+	public static String ChunkingInboundRouter3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ChunkingInboundRouter5CreationTool_desc;
+	public static String ChunkingInboundRouter3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomInboundRouter6CreationTool_title;
+	public static String CustomInboundRouter4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomInboundRouter6CreationTool_desc;
+	public static String CustomInboundRouter4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ForwardingRouter7CreationTool_title;
+	public static String ForwardingRouter5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ForwardingRouter7CreationTool_desc;
+	public static String ForwardingRouter5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String IdempotentReceiverRouter8CreationTool_title;
+	public static String IdempotentReceiverRouter6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String IdempotentReceiverRouter8CreationTool_desc;
+	public static String IdempotentReceiverRouter6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String IdempotentSecureReceiverRouter9CreationTool_title;
+	public static String IdempotentSecureReceiverRouter7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String IdempotentSecureReceiverRouter9CreationTool_desc;
+	public static String IdempotentSecureReceiverRouter7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PassThroughInboundRouter10CreationTool_title;
+	public static String PassThroughInboundRouter8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PassThroughInboundRouter10CreationTool_desc;
+	public static String PassThroughInboundRouter8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String SelectiveConsumerRouter11CreationTool_title;
+	public static String SelectiveConsumerRouter9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SelectiveConsumerRouter11CreationTool_desc;
+	public static String SelectiveConsumerRouter9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String WireTapRouter12CreationTool_title;
+	public static String WireTapRouter10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String WireTapRouter12CreationTool_desc;
+	public static String WireTapRouter10CreationTool_desc;
 
 	/**
 	 * @generated
@@ -518,112 +528,112 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ChainingRouter3CreationTool_title;
+	public static String ChainingRouter1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ChainingRouter3CreationTool_desc;
+	public static String ChainingRouter1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ChunkingOutboundRouter4CreationTool_title;
+	public static String ChunkingOutboundRouter2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ChunkingOutboundRouter4CreationTool_desc;
+	public static String ChunkingOutboundRouter2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomOutboundRouter5CreationTool_title;
+	public static String CustomOutboundRouter3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CustomOutboundRouter5CreationTool_desc;
+	public static String CustomOutboundRouter3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String EndpointSelectorRouter6CreationTool_title;
+	public static String EndpointSelectorRouter4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String EndpointSelectorRouter6CreationTool_desc;
+	public static String EndpointSelectorRouter4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ExceptionRouter7CreationTool_title;
+	public static String ExceptionRouter5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ExceptionRouter7CreationTool_desc;
+	public static String ExceptionRouter5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String FilteringRouter8CreationTool_title;
+	public static String FilteringRouter6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String FilteringRouter8CreationTool_desc;
+	public static String FilteringRouter6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ListMessageSplitterRouter9CreationTool_title;
+	public static String ListMessageSplitterRouter7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ListMessageSplitterRouter9CreationTool_desc;
+	public static String ListMessageSplitterRouter7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String MulticastingRouter10CreationTool_title;
+	public static String MulticastingRouter8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String MulticastingRouter10CreationTool_desc;
+	public static String MulticastingRouter8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PassThroughOutboundRouter11CreationTool_title;
+	public static String PassThroughOutboundRouter9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PassThroughOutboundRouter11CreationTool_desc;
+	public static String PassThroughOutboundRouter9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String StaticRecipientListRouter12CreationTool_title;
+	public static String StaticRecipientListRouter10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String StaticRecipientListRouter12CreationTool_desc;
+	public static String StaticRecipientListRouter10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TemplateEndpointRouter13CreationTool_title;
+	public static String TemplateEndpointRouter11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TemplateEndpointRouter13CreationTool_desc;
+	public static String TemplateEndpointRouter11CreationTool_desc;
 
 	/**
 	 * @generated

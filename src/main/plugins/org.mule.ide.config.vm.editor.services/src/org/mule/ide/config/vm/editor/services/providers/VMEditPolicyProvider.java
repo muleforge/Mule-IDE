@@ -8,6 +8,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.CreateEditPolicies
 import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.IEditPolicyProvider;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.editor.services.edit.policies.CoreBaseItemSemanticEditPolicy;
 import org.mule.ide.config.vm.editor.services.edit.policies.InboundCollectionTypeINBOUNDROUTERSCanonicalEditPolicy;
 import org.mule.ide.config.vm.editor.services.edit.policies.InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy;
 
@@ -15,10 +16,11 @@ public class VMEditPolicyProvider extends AbstractProvider implements
 		IEditPolicyProvider {
 
 	public void createEditPolicies(EditPart editPart) {
-		if(editPart.getClass().getName().endsWith("InboundCollectionTypeINBOUNDROUTERSEditPart")) {
-			org.mule.ide.config.editor.services.edit.policies.InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy policy = 
-				(org.mule.ide.config.editor.services.edit.policies.InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy) editPart.getEditPolicy(EditPolicyRoles.SEMANTIC_ROLE);
-			policy.addExtension(new InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy());
+		if(editPart.getClass().
+				equals(org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart.class)) {
+			CoreBaseItemSemanticEditPolicy policy = 
+				(CoreBaseItemSemanticEditPolicy) editPart.getEditPolicy(EditPolicyRoles.SEMANTIC_ROLE);
+			policy.addPolicyExtension(new InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy());
 
 			//editPart.installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 			//			new InboundCollectionTypeINBOUNDROUTERSCanonicalEditPolicy());

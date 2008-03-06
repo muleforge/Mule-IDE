@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;
+import java.util.AbstractMap;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -23,15 +24,14 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.BasicEMap;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.EcoreUtil.EqualityHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceFactoryImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.mule.ide.config.common.SyncResource;
 import org.mule.ide.config.common.tests.util.WorkspaceHelper;
 import org.mule.ide.config.tests.cars.CarsPackage;
@@ -43,8 +43,7 @@ import org.mule.ide.config.tests.park.ParkPackage;
 import org.mule.ide.config.tests.park.ParkType;
 import org.mule.ide.config.tests.park.VehicleType;
 import org.mule.ide.config.tests.park.util.ParkResourceFactoryImpl;
-
-import sun.swing.plaf.synth.Paint9Painter.PaintType;
+import org.w3c.dom.Element;
 
 public class UpdateXML extends TestCase {
 
@@ -301,11 +300,29 @@ public class UpdateXML extends TestCase {
 		assertEquals("1", xpath("count(//park:Park/park:Vehicle[2])"));
 		vehicle.setMake("Toyota");
 		assertEquals("Toyota", xpath("//park:Park/park:Vehicle[2]/park:Make"));
-
+	
 		vehicle.setModel("Verso");
 		assertEquals("Verso", xpath("//park:Park/park:Vehicle[2]/park:Model"));
 		vehicle.getPaint().add("Red");
 		
+		verifySaveLoadEquivalence();		
+	}
+
+	public void testNSPrefixMap() throws IOException {
+		EMap<String, String> nsMap = documentRoot.getXMLNSPrefixMap();
+	
+		
+		Element documentElement = resource.getDocument().getDocumentElement();
+		assertEquals("expect vp prefix through DOM", "urn:vehiclePark", documentElement.getAttribute("xmlns:vp"));
+		
+		assertEquals("expect prefix known to EMF", "urn:vehiclePark", nsMap.get("vp"));
+
+		nsMap.put("vip", "urn:klip");
+		assertEquals("expect vip prefix through DOM", "urn:klip", documentElement.getAttribute("xmlns:vip"));
+
+		nsMap.remove("vip");
+		assertEquals("expect vip gone (through DOM)", null, documentElement.getAttribute("xmlns:vip"));
+
 		verifySaveLoadEquivalence();		
 	}
 

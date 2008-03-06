@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEMap;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -755,7 +757,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 	}
 
 	private void addAttributeFeatureMap(EObject o, EStructuralFeature f) {
-
+		
 	}
 
 	public void notifyUnSetSingle(Notification msg, EObject o, Node node,
@@ -1090,6 +1092,18 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		EStructuralFeature feature = (EStructuralFeature)msg.getFeature();
 		EStructuralFeature targetFeature = feature;
 
+		// Special fix for XML Namespace prefix map (marked transient, but specifically serialized)
+		EReference xmlnsPrefixMapFeature = extendedMetaData.getXMLNSPrefixMapFeature(eClass);
+		if (feature == xmlnsPrefixMapFeature)
+		{
+			BasicEMap.Entry<String, String> entry = (BasicEMap.Entry<String, String>)msg.getOldValue();
+		
+			Element e = (Element)node;
+			e.removeAttribute("xmlns:" + entry.getKey());
+			return;
+		}
+
+		
 		EStructuralFeature[] features = featureTable.getFeatures(eClass);
 		int[] featureKinds = featureTable.getKinds(eClass, features);
 
@@ -1190,6 +1204,17 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		EStructuralFeature feature = (EStructuralFeature)msg.getFeature();
 		EStructuralFeature targetFeature = feature;
 
+		// Special fix for XML Namespace prefix map (marked transient, but specifically serialized)
+		EReference xmlnsPrefixMapFeature = extendedMetaData.getXMLNSPrefixMapFeature(eClass);
+		if (feature == xmlnsPrefixMapFeature)
+		{
+			BasicEMap.Entry<String, String> entry = (BasicEMap.Entry<String, String>)msg.getNewValue();
+		
+			Element e = (Element)node;
+			e.setAttribute("xmlns:" + entry.getKey(), entry.getValue());
+			return;
+		}
+		
 		EStructuralFeature[] features = featureTable.getFeatures(eClass);
 		int[] featureKinds = featureTable.getKinds(eClass, features);
 
@@ -1223,6 +1248,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 				return;
 			}
 		}
+		
 		
 		int kind = featureKinds[i];
 

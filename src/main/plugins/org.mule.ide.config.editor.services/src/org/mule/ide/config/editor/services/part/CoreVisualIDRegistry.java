@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.gmf.runtime.notation.Diagram;
@@ -1008,6 +1009,34 @@ public class CoreVisualIDRegistry {
 	 */
 	private static boolean isDiagram(DefaultModelType element) {
 		return true;
+	}
+	
+	/**
+	 * Called from extension VisualIDRegistry implementations to determine
+	 * if a View can contain a given domain element type.
+	 * 
+	 * For now, we are assuming that all extensible containers are 
+	 * in the core package.  May eventually move this into a more
+	 * general registry for handling containment in non-core classes,
+	 * for example a non-core outbound router that can contain a non-core (or core)
+	 * outbound endpoint.
+	 * 
+	 * @param containerView
+	 * @param type
+	 * @return
+	 */
+	public static boolean canContain(View containerView, EClass type) {
+		if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getInboundCollectionType()) {
+			if (CorePackage.eINSTANCE.getAbstractInboundEndpointType().isSuperTypeOf(type)) {
+				return true;
+			}
+		}
+		if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getAsyncReplyCollectionType()) {
+			if (CorePackage.eINSTANCE.getAbstractInboundEndpointType().isSuperTypeOf(type)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

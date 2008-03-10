@@ -2,6 +2,7 @@ package org.mule.ide.config.editor.services.edit.commands;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
@@ -11,10 +12,10 @@ import org.mule.ide.config.core.CorePackage;
 
 /**
  * customization
- *   - subclass SubstitutionElementCreateCommand
+ *   - subclass CoreElementCreateCommand
  */
 public class AsyncReplyInboundEndpointServiceItemTypeCreateCommand extends
-		SubstitutionElementCreateCommand {
+		CoreElementCreateCommand {
 
 	/**
 	 * @generated
@@ -44,11 +45,7 @@ public class AsyncReplyInboundEndpointServiceItemTypeCreateCommand extends
 	}
 
 	@Override
-	protected void addSubstitutionElementReference(EObject container,
-			EObject element) {
-		FeatureMap map = ((AsyncReplyCollectionType) container)
-				.getAbstractInboundEndpointGroup();
-		map.add(CorePackage.eINSTANCE.getDocumentRoot_InboundEndpoint(),
-				element);
+	protected EReference getContainmentReference() {
+		return CorePackage.eINSTANCE.getDocumentRoot_InboundEndpoint();
 	}
 }

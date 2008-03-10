@@ -2,6 +2,7 @@ package org.mule.ide.config.editor.services.edit.commands;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
@@ -11,10 +12,9 @@ import org.mule.ide.config.core.InboundCollectionType;
 
 /**
  * customization
- *   - subclass SubstitutionElementCreateCommand
  */
 public class SelectiveConsumerRouterTypeCreateCommand extends
-		SubstitutionElementCreateCommand {
+		CoreElementCreateCommand {
 
 	/**
 	 * @generated
@@ -43,12 +43,8 @@ public class SelectiveConsumerRouterTypeCreateCommand extends
 	}
 
 	@Override
-	protected void addSubstitutionElementReference(EObject container,
-			EObject element) {
-		FeatureMap map = ((InboundCollectionType) container)
-				.getAbstractInboundRouterGroup();
-		map
-				.add(CorePackage.eINSTANCE
-						.getDocumentRoot_SelectiveConsumerRouter(), element);
+	protected EReference getContainmentReference() {
+		return CorePackage.eINSTANCE
+						.getDocumentRoot_SelectiveConsumerRouter();
 	}
 }

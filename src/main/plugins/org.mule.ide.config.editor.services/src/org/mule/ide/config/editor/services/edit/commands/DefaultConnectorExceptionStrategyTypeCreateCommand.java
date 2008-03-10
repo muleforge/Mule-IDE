@@ -2,6 +2,7 @@ package org.mule.ide.config.editor.services.edit.commands;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
@@ -11,10 +12,9 @@ import org.mule.ide.config.core.CorePackage;
 
 /**
  * customization
- *   - subclass SubstitutionElementCreateCommand
  */
 public class DefaultConnectorExceptionStrategyTypeCreateCommand extends
-		SubstitutionElementCreateCommand {
+		CoreElementCreateCommand {
 
 	/**
 	 * @generated
@@ -55,11 +55,8 @@ public class DefaultConnectorExceptionStrategyTypeCreateCommand extends
 	}
 
 	@Override
-	protected void addSubstitutionElementReference(EObject container,
-			EObject element) {
-		FeatureMap map = ((BaseServiceType) container)
-				.getAbstractExceptionStrategyGroup();
-		map.add(CorePackage.eINSTANCE
-				.getDocumentRoot_DefaultConnectorExceptionStrategy(), element);
+	protected EReference getContainmentReference() {
+		return CorePackage.eINSTANCE
+				.getDocumentRoot_DefaultConnectorExceptionStrategy();
 	}
 }

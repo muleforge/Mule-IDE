@@ -2,9 +2,11 @@ package org.mule.ide.config.editor.services.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
@@ -57,18 +59,41 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	 */
 	public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
 
-	private List<ISemanticEditPolicyX> extensions;
+	private HashMap<EClass,List<ISemanticEditPolicyX>> mapTypeToPolicyList;
 
 	/**
 	 * Support for extending this policy.
 	 * 
 	 * @param extension
 	 */
-	public void addPolicyExtension(ISemanticEditPolicyX extension) {
-		if (extensions == null) {
-			extensions = new ArrayList<ISemanticEditPolicyX>();
+	public void registerSemanticEditPolicy(EClass type, ISemanticEditPolicyX editPolicy) {
+		if (mapTypeToPolicyList == null) {
+			mapTypeToPolicyList = new HashMap<EClass,List<ISemanticEditPolicyX>>();
 		}
-		extensions.add(extension);
+		List<ISemanticEditPolicyX> list = mapTypeToPolicyList.get(type);
+		if (list == null) {
+			list = new ArrayList<ISemanticEditPolicyX>();
+			mapTypeToPolicyList.put(type, list);
+		}
+		list.add(editPolicy);
+	}
+	
+	/**
+	 * Subclasses can check the type an return whether they offer
+	 * containment for this type.
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public boolean canContain(EClass type) {
+		return false;
+	}
+
+	public List<ISemanticEditPolicyX> getEditPolicyExtensions(EClass type) {
+		if (mapTypeToPolicyList == null) {
+			return null;
+		}
+		return mapTypeToPolicyList.get(type);
 	}
 
 	/**
@@ -213,14 +238,10 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	 *   - check if extensions provide a create command
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (extensions != null) {
-			for (ISemanticEditPolicyX extension : extensions) {
-				Command cmd = extension.getCreateCommandX(req);
-				if (cmd != null) {
-					return cmd;
-				}
-			}
-		}
+		return getCreateCommandX(req);
+	}
+	
+	protected Command getCreateCommandX(CreateElementRequest req) {
 		return null;
 	}
 

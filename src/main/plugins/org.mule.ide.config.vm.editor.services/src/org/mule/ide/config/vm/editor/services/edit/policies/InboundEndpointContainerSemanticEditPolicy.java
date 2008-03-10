@@ -8,27 +8,25 @@ import org.mule.ide.config.vm.editor.services.edit.commands.InboundEndpointServi
 import org.mule.ide.config.vm.editor.services.providers.VMElementTypes;
 
 /**
- * customization
+ * 
  */
-public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
+public class InboundEndpointContainerSemanticEditPolicy extends
 		VMBaseItemSemanticEditPolicy
 		implements ISemanticEditPolicyX {
 
+	/**
+	 * 
+	 */
 	public Command getCreateCommandX(CreateElementRequest req) {
 		return getCreateCommand(req);
 	}
 
 	/**
-	 * @generated
+	 * 
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (VMElementTypes.InboundEndpointType_2002 == req.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				//req.setContainmentFeature(CorePackage.eINSTANCE
-				//		.getInboundCollectionType_AbstractInboundEndpoint());
-			}
-			return getGEFWrapper(new InboundEndpointServiceItemTypeCreateCommand(
-					req));
+			return getGEFWrapper(new InboundEndpointServiceItemTypeCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

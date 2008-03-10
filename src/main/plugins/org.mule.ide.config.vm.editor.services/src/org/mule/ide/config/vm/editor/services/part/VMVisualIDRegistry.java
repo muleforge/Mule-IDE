@@ -127,13 +127,11 @@ public class VMVisualIDRegistry {
 			containerVisualID = VMVisualIDRegistry.getVisualID(containerView);
 		}
 		if (isCoreContainer) {
-			switch (containerVisualID) {
-			case org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+			if (CoreVisualIDRegistry.canContain(containerView, domainElement.eClass())) {
 				if (VMPackage.eINSTANCE.getInboundEndpointType().isSuperTypeOf(
 						domainElement.eClass())) {
 					return InboundEndpointServiceItemTypeEditPart.VISUAL_ID;
-				}
-				break;
+				}				
 			}
 			return -1;
 		} else {
@@ -162,12 +160,10 @@ public class VMVisualIDRegistry {
 			containerVisualID = VMVisualIDRegistry.getVisualID(containerView);
 		}
 		if (isCoreContainer) {
-			switch (containerVisualID) {
-			case org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+			if (CoreVisualIDRegistry.canContain(containerView, CorePackage.eINSTANCE.getAbstractInboundEndpointType())) {
 				if (InboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
-				}
-				break;
+				}				
 			}
 			return false;
 		} else {

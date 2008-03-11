@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;
-import java.util.AbstractMap;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -24,7 +23,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
@@ -352,6 +350,5 @@ public class UpdateXML extends TestCase {
 
 		DocumentRoot cloneRoot = (DocumentRoot)xmlCloneFile.getContents().get(0);
 		assertTrue("EMF model doesn't survive save and reload", EcoreUtil.equals(documentRoot.getPark(), cloneRoot.getPark()));
-
 	}
 }

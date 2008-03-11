@@ -10,23 +10,21 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactor
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeOUTBOUNDROUTERSEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
 
 /**
  * @generated
  */
-public class OutboundCollectionTypeViewFactory extends AbstractShapeViewFactory {
+public class OutboundEndpointTypeViewFactory extends AbstractShapeViewFactory {
 
 	/**
 	 * @generated
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
-		styles.add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		styles.add(NotationFactory.eINSTANCE.createFillStyle());
-		styles.add(NotationFactory.eINSTANCE.createLineStyle());
+		styles.add(NotationFactory.eINSTANCE.createShapeStyle());
 		return styles;
 	}
 
@@ -38,7 +36,7 @@ public class OutboundCollectionTypeViewFactory extends AbstractShapeViewFactory 
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = VMVisualIDRegistry
-					.getType(OutboundCollectionTypeEditPart.VISUAL_ID);
+					.getType(OutboundEndpointTypeEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
@@ -48,12 +46,11 @@ public class OutboundCollectionTypeViewFactory extends AbstractShapeViewFactory 
 		if (eObject != null) {
 			eObjectAdapter = new EObjectAdapter(eObject);
 		}
-		getViewService()
-				.createNode(
-						eObjectAdapter,
-						view,
-						VMVisualIDRegistry
-								.getType(OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService().createNode(
+				eObjectAdapter,
+				view,
+				VMVisualIDRegistry
+						.getType(OutboundEndpointTypeNameEditPart.VISUAL_ID),
+				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

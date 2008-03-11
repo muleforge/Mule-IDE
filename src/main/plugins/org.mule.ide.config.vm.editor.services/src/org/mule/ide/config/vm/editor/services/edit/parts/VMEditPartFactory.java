@@ -49,8 +49,14 @@ public class VMEditPartFactory implements EditPartFactory {
 			case InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
 				return new InboundEndpointServiceItemEndpointNameEditPart(view);
 
-			case OutboundCollectionTypeEditPart.VISUAL_ID:
-				return new OutboundCollectionTypeEditPart(view);
+			case ExceptionStrategyTypeEditPart.VISUAL_ID:
+				return new ExceptionStrategyTypeEditPart(view);
+
+			case OutboundEndpointTypeEditPart.VISUAL_ID:
+				return new OutboundEndpointTypeEditPart(view);
+
+			case OutboundEndpointTypeNameEditPart.VISUAL_ID:
+				return new OutboundEndpointTypeNameEditPart(view);
 
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				return new SedaServiceTypeCOMPONENTEditPart(view);
@@ -61,8 +67,8 @@ public class VMEditPartFactory implements EditPartFactory {
 			case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 				return new InboundCollectionTypeINBOUNDROUTERSEditPart(view);
 
-			case OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
-				return new OutboundCollectionTypeOUTBOUNDROUTERSEditPart(view);
+			case ExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+				return new ExceptionStrategyTypeENDPOINTSEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

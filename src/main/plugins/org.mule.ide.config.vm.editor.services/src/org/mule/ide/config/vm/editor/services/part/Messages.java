@@ -288,7 +288,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String OutboundCollectionTypeOUTBOUNDROUTERSEditPart_title;
+	public static String ExceptionStrategyTypeENDPOINTSEditPart_title;
 
 	/**
 	 * @generated

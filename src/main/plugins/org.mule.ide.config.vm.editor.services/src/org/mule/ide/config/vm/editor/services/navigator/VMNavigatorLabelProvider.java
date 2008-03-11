@@ -20,10 +20,12 @@ import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.InboundCollectionType;
 import org.mule.ide.config.core.OutboundCollectionType;
 import org.mule.ide.config.vm.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeLabelEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.vm.editor.services.part.VMDiagramEditorPlugin;
@@ -104,9 +106,12 @@ public class VMNavigatorLabelProvider extends LabelProvider implements
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.mulesource.org/schema/mule/vm/2.0?InboundEndpointType", VMElementTypes.InboundEndpointType_2002); //$NON-NLS-1$
-		case OutboundCollectionTypeEditPart.VISUAL_ID:
+		case ExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?OutboundCollectionType", VMElementTypes.OutboundCollectionType_2003); //$NON-NLS-1$
+					"Navigator?Node?http://www.mulesource.org/schema/mule/core/2.0?ExceptionStrategyType", VMElementTypes.ExceptionStrategyType_2003); //$NON-NLS-1$
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://www.mulesource.org/schema/mule/vm/2.0?OutboundEndpointType", VMElementTypes.OutboundEndpointType_2004); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -167,8 +172,10 @@ public class VMNavigatorLabelProvider extends LabelProvider implements
 			return getInboundCollectionType_2001Text(view);
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getInboundEndpointType_2002Text(view);
-		case OutboundCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundCollectionType_2003Text(view);
+		case ExceptionStrategyTypeEditPart.VISUAL_ID:
+			return getExceptionStrategyType_2003Text(view);
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return getOutboundEndpointType_2004Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -204,7 +211,7 @@ public class VMNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			VMDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 4003); //$NON-NLS-1$
+					"Parser was not found for label " + 4004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -248,16 +255,30 @@ public class VMNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getOutboundCollectionType_2003Text(View view) {
-		OutboundCollectionType domainModelElement = (OutboundCollectionType) view
-				.getElement();
-		if (domainModelElement != null) {
-			return String.valueOf(domainModelElement.isMatchAll());
+	private String getExceptionStrategyType_2003Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getOutboundEndpointType_2004Text(View view) {
+		IAdaptable hintAdapter = new VMParserProvider.HintAdapter(
+				VMElementTypes.OutboundEndpointType_2004,
+				(view.getElement() != null ? view.getElement() : view),
+				VMVisualIDRegistry
+						.getType(OutboundEndpointTypeNameEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
 		} else {
 			VMDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2003); //$NON-NLS-1$
+					"Parser was not found for label " + 4003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**

@@ -13,12 +13,10 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -28,10 +26,10 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
-import org.mule.ide.config.vm.editor.services.edit.policies.SedaServiceTypeCanonicalEditPolicy;
-import org.mule.ide.config.vm.editor.services.edit.policies.SedaServiceTypeItemSemanticEditPolicy;
+import org.mule.ide.config.vm.editor.services.edit.policies.ExceptionStrategyTypeItemSemanticEditPolicy;
 import org.mule.ide.config.vm.editor.services.edit.policies.VMTextSelectionEditPolicy;
 import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
 import org.mule.ide.config.vm.editor.services.providers.VMElementTypes;
@@ -39,12 +37,12 @@ import org.mule.ide.config.vm.editor.services.providers.VMElementTypes;
 /**
  * @generated
  */
-public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
+public class ExceptionStrategyTypeEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1001;
+	public static final int VISUAL_ID = 2003;
 
 	/**
 	 * @generated
@@ -59,7 +57,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public SedaServiceTypeEditPart(View view) {
+	public ExceptionStrategyTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -77,9 +75,9 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == VMElementTypes.ExceptionStrategyType_2003) {
+								if (type == VMElementTypes.OutboundEndpointType_2004) {
 									EditPart compartmentEditPart = getChildBySemanticHint(VMVisualIDRegistry
-											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
+											.getType(ExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
@@ -93,11 +91,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SedaServiceTypeItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new SedaServiceTypeCanonicalEditPolicy());
+				new ExceptionStrategyTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -126,63 +120,15 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		ServiceFigure figure = new ServiceFigure();
+		ServiceItemFigure figure = new ServiceItemFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public ServiceFigure getPrimaryShape() {
-		return (ServiceFigure) primaryShape;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SedaServiceTypeNameEditPart) {
-			((SedaServiceTypeNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureServiceNameFigure());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean removeFixedChild(EditPart childEditPart) {
-
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void removeChildVisual(EditPart childEditPart) {
-		if (removeFixedChild(childEditPart)) {
-			return;
-		}
-		super.removeChildVisual(childEditPart);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-
-		return super.getContentPaneFor(editPart);
+	public ServiceItemFigure getPrimaryShape() {
+		return (ServiceItemFigure) primaryShape;
 	}
 
 	/**
@@ -190,7 +136,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(150), getMapMode().DPtoLP(10));
+				.DPtoLP(40), getMapMode().DPtoLP(10));
 		return result;
 	}
 
@@ -239,42 +185,32 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(VMVisualIDRegistry
-				.getType(SedaServiceTypeNameEditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public class ServiceFigure extends RoundedRectangle {
+	public class ServiceItemFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureServiceNameFigure;
+		private WrapLabel fFigureServiceItemTypeLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public ServiceFigure() {
+		public ServiceItemFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
-			layoutThis.setSpacing(1);
+			layoutThis.setSpacing(0);
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setForegroundColor(ColorConstants.black);
+			this.setBackgroundColor(THIS_BACK);
 
-			this.setFont(THIS_FONT);
-
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(0),
 					getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
 					getMapMode().DPtoLP(0)));
 			createContents();
@@ -285,14 +221,15 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureServiceNameFigure = new WrapLabel();
-			fFigureServiceNameFigure.setText("");
-			fFigureServiceNameFigure
-					.setBackgroundColor(ColorConstants.lightBlue);
+			fFigureServiceItemTypeLabelFigure = new WrapLabel();
+			fFigureServiceItemTypeLabelFigure.setText("");
+			fFigureServiceItemTypeLabelFigure
+					.setForegroundColor(ColorConstants.gray);
 
-			fFigureServiceNameFigure.setFont(FFIGURESERVICENAMEFIGURE_FONT);
+			fFigureServiceItemTypeLabelFigure
+					.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);
 
-			this.add(fFigureServiceNameFigure);
+			this.add(fFigureServiceItemTypeLabelFigure);
 
 		}
 
@@ -318,8 +255,8 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureServiceNameFigure() {
-			return fFigureServiceNameFigure;
+		public WrapLabel getFigureServiceItemTypeLabelFigure() {
+			return fFigureServiceItemTypeLabelFigure;
 		}
 
 	}
@@ -327,16 +264,14 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font THIS_FONT = new Font(Display.getCurrent(), Display
-			.getDefault().getSystemFont().getFontData()[0].getName(), 8,
-			SWT.ITALIC);
+	static final Color THIS_BACK = new Color(null, 250, 250, 190);
 
 	/**
 	 * @generated
 	 */
-	static final Font FFIGURESERVICENAMEFIGURE_FONT = new Font(Display
+	static final Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new Font(Display
 			.getCurrent(),
-			Display.getDefault().getSystemFont().getFontData()[0].getName(),
-			10, SWT.BOLD);
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 8,
+			SWT.ITALIC);
 
 }

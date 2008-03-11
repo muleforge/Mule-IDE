@@ -52,13 +52,13 @@ import org.mule.ide.config.vm.editor.services.providers.VMParserProvider;
 /**
  * @generated
  */
-public class SedaServiceTypeNameEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class OutboundEndpointTypeNameEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4004;
+	public static final int VISUAL_ID = 4003;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class SedaServiceTypeNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public SedaServiceTypeNameEditPart(View view) {
+	public OutboundEndpointTypeNameEditPart(View view) {
 		super(view);
 	}
 
@@ -194,11 +194,7 @@ public class SedaServiceTypeNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return VMElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -245,7 +241,7 @@ public class SedaServiceTypeNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**
@@ -306,8 +302,8 @@ public class SedaServiceTypeNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new VMParserProvider.HintAdapter(
-					VMElementTypes.SedaServiceType_1001, getParserElement(),
-					parserHint);
+					VMElementTypes.OutboundEndpointType_2004,
+					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
 		return parser;

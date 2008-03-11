@@ -11,13 +11,15 @@ import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.vm.VMPackage;
 import org.mule.ide.config.vm.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeENDPOINTSEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemEndpointNameEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeLabelEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeOUTBOUNDROUTERSEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEditPart;
@@ -127,11 +129,16 @@ public class VMVisualIDRegistry {
 			containerVisualID = VMVisualIDRegistry.getVisualID(containerView);
 		}
 		if (isCoreContainer) {
-			if (CoreVisualIDRegistry.canContain(containerView, domainElement.eClass())) {
+			if (CoreVisualIDRegistry.canContain(containerView, domainElement
+					.eClass())) {
 				if (VMPackage.eINSTANCE.getInboundEndpointType().isSuperTypeOf(
 						domainElement.eClass())) {
 					return InboundEndpointServiceItemTypeEditPart.VISUAL_ID;
-				}				
+				}
+				if (VMPackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+						domainElement.eClass())) {
+					return OutboundEndpointTypeEditPart.VISUAL_ID;
+				}
 			}
 			return -1;
 		} else {
@@ -160,10 +167,17 @@ public class VMVisualIDRegistry {
 			containerVisualID = VMVisualIDRegistry.getVisualID(containerView);
 		}
 		if (isCoreContainer) {
-			if (CoreVisualIDRegistry.canContain(containerView, CorePackage.eINSTANCE.getAbstractInboundEndpointType())) {
-				if (InboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (InboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
+				if (CoreVisualIDRegistry.canContain(containerView,
+						CorePackage.eINSTANCE.getAbstractInboundEndpointType())) {
 					return true;
-				}				
+				}
+			}
+			if (OutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
+				if (CoreVisualIDRegistry.canContain(containerView,
+						CorePackage.eINSTANCE.getAbstractOutboundEndpointType())) {
+					return true;
+				}
 			}
 			return false;
 		} else {
@@ -173,6 +187,11 @@ public class VMVisualIDRegistry {
 					return true;
 				}
 				if (InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case OutboundEndpointTypeEditPart.VISUAL_ID:
+				if (OutboundEndpointTypeNameEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
 				break;

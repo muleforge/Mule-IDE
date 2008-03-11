@@ -9,13 +9,14 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeOUTBOUNDROUTERSEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeENDPOINTSEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
 
 /**
  * @generated
  */
-public class OutboundCollectionTypeItemSemanticEditPolicy extends
+public class ExceptionStrategyTypeItemSemanticEditPolicy extends
 		VMBaseItemSemanticEditPolicy {
 
 	/**
@@ -41,11 +42,14 @@ public class OutboundCollectionTypeItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (VMVisualIDRegistry.getVisualID(node)) {
-			case OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
+			case ExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (VMVisualIDRegistry.getVisualID(cnode)) {
+					case OutboundEndpointTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
 					}
 				}
 				break;

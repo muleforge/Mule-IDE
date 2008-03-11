@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.mule.ide.config.vm.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.vm.editor.services.part.Messages;
@@ -40,12 +41,17 @@ public class VMModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof SedaServiceTypeEditPart) {
 			List types = new ArrayList();
 			types.add(VMElementTypes.InboundCollectionType_2001);
-			types.add(VMElementTypes.OutboundCollectionType_2003);
+			types.add(VMElementTypes.ExceptionStrategyType_2003);
 			return types;
 		}
 		if (editPart instanceof InboundCollectionTypeEditPart) {
 			List types = new ArrayList();
 			types.add(VMElementTypes.InboundEndpointType_2002);
+			return types;
+		}
+		if (editPart instanceof ExceptionStrategyTypeEditPart) {
+			List types = new ArrayList();
+			types.add(VMElementTypes.OutboundEndpointType_2004);
 			return types;
 		}
 		if (editPart instanceof DefaultModelTypeEditPart) {

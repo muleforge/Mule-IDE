@@ -10,13 +10,13 @@ import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.TitleStyle;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeOUTBOUNDROUTERSEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeENDPOINTSEditPart;
 import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
 
 /**
  * @generated
  */
-public class OutboundCollectionTypeOUTBOUNDROUTERSViewFactory extends
+public class ExceptionStrategyTypeENDPOINTSViewFactory extends
 		BasicNodeViewFactory {
 
 	/**
@@ -25,7 +25,6 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSViewFactory extends
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
 		styles.add(NotationFactory.eINSTANCE.createDrawerStyle());
-		styles.add(NotationFactory.eINSTANCE.createTitleStyle());
 		styles.add(NotationFactory.eINSTANCE.createSortingStyle());
 		styles.add(NotationFactory.eINSTANCE.createFilteringStyle());
 		return styles;
@@ -39,7 +38,7 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSViewFactory extends
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = VMVisualIDRegistry
-					.getType(OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID);
+					.getType(ExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,

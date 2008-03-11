@@ -12,13 +12,14 @@ import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.policies.CoreBaseItemSemanticEditPolicy;
 import org.mule.ide.config.vm.editor.services.edit.policies.InboundEndpointContainerSemanticEditPolicy;
+import org.mule.ide.config.vm.editor.services.edit.policies.OutboundEndpointContainerSemanticEditPolicy;
 
 public class VMEditPolicyProvider extends AbstractProvider implements
 		IEditPolicyProvider {
 
 	/**
-	 * Extend the semantic edit policy of core edit parts by
-	 * registering policies for types in this package.
+	 * Extend the semantic edit policies of core edit parts by
+	 * registering policies for this package by type.
 	 */
 	public void createEditPolicies(EditPart editPart) {
 		EditPolicy editPolicy = editPart.getEditPolicy(EditPolicyRoles.SEMANTIC_ROLE);
@@ -30,6 +31,11 @@ public class VMEditPolicyProvider extends AbstractProvider implements
 					registerSemanticEditPolicy(CorePackage.eINSTANCE.getAbstractInboundEndpointType(), 
 												new InboundEndpointContainerSemanticEditPolicy());
 			}
+			if (coreEditPolicy.canContain(CorePackage.eINSTANCE.getAbstractOutboundEndpointType())) {
+				coreEditPolicy.
+					registerSemanticEditPolicy(CorePackage.eINSTANCE.getAbstractOutboundEndpointType(), 
+												new OutboundEndpointContainerSemanticEditPolicy());
+			}	
 		}
 	}
 

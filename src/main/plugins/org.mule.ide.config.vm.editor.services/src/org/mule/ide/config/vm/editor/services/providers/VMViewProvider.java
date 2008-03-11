@@ -7,26 +7,30 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.vm.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeENDPOINTSEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemEndpointNameEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeLabelEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeOUTBOUNDROUTERSEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
 import org.mule.ide.config.vm.editor.services.view.factories.DefaultModelTypeViewFactory;
+import org.mule.ide.config.vm.editor.services.view.factories.ExceptionStrategyTypeENDPOINTSViewFactory;
+import org.mule.ide.config.vm.editor.services.view.factories.ExceptionStrategyTypeViewFactory;
 import org.mule.ide.config.vm.editor.services.view.factories.InboundCollectionTypeINBOUNDROUTERSViewFactory;
 import org.mule.ide.config.vm.editor.services.view.factories.InboundCollectionTypeViewFactory;
 import org.mule.ide.config.vm.editor.services.view.factories.InboundEndpointServiceItemEndpointNameViewFactory;
 import org.mule.ide.config.vm.editor.services.view.factories.InboundEndpointServiceItemTypeLabelViewFactory;
 import org.mule.ide.config.vm.editor.services.view.factories.InboundEndpointServiceItemTypeViewFactory;
-import org.mule.ide.config.vm.editor.services.view.factories.OutboundCollectionTypeOUTBOUNDROUTERSViewFactory;
-import org.mule.ide.config.vm.editor.services.view.factories.OutboundCollectionTypeViewFactory;
+import org.mule.ide.config.vm.editor.services.view.factories.OutboundEndpointTypeNameViewFactory;
+import org.mule.ide.config.vm.editor.services.view.factories.OutboundEndpointTypeViewFactory;
 import org.mule.ide.config.vm.editor.services.view.factories.SedaServiceTypeCOMPONENTViewFactory;
 import org.mule.ide.config.vm.editor.services.view.factories.SedaServiceTypeEXCEPTIONViewFactory;
 import org.mule.ide.config.vm.editor.services.view.factories.SedaServiceTypeNameViewFactory;
@@ -99,7 +103,8 @@ public class VMViewProvider extends AbstractViewProvider {
 				case SedaServiceTypeEditPart.VISUAL_ID:
 				case InboundCollectionTypeEditPart.VISUAL_ID:
 				case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
-				case OutboundCollectionTypeEditPart.VISUAL_ID:
+				case ExceptionStrategyTypeEditPart.VISUAL_ID:
+				case OutboundEndpointTypeEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != VMVisualIDRegistry.getNodeVisualID(
 									containerView, domainElement)) {
@@ -130,8 +135,15 @@ public class VMViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
-					if (OutboundCollectionTypeEditPart.VISUAL_ID != VMVisualIDRegistry
+				case ExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+					if (ExceptionStrategyTypeEditPart.VISUAL_ID != VMVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case OutboundEndpointTypeNameEditPart.VISUAL_ID:
+					if (OutboundEndpointTypeEditPart.VISUAL_ID != VMVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -166,16 +178,20 @@ public class VMViewProvider extends AbstractViewProvider {
 			return InboundEndpointServiceItemTypeLabelViewFactory.class;
 		case InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
 			return InboundEndpointServiceItemEndpointNameViewFactory.class;
-		case OutboundCollectionTypeEditPart.VISUAL_ID:
-			return OutboundCollectionTypeViewFactory.class;
+		case ExceptionStrategyTypeEditPart.VISUAL_ID:
+			return ExceptionStrategyTypeViewFactory.class;
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return OutboundEndpointTypeViewFactory.class;
+		case OutboundEndpointTypeNameEditPart.VISUAL_ID:
+			return OutboundEndpointTypeNameViewFactory.class;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 			return SedaServiceTypeCOMPONENTViewFactory.class;
 		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:
 			return SedaServiceTypeEXCEPTIONViewFactory.class;
 		case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 			return InboundCollectionTypeINBOUNDROUTERSViewFactory.class;
-		case OutboundCollectionTypeOUTBOUNDROUTERSEditPart.VISUAL_ID:
-			return OutboundCollectionTypeOUTBOUNDROUTERSViewFactory.class;
+		case ExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			return ExceptionStrategyTypeENDPOINTSViewFactory.class;
 		}
 		return null;
 	}

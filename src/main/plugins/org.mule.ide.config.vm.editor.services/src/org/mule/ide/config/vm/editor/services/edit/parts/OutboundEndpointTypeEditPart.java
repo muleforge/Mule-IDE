@@ -1,6 +1,5 @@
 package org.mule.ide.config.vm.editor.services.edit.parts;
 
-import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
@@ -8,29 +7,33 @@ import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
-import org.mule.ide.config.vm.editor.services.edit.policies.OutboundCollectionTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.parts.ServiceItemNodeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.policies.OutboundEndpointTypeItemSemanticEditPolicy;
 import org.mule.ide.config.vm.editor.services.edit.policies.VMTextSelectionEditPolicy;
+import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
 
 /**
- * @generated
+ * customization
  */
-public class OutboundCollectionTypeEditPart extends ShapeNodeEditPart {
+public class OutboundEndpointTypeEditPart extends ServiceItemNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2003;
+	public static final int VISUAL_ID = 2004;
 
 	/**
 	 * @generated
@@ -45,7 +48,7 @@ public class OutboundCollectionTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public OutboundCollectionTypeEditPart(View view) {
+	public OutboundEndpointTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -56,7 +59,7 @@ public class OutboundCollectionTypeEditPart extends ShapeNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new OutboundCollectionTypeItemSemanticEditPolicy());
+				new OutboundEndpointTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -85,15 +88,63 @@ public class OutboundCollectionTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		CollectionFigure figure = new CollectionFigure();
+		EndpointFigure figure = new EndpointFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public CollectionFigure getPrimaryShape() {
-		return (CollectionFigure) primaryShape;
+	public EndpointFigure getPrimaryShape() {
+		return (EndpointFigure) primaryShape;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof OutboundEndpointTypeNameEditPart) {
+			((OutboundEndpointTypeNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureEndpointNameFigure());
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+
+		return super.getContentPaneFor(editPart);
 	}
 
 	/**
@@ -150,29 +201,51 @@ public class OutboundCollectionTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class CollectionFigure extends RectangleFigure {
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(VMVisualIDRegistry
+				.getType(OutboundEndpointTypeNameEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	public class EndpointFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		public CollectionFigure() {
+		private WrapLabel fFigureEndpointNameFigure;
+
+		/**
+		 * @generated
+		 */
+		public EndpointFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
-			layoutThis.setSpacing(1);
+			layoutThis.setSpacing(0);
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);
 
 			this.setFill(false);
 			this.setOutline(false);
-			this.setOutlineXOR(true);
-			this.setLineWidth(0);
-			this.setForegroundColor(ColorConstants.black);
+			createContents();
+		}
 
-			this.setFont(THIS_FONT);
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			fFigureEndpointNameFigure = new WrapLabel();
+			fFigureEndpointNameFigure.setText("");
+
+			fFigureEndpointNameFigure.setFont(FFIGUREENDPOINTNAMEFIGURE_FONT);
+
+			this.add(fFigureEndpointNameFigure);
 
 		}
 
@@ -195,13 +268,21 @@ public class OutboundCollectionTypeEditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureEndpointNameFigure() {
+			return fFigureEndpointNameFigure;
+		}
+
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Font THIS_FONT = new Font(Display.getCurrent(), Display
-			.getDefault().getSystemFont().getFontData()[0].getName(), 8,
-			SWT.ITALIC);
+	static final Font FFIGUREENDPOINTNAMEFIGURE_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(),
+			10, SWT.NORMAL);
 
 }

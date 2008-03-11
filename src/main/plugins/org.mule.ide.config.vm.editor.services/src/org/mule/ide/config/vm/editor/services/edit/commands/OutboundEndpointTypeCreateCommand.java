@@ -2,21 +2,23 @@ package org.mule.ide.config.vm.editor.services.edit.commands;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.editor.services.edit.commands.CoreElementCreateCommand;
+import org.mule.ide.config.vm.VMPackage;
 
 /**
- * @generated
+ * customization
  */
-public class OutboundCollectionTypeCreateCommand extends CreateElementCommand {
+public class OutboundEndpointTypeCreateCommand extends CoreElementCreateCommand {
 
 	/**
 	 * @generated
 	 */
-	public OutboundCollectionTypeCreateCommand(CreateElementRequest req) {
+	public OutboundEndpointTypeCreateCommand(CreateElementRequest req) {
 		super(req);
 	}
 
@@ -33,20 +35,14 @@ public class OutboundCollectionTypeCreateCommand extends CreateElementCommand {
 	}
 
 	/**
-	 * @generated
+	 * customization
 	 */
 	protected EClass getEClassToEdit() {
-		return CorePackage.eINSTANCE.getBaseServiceType();
+		return super.getEClassToEdit();
 	}
 
-	/**
-	 * @generated
-	 */
-	public boolean canExecute() {
-		BaseServiceType container = (BaseServiceType) getElementToEdit();
-		if (container.getOutbound() != null) {
-			return false;
-		}
-		return true;
+	@Override
+	protected EReference getContainmentReference() {
+		return VMPackage.eINSTANCE.getDocumentRoot_OutboundEndpoint();
 	}
 }

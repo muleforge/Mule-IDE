@@ -70,10 +70,14 @@ public class VMPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createvmOutboundEndpoint1CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(VMElementTypes.OutboundEndpointType_2004);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.vmOutboundEndpoint1CreationTool_title,
-				Messages.vmOutboundEndpoint1CreationTool_desc, null, null) {
-		};
+				Messages.vmOutboundEndpoint1CreationTool_desc, types);
+		entry.setSmallIcon(VMElementTypes
+				.getImageDescriptor(VMElementTypes.OutboundEndpointType_2004));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

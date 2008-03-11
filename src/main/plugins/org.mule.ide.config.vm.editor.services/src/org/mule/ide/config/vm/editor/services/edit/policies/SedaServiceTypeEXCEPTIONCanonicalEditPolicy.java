@@ -10,7 +10,7 @@ import java.util.Set;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeEditPart;
 import org.mule.ide.config.vm.editor.services.part.VMDiagramUpdater;
 import org.mule.ide.config.vm.editor.services.part.VMNodeDescriptor;
 import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
@@ -18,7 +18,8 @@ import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
 /**
  * @generated
  */
-public class SedaServiceTypeCanonicalEditPolicy extends CanonicalEditPolicy {
+public class SedaServiceTypeEXCEPTIONCanonicalEditPolicy extends
+		CanonicalEditPolicy {
 
 	/**
 	 * @generated
@@ -32,8 +33,8 @@ public class SedaServiceTypeCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = VMDiagramUpdater
-				.getSedaServiceType_1001SemanticChildren(viewObject).iterator(); it
-				.hasNext();) {
+				.getSedaServiceTypeEXCEPTION_5002SemanticChildren(viewObject)
+				.iterator(); it.hasNext();) {
 			result.add(((VMNodeDescriptor) it.next()).getModelElement());
 		}
 		return result;
@@ -45,7 +46,7 @@ public class SedaServiceTypeCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = VMVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
-		case InboundCollectionTypeEditPart.VISUAL_ID:
+		case ExceptionStrategyTypeEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())
 					|| visualID != VMVisualIDRegistry.getNodeVisualID(
 							(View) getHost().getModel(), view.getElement());
@@ -67,7 +68,7 @@ public class SedaServiceTypeCanonicalEditPolicy extends CanonicalEditPolicy {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
-					.getBaseServiceType_Inbound());
+					.getBaseServiceType_AbstractExceptionStrategy());
 		}
 		return myFeaturesToSynchronize;
 	}

@@ -21,10 +21,13 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 import org.mule.ide.config.vm.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeENDPOINTSEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
 
@@ -230,7 +233,9 @@ public class VMNavigatorContentProvider implements ICommonContentProvider {
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					OutboundCollectionTypeEditPart.VISUAL_ID);
+					SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExceptionStrategyTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -243,6 +248,18 @@ public class VMNavigatorContentProvider implements ICommonContentProvider {
 					InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					InboundEndpointServiceItemTypeEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ExceptionStrategyTypeEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			Collection connectedViews = getChildrenByType(Collections
+					.singleton(view),
+					ExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					OutboundEndpointTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

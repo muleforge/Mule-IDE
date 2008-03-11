@@ -64,7 +64,12 @@ public class VMElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType OutboundCollectionType_2003 = getElementType("org.mule.ide.config.vm.editor.services.OutboundCollectionType_2003"); //$NON-NLS-1$
+	public static final IElementType ExceptionStrategyType_2003 = getElementType("org.mule.ide.config.vm.editor.services.ExceptionStrategyType_2003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType OutboundEndpointType_2004 = getElementType("org.mule.ide.config.vm.editor.services.OutboundEndpointType_2004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -189,8 +194,11 @@ public class VMElementTypes extends ElementInitializers {
 			elements.put(InboundEndpointType_2002, VMPackage.eINSTANCE
 					.getInboundEndpointType());
 
-			elements.put(OutboundCollectionType_2003, CorePackage.eINSTANCE
-					.getOutboundCollectionType());
+			elements.put(ExceptionStrategyType_2003, CorePackage.eINSTANCE
+					.getExceptionStrategyType());
+
+			elements.put(OutboundEndpointType_2004, VMPackage.eINSTANCE
+					.getOutboundEndpointType());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -212,7 +220,8 @@ public class VMElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(SedaServiceType_1001);
 			KNOWN_ELEMENT_TYPES.add(InboundCollectionType_2001);
 			KNOWN_ELEMENT_TYPES.add(InboundEndpointType_2002);
-			KNOWN_ELEMENT_TYPES.add(OutboundCollectionType_2003);
+			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2003);
+			KNOWN_ELEMENT_TYPES.add(OutboundEndpointType_2004);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

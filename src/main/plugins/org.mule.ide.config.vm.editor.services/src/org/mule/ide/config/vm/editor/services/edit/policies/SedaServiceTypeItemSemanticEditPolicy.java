@@ -12,9 +12,8 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.vm.editor.services.edit.commands.InboundCollectionTypeCreateCommand;
-import org.mule.ide.config.vm.editor.services.edit.commands.OutboundCollectionTypeCreateCommand;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
@@ -36,13 +35,6 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 						.getBaseServiceType_Inbound());
 			}
 			return getGEFWrapper(new InboundCollectionTypeCreateCommand(req));
-		}
-		if (VMElementTypes.OutboundCollectionType_2003 == req.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(CorePackage.eINSTANCE
-						.getBaseServiceType_Outbound());
-			}
-			return getGEFWrapper(new OutboundCollectionTypeCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -77,9 +69,6 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 			case InboundCollectionTypeEditPart.VISUAL_ID:
 				cmd.add(getDestroyElementCommand(node));
 				break;
-			case OutboundCollectionTypeEditPart.VISUAL_ID:
-				cmd.add(getDestroyElementCommand(node));
-				break;
 			case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
@@ -93,6 +82,9 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (VMVisualIDRegistry.getVisualID(cnode)) {
+					case ExceptionStrategyTypeEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
 					}
 				}
 				break;

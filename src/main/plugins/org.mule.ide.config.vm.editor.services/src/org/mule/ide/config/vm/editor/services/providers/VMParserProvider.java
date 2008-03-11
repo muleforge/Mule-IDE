@@ -12,7 +12,9 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.editor.services.parsers.EndpointParser;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemEndpointNameEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 import org.mule.ide.config.vm.editor.services.parsers.MessageFormatParser;
 import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
@@ -26,22 +28,22 @@ public class VMParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser sedaServiceTypeName_4003Parser;
+	private IParser sedaServiceTypeName_4004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSedaServiceTypeName_4003Parser() {
-		if (sedaServiceTypeName_4003Parser == null) {
-			sedaServiceTypeName_4003Parser = createSedaServiceTypeName_4003Parser();
+	private IParser getSedaServiceTypeName_4004Parser() {
+		if (sedaServiceTypeName_4004Parser == null) {
+			sedaServiceTypeName_4004Parser = createSedaServiceTypeName_4004Parser();
 		}
-		return sedaServiceTypeName_4003Parser;
+		return sedaServiceTypeName_4004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSedaServiceTypeName_4003Parser() {
+	protected IParser createSedaServiceTypeName_4004Parser() {
 		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
 				.getAbstractServiceType_Name(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -49,42 +51,70 @@ public class VMParserProvider extends AbstractProvider implements
 	}
 
 	/**
-	 * @generated
+	 *
 	 */
-	private IParser inboundEndpointTypeNameRefConnectorRefAddress_4002Parser;
+	private IParser inboundEndpointTypeName_Parser;
 
 	/**
-	 * @generated
+	 *
 	 */
-	private IParser getInboundEndpointTypeNameRefConnectorRefAddress_4002Parser() {
-		if (inboundEndpointTypeNameRefConnectorRefAddress_4002Parser == null) {
-			inboundEndpointTypeNameRefConnectorRefAddress_4002Parser = createInboundEndpointTypeNameRefConnectorRefAddress_4002Parser();
+	private IParser getInboundEndpointTypeName_Parser() {
+		if (inboundEndpointTypeName_Parser == null) {
+			inboundEndpointTypeName_Parser = createInboundEndpointTypeName_Parser();
 		}
-		return inboundEndpointTypeNameRefConnectorRefAddress_4002Parser;
+		return inboundEndpointTypeName_Parser;
 	}
 
 	/**
-	 * @generated
+	 * 
 	 */
-	protected IParser createInboundEndpointTypeNameRefConnectorRefAddress_4002Parser() {
+	protected IParser createInboundEndpointTypeName_Parser() {
 		EAttribute[] features = new EAttribute[] {
 				CorePackage.eINSTANCE.getAbstractInboundEndpointType_Name(),
 				CorePackage.eINSTANCE.getInboundEndpointType_Ref(),
 				CorePackage.eINSTANCE.getInboundEndpointType_ConnectorRef(),
 				CorePackage.eINSTANCE.getInboundEndpointType_Address(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+		IParser parser = new EndpointParser(features);
 		return parser;
 	}
 
 	/**
-	 * @generated
+	 *
+	 */
+	private IParser outboundEndpointTypeName_Parser;
+
+	/**
+	 *
+	 */
+	private IParser getOutboundEndpointTypeName_Parser() {
+		if (outboundEndpointTypeName_Parser == null) {
+			outboundEndpointTypeName_Parser = createOutboundEndpointTypeName_Parser();
+		}
+		return outboundEndpointTypeName_Parser;
+	}
+
+	/**
+	 * 
+	 */
+	protected IParser createOutboundEndpointTypeName_Parser() {
+		EAttribute[] features = new EAttribute[] {
+				CorePackage.eINSTANCE.getAbstractOutboundEndpointType_Name(),
+				CorePackage.eINSTANCE.getOutboundEndpointType_Ref(),
+				CorePackage.eINSTANCE.getOutboundEndpointType_ConnectorRef(),
+				CorePackage.eINSTANCE.getOutboundEndpointType_Address(), };
+		IParser parser = new EndpointParser(features);
+		return parser;
+	}
+
+	/**
+	 * customization
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case SedaServiceTypeNameEditPart.VISUAL_ID:
-			return getSedaServiceTypeName_4003Parser();
 		case InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
-			return getInboundEndpointTypeNameRefConnectorRefAddress_4002Parser();
+			return getInboundEndpointTypeName_Parser();
+		case OutboundEndpointTypeNameEditPart.VISUAL_ID:
+			return getOutboundEndpointTypeName_Parser();
 		}
 		return null;
 	}

@@ -6,17 +6,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.AbstractExceptionStrategyType;
 import org.mule.ide.config.core.AbstractInboundEndpointType;
+import org.mule.ide.config.core.AbstractOutboundEndpointType;
 import org.mule.ide.config.core.AbstractServiceType;
 import org.mule.ide.config.core.DefaultModelType;
+import org.mule.ide.config.core.ExceptionStrategyType;
 import org.mule.ide.config.core.InboundCollectionType;
 import org.mule.ide.config.core.OutboundCollectionType;
 import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.vm.editor.services.edit.parts.DefaultModelTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeENDPOINTSEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.OutboundCollectionTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeEditPart;
+import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEditPart;
 
 /**
@@ -31,8 +37,12 @@ public class VMDiagramUpdater {
 		switch (VMVisualIDRegistry.getVisualID(view)) {
 		case SedaServiceTypeEditPart.VISUAL_ID:
 			return getSedaServiceType_1001SemanticChildren(view);
+		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:
+			return getSedaServiceTypeEXCEPTION_5002SemanticChildren(view);
 		case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
 			return getInboundCollectionTypeINBOUNDROUTERS_5003SemanticChildren(view);
+		case ExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
+			return getExceptionStrategyTypeENDPOINTS_5004SemanticChildren(view);
 		case DefaultModelTypeEditPart.VISUAL_ID:
 			return getDefaultModelType_79SemanticChildren(view);
 		}
@@ -56,11 +66,30 @@ public class VMDiagramUpdater {
 				result.add(new VMNodeDescriptor(childElement, visualID));
 			}
 		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getSedaServiceTypeEXCEPTION_5002SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		SedaServiceType modelElement = (SedaServiceType) containerView
+				.getElement();
+		List result = new LinkedList();
 		{
-			OutboundCollectionType childElement = modelElement.getOutbound();
+			AbstractExceptionStrategyType childElement = modelElement
+					.getAbstractExceptionStrategy();
 			int visualID = VMVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == OutboundCollectionTypeEditPart.VISUAL_ID) {
+			if (visualID == ExceptionStrategyTypeEditPart.VISUAL_ID) {
 				result.add(new VMNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -89,6 +118,35 @@ public class VMDiagramUpdater {
 			int visualID = VMVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == InboundEndpointServiceItemTypeEditPart.VISUAL_ID) {
+				result.add(new VMNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getExceptionStrategyTypeENDPOINTS_5004SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		ExceptionStrategyType modelElement = (ExceptionStrategyType) containerView
+				.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
+				.iterator(); it.hasNext();) {
+			AbstractOutboundEndpointType childElement = (AbstractOutboundEndpointType) it
+					.next();
+			int visualID = VMVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == OutboundEndpointTypeEditPart.VISUAL_ID) {
 				result.add(new VMNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -131,8 +189,10 @@ public class VMDiagramUpdater {
 			return getInboundCollectionType_2001ContainedLinks(view);
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getInboundEndpointType_2002ContainedLinks(view);
-		case OutboundCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundCollectionType_2003ContainedLinks(view);
+		case ExceptionStrategyTypeEditPart.VISUAL_ID:
+			return getExceptionStrategyType_2003ContainedLinks(view);
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return getOutboundEndpointType_2004ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -148,8 +208,10 @@ public class VMDiagramUpdater {
 			return getInboundCollectionType_2001IncomingLinks(view);
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getInboundEndpointType_2002IncomingLinks(view);
-		case OutboundCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundCollectionType_2003IncomingLinks(view);
+		case ExceptionStrategyTypeEditPart.VISUAL_ID:
+			return getExceptionStrategyType_2003IncomingLinks(view);
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return getOutboundEndpointType_2004IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -165,8 +227,10 @@ public class VMDiagramUpdater {
 			return getInboundCollectionType_2001OutgoingLinks(view);
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getInboundEndpointType_2002OutgoingLinks(view);
-		case OutboundCollectionTypeEditPart.VISUAL_ID:
-			return getOutboundCollectionType_2003OutgoingLinks(view);
+		case ExceptionStrategyTypeEditPart.VISUAL_ID:
+			return getExceptionStrategyType_2003OutgoingLinks(view);
+		case OutboundEndpointTypeEditPart.VISUAL_ID:
+			return getOutboundEndpointType_2004OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -202,7 +266,14 @@ public class VMDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundCollectionType_2003ContainedLinks(View view) {
+	public static List getExceptionStrategyType_2003ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getOutboundEndpointType_2004ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -230,7 +301,14 @@ public class VMDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundCollectionType_2003IncomingLinks(View view) {
+	public static List getExceptionStrategyType_2003IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getOutboundEndpointType_2004IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -258,7 +336,14 @@ public class VMDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getOutboundCollectionType_2003OutgoingLinks(View view) {
+	public static List getExceptionStrategyType_2003OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getOutboundEndpointType_2004OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

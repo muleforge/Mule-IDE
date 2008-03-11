@@ -1013,28 +1013,58 @@ public class CoreVisualIDRegistry {
 	
 	/**
 	 * Called from extension VisualIDRegistry implementations to determine
-	 * if a View can contain a given domain element type.
+	 * if a core View can contain a given domain element type.
 	 * 
-	 * For now, we are assuming that all extensible containers are 
-	 * in the core package.  May eventually move this into a more
+	 * For now, we are assuming that all such extensible container view/elements are 
+	 * defined in the core package.  May eventually want to move this into a more
 	 * general registry for handling containment in non-core classes,
 	 * for example a non-core outbound router that can contain a non-core (or core)
 	 * outbound endpoint.
 	 * 
-	 * @param containerView
-	 * @param type
-	 * @return
+	 * @param containerView diagram containment view
+	 * @param type EClass to check whether can be contained in this view
+	 * @return true if the EClass can be contained by this view, otherwise false.
 	 */
 	public static boolean canContain(View containerView, EClass type) {
-		if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getInboundCollectionType()) {
-			if (CorePackage.eINSTANCE.getAbstractInboundEndpointType().isSuperTypeOf(type)) {
+		// For performance, just using containerView.getElement().eClass() == xyzType
+		// instead of using reflection to discover if there is a containment feature
+		// for the given type.
+		if (CorePackage.eINSTANCE.getAbstractInboundEndpointType().isSuperTypeOf(type)) {
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getInboundCollectionType()) {
+				return true;
+			}
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getAsyncReplyCollectionType()) {
 				return true;
 			}
 		}
-		if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getAsyncReplyCollectionType()) {
-			if (CorePackage.eINSTANCE.getAbstractInboundEndpointType().isSuperTypeOf(type)) {
+		if (CorePackage.eINSTANCE.getAbstractOutboundEndpointType().isSuperTypeOf(type)) {
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getExceptionStrategyType()) {
 				return true;
-			}
+			}			
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getCustomExceptionStrategyType()) {
+				return true;
+			}			
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getOutboundRouterType()) {
+				return true;
+			}			
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getFilteringOutboundRouterType()) {
+				return true;
+			}			
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getChunkingRouterType()) {
+				return true;
+			}			
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getCustomOutboundRouterType()) {
+				return true;
+			}			
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getEndpointSelectorRouterType()) {
+				return true;
+			}			
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getMessageSplitterOutboundRouterType()) {
+				return true;
+			}			
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getStaticRecipientListRouterType()) {
+				return true;
+			}			
 		}
 		return false;
 	}

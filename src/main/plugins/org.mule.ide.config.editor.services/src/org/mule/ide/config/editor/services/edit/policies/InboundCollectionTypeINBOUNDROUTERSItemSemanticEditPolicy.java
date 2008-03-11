@@ -1,8 +1,10 @@
 package org.mule.ide.config.editor.services.edit.policies;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.mule.ide.config.core.CorePackage;
@@ -124,28 +126,10 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 		return super.getCreateCommand(req);
 	}
 	
-	public boolean canContain(EClass type) {
-		if (type == CorePackage.eINSTANCE.getAbstractInboundEndpointType()) {
-			return true;
-		}
-		return false;
+	@Override
+	protected void initExtensibleChildTypes(HashMap<EClass,EReference> map) {
+		map.put(CorePackage.eINSTANCE.getAbstractInboundEndpointType(), 
+				CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundEndpoint());
 	}
-	
-	protected Command getCreateCommandX(CreateElementRequest req) {
-		List<ISemanticEditPolicyX> extensions;
-		
-		extensions = getEditPolicyExtensions(CorePackage.eINSTANCE.getAbstractInboundEndpointType());
-		if (extensions != null) {
-			for (ISemanticEditPolicyX extension : extensions) {
-				Command cmd = extension.getCreateCommandX(req);
-				if (cmd != null) {
-					req.setContainmentFeature(CorePackage.eINSTANCE
-							.getInboundCollectionType_AbstractInboundEndpoint());
-					return cmd;
-				}
-			}
-		}
-		
-		return null;
-	}
+
 }

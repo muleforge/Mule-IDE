@@ -7,10 +7,10 @@ import org.mule.ide.config.editor.services.edit.commands.OutboundRouterOutboundE
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
 /**
- * @generated
+ * customization
  */
 public class TemplateEndpointOutboundRouterTypeENDPOINTSItemSemanticEditPolicy
-		extends CoreBaseItemSemanticEditPolicy {
+		extends AbstractOutboundRouterTypeENDPOINTSItemSemanticEditPolicy {
 
 	/**
 	 * @generated

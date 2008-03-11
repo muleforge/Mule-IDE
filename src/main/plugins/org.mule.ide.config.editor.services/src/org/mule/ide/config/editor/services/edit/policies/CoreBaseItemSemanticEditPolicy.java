@@ -5,9 +5,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
@@ -42,6 +44,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
+import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.SedaModelType;
 import org.mule.ide.config.core.SedaServiceType;
 import org.mule.ide.config.editor.services.edit.helpers.CoreBaseEditHelper;
@@ -59,7 +62,26 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	 */
 	public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
 
+	/*
+	 * Map of child type to its containment reference.
+	 */
+	private HashMap<EClass,EReference> mapTypeToReference;
+	
+	/*
+	 * Map of child type to list of policy extensions.
+	 */
 	private HashMap<EClass,List<ISemanticEditPolicyX>> mapTypeToPolicyList;
+	
+	public CoreBaseItemSemanticEditPolicy() {
+		super();
+		mapTypeToReference = new HashMap<EClass,EReference>();
+		initExtensibleChildTypes(mapTypeToReference);		
+	}
+	
+	protected void initExtensibleChildTypes(HashMap<EClass,EReference> map) {
+		// Subclasses should fill map with child types and references
+		// that support extended edit policy.
+	}
 
 	/**
 	 * Support for extending this policy.
@@ -67,6 +89,11 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	 * @param extension
 	 */
 	public void registerSemanticEditPolicy(EClass type, ISemanticEditPolicyX editPolicy) {
+		assert(mapTypeToReference.get(type) != null) : 
+			"Attempt to register editPolicy "+editPolicy.getClass().getName()+
+			" for type "+type.getName()+
+			" that is not supported by "+this.getClass().getName();  //$NON-NLS-1$
+		
 		if (mapTypeToPolicyList == null) {
 			mapTypeToPolicyList = new HashMap<EClass,List<ISemanticEditPolicyX>>();
 		}
@@ -86,14 +113,7 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	 * @return
 	 */
 	public boolean canContain(EClass type) {
-		return false;
-	}
-
-	public List<ISemanticEditPolicyX> getEditPolicyExtensions(EClass type) {
-		if (mapTypeToPolicyList == null) {
-			return null;
-		}
-		return mapTypeToPolicyList.get(type);
+		return (mapTypeToReference.get(type) != null);
 	}
 
 	/**
@@ -242,6 +262,22 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	}
 	
 	protected Command getCreateCommandX(CreateElementRequest req) {
+		if (mapTypeToReference == null) {
+			return null;
+		}
+		for (Map.Entry<EClass,EReference> entry : mapTypeToReference.entrySet()) {
+			List<ISemanticEditPolicyX> extensions;
+			extensions = mapTypeToPolicyList.get(entry.getKey());
+			if (extensions != null) {
+				for (ISemanticEditPolicyX extension : extensions) {
+					Command cmd = extension.getCreateCommandX(req);
+					if (cmd != null) {
+						req.setContainmentFeature(entry.getValue());
+						return cmd;
+					}
+				}
+			}
+		}
 		return null;
 	}
 

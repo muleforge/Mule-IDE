@@ -7,10 +7,10 @@ import org.mule.ide.config.editor.services.edit.commands.OutboundEndpointTypeCre
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
 /**
- * @generated
+ * customization
  */
 public class CustomExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy extends
-		CoreBaseItemSemanticEditPolicy {
+		AbstractExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy {
 
 	/**
 	 * @generated

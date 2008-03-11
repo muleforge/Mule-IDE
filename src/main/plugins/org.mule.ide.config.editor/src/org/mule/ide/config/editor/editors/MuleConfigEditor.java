@@ -3,8 +3,10 @@ package org.mule.ide.config.editor.editors;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.Executor;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
@@ -20,6 +22,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -44,17 +47,19 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.ISaveablePart2;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.ui.part.MultiPageEditorSite;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.ide.undo.CreateFileOperation;
 import org.eclipse.ui.ide.undo.WorkspaceUndoUtil;
+import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.part.MultiPageEditorSite;
 import org.eclipse.wst.sse.ui.StructuredTextEditor;
 import org.eclipse.wst.xml.core.internal.provisional.contenttype.ContentTypeIdForXML;
+import org.mule.ide.config.common.SyncResource;
 import org.mule.ide.config.core.AbstractModelType;
+import org.mule.ide.config.core.DefaultModelType;
 import org.mule.ide.config.core.DocumentRoot;
 import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.core.SedaModelType;
@@ -252,13 +257,39 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 		
 		setPartName(editorInput.getName());
 		
-    	IFile sourceFile = ((FileEditorInput) editorInput).getFile();
-		URI domainModelURI = 
+    	final IFile sourceFile = ((FileEditorInput) editorInput).getFile();
+		final URI domainModelURI = 
 			URI.createPlatformResourceURI(sourceFile.getFullPath().toString(), true);
 		resourceSet = editingDomain.getResourceSet();
 		try {
 			Resource resource = resourceSet.getResource(domainModelURI, true);
 			documentRoot = (DocumentRoot) resource.getContents().get(0);
+			if (resource instanceof SyncResource) {
+				SyncResource syncResource = (SyncResource) resource;
+				syncResource.setModelUpdateExecutor(new Executor() {
+					
+					public void execute(final Runnable toRun) {
+						AbstractTransactionalCommand command = new AbstractTransactionalCommand(
+								editingDomain,
+								"XML Editing",
+								Collections.singletonList(sourceFile)) {
+							protected CommandResult doExecuteWithResult(
+									IProgressMonitor monitor, IAdaptable info)
+									throws ExecutionException {
+								toRun.run();
+								return CommandResult.newOKCommandResult();
+							}
+						};
+						try {
+							OperationHistoryFactory.getOperationHistory().execute(command,
+									null, null);
+						} catch (ExecutionException e) {
+							ServicesEditorPlugin.getInstance().logError(
+									"Unable to synchronize XML changes into domain model", e); //$NON-NLS-1$
+						}					
+					}
+				});
+			}
 		} catch (WrappedException ex) {
 			throw new PartInitException("Unable to load resource: " + domainModelURI, ex); //$NON-NLS-1$
 		}

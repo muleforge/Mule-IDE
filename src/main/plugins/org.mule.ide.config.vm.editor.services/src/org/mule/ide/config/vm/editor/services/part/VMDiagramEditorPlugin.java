@@ -19,6 +19,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.mule.ide.config.core.provider.CoreItemProviderAdapterFactory;
+import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 import org.mule.ide.config.spring.provider.SpringItemProviderAdapterFactory;
 import org.mule.ide.config.vm.provider.VMItemProviderAdapterFactory;
 import org.osgi.framework.BundleContext;
@@ -69,6 +70,8 @@ public class VMDiagramEditorPlugin extends AbstractUIPlugin {
 		PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT,
 				getPreferenceStore());
 		adapterFactory = createAdapterFactory();
+		ComposedAdapterFactory coreAdapterFactory = (ComposedAdapterFactory) ServicesEditorPlugin.getInstance().getItemProvidersAdapterFactory();
+		coreAdapterFactory.insertAdapterFactory(new VMItemProviderAdapterFactory());
 	}
 
 	/**

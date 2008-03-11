@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
+import java.util.concurrent.Executor;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -25,9 +26,11 @@ import org.eclipse.emf.ecore.xmi.XMLSave;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.wst.sse.core.StructuredModelManager;
 import org.eclipse.wst.sse.core.internal.provisional.IModelManager;
+import org.eclipse.wst.sse.core.internal.provisional.INodeNotifier;
 import org.eclipse.wst.xml.core.internal.provisional.document.IDOMModel;
 import org.mule.ide.config.common.SyncAdapter;
 import org.mule.ide.config.common.SyncResource;
+import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -43,6 +46,15 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 	private IDOMModel xmlModel;
 	private IModelManager modelManager;
 	private boolean deliver = false;
+
+    private final static Executor defaultExecutor = new Executor() {
+	    // DirectExecutor using caller thread
+	    public void execute(Runnable r) {
+		r.run();
+	    }
+	}; 
+
+	protected Executor executor = defaultExecutor;
 
 	/**
 	 * Creates an instance of the resource. <!-- begin-user-doc --> <!--
@@ -196,6 +208,41 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 		}
 	}
 
+	public void xmlNotify(final Node notifier, int eventType, final Object changedFeature, Object oldValue, final Object newValue, int pos, final SyncAdapter adapter) {
+		    
+		if (notifier != adapter.getNode() && eventType != INodeNotifier.CHANGE) {
+			// This is the case where the notification was sent from a
+			// child
+		}
+		else {
+			if (eventType == INodeNotifier.STRUCTURE_CHANGED || eventType == INodeNotifier.CONTENT_CHANGED) {
+				// Update everything on STRUCTURE_CHANGE or CONTENT_CHANGE.
+				// Other event types occur too often.
+
+			}
+			else if (eventType == INodeNotifier.CHANGE && changedFeature instanceof Attr) {
+				final String attrName = ((Attr)changedFeature).getName();
+				executor.execute(new Runnable() {
+					public void run() {
+							
+						SyncSAXXMLHandler handler = new SyncSAXXMLHandler(SyncResourceImpl.this, createXMLHelper(), getDefaultLoadOptions());
+						// Update just the attribute that changed.
+							
+							// System.out.println("Attribute change " + attrName);
+							if (newValue != null) {
+								handler.updateAttribute((EObject)adapter.getTarget(), ((Attr)changedFeature).getName(), newValue.toString());
+							}
+							else
+							{
+								handler.removeAttribute((EObject)adapter.getTarget(), ((Attr)changedFeature).getName());
+							}
+						}
+					}
+				);
+			}
+		}
+	}
+
 	protected void notifyUnsetSingle(Notification msg, EObject object, Node node, SyncAdapter adapter) {
 		getXMLSave(node).notifyUnSetSingle(msg, object, node, adapter);
 	}
@@ -227,4 +274,9 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 	public void setUpdateEnabled(boolean enabled) {
 		this.deliver = enabled;		
 	}
+	
+	public void setModelUpdateExecutor(Executor executor) {
+		this.executor = executor;
+	}
+	
 }

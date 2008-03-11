@@ -7,7 +7,6 @@ import java.util.Map;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEMap;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -198,12 +197,12 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			if (extendedMetaData != null) {
 				targetFeature = extendedMetaData.getAffiliation(o.eClass(), feature);
 				if (targetFeature != null && targetFeature != feature) {
-					System.out.println("Feature " + feature + " maps to " + targetFeature );
+//					System.out.println("Feature " + feature + " maps to " + targetFeature );
 
 					EStructuralFeature group = extendedMetaData.getGroup(targetFeature);
 					if (group != null)
 					{
-						System.out.println("This is in group " + group);
+//						System.out.println("This is in group " + group);
 					}
 					targetFeature = group;
 //					do {
@@ -220,7 +219,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 				}
 			}
 			if (i < 0) {
-				System.out.println("Jeg vil drukne mig i atlanterhavet -- det er fastslået");
+//				System.out.println("Jeg vil drukne mig i atlanterhavet -- det er fastslået");
 				return;
 			}
 		}		
@@ -781,12 +780,12 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			if (extendedMetaData != null) {
 				targetFeature = extendedMetaData.getAffiliation(o.eClass(), feature);
 				if (targetFeature != null && targetFeature != feature) {
-					System.out.println("Feature " + feature + " maps to " + targetFeature );
+//					System.out.println("Feature " + feature + " maps to " + targetFeature );
 
 					EStructuralFeature group = extendedMetaData.getGroup(targetFeature);
 					if (group != null)
 					{
-						System.out.println("This is in group " + group);
+//						System.out.println("This is in group " + group);
 					}
 					targetFeature = group;
 		        } else {
@@ -798,7 +797,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 				}
 			}
 			if (i < 0) {
-				System.out.println("Jeg vil drukne mig i atlanterhavet -- det er fastslået");
+//				System.out.println("Jeg vil drukne mig i atlanterhavet -- det er fastslået");
 				return;
 			}
 		}		
@@ -912,7 +911,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			adapter = new SyncAdapterImpl(o,
 					text == null ? currentNode : text,
 					(SyncResource) xmlResource);
-			o.eAdapters().add(adapter);
+			adapter.wireAdapters();
 		}
 		if (adapter != null) {
 			if (text != null && text.getNodeType() == Node.ELEMENT_NODE) {
@@ -1127,7 +1126,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 				}
 			}
 			if (i < 0) {
-				System.out.println("Peblingesøen, det kunne ikke være mere korrekt, Brådtgaard -- det er fastslået");
+//				System.out.println("Peblingesøen, det kunne ikke være mere korrekt, Brådtgaard -- det er fastslået");
 				return;
 			}
 		}
@@ -1152,7 +1151,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		case OBJECT_ATTRIBUTE_SINGLE:
 		case OBJECT_ATTRIBUTE_IDREF_SINGLE:
 			// TODO - Perhaps just exclude from the switch
-			System.out.println("How can you remove a single instance?");
+//			System.out.println("How can you remove a single instance?");
 			break;
 
 		case OBJECT_ATTRIBUTE_MANY:
@@ -1186,7 +1185,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		}
 
 		case ATTRIBUTE_FEATURE_MAP:
-			System.out.println("*** What to do about this one?");
+//			System.out.println("*** What to do about this one?");
 			break;
 		}
 
@@ -1227,12 +1226,12 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			if (extendedMetaData != null) {
 				targetFeature = extendedMetaData.getAffiliation(object.eClass(), feature);
 				if (targetFeature != null && targetFeature != feature) {
-					System.out.println("Feature " + feature + " maps to " + targetFeature );
+//					System.out.println("Feature " + feature + " maps to " + targetFeature );
 
 					EStructuralFeature group = extendedMetaData.getGroup(targetFeature);
 					if (group != null)
 					{
-						System.out.println("This is in group " + group);
+//						System.out.println("This is in group " + group);
 					}
 					targetFeature = group;
 		        } else {
@@ -1244,7 +1243,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 				}
 			}
 			if (i < 0) {
-				System.out.println("Jeg vil drukne mig i atlanterhavet -- det er fastslået");
+//				System.out.println("Jeg vil drukne mig i atlanterhavet -- det er fastslået");
 				return;
 			}
 		}
@@ -1270,7 +1269,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		case OBJECT_ATTRIBUTE_SINGLE:
 		case OBJECT_ATTRIBUTE_IDREF_SINGLE:
 			// TODO - Perhaps just exclude from the switch
-			System.out.println("How can you add to a single instance?");
+//			System.out.println("How can you add to a single instance?");
 			break;
 
 		case OBJECT_ATTRIBUTE_MANY:
@@ -1324,7 +1323,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 					entryAdapter.setNode(newElement);
 				} else {
 					entryAdapter = new SyncAdapterImpl((EObject)value,  (IDOMNode)newElement, (SyncResource) xmlResource);
-					((EObject)value).eAdapters().add(entryAdapter);
+					entryAdapter.wireAdapters();
 				}
 			} else {
 				newElement = insertValueElement(fme.getValue(), feature, fc);
@@ -1334,7 +1333,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			break;
 
 		case ATTRIBUTE_FEATURE_MAP:
-			System.out.println("*** What to do about this one?");
+//			System.out.println("*** What to do about this one?");
 			break;
 		}
 	}

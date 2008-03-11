@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -149,4 +150,26 @@ public class SyncSAXXMLHandler extends SAXXMLHandler implements SyncHandler {
 			Object value, int position) {
 		super.setFeatureValue(object, feature, value, position);
 	}
+	
+	public void updateAttribute(EObject object, String attrName, String attrValue) {
+		setAttribValue(object, attrName, attrValue);
+	}
+
+	public void removeAttribute(EObject obj, String name) {
+	    int index = name.indexOf(':', 0);
+
+	    // We use null here instead of "" because an attribute without a prefix is considered to have the null target namespace...
+	    String prefix = null;
+	    String localName = name;
+	    if (index != -1)
+	    {
+	      prefix    = name.substring(0, index);
+	      localName = name.substring(index + 1);
+	    }
+	    EStructuralFeature feature = getFeature(obj, prefix, localName, false);
+	    if (feature != null)
+	    {
+	    	obj.eUnset(feature);
+	    }
+	  }
 }

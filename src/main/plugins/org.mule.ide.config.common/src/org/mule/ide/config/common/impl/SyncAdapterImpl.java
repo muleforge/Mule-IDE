@@ -3,6 +3,7 @@ package org.mule.ide.config.common.impl;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
@@ -14,12 +15,13 @@ import org.eclipse.wst.xml.core.internal.provisional.document.IDOMModel;
 import org.eclipse.wst.xml.core.internal.provisional.document.IDOMNode;
 import org.mule.ide.config.common.SyncAdapter;
 import org.mule.ide.config.common.SyncResource;
+import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAdapter {
 
-	protected boolean DEBUG = true;
+	protected boolean DEBUG = false;
 	
 	protected boolean updateEnabled = true;
 	
@@ -125,6 +127,9 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 				case Notification.UNSET :
 					notifType = "UNSET"; //$NON-NLS-1$
 					break;
+				default:
+					notifType = "" + msg.getEventType(); //$NON-NLS-1$
+					break;
 			}
 
 			System.out.println("EMF Change: " + notifType); //$NON-NLS-1$
@@ -162,15 +167,6 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 		return domNode;
 	}
 
-	public boolean isEMFProxy() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public void removeAdapters(Node node) {
-		// TODO Auto-generated method stub
-	}
-
 	public void setNode(Node node) {
 		if (node instanceof IDOMNode)
 			this.domNode = (IDOMNode)node;
@@ -189,22 +185,8 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 		boolean wasUpdatable = this.syncResource.isUpdateEnabled();
 		try {
 			this.syncResource.setUpdateEnabled(false);
-			
-			if (notifier != getNode() && eventType != INodeNotifier.CHANGE) {
-				// This is the case where the notification was sent from a
-				// child.
-			}
-			else {
-				// Update everything on STRUCTURE_CHANGE or CONTENT_CHANGE.
-				// Other event types occur too often.
-				if (eventType == INodeNotifier.STRUCTURE_CHANGED || eventType == INodeNotifier.CONTENT_CHANGED) {
-					//updateMOF();
-				}
-				// Update just the attribute that changed.
-				else if (eventType == INodeNotifier.CHANGE) {
-				}
-			}
 
+			this.syncResource.xmlNotify((Node)notifier, eventType, changedFeature, oldValue, newValue, pos, this);
 		} finally {
 			this.syncResource.setUpdateEnabled(wasUpdatable);
 		}
@@ -233,11 +215,11 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 					notifType = "STRUCTURE_CHANGE"; //$NON-NLS-1$
 					break;
 			}
-			Logger.log(Logger.INFO_DEBUG, "DOM Change: " + notifType); //$NON-NLS-1$
-			Logger.log(Logger.INFO_DEBUG, "\tnotifier      : " + notifier); //$NON-NLS-1$
-			Logger.log(Logger.INFO_DEBUG, "\tchangedFeature: " + changedFeature); //$NON-NLS-1$
-			Logger.log(Logger.INFO_DEBUG, "\toldValue      : " + oldValue); //$NON-NLS-1$
-			Logger.log(Logger.INFO_DEBUG, "\tnewValue      : " + newValue); //$NON-NLS-1$
+			System.out.println("DOM Change: " + notifType); //$NON-NLS-1$
+			System.out.println("\tnotifier      : " + notifier); //$NON-NLS-1$
+			System.out.println("\tchangedFeature: " + changedFeature); //$NON-NLS-1$
+			System.out.println("\toldValue      : " + oldValue); //$NON-NLS-1$
+			System.out.println("\tnewValue      : " + newValue); //$NON-NLS-1$
 		}
 	}
 

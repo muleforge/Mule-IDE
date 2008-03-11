@@ -30,16 +30,6 @@ public interface SyncAdapter extends Adapter {
 	 */
 	void setUpdateEnabled(boolean isEnabled);
 
-	/**
-	 * Return true if EMF object is a proxy.
-	 */
-	boolean isEMFProxy();
-
-	/**
-	 * Remove the DOM adapters from the node AND all its child nodes, recursively.
-	 */
-	void removeAdapters(Node node);
-	
 	void wireAdapters();
 
 	void unwireAdapters();

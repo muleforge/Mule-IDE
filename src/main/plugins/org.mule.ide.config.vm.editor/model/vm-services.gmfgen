@@ -147,28 +147,27 @@
     </childNodes>
     <childNodes
         visualID="2003"
-        editPartClassName="OutboundCollectionTypeEditPart"
-        itemSemanticEditPolicyClassName="OutboundCollectionTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="OutboundCollectionTypeViewFactory"
-        canonicalEditPolicyClassName="OutboundCollectionTypeCanonicalEditPolicy"
+        editPartClassName="ExceptionStrategyTypeEditPart"
+        itemSemanticEditPolicyClassName="ExceptionStrategyTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="ExceptionStrategyTypeViewFactory"
+        canonicalEditPolicyClassName="ExceptionStrategyTypeCanonicalEditPolicy"
         compartments="//@diagram/@compartments.3"
-        graphicalNodeEditPolicyClassName="OutboundCollectionTypeGraphicalNodeEditPolicy"
-        createCommandClassName="OutboundCollectionTypeCreateCommand"
-        containers="//@diagram/@topLevelNodes.0">
+        graphicalNodeEditPolicyClassName="ExceptionStrategyTypeGraphicalNodeEditPolicy"
+        createCommandClassName="ExceptionStrategyTypeCreateCommand"
+        containers="//@diagram/@compartments.1">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="OutboundCollectionTypeEditHelper"/>
+          editHelperClassName="ExceptionStrategyTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
-          className="CollectionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CollectionFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CollectionFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(1);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setOutlineXOR(true);&#xA;this.setLineWidth(0);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#xA;this.setFont(THIS_FONT);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font THIS_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 8, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          className="ServiceItemFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 250, 250, 190);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 8, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"
-            fixedFont="true"
-            fixedForeground="true"/>
+            fixedBackground="true"/>
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             height="10"/>
@@ -176,12 +175,73 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundCollectionType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/outbound"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractExceptionStrategy"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/outbound"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractExceptionStrategy"/>
       </modelFacet>
+    </childNodes>
+    <childNodes
+        visualID="2004"
+        editPartClassName="OutboundEndpointTypeEditPart"
+        itemSemanticEditPolicyClassName="OutboundEndpointTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="OutboundEndpointTypeViewFactory"
+        canonicalEditPolicyClassName="OutboundEndpointTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="OutboundEndpointTypeGraphicalNodeEditPolicy"
+        createCommandClassName="OutboundEndpointTypeCreateCommand"
+        containers="//@diagram/@compartments.3">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="OutboundEndpointTypeEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          layoutType="TOOLBAR_LAYOUT"
+          className="EndpointFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EndpointFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureEndpointNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EndpointFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEndpointNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureEndpointNameFigure.setText(&quot;&quot;);&#xA;&#xA;fFigureEndpointNameFigure.setFont(FFIGUREENDPOINTNAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureEndpointNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureEndpointNameFigure() {&#xA;&#x9;&#x9;return fFigureEndpointNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREENDPOINTNAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 10, org.eclipse.swt.SWT.NORMAL);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            height="10"/>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../org.mule.ide.config.vm/model/mule-vm.genmodel#//vm/OutboundEndpointType"/>
+        <containmentMetaFeature
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType/abstractOutboundEndpoint"/>
+        <childMetaFeature
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType/abstractOutboundEndpoint"/>
+      </modelFacet>
+      <labels
+          visualID="4003"
+          editPartClassName="OutboundEndpointTypeNameEditPart"
+          itemSemanticEditPolicyClassName="OutboundEndpointTypeNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="OutboundEndpointTypeNameViewFactory"
+          readOnly="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureEndpointNameFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet">
+          <metaFeatures
+              href="../../org.mule.ide.config.core/model/core.genmodel#//core/AbstractOutboundEndpointType/name"/>
+          <metaFeatures
+              href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundEndpointType/ref"/>
+          <metaFeatures
+              href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundEndpointType/connectorRef"/>
+          <metaFeatures
+              href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundEndpointType/address"/>
+        </modelFacet>
+      </labels>
     </childNodes>
     <topLevelNodes
         visualID="1001"
@@ -189,7 +249,7 @@
         itemSemanticEditPolicyClassName="SedaServiceTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="SedaServiceTypeViewFactory"
         canonicalEditPolicyClassName="SedaServiceTypeCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2"
+        childNodes="//@diagram/@childNodes.0"
         compartments="//@diagram/@compartments.0 //@diagram/@compartments.1"
         graphicalNodeEditPolicyClassName="SedaServiceTypeGraphicalNodeEditPolicy"
         createCommandClassName="SedaServiceTypeCreateCommand">
@@ -222,7 +282,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/AbstractModelType/abstractService"/>
       </modelFacet>
       <labels
-          visualID="4003"
+          visualID="4004"
           editPartClassName="SedaServiceTypeNameEditPart"
           itemSemanticEditPolicyClassName="SedaServiceTypeNameItemSemanticEditPolicy"
           notationViewFactoryClassName="SedaServiceTypeNameViewFactory"
@@ -269,6 +329,7 @@
         itemSemanticEditPolicyClassName="SedaServiceTypeEXCEPTIONItemSemanticEditPolicy"
         notationViewFactoryClassName="SedaServiceTypeEXCEPTIONViewFactory"
         canonicalEditPolicyClassName="SedaServiceTypeEXCEPTIONCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.2"
         title="EXCEPTION"
         node="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
@@ -298,11 +359,13 @@
     </compartments>
     <compartments
         visualID="5004"
-        editPartClassName="OutboundCollectionTypeOUTBOUNDROUTERSEditPart"
-        itemSemanticEditPolicyClassName="OutboundCollectionTypeOUTBOUNDROUTERSItemSemanticEditPolicy"
-        notationViewFactoryClassName="OutboundCollectionTypeOUTBOUNDROUTERSViewFactory"
-        canonicalEditPolicyClassName="OutboundCollectionTypeOUTBOUNDROUTERSCanonicalEditPolicy"
-        title="OUTBOUNDROUTERS"
+        editPartClassName="ExceptionStrategyTypeENDPOINTSEditPart"
+        itemSemanticEditPolicyClassName="ExceptionStrategyTypeENDPOINTSItemSemanticEditPolicy"
+        notationViewFactoryClassName="ExceptionStrategyTypeENDPOINTSViewFactory"
+        canonicalEditPolicyClassName="ExceptionStrategyTypeENDPOINTSCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.3"
+        title="ENDPOINTS"
+        needsTitle="false"
         node="//@diagram/@childNodes.2">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -328,7 +391,8 @@
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="[vm] Outbound Endpoint"
-            description="Add a new Outbound Endpoint to a service"/>
+            description="Add a new Outbound Endpoint to a service"
+            genNodes="//@diagram/@childNodes.3"/>
       </groups>
     </palette>
     <preferencePages
@@ -375,6 +439,9 @@
     <childReferences
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.0"/>
+    <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.3"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.2"/>

@@ -262,7 +262,7 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	}
 	
 	protected Command getCreateCommandX(CreateElementRequest req) {
-		if (mapTypeToReference == null) {
+		if (mapTypeToPolicyList == null) {
 			return null;
 		}
 		for (Map.Entry<EClass,EReference> entry : mapTypeToReference.entrySet()) {

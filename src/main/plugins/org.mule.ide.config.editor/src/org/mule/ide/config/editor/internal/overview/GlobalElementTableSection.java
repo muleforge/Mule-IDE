@@ -670,6 +670,7 @@ public abstract class GlobalElementTableSection extends TableSection
 		public void notifyChanged(Notification msg) {
 			int eventType = msg.getEventType();
 			
+			/*
 			if (eventType == Notification.ADD) {
 				Object feature = msg.getFeature();
 				if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) feature)) {
@@ -680,6 +681,7 @@ public abstract class GlobalElementTableSection extends TableSection
 			         }
 				}
 			}
+			*/
 
 			if (eventType == Notification.REMOVE) {
 				Object feature = msg.getFeature();
@@ -692,11 +694,19 @@ public abstract class GlobalElementTableSection extends TableSection
 				}
 			}
 
-			if (eventType == Notification.SET) {
+			if (eventType == Notification.ADD || eventType == Notification.SET) {
 				Object notifier = msg.getNotifier();
-				if (checkElementType(notifier)) {
-					getViewer().update(notifier, null);
-					return;
+				if (notifier instanceof MuleType) {
+					Object newValue = msg.getNewValue();
+					if (checkElementType(newValue)) {
+						refresh();
+						return;
+					}										
+				} else {
+					if (checkElementType(notifier)) {
+						getViewer().update(notifier, null);
+						return;
+					}
 				}
 			}
 		}

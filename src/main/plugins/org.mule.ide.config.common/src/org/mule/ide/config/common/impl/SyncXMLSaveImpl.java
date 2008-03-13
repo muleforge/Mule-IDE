@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -151,7 +152,43 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 
 	public SyncXMLSaveImpl(XMLHelper helper) {
 		super(helper);
-		handler = new DefaultDOMHandlerImpl();
+		handler = new DefaultDOMHandlerImpl() { 
+			@Override
+			public void recordValues(Node text, EObject o,
+					EStructuralFeature f, Object value) {
+			
+				if (text != null) {
+					super.recordValues(text, o, f, value);
+				}
+
+				SyncAdapter adapter = findAdapter(o);
+				if (adapter == null && xmlResource instanceof SyncResource) {
+					adapter = new SyncAdapterImpl(o,
+							text == null ? currentNode : text.getParentNode(),
+							(SyncResource) xmlResource);
+					adapter.wireAdapters();
+				}
+				if (adapter != null) {
+					if (text != null && text.getNodeType() == Node.ELEMENT_NODE) {
+						if (! f.isTransient()) adapter.setFeatureElement(f, (Element) text);
+					} else {
+						adapter.clearFeatureElement(f);
+					}
+				}
+
+				if (value instanceof EObject && f instanceof EReference) {
+					EObject theChild = (EObject) value;
+					// TODO - we should ensure this only happens for contained objects?
+					if (((EReference) f).isContainment()) {
+						if (EcoreUtil.getExistingAdapter(theChild, SyncAdapter.class) == null) {
+							adapter = new SyncAdapterImpl(theChild, text,
+									(SyncResource) xmlResource);
+							adapter.wireAdapters();
+						}
+					}
+				}
+			}
+		};
 	}
 
 	@Override
@@ -236,6 +273,16 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			return;
 		}
 
+		if (msg.isTouch()) {
+			// OK, usually we don't do this, BUT:
+			boolean allowTouch = 
+				extendedMetaData.getFeatureKind(f) == ExtendedMetaData.ELEMENT_FEATURE &&
+				! f.isMany() &&
+				adapter.getFeatureElement(targetFeature) == null;
+			
+				if (! allowTouch) return;
+		}
+		
 		switch (kind) {
 		case TRANSIENT:
 			checkElement = true;
@@ -511,7 +558,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 				updateHRefSingle(value, f, fc);
 			} else {
 				Element newElement = insertObjectElement((EObject) value, f, fc);
-				recordNewValues(newElement, o, f, value);
+				handler.recordValues(newElement, o, f, value);
 			}
 		}
 		fc.removeRemainingNodes();
@@ -539,6 +586,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 
 				currentNode = fc.insertElement(ni);
 				saveElementID(o);
+				SyncUtilities.indent(currentNode);
 				return (Element) currentNode;
 			}
 		}
@@ -601,7 +649,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			if (value != null) {
 				Element newElement = insertObjectElement(value, f, fc);
 				if (i == 0)
-					recordNewValues(newElement, o, f, value);
+					handler.recordValues(newElement, o, f, value);
 			}
 		}
 		fc.removeRemainingNodes();
@@ -633,7 +681,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			// nameInfo.getQualifiedName());
 			replaceText(elem, svalue, true);
 			fc.removeRemainingNodes();
-			recordNewValues(elem, o, f, value);
+			handler.recordValues(elem, o, f, value);
 		}
 	}
 
@@ -651,7 +699,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			// nameInfo.getQualifiedName());
 			replaceText(elem, svalue, true);
 			fc.removeRemainingNodes();
-			recordNewValues(elem, o, f, value);
+			handler.recordValues(elem, o, f, value);
 		}
 	}
 
@@ -670,7 +718,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 	// // nameInfo.getQualifiedName());
 	// replaceText(elem, svalue, true);
 	// fc.removeRemainingNodes();
-	// recordNewValues(elem, o, f, value);
+	// handler.recordValues(elem, o, f, value);
 	//
 	// updateElement(o, helper.getValue(o, f), f, fc);
 	//
@@ -748,7 +796,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			String svalue = getDatatypeValue(value, feature, false);
 
 			Node node = replaceText(currentNode, svalue, false);
-			recordNewValues(node, o, feature, value);
+			handler.recordValues(node, o, feature, value);
 
 			return true;
 		}
@@ -869,7 +917,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			helper.populateNameInfo(nameInfo, f);
 			element.removeAttributeNS(nameInfo.getNamespaceURI(), nameInfo
 					.getLocalPart());
-			recordNewValues(null, o, f, null);
+			handler.recordValues(null, o, f, null);
 		}
 	}
 
@@ -885,7 +933,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 					idAttributeName);
 			attr.setNodeValue(id);
 			((Element) currentNode).setAttributeNodeNS(attr);
-			recordNewValues(attr, o, null, o);
+			handler.recordValues(attr, o, null, o);
 		}
 		saveFeatures(o);
 	}
@@ -896,42 +944,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		String svalue = getDatatypeValue(value, f, false);
 
 		Node text = replaceText(currentNode, svalue, false);
-		recordNewValues(text, o, f, value);
-	}
-
-	private void recordNewValues(Node text, EObject o, EStructuralFeature f,
-			Object value) {
-		// Is this ever used?
-		if (text != null) {
-			handler.recordValues(text, o, f, value);
-		}
-
-		SyncAdapter adapter = findAdapter(o);
-		if (adapter == null && xmlResource instanceof SyncResource) {
-			adapter = new SyncAdapterImpl(o,
-					text == null ? currentNode : text,
-					(SyncResource) xmlResource);
-			adapter.wireAdapters();
-		}
-		if (adapter != null) {
-			if (text != null && text.getNodeType() == Node.ELEMENT_NODE) {
-				if (! f.isTransient()) adapter.setFeatureElement(f, (Element) text);
-			} else {
-				adapter.clearFeatureElement(f);
-			}
-		}
-
-		if (value instanceof EObject && f instanceof EReference) {
-			EObject theChild = (EObject) value;
-			// TODO - we should ensure this only happens for contained objects?
-			if (((EReference) f).isContainment()) {
-				if (EcoreUtil.getExistingAdapter(theChild, SyncAdapter.class) == null) {
-					adapter = new SyncAdapterImpl(theChild, text,
-							(SyncResource) xmlResource);
-					theChild.eAdapters().add(adapter);
-				}
-			}
-		}
+		handler.recordValues(text, o, f, value);
 	}
 
 	private Node replaceText(Node parent, String svalue) {
@@ -984,7 +997,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		}
 		Node text = replaceText(currentNode, svalue, true);
 		if (text != null)
-			recordNewValues(text, o, f, value);
+			handler.recordValues(text, o, f, value);
 	}
 
 	protected void replaceElementReferenceManySimple(EObject o,
@@ -1012,7 +1025,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			svalue = null;
 
 		Node text = replaceText(currentNode, svalue, true);
-		recordNewValues(text, o, f, values);
+		handler.recordValues(text, o, f, values);
 	}
 
 	private static void removeElementValue(Node node) {
@@ -1052,7 +1065,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			elem.removeChild(elem.getFirstChild());
 		}
 		elem.setAttributeNS(ExtendedMetaData.XSI_URI, XSI_NIL, "true");
-		recordNewValues(elem, o, f, null);
+		handler.recordValues(elem, o, f, null);
 		fc.removeRemainingNodes();
 	}
 
@@ -1078,7 +1091,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		}
 
 		Node text = replaceText(currentNode, svalue, false);
-		recordNewValues(text, o, f, values);
+		handler.recordValues(text, o, f, values);
 	}
 
 	public void notifyRemovedFromList(Notification msg, EObject object,
@@ -1180,7 +1193,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 
 			fc.removeCurrentNode();
 			if (msg.getPosition() == 0)
-				recordNewValues(null, object, targetFeature, msg.getOldValue());
+				handler.recordValues(null, object, targetFeature, msg.getOldValue());
 			break;
 		}
 
@@ -1298,38 +1311,43 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 			Element newElement = insertObjectElement((EObject) msg
 					.getNewValue(), feature, fc);
 			if (msg.getPosition() == 0)
-				recordNewValues(newElement, (EObject) msg.getNewValue(), targetFeature,
+				handler.recordValues(newElement, (EObject) msg.getNewValue(), targetFeature,
 						(EObject) msg.getNewValue());
 			break;
 		}
 
 		case ELEMENT_FEATURE_MAP:
-			// TODO - Deep thought
+			// Simple check - does the object already exist?
+			FeatureMap.Entry fme = (FeatureMap.Entry)msg.getNewValue();
+			feature = fme.getEStructuralFeature();
+			
 			// locate individual nodes...
 			FeatureCursor fc = locateFeature(adapter, features, i, feature);
 			for (int ii = 0; ii < msg.getPosition(); ++ii)
 				fc.simpleAdvance();
 
-			FeatureMap.Entry fme = (FeatureMap.Entry)msg.getNewValue();
-			feature = fme.getEStructuralFeature();
-			
 			Element newElement = null;
 			if (fme.getValue() instanceof EObject) {
 				EObject value = (EObject)fme.getValue();
-				
-				newElement = insertObjectElement(value, feature, fc);
-				SyncAdapter entryAdapter = findAdapter((EObject)value);
-				if (entryAdapter != null) {
-					entryAdapter.setNode(newElement);
+
+				SyncAdapter childAdapter = (SyncAdapter)EcoreUtil.getExistingAdapter(value, SyncAdapter.class);
+				if (childAdapter != null && childAdapter.getNode() != null) {
+					fc.parentElement.insertBefore(newElement = (Element)childAdapter.getNode(), fc.nextNode);
 				} else {
-					entryAdapter = new SyncAdapterImpl((EObject)value,  (IDOMNode)newElement, (SyncResource) xmlResource);
-					entryAdapter.wireAdapters();
+					newElement = insertObjectElement(value, feature, fc);
+					if (childAdapter != null) {
+						childAdapter.setNode(newElement);
+					} else {
+						childAdapter = new SyncAdapterImpl((EObject)value,  (IDOMNode)newElement, (SyncResource) xmlResource);
+					}
+					childAdapter.wireAdapters();
 				}
 			} else {
 				newElement = insertValueElement(fme.getValue(), feature, fc);
 			}
-			if (msg.getPosition() == 0)
-				recordNewValues(newElement, object, targetFeature, msg.getNewValue());
+			if (msg.getPosition() == 0) {
+				handler.recordValues(newElement, object, targetFeature, msg.getNewValue());
+			}
 			break;
 
 		case ATTRIBUTE_FEATURE_MAP:

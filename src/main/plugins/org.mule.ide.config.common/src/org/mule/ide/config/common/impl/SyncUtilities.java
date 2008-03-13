@@ -16,8 +16,15 @@ public class SyncUtilities {
 		String indentString = calcIndentString(node);
 	
 		indentOpenTag(indentString, node);
-	
+//		Node child = node.getFirstChild();
+//		while (child != null) {
+//			if (child.getNodeType() == Node.ELEMENT_NODE) indent(child);
+//			child = child.getNextSibling();
+//		}
 		indentCloseTab(indentString, node);
+		String parentIndent = calcIndentString(node.getParentNode());
+		indentCloseTab(parentIndent, node.getParentNode());
+		
 	}
 
 	protected static String getDocumentNewline(Node node) {
@@ -40,7 +47,7 @@ public class SyncUtilities {
 	protected static void indentOpenTag(String indentString, Node node) {
 		Node parent = node.getParentNode();
 		Text ws = node.getOwnerDocument().createTextNode(getDocumentNewline(node) + indentString); //$NON-NLS-1$
-		insertAfter(parent, ws, getPreviousNonText(node));
+		insertBefore(parent, ws, node);
 	}
 
 	public static void insertAfter(Node parent, Node newNode, Node refNode) {

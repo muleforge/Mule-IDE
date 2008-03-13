@@ -145,7 +145,7 @@ public class SyncAdapterImpl extends AdapterImpl implements SyncAdapter, INodeAd
 		super.notifyChanged(msg);
 		
 		if (! isUpdateInEffect()) return;
-		if (msg.isTouch()) return; // Only do the work if state is changed
+//		if (msg.isTouch()) return; // Only do the work if state is changed
 		
 		debugEMFNotify(msg);
 

@@ -2,8 +2,10 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.mule.ide.config.spring/src"
-    modelPluginID="org.mule.ide.config.spring" modelName="Spring-beans-2" importerID="org.eclipse.xsd.ecore.importer"
-    complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+    editDirectory="/org.mule.ide.config.spring/src" modelPluginID="org.mule.ide.config.spring"
+    modelName="Spring-beans-2" editPluginClass="org.mule.ide.config.spring.SpringPlugin"
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
   <foreignModel>file:/C:/dev/mule/workspaces/mule-ide%20-%20Copy/org.mule.ide.config.spring/model/spring-beans-2.0.xsd</foreignModel>
   <genPackages prefix="Spring" basePackage="org.mule.ide.config" resource="XML" disposableProviderFactory="true"
       ecorePackage="spring.ecore#/">

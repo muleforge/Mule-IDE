@@ -22,6 +22,7 @@
        type="xml" 
        class="org.mule.ide.config.core.util.CoreResourceFactoryImpl" />
   </extension>
+  
   <extension
         point="org.eclipse.wst.xml.core.catalogContributions">
         <catalogContribution id="default">
@@ -29,6 +30,18 @@
                 name="http://www.mulesource.org/schema/mule/core/2.0"
                 uri="model/mule.xsd" />
         </catalogContribution>
+  </extension>
+
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http://www.mulesource.org/schema/mule/core/2.0" 
+       class = "org.mule.ide.config.core.provider.CoreItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
   </extension>
 
 </plugin>

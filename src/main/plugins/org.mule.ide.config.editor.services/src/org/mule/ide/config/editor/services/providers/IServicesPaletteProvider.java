@@ -32,9 +32,10 @@ public interface IServicesPaletteProvider extends IPaletteProvider {
 	public String getNSURI();
 	
 	/**
-	 * Fill the palettte root with a list of child groups
-	 * of length NUM_GROUPS with contributions in a 
-	 * PaletteContainer at the expected position.
+	 * Fill the palettte root with a list of PaletteContainer
+	 * of length NUM_GROUPS.  Any contributions from this provider
+	 * to the Services editor palette should appear at a 
+	 * particular position in the child list.
 	 * 
 	 * @param paletteRoot
 	 */

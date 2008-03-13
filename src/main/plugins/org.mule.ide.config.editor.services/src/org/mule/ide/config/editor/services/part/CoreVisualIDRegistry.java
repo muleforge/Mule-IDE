@@ -42,6 +42,11 @@ import org.mule.ide.config.editor.services.expressions.CoreAbstractExpression;
 public class CoreVisualIDRegistry {
 
 	/**
+	 * Extensions will use this to identify views from the Core package.
+	 */
+	public final static String MODEL_ID = DefaultModelTypeEditPart.MODEL_ID;
+	
+	/**
 	 * @generated
 	 */
 	private static final String DEBUG_KEY = ServicesEditorPlugin.getInstance()

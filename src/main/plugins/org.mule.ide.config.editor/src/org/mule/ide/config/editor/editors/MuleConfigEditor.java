@@ -215,17 +215,12 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 	 * 
 	 */
 	public void doSave(IProgressMonitor monitor) {
-		IEditorPart activeEditor = getActiveEditor();
-		if (activeEditor != null) {
-			if (activeEditor == xmlEditor) {
-				xmlEditor.doSave(monitor);
-			} else if (servicesEditor != null) {
-				// For now, use the services editor to save the EMF model
-				// it will save the diagram model at the same time.
-				servicesEditor.doSave(monitor);
-				setModelDirty(false);
-			}
-		}
+		// Services editor saves both the config file and the diagram
+		// visual information.
+		// SyncResourceImpl intercepts the EMF model save and calls save 
+		// on the XML model unless the SAVE_OPTION_SUPRESS_TEXT_SAVE option is set.
+		servicesEditor.doSave(monitor);
+		setModelDirty(false);
 	}
 	
 	public void doSaveAs() {

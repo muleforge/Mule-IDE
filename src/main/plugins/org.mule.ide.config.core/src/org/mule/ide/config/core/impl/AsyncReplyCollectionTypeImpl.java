@@ -10,20 +10,13 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.notify.impl.AdapterImpl;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.mule.ide.config.core.AbstractAsyncReplyRouterType;
 import org.mule.ide.config.core.AbstractInboundEndpointType;
 import org.mule.ide.config.core.AbstractTransformerType;
@@ -50,7 +43,7 @@ import org.mule.ide.config.core.CorePackage;
  *
  * @generated
  */
-public class AsyncReplyCollectionTypeImpl extends EObjectImpl implements AsyncReplyCollectionType {
+public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl implements AsyncReplyCollectionType {
 	/**
 	 * The cached value of the '{@link #getAbstractInboundEndpointGroup() <em>Abstract Inbound Endpoint Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -407,52 +400,4 @@ public class AsyncReplyCollectionTypeImpl extends EObjectImpl implements AsyncRe
 		return result.toString();
 	}
 	
-	private boolean isIDEPlaceholder = false;
-	private IDEPlaceholderListener placeholderListener = null;
-	
-	/**
-	 * Return whether this object is a placeholder element in the model
-	 * which should not be serialized.
-	 */
-	public boolean isIDEPlaceholder() {
-		return isIDEPlaceholder;
-	}
-	
-	/**
-	 * Flag this object as a placeholder element in the model
-	 * which should not be serialized.
-	 */
-	public void setIDEPlaceholder() {
-		isIDEPlaceholder = true;
-		if (placeholderListener == null) {
-			placeholderListener = new IDEPlaceholderListener();
-			eAdapters().add(placeholderListener);
-		}
-	}
-	
-	/*
-	 * If any feature on this object is set then assume this is
-	 * no longer a placeholder.
-	 * Needs synchronization?
-	 * TODO Probably need to figure out Undo handling
-	 */
-	private void unsetIDEPlaceholder() {
-		isIDEPlaceholder = false;
-		if (placeholderListener != null) {
-			eAdapters().remove(placeholderListener);
-			placeholderListener = null;
-		}
-	}
-	
-	class IDEPlaceholderListener extends AdapterImpl {
-		public void notifyChanged(Notification msg) {
-			int eventType = msg.getEventType();
-			if (eventType == Notification.ADD || eventType == Notification.ADD_MANY
-					|| eventType == Notification.SET ) {
-				unsetIDEPlaceholder();
-			}
-		}
-	}
-
-
 } //AsyncReplyCollectionTypeImpl

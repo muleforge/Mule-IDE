@@ -12,7 +12,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -20,8 +19,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
 import org.mule.ide.config.common.impl.SyncResourceImpl;
 import org.mule.ide.config.common.impl.SyncXMLSaveImpl;
 import org.mule.ide.config.core.AbstractModelType;
@@ -30,10 +27,11 @@ import org.mule.ide.config.core.BaseServiceType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DocumentRoot;
 import org.mule.ide.config.core.MuleType;
+import org.mule.ide.config.core.PlaceholderSupport;
 import org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl;
-import org.mule.ide.config.core.impl.BaseServiceTypeImpl;
 import org.mule.ide.config.core.impl.InboundCollectionTypeImpl;
 import org.mule.ide.config.core.impl.OutboundCollectionTypeImpl;
+import org.w3c.dom.Node;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,9 +60,19 @@ public class CoreResourceImpl extends SyncResourceImpl {
 		return defaults;
 	}
 	
+	@Override
 	public void doLoad(InputStream inputStream, Map<?, ?> options) throws IOException {
 		super.doLoad(inputStream, options);
-		
+		createPlaceholders();
+	}
+
+	@Override
+	public void doLoad(Node node, Map<?, ?> options) throws IOException {
+		super.doLoad(node, options);
+		createPlaceholders();
+	}
+	
+	private void createPlaceholders() {
 		// TODO factor this out, probably into a ResourceHandler
 		EList<EObject> contents = getContents();
 		MuleType mule = ((DocumentRoot) contents.get(0)).getMule();
@@ -93,8 +101,8 @@ public class CoreResourceImpl extends SyncResourceImpl {
 			collectionContainer = CorePackage.eINSTANCE
 					.getBaseServiceType_Inbound();
 			result = collectionClass.getEPackage().getEFactoryInstance().create(collectionClass);
-			service.eSet(collectionContainer, result);
 			((InboundCollectionTypeImpl) result).setIDEPlaceholder();
+			service.eSet(collectionContainer, result);
 		}
 		
 		if (service.getAsyncReply() == null) {
@@ -103,8 +111,8 @@ public class CoreResourceImpl extends SyncResourceImpl {
 			collectionContainer = CorePackage.eINSTANCE
 					.getBaseServiceType_AsyncReply();
 			result = collectionClass.getEPackage().getEFactoryInstance().create(collectionClass);
-			service.eSet(collectionContainer, result);
 			((AsyncReplyCollectionTypeImpl) result).setIDEPlaceholder();
+			service.eSet(collectionContainer, result);
 		}
 		
 		if (service.getOutbound() == null) {
@@ -113,8 +121,8 @@ public class CoreResourceImpl extends SyncResourceImpl {
 			collectionContainer = CorePackage.eINSTANCE
 					.getBaseServiceType_Outbound();
 			result = collectionClass.getEPackage().getEFactoryInstance().create(collectionClass);
-			service.eSet(collectionContainer, result);
 			((OutboundCollectionTypeImpl) result).setIDEPlaceholder();
+			service.eSet(collectionContainer, result);
 		}
 	}
 
@@ -136,7 +144,14 @@ public class CoreResourceImpl extends SyncResourceImpl {
 		
 		protected boolean shouldSaveFeature(EObject o, EStructuralFeature f)
 		{
-			EClass eClass = o.eClass();
+			Object child = o.eGet(f);
+			if (child instanceof PlaceholderSupport) {
+				return ! ((PlaceholderSupport)child).isIDEPlaceholder();
+			}
+			/*	
+			 			EClass eClass = o.eClass();
+			
+			// Ted's implementation:
 			if (CorePackage.eINSTANCE.getBaseServiceType().isSuperTypeOf(eClass)) {
 				if (f.equals(CorePackage.eINSTANCE.getBaseServiceType_Inbound())
 						&& ((BaseServiceTypeImpl) o).getInbound() != null
@@ -154,7 +169,7 @@ public class CoreResourceImpl extends SyncResourceImpl {
 					return false;
 				}
 			}
-			    
+	*/		    
 			return super.shouldSaveFeature(o, f);
 		}
 	}

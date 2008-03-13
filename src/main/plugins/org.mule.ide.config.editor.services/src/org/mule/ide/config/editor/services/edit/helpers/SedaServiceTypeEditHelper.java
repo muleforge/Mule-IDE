@@ -3,16 +3,13 @@ package org.mule.ide.config.editor.services.edit.helpers;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
-import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.mule.ide.config.core.BaseServiceType;
-import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl;
 import org.mule.ide.config.core.impl.InboundCollectionTypeImpl;
 import org.mule.ide.config.core.impl.OutboundCollectionTypeImpl;
@@ -58,28 +55,41 @@ public class SedaServiceTypeEditHelper extends CoreBaseEditHelper {
 			//TODO figure out how to consolidate this with the corresponding
 			// load/save handling in CoreResourceImpl
 
-			EClass collectionClass = CorePackage.eINSTANCE
-					.getInboundCollectionType();
-			EReference collectionContainer = CorePackage.eINSTANCE
-					.getBaseServiceType_Inbound();
-			EObject result = EMFCoreUtil.create(service, collectionContainer,
-					collectionClass);
-			((InboundCollectionTypeImpl) result).setIDEPlaceholder();
+			InboundCollectionTypeImpl inbound = (InboundCollectionTypeImpl)CoreFactory.eINSTANCE.createInboundCollectionType();
+			inbound.setIDEPlaceholder();
+			service.setInbound(inbound);
+			
+//			EClass collectionClass = CorePackage.eINSTANCE
+//					.getInboundCollectionType();
+//			EReference collectionContainer = CorePackage.eINSTANCE
+//					.getBaseServiceType_Inbound();
+//			EObject result = EMFCoreUtil.create(service, collectionContainer,
+//					collectionClass);
+//			((InboundCollectionTypeImpl) result).setIDEPlaceholder();
 
-			collectionClass = CorePackage.eINSTANCE
-					.getAsyncReplyCollectionType();
-			collectionContainer = CorePackage.eINSTANCE
-					.getBaseServiceType_AsyncReply();
-			result = EMFCoreUtil.create(service, collectionContainer,
-					collectionClass);
-			((AsyncReplyCollectionTypeImpl) result).setIDEPlaceholder();
+			AsyncReplyCollectionTypeImpl asyncReply = (AsyncReplyCollectionTypeImpl)CoreFactory.eINSTANCE.createAsyncReplyCollectionType();
+			asyncReply.setIDEPlaceholder();
+			service.setAsyncReply(asyncReply);
 
-			collectionClass = CorePackage.eINSTANCE.getOutboundCollectionType();
-			collectionContainer = CorePackage.eINSTANCE
-					.getBaseServiceType_Outbound();
-			result = EMFCoreUtil.create(service, collectionContainer,
-					collectionClass);
-			((OutboundCollectionTypeImpl) result).setIDEPlaceholder();
+			
+//			collectionClass = CorePackage.eINSTANCE
+//					.getAsyncReplyCollectionType();
+//			collectionContainer = CorePackage.eINSTANCE
+//					.getBaseServiceType_AsyncReply();
+//			result = EMFCoreUtil.create(service, collectionContainer,
+//					collectionClass);
+//			((AsyncReplyCollectionTypeImpl) result).setIDEPlaceholder();
+
+			OutboundCollectionTypeImpl outbound = (OutboundCollectionTypeImpl)CoreFactory.eINSTANCE.createOutboundCollectionType();
+			outbound.setIDEPlaceholder();
+			service.setOutbound(outbound);
+									
+//			collectionClass = CorePackage.eINSTANCE.getOutboundCollectionType();
+//			collectionContainer = CorePackage.eINSTANCE
+//					.getBaseServiceType_Outbound();
+//			result = EMFCoreUtil.create(service, collectionContainer,
+//					collectionClass);
+//			((OutboundCollectionTypeImpl) result).setIDEPlaceholder();
 		}
 	}
 }

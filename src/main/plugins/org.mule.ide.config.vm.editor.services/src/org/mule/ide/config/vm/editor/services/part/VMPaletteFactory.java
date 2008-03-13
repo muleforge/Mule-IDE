@@ -124,13 +124,21 @@ public class VMPaletteFactory {
 			new VMPaletteFactory().fillPalette(paletteRoot);
 			List<PaletteContainer> children = new ArrayList<PaletteContainer>(
 					IServicesPaletteProvider.NUM_GROUPS);
+			// Services
 			children.add(DUMMY_CONTAINER);
+			// Components
 			children.add(DUMMY_CONTAINER);
+			// Exception Strategies
 			children.add(DUMMY_CONTAINER);
+			// Inbound Endpoints
 			children.add((PaletteContainer) paletteRoot.getChildren().get(0));
+			// Inbound Routers
 			children.add(DUMMY_CONTAINER);
+			// Async Reply Routers
 			children.add(DUMMY_CONTAINER);
+			// Outbound Endpoints
 			children.add((PaletteContainer) paletteRoot.getChildren().get(1));
+			// Outbound Routers
 			children.add(DUMMY_CONTAINER);
 			paletteRoot.setChildren(children);
 		}

@@ -22,10 +22,6 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (VMElementTypes.InboundEndpointType_2002 == req.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(CorePackage.eINSTANCE
-						.getInboundCollectionType_AbstractInboundEndpoint());
-			}
 			return getGEFWrapper(new InboundEndpointServiceItemTypeCreateCommand(
 					req));
 		}

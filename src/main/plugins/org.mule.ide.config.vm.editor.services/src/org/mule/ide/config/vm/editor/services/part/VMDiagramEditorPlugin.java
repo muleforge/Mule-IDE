@@ -67,8 +67,6 @@ public class VMDiagramEditorPlugin extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		instance = this;
-		PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT,
-				getPreferenceStore());
 		adapterFactory = createAdapterFactory();
 		ComposedAdapterFactory coreAdapterFactory = (ComposedAdapterFactory) ServicesEditorPlugin.getInstance().getItemProvidersAdapterFactory();
 		coreAdapterFactory.insertAdapterFactory(new VMItemProviderAdapterFactory());

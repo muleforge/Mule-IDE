@@ -95,7 +95,7 @@ public class VMViewProvider extends AbstractViewProvider {
 				// This method is called with EObjectAdapter as parameter from:
 				//   - ViewService.createNode(View container, EObject eObject, String type, PreferencesHint preferencesHint) 
 				//   - generated ViewFactory.decorateView() for parent element
-				if (!DefaultModelTypeEditPart.MODEL_ID
+				if (!VMVisualIDRegistry.MODEL_ID
 						.equals(VMVisualIDRegistry.getModelID(containerView))) {
 					return null; // foreign diagram
 				}

@@ -116,12 +116,12 @@ public class VMEditPartProvider extends AbstractEditPartProvider {
 	}
 
 	/**
-	 * @generated
+	 * customization
 	 */
 	public synchronized boolean provides(IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
 			View view = ((IEditPartOperation) operation).getView();
-			if (!DefaultModelTypeEditPart.MODEL_ID.equals(VMVisualIDRegistry
+			if (!VMVisualIDRegistry.MODEL_ID.equals(VMVisualIDRegistry
 					.getModelID(view))) {
 				return false;
 			}

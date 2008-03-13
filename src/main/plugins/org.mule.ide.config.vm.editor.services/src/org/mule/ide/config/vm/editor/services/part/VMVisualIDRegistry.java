@@ -2,28 +2,19 @@ package org.mule.ide.config.vm.editor.services.part;
 
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EAnnotation;
-import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.DefaultModelType;
+import org.mule.ide.config.editor.services.edit.parts.AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart;
+import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.vm.VMPackage;
-import org.mule.ide.config.vm.editor.services.edit.parts.DefaultModelTypeEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeENDPOINTSEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.ExceptionStrategyTypeEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemEndpointNameEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.InboundEndpointServiceItemTypeLabelEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.vm.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeEditPart;
-import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeNameEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -34,9 +25,8 @@ import org.mule.ide.config.vm.editor.services.edit.parts.SedaServiceTypeNameEdit
  */
 public class VMVisualIDRegistry {
 
-	public final static String CORE_MODEL_ID = org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart.MODEL_ID;
-	public final static String VM_MODEL_ID = org.mule.ide.config.vm.editor.services.edit.parts.DefaultModelTypeEditPart.MODEL_ID;
-
+	public final static String MODEL_ID = "VM"; //$NON-NLS-1$
+	
 	/**
 	 * @generated
 	 */
@@ -51,8 +41,7 @@ public class VMVisualIDRegistry {
 		if (view instanceof Diagram) {
 			return -1;
 		}
-		return org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry
-				.getVisualID(view.getType());
+		return getVisualID(view.getType());
 	}
 
 	/**
@@ -62,7 +51,7 @@ public class VMVisualIDRegistry {
 		EObject element = view.getElement();
 		if (element != null) {
 			if (element.eClass().getEPackage() instanceof VMPackage) {
-				return VM_MODEL_ID;
+				return MODEL_ID;
 			}
 		}
 		View diagram = view.getDiagram();
@@ -101,103 +90,99 @@ public class VMVisualIDRegistry {
 	}
 
 	/**
-	 * customization
-	 */
-	public static int getDiagramVisualID(EObject domainElement) {
-		return -1;
-	}
-
-	/**
-	 * customization
+	 * If the containerView can contain a domain element of this type
+	 * return the visual ID of the EditPart that will be used to 
+	 * display the element.  Otherwise return false.
 	 */
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
-		boolean isCoreContainer = false;
 		if (domainElement == null) {
 			return -1;
 		}
-		String containerModelID = org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry
-				.getModelID(containerView);
-		if (CORE_MODEL_ID.equals(containerModelID)) {
-			isCoreContainer = true;
-		} else if (!VM_MODEL_ID.equals(containerModelID)) {
-			return -1;
-		}
 		int containerVisualID;
-		if (isCoreContainer) {
+		String containerModelID = getModelID(containerView);
+		// Currently assuming the only container EditParts in the editor come from the
+		// core plugin.  Eventually, there will need to be a general
+		// registry for looking up containment.
+		if (CoreVisualIDRegistry.MODEL_ID.equals(containerModelID)) {
+			// Handle domainElement EditParts contained in a Core EditPart.
 			containerVisualID = CoreVisualIDRegistry.getVisualID(containerView);
-		} else {
-			containerVisualID = VMVisualIDRegistry.getVisualID(containerView);
-		}
-		if (isCoreContainer) {
-			if (CoreVisualIDRegistry.canContain(containerView, domainElement
-					.eClass())) {
+			switch (containerVisualID) {
+			case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+			case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
+				// "Service Item" EditPart that goes in a specific top-level section EditPart.
 				if (VMPackage.eINSTANCE.getInboundEndpointType().isSuperTypeOf(
 						domainElement.eClass())) {
 					return InboundEndpointServiceItemTypeEditPart.VISUAL_ID;
 				}
-				if (VMPackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
-						domainElement.eClass())) {
-					return OutboundEndpointTypeEditPart.VISUAL_ID;
+				break;
+			default:
+				// EditPart that goes in any container that can contain them.
+				if (CoreVisualIDRegistry.canContain(containerView, domainElement
+						.eClass())) {
+					if (VMPackage.eINSTANCE.getOutboundEndpointType().isSuperTypeOf(
+							domainElement.eClass())) {
+						return OutboundEndpointTypeEditPart.VISUAL_ID;
+					}
 				}
 			}
-			return -1;
 		} else {
-			switch (containerVisualID) {
-			}
-			return -1;
+			// Handle domainElement EditParts contained in an EditPart from this plugin.
 		}
+		return -1;
 	}
 
 	/**
-	 * customization
+	 * If an EditPart of the given visual ID can be added to the given
+	 * containerView, return true.  Otherwise false.
 	 */
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
-		boolean isCoreContainer = false;
-		String containerModelID = org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry
-				.getModelID(containerView);
-		if (CORE_MODEL_ID.equals(containerModelID)) {
-			isCoreContainer = true;
-		} else if (!VM_MODEL_ID.equals(containerModelID)) {
+		if (nodeVisualID == -1) {
 			return false;
 		}
 		int containerVisualID;
-		if (isCoreContainer) {
+		String containerModelID = getModelID(containerView);
+		if (CoreVisualIDRegistry.MODEL_ID.equals(containerModelID)) {
+			// Handle EditParts contained in a Core EditPart.
 			containerVisualID = CoreVisualIDRegistry.getVisualID(containerView);
-		} else {
-			containerVisualID = VMVisualIDRegistry.getVisualID(containerView);
-		}
-		if (isCoreContainer) {
-			if (InboundEndpointServiceItemTypeEditPart.VISUAL_ID == nodeVisualID) {
-				if (CoreVisualIDRegistry.canContain(containerView,
-						CorePackage.eINSTANCE.getAbstractInboundEndpointType())) {
-					return true;
-				}
-			}
-			if (OutboundEndpointTypeEditPart.VISUAL_ID == nodeVisualID) {
-				if (CoreVisualIDRegistry.canContain(containerView,
-						CorePackage.eINSTANCE.getAbstractOutboundEndpointType())) {
-					return true;
-				}
-			}
-			return false;
-		} else {
-			switch (containerVisualID) {
+			switch (nodeVisualID) {
 			case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
-				if (InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
-					return true;
-				}
-				if (InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID == nodeVisualID) {
+				// "Service Item" EditPart that goes in a specific top-level section EditPart.
+				switch (containerVisualID) {
+				case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
+				case AsyncReplyCollectionTypeASYNCREPLYROUTERSEditPart.VISUAL_ID:
 					return true;
 				}
 				break;
 			case OutboundEndpointTypeEditPart.VISUAL_ID:
-				if (OutboundEndpointTypeNameEditPart.VISUAL_ID == nodeVisualID) {
+				// EditPart that goes in any EditPart that can contain them.
+				if (CoreVisualIDRegistry.canContain(containerView,
+						CorePackage.eINSTANCE.getAbstractOutboundEndpointType())) {
 					return true;
 				}
 				break;
 			}
-			return false;
+		} else {
+			// Handle EditParts contained in an EditPart from this plugin.
+			containerVisualID = getVisualID(containerView);
+			switch (nodeVisualID) {
+			case InboundEndpointServiceItemTypeLabelEditPart.VISUAL_ID:
+				if (containerVisualID == InboundEndpointServiceItemTypeEditPart.VISUAL_ID) {
+					return true;
+				}
+				break;
+			case InboundEndpointServiceItemEndpointNameEditPart.VISUAL_ID:
+				if (containerVisualID == InboundEndpointServiceItemTypeEditPart.VISUAL_ID) {
+					return true;
+				}
+				break;
+			case OutboundEndpointTypeNameEditPart.VISUAL_ID:
+				if (containerVisualID == OutboundEndpointTypeEditPart.VISUAL_ID) {
+					return true;
+				}
+				break;
+			}
 		}
+		return false;
 	}
 
 	/**
@@ -208,16 +193,6 @@ public class VMVisualIDRegistry {
 			return -1;
 		}
 		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 * 
-	 * customization
-	 */
-	private static boolean isDiagram(DefaultModelType element) {
-		return false;
 	}
 
 }

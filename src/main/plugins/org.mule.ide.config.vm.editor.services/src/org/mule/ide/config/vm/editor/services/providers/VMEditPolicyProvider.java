@@ -9,10 +9,11 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.CreateEditPolicies
 import org.eclipse.gmf.runtime.diagram.ui.services.editpolicy.IEditPolicyProvider;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.editor.services.edit.parts.DefaultModelTypeEditPart;
 import org.mule.ide.config.editor.services.edit.policies.CoreBaseItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.vm.editor.services.edit.policies.InboundEndpointContainerSemanticEditPolicy;
 import org.mule.ide.config.vm.editor.services.edit.policies.OutboundEndpointContainerSemanticEditPolicy;
+import org.mule.ide.config.vm.editor.services.part.VMVisualIDRegistry;
 
 public class VMEditPolicyProvider extends AbstractProvider implements
 		IEditPolicyProvider {
@@ -44,7 +45,8 @@ public class VMEditPolicyProvider extends AbstractProvider implements
 			EditPart editPart = ((CreateEditPoliciesOperation) operation).getEditPart();
 			View view = (View) editPart.getModel();
 			String modelID = view.getDiagram().getType();
-			return DefaultModelTypeEditPart.MODEL_ID.equals(modelID);
+			// Provider for a diagram with the Core model id.
+			return CoreVisualIDRegistry.MODEL_ID.equals(modelID);
 		}
 		return false;
 	}

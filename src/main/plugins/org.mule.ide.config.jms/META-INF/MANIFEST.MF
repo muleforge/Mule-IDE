@@ -9,6 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.mule.ide.config.jms,
  org.mule.ide.config.jms.impl,
+ org.mule.ide.config.jms.provider,
  org.mule.ide.config.jms.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,

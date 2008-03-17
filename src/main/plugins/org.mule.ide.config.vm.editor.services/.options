@@ -1,7 +1,0 @@
-# Tracing options for the org.mule.ide.config.vm.editor.services plug-in
-
-# Common issues
-org.mule.ide.config.vm.editor.services/debug=false
-
-# Visual IDs
-org.mule.ide.config.vm.editor.services/debug/visualID=false

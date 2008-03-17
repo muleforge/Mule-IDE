@@ -1,9 +1,19 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.mule.ide.config.vm.editor
+Bundle-SymbolicName: org.mule.ide.config.vm.editor; singleton:=true
 Bundle-Version: 1.0.0.vqualifier
-Require-Bundle: org.eclipse.emf.ecore
+Bundle-ClassPath: .
+Bundle-Activator: org.mule.ide.config.vm.editor.services.part.VMDiagramEditorPlugin
+Require-Bundle: org.eclipse.emf.ecore,
+ org.mule.ide.config.editor.services,
+ org.mule.ide.config.vm,
+ org.eclipse.ui.navigator,
+ org.eclipse.ui.ide
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
+Export-Package: org.mule.ide.config.vm.editor.services.edit.parts,
+ org.mule.ide.config.vm.editor.services.part,
+ org.mule.ide.config.vm.editor.services.providers
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Eclipse-LazyStart: true

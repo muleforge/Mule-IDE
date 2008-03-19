@@ -7,11 +7,15 @@
       <editor
             class="org.mule.ide.config.editor.editors.MuleConfigEditor"
             contributorClass="org.mule.ide.config.editor.editors.MuleConfigEditorContributor"
+            default="false"
             extensions="xml"
             filenames="mule-config.xml"
             icon="icons/config-file.gif"
             id="org.mule.ide.config.editor.editors.MuleConfigEditor"
             name="Mule Configuration Editor">
+         <contentTypeBinding
+               contentTypeId="org.mule.ide.config.editor.MuleRootContentTypeBinding">
+         </contentTypeBinding>
       </editor>
    </extension>
    <extension
@@ -50,5 +54,19 @@
             id="org.mule.ide.config.editor.services.EditingDomain">
       </editingDomain>
    </extension>
+
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+	   <content-type base-type="org.eclipse.core.runtime.xml"
+	                 file-extensions="xml"
+	                 id="org.mule.ide.config.editor.MuleRootContentTypeBinding"
+	                 name="Mule Configuration File"
+	                 priority="high">
+	      <describer class="org.eclipse.core.runtime.content.XMLRootElementContentDescriber">
+	         <parameter name="element"
+	                    value="mule">
+	         </parameter>
+	      </describer>
+	   </content-type>
+	</extension>
 
 </plugin>

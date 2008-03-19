@@ -62,7 +62,7 @@ import org.mule.ide.config.spring.SpringPackage;
  * @model kind="package"
  * @generated
  */
-public interface CorePackage extends EPackage {
+public interface CorePackage extends EPackage, IGlobalElementTypeProvider {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->

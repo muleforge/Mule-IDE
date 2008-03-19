@@ -9,6 +9,9 @@ package org.mule.ide.config.core.impl;
 import java.io.IOException;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
@@ -18,6 +21,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
@@ -32,9 +36,15 @@ import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
+import org.mule.ide.config.core.AbstractConnectorType;
+import org.mule.ide.config.core.AbstractFilterType;
+import org.mule.ide.config.core.AbstractGlobalEndpointType;
+import org.mule.ide.config.core.AbstractTransformerType;
 import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.DefaultGlobalElementType;
 
+import org.mule.ide.config.core.IGlobalElementTypeProvider.IGlobalElementType;
 import org.mule.ide.config.core.util.CoreValidator;
 
 import org.mule.ide.config.spring.SpringPackage;
@@ -9063,6 +9073,168 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 			eClassifier.setInstanceClassName("org.mule.ide.config.core." + eClassifier.getName());
 			setGeneratedClassName(eClassifier);
 		}
+	}
+
+	
+	private List<IGlobalElementType> connectorTypes = null;
+	public List<IGlobalElementType> getConnectorTypes() {
+		if (connectorTypes == null) {
+			List<IGlobalElementType> results = new ArrayList<IGlobalElementType>();
+			
+			results.add(new DefaultGlobalElementType(
+					getCustomConnectorType(),
+					getDocumentRoot_CustomConnector()));
+			
+			connectorTypes = results;
+		}
+		return connectorTypes;
+	}
+	
+	private List<IGlobalElementType> endpointTypes = null;
+	public List<IGlobalElementType> getEndpointTypes() {
+		if (endpointTypes == null) {
+			List<IGlobalElementType> results = new ArrayList<IGlobalElementType>();
+			
+			results.add(new DefaultGlobalElementType(
+					getGlobalEndpointType(),
+					getDocumentRoot_Endpoint()));
+
+			endpointTypes = results;
+		}
+		return endpointTypes;	
+	}
+	
+	private List<IGlobalElementType> filterTypes = null;
+	public List<IGlobalElementType> getFilterTypes() {
+		if (filterTypes == null) {
+			List<IGlobalElementType> results = new ArrayList<IGlobalElementType>();
+
+			results.add(new DefaultGlobalElementType(
+					getRefFilterType(),
+					getDocumentRoot_Filter()));
+			results.add(new DefaultGlobalElementType(
+					getUnitaryFilterType(),
+					getDocumentRoot_NotFilter()));
+			results.add(new DefaultGlobalElementType(
+					getCollectionFilterType(),
+					getDocumentRoot_AndFilter()));
+			results.add(new DefaultGlobalElementType(
+					getCollectionFilterType(),
+					getDocumentRoot_OrFilter()));
+			results.add(new DefaultGlobalElementType(
+					getWildcardFilterType(),
+					getDocumentRoot_WildcardFilter()));
+			results.add(new DefaultGlobalElementType(
+					getPatternFilterType(),
+					getDocumentRoot_RegexFilter()));
+			results.add(new DefaultGlobalElementType(
+					getPatternFilterType(),
+					getDocumentRoot_MessagePropertyFilter()));
+			results.add(new DefaultGlobalElementType(
+					getTypeFilterType(),
+					getDocumentRoot_ExceptionTypeFilter()));
+			results.add(new DefaultGlobalElementType(
+					getTypeFilterType(),
+					getDocumentRoot_PayloadTypeFilter()));
+			results.add(new DefaultGlobalElementType(
+					getCustomFilterType(),
+					getDocumentRoot_CustomFilter()));
+
+			filterTypes = results;
+		}
+		return filterTypes;	
+	}
+	
+	private List<IGlobalElementType> transformerTypes = null;
+	public List<IGlobalElementType> getTransformerTypes() {
+		if (transformerTypes == null) {
+			List<IGlobalElementType> results = new ArrayList<IGlobalElementType>();
+			
+			results.add(new DefaultGlobalElementType(
+					getRefTransformerType(),
+					getDocumentRoot_Transformer()));
+			results.add(new DefaultGlobalElementType(
+					getCustomTransformerType(),
+					getDocumentRoot_CustomTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getMessagePropertiesTransformerType(),
+					getDocumentRoot_MessagePropertiesTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_NoActionTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_Base64DecoderTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_Base64EncoderTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_UcDecoderTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_UcEncoderTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_UuDecoderTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_UuEncoderTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_XmlEntityDecoderTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_XmlEntityEncoderTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_GzipCompressTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_GzipUncompressTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_GzipUncompressTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_DecryptTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_EncryptTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_ByteArrayToHexStringTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_ByteArrayToObjectTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_ByteArrayToSerializableTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_ByteArrayToStringTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_HexStringToByteArrayTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_ObjectToByteArrayTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_ObjectToStringTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_SerializableToByteArrayTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAbstractTransformerType(),
+					getDocumentRoot_StringToByteArrayTransformer()));
+			results.add(new DefaultGlobalElementType(
+					getAppendStringTransformerType(),
+					getDocumentRoot_AppendStringTransformer()));
+			
+			transformerTypes = results;
+		}
+		return transformerTypes;
 	}
 
 } //CorePackageImpl

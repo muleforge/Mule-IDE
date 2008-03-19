@@ -1,5 +1,6 @@
 package org.mule.ide.config.common.impl;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -125,7 +126,15 @@ public class SyncSAXXMLHandler extends SAXXMLHandler implements SyncHandler {
 		    		groupFeature = this.extendedMetaData.getGroup(feature);
 		    	}
 	    	}	    	
-	    	if (sync != null && feature != null && !feature.isTransient()) sync.setFeatureElement(feature, (Element)currentNode);
+	    	if (sync != null && feature != null && !feature.isTransient()) {
+	    		if (feature.isMany()) {
+	    			Collection<?> c = (Collection<?>) peekObject.eGet(feature);
+	    			if (c == null ? true : c.isEmpty())
+		    			sync.setFeatureElement(feature, (Element)currentNode);
+	    		} else {
+	    			sync.setFeatureElement(feature, (Element)currentNode);
+	    		}
+	    	}
 	    }
 	    super.handleFeature(prefix, name);
 	}

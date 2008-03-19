@@ -66,7 +66,8 @@ public class DescriptionSection extends ConfigEditorSection {
 		text = toolkit.createText(container, "", styles); //$NON-NLS-1$
 		gd = new GridData(GridData.FILL_BOTH);
 		gd.grabExcessVerticalSpace = true;
-		gd.minimumHeight = 50;
+		gd.minimumHeight = 60;
+		gd.heightHint = 60;
 		text.setLayoutData(gd);
 
 		/*

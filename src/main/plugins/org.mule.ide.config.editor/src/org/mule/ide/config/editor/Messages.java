@@ -63,6 +63,8 @@ public class Messages extends NLS {
 	public static String OverviewPage_Title;
 	
 	public static String NewGlobalElementWizard_TypePage_Description;
-	public static String NewGlobalElementWizard_TypePage_TypeLabel;
+	public static String NewGlobalElementWizard_TypePage_TableLabel;
+	public static String NewGlobalElementWizard_TypePage_TableColumn0Label;
+	public static String NewGlobalElementWizard_TypePage_TableColumn1Label;
 	public static String NewGlobalElementWizard_TypePage_NameLabel;
 }

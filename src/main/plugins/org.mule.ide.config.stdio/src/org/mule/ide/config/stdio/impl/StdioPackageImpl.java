@@ -6,6 +6,10 @@
  */
 package org.mule.ide.config.stdio.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -20,6 +24,8 @@ import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.DefaultGlobalElementType;
+import org.mule.ide.config.core.IGlobalElementTypeProvider.IGlobalElementType;
 
 import org.mule.ide.config.spring.SpringPackage;
 
@@ -689,4 +695,48 @@ public class StdioPackageImpl extends EPackageImpl implements StdioPackage {
 		   });
 	}
 
+	private List<IGlobalElementType> connectorTypes = null;
+	public List<IGlobalElementType> getConnectorTypes() {
+		if (connectorTypes == null) {
+			List<IGlobalElementType> results = new ArrayList<IGlobalElementType>();
+			
+			results.add(new DefaultGlobalElementType(
+					getStdioConnectorType(),
+					getDocumentRoot_Connector()));
+			
+			connectorTypes = results;
+		}
+		return connectorTypes;
+	}
+	
+	private List<IGlobalElementType> endpointTypes = null;
+	public List<IGlobalElementType> getEndpointTypes() {
+		if (endpointTypes == null) {
+			List<IGlobalElementType> results = new ArrayList<IGlobalElementType>();
+			
+			results.add(new DefaultGlobalElementType(
+					getGlobalEndpointType(),
+					getDocumentRoot_Endpoint()));
+
+			endpointTypes = results;
+		}
+		return endpointTypes;	
+	}
+	
+	private List<IGlobalElementType> filterTypes = null;
+	public List<IGlobalElementType> getFilterTypes() {
+		if (filterTypes == null) {
+			filterTypes = Collections.emptyList();
+		}
+		return filterTypes;	
+	}
+	
+	private List<IGlobalElementType> transformerTypes = null;
+	public List<IGlobalElementType> getTransformerTypes() {
+		if (transformerTypes == null) {
+			transformerTypes = Collections.emptyList();
+		}
+		return transformerTypes;	
+	}
+	
 } //StdioPackageImpl

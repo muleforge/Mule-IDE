@@ -6,6 +6,10 @@
  */
 package org.mule.ide.config.jms.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -20,6 +24,8 @@ import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.DefaultGlobalElementType;
+import org.mule.ide.config.core.IGlobalElementTypeProvider.IGlobalElementType;
 
 import org.mule.ide.config.jms.AcknowledgementModeType;
 import org.mule.ide.config.jms.ActiveMqConnectorType;
@@ -3359,6 +3365,79 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "kind", "attribute",
 			 "name", "username"
 		   });
+	}
+	private List<IGlobalElementType> connectorTypes = null;
+	public List<IGlobalElementType> getConnectorTypes() {
+		if (connectorTypes == null) {
+			List<IGlobalElementType> results = new ArrayList<IGlobalElementType>();
+			
+			results.add(new DefaultGlobalElementType(
+					getGenericConnectorType(),
+					getDocumentRoot_Connector()));
+			results.add(new DefaultGlobalElementType(
+					getCustomConnectorType(),
+					getDocumentRoot_CustomConnector()));
+			results.add(new DefaultGlobalElementType(
+					getActiveMqConnectorType(),
+					getDocumentRoot_ActivemqConnector()));
+			results.add(new DefaultGlobalElementType(
+					getActiveMqConnectorType(),
+					getDocumentRoot_ActivemqXaConnector()));
+			results.add(new DefaultGlobalElementType(
+					getVendorJmsConnectorType(),
+					getDocumentRoot_WeblogicConnector()));
+			results.add(new DefaultGlobalElementType(
+					getVendorJmsConnectorType(),
+					getDocumentRoot_WebsphereConnector()));
+			
+			connectorTypes = results;
+		}
+		return connectorTypes;
+	}
+	
+	private List<IGlobalElementType> endpointTypes = null;
+	public List<IGlobalElementType> getEndpointTypes() {
+		if (endpointTypes == null) {
+			List<IGlobalElementType> results = new ArrayList<IGlobalElementType>();
+			
+			results.add(new DefaultGlobalElementType(
+					getGlobalEndpointType(),
+					getDocumentRoot_Endpoint()));
+
+			endpointTypes = results;
+		}
+		return endpointTypes;	
+	}
+	
+	private List<IGlobalElementType> filterTypes = null;
+	public List<IGlobalElementType> getFilterTypes() {
+		if (filterTypes == null) {
+			List<IGlobalElementType> results = new ArrayList<IGlobalElementType>();
+			
+			results.add(new DefaultGlobalElementType(
+					getPropertyFilterType(),
+					getDocumentRoot_PropertyFilter()));
+
+			filterTypes = results;
+		}
+		return filterTypes;	
+	}
+	
+	private List<IGlobalElementType> transformerTypes = null;
+	public List<IGlobalElementType> getTransformerTypes() {
+		if (transformerTypes == null) {
+			List<IGlobalElementType> results = new ArrayList<IGlobalElementType>();
+			
+			results.add(new DefaultGlobalElementType(
+					CorePackage.eINSTANCE.getAbstractTransformerType(),
+					getDocumentRoot_JmsmessageToObjectTransformer()));
+			results.add(new DefaultGlobalElementType(
+					CorePackage.eINSTANCE.getAbstractTransformerType(),
+					getDocumentRoot_ObjectToJmsmessageTransformer()));
+
+			transformerTypes = results;
+		}
+		return transformerTypes;	
 	}
 
 } //JMSPackageImpl

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.mule.ide.config.core.CorePackage;
+import org.mule.ide.config.core.IGlobalElementTypeProvider;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,7 +63,7 @@ import org.mule.ide.config.core.CorePackage;
  * @model kind="package"
  * @generated
  */
-public interface JMSPackage extends EPackage {
+public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->

@@ -1,25 +1,24 @@
 package org.mule.ide.config.editor.internal.overview;
 
 import java.util.List;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.FeatureMapUtil;
-import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.jface.viewers.IContentProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.mule.ide.config.core.AbstractConnectorType;
-import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CustomConnectorType;
+import org.mule.ide.config.core.IGlobalElementTypeProvider;
 import org.mule.ide.config.core.MuleType;
+import org.mule.ide.config.core.IGlobalElementTypeProvider.IGlobalElementType;
 import org.mule.ide.config.editor.Messages;
 
 /**
@@ -43,24 +42,23 @@ public class ConnectorsSection extends GlobalElementTableSection {
 	}
 
 	@Override
-	protected void handleAdd() {
-		// TODO implement select type dialog
-		CustomConnectorType connector = 
-			CoreFactory.eINSTANCE.createCustomConnectorType();
-		connector.setName("custom_connector_name");
-		connector.setClass("customConnectorClass");
-		Object entry = 
-			FeatureMapUtil.createEntry
-				(CorePackage.eINSTANCE.getDocumentRoot_CustomConnector(), connector);
-		
-		//TODO calculate an index so new element isn't always added at the bottom.
-		
-		MuleType mule = getMuleElement();
-		FeatureMap map = mule.getAbstractConnectorGroup();
-		Command command = AddCommand.create(getEditingDomain(), mule, map, entry);
-		if (command.canExecute()) {
-			getEditingDomain().getCommandStack().execute(command);
-		}		
+	protected String getNewElementWizardTitle() {
+		return Messages.NewGlobalElementWizard_Title_Connector;
+	}
+	
+	@Override
+	protected IStructuredContentProvider createNewElementContentProvider() {
+		return new GlobalElementTypeContentProvider(getPage().getConfigEditor().getDocumentRoot()) {
+			@Override
+			protected List<IGlobalElementType> getTypes(IGlobalElementTypeProvider provider) {
+				return provider.getConnectorTypes();
+			}			
+		};
+	}
+	
+	@Override
+	protected FeatureMap getFeatureMap() {
+		return getMuleElement().getAbstractConnectorGroup();
 	}
 	
 	@Override

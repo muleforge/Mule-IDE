@@ -41,6 +41,7 @@ public class Activator extends AbstractUIPlugin {
 	private ILabelProvider fOverviewLabelProvider;
 	
 	private Collection<EPackage> fMuleEcorePackages;
+	private TreeMap<String, EPackage> fMuleEcorePackageMap;
 
 	/**
 	 * The constructor
@@ -231,29 +232,41 @@ public class Activator extends AbstractUIPlugin {
 	//      model extensions.  For now we're just using URI prefixes.
 	public Collection<EPackage> getMuleEcorePackages() {
 		if (fMuleEcorePackages == null) {
-			// Sort by nsPrefix
-			TreeMap<String, EPackage> temp = new TreeMap<String, EPackage>();
-			//Set<Map.Entry<String,Object>> entries = EPackage.Registry.INSTANCE.entrySet();
-			//for (Map.Entry<String,Object> entry : entries) {
-			Set<String> uris = EPackage.Registry.INSTANCE.keySet();
-			for (String uri : uris) {
-				if (uri == null) continue;
-				if (uri.startsWith(MULE_URI_PREFIX) ||
-						uri.startsWith(MULE_SPRING_BEANS_URI_PREFIX)) {
-					EPackage p = EPackage.Registry.INSTANCE.getEPackage(uri);
-					if (p != null) {
-						temp.put(p.getNsPrefix(), p);
-					}
-					/*
-					if (entry.getValue() instanceof EPackage) {
-						EPackage p = (EPackage) entry.getValue();
-						temp.put(p.getNsPrefix(), p);
-					}
-					*/
-				}
-			}
-			fMuleEcorePackages = temp.values();
+			initMuleEcorePackages();
 		}
 		return fMuleEcorePackages;
+	}
+
+	public Map<String, EPackage> getMuleEcorePackageMap() {
+		if (fMuleEcorePackageMap == null) {
+			initMuleEcorePackages();
+		}
+		return fMuleEcorePackageMap;
+	}
+	
+	private void initMuleEcorePackages() {
+		// Sort by nsPrefix
+		TreeMap<String, EPackage> temp = new TreeMap<String, EPackage>();
+		//Set<Map.Entry<String,Object>> entries = EPackage.Registry.INSTANCE.entrySet();
+		//for (Map.Entry<String,Object> entry : entries) {
+		Set<String> uris = EPackage.Registry.INSTANCE.keySet();
+		for (String uri : uris) {
+			if (uri == null) continue;
+			if (uri.startsWith(MULE_URI_PREFIX) ||
+					uri.startsWith(MULE_SPRING_BEANS_URI_PREFIX)) {
+				EPackage p = EPackage.Registry.INSTANCE.getEPackage(uri);
+				if (p != null) {
+					temp.put(p.getNsPrefix(), p);
+				}
+				/*
+				if (entry.getValue() instanceof EPackage) {
+					EPackage p = (EPackage) entry.getValue();
+					temp.put(p.getNsPrefix(), p);
+				}
+				*/
+			}
+		}
+		fMuleEcorePackageMap = temp;
+		fMuleEcorePackages = temp.values();		
 	}
 }

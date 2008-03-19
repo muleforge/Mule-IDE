@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.jface.viewers.IContentProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -59,6 +60,24 @@ public class SpringBeansSection extends GlobalElementTableSection {
 		}		
 	}
 	
+	@Override
+	protected String getNewElementWizardTitle() {
+		// Currently overriding Add handling, so won't be called.
+		return null;
+	}
+	
+	@Override
+	protected IStructuredContentProvider createNewElementContentProvider() {
+		// Currently overriding Add handling, so won't be called.
+		return null;
+	}
+
+	@Override
+	protected FeatureMap getFeatureMap() {
+		// Currently overriding Add handling, so won't be called.
+		return null;
+	}
+
 	@Override
 	protected void handleRemove(List beans) {
 		MuleType mule = getMuleElement();

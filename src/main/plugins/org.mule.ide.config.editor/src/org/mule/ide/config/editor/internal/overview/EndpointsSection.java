@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.jface.viewers.IContentProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -18,7 +19,9 @@ import org.mule.ide.config.core.AbstractGlobalEndpointType;
 import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.GlobalEndpointType;
+import org.mule.ide.config.core.IGlobalElementTypeProvider;
 import org.mule.ide.config.core.MuleType;
+import org.mule.ide.config.core.IGlobalElementTypeProvider.IGlobalElementType;
 import org.mule.ide.config.editor.Messages;
 
 /**
@@ -42,23 +45,23 @@ public class EndpointsSection extends GlobalElementTableSection {
 	}
 	
 	@Override
-	protected void handleAdd() {
-		// TODO implement select type dialog
-		GlobalEndpointType endpoint = 
-			CoreFactory.eINSTANCE.createGlobalEndpointType();
-		endpoint.setName("endpoint_name");
-		Object entry = 
-			FeatureMapUtil.createEntry
-				(CorePackage.eINSTANCE.getDocumentRoot_Endpoint(), endpoint);
-		
-		//TODO calculate an index so new element isn't always added at the bottom.
-		
-		MuleType mule = getMuleElement();
-		FeatureMap map = mule.getAbstractGlobalEndpointGroup();
-		Command command = AddCommand.create(getEditingDomain(), mule, map, entry);
-		if (command.canExecute()) {
-			getEditingDomain().getCommandStack().execute(command);
-		}		
+	protected String getNewElementWizardTitle() {
+		return Messages.NewGlobalElementWizard_Title_Endpoint;
+	}
+	
+	@Override
+	protected IStructuredContentProvider createNewElementContentProvider() {
+		return new GlobalElementTypeContentProvider(getPage().getConfigEditor().getDocumentRoot()) {
+			@Override
+			protected List<IGlobalElementType> getTypes(IGlobalElementTypeProvider provider) {
+				return provider.getEndpointTypes();
+			}			
+		};
+	}
+	
+	@Override
+	protected FeatureMap getFeatureMap() {
+		return getMuleElement().getAbstractGlobalEndpointGroup();
 	}
 	
 	@Override

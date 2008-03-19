@@ -42,19 +42,27 @@ public class Messages extends NLS {
 	
 	public static String EndpointsSection_Title;
 	public static String EndpointsSection_Desc;
+	public static String NewGlobalElementWizard_Title_Endpoint;
 	
 	public static String ConnectorsSection_Title;
 	public static String ConnectorsSection_Desc;
+	public static String NewGlobalElementWizard_Title_Connector;
 	
 	public static String FiltersSection_Title;
 	public static String FiltersSection_Desc;
+	public static String NewGlobalElementWizard_Title_Filter;
 	
 	public static String SpringBeansSection_Title;
 	public static String SpringBeansSection_Desc;
 	
 	public static String TransformersSection_Title;
 	public static String TransformersSection_Desc;
+	public static String NewGlobalElementWizard_Title_Transformer;
 	
 	public static String OverviewPage_TabName;
 	public static String OverviewPage_Title;
+	
+	public static String NewGlobalElementWizard_TypePage_Description;
+	public static String NewGlobalElementWizard_TypePage_TypeLabel;
+	public static String NewGlobalElementWizard_TypePage_NameLabel;
 }

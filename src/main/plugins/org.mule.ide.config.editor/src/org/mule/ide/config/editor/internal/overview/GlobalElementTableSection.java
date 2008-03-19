@@ -2,13 +2,16 @@ package org.mule.ide.config.editor.internal.overview;
 
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
@@ -18,9 +21,12 @@ import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.window.Window;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -34,6 +40,7 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
+import org.mule.ide.config.core.IGlobalElementTypeProvider;
 import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.editor.Activator;
 import org.mule.ide.config.editor.Messages;
@@ -333,7 +340,38 @@ public abstract class GlobalElementTableSection extends TableSection
 	
 	protected abstract void handleRemove(List elements);
 	
-	protected abstract void handleAdd();
+	protected void handleAdd() {
+		IStructuredContentProvider contentProvider = createNewElementContentProvider();
+		String title = getNewElementWizardTitle();
+		NewGlobalElementWizard wizard = new NewGlobalElementWizard(title, contentProvider);
+		WizardDialog dialog = new WizardDialog(getPage().getSite().getShell(), wizard);
+		dialog.setBlockOnOpen(true);
+		dialog.create();
+		dialog.getShell().setSize(Math.max(500, dialog.getShell().getSize().x),
+				500);
+		dialog.open();
+		
+		if (dialog.getReturnCode() == Window.OK) {
+			doAdd(wizard.getSelectedType(), wizard.getElementName());
+		}	
+	}
+
+	protected abstract String getNewElementWizardTitle();
+	protected abstract IStructuredContentProvider createNewElementContentProvider();
+	
+	protected void doAdd(IGlobalElementTypeProvider.IGlobalElementType selectedType, String name) {
+		EObject newElement = selectedType.create(name);
+		EReference eRef = selectedType.getDocumentRootReference();
+		FeatureMap.Entry entry = FeatureMapUtil.createEntry(eRef, newElement);
+		MuleType mule = getMuleElement();
+		FeatureMap map = getFeatureMap();
+		Command command = AddCommand.create(getEditingDomain(), mule, map, entry);
+		if (command.canExecute()) {
+			getEditingDomain().getCommandStack().execute(command);
+		}		
+	}
+	
+	protected abstract FeatureMap getFeatureMap();
 	
 	private void handleUp() {
 		int index = getTablePart().getTableViewer().getTable().getSelectionIndex();

@@ -133,28 +133,12 @@ public abstract class GlobalElementTableSection extends TableSection
 	}
 	
 	private void createSectionToolbar(Section section, FormToolkit toolkit) {
-		ToolBarManager toolBarManager = new ToolBarManager(SWT.FLAT);
-		ToolBar toolbar = toolBarManager.createControl(section);
-		final Cursor handCursor = new Cursor(Display.getCurrent(), SWT.CURSOR_HAND);
-		toolbar.setCursor(handCursor);
-		// Cursor needs to be explicitly disposed
-		toolbar.addDisposeListener(new DisposeListener() {
-			public void widgetDisposed(DisposeEvent e) {
-				if ((handCursor != null) &&
-						(handCursor.isDisposed() == false)) {
-					handCursor.dispose();
-				}
-			}
-		});	
-		
 		// Add sort action to the tool bar
 		fSortAction = new SortAction(fViewer, 
 				Messages.TableSection_SortAlpha, null, null, this);
 		toolBarManager.add(fSortAction);
 		
 		toolBarManager.update(true);
-
-		section.setTextClient(toolbar);
 	}
 
 	protected void selectionChanged(IStructuredSelection sel) {

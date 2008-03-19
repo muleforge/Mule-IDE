@@ -2,6 +2,7 @@ package org.mule.ide.config.core;
 
 import java.util.List;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 
@@ -29,10 +30,11 @@ public interface IGlobalElementTypeProvider {
 
 	interface IGlobalElementType {
 		/**
-		 * A display string for this type.
+		 * The EClass for this element.
+		 * 
 		 * @return
 		 */
-		String getLabel();
+		EClass getEClass();
 		/**
 		 * The DocumentRoot EReference for this element.
 		 * Currently this is needed to add elements to a 

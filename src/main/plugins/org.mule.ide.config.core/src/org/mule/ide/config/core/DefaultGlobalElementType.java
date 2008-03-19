@@ -38,22 +38,8 @@ public class DefaultGlobalElementType implements IGlobalElementType {
 		return eRef;
 	}
 
-	public String getLabel() {
-		if (label == null) {
-			EAnnotation annotation = eRef.getEAnnotation(ExtendedMetaData.ANNOTATION_URI);
-			String elementName = annotation.getDetails().get("name"); //$NON-NLS-1$
-			StringBuffer buf = new StringBuffer();
-			buf.append(eRef.getEContainingClass().getEPackage().getNsPrefix());
-			buf.append(":");
-			buf.append(elementName);
-			buf.append("   (");
-			buf.append(eClass.getEPackage().getNsPrefix());
-			buf.append(":");
-			buf.append(eClass.getName());
-			buf.append(")");
-			label = buf.toString();
-		}
-		return label;
+	public EClass getEClass() {
+		return eClass;
 	}
 
 }

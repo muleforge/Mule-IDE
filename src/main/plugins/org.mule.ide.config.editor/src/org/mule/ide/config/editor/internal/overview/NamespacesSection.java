@@ -70,11 +70,6 @@ public class NamespacesSection extends CheckboxTableSection {
 	}
 
 	@Override
-	protected StructuredViewerPart createViewerPart(String[] buttonLabels) {
-		return new NamespacesPartAdapter(buttonLabels);
-	}
-
-	@Override
 	protected IContentProvider createContentProvider() {
 		return new NamespaceTableProvider();
 	}
@@ -160,58 +155,6 @@ public class NamespacesSection extends CheckboxTableSection {
 		}
 	}
 	
-	class NamespacesPartAdapter extends PartAdapter {
-		
-		public NamespacesPartAdapter(String[] buttonLabels) {
-			super(buttonLabels);
-		}
-		
-		@Override
-		protected StructuredViewer createStructuredViewer(
-			Composite parent,
-			int style,
-			FormToolkit toolkit) {
-			
-			style |= SWT.H_SCROLL | SWT.V_SCROLL;
-			if (toolkit==null) {
-				style |= SWT.BORDER;
-			}
-			else {
-				style |= toolkit.getBorderStyle();
-			}
-			
-			TableColumnLayout tableColumnLayout = new TableColumnLayout();
-			parent.setLayout(tableColumnLayout);
-			
-	        table = new Table(parent, SWT.CHECK | style);
-	        
-			ColumnLayoutData columnLayoutData;
-			
-			TableColumn tableColumn = new TableColumn(table, SWT.NONE, 0);
-			tableColumn.setText("Prefix"); 
-			columnLayoutData = new ColumnWeightData(1, 40);
-			tableColumnLayout.setColumnData(tableColumn, columnLayoutData);
-			
-			tableColumn = new TableColumn(table, SWT.NONE, 1);
-			tableColumn.setText("URI"); 
-			columnLayoutData = new ColumnWeightData(5);
-			tableColumnLayout.setColumnData(tableColumn, columnLayoutData);
-	        
-			CheckboxTableViewer	tableViewer = new CheckboxTableViewer(table);
-			tableViewer.addSelectionChangedListener(new ISelectionChangedListener() {
-				public void selectionChanged(SelectionChangedEvent e) {
-					NamespacesPartAdapter.this.selectionChanged((IStructuredSelection)e.getSelection());
-				}
-			});
-			tableViewer.addCheckStateListener(new ICheckStateListener() {
-				public void checkStateChanged(CheckStateChangedEvent event) {
-					elementChecked(event.getElement(), event.getChecked());
-				}
-			});
-			
-			return tableViewer;
-		}		
-	}
 	
 	class NamespaceTableProvider extends DefaultContentProvider implements
 			IStructuredContentProvider {

@@ -173,21 +173,6 @@ public class VMNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getInboundCollectionType_2001Text(View view) {
-		InboundCollectionType domainModelElement = (InboundCollectionType) view
-				.getElement();
-		if (domainModelElement != null) {
-			return String.valueOf(domainModelElement.isMatchAll());
-		} else {
-			VMDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	private String getInboundEndpointType_2002Text(View view) {
 
 		IAdaptable hintAdapter = new VMParserProvider.HintAdapter(

@@ -195,7 +195,7 @@ public class VMElementTypes extends ElementInitializers {
 					.getInboundEndpointType());
 
 			elements.put(ExceptionStrategyType_2003, CorePackage.eINSTANCE
-					.getExceptionStrategyType());
+					.getEndpointExceptionStrategyType());
 
 			elements.put(OutboundEndpointType_2004, VMPackage.eINSTANCE
 					.getOutboundEndpointType());

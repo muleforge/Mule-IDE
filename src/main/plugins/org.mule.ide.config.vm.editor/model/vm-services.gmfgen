@@ -175,7 +175,7 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/EndpointExceptionStrategyType"/>
         <containmentMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractExceptionStrategy"/>
         <childMetaFeature
@@ -210,9 +210,9 @@
         <metaClass
             href="../../org.mule.ide.config.vm/model/mule-vm.genmodel#//vm/OutboundEndpointType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType/abstractOutboundEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/EndpointExceptionStrategyType/abstractOutboundEndpoint"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType/abstractOutboundEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/EndpointExceptionStrategyType/abstractOutboundEndpoint"/>
       </modelFacet>
       <labels
           visualID="4003"
@@ -382,7 +382,7 @@
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="[vm] Inbound Endpoint"
-            description="Add a new Inbound Endpoint to a service"
+            description="Add a new VM Inbound Endpoint to a service"
             genNodes="//@diagram/@childNodes.1"/>
       </groups>
       <groups
@@ -391,7 +391,7 @@
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="[vm] Outbound Endpoint"
-            description="Add a new Outbound Endpoint to a service"
+            description="Add a new VM Outbound Endpoint to a service"
             genNodes="//@diagram/@childNodes.3"/>
       </groups>
     </palette>

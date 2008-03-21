@@ -182,8 +182,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="clientAckTransaction" upperBound="-2"
-        eType="#//JmsTransactionType" volatile="true" transient="true" derived="true"
-        containment="true" resolveProxies="false">
+        eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//BaseTransactionType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="client-ack-transaction"/>
@@ -272,8 +272,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transaction" upperBound="-2"
-        eType="#//JmsTransactionType" volatile="true" transient="true" derived="true"
-        containment="true" resolveProxies="false">
+        eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//BaseTransactionType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="transaction"/>
@@ -302,8 +302,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="xaTransaction" upperBound="-2"
-        eType="#//JmsTransactionType" volatile="true" transient="true" derived="true"
-        containment="true" resolveProxies="false">
+        eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//BaseTransactionType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="xa-transaction"/>
@@ -435,6 +435,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractTransformerGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transformer elements.&#xD;&#xA;                Transformers convert message payloads.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-transformer:group"/>
@@ -446,6 +449,9 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractTransformerType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transformer elements.&#xD;&#xA;                Transformers convert message payloads.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-transformer"/>
@@ -456,6 +462,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="transformers" upperBound="-1"
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//TransformersType"
         volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                            A list of transformer elements that will be applied to the message&#xD;&#xA;                            before it is delivered to the component.&#xD;&#xA;                            Note that a list of transformers can also be specified directly&#xD;&#xA;                            (without the &quot;transformers&quot; element), but then it is not possible&#xD;&#xA;                            to also specify response transformers&#xD;&#xA;                            (using the &quot;response-transformers&quot; element).&#xD;&#xA;                        "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="transformers"/>
@@ -466,9 +475,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="responseTransformers" upperBound="-1"
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//ResponseTransformersType"
         volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                            A list of transformer elements that will be applied to the response message&#xD;&#xA;                            returned from the component.&#xD;&#xA;                        "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
-        <details key="name" value="responseTransformers"/>
+        <details key="name" value="response-transformers"/>
         <details key="namespace" value="http://www.mulesource.org/schema/mule/core/2.0"/>
         <details key="group" value="#group:1"/>
       </eAnnotations>
@@ -476,6 +488,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractTransactionGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transaction elements.&#xD;&#xA;                Transactions allow a series of operations to be grouped together.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-transaction:group"/>
@@ -487,6 +502,9 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractTransactionType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transaction elements.&#xD;&#xA;                Transactions allow a series of operations to be grouped together.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-transaction"/>
@@ -497,6 +515,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractFilterGroup" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for filter elements.&#xD;&#xA;                Filters are used to make decisions within the Mule framework.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-filter:group"/>
@@ -508,6 +529,9 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractFilterType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for filter elements.&#xD;&#xA;                Filters are used to make decisions within the Mule framework.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-filter"/>
@@ -528,6 +552,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractSecurityFilterGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for security filter elements.&#xD;&#xA;                Security filters can control access to the system, etc.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-security-filter:group"/>
@@ -539,6 +566,9 @@
         upperBound="-1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractSecurityFilterType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for security filter elements.&#xD;&#xA;                Security filters can control access to the system, etc.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-security-filter"/>
@@ -549,6 +579,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractConnectionStrategyGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-connection-strategy:group"/>
@@ -560,6 +593,9 @@
         upperBound="-1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractConnectionStrategyType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-connection-strategy"/>
@@ -571,7 +607,7 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//MapType"
         volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                Set properties via Spring's entry attribute.&#xD;&#xA;            "/>
+        <details key="documentation" value="&#xD;&#xA;                Set Mule properties.&#xD;&#xA;                These are name/value pairs that can be set on components, services, etc,&#xD;&#xA;                and which provide a generic way of configuring the system.&#xD;&#xA;                In Mule v2 you typically shouldn't need to use generic properties like&#xD;&#xA;                this, since almost all functionality is exposed via dedicated elements.&#xD;&#xA;                However, they can be useful in configuring obscure or overlooked options&#xD;&#xA;                and in configuring transports from the generic endpoint elements.&#xD;&#xA;            "/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
@@ -581,18 +617,27 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    The generic address for this endpoint.&#xD;&#xA;                    If this attribute is used then the protocol must be specified as part of the URI.&#xD;&#xA;                    Alternatively, most transports provide alternative attributes for specifying the address&#xD;&#xA;                    (path, host etc).&#xD;&#xA;                    Note that the address attribute cannot be combined with &quot;ref&quot; or with the transport-provided&#xD;&#xA;                    alternative attributes.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="address"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectorRef" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKEN">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    The name of the connector associated with this endpoint.&#xD;&#xA;                    This must be specified if more than one connector is defined for this transport.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="connector-ref"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="encoding" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    String encoding used for messages.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="encoding"/>
@@ -608,6 +653,9 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKEN">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    A reference to a global endpoint.&#xD;&#xA;                    If this attribute is used then the endpoint is used as a template to construct this endpoint.&#xD;&#xA;                    A template fixes the address (protocol, path, host, etc), and may specify initial values for&#xD;&#xA;                    various properties, but further properties can be defined locally (as long as they don't&#xD;&#xA;                    change the address in any way).&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="ref"/>
@@ -615,12 +663,19 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteSync" eType="ecore:EDataType ../../org.mule.ide.config.core/model/core.ecore#//SubstitutableBoolean"
         unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    If true the component will wait for a response to the outgoing message before&#xD;&#xA;                    replying to the incoming message.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="remoteSync"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteSyncTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKEN">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteSyncTimeout" eType="ecore:EDataType ../../org.mule.ide.config.core/model/core.ecore#//SubstitutableInt"
+        unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    The timeout for the remoteSync wait (ms).&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="remoteSyncTimeout"/>
@@ -628,6 +683,9 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="responseTransformerRefs"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKENS">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    A list of transformers which will be applied in order to the synchronous response&#xD;&#xA;                    before it is returned via the transport.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="responseTransformer-refs"/>
@@ -635,6 +693,9 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="synchronous" eType="ecore:EDataType ../../org.mule.ide.config.core/model/core.ecore#//SubstitutableBoolean"
         unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    If true the result from the component processing the incoming message will be&#xD;&#xA;                    returned as a response.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="synchronous"/>
@@ -650,6 +711,9 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="transformerRefs" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKENS">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    A list of transformers which will be applied in order to the message before it is&#xD;&#xA;                    delivered to the component.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="transformer-refs"/>
@@ -671,6 +735,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractTransformerGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transformer elements.&#xD;&#xA;                Transformers convert message payloads.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-transformer:group"/>
@@ -682,6 +749,9 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractTransformerType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transformer elements.&#xD;&#xA;                Transformers convert message payloads.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-transformer"/>
@@ -692,6 +762,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="transformers" upperBound="-1"
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//TransformersType"
         volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                            A list of transformer elements that will be applied to the message&#xD;&#xA;                            before it is delivered to the component.&#xD;&#xA;                            Note that a list of transformers can also be specified directly&#xD;&#xA;                            (without the &quot;transformers&quot; element), but then it is not possible&#xD;&#xA;                            to also specify response transformers&#xD;&#xA;                            (using the &quot;response-transformers&quot; element).&#xD;&#xA;                        "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="transformers"/>
@@ -702,9 +775,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="responseTransformers" upperBound="-1"
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//ResponseTransformersType"
         volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                            A list of transformer elements that will be applied to the response message&#xD;&#xA;                            returned from the component.&#xD;&#xA;                        "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
-        <details key="name" value="responseTransformers"/>
+        <details key="name" value="response-transformers"/>
         <details key="namespace" value="http://www.mulesource.org/schema/mule/core/2.0"/>
         <details key="group" value="#group:1"/>
       </eAnnotations>
@@ -712,6 +788,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractTransactionGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transaction elements.&#xD;&#xA;                Transactions allow a series of operations to be grouped together.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-transaction:group"/>
@@ -723,6 +802,9 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractTransactionType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transaction elements.&#xD;&#xA;                Transactions allow a series of operations to be grouped together.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-transaction"/>
@@ -733,6 +815,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractFilterGroup" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for filter elements.&#xD;&#xA;                Filters are used to make decisions within the Mule framework.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-filter:group"/>
@@ -744,6 +829,9 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractFilterType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for filter elements.&#xD;&#xA;                Filters are used to make decisions within the Mule framework.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-filter"/>
@@ -764,6 +852,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractSecurityFilterGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for security filter elements.&#xD;&#xA;                Security filters can control access to the system, etc.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-security-filter:group"/>
@@ -775,6 +866,9 @@
         upperBound="-1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractSecurityFilterType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for security filter elements.&#xD;&#xA;                Security filters can control access to the system, etc.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-security-filter"/>
@@ -785,6 +879,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractConnectionStrategyGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-connection-strategy:group"/>
@@ -796,6 +893,9 @@
         upperBound="-1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractConnectionStrategyType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-connection-strategy"/>
@@ -807,7 +907,7 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//MapType"
         volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                Set properties via Spring's entry attribute.&#xD;&#xA;            "/>
+        <details key="documentation" value="&#xD;&#xA;                Set Mule properties.&#xD;&#xA;                These are name/value pairs that can be set on components, services, etc,&#xD;&#xA;                and which provide a generic way of configuring the system.&#xD;&#xA;                In Mule v2 you typically shouldn't need to use generic properties like&#xD;&#xA;                this, since almost all functionality is exposed via dedicated elements.&#xD;&#xA;                However, they can be useful in configuring obscure or overlooked options&#xD;&#xA;                and in configuring transports from the generic endpoint elements.&#xD;&#xA;            "/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
@@ -817,18 +917,27 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    The generic address for this endpoint.&#xD;&#xA;                    If this attribute is used then the protocol must be specified as part of the URI.&#xD;&#xA;                    Alternatively, most transports provide alternative attributes for specifying the address&#xD;&#xA;                    (path, host etc).&#xD;&#xA;                    Note that the address attribute cannot be combined with &quot;ref&quot; or with the transport-provided&#xD;&#xA;                    alternative attributes.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="address"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectorRef" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKEN">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    The name of the connector associated with this endpoint.&#xD;&#xA;                    This must be specified if more than one connector is defined for this transport.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="connector-ref"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="encoding" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    String encoding used for messages.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="encoding"/>
@@ -844,6 +953,9 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKEN">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    A reference to a global endpoint.&#xD;&#xA;                    If this attribute is used then the endpoint is used as a template to construct this endpoint.&#xD;&#xA;                    A template fixes the address (protocol, path, host, etc), and may specify initial values for&#xD;&#xA;                    various properties, but further properties can be defined locally (as long as they don't&#xD;&#xA;                    change the address in any way).&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="ref"/>
@@ -851,12 +963,19 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteSync" eType="ecore:EDataType ../../org.mule.ide.config.core/model/core.ecore#//SubstitutableBoolean"
         unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    If true the component will wait for a response to the outgoing message before&#xD;&#xA;                    replying to the incoming message.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="remoteSync"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteSyncTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKEN">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteSyncTimeout" eType="ecore:EDataType ../../org.mule.ide.config.core/model/core.ecore#//SubstitutableInt"
+        unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    The timeout for the remoteSync wait (ms).&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="remoteSyncTimeout"/>
@@ -864,6 +983,9 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="responseTransformerRefs"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKENS">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    A list of transformers which will be applied in order to the synchronous response&#xD;&#xA;                    before it is returned via the transport.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="responseTransformer-refs"/>
@@ -871,6 +993,9 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="synchronous" eType="ecore:EDataType ../../org.mule.ide.config.core/model/core.ecore#//SubstitutableBoolean"
         unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    If true the result from the component processing the incoming message will be&#xD;&#xA;                    returned as a response.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="synchronous"/>
@@ -886,6 +1011,9 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="transformerRefs" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKENS">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    A list of transformers which will be applied in order to the message before it is&#xD;&#xA;                    delivered to the component.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="transformer-refs"/>
@@ -907,12 +1035,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JmsTransactionType" eSuperTypes="../../org.mule.ide.config.core/model/core.ecore#//AbstractTransactionType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="jmsTransactionType"/>
-      <details key="kind" value="empty"/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutboundEndpointType" eSuperTypes="../../org.mule.ide.config.core/model/core.ecore#//AbstractOutboundEndpointType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="outboundEndpointType"/>
@@ -928,6 +1050,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractTransformerGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transformer elements.&#xD;&#xA;                Transformers convert message payloads.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-transformer:group"/>
@@ -939,6 +1064,9 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractTransformerType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transformer elements.&#xD;&#xA;                Transformers convert message payloads.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-transformer"/>
@@ -949,6 +1077,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="transformers" upperBound="-1"
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//TransformersType"
         volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                            A list of transformer elements that will be applied to the message&#xD;&#xA;                            before it is delivered to the component.&#xD;&#xA;                            Note that a list of transformers can also be specified directly&#xD;&#xA;                            (without the &quot;transformers&quot; element), but then it is not possible&#xD;&#xA;                            to also specify response transformers&#xD;&#xA;                            (using the &quot;response-transformers&quot; element).&#xD;&#xA;                        "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="transformers"/>
@@ -959,9 +1090,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="responseTransformers" upperBound="-1"
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//ResponseTransformersType"
         volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                            A list of transformer elements that will be applied to the response message&#xD;&#xA;                            returned from the component.&#xD;&#xA;                        "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
-        <details key="name" value="responseTransformers"/>
+        <details key="name" value="response-transformers"/>
         <details key="namespace" value="http://www.mulesource.org/schema/mule/core/2.0"/>
         <details key="group" value="#group:1"/>
       </eAnnotations>
@@ -969,6 +1103,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractTransactionGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transaction elements.&#xD;&#xA;                Transactions allow a series of operations to be grouped together.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-transaction:group"/>
@@ -980,6 +1117,9 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractTransactionType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for transaction elements.&#xD;&#xA;                Transactions allow a series of operations to be grouped together.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-transaction"/>
@@ -990,6 +1130,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractFilterGroup" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for filter elements.&#xD;&#xA;                Filters are used to make decisions within the Mule framework.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-filter:group"/>
@@ -1001,6 +1144,9 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractFilterType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for filter elements.&#xD;&#xA;                Filters are used to make decisions within the Mule framework.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-filter"/>
@@ -1021,6 +1167,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractSecurityFilterGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for security filter elements.&#xD;&#xA;                Security filters can control access to the system, etc.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-security-filter:group"/>
@@ -1032,6 +1181,9 @@
         upperBound="-1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractSecurityFilterType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for security filter elements.&#xD;&#xA;                Security filters can control access to the system, etc.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-security-filter"/>
@@ -1042,6 +1194,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractConnectionStrategyGroup"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
         volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
         <details key="name" value="abstract-connection-strategy:group"/>
@@ -1053,6 +1208,9 @@
         upperBound="-1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractConnectionStrategyType"
         changeable="false" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-connection-strategy"/>
@@ -1064,7 +1222,7 @@
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//MapType"
         volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                Set properties via Spring's entry attribute.&#xD;&#xA;            "/>
+        <details key="documentation" value="&#xD;&#xA;                Set Mule properties.&#xD;&#xA;                These are name/value pairs that can be set on components, services, etc,&#xD;&#xA;                and which provide a generic way of configuring the system.&#xD;&#xA;                In Mule v2 you typically shouldn't need to use generic properties like&#xD;&#xA;                this, since almost all functionality is exposed via dedicated elements.&#xD;&#xA;                However, they can be useful in configuring obscure or overlooked options&#xD;&#xA;                and in configuring transports from the generic endpoint elements.&#xD;&#xA;            "/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
@@ -1074,18 +1232,27 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    The generic address for this endpoint.&#xD;&#xA;                    If this attribute is used then the protocol must be specified as part of the URI.&#xD;&#xA;                    Alternatively, most transports provide alternative attributes for specifying the address&#xD;&#xA;                    (path, host etc).&#xD;&#xA;                    Note that the address attribute cannot be combined with &quot;ref&quot; or with the transport-provided&#xD;&#xA;                    alternative attributes.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="address"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectorRef" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKEN">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    The name of the connector associated with this endpoint.&#xD;&#xA;                    This must be specified if more than one connector is defined for this transport.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="connector-ref"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="encoding" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    String encoding used for messages.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="encoding"/>
@@ -1101,6 +1268,9 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKEN">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    A reference to a global endpoint.&#xD;&#xA;                    If this attribute is used then the endpoint is used as a template to construct this endpoint.&#xD;&#xA;                    A template fixes the address (protocol, path, host, etc), and may specify initial values for&#xD;&#xA;                    various properties, but further properties can be defined locally (as long as they don't&#xD;&#xA;                    change the address in any way).&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="ref"/>
@@ -1108,12 +1278,19 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteSync" eType="ecore:EDataType ../../org.mule.ide.config.core/model/core.ecore#//SubstitutableBoolean"
         unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    If true the component will wait for a response to the outgoing message before&#xD;&#xA;                    replying to the incoming message.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="remoteSync"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteSyncTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKEN">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteSyncTimeout" eType="ecore:EDataType ../../org.mule.ide.config.core/model/core.ecore#//SubstitutableInt"
+        unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    The timeout for the remoteSync wait (ms).&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="remoteSyncTimeout"/>
@@ -1121,6 +1298,9 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="responseTransformerRefs"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKENS">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    A list of transformers which will be applied in order to the synchronous response&#xD;&#xA;                    before it is returned via the transport.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="responseTransformer-refs"/>
@@ -1128,6 +1308,9 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="synchronous" eType="ecore:EDataType ../../org.mule.ide.config.core/model/core.ecore#//SubstitutableBoolean"
         unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    If true the result from the component processing the incoming message will be&#xD;&#xA;                    returned as a response.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="synchronous"/>
@@ -1143,6 +1326,9 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="transformerRefs" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKENS">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    A list of transformers which will be applied in order to the message before it is&#xD;&#xA;                    delivered to the component.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="transformer-refs"/>

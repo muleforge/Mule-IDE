@@ -90,6 +90,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transformer elements.
+	 *                 Transformers convert message payloads.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transformer Group</em>' attribute list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_AbstractTransformerGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
@@ -107,6 +113,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transformer elements.
+	 *                 Transformers convert message payloads.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transformer</em>' containment reference list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_AbstractTransformer()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -124,6 +136,16 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             A list of transformer elements that will be applied to the message
+	 *                             before it is delivered to the component.
+	 *                             Note that a list of transformers can also be specified directly
+	 *                             (without the "transformers" element), but then it is not possible
+	 *                             to also specify response transformers
+	 *                             (using the "response-transformers" element).
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Transformers</em>' containment reference list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_Transformers()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
@@ -141,10 +163,16 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             A list of transformer elements that will be applied to the response message
+	 *                             returned from the component.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Response Transformers</em>' containment reference list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_ResponseTransformers()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='responseTransformers' namespace='http://www.mulesource.org/schema/mule/core/2.0' group='#group:1'"
+	 *        extendedMetaData="kind='element' name='response-transformers' namespace='http://www.mulesource.org/schema/mule/core/2.0' group='#group:1'"
 	 * @generated
 	 */
 	EList<ResponseTransformersType> getResponseTransformers();
@@ -158,6 +186,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transaction elements.
+	 *                 Transactions allow a series of operations to be grouped together.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transaction Group</em>' attribute list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_AbstractTransactionGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
@@ -175,6 +209,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transaction elements.
+	 *                 Transactions allow a series of operations to be grouped together.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transaction</em>' containment reference list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_AbstractTransaction()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -192,6 +232,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter Group</em>' attribute list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_AbstractFilterGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
@@ -209,6 +255,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter</em>' containment reference list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_AbstractFilter()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -243,6 +295,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for security filter elements.
+	 *                 Security filters can control access to the system, etc.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Security Filter Group</em>' attribute list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_AbstractSecurityFilterGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
@@ -260,6 +318,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for security filter elements.
+	 *                 Security filters can control access to the system, etc.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Security Filter</em>' containment reference list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_AbstractSecurityFilter()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -277,6 +341,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for connection strategy elements.
+	 *                 Connection strategies control how the underlying transport handles connection errors.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Connection Strategy Group</em>' attribute list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_AbstractConnectionStrategyGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
@@ -294,6 +364,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for connection strategy elements.
+	 *                 Connection strategies control how the underlying transport handles connection errors.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Connection Strategy</em>' containment reference list.
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_AbstractConnectionStrategy()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -309,7 +385,13 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 Set properties via Spring's entry attribute.
+	 *                 Set Mule properties.
+	 *                 These are name/value pairs that can be set on components, services, etc,
+	 *                 and which provide a generic way of configuring the system.
+	 *                 In Mule v2 you typically shouldn't need to use generic properties like
+	 *                 this, since almost all functionality is exposed via dedicated elements.
+	 *                 However, they can be useful in configuring obscure or overlooked options
+	 *                 and in configuring transports from the generic endpoint elements.
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Properties</em>' containment reference list.
@@ -328,6 +410,16 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The generic address for this endpoint.
+	 *                     If this attribute is used then the protocol must be specified as part of the URI.
+	 *                     Alternatively, most transports provide alternative attributes for specifying the address
+	 *                     (path, host etc).
+	 *                     Note that the address attribute cannot be combined with "ref" or with the transport-provided
+	 *                     alternative attributes.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Address</em>' attribute.
 	 * @see #setAddress(String)
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_Address()
@@ -355,6 +447,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The name of the connector associated with this endpoint.
+	 *                     This must be specified if more than one connector is defined for this transport.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Connector Ref</em>' attribute.
 	 * @see #setConnectorRef(String)
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_ConnectorRef()
@@ -382,6 +480,11 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     String encoding used for messages.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Encoding</em>' attribute.
 	 * @see #setEncoding(String)
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_Encoding()
@@ -438,6 +541,15 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     A reference to a global endpoint.
+	 *                     If this attribute is used then the endpoint is used as a template to construct this endpoint.
+	 *                     A template fixes the address (protocol, path, host, etc), and may specify initial values for
+	 *                     various properties, but further properties can be defined locally (as long as they don't
+	 *                     change the address in any way).
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ref</em>' attribute.
 	 * @see #setRef(String)
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_Ref()
@@ -465,6 +577,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     If true the component will wait for a response to the outgoing message before
+	 *                     replying to the incoming message.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Remote Sync</em>' attribute.
 	 * @see #isSetRemoteSync()
 	 * @see #unsetRemoteSync()
@@ -519,24 +637,56 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The timeout for the remoteSync wait (ms).
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Remote Sync Timeout</em>' attribute.
-	 * @see #setRemoteSyncTimeout(String)
+	 * @see #isSetRemoteSyncTimeout()
+	 * @see #unsetRemoteSyncTimeout()
+	 * @see #setRemoteSyncTimeout(int)
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_RemoteSyncTimeout()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.NMTOKEN"
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableInt"
 	 *        extendedMetaData="kind='attribute' name='remoteSyncTimeout'"
 	 * @generated
 	 */
-	String getRemoteSyncTimeout();
+	int getRemoteSyncTimeout();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.jms.OutboundEndpointType#getRemoteSyncTimeout <em>Remote Sync Timeout</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Remote Sync Timeout</em>' attribute.
+	 * @see #isSetRemoteSyncTimeout()
+	 * @see #unsetRemoteSyncTimeout()
 	 * @see #getRemoteSyncTimeout()
 	 * @generated
 	 */
-	void setRemoteSyncTimeout(String value);
+	void setRemoteSyncTimeout(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.jms.OutboundEndpointType#getRemoteSyncTimeout <em>Remote Sync Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetRemoteSyncTimeout()
+	 * @see #getRemoteSyncTimeout()
+	 * @see #setRemoteSyncTimeout(int)
+	 * @generated
+	 */
+	void unsetRemoteSyncTimeout();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.jms.OutboundEndpointType#getRemoteSyncTimeout <em>Remote Sync Timeout</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Remote Sync Timeout</em>' attribute is set.
+	 * @see #unsetRemoteSyncTimeout()
+	 * @see #getRemoteSyncTimeout()
+	 * @see #setRemoteSyncTimeout(int)
+	 * @generated
+	 */
+	boolean isSetRemoteSyncTimeout();
 
 	/**
 	 * Returns the value of the '<em><b>Response Transformer Refs</b></em>' attribute.
@@ -546,6 +696,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     A list of transformers which will be applied in order to the synchronous response
+	 *                     before it is returned via the transport.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Response Transformer Refs</em>' attribute.
 	 * @see #setResponseTransformerRefs(List)
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_ResponseTransformerRefs()
@@ -573,6 +729,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     If true the result from the component processing the incoming message will be
+	 *                     returned as a response.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Synchronous</em>' attribute.
 	 * @see #isSetSynchronous()
 	 * @see #unsetSynchronous()
@@ -656,6 +818,12 @@ public interface OutboundEndpointType extends AbstractOutboundEndpointType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     A list of transformers which will be applied in order to the message before it is
+	 *                     delivered to the component.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Transformer Refs</em>' attribute.
 	 * @see #setTransformerRefs(List)
 	 * @see org.mule.ide.config.jms.JMSPackage#getOutboundEndpointType_TransformerRefs()

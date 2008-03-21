@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.FeatureMap;
 
 import org.mule.ide.config.core.AbstractTransformerType;
+import org.mule.ide.config.core.BaseTransactionType;
 
 /**
  * <!-- begin-user-doc -->
@@ -164,13 +165,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Client Ack Transaction</em>' containment reference.
-	 * @see #setClientAckTransaction(JmsTransactionType)
+	 * @see #setClientAckTransaction(BaseTransactionType)
 	 * @see org.mule.ide.config.jms.JMSPackage#getDocumentRoot_ClientAckTransaction()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='client-ack-transaction' namespace='##targetNamespace' affiliation='http://www.mulesource.org/schema/mule/core/2.0#abstract-transaction'"
 	 * @generated
 	 */
-	JmsTransactionType getClientAckTransaction();
+	BaseTransactionType getClientAckTransaction();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.jms.DocumentRoot#getClientAckTransaction <em>Client Ack Transaction</em>}' containment reference.
@@ -180,7 +181,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getClientAckTransaction()
 	 * @generated
 	 */
-	void setClientAckTransaction(JmsTransactionType value);
+	void setClientAckTransaction(BaseTransactionType value);
 
 	/**
 	 * Returns the value of the '<em><b>Connector</b></em>' containment reference.
@@ -407,13 +408,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Transaction</em>' containment reference.
-	 * @see #setTransaction(JmsTransactionType)
+	 * @see #setTransaction(BaseTransactionType)
 	 * @see org.mule.ide.config.jms.JMSPackage#getDocumentRoot_Transaction()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='transaction' namespace='##targetNamespace' affiliation='http://www.mulesource.org/schema/mule/core/2.0#abstract-transaction'"
 	 * @generated
 	 */
-	JmsTransactionType getTransaction();
+	BaseTransactionType getTransaction();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.jms.DocumentRoot#getTransaction <em>Transaction</em>}' containment reference.
@@ -423,7 +424,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getTransaction()
 	 * @generated
 	 */
-	void setTransaction(JmsTransactionType value);
+	void setTransaction(BaseTransactionType value);
 
 	/**
 	 * Returns the value of the '<em><b>Weblogic Connector</b></em>' containment reference.
@@ -488,13 +489,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Xa Transaction</em>' containment reference.
-	 * @see #setXaTransaction(JmsTransactionType)
+	 * @see #setXaTransaction(BaseTransactionType)
 	 * @see org.mule.ide.config.jms.JMSPackage#getDocumentRoot_XaTransaction()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='xa-transaction' namespace='##targetNamespace' affiliation='http://www.mulesource.org/schema/mule/core/2.0#abstract-transaction'"
 	 * @generated
 	 */
-	JmsTransactionType getXaTransaction();
+	BaseTransactionType getXaTransaction();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.jms.DocumentRoot#getXaTransaction <em>Xa Transaction</em>}' containment reference.
@@ -504,6 +505,6 @@ public interface DocumentRoot extends EObject {
 	 * @see #getXaTransaction()
 	 * @generated
 	 */
-	void setXaTransaction(JmsTransactionType value);
+	void setXaTransaction(BaseTransactionType value);
 
 } // DocumentRoot

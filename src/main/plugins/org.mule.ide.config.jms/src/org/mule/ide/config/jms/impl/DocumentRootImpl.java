@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mule.ide.config.core.AbstractTransformerType;
 
+import org.mule.ide.config.core.BaseTransactionType;
 import org.mule.ide.config.jms.ActiveMqConnectorType;
 import org.mule.ide.config.jms.CustomConnectorType;
 import org.mule.ide.config.jms.DocumentRoot;
@@ -32,7 +33,6 @@ import org.mule.ide.config.jms.GenericConnectorType;
 import org.mule.ide.config.jms.GlobalEndpointType;
 import org.mule.ide.config.jms.InboundEndpointType;
 import org.mule.ide.config.jms.JMSPackage;
-import org.mule.ide.config.jms.JmsTransactionType;
 import org.mule.ide.config.jms.OutboundEndpointType;
 import org.mule.ide.config.jms.PropertyFilterType;
 import org.mule.ide.config.jms.VendorJmsConnectorType;
@@ -212,8 +212,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JmsTransactionType getClientAckTransaction() {
-		return (JmsTransactionType)getMixed().get(JMSPackage.Literals.DOCUMENT_ROOT__CLIENT_ACK_TRANSACTION, true);
+	public BaseTransactionType getClientAckTransaction() {
+		return (BaseTransactionType)getMixed().get(JMSPackage.Literals.DOCUMENT_ROOT__CLIENT_ACK_TRANSACTION, true);
 	}
 
 	/**
@@ -221,7 +221,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClientAckTransaction(JmsTransactionType newClientAckTransaction, NotificationChain msgs) {
+	public NotificationChain basicSetClientAckTransaction(BaseTransactionType newClientAckTransaction, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(JMSPackage.Literals.DOCUMENT_ROOT__CLIENT_ACK_TRANSACTION, newClientAckTransaction, msgs);
 	}
 
@@ -230,7 +230,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClientAckTransaction(JmsTransactionType newClientAckTransaction) {
+	public void setClientAckTransaction(BaseTransactionType newClientAckTransaction) {
 		((FeatureMap.Internal)getMixed()).set(JMSPackage.Literals.DOCUMENT_ROOT__CLIENT_ACK_TRANSACTION, newClientAckTransaction);
 	}
 
@@ -455,8 +455,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JmsTransactionType getTransaction() {
-		return (JmsTransactionType)getMixed().get(JMSPackage.Literals.DOCUMENT_ROOT__TRANSACTION, true);
+	public BaseTransactionType getTransaction() {
+		return (BaseTransactionType)getMixed().get(JMSPackage.Literals.DOCUMENT_ROOT__TRANSACTION, true);
 	}
 
 	/**
@@ -464,7 +464,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTransaction(JmsTransactionType newTransaction, NotificationChain msgs) {
+	public NotificationChain basicSetTransaction(BaseTransactionType newTransaction, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(JMSPackage.Literals.DOCUMENT_ROOT__TRANSACTION, newTransaction, msgs);
 	}
 
@@ -473,7 +473,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransaction(JmsTransactionType newTransaction) {
+	public void setTransaction(BaseTransactionType newTransaction) {
 		((FeatureMap.Internal)getMixed()).set(JMSPackage.Literals.DOCUMENT_ROOT__TRANSACTION, newTransaction);
 	}
 
@@ -536,8 +536,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JmsTransactionType getXaTransaction() {
-		return (JmsTransactionType)getMixed().get(JMSPackage.Literals.DOCUMENT_ROOT__XA_TRANSACTION, true);
+	public BaseTransactionType getXaTransaction() {
+		return (BaseTransactionType)getMixed().get(JMSPackage.Literals.DOCUMENT_ROOT__XA_TRANSACTION, true);
 	}
 
 	/**
@@ -545,7 +545,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetXaTransaction(JmsTransactionType newXaTransaction, NotificationChain msgs) {
+	public NotificationChain basicSetXaTransaction(BaseTransactionType newXaTransaction, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(JMSPackage.Literals.DOCUMENT_ROOT__XA_TRANSACTION, newXaTransaction, msgs);
 	}
 
@@ -554,7 +554,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setXaTransaction(JmsTransactionType newXaTransaction) {
+	public void setXaTransaction(BaseTransactionType newXaTransaction) {
 		((FeatureMap.Internal)getMixed()).set(JMSPackage.Literals.DOCUMENT_ROOT__XA_TRANSACTION, newXaTransaction);
 	}
 
@@ -681,7 +681,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setActivemqXaConnector((ActiveMqConnectorType)newValue);
 				return;
 			case JMSPackage.DOCUMENT_ROOT__CLIENT_ACK_TRANSACTION:
-				setClientAckTransaction((JmsTransactionType)newValue);
+				setClientAckTransaction((BaseTransactionType)newValue);
 				return;
 			case JMSPackage.DOCUMENT_ROOT__CONNECTOR:
 				setConnector((GenericConnectorType)newValue);
@@ -708,7 +708,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setPropertyFilter((PropertyFilterType)newValue);
 				return;
 			case JMSPackage.DOCUMENT_ROOT__TRANSACTION:
-				setTransaction((JmsTransactionType)newValue);
+				setTransaction((BaseTransactionType)newValue);
 				return;
 			case JMSPackage.DOCUMENT_ROOT__WEBLOGIC_CONNECTOR:
 				setWeblogicConnector((VendorJmsConnectorType)newValue);
@@ -717,7 +717,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setWebsphereConnector((VendorJmsConnectorType)newValue);
 				return;
 			case JMSPackage.DOCUMENT_ROOT__XA_TRANSACTION:
-				setXaTransaction((JmsTransactionType)newValue);
+				setXaTransaction((BaseTransactionType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -747,7 +747,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setActivemqXaConnector((ActiveMqConnectorType)null);
 				return;
 			case JMSPackage.DOCUMENT_ROOT__CLIENT_ACK_TRANSACTION:
-				setClientAckTransaction((JmsTransactionType)null);
+				setClientAckTransaction((BaseTransactionType)null);
 				return;
 			case JMSPackage.DOCUMENT_ROOT__CONNECTOR:
 				setConnector((GenericConnectorType)null);
@@ -774,7 +774,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setPropertyFilter((PropertyFilterType)null);
 				return;
 			case JMSPackage.DOCUMENT_ROOT__TRANSACTION:
-				setTransaction((JmsTransactionType)null);
+				setTransaction((BaseTransactionType)null);
 				return;
 			case JMSPackage.DOCUMENT_ROOT__WEBLOGIC_CONNECTOR:
 				setWeblogicConnector((VendorJmsConnectorType)null);
@@ -783,7 +783,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				setWebsphereConnector((VendorJmsConnectorType)null);
 				return;
 			case JMSPackage.DOCUMENT_ROOT__XA_TRANSACTION:
-				setXaTransaction((JmsTransactionType)null);
+				setXaTransaction((BaseTransactionType)null);
 				return;
 		}
 		super.eUnset(featureID);

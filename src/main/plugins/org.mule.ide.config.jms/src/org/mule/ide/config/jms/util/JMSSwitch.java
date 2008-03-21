@@ -147,13 +147,6 @@ public class JMSSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JMSPackage.JMS_TRANSACTION_TYPE: {
-				JmsTransactionType jmsTransactionType = (JmsTransactionType)theEObject;
-				T result = caseJmsTransactionType(jmsTransactionType);
-				if (result == null) result = caseAbstractTransactionType(jmsTransactionType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE: {
 				OutboundEndpointType outboundEndpointType = (OutboundEndpointType)theEObject;
 				T result = caseOutboundEndpointType(outboundEndpointType);
@@ -286,21 +279,6 @@ public class JMSSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Jms Transaction Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Jms Transaction Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJmsTransactionType(JmsTransactionType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Outbound Endpoint Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -417,21 +395,6 @@ public class JMSSwitch<T> {
 	 * @generated
 	 */
 	public T caseAbstractInboundEndpointType(AbstractInboundEndpointType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abstract Transaction Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Abstract Transaction Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAbstractTransactionType(AbstractTransactionType object) {
 		return null;
 	}
 

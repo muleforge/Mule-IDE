@@ -108,10 +108,6 @@ public class JMSAdapterFactory extends AdapterFactoryImpl {
 				return createJmsSelectorFilterAdapter();
 			}
 			@Override
-			public Adapter caseJmsTransactionType(JmsTransactionType object) {
-				return createJmsTransactionTypeAdapter();
-			}
-			@Override
 			public Adapter caseOutboundEndpointType(OutboundEndpointType object) {
 				return createOutboundEndpointTypeAdapter();
 			}
@@ -142,10 +138,6 @@ public class JMSAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAbstractInboundEndpointType(AbstractInboundEndpointType object) {
 				return createAbstractInboundEndpointTypeAdapter();
-			}
-			@Override
-			public Adapter caseAbstractTransactionType(AbstractTransactionType object) {
-				return createAbstractTransactionTypeAdapter();
 			}
 			@Override
 			public Adapter caseAbstractOutboundEndpointType(AbstractOutboundEndpointType object) {
@@ -274,20 +266,6 @@ public class JMSAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.jms.JmsTransactionType <em>Jms Transaction Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.jms.JmsTransactionType
-	 * @generated
-	 */
-	public Adapter createJmsTransactionTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.jms.OutboundEndpointType <em>Outbound Endpoint Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -396,20 +374,6 @@ public class JMSAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractInboundEndpointTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.AbstractTransactionType <em>Abstract Transaction Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.AbstractTransactionType
-	 * @generated
-	 */
-	public Adapter createAbstractTransactionTypeAdapter() {
 		return null;
 	}
 

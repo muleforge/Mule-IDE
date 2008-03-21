@@ -237,29 +237,6 @@ public class JMSItemProviderAdapterFactory extends JMSAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.jms.JmsTransactionType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected JmsTransactionTypeItemProvider jmsTransactionTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.jms.JmsTransactionType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createJmsTransactionTypeAdapter() {
-		if (jmsTransactionTypeItemProvider == null) {
-			jmsTransactionTypeItemProvider = new JmsTransactionTypeItemProvider(this);
-		}
-
-		return jmsTransactionTypeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.jms.OutboundEndpointType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,7 +411,6 @@ public class JMSItemProviderAdapterFactory extends JMSAdapterFactory implements 
 		if (globalEndpointTypeItemProvider != null) globalEndpointTypeItemProvider.dispose();
 		if (inboundEndpointTypeItemProvider != null) inboundEndpointTypeItemProvider.dispose();
 		if (jmsSelectorFilterItemProvider != null) jmsSelectorFilterItemProvider.dispose();
-		if (jmsTransactionTypeItemProvider != null) jmsTransactionTypeItemProvider.dispose();
 		if (outboundEndpointTypeItemProvider != null) outboundEndpointTypeItemProvider.dispose();
 		if (propertyFilterTypeItemProvider != null) propertyFilterTypeItemProvider.dispose();
 		if (vendorJmsConnectorTypeItemProvider != null) vendorJmsConnectorTypeItemProvider.dispose();

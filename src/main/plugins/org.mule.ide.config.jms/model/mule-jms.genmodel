@@ -134,7 +134,6 @@
     <genClasses image="false" ecoreClass="jms.ecore#//JmsSelectorFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//JmsSelectorFilter/expression"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="jms.ecore#//JmsTransactionType"/>
     <genClasses image="false" ecoreClass="jms.ecore#//OutboundEndpointType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/group"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/abstractTransformerGroup"/>

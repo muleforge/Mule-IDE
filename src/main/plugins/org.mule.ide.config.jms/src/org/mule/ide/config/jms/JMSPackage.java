@@ -104,7 +104,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @see org.mule.ide.config.jms.impl.JMSPackageImpl#getVendorJmsConnectorType()
 	 * @generated
 	 */
-	int VENDOR_JMS_CONNECTOR_TYPE = 10;
+	int VENDOR_JMS_CONNECTOR_TYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1851,43 +1851,6 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	int JMS_SELECTOR_FILTER_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.mule.ide.config.jms.impl.JmsTransactionTypeImpl <em>Jms Transaction Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.mule.ide.config.jms.impl.JmsTransactionTypeImpl
-	 * @see org.mule.ide.config.jms.impl.JMSPackageImpl#getJmsTransactionType()
-	 * @generated
-	 */
-	int JMS_TRANSACTION_TYPE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Action</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JMS_TRANSACTION_TYPE__ACTION = CorePackage.ABSTRACT_TRANSACTION_TYPE__ACTION;
-
-	/**
-	 * The feature id for the '<em><b>Timeout</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JMS_TRANSACTION_TYPE__TIMEOUT = CorePackage.ABSTRACT_TRANSACTION_TYPE__TIMEOUT;
-
-	/**
-	 * The number of structural features of the '<em>Jms Transaction Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JMS_TRANSACTION_TYPE_FEATURE_COUNT = CorePackage.ABSTRACT_TRANSACTION_TYPE_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.mule.ide.config.jms.impl.OutboundEndpointTypeImpl <em>Outbound Endpoint Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1895,7 +1858,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @see org.mule.ide.config.jms.impl.JMSPackageImpl#getOutboundEndpointType()
 	 * @generated
 	 */
-	int OUTBOUND_ENDPOINT_TYPE = 8;
+	int OUTBOUND_ENDPOINT_TYPE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2157,7 +2120,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @see org.mule.ide.config.jms.impl.JMSPackageImpl#getPropertyFilterType()
 	 * @generated
 	 */
-	int PROPERTY_FILTER_TYPE = 9;
+	int PROPERTY_FILTER_TYPE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2230,7 +2193,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @see org.mule.ide.config.jms.impl.JMSPackageImpl#getAcknowledgementModeType()
 	 * @generated
 	 */
-	int ACKNOWLEDGEMENT_MODE_TYPE = 11;
+	int ACKNOWLEDGEMENT_MODE_TYPE = 10;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.jms.SpecificationType <em>Specification Type</em>}' enum.
@@ -2240,7 +2203,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @see org.mule.ide.config.jms.impl.JMSPackageImpl#getSpecificationType()
 	 * @generated
 	 */
-	int SPECIFICATION_TYPE = 12;
+	int SPECIFICATION_TYPE = 11;
 
 	/**
 	 * The meta object id for the '<em>Acknowledgement Mode Type Object</em>' data type.
@@ -2250,7 +2213,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @see org.mule.ide.config.jms.impl.JMSPackageImpl#getAcknowledgementModeTypeObject()
 	 * @generated
 	 */
-	int ACKNOWLEDGEMENT_MODE_TYPE_OBJECT = 13;
+	int ACKNOWLEDGEMENT_MODE_TYPE_OBJECT = 12;
 
 	/**
 	 * The meta object id for the '<em>Specification Type Object</em>' data type.
@@ -2260,7 +2223,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @see org.mule.ide.config.jms.impl.JMSPackageImpl#getSpecificationTypeObject()
 	 * @generated
 	 */
-	int SPECIFICATION_TYPE_OBJECT = 14;
+	int SPECIFICATION_TYPE_OBJECT = 13;
 
 
 	/**
@@ -3443,16 +3406,6 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 */
 	EAttribute getJmsSelectorFilter_Expression();
-
-	/**
-	 * Returns the meta object for class '{@link org.mule.ide.config.jms.JmsTransactionType <em>Jms Transaction Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Jms Transaction Type</em>'.
-	 * @see org.mule.ide.config.jms.JmsTransactionType
-	 * @generated
-	 */
-	EClass getJmsTransactionType();
 
 	/**
 	 * Returns the meta object for class '{@link org.mule.ide.config.jms.OutboundEndpointType <em>Outbound Endpoint Type</em>}'.
@@ -4922,16 +4875,6 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 		 * @generated
 		 */
 		EAttribute JMS_SELECTOR_FILTER__EXPRESSION = eINSTANCE.getJmsSelectorFilter_Expression();
-
-		/**
-		 * The meta object literal for the '{@link org.mule.ide.config.jms.impl.JmsTransactionTypeImpl <em>Jms Transaction Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.mule.ide.config.jms.impl.JmsTransactionTypeImpl
-		 * @see org.mule.ide.config.jms.impl.JMSPackageImpl#getJmsTransactionType()
-		 * @generated
-		 */
-		EClass JMS_TRANSACTION_TYPE = eINSTANCE.getJmsTransactionType();
 
 		/**
 		 * The meta object literal for the '{@link org.mule.ide.config.jms.impl.OutboundEndpointTypeImpl <em>Outbound Endpoint Type</em>}' class.

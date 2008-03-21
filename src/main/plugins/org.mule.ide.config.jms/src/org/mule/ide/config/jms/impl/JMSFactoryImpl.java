@@ -68,7 +68,6 @@ public class JMSFactoryImpl extends EFactoryImpl implements JMSFactory {
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE: return createGlobalEndpointType();
 			case JMSPackage.INBOUND_ENDPOINT_TYPE: return createInboundEndpointType();
 			case JMSPackage.JMS_SELECTOR_FILTER: return createJmsSelectorFilter();
-			case JMSPackage.JMS_TRANSACTION_TYPE: return createJmsTransactionType();
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE: return createOutboundEndpointType();
 			case JMSPackage.PROPERTY_FILTER_TYPE: return createPropertyFilterType();
 			case JMSPackage.VENDOR_JMS_CONNECTOR_TYPE: return createVendorJmsConnectorType();
@@ -187,16 +186,6 @@ public class JMSFactoryImpl extends EFactoryImpl implements JMSFactory {
 	public JmsSelectorFilter createJmsSelectorFilter() {
 		JmsSelectorFilterImpl jmsSelectorFilter = new JmsSelectorFilterImpl();
 		return jmsSelectorFilter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JmsTransactionType createJmsTransactionType() {
-		JmsTransactionTypeImpl jmsTransactionType = new JmsTransactionTypeImpl();
-		return jmsTransactionType;
 	}
 
 	/**

@@ -37,7 +37,6 @@ import org.mule.ide.config.jms.InboundEndpointType;
 import org.mule.ide.config.jms.JMSFactory;
 import org.mule.ide.config.jms.JMSPackage;
 import org.mule.ide.config.jms.JmsSelectorFilter;
-import org.mule.ide.config.jms.JmsTransactionType;
 import org.mule.ide.config.jms.OutboundEndpointType;
 import org.mule.ide.config.jms.PropertyFilterType;
 import org.mule.ide.config.jms.SpecificationType;
@@ -100,13 +99,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	private EClass jmsSelectorFilterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass jmsTransactionTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1208,15 +1200,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getJmsTransactionType() {
-		return jmsTransactionTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getOutboundEndpointType() {
 		return outboundEndpointTypeEClass;
 	}
@@ -1823,8 +1806,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		jmsSelectorFilterEClass = createEClass(JMS_SELECTOR_FILTER);
 		createEAttribute(jmsSelectorFilterEClass, JMS_SELECTOR_FILTER__EXPRESSION);
 
-		jmsTransactionTypeEClass = createEClass(JMS_TRANSACTION_TYPE);
-
 		outboundEndpointTypeEClass = createEClass(OUTBOUND_ENDPOINT_TYPE);
 		createEAttribute(outboundEndpointTypeEClass, OUTBOUND_ENDPOINT_TYPE__GROUP);
 		createEAttribute(outboundEndpointTypeEClass, OUTBOUND_ENDPOINT_TYPE__ABSTRACT_TRANSFORMER_GROUP);
@@ -1922,7 +1903,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		genericConnectorTypeEClass.getESuperTypes().add(theCorePackage.getConnectorType());
 		globalEndpointTypeEClass.getESuperTypes().add(theCorePackage.getAbstractGlobalEndpointType());
 		inboundEndpointTypeEClass.getESuperTypes().add(theCorePackage.getAbstractInboundEndpointType());
-		jmsTransactionTypeEClass.getESuperTypes().add(theCorePackage.getAbstractTransactionType());
 		outboundEndpointTypeEClass.getESuperTypes().add(theCorePackage.getAbstractOutboundEndpointType());
 		propertyFilterTypeEClass.getESuperTypes().add(theCorePackage.getAbstractFilterType());
 		vendorJmsConnectorTypeEClass.getESuperTypes().add(theCorePackage.getConnectorType());
@@ -1953,7 +1933,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		initEReference(getDocumentRoot_XSISchemaLocation(), ecorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_ActivemqConnector(), this.getActiveMqConnectorType(), null, "activemqConnector", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_ActivemqXaConnector(), this.getActiveMqConnectorType(), null, "activemqXaConnector", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_ClientAckTransaction(), this.getJmsTransactionType(), null, "clientAckTransaction", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentRoot_ClientAckTransaction(), theCorePackage.getBaseTransactionType(), null, "clientAckTransaction", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_Connector(), this.getGenericConnectorType(), null, "connector", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_CustomConnector(), this.getCustomConnectorType(), null, "customConnector", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_Endpoint(), this.getGlobalEndpointType(), null, "endpoint", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1962,10 +1942,10 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		initEReference(getDocumentRoot_ObjectToJmsmessageTransformer(), theCorePackage.getAbstractTransformerType(), null, "objectToJmsmessageTransformer", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_OutboundEndpoint(), this.getOutboundEndpointType(), null, "outboundEndpoint", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_PropertyFilter(), this.getPropertyFilterType(), null, "propertyFilter", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_Transaction(), this.getJmsTransactionType(), null, "transaction", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentRoot_Transaction(), theCorePackage.getBaseTransactionType(), null, "transaction", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_WeblogicConnector(), this.getVendorJmsConnectorType(), null, "weblogicConnector", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_WebsphereConnector(), this.getVendorJmsConnectorType(), null, "websphereConnector", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_XaTransaction(), this.getJmsTransactionType(), null, "xaTransaction", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentRoot_XaTransaction(), theCorePackage.getBaseTransactionType(), null, "xaTransaction", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(genericConnectorTypeEClass, GenericConnectorType.class, "GenericConnectorType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGenericConnectorType_AcknowledgementMode(), this.getAcknowledgementModeType(), "acknowledgementMode", "AUTO_ACKNOWLEDGE", 0, 1, GenericConnectorType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2006,7 +1986,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		initEAttribute(getGlobalEndpointType_Queue(), theXMLTypePackage.getString(), "queue", null, 0, 1, GlobalEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGlobalEndpointType_Ref(), theXMLTypePackage.getNMTOKEN(), "ref", null, 0, 1, GlobalEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGlobalEndpointType_RemoteSync(), theCorePackage.getSubstitutableBoolean(), "remoteSync", null, 0, 1, GlobalEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGlobalEndpointType_RemoteSyncTimeout(), theXMLTypePackage.getNMTOKEN(), "remoteSyncTimeout", null, 0, 1, GlobalEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGlobalEndpointType_RemoteSyncTimeout(), theCorePackage.getSubstitutableInt(), "remoteSyncTimeout", null, 0, 1, GlobalEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGlobalEndpointType_ResponseTransformerRefs(), theXMLTypePackage.getNMTOKENS(), "responseTransformerRefs", null, 0, 1, GlobalEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGlobalEndpointType_Synchronous(), theCorePackage.getSubstitutableBoolean(), "synchronous", null, 0, 1, GlobalEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGlobalEndpointType_Topic(), theXMLTypePackage.getString(), "topic", null, 0, 1, GlobalEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2034,7 +2014,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		initEAttribute(getInboundEndpointType_Queue(), theXMLTypePackage.getString(), "queue", null, 0, 1, InboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpointType_Ref(), theXMLTypePackage.getNMTOKEN(), "ref", null, 0, 1, InboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpointType_RemoteSync(), theCorePackage.getSubstitutableBoolean(), "remoteSync", null, 0, 1, InboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInboundEndpointType_RemoteSyncTimeout(), theXMLTypePackage.getNMTOKEN(), "remoteSyncTimeout", null, 0, 1, InboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInboundEndpointType_RemoteSyncTimeout(), theCorePackage.getSubstitutableInt(), "remoteSyncTimeout", null, 0, 1, InboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpointType_ResponseTransformerRefs(), theXMLTypePackage.getNMTOKENS(), "responseTransformerRefs", null, 0, 1, InboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpointType_Synchronous(), theCorePackage.getSubstitutableBoolean(), "synchronous", null, 0, 1, InboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpointType_Topic(), theXMLTypePackage.getString(), "topic", null, 0, 1, InboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2042,8 +2022,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 
 		initEClass(jmsSelectorFilterEClass, JmsSelectorFilter.class, "JmsSelectorFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJmsSelectorFilter_Expression(), theXMLTypePackage.getString(), "expression", null, 0, 1, JmsSelectorFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(jmsTransactionTypeEClass, JmsTransactionType.class, "JmsTransactionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(outboundEndpointTypeEClass, OutboundEndpointType.class, "OutboundEndpointType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOutboundEndpointType_Group(), ecorePackage.getEFeatureMapEntry(), "group", null, 0, -1, OutboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2067,7 +2045,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		initEAttribute(getOutboundEndpointType_Queue(), theXMLTypePackage.getString(), "queue", null, 0, 1, OutboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutboundEndpointType_Ref(), theXMLTypePackage.getNMTOKEN(), "ref", null, 0, 1, OutboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutboundEndpointType_RemoteSync(), theCorePackage.getSubstitutableBoolean(), "remoteSync", null, 0, 1, OutboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOutboundEndpointType_RemoteSyncTimeout(), theXMLTypePackage.getNMTOKEN(), "remoteSyncTimeout", null, 0, 1, OutboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOutboundEndpointType_RemoteSyncTimeout(), theCorePackage.getSubstitutableInt(), "remoteSyncTimeout", null, 0, 1, OutboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutboundEndpointType_ResponseTransformerRefs(), theXMLTypePackage.getNMTOKENS(), "responseTransformerRefs", null, 0, 1, OutboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutboundEndpointType_Synchronous(), theCorePackage.getSubstitutableBoolean(), "synchronous", null, 0, 1, OutboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutboundEndpointType_Topic(), theXMLTypePackage.getString(), "topic", null, 0, 1, OutboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2546,7 +2524,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		   new String[] {
 			 "kind", "group",
 			 "name", "group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_AbstractTransformerGroup(), 
 		   source, 
@@ -2555,7 +2533,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transformer:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_AbstractTransformer(), 
 		   source, 
@@ -2564,7 +2542,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transformer",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-transformer:group"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_Transformers(), 
 		   source, 
@@ -2573,16 +2551,16 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "transformers",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_ResponseTransformers(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
-			 "name", "responseTransformers",
+			 "name", "response-transformers",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_AbstractTransactionGroup(), 
 		   source, 
@@ -2591,7 +2569,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transaction:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_AbstractTransaction(), 
 		   source, 
@@ -2600,7 +2578,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transaction",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-transaction:group"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_AbstractFilterGroup(), 
 		   source, 
@@ -2609,7 +2587,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-filter:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_AbstractFilter(), 
 		   source, 
@@ -2627,7 +2605,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "selector",
 			 "namespace", "##targetNamespace",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_AbstractSecurityFilterGroup(), 
 		   source, 
@@ -2636,7 +2614,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-security-filter:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_AbstractSecurityFilter(), 
 		   source, 
@@ -2645,7 +2623,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-security-filter",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-security-filter:group"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_AbstractConnectionStrategyGroup(), 
 		   source, 
@@ -2654,7 +2632,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-connection-strategy:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_AbstractConnectionStrategy(), 
 		   source, 
@@ -2672,21 +2650,21 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "properties",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_Address(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "address"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_ConnectorRef(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "connector-ref"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_Encoding(), 
 		   source, 
@@ -2700,35 +2678,35 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "queue"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_Ref(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "ref"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_RemoteSync(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "remoteSync"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_RemoteSyncTimeout(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "remoteSyncTimeout"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_ResponseTransformerRefs(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "responseTransformer-refs"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_Synchronous(), 
 		   source, 
@@ -2742,7 +2720,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "topic"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_TransformerRefs(), 
 		   source, 
@@ -2763,7 +2741,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		   new String[] {
 			 "kind", "group",
 			 "name", "group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_AbstractTransformerGroup(), 
 		   source, 
@@ -2772,7 +2750,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transformer:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_AbstractTransformer(), 
 		   source, 
@@ -2781,7 +2759,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transformer",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-transformer:group"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_Transformers(), 
 		   source, 
@@ -2790,16 +2768,16 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "transformers",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_ResponseTransformers(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
-			 "name", "responseTransformers",
+			 "name", "response-transformers",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_AbstractTransactionGroup(), 
 		   source, 
@@ -2808,7 +2786,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transaction:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_AbstractTransaction(), 
 		   source, 
@@ -2817,7 +2795,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transaction",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-transaction:group"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_AbstractFilterGroup(), 
 		   source, 
@@ -2826,7 +2804,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-filter:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_AbstractFilter(), 
 		   source, 
@@ -2844,7 +2822,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "selector",
 			 "namespace", "##targetNamespace",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_AbstractSecurityFilterGroup(), 
 		   source, 
@@ -2853,7 +2831,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-security-filter:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_AbstractSecurityFilter(), 
 		   source, 
@@ -2862,7 +2840,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-security-filter",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-security-filter:group"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_AbstractConnectionStrategyGroup(), 
 		   source, 
@@ -2871,7 +2849,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-connection-strategy:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_AbstractConnectionStrategy(), 
 		   source, 
@@ -2889,21 +2867,21 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "properties",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_Address(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "address"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_ConnectorRef(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "connector-ref"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_Encoding(), 
 		   source, 
@@ -2917,35 +2895,35 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "queue"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_Ref(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "ref"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_RemoteSync(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "remoteSync"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_RemoteSyncTimeout(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "remoteSyncTimeout"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_ResponseTransformerRefs(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "responseTransformer-refs"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_Synchronous(), 
 		   source, 
@@ -2959,7 +2937,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "topic"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_TransformerRefs(), 
 		   source, 
@@ -2982,13 +2960,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "expression"
 		   });		
 		addAnnotation
-		  (jmsTransactionTypeEClass, 
-		   source, 
-		   new String[] {
-			 "name", "jmsTransactionType",
-			 "kind", "empty"
-		   });		
-		addAnnotation
 		  (outboundEndpointTypeEClass, 
 		   source, 
 		   new String[] {
@@ -3001,7 +2972,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		   new String[] {
 			 "kind", "group",
 			 "name", "group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_AbstractTransformerGroup(), 
 		   source, 
@@ -3010,7 +2981,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transformer:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_AbstractTransformer(), 
 		   source, 
@@ -3019,7 +2990,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transformer",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-transformer:group"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_Transformers(), 
 		   source, 
@@ -3028,16 +2999,16 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "transformers",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_ResponseTransformers(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
-			 "name", "responseTransformers",
+			 "name", "response-transformers",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_AbstractTransactionGroup(), 
 		   source, 
@@ -3046,7 +3017,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transaction:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_AbstractTransaction(), 
 		   source, 
@@ -3055,7 +3026,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-transaction",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-transaction:group"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_AbstractFilterGroup(), 
 		   source, 
@@ -3064,7 +3035,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-filter:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_AbstractFilter(), 
 		   source, 
@@ -3082,7 +3053,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "selector",
 			 "namespace", "##targetNamespace",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_AbstractSecurityFilterGroup(), 
 		   source, 
@@ -3091,7 +3062,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-security-filter:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_AbstractSecurityFilter(), 
 		   source, 
@@ -3100,7 +3071,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-security-filter",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-security-filter:group"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_AbstractConnectionStrategyGroup(), 
 		   source, 
@@ -3109,7 +3080,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-connection-strategy:group",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_AbstractConnectionStrategy(), 
 		   source, 
@@ -3127,21 +3098,21 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "properties",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "#group:1"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_Address(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "address"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_ConnectorRef(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "connector-ref"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_Encoding(), 
 		   source, 
@@ -3155,35 +3126,35 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "queue"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_Ref(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "ref"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_RemoteSync(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "remoteSync"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_RemoteSyncTimeout(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "remoteSyncTimeout"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_ResponseTransformerRefs(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "responseTransformer-refs"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_Synchronous(), 
 		   source, 
@@ -3197,7 +3168,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "topic"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_TransformerRefs(), 
 		   source, 

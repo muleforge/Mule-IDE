@@ -241,7 +241,7 @@ public class GlobalEndpointTypeItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -440,6 +440,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(JMSPackage.Literals.DOCUMENT_ROOT__JMSMESSAGE_TO_OBJECT_TRANSFORMER,
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(JMSPackage.Literals.DOCUMENT_ROOT__JMSMESSAGE_TO_OBJECT_TRANSFORMER,
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -462,6 +469,13 @@ public class GlobalEndpointTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(JMSPackage.Literals.DOCUMENT_ROOT__OBJECT_TO_JMSMESSAGE_TRANSFORMER,
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(JMSPackage.Literals.DOCUMENT_ROOT__OBJECT_TO_JMSMESSAGE_TRANSFORMER,
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -503,6 +517,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -531,6 +552,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -559,6 +587,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -587,6 +622,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -615,6 +657,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -643,6 +692,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -664,56 +720,21 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
+					(CorePackage.eINSTANCE.getDocumentRoot_ExpressionTransformer(),
+					 CoreFactory.eINSTANCE.createExpressionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -728,6 +749,13 @@ public class GlobalEndpointTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -756,6 +784,13 @@ public class GlobalEndpointTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -784,6 +819,13 @@ public class GlobalEndpointTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -825,6 +867,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -853,6 +902,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -881,6 +937,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -909,6 +972,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -937,6 +1007,13 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -957,118 +1034,6 @@ public class GlobalEndpointTypeItemProvider
 			(createChildParameter
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(),
 					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
 
@@ -1078,6 +1043,13 @@ public class GlobalEndpointTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1106,6 +1078,13 @@ public class GlobalEndpointTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1140,21 +1119,42 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(JMSPackage.Literals.DOCUMENT_ROOT__CLIENT_ACK_TRANSACTION,
-					 JMSFactory.eINSTANCE.createJmsTransactionType())));
+					 CoreFactory.eINSTANCE.createBaseTransactionType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(JMSPackage.Literals.DOCUMENT_ROOT__CLIENT_ACK_TRANSACTION,
+					 CoreFactory.eINSTANCE.createCustomTransactionType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(JMSPackage.Literals.DOCUMENT_ROOT__TRANSACTION,
-					 JMSFactory.eINSTANCE.createJmsTransactionType())));
+					 CoreFactory.eINSTANCE.createBaseTransactionType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(JMSPackage.Literals.DOCUMENT_ROOT__TRANSACTION,
+					 CoreFactory.eINSTANCE.createCustomTransactionType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(JMSPackage.Literals.DOCUMENT_ROOT__XA_TRANSACTION,
-					 JMSFactory.eINSTANCE.createJmsTransactionType())));
+					 CoreFactory.eINSTANCE.createBaseTransactionType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(JMSPackage.Literals.DOCUMENT_ROOT__XA_TRANSACTION,
+					 CoreFactory.eINSTANCE.createCustomTransactionType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1203,14 +1203,7 @@ public class GlobalEndpointTypeItemProvider
 				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter(),
-					 CoreFactory.eINSTANCE.createPatternFilterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter(),
-					 CoreFactory.eINSTANCE.createWildcardFilterType())));
+					 CoreFactory.eINSTANCE.createCaseSensitivePatternFilterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1239,6 +1232,13 @@ public class GlobalEndpointTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(),
 					 CoreFactory.eINSTANCE.createPatternFilterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(),
+					 CoreFactory.eINSTANCE.createCaseSensitivePatternFilterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1316,8 +1316,6 @@ public class GlobalEndpointTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer() ||
@@ -1326,18 +1324,17 @@ public class GlobalEndpointTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transformer() ||
 			childFeature == JMSPackage.Literals.DOCUMENT_ROOT__CLIENT_ACK_TRANSACTION ||
 			childFeature == JMSPackage.Literals.DOCUMENT_ROOT__TRANSACTION ||
 			childFeature == JMSPackage.Literals.DOCUMENT_ROOT__XA_TRANSACTION ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransaction() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_AndFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OrFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter() ||

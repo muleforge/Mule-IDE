@@ -89,15 +89,6 @@ public interface JMSFactory extends EFactory {
 	JmsSelectorFilter createJmsSelectorFilter();
 
 	/**
-	 * Returns a new object of class '<em>Jms Transaction Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Jms Transaction Type</em>'.
-	 * @generated
-	 */
-	JmsTransactionType createJmsTransactionType();
-
-	/**
 	 * Returns a new object of class '<em>Outbound Endpoint Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

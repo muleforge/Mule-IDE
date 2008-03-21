@@ -189,7 +189,12 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JMSPackage.Literals.DOCUMENT_ROOT__CLIENT_ACK_TRANSACTION,
-				 JMSFactory.eINSTANCE.createJmsTransactionType()));
+				 CoreFactory.eINSTANCE.createBaseTransactionType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.DOCUMENT_ROOT__CLIENT_ACK_TRANSACTION,
+				 CoreFactory.eINSTANCE.createCustomTransactionType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -224,6 +229,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JMSPackage.Literals.DOCUMENT_ROOT__JMSMESSAGE_TO_OBJECT_TRANSFORMER,
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.DOCUMENT_ROOT__JMSMESSAGE_TO_OBJECT_TRANSFORMER,
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
 
 		newChildDescriptors.add
@@ -240,6 +250,11 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(JMSPackage.Literals.DOCUMENT_ROOT__OBJECT_TO_JMSMESSAGE_TRANSFORMER,
 				 CoreFactory.eINSTANCE.createCustomTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.DOCUMENT_ROOT__OBJECT_TO_JMSMESSAGE_TRANSFORMER,
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -264,7 +279,12 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JMSPackage.Literals.DOCUMENT_ROOT__TRANSACTION,
-				 JMSFactory.eINSTANCE.createJmsTransactionType()));
+				 CoreFactory.eINSTANCE.createBaseTransactionType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.DOCUMENT_ROOT__TRANSACTION,
+				 CoreFactory.eINSTANCE.createCustomTransactionType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -289,7 +309,12 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JMSPackage.Literals.DOCUMENT_ROOT__XA_TRANSACTION,
-				 JMSFactory.eINSTANCE.createJmsTransactionType()));
+				 CoreFactory.eINSTANCE.createBaseTransactionType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.DOCUMENT_ROOT__XA_TRANSACTION,
+				 CoreFactory.eINSTANCE.createCustomTransactionType()));
 	}
 
 	/**

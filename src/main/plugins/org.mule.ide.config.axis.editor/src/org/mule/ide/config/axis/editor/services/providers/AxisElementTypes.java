@@ -193,7 +193,7 @@ public class AxisElementTypes extends ElementInitializers {
 					.getInboundEndpointType());
 
 			elements.put(ExceptionStrategyType_2003, CorePackage.eINSTANCE
-					.getExceptionStrategyType());
+					.getEndpointExceptionStrategyType());
 
 			elements.put(OutboundEndpointType_2004, AxisPackage.eINSTANCE
 					.getOutboundEndpointType());

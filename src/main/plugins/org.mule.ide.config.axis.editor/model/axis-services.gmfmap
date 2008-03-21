@@ -76,13 +76,13 @@
             href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractExceptionStrategy"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.mule.ide.config.core/model/core.ecore#//ExceptionStrategyType"/>
+              href="../../org.mule.ide.config.core/model/core.ecore#//EndpointExceptionStrategyType"/>
           <diagramNode
               href="../../org.mule.ide.config.editor/model/services.gmfgraph#ServiceItem"/>
           <children
               compartment="//@nodes.0/@ownedChild/@children.1/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//ExceptionStrategyType/abstractOutboundEndpoint"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//EndpointExceptionStrategyType/abstractOutboundEndpoint"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.axis/model/axis.ecore#//OutboundEndpointType"/>

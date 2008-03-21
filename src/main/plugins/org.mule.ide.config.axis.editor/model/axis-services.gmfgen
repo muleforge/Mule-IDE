@@ -177,7 +177,7 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/EndpointExceptionStrategyType"/>
         <containmentMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractExceptionStrategy"/>
         <childMetaFeature
@@ -212,9 +212,9 @@
         <metaClass
             href="../../org.mule.ide.config.axis/model/mule-axis.genmodel#//axis/OutboundEndpointType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType/abstractOutboundEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/EndpointExceptionStrategyType/abstractOutboundEndpoint"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType/abstractOutboundEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/EndpointExceptionStrategyType/abstractOutboundEndpoint"/>
       </modelFacet>
       <labels
           visualID="4003"
@@ -428,6 +428,25 @@
         child="//@diagram/@topLevelNodes.0"/>
   </navigator>
   <diagramUpdater/>
+  <propertySheet>
+    <tabs
+        xsi:type="gmfgen:GenStandardPropertyTab"
+        iD="appearance"/>
+    <tabs
+        xsi:type="gmfgen:GenStandardPropertyTab"
+        iD="diagram"/>
+    <tabs
+        xsi:type="gmfgen:GenCustomPropertyTab"
+        iD="domain"
+        label="Core">
+      <filter
+          xsi:type="gmfgen:TypeTabFilter">
+        <types>org.eclipse.gmf.runtime.notation.View</types>
+        <types>org.eclipse.gef.EditPart</types>
+        <generatedTypes>abstractNavigatorItem</generatedTypes>
+      </filter>
+    </tabs>
+  </propertySheet>
   <domainGenModel
       href="../../org.mule.ide.config.axis/model/mule-axis.genmodel#/"/>
 </gmfgen:GenEditorGenerator>

@@ -126,6 +126,9 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueEvents" eType="ecore:EDataType ../../org.mule.ide.config.core/model/core.ecore#//SubstitutableBoolean"
         unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                            Determines if queues should be set up for listeners on the connector.&#xD;&#xA;                            If this is false the connector simply forwards events to components via the Mule server.&#xD;&#xA;                            If it is set then the queues are configured using the queuing profile.&#xD;&#xA;                        "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="queueEvents"/>

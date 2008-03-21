@@ -65,6 +65,13 @@ public interface VmConnectorType extends ConnectorType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             Determines if queues should be set up for listeners on the connector.
+	 *                             If this is false the connector simply forwards events to components via the Mule server.
+	 *                             If it is set then the queues are configured using the queuing profile.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Queue Events</em>' attribute.
 	 * @see #isSetQueueEvents()
 	 * @see #unsetQueueEvents()

@@ -179,10 +179,6 @@ public class OutboundEndpointTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||

@@ -562,7 +562,7 @@ public class VMPackageImpl extends EPackageImpl implements VMPackage {
 			 "kind", "element",
 			 "name", "queueProfile",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getVmConnectorType_QueueEvents(), 
 		   source, 

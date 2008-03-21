@@ -1062,6 +1062,10 @@ public class CoreVisualIDRegistry {
 		if (CorePackage.eINSTANCE.getAbstractOutboundEndpointType()
 				.isSuperTypeOf(type)) {
 			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
+					.getEndpointExceptionStrategyType()) {
+				return true;
+			}			
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
 					.getCustomExceptionStrategyType()) {
 				return true;
 			}

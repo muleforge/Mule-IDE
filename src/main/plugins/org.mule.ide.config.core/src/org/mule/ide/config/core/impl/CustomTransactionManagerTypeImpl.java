@@ -40,7 +40,7 @@ import org.mule.ide.config.spring.PropertyType;
  *
  * @generated
  */
-public class CustomTransactionManagerTypeImpl extends JndiTransactionManagerTypeImpl implements CustomTransactionManagerType {
+public class CustomTransactionManagerTypeImpl extends JndiTransactionManagerType1Impl implements CustomTransactionManagerType {
 	/**
 	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

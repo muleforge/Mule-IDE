@@ -48,6 +48,12 @@ public interface SedaModelType extends AbstractModelType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for queue profile elements.
+	 *                 A queue profile controls how messages are queued before being processed.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Queue Profile Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getSedaModelType_AbstractQueueProfileGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -64,6 +70,12 @@ public interface SedaModelType extends AbstractModelType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for queue profile elements.
+	 *                 A queue profile controls how messages are queued before being processed.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Queue Profile</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getSedaModelType_AbstractQueueProfile()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -80,6 +92,12 @@ public interface SedaModelType extends AbstractModelType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             If true then this model element is an extension of a previous model
+	 *                             element with the same name.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Inherit</em>' attribute.
 	 * @see #isSetInherit()
 	 * @see #unsetInherit()

@@ -32,6 +32,11 @@ public interface RefTransformerType extends AbstractTransformerType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The name of the transformer to use,
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ref</em>' attribute.
 	 * @see #setRef(String)
 	 * @see org.mule.ide.config.core.CorePackage#getRefTransformerType_Ref()

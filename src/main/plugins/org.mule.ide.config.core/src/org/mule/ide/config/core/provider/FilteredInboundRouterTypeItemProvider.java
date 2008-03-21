@@ -86,7 +86,6 @@ public class FilteredInboundRouterTypeItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractFilterGroup());
 			childrenFeatures.add(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor());
 		}
 		return childrenFeatures;
 	}
@@ -129,7 +128,6 @@ public class FilteredInboundRouterTypeItemProvider
 		switch (notification.getFeatureID(FilteredInboundRouterType.class)) {
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_FILTER_GROUP:
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -180,14 +178,7 @@ public class FilteredInboundRouterTypeItemProvider
 				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractFilterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter(),
-					 CoreFactory.eINSTANCE.createPatternFilterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractFilterGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter(),
-					 CoreFactory.eINSTANCE.createWildcardFilterType())));
+					 CoreFactory.eINSTANCE.createCaseSensitivePatternFilterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -222,6 +213,13 @@ public class FilteredInboundRouterTypeItemProvider
 				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractFilterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(),
+					 CoreFactory.eINSTANCE.createCaseSensitivePatternFilterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractFilterGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(),
 					 CoreFactory.eINSTANCE.createWildcardFilterType())));
 
 		newChildDescriptors.add
@@ -235,7 +233,7 @@ public class FilteredInboundRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor(),
+					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
 					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
 
 		newChildDescriptors.add
@@ -243,7 +241,28 @@ public class FilteredInboundRouterTypeItemProvider
 				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
 					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -256,6 +275,13 @@ public class FilteredInboundRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
 					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
 
@@ -263,13 +289,8 @@ public class FilteredInboundRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_CustomPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
+					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
 	}
 
 	/**
@@ -297,11 +318,11 @@ public class FilteredInboundRouterTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor();
 
 		if (qualify) {
 			return getString

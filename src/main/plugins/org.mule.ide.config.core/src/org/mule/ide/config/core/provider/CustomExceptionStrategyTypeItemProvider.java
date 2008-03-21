@@ -40,7 +40,7 @@ import org.mule.ide.config.spring.SpringFactory;
  * @generated
  */
 public class CustomExceptionStrategyTypeItemProvider
-	extends ExceptionStrategyTypeItemProvider
+	extends EndpointExceptionStrategyTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

@@ -15,12 +15,6 @@ import org.mule.ide.config.spring.PropertyType;
  * A representation of the model object '<em><b>Custom Security Provider Type</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * 
- *                 Allow any implementation of UMOSecurityProvider to be used.
- *             
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
@@ -63,6 +57,11 @@ public interface CustomSecurityProviderType extends SecurityProviderType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The name of the security provider to use.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Provider Ref</em>' attribute.
 	 * @see #setProviderRef(String)
 	 * @see org.mule.ide.config.core.CorePackage#getCustomSecurityProviderType_ProviderRef()

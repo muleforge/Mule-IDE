@@ -42,6 +42,17 @@ public interface AbstractObjectFactoryType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                         Set a Mule property.
+	 *                         This is a name/value pair that can be set on components, services, etc,
+	 *                         and which provide a generic way of configuring the system.
+	 *                         In Mule v2 you typically shouldn't need to use a generic property like
+	 *                         this, since almost all functionality is exposed via dedicated elements.
+	 *                         However, it can be useful in configuring obscure or overlooked options
+	 *                         and in configuring transports from the generic endpoint elements.
+	 *                     
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Property</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractObjectFactoryType_Property()
 	 * @model containment="true"
@@ -56,7 +67,13 @@ public interface AbstractObjectFactoryType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 Set properties via Spring's entry attribute.
+	 *                 Set Mule properties.
+	 *                 These are name/value pairs that can be set on components, services, etc,
+	 *                 and which provide a generic way of configuring the system.
+	 *                 In Mule v2 you typically shouldn't need to use generic properties like
+	 *                 this, since almost all functionality is exposed via dedicated elements.
+	 *                 However, they can be useful in configuring obscure or overlooked options
+	 *                 and in configuring transports from the generic endpoint elements.
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Properties</em>' containment reference.

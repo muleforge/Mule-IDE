@@ -83,10 +83,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractAsyncReplyRouterTypeAdapter();
 			}
 			@Override
-			public Adapter caseAbstractBindingType(AbstractBindingType object) {
-				return createAbstractBindingTypeAdapter();
-			}
-			@Override
 			public Adapter caseAbstractCatchAllStrategyType(AbstractCatchAllStrategyType object) {
 				return createAbstractCatchAllStrategyTypeAdapter();
 			}
@@ -105,14 +101,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAbstractConnectorType(AbstractConnectorType object) {
 				return createAbstractConnectorTypeAdapter();
-			}
-			@Override
-			public Adapter caseAbstractDefineNotificationType(AbstractDefineNotificationType object) {
-				return createAbstractDefineNotificationTypeAdapter();
-			}
-			@Override
-			public Adapter caseAbstractDisableNotificationType(AbstractDisableNotificationType object) {
-				return createAbstractDisableNotificationTypeAdapter();
 			}
 			@Override
 			public Adapter caseAbstractEntryPointResolverSetType(AbstractEntryPointResolverSetType object) {
@@ -145,6 +133,10 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAbstractInboundRouterType(AbstractInboundRouterType object) {
 				return createAbstractInboundRouterTypeAdapter();
+			}
+			@Override
+			public Adapter caseAbstractLifecycleAdapterFactory(AbstractLifecycleAdapterFactory object) {
+				return createAbstractLifecycleAdapterFactoryAdapter();
 			}
 			@Override
 			public Adapter caseAbstractModelType(AbstractModelType object) {
@@ -187,10 +179,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractServiceTypeAdapter();
 			}
 			@Override
-			public Adapter caseAbstractStorageType(AbstractStorageType object) {
-				return createAbstractStorageTypeAdapter();
-			}
-			@Override
 			public Adapter caseAbstractTransactionManagerType(AbstractTransactionManagerType object) {
 				return createAbstractTransactionManagerTypeAdapter();
 			}
@@ -215,16 +203,20 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createAsyncReplyRouterTypeAdapter();
 			}
 			@Override
-			public Adapter caseBaseContainerContextType(BaseContainerContextType object) {
-				return createBaseContainerContextTypeAdapter();
-			}
-			@Override
 			public Adapter caseBaseEntryPointResolverType(BaseEntryPointResolverType object) {
 				return createBaseEntryPointResolverTypeAdapter();
 			}
 			@Override
 			public Adapter caseBaseServiceType(BaseServiceType object) {
 				return createBaseServiceTypeAdapter();
+			}
+			@Override
+			public Adapter caseBaseTransactionType(BaseTransactionType object) {
+				return createBaseTransactionTypeAdapter();
+			}
+			@Override
+			public Adapter caseCaseSensitivePatternFilterType(CaseSensitivePatternFilterType object) {
+				return createCaseSensitivePatternFilterTypeAdapter();
 			}
 			@Override
 			public Adapter caseChunkingRouterType(ChunkingRouterType object) {
@@ -237,6 +229,10 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseComplexEntryPointResolverType(ComplexEntryPointResolverType object) {
 				return createComplexEntryPointResolverTypeAdapter();
+			}
+			@Override
+			public Adapter caseConfigurationType(ConfigurationType object) {
+				return createConfigurationTypeAdapter();
 			}
 			@Override
 			public Adapter caseConnectionStrategyType(ConnectionStrategyType object) {
@@ -261,10 +257,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCustomConnectorType(CustomConnectorType object) {
 				return createCustomConnectorTypeAdapter();
-			}
-			@Override
-			public Adapter caseCustomContainerContextType(CustomContainerContextType object) {
-				return createCustomContainerContextTypeAdapter();
 			}
 			@Override
 			public Adapter caseCustomCorrelationAggregatorRouterType(CustomCorrelationAggregatorRouterType object) {
@@ -299,6 +291,10 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createCustomInboundRouterTypeAdapter();
 			}
 			@Override
+			public Adapter caseCustomLifecycleAdapterFactory(CustomLifecycleAdapterFactory object) {
+				return createCustomLifecycleAdapterFactoryAdapter();
+			}
+			@Override
 			public Adapter caseCustomOutboundRouterType(CustomOutboundRouterType object) {
 				return createCustomOutboundRouterTypeAdapter();
 			}
@@ -309,6 +305,10 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCustomSecurityProviderType(CustomSecurityProviderType object) {
 				return createCustomSecurityProviderTypeAdapter();
+			}
+			@Override
+			public Adapter caseCustomServiceType(CustomServiceType object) {
+				return createCustomServiceTypeAdapter();
 			}
 			@Override
 			public Adapter caseCustomTransactionManagerType(CustomTransactionManagerType object) {
@@ -327,12 +327,12 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createDefaultComponentTypeAdapter();
 			}
 			@Override
-			public Adapter caseDefaultModelType(DefaultModelType object) {
-				return createDefaultModelTypeAdapter();
+			public Adapter caseDefaultJavaComponentType(DefaultJavaComponentType object) {
+				return createDefaultJavaComponentTypeAdapter();
 			}
 			@Override
-			public Adapter caseDefaultServiceType(DefaultServiceType object) {
-				return createDefaultServiceTypeAdapter();
+			public Adapter caseDefaultModelType(DefaultModelType object) {
+				return createDefaultModelTypeAdapter();
 			}
 			@Override
 			public Adapter caseDefineNotificationType(DefineNotificationType object) {
@@ -359,6 +359,14 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createEncryptionStrategyTypeAdapter();
 			}
 			@Override
+			public Adapter caseEncryptionTransformerType(EncryptionTransformerType object) {
+				return createEncryptionTransformerTypeAdapter();
+			}
+			@Override
+			public Adapter caseEndpointExceptionStrategyType(EndpointExceptionStrategyType object) {
+				return createEndpointExceptionStrategyTypeAdapter();
+			}
+			@Override
 			public Adapter caseEndpointSelectorRouterType(EndpointSelectorRouterType object) {
 				return createEndpointSelectorRouterTypeAdapter();
 			}
@@ -367,8 +375,8 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createEnvironmentPropertyTypeAdapter();
 			}
 			@Override
-			public Adapter caseExceptionStrategyType(ExceptionStrategyType object) {
-				return createExceptionStrategyTypeAdapter();
+			public Adapter caseExpressionTransformerType(ExpressionTransformerType object) {
+				return createExpressionTransformerTypeAdapter();
 			}
 			@Override
 			public Adapter caseExtensibleEntryPointResolverSet(ExtensibleEntryPointResolverSet object) {
@@ -387,20 +395,12 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createForwardingCatchAllStrategyTypeAdapter();
 			}
 			@Override
-			public Adapter caseForwardingRouterType(ForwardingRouterType object) {
-				return createForwardingRouterTypeAdapter();
-			}
-			@Override
 			public Adapter caseGenericObjectFactoryType(GenericObjectFactoryType object) {
 				return createGenericObjectFactoryTypeAdapter();
 			}
 			@Override
 			public Adapter caseGlobalEndpointType(GlobalEndpointType object) {
 				return createGlobalEndpointTypeAdapter();
-			}
-			@Override
-			public Adapter caseIdempotentReceiverRouterType(IdempotentReceiverRouterType object) {
-				return createIdempotentReceiverRouterTypeAdapter();
 			}
 			@Override
 			public Adapter caseInboundCollectionType(InboundCollectionType object) {
@@ -411,16 +411,16 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createInboundEndpointTypeAdapter();
 			}
 			@Override
-			public Adapter caseIocContainerContextType(IocContainerContextType object) {
-				return createIocContainerContextTypeAdapter();
-			}
-			@Override
 			public Adapter caseJndiConnectorType(JndiConnectorType object) {
 				return createJndiConnectorTypeAdapter();
 			}
 			@Override
 			public Adapter caseJndiTransactionManagerType(JndiTransactionManagerType object) {
 				return createJndiTransactionManagerTypeAdapter();
+			}
+			@Override
+			public Adapter caseJndiTransactionManagerType1(JndiTransactionManagerType1 object) {
+				return createJndiTransactionManagerType1Adapter();
 			}
 			@Override
 			public Adapter caseKeyType(KeyType object) {
@@ -437,10 +437,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseLoggingCatchAllStrategyType(LoggingCatchAllStrategyType object) {
 				return createLoggingCatchAllStrategyTypeAdapter();
-			}
-			@Override
-			public Adapter caseManagementContextType(ManagementContextType object) {
-				return createManagementContextTypeAdapter();
 			}
 			@Override
 			public Adapter caseMapType(MapType object) {
@@ -503,20 +499,12 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createPojoBindingTypeAdapter();
 			}
 			@Override
-			public Adapter casePojoComponentType(PojoComponentType object) {
-				return createPojoComponentTypeAdapter();
-			}
-			@Override
-			public Adapter casePooledObjectFactoryType(PooledObjectFactoryType object) {
-				return createPooledObjectFactoryTypeAdapter();
+			public Adapter casePooledJavaComponentType(PooledJavaComponentType object) {
+				return createPooledJavaComponentTypeAdapter();
 			}
 			@Override
 			public Adapter casePoolingProfileType(PoolingProfileType object) {
 				return createPoolingProfileTypeAdapter();
-			}
-			@Override
-			public Adapter casePropertiesContainerContextType(PropertiesContainerContextType object) {
-				return createPropertiesContainerContextTypeAdapter();
 			}
 			@Override
 			public Adapter casePropertyEntryPointResolverType(PropertyEntryPointResolverType object) {
@@ -559,8 +547,8 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createRetryConnectionStrategyTypeAdapter();
 			}
 			@Override
-			public Adapter caseRmiContainerContextType(RmiContainerContextType object) {
-				return createRmiContainerContextTypeAdapter();
+			public Adapter caseReturnArgumentType(ReturnArgumentType object) {
+				return createReturnArgumentTypeAdapter();
 			}
 			@Override
 			public Adapter caseSecretKeyEncryptionStrategyType(SecretKeyEncryptionStrategyType object) {
@@ -723,20 +711,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.AbstractBindingType <em>Abstract Binding Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.AbstractBindingType
-	 * @generated
-	 */
-	public Adapter createAbstractBindingTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.AbstractCatchAllStrategyType <em>Abstract Catch All Strategy Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -803,34 +777,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractConnectorTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.AbstractDefineNotificationType <em>Abstract Define Notification Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.AbstractDefineNotificationType
-	 * @generated
-	 */
-	public Adapter createAbstractDefineNotificationTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.AbstractDisableNotificationType <em>Abstract Disable Notification Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.AbstractDisableNotificationType
-	 * @generated
-	 */
-	public Adapter createAbstractDisableNotificationTypeAdapter() {
 		return null;
 	}
 
@@ -943,6 +889,20 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractInboundRouterTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.AbstractLifecycleAdapterFactory <em>Abstract Lifecycle Adapter Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.AbstractLifecycleAdapterFactory
+	 * @generated
+	 */
+	public Adapter createAbstractLifecycleAdapterFactoryAdapter() {
 		return null;
 	}
 
@@ -1087,20 +1047,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.AbstractStorageType <em>Abstract Storage Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.AbstractStorageType
-	 * @generated
-	 */
-	public Adapter createAbstractStorageTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.AbstractTransactionManagerType <em>Abstract Transaction Manager Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1185,20 +1131,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.BaseContainerContextType <em>Base Container Context Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.BaseContainerContextType
-	 * @generated
-	 */
-	public Adapter createBaseContainerContextTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.BaseEntryPointResolverType <em>Base Entry Point Resolver Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1223,6 +1155,34 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBaseServiceTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.BaseTransactionType <em>Base Transaction Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.BaseTransactionType
+	 * @generated
+	 */
+	public Adapter createBaseTransactionTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.CaseSensitivePatternFilterType <em>Case Sensitive Pattern Filter Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.CaseSensitivePatternFilterType
+	 * @generated
+	 */
+	public Adapter createCaseSensitivePatternFilterTypeAdapter() {
 		return null;
 	}
 
@@ -1265,6 +1225,20 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComplexEntryPointResolverTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.ConfigurationType <em>Configuration Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.ConfigurationType
+	 * @generated
+	 */
+	public Adapter createConfigurationTypeAdapter() {
 		return null;
 	}
 
@@ -1349,20 +1323,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCustomConnectorTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.CustomContainerContextType <em>Custom Container Context Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.CustomContainerContextType
-	 * @generated
-	 */
-	public Adapter createCustomContainerContextTypeAdapter() {
 		return null;
 	}
 
@@ -1479,6 +1439,20 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.CustomLifecycleAdapterFactory <em>Custom Lifecycle Adapter Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.CustomLifecycleAdapterFactory
+	 * @generated
+	 */
+	public Adapter createCustomLifecycleAdapterFactoryAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.CustomOutboundRouterType <em>Custom Outbound Router Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1517,6 +1491,20 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCustomSecurityProviderTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.CustomServiceType <em>Custom Service Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.CustomServiceType
+	 * @generated
+	 */
+	public Adapter createCustomServiceTypeAdapter() {
 		return null;
 	}
 
@@ -1577,6 +1565,20 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.DefaultJavaComponentType <em>Default Java Component Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.DefaultJavaComponentType
+	 * @generated
+	 */
+	public Adapter createDefaultJavaComponentTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.DefaultModelType <em>Default Model Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1587,20 +1589,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDefaultModelTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.DefaultServiceType <em>Default Service Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.DefaultServiceType
-	 * @generated
-	 */
-	public Adapter createDefaultServiceTypeAdapter() {
 		return null;
 	}
 
@@ -1689,6 +1677,34 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.EncryptionTransformerType <em>Encryption Transformer Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.EncryptionTransformerType
+	 * @generated
+	 */
+	public Adapter createEncryptionTransformerTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.EndpointExceptionStrategyType <em>Endpoint Exception Strategy Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.EndpointExceptionStrategyType
+	 * @generated
+	 */
+	public Adapter createEndpointExceptionStrategyTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.EndpointSelectorRouterType <em>Endpoint Selector Router Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1717,16 +1733,16 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.ExceptionStrategyType <em>Exception Strategy Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.ExpressionTransformerType <em>Expression Transformer Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.ExceptionStrategyType
+	 * @see org.mule.ide.config.core.ExpressionTransformerType
 	 * @generated
 	 */
-	public Adapter createExceptionStrategyTypeAdapter() {
+	public Adapter createExpressionTransformerTypeAdapter() {
 		return null;
 	}
 
@@ -1787,20 +1803,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.ForwardingRouterType <em>Forwarding Router Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.ForwardingRouterType
-	 * @generated
-	 */
-	public Adapter createForwardingRouterTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.GenericObjectFactoryType <em>Generic Object Factory Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1825,20 +1827,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGlobalEndpointTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.IdempotentReceiverRouterType <em>Idempotent Receiver Router Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.IdempotentReceiverRouterType
-	 * @generated
-	 */
-	public Adapter createIdempotentReceiverRouterTypeAdapter() {
 		return null;
 	}
 
@@ -1871,20 +1859,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.IocContainerContextType <em>Ioc Container Context Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.IocContainerContextType
-	 * @generated
-	 */
-	public Adapter createIocContainerContextTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.JndiConnectorType <em>Jndi Connector Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1909,6 +1883,20 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJndiTransactionManagerTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.JndiTransactionManagerType1 <em>Jndi Transaction Manager Type1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mule.ide.config.core.JndiTransactionManagerType1
+	 * @generated
+	 */
+	public Adapter createJndiTransactionManagerType1Adapter() {
 		return null;
 	}
 
@@ -1965,20 +1953,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLoggingCatchAllStrategyTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.ManagementContextType <em>Management Context Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.ManagementContextType
-	 * @generated
-	 */
-	public Adapter createManagementContextTypeAdapter() {
 		return null;
 	}
 
@@ -2193,30 +2167,16 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.PojoComponentType <em>Pojo Component Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.PooledJavaComponentType <em>Pooled Java Component Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.PojoComponentType
+	 * @see org.mule.ide.config.core.PooledJavaComponentType
 	 * @generated
 	 */
-	public Adapter createPojoComponentTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.PooledObjectFactoryType <em>Pooled Object Factory Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.PooledObjectFactoryType
-	 * @generated
-	 */
-	public Adapter createPooledObjectFactoryTypeAdapter() {
+	public Adapter createPooledJavaComponentTypeAdapter() {
 		return null;
 	}
 
@@ -2231,20 +2191,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPoolingProfileTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.PropertiesContainerContextType <em>Properties Container Context Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.PropertiesContainerContextType
-	 * @generated
-	 */
-	public Adapter createPropertiesContainerContextTypeAdapter() {
 		return null;
 	}
 
@@ -2389,16 +2335,16 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.RmiContainerContextType <em>Rmi Container Context Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.mule.ide.config.core.ReturnArgumentType <em>Return Argument Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mule.ide.config.core.RmiContainerContextType
+	 * @see org.mule.ide.config.core.ReturnArgumentType
 	 * @generated
 	 */
-	public Adapter createRmiContainerContextTypeAdapter() {
+	public Adapter createReturnArgumentTypeAdapter() {
 		return null;
 	}
 

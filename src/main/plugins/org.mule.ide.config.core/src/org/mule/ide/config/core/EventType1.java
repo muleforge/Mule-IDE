@@ -101,6 +101,14 @@ public enum EventType1 implements Enumerator {
 	CUSTOM(7, "CUSTOM", "CUSTOM"),
 
 	/**
+	 * The '<em><b>MESSAGE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MESSAGE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MESSAGE(8, "MESSAGE", "MESSAGE"), /**
 	 * The '<em><b>EXCEPTION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,7 +116,7 @@ public enum EventType1 implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EXCEPTION(8, "EXCEPTION", "EXCEPTION"),
+	EXCEPTION(9, "EXCEPTION", "EXCEPTION"),
 
 	/**
 	 * The '<em><b>TRANSACTION</b></em>' literal object.
@@ -118,7 +126,7 @@ public enum EventType1 implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TRANSACTION(9, "TRANSACTION", "TRANSACTION");
+	TRANSACTION(10, "TRANSACTION", "TRANSACTION");
 
 	/**
 	 * The '<em><b>MANAGER</b></em>' literal value.
@@ -241,6 +249,21 @@ public enum EventType1 implements Enumerator {
 	public static final int CUSTOM_VALUE = 7;
 
 	/**
+	 * The '<em><b>MESSAGE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>MESSAGE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #MESSAGE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MESSAGE_VALUE = 8;
+
+	/**
 	 * The '<em><b>EXCEPTION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -253,7 +276,7 @@ public enum EventType1 implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EXCEPTION_VALUE = 8;
+	public static final int EXCEPTION_VALUE = 9;
 
 	/**
 	 * The '<em><b>TRANSACTION</b></em>' literal value.
@@ -268,7 +291,7 @@ public enum EventType1 implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TRANSACTION_VALUE = 9;
+	public static final int TRANSACTION_VALUE = 10;
 
 	/**
 	 * An array of all the '<em><b>Event Type1</b></em>' enumerators.
@@ -286,6 +309,7 @@ public enum EventType1 implements Enumerator {
 			CONNECTION,
 			REGISTRY,
 			CUSTOM,
+			MESSAGE,
 			EXCEPTION,
 			TRANSACTION,
 		};
@@ -346,6 +370,7 @@ public enum EventType1 implements Enumerator {
 			case CONNECTION_VALUE: return CONNECTION;
 			case REGISTRY_VALUE: return REGISTRY;
 			case CUSTOM_VALUE: return CUSTOM;
+			case MESSAGE_VALUE: return MESSAGE;
 			case EXCEPTION_VALUE: return EXCEPTION;
 			case TRANSACTION_VALUE: return TRANSACTION;
 		}

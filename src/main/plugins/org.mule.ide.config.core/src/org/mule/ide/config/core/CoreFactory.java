@@ -44,15 +44,6 @@ public interface CoreFactory extends EFactory {
 	AbstractAsyncReplyRouterType createAbstractAsyncReplyRouterType();
 
 	/**
-	 * Returns a new object of class '<em>Abstract Binding Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Abstract Binding Type</em>'.
-	 * @generated
-	 */
-	AbstractBindingType createAbstractBindingType();
-
-	/**
 	 * Returns a new object of class '<em>Abstract Catch All Strategy Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,24 +87,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	AbstractConnectorType createAbstractConnectorType();
-
-	/**
-	 * Returns a new object of class '<em>Abstract Define Notification Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Abstract Define Notification Type</em>'.
-	 * @generated
-	 */
-	AbstractDefineNotificationType createAbstractDefineNotificationType();
-
-	/**
-	 * Returns a new object of class '<em>Abstract Disable Notification Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Abstract Disable Notification Type</em>'.
-	 * @generated
-	 */
-	AbstractDisableNotificationType createAbstractDisableNotificationType();
 
 	/**
 	 * Returns a new object of class '<em>Abstract Entry Point Resolver Set Type</em>'.
@@ -186,6 +159,15 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	AbstractInboundRouterType createAbstractInboundRouterType();
+
+	/**
+	 * Returns a new object of class '<em>Abstract Lifecycle Adapter Factory</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Abstract Lifecycle Adapter Factory</em>'.
+	 * @generated
+	 */
+	AbstractLifecycleAdapterFactory createAbstractLifecycleAdapterFactory();
 
 	/**
 	 * Returns a new object of class '<em>Abstract Model Type</em>'.
@@ -278,15 +260,6 @@ public interface CoreFactory extends EFactory {
 	AbstractServiceType createAbstractServiceType();
 
 	/**
-	 * Returns a new object of class '<em>Abstract Storage Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Abstract Storage Type</em>'.
-	 * @generated
-	 */
-	AbstractStorageType createAbstractStorageType();
-
-	/**
 	 * Returns a new object of class '<em>Abstract Transaction Manager Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -341,15 +314,6 @@ public interface CoreFactory extends EFactory {
 	AsyncReplyRouterType createAsyncReplyRouterType();
 
 	/**
-	 * Returns a new object of class '<em>Base Container Context Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Base Container Context Type</em>'.
-	 * @generated
-	 */
-	BaseContainerContextType createBaseContainerContextType();
-
-	/**
 	 * Returns a new object of class '<em>Base Entry Point Resolver Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -366,6 +330,24 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	BaseServiceType createBaseServiceType();
+
+	/**
+	 * Returns a new object of class '<em>Base Transaction Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Base Transaction Type</em>'.
+	 * @generated
+	 */
+	BaseTransactionType createBaseTransactionType();
+
+	/**
+	 * Returns a new object of class '<em>Case Sensitive Pattern Filter Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Case Sensitive Pattern Filter Type</em>'.
+	 * @generated
+	 */
+	CaseSensitivePatternFilterType createCaseSensitivePatternFilterType();
 
 	/**
 	 * Returns a new object of class '<em>Chunking Router Type</em>'.
@@ -393,6 +375,15 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	ComplexEntryPointResolverType createComplexEntryPointResolverType();
+
+	/**
+	 * Returns a new object of class '<em>Configuration Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Configuration Type</em>'.
+	 * @generated
+	 */
+	ConfigurationType createConfigurationType();
 
 	/**
 	 * Returns a new object of class '<em>Connection Strategy Type</em>'.
@@ -447,15 +438,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	CustomConnectorType createCustomConnectorType();
-
-	/**
-	 * Returns a new object of class '<em>Custom Container Context Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Custom Container Context Type</em>'.
-	 * @generated
-	 */
-	CustomContainerContextType createCustomContainerContextType();
 
 	/**
 	 * Returns a new object of class '<em>Custom Correlation Aggregator Router Type</em>'.
@@ -530,6 +512,15 @@ public interface CoreFactory extends EFactory {
 	CustomInboundRouterType createCustomInboundRouterType();
 
 	/**
+	 * Returns a new object of class '<em>Custom Lifecycle Adapter Factory</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Custom Lifecycle Adapter Factory</em>'.
+	 * @generated
+	 */
+	CustomLifecycleAdapterFactory createCustomLifecycleAdapterFactory();
+
+	/**
 	 * Returns a new object of class '<em>Custom Outbound Router Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -555,6 +546,15 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	CustomSecurityProviderType createCustomSecurityProviderType();
+
+	/**
+	 * Returns a new object of class '<em>Custom Service Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Custom Service Type</em>'.
+	 * @generated
+	 */
+	CustomServiceType createCustomServiceType();
 
 	/**
 	 * Returns a new object of class '<em>Custom Transaction Manager Type</em>'.
@@ -593,6 +593,15 @@ public interface CoreFactory extends EFactory {
 	DefaultComponentType createDefaultComponentType();
 
 	/**
+	 * Returns a new object of class '<em>Default Java Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Default Java Component Type</em>'.
+	 * @generated
+	 */
+	DefaultJavaComponentType createDefaultJavaComponentType();
+
+	/**
 	 * Returns a new object of class '<em>Default Model Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -600,15 +609,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	DefaultModelType createDefaultModelType();
-
-	/**
-	 * Returns a new object of class '<em>Default Service Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Default Service Type</em>'.
-	 * @generated
-	 */
-	DefaultServiceType createDefaultServiceType();
 
 	/**
 	 * Returns a new object of class '<em>Define Notification Type</em>'.
@@ -665,6 +665,24 @@ public interface CoreFactory extends EFactory {
 	EncryptionStrategyType createEncryptionStrategyType();
 
 	/**
+	 * Returns a new object of class '<em>Encryption Transformer Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Encryption Transformer Type</em>'.
+	 * @generated
+	 */
+	EncryptionTransformerType createEncryptionTransformerType();
+
+	/**
+	 * Returns a new object of class '<em>Endpoint Exception Strategy Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Endpoint Exception Strategy Type</em>'.
+	 * @generated
+	 */
+	EndpointExceptionStrategyType createEndpointExceptionStrategyType();
+
+	/**
 	 * Returns a new object of class '<em>Endpoint Selector Router Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -683,13 +701,13 @@ public interface CoreFactory extends EFactory {
 	EnvironmentPropertyType createEnvironmentPropertyType();
 
 	/**
-	 * Returns a new object of class '<em>Exception Strategy Type</em>'.
+	 * Returns a new object of class '<em>Expression Transformer Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Exception Strategy Type</em>'.
+	 * @return a new object of class '<em>Expression Transformer Type</em>'.
 	 * @generated
 	 */
-	ExceptionStrategyType createExceptionStrategyType();
+	ExpressionTransformerType createExpressionTransformerType();
 
 	/**
 	 * Returns a new object of class '<em>Extensible Entry Point Resolver Set</em>'.
@@ -728,15 +746,6 @@ public interface CoreFactory extends EFactory {
 	ForwardingCatchAllStrategyType createForwardingCatchAllStrategyType();
 
 	/**
-	 * Returns a new object of class '<em>Forwarding Router Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Forwarding Router Type</em>'.
-	 * @generated
-	 */
-	ForwardingRouterType createForwardingRouterType();
-
-	/**
 	 * Returns a new object of class '<em>Generic Object Factory Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -753,15 +762,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	GlobalEndpointType createGlobalEndpointType();
-
-	/**
-	 * Returns a new object of class '<em>Idempotent Receiver Router Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Idempotent Receiver Router Type</em>'.
-	 * @generated
-	 */
-	IdempotentReceiverRouterType createIdempotentReceiverRouterType();
 
 	/**
 	 * Returns a new object of class '<em>Inbound Collection Type</em>'.
@@ -782,15 +782,6 @@ public interface CoreFactory extends EFactory {
 	InboundEndpointType createInboundEndpointType();
 
 	/**
-	 * Returns a new object of class '<em>Ioc Container Context Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ioc Container Context Type</em>'.
-	 * @generated
-	 */
-	IocContainerContextType createIocContainerContextType();
-
-	/**
 	 * Returns a new object of class '<em>Jndi Connector Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -807,6 +798,15 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	JndiTransactionManagerType createJndiTransactionManagerType();
+
+	/**
+	 * Returns a new object of class '<em>Jndi Transaction Manager Type1</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Jndi Transaction Manager Type1</em>'.
+	 * @generated
+	 */
+	JndiTransactionManagerType1 createJndiTransactionManagerType1();
 
 	/**
 	 * Returns a new object of class '<em>Key Type</em>'.
@@ -843,15 +843,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	LoggingCatchAllStrategyType createLoggingCatchAllStrategyType();
-
-	/**
-	 * Returns a new object of class '<em>Management Context Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Management Context Type</em>'.
-	 * @generated
-	 */
-	ManagementContextType createManagementContextType();
 
 	/**
 	 * Returns a new object of class '<em>Map Type</em>'.
@@ -989,22 +980,13 @@ public interface CoreFactory extends EFactory {
 	PojoBindingType createPojoBindingType();
 
 	/**
-	 * Returns a new object of class '<em>Pojo Component Type</em>'.
+	 * Returns a new object of class '<em>Pooled Java Component Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pojo Component Type</em>'.
+	 * @return a new object of class '<em>Pooled Java Component Type</em>'.
 	 * @generated
 	 */
-	PojoComponentType createPojoComponentType();
-
-	/**
-	 * Returns a new object of class '<em>Pooled Object Factory Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pooled Object Factory Type</em>'.
-	 * @generated
-	 */
-	PooledObjectFactoryType createPooledObjectFactoryType();
+	PooledJavaComponentType createPooledJavaComponentType();
 
 	/**
 	 * Returns a new object of class '<em>Pooling Profile Type</em>'.
@@ -1014,15 +996,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	PoolingProfileType createPoolingProfileType();
-
-	/**
-	 * Returns a new object of class '<em>Properties Container Context Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Properties Container Context Type</em>'.
-	 * @generated
-	 */
-	PropertiesContainerContextType createPropertiesContainerContextType();
 
 	/**
 	 * Returns a new object of class '<em>Property Entry Point Resolver Type</em>'.
@@ -1115,13 +1088,13 @@ public interface CoreFactory extends EFactory {
 	RetryConnectionStrategyType createRetryConnectionStrategyType();
 
 	/**
-	 * Returns a new object of class '<em>Rmi Container Context Type</em>'.
+	 * Returns a new object of class '<em>Return Argument Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rmi Container Context Type</em>'.
+	 * @return a new object of class '<em>Return Argument Type</em>'.
 	 * @generated
 	 */
-	RmiContainerContextType createRmiContainerContextType();
+	ReturnArgumentType createReturnArgumentType();
 
 	/**
 	 * Returns a new object of class '<em>Secret Key Encryption Strategy Type</em>'.

@@ -86,7 +86,6 @@ public class AsyncReplyRouterTypeItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractInboundEndpointGroup());
 			childrenFeatures.add(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getAsyncReplyRouterType_CustomPropertyExtractor());
 		}
 		return childrenFeatures;
 	}
@@ -129,7 +128,6 @@ public class AsyncReplyRouterTypeItemProvider
 		switch (notification.getFeatureID(AsyncReplyRouterType.class)) {
 			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_INBOUND_ENDPOINT_GROUP:
 			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -158,7 +156,7 @@ public class AsyncReplyRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor(),
+					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
 					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
 
 		newChildDescriptors.add
@@ -166,7 +164,28 @@ public class AsyncReplyRouterTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
 					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -179,6 +198,13 @@ public class AsyncReplyRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
 					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
 
@@ -186,13 +212,8 @@ public class AsyncReplyRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyRouterType_CustomPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
+					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
 	}
 
 	/**
@@ -213,11 +234,11 @@ public class AsyncReplyRouterTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor();
 
 		if (qualify) {
 			return getString

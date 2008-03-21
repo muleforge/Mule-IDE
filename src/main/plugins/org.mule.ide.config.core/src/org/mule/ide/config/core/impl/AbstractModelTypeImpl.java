@@ -43,7 +43,6 @@ import org.mule.ide.config.core.CorePackage;
  *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractEntryPointResolver <em>Abstract Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractServiceGroup <em>Abstract Service Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getAbstractService <em>Abstract Service</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AbstractModelTypeImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -90,26 +89,6 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 	 * @ordered
 	 */
 	protected FeatureMap abstractServiceGroup;
-
-	/**
-	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClass_()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CLASS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClass_()
-	 * @generated
-	 * @ordered
-	 */
-	protected String class_ = CLASS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -266,27 +245,6 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getClass_() {
-		return class_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClass(String newClass) {
-		String oldClass = class_;
-		class_ = newClass;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ABSTRACT_MODEL_TYPE__CLASS, oldClass, class_));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
 		return name;
 	}
@@ -359,8 +317,6 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 				return ((FeatureMap.Internal)getAbstractServiceGroup()).getWrapper();
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE:
 				return getAbstractService();
-			case CorePackage.ABSTRACT_MODEL_TYPE__CLASS:
-				return getClass_();
 			case CorePackage.ABSTRACT_MODEL_TYPE__NAME:
 				return getName();
 		}
@@ -386,9 +342,6 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 				return;
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE_GROUP:
 				((FeatureMap.Internal)getAbstractServiceGroup()).set(newValue);
-				return;
-			case CorePackage.ABSTRACT_MODEL_TYPE__CLASS:
-				setClass((String)newValue);
 				return;
 			case CorePackage.ABSTRACT_MODEL_TYPE__NAME:
 				setName((String)newValue);
@@ -416,9 +369,6 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 				return;
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE_GROUP:
 				getAbstractServiceGroup().clear();
-				return;
-			case CorePackage.ABSTRACT_MODEL_TYPE__CLASS:
-				setClass(CLASS_EDEFAULT);
 				return;
 			case CorePackage.ABSTRACT_MODEL_TYPE__NAME:
 				setName(NAME_EDEFAULT);
@@ -451,8 +401,6 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 				return abstractServiceGroup != null && !abstractServiceGroup.isEmpty();
 			case CorePackage.ABSTRACT_MODEL_TYPE__ABSTRACT_SERVICE:
 				return !getAbstractService().isEmpty();
-			case CorePackage.ABSTRACT_MODEL_TYPE__CLASS:
-				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
 			case CorePackage.ABSTRACT_MODEL_TYPE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
@@ -477,8 +425,6 @@ public class AbstractModelTypeImpl extends EObjectImpl implements AbstractModelT
 		result.append(abstractEntryPointResolverGroup);
 		result.append(", abstractServiceGroup: ");
 		result.append(abstractServiceGroup);
-		result.append(", class: ");
-		result.append(class_);
 		result.append(", name: ");
 		result.append(name);
 		result.append(')');

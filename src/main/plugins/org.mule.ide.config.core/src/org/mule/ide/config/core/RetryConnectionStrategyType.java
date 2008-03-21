@@ -33,6 +33,11 @@ public interface RetryConnectionStrategyType extends ConnectionStrategyType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             Maximum number of retries.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Retry Count</em>' attribute.
 	 * @see #isSetRetryCount()
 	 * @see #unsetRetryCount()
@@ -87,6 +92,11 @@ public interface RetryConnectionStrategyType extends ConnectionStrategyType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             How often to retry (pause time in ms).
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Retry Frequency</em>' attribute.
 	 * @see #isSetRetryFrequency()
 	 * @see #unsetRetryFrequency()

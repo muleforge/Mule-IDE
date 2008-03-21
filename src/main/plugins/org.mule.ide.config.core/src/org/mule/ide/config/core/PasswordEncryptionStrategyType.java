@@ -12,14 +12,6 @@ package org.mule.ide.config.core;
  * A representation of the model object '<em><b>Password Encryption Strategy Type</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * 
- *                 Provides password-based encryption using JCE. Users must specify a password and
- *                 optionally a salt and iteration count as well. The default algorithm is
- *                 PBEWithMD5AndDES, but users can specify any valid algorithm supported by JCE.
- *             
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
@@ -42,6 +34,11 @@ public interface PasswordEncryptionStrategyType extends EncryptionStrategyType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The number of itreations to use.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Iteration Count</em>' attribute.
 	 * @see #isSetIterationCount()
 	 * @see #unsetIterationCount()
@@ -96,6 +93,11 @@ public interface PasswordEncryptionStrategyType extends EncryptionStrategyType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The password to use.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Password</em>' attribute.
 	 * @see #setPassword(String)
 	 * @see org.mule.ide.config.core.CorePackage#getPasswordEncryptionStrategyType_Password()
@@ -123,6 +125,11 @@ public interface PasswordEncryptionStrategyType extends EncryptionStrategyType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The salt to use (this helps prevent dictionary attacks).
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Salt</em>' attribute.
 	 * @see #setSalt(String)
 	 * @see org.mule.ide.config.core.CorePackage#getPasswordEncryptionStrategyType_Salt()

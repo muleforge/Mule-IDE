@@ -165,11 +165,6 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createAbstractBindingType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createAbstractCatchAllStrategyType()));
 
 		newChildDescriptors.add
@@ -191,16 +186,6 @@ public class ReflectionEntryPointResolverTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createAbstractConnectorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createAbstractDefineNotificationType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createAbstractDisableNotificationType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -236,6 +221,11 @@ public class ReflectionEntryPointResolverTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createAbstractInboundRouterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
+				 CoreFactory.eINSTANCE.createAbstractLifecycleAdapterFactory()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -290,11 +280,6 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createAbstractStorageType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createAbstractTransactionManagerType()));
 
 		newChildDescriptors.add
@@ -320,17 +305,27 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createBaseContainerContextType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createBaseEntryPointResolverType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createBaseServiceType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
+				 CoreFactory.eINSTANCE.createBaseTransactionType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
+				 CoreFactory.eINSTANCE.createPatternFilterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
+				 CoreFactory.eINSTANCE.createCaseSensitivePatternFilterType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -365,6 +360,11 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
+				 CoreFactory.eINSTANCE.createConfigurationType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createConnectionStrategyType()));
 
 		newChildDescriptors.add
@@ -391,11 +391,6 @@ public class ReflectionEntryPointResolverTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createCustomConnectorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createCustomContainerContextType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -435,7 +430,7 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createExceptionStrategyType()));
+				 CoreFactory.eINSTANCE.createEndpointExceptionStrategyType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -465,6 +460,11 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
+				 CoreFactory.eINSTANCE.createCustomLifecycleAdapterFactory()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createCustomOutboundRouterType()));
 
 		newChildDescriptors.add
@@ -485,7 +485,12 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createJndiTransactionManagerType()));
+				 CoreFactory.eINSTANCE.createCustomServiceType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
+				 CoreFactory.eINSTANCE.createJndiTransactionManagerType1()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -510,22 +515,17 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
+				 CoreFactory.eINSTANCE.createDefaultJavaComponentType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createSedaModelType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createDefaultModelType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createSedaServiceType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createDefaultServiceType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -550,6 +550,11 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createEndpointSelectorRouterType()));
 
 		newChildDescriptors.add
@@ -565,11 +570,6 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createForwardingRouterType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createGenericObjectFactoryType()));
 
 		newChildDescriptors.add
@@ -580,22 +580,12 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createIdempotentReceiverRouterType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createInboundCollectionType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createInboundEndpointType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createIocContainerContextType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -621,11 +611,6 @@ public class ReflectionEntryPointResolverTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createLoggingCatchAllStrategyType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createManagementContextType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -660,11 +645,6 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createNotificationListenerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createNotificationManagerType()));
 
 		newChildDescriptors.add
@@ -685,32 +665,17 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createPatternFilterType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createPojoBindingType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createPojoComponentType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createPooledObjectFactoryType()));
+				 CoreFactory.eINSTANCE.createPooledJavaComponentType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createPoolingProfileType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createPropertiesContainerContextType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -755,17 +720,17 @@ public class ReflectionEntryPointResolverTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
-				 CoreFactory.eINSTANCE.createRmiContainerContextType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createSecretKeyEncryptionStrategyType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
 				 CoreFactory.eINSTANCE.createSecurityManagerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getReflectionEntryPointResolverType_ExcludeObjectMethods(),
+				 CoreFactory.eINSTANCE.createSedaServiceType()));
 
 		newChildDescriptors.add
 			(createChildParameter

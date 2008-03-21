@@ -37,7 +37,7 @@ import org.mule.ide.config.core.CustomTransactionType;
  * @generated
  */
 public class CustomTransactionTypeItemProvider
-	extends AbstractTransactionTypeItemProvider
+	extends BaseTransactionTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

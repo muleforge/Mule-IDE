@@ -23,8 +23,8 @@ import org.mule.ide.config.core.TlsTrustStoreType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.TlsTrustStoreTypeImpl#getTrustStore <em>Trust Store</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.TlsTrustStoreTypeImpl#getTrustStorePassword <em>Trust Store Password</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsTrustStoreTypeImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsTrustStoreTypeImpl#getStorePassword <em>Store Password</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,44 +32,44 @@ import org.mule.ide.config.core.TlsTrustStoreType;
  */
 public class TlsTrustStoreTypeImpl extends EObjectImpl implements TlsTrustStoreType {
 	/**
-	 * The default value of the '{@link #getTrustStore() <em>Trust Store</em>}' attribute.
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTrustStore()
+	 * @see #getPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TRUST_STORE_EDEFAULT = null;
+	protected static final String PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTrustStore() <em>Trust Store</em>}' attribute.
+	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTrustStore()
+	 * @see #getPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected String trustStore = TRUST_STORE_EDEFAULT;
+	protected String path = PATH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTrustStorePassword() <em>Trust Store Password</em>}' attribute.
+	 * The default value of the '{@link #getStorePassword() <em>Store Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTrustStorePassword()
+	 * @see #getStorePassword()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TRUST_STORE_PASSWORD_EDEFAULT = null;
+	protected static final String STORE_PASSWORD_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTrustStorePassword() <em>Trust Store Password</em>}' attribute.
+	 * The cached value of the '{@link #getStorePassword() <em>Store Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTrustStorePassword()
+	 * @see #getStorePassword()
 	 * @generated
 	 * @ordered
 	 */
-	protected String trustStorePassword = TRUST_STORE_PASSWORD_EDEFAULT;
+	protected String storePassword = STORE_PASSWORD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,8 +95,8 @@ public class TlsTrustStoreTypeImpl extends EObjectImpl implements TlsTrustStoreT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTrustStore() {
-		return trustStore;
+	public String getPath() {
+		return path;
 	}
 
 	/**
@@ -104,11 +104,11 @@ public class TlsTrustStoreTypeImpl extends EObjectImpl implements TlsTrustStoreT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTrustStore(String newTrustStore) {
-		String oldTrustStore = trustStore;
-		trustStore = newTrustStore;
+	public void setPath(String newPath) {
+		String oldPath = path;
+		path = newPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE, oldTrustStore, trustStore));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_TRUST_STORE_TYPE__PATH, oldPath, path));
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class TlsTrustStoreTypeImpl extends EObjectImpl implements TlsTrustStoreT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTrustStorePassword() {
-		return trustStorePassword;
+	public String getStorePassword() {
+		return storePassword;
 	}
 
 	/**
@@ -125,11 +125,11 @@ public class TlsTrustStoreTypeImpl extends EObjectImpl implements TlsTrustStoreT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTrustStorePassword(String newTrustStorePassword) {
-		String oldTrustStorePassword = trustStorePassword;
-		trustStorePassword = newTrustStorePassword;
+	public void setStorePassword(String newStorePassword) {
+		String oldStorePassword = storePassword;
+		storePassword = newStorePassword;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE_PASSWORD, oldTrustStorePassword, trustStorePassword));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_TRUST_STORE_TYPE__STORE_PASSWORD, oldStorePassword, storePassword));
 	}
 
 	/**
@@ -140,10 +140,10 @@ public class TlsTrustStoreTypeImpl extends EObjectImpl implements TlsTrustStoreT
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE:
-				return getTrustStore();
-			case CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE_PASSWORD:
-				return getTrustStorePassword();
+			case CorePackage.TLS_TRUST_STORE_TYPE__PATH:
+				return getPath();
+			case CorePackage.TLS_TRUST_STORE_TYPE__STORE_PASSWORD:
+				return getStorePassword();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,11 +156,11 @@ public class TlsTrustStoreTypeImpl extends EObjectImpl implements TlsTrustStoreT
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE:
-				setTrustStore((String)newValue);
+			case CorePackage.TLS_TRUST_STORE_TYPE__PATH:
+				setPath((String)newValue);
 				return;
-			case CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE_PASSWORD:
-				setTrustStorePassword((String)newValue);
+			case CorePackage.TLS_TRUST_STORE_TYPE__STORE_PASSWORD:
+				setStorePassword((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,11 +174,11 @@ public class TlsTrustStoreTypeImpl extends EObjectImpl implements TlsTrustStoreT
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE:
-				setTrustStore(TRUST_STORE_EDEFAULT);
+			case CorePackage.TLS_TRUST_STORE_TYPE__PATH:
+				setPath(PATH_EDEFAULT);
 				return;
-			case CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE_PASSWORD:
-				setTrustStorePassword(TRUST_STORE_PASSWORD_EDEFAULT);
+			case CorePackage.TLS_TRUST_STORE_TYPE__STORE_PASSWORD:
+				setStorePassword(STORE_PASSWORD_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -192,10 +192,10 @@ public class TlsTrustStoreTypeImpl extends EObjectImpl implements TlsTrustStoreT
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE:
-				return TRUST_STORE_EDEFAULT == null ? trustStore != null : !TRUST_STORE_EDEFAULT.equals(trustStore);
-			case CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE_PASSWORD:
-				return TRUST_STORE_PASSWORD_EDEFAULT == null ? trustStorePassword != null : !TRUST_STORE_PASSWORD_EDEFAULT.equals(trustStorePassword);
+			case CorePackage.TLS_TRUST_STORE_TYPE__PATH:
+				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+			case CorePackage.TLS_TRUST_STORE_TYPE__STORE_PASSWORD:
+				return STORE_PASSWORD_EDEFAULT == null ? storePassword != null : !STORE_PASSWORD_EDEFAULT.equals(storePassword);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,10 +210,10 @@ public class TlsTrustStoreTypeImpl extends EObjectImpl implements TlsTrustStoreT
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (trustStore: ");
-		result.append(trustStore);
-		result.append(", trustStorePassword: ");
-		result.append(trustStorePassword);
+		result.append(" (path: ");
+		result.append(path);
+		result.append(", storePassword: ");
+		result.append(storePassword);
 		result.append(')');
 		return result.toString();
 	}

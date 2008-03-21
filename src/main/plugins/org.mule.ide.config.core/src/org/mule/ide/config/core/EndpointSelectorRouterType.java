@@ -15,7 +15,7 @@ package org.mule.ide.config.core;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.EndpointSelectorRouterType#getSelectorProperty <em>Selector Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.EndpointSelectorRouterType#getSelectorExpression <em>Selector Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,30 +25,30 @@ package org.mule.ide.config.core;
  */
 public interface EndpointSelectorRouterType extends FilteringOutboundRouterType {
 	/**
-	 * Returns the value of the '<em><b>Selector Property</b></em>' attribute.
+	 * Returns the value of the '<em><b>Selector Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Selector Property</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Selector Expression</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selector Property</em>' attribute.
-	 * @see #setSelectorProperty(String)
-	 * @see org.mule.ide.config.core.CorePackage#getEndpointSelectorRouterType_SelectorProperty()
+	 * @return the value of the '<em>Selector Expression</em>' attribute.
+	 * @see #setSelectorExpression(String)
+	 * @see org.mule.ide.config.core.CorePackage#getEndpointSelectorRouterType_SelectorExpression()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='selectorProperty'"
+	 *        extendedMetaData="kind='attribute' name='selectorExpression'"
 	 * @generated
 	 */
-	String getSelectorProperty();
+	String getSelectorExpression();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.EndpointSelectorRouterType#getSelectorProperty <em>Selector Property</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.EndpointSelectorRouterType#getSelectorExpression <em>Selector Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Selector Property</em>' attribute.
-	 * @see #getSelectorProperty()
+	 * @param value the new value of the '<em>Selector Expression</em>' attribute.
+	 * @see #getSelectorExpression()
 	 * @generated
 	 */
-	void setSelectorProperty(String value);
+	void setSelectorExpression(String value);
 
 } // EndpointSelectorRouterType

@@ -199,11 +199,11 @@ public class CustomAsyncReplyRouterTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor();
 
 		if (qualify) {
 			return getString

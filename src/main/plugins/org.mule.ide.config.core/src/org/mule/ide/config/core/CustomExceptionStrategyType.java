@@ -27,7 +27,7 @@ import org.mule.ide.config.spring.PropertyType;
  * @model extendedMetaData="name='customExceptionStrategyType' kind='elementOnly'"
  * @generated
  */
-public interface CustomExceptionStrategyType extends ExceptionStrategyType {
+public interface CustomExceptionStrategyType extends EndpointExceptionStrategyType {
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' containment reference list.
 	 * The list contents are of type {@link org.mule.ide.config.spring.PropertyType}.
@@ -57,6 +57,13 @@ public interface CustomExceptionStrategyType extends ExceptionStrategyType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             A class that implements the ExceptionListener interface.
+	 *                             In addition, if an outbound-endpoint element is specified,
+	 *                             it is set as an "endpoint" bean property.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Class</em>' attribute.
 	 * @see #setClass(String)
 	 * @see org.mule.ide.config.core.CorePackage#getCustomExceptionStrategyType_Class()

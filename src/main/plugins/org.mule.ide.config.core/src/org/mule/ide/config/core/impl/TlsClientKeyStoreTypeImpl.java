@@ -23,9 +23,9 @@ import org.mule.ide.config.core.TlsClientKeyStoreType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.TlsClientKeyStoreTypeImpl#getClientKeyStore <em>Client Key Store</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.TlsClientKeyStoreTypeImpl#getClientKeyStorePassword <em>Client Key Store Password</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.TlsClientKeyStoreTypeImpl#getClientKeyStoreType <em>Client Key Store Type</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsClientKeyStoreTypeImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsClientKeyStoreTypeImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsClientKeyStoreTypeImpl#getStorePassword <em>Store Password</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,64 +33,64 @@ import org.mule.ide.config.core.TlsClientKeyStoreType;
  */
 public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientKeyStoreType {
 	/**
-	 * The default value of the '{@link #getClientKeyStore() <em>Client Key Store</em>}' attribute.
+	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClientKeyStore()
+	 * @see #getClass_()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CLIENT_KEY_STORE_EDEFAULT = null;
+	protected static final String CLASS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClientKeyStore() <em>Client Key Store</em>}' attribute.
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClientKeyStore()
+	 * @see #getClass_()
 	 * @generated
 	 * @ordered
 	 */
-	protected String clientKeyStore = CLIENT_KEY_STORE_EDEFAULT;
+	protected String class_ = CLASS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getClientKeyStorePassword() <em>Client Key Store Password</em>}' attribute.
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClientKeyStorePassword()
+	 * @see #getPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CLIENT_KEY_STORE_PASSWORD_EDEFAULT = null;
+	protected static final String PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClientKeyStorePassword() <em>Client Key Store Password</em>}' attribute.
+	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClientKeyStorePassword()
+	 * @see #getPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected String clientKeyStorePassword = CLIENT_KEY_STORE_PASSWORD_EDEFAULT;
+	protected String path = PATH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getClientKeyStoreType() <em>Client Key Store Type</em>}' attribute.
+	 * The default value of the '{@link #getStorePassword() <em>Store Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClientKeyStoreType()
+	 * @see #getStorePassword()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CLIENT_KEY_STORE_TYPE_EDEFAULT = null;
+	protected static final String STORE_PASSWORD_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClientKeyStoreType() <em>Client Key Store Type</em>}' attribute.
+	 * The cached value of the '{@link #getStorePassword() <em>Store Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClientKeyStoreType()
+	 * @see #getStorePassword()
 	 * @generated
 	 * @ordered
 	 */
-	protected String clientKeyStoreType = CLIENT_KEY_STORE_TYPE_EDEFAULT;
+	protected String storePassword = STORE_PASSWORD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,8 +116,8 @@ public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientK
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getClientKeyStore() {
-		return clientKeyStore;
+	public String getClass_() {
+		return class_;
 	}
 
 	/**
@@ -125,11 +125,11 @@ public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientK
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClientKeyStore(String newClientKeyStore) {
-		String oldClientKeyStore = clientKeyStore;
-		clientKeyStore = newClientKeyStore;
+	public void setClass(String newClass) {
+		String oldClass = class_;
+		class_ = newClass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE, oldClientKeyStore, clientKeyStore));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLASS, oldClass, class_));
 	}
 
 	/**
@@ -137,8 +137,8 @@ public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientK
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getClientKeyStorePassword() {
-		return clientKeyStorePassword;
+	public String getPath() {
+		return path;
 	}
 
 	/**
@@ -146,11 +146,11 @@ public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientK
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClientKeyStorePassword(String newClientKeyStorePassword) {
-		String oldClientKeyStorePassword = clientKeyStorePassword;
-		clientKeyStorePassword = newClientKeyStorePassword;
+	public void setPath(String newPath) {
+		String oldPath = path;
+		path = newPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_PASSWORD, oldClientKeyStorePassword, clientKeyStorePassword));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_CLIENT_KEY_STORE_TYPE__PATH, oldPath, path));
 	}
 
 	/**
@@ -158,8 +158,8 @@ public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientK
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getClientKeyStoreType() {
-		return clientKeyStoreType;
+	public String getStorePassword() {
+		return storePassword;
 	}
 
 	/**
@@ -167,11 +167,11 @@ public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientK
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClientKeyStoreType(String newClientKeyStoreType) {
-		String oldClientKeyStoreType = clientKeyStoreType;
-		clientKeyStoreType = newClientKeyStoreType;
+	public void setStorePassword(String newStorePassword) {
+		String oldStorePassword = storePassword;
+		storePassword = newStorePassword;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_TYPE, oldClientKeyStoreType, clientKeyStoreType));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_CLIENT_KEY_STORE_TYPE__STORE_PASSWORD, oldStorePassword, storePassword));
 	}
 
 	/**
@@ -182,12 +182,12 @@ public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientK
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE:
-				return getClientKeyStore();
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_PASSWORD:
-				return getClientKeyStorePassword();
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_TYPE:
-				return getClientKeyStoreType();
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLASS:
+				return getClass_();
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__PATH:
+				return getPath();
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__STORE_PASSWORD:
+				return getStorePassword();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -200,14 +200,14 @@ public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientK
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE:
-				setClientKeyStore((String)newValue);
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLASS:
+				setClass((String)newValue);
 				return;
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_PASSWORD:
-				setClientKeyStorePassword((String)newValue);
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__PATH:
+				setPath((String)newValue);
 				return;
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_TYPE:
-				setClientKeyStoreType((String)newValue);
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__STORE_PASSWORD:
+				setStorePassword((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -221,14 +221,14 @@ public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientK
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE:
-				setClientKeyStore(CLIENT_KEY_STORE_EDEFAULT);
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLASS:
+				setClass(CLASS_EDEFAULT);
 				return;
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_PASSWORD:
-				setClientKeyStorePassword(CLIENT_KEY_STORE_PASSWORD_EDEFAULT);
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__PATH:
+				setPath(PATH_EDEFAULT);
 				return;
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_TYPE:
-				setClientKeyStoreType(CLIENT_KEY_STORE_TYPE_EDEFAULT);
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__STORE_PASSWORD:
+				setStorePassword(STORE_PASSWORD_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -242,12 +242,12 @@ public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientK
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE:
-				return CLIENT_KEY_STORE_EDEFAULT == null ? clientKeyStore != null : !CLIENT_KEY_STORE_EDEFAULT.equals(clientKeyStore);
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_PASSWORD:
-				return CLIENT_KEY_STORE_PASSWORD_EDEFAULT == null ? clientKeyStorePassword != null : !CLIENT_KEY_STORE_PASSWORD_EDEFAULT.equals(clientKeyStorePassword);
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_TYPE:
-				return CLIENT_KEY_STORE_TYPE_EDEFAULT == null ? clientKeyStoreType != null : !CLIENT_KEY_STORE_TYPE_EDEFAULT.equals(clientKeyStoreType);
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLASS:
+				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__PATH:
+				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__STORE_PASSWORD:
+				return STORE_PASSWORD_EDEFAULT == null ? storePassword != null : !STORE_PASSWORD_EDEFAULT.equals(storePassword);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -262,12 +262,12 @@ public class TlsClientKeyStoreTypeImpl extends EObjectImpl implements TlsClientK
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (clientKeyStore: ");
-		result.append(clientKeyStore);
-		result.append(", clientKeyStorePassword: ");
-		result.append(clientKeyStorePassword);
-		result.append(", clientKeyStoreType: ");
-		result.append(clientKeyStoreType);
+		result.append(" (class: ");
+		result.append(class_);
+		result.append(", path: ");
+		result.append(path);
+		result.append(", storePassword: ");
+		result.append(storePassword);
 		result.append(')');
 		return result.toString();
 	}

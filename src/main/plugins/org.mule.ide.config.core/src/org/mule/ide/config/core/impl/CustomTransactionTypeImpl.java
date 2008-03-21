@@ -29,7 +29,7 @@ import org.mule.ide.config.core.CustomTransactionType;
  *
  * @generated
  */
-public class CustomTransactionTypeImpl extends AbstractTransactionTypeImpl implements CustomTransactionType {
+public class CustomTransactionTypeImpl extends BaseTransactionTypeImpl implements CustomTransactionType {
 	/**
 	 * The default value of the '{@link #getFactoryClass() <em>Factory Class</em>}' attribute.
 	 * <!-- begin-user-doc -->

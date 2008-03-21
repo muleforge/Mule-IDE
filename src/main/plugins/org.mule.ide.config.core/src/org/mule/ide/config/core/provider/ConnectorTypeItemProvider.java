@@ -283,7 +283,7 @@ public class ConnectorTypeItemProvider
 				(CorePackage.eINSTANCE.getConnectorType_AbstractExceptionStrategyGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy(),
-					 CoreFactory.eINSTANCE.createExceptionStrategyType())));
+					 CoreFactory.eINSTANCE.createEndpointExceptionStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -297,7 +297,7 @@ public class ConnectorTypeItemProvider
 				(CorePackage.eINSTANCE.getConnectorType_AbstractExceptionStrategyGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy(),
-					 CoreFactory.eINSTANCE.createExceptionStrategyType())));
+					 CoreFactory.eINSTANCE.createEndpointExceptionStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter

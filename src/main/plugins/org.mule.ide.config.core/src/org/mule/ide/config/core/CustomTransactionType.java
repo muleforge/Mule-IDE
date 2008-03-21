@@ -24,7 +24,7 @@ package org.mule.ide.config.core;
  * @model extendedMetaData="name='customTransactionType' kind='empty'"
  * @generated
  */
-public interface CustomTransactionType extends AbstractTransactionType {
+public interface CustomTransactionType extends BaseTransactionType {
 	/**
 	 * Returns the value of the '<em><b>Factory Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -33,6 +33,14 @@ public interface CustomTransactionType extends AbstractTransactionType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             A class that implements the TransactionFactory interface.
+	 *                             This will be instantiated and used to generate a transaction.
+	 *                             The attribute and the "factory-ref" attribute are mutually exclusive;
+	 *                             one of the two is required.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Factory Class</em>' attribute.
 	 * @see #setFactoryClass(String)
 	 * @see org.mule.ide.config.core.CorePackage#getCustomTransactionType_FactoryClass()
@@ -60,6 +68,14 @@ public interface CustomTransactionType extends AbstractTransactionType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             A bean that implements the TransactionFactory interface.
+	 *                             This will be used to generate a transaction.
+	 *                             The attribute and the "factory-class" attribute are mutually exclusive;
+	 *                             one of the two is required.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Factory Ref</em>' attribute.
 	 * @see #setFactoryRef(String)
 	 * @see org.mule.ide.config.core.CorePackage#getCustomTransactionType_FactoryRef()

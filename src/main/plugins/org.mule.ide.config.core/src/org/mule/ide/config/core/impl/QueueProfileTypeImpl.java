@@ -38,7 +38,7 @@ public class QueueProfileTypeImpl extends AbstractQueueProfileTypeImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MAX_OUTSTANDING_MESSAGES_EDEFAULT = null;
+	protected static final int MAX_OUTSTANDING_MESSAGES_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getMaxOutstandingMessages() <em>Max Outstanding Messages</em>}' attribute.
@@ -48,7 +48,16 @@ public class QueueProfileTypeImpl extends AbstractQueueProfileTypeImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected String maxOutstandingMessages = MAX_OUTSTANDING_MESSAGES_EDEFAULT;
+	protected int maxOutstandingMessages = MAX_OUTSTANDING_MESSAGES_EDEFAULT;
+
+	/**
+	 * This is true if the Max Outstanding Messages attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean maxOutstandingMessagesESet;
 
 	/**
 	 * The default value of the '{@link #isPersistent() <em>Persistent</em>}' attribute.
@@ -103,7 +112,7 @@ public class QueueProfileTypeImpl extends AbstractQueueProfileTypeImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMaxOutstandingMessages() {
+	public int getMaxOutstandingMessages() {
 		return maxOutstandingMessages;
 	}
 
@@ -112,11 +121,36 @@ public class QueueProfileTypeImpl extends AbstractQueueProfileTypeImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaxOutstandingMessages(String newMaxOutstandingMessages) {
-		String oldMaxOutstandingMessages = maxOutstandingMessages;
+	public void setMaxOutstandingMessages(int newMaxOutstandingMessages) {
+		int oldMaxOutstandingMessages = maxOutstandingMessages;
 		maxOutstandingMessages = newMaxOutstandingMessages;
+		boolean oldMaxOutstandingMessagesESet = maxOutstandingMessagesESet;
+		maxOutstandingMessagesESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.QUEUE_PROFILE_TYPE__MAX_OUTSTANDING_MESSAGES, oldMaxOutstandingMessages, maxOutstandingMessages));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.QUEUE_PROFILE_TYPE__MAX_OUTSTANDING_MESSAGES, oldMaxOutstandingMessages, maxOutstandingMessages, !oldMaxOutstandingMessagesESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetMaxOutstandingMessages() {
+		int oldMaxOutstandingMessages = maxOutstandingMessages;
+		boolean oldMaxOutstandingMessagesESet = maxOutstandingMessagesESet;
+		maxOutstandingMessages = MAX_OUTSTANDING_MESSAGES_EDEFAULT;
+		maxOutstandingMessagesESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.QUEUE_PROFILE_TYPE__MAX_OUTSTANDING_MESSAGES, oldMaxOutstandingMessages, MAX_OUTSTANDING_MESSAGES_EDEFAULT, oldMaxOutstandingMessagesESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetMaxOutstandingMessages() {
+		return maxOutstandingMessagesESet;
 	}
 
 	/**
@@ -174,7 +208,7 @@ public class QueueProfileTypeImpl extends AbstractQueueProfileTypeImpl implement
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CorePackage.QUEUE_PROFILE_TYPE__MAX_OUTSTANDING_MESSAGES:
-				return getMaxOutstandingMessages();
+				return new Integer(getMaxOutstandingMessages());
 			case CorePackage.QUEUE_PROFILE_TYPE__PERSISTENT:
 				return isPersistent() ? Boolean.TRUE : Boolean.FALSE;
 		}
@@ -190,7 +224,7 @@ public class QueueProfileTypeImpl extends AbstractQueueProfileTypeImpl implement
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CorePackage.QUEUE_PROFILE_TYPE__MAX_OUTSTANDING_MESSAGES:
-				setMaxOutstandingMessages((String)newValue);
+				setMaxOutstandingMessages(((Integer)newValue).intValue());
 				return;
 			case CorePackage.QUEUE_PROFILE_TYPE__PERSISTENT:
 				setPersistent(((Boolean)newValue).booleanValue());
@@ -208,7 +242,7 @@ public class QueueProfileTypeImpl extends AbstractQueueProfileTypeImpl implement
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CorePackage.QUEUE_PROFILE_TYPE__MAX_OUTSTANDING_MESSAGES:
-				setMaxOutstandingMessages(MAX_OUTSTANDING_MESSAGES_EDEFAULT);
+				unsetMaxOutstandingMessages();
 				return;
 			case CorePackage.QUEUE_PROFILE_TYPE__PERSISTENT:
 				unsetPersistent();
@@ -226,7 +260,7 @@ public class QueueProfileTypeImpl extends AbstractQueueProfileTypeImpl implement
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CorePackage.QUEUE_PROFILE_TYPE__MAX_OUTSTANDING_MESSAGES:
-				return MAX_OUTSTANDING_MESSAGES_EDEFAULT == null ? maxOutstandingMessages != null : !MAX_OUTSTANDING_MESSAGES_EDEFAULT.equals(maxOutstandingMessages);
+				return isSetMaxOutstandingMessages();
 			case CorePackage.QUEUE_PROFILE_TYPE__PERSISTENT:
 				return isSetPersistent();
 		}
@@ -244,7 +278,7 @@ public class QueueProfileTypeImpl extends AbstractQueueProfileTypeImpl implement
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (maxOutstandingMessages: ");
-		result.append(maxOutstandingMessages);
+		if (maxOutstandingMessagesESet) result.append(maxOutstandingMessages); else result.append("<unset>");
 		result.append(", persistent: ");
 		if (persistentESet) result.append(persistent); else result.append("<unset>");
 		result.append(')');

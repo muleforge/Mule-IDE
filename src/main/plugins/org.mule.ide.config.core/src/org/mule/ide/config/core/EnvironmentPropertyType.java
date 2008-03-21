@@ -34,6 +34,12 @@ public interface EnvironmentPropertyType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The name of the property.
+	 *                     This is used inside ${...}.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getEnvironmentPropertyType_Name()
@@ -61,6 +67,12 @@ public interface EnvironmentPropertyType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The value of the property.
+	 *                     This replaces each occurence of ${...}.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see org.mule.ide.config.core.CorePackage#getEnvironmentPropertyType_Value()

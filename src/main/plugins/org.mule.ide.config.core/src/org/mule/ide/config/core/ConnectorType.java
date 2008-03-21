@@ -122,6 +122,12 @@ public interface ConnectorType extends AbstractConnectorType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an exception strategy element.
+	 *                 Exception strategies define how Mule should react to errors.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Exception Strategy Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getConnectorType_AbstractExceptionStrategyGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -138,6 +144,12 @@ public interface ConnectorType extends AbstractConnectorType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an exception strategy element.
+	 *                 Exception strategies define how Mule should react to errors.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Exception Strategy</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getConnectorType_AbstractExceptionStrategy()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"

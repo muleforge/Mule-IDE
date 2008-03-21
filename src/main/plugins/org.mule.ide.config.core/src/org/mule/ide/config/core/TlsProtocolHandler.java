@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.TlsProtocolHandler#getProtocolHandler <em>Protocol Handler</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsProtocolHandler#getProperty <em>Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TlsProtocolHandler extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Protocol Handler</b></em>' attribute.
+	 * Returns the value of the '<em><b>Property</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -41,23 +41,23 @@ public interface TlsProtocolHandler extends EObject {
 	 *                     Set the java.protocol.handler.pkgs system property.
 	 *                 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Protocol Handler</em>' attribute.
-	 * @see #setProtocolHandler(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsProtocolHandler_ProtocolHandler()
+	 * @return the value of the '<em>Property</em>' attribute.
+	 * @see #setProperty(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsProtocolHandler_Property()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='protocolHandler'"
+	 *        extendedMetaData="kind='attribute' name='property'"
 	 * @generated
 	 */
-	String getProtocolHandler();
+	String getProperty();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsProtocolHandler#getProtocolHandler <em>Protocol Handler</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsProtocolHandler#getProperty <em>Property</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Protocol Handler</em>' attribute.
-	 * @see #getProtocolHandler()
+	 * @param value the new value of the '<em>Property</em>' attribute.
+	 * @see #getProperty()
 	 * @generated
 	 */
-	void setProtocolHandler(String value);
+	void setProperty(String value);
 
 } // TlsProtocolHandler

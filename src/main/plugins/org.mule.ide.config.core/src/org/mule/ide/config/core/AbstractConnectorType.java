@@ -34,6 +34,11 @@ public interface AbstractConnectorType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     Identifies the connector so that other elements can reference it.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractConnectorType_Name()

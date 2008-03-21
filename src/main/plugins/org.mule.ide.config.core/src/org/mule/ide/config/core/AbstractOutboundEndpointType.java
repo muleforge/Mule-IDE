@@ -33,6 +33,13 @@ public interface AbstractOutboundEndpointType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     Identifies the outbound endpoint in the registry, but is of relatively little use
+	 *                     - it cannot be referred to from MuleClient, for example.
+	 *                     For more useful aliases, use global endpoints.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractOutboundEndpointType_Name()

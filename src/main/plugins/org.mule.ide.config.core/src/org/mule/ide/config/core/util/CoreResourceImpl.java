@@ -12,6 +12,8 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -41,7 +43,7 @@ import org.w3c.dom.Node;
  * customization
  *   - use SyncResourceImpl
  */
-public class CoreResourceImpl extends SyncResourceImpl {
+public class CoreResourceImpl extends XMLResourceImpl {
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
@@ -136,7 +138,7 @@ public class CoreResourceImpl extends SyncResourceImpl {
 	 * Customize the save impl to look for ide "placeholder" elements
 	 * in the model.  Prune those out.
 	 */
-	class CustomXMLSaveImpl extends SyncXMLSaveImpl {
+	class CustomXMLSaveImpl extends XMLSaveImpl {
 		
 		CustomXMLSaveImpl(XMLHelper helper) {
 			super(helper);

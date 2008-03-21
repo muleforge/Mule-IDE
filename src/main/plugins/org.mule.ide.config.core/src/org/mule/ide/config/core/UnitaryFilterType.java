@@ -35,6 +35,12 @@ public interface UnitaryFilterType extends AbstractFilterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getUnitaryFilterType_AbstractFilterGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" required="true" many="false"
@@ -51,6 +57,12 @@ public interface UnitaryFilterType extends AbstractFilterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getUnitaryFilterType_AbstractFilter()
 	 * @model containment="true" required="true" transient="true" changeable="false" volatile="true" derived="true"

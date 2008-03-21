@@ -74,7 +74,6 @@ public class AsyncReplyCollectionTypeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addTimeoutPropertyDescriptor(object);
-			addTransformerRefsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,29 +95,7 @@ public class AsyncReplyCollectionTypeItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Transformer Refs feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTransformerRefsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AsyncReplyCollectionType_transformerRefs_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AsyncReplyCollectionType_transformerRefs_feature", "_UI_AsyncReplyCollectionType_type"),
-				 CorePackage.eINSTANCE.getAsyncReplyCollectionType_TransformerRefs(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -163,10 +140,8 @@ public class AsyncReplyCollectionTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AsyncReplyCollectionType)object).getTimeout();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AsyncReplyCollectionType_type") :
-			getString("_UI_AsyncReplyCollectionType_type") + " " + label;
+		AsyncReplyCollectionType asyncReplyCollectionType = (AsyncReplyCollectionType)object;
+		return getString("_UI_AsyncReplyCollectionType_type") + " " + asyncReplyCollectionType.getTimeout();
 	}
 
 	/**
@@ -182,7 +157,6 @@ public class AsyncReplyCollectionTypeItemProvider
 
 		switch (notification.getFeatureID(AsyncReplyCollectionType.class)) {
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT:
-			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TRANSFORMER_REFS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__ABSTRACT_INBOUND_ENDPOINT_GROUP:
@@ -259,6 +233,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -287,6 +268,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -315,6 +303,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -343,6 +338,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -371,6 +373,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -399,6 +408,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -420,56 +436,21 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
+					(CorePackage.eINSTANCE.getDocumentRoot_ExpressionTransformer(),
+					 CoreFactory.eINSTANCE.createExpressionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -484,6 +465,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -512,6 +500,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -540,6 +535,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -581,6 +583,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -609,6 +618,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -637,6 +653,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -665,6 +688,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -693,6 +723,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -713,118 +750,6 @@ public class AsyncReplyCollectionTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
-				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(),
 					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
 
@@ -834,6 +759,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -862,6 +794,13 @@ public class AsyncReplyCollectionTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractTransformerGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -904,8 +843,6 @@ public class AsyncReplyCollectionTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer() ||
@@ -914,13 +851,11 @@ public class AsyncReplyCollectionTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transformer();
 

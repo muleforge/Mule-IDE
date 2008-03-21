@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractEntryPointResolver <em>Abstract Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractServiceGroup <em>Abstract Service Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AbstractModelType#getAbstractService <em>Abstract Service</em>}</li>
- *   <li>{@link org.mule.ide.config.core.AbstractModelType#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AbstractModelType#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -47,6 +46,12 @@ public interface AbstractModelType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an exception strategy element.
+	 *                 Exception strategies define how Mule should react to errors.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Exception Strategy Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractExceptionStrategyGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -63,6 +68,12 @@ public interface AbstractModelType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an exception strategy element.
+	 *                 Exception strategies define how Mule should react to errors.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Exception Strategy</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractExceptionStrategy()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -80,6 +91,12 @@ public interface AbstractModelType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for entry point resolver set elements.
+	 *                 These combine a group of entry point resolvers, trying them in turn until one succeeds.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver Set Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractEntryPointResolverSetGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -96,6 +113,12 @@ public interface AbstractModelType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for entry point resolver set elements.
+	 *                 These combine a group of entry point resolvers, trying them in turn until one succeeds.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver Set</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractEntryPointResolverSet()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -113,6 +136,13 @@ public interface AbstractModelType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an entry point resolver element.
+	 *                 Entry point resolvers define how payloads are delivered to Java code
+	 *                 (ie they choose the method to call).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractEntryPointResolverGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -129,6 +159,13 @@ public interface AbstractModelType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an entry point resolver element.
+	 *                 Entry point resolvers define how payloads are delivered to Java code
+	 *                 (ie they choose the method to call).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractEntryPointResolver()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -146,6 +183,12 @@ public interface AbstractModelType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for a service element.
+	 *                 Services combine message routing with a Java (typically) component.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Service Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractServiceGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -163,6 +206,12 @@ public interface AbstractModelType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for a service element.
+	 *                 Services combine message routing with a Java (typically) component.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Service</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_AbstractService()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -172,33 +221,6 @@ public interface AbstractModelType extends EObject {
 	EList<AbstractServiceType> getAbstractService();
 
 	/**
-	 * Returns the value of the '<em><b>Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Class</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Class</em>' attribute.
-	 * @see #setClass(String)
-	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_Class()
-	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
-	 *        extendedMetaData="kind='attribute' name='class'"
-	 * @generated
-	 */
-	String getClass_();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.AbstractModelType#getClass_ <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Class</em>' attribute.
-	 * @see #getClass_()
-	 * @generated
-	 */
-	void setClass(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -206,10 +228,15 @@ public interface AbstractModelType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The name used to identify this model.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractModelType_Name()
-	 * @model dataType="org.mule.ide.config.core.NonBlankString" required="true"
+	 * @model dataType="org.mule.ide.config.core.NonBlankString"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
 	 */

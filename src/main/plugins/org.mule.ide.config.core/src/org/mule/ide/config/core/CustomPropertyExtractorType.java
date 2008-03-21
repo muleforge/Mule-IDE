@@ -29,7 +29,7 @@ import org.mule.ide.config.spring.PropertyType;
  * @model extendedMetaData="name='customPropertyExtractorType' kind='elementOnly'"
  * @generated
  */
-public interface CustomPropertyExtractorType extends EObject {
+public interface CustomPropertyExtractorType extends AbstractPropertyExtractorType {
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' containment reference list.
 	 * The list contents are of type {@link org.mule.ide.config.spring.PropertyType}.
@@ -59,6 +59,11 @@ public interface CustomPropertyExtractorType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             An implementation of the PropertyExtractor interface.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Class</em>' attribute.
 	 * @see #setClass(String)
 	 * @see org.mule.ide.config.core.CorePackage#getCustomPropertyExtractorType_Class()

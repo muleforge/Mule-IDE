@@ -213,7 +213,8 @@ public class SedaServiceTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EchoComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_LogComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NullComponent() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Component() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PooledComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomExceptionStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy();

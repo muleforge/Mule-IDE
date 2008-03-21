@@ -15,11 +15,11 @@ package org.mule.ide.config.core;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.TlsServerTrustStoreType#isExplicitTrustStoreOnly <em>Explicit Trust Store Only</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsServerTrustStoreType#getAlgorithm <em>Algorithm</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsServerTrustStoreType#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsServerTrustStoreType#isExplicitOnly <em>Explicit Only</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsServerTrustStoreType#getFactoryRef <em>Factory Ref</em>}</li>
  *   <li>{@link org.mule.ide.config.core.TlsServerTrustStoreType#isRequireClientAuthentication <em>Require Client Authentication</em>}</li>
- *   <li>{@link org.mule.ide.config.core.TlsServerTrustStoreType#getTrustManagerAlgorithm <em>Trust Manager Algorithm</em>}</li>
- *   <li>{@link org.mule.ide.config.core.TlsServerTrustStoreType#getTrustManagerFactory <em>Trust Manager Factory</em>}</li>
- *   <li>{@link org.mule.ide.config.core.TlsServerTrustStoreType#getTrustStoreType <em>Trust Store Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,58 +29,139 @@ package org.mule.ide.config.core;
  */
 public interface TlsServerTrustStoreType extends TlsTrustStoreType {
 	/**
-	 * Returns the value of the '<em><b>Explicit Trust Store Only</b></em>' attribute.
+	 * Returns the value of the '<em><b>Algorithm</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Explicit Trust Store Only</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Algorithm</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Explicit Trust Store Only</em>' attribute.
-	 * @see #isSetExplicitTrustStoreOnly()
-	 * @see #unsetExplicitTrustStoreOnly()
-	 * @see #setExplicitTrustStoreOnly(boolean)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsServerTrustStoreType_ExplicitTrustStoreOnly()
+	 * @return the value of the '<em>Algorithm</em>' attribute.
+	 * @see #setAlgorithm(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsServerTrustStoreType_Algorithm()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name='algorithm'"
+	 * @generated
+	 */
+	String getAlgorithm();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#getAlgorithm <em>Algorithm</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Algorithm</em>' attribute.
+	 * @see #getAlgorithm()
+	 * @generated
+	 */
+	void setAlgorithm(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Class</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Class</em>' attribute.
+	 * @see #setClass(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsServerTrustStoreType_Class()
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
+	 *        extendedMetaData="kind='attribute' name='class'"
+	 * @generated
+	 */
+	String getClass_();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#getClass_ <em>Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Class</em>' attribute.
+	 * @see #getClass_()
+	 * @generated
+	 */
+	void setClass(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Explicit Only</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Explicit Only</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Explicit Only</em>' attribute.
+	 * @see #isSetExplicitOnly()
+	 * @see #unsetExplicitOnly()
+	 * @see #setExplicitOnly(boolean)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsServerTrustStoreType_ExplicitOnly()
 	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableBoolean"
-	 *        extendedMetaData="kind='attribute' name='explicitTrustStoreOnly'"
+	 *        extendedMetaData="kind='attribute' name='explicitOnly'"
 	 * @generated
 	 */
-	boolean isExplicitTrustStoreOnly();
+	boolean isExplicitOnly();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#isExplicitTrustStoreOnly <em>Explicit Trust Store Only</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#isExplicitOnly <em>Explicit Only</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Explicit Trust Store Only</em>' attribute.
-	 * @see #isSetExplicitTrustStoreOnly()
-	 * @see #unsetExplicitTrustStoreOnly()
-	 * @see #isExplicitTrustStoreOnly()
+	 * @param value the new value of the '<em>Explicit Only</em>' attribute.
+	 * @see #isSetExplicitOnly()
+	 * @see #unsetExplicitOnly()
+	 * @see #isExplicitOnly()
 	 * @generated
 	 */
-	void setExplicitTrustStoreOnly(boolean value);
+	void setExplicitOnly(boolean value);
 
 	/**
-	 * Unsets the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#isExplicitTrustStoreOnly <em>Explicit Trust Store Only</em>}' attribute.
+	 * Unsets the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#isExplicitOnly <em>Explicit Only</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSetExplicitTrustStoreOnly()
-	 * @see #isExplicitTrustStoreOnly()
-	 * @see #setExplicitTrustStoreOnly(boolean)
+	 * @see #isSetExplicitOnly()
+	 * @see #isExplicitOnly()
+	 * @see #setExplicitOnly(boolean)
 	 * @generated
 	 */
-	void unsetExplicitTrustStoreOnly();
+	void unsetExplicitOnly();
 
 	/**
-	 * Returns whether the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#isExplicitTrustStoreOnly <em>Explicit Trust Store Only</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#isExplicitOnly <em>Explicit Only</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Explicit Trust Store Only</em>' attribute is set.
-	 * @see #unsetExplicitTrustStoreOnly()
-	 * @see #isExplicitTrustStoreOnly()
-	 * @see #setExplicitTrustStoreOnly(boolean)
+	 * @return whether the value of the '<em>Explicit Only</em>' attribute is set.
+	 * @see #unsetExplicitOnly()
+	 * @see #isExplicitOnly()
+	 * @see #setExplicitOnly(boolean)
 	 * @generated
 	 */
-	boolean isSetExplicitTrustStoreOnly();
+	boolean isSetExplicitOnly();
+
+	/**
+	 * Returns the value of the '<em><b>Factory Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Factory Ref</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Factory Ref</em>' attribute.
+	 * @see #setFactoryRef(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsServerTrustStoreType_FactoryRef()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.NMTOKEN"
+	 *        extendedMetaData="kind='attribute' name='factory-ref'"
+	 * @generated
+	 */
+	String getFactoryRef();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#getFactoryRef <em>Factory Ref</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Factory Ref</em>' attribute.
+	 * @see #getFactoryRef()
+	 * @generated
+	 */
+	void setFactoryRef(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Require Client Authentication</b></em>' attribute.
@@ -135,86 +216,5 @@ public interface TlsServerTrustStoreType extends TlsTrustStoreType {
 	 * @generated
 	 */
 	boolean isSetRequireClientAuthentication();
-
-	/**
-	 * Returns the value of the '<em><b>Trust Manager Algorithm</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Trust Manager Algorithm</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Trust Manager Algorithm</em>' attribute.
-	 * @see #setTrustManagerAlgorithm(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsServerTrustStoreType_TrustManagerAlgorithm()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='trustManagerAlgorithm'"
-	 * @generated
-	 */
-	String getTrustManagerAlgorithm();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#getTrustManagerAlgorithm <em>Trust Manager Algorithm</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trust Manager Algorithm</em>' attribute.
-	 * @see #getTrustManagerAlgorithm()
-	 * @generated
-	 */
-	void setTrustManagerAlgorithm(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Trust Manager Factory</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Trust Manager Factory</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Trust Manager Factory</em>' attribute.
-	 * @see #setTrustManagerFactory(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsServerTrustStoreType_TrustManagerFactory()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.NMTOKEN"
-	 *        extendedMetaData="kind='attribute' name='trustManagerFactory'"
-	 * @generated
-	 */
-	String getTrustManagerFactory();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#getTrustManagerFactory <em>Trust Manager Factory</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trust Manager Factory</em>' attribute.
-	 * @see #getTrustManagerFactory()
-	 * @generated
-	 */
-	void setTrustManagerFactory(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Trust Store Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Trust Store Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Trust Store Type</em>' attribute.
-	 * @see #setTrustStoreType(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsServerTrustStoreType_TrustStoreType()
-	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
-	 *        extendedMetaData="kind='attribute' name='trustStoreType'"
-	 * @generated
-	 */
-	String getTrustStoreType();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsServerTrustStoreType#getTrustStoreType <em>Trust Store Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trust Store Type</em>' attribute.
-	 * @see #getTrustStoreType()
-	 * @generated
-	 */
-	void setTrustStoreType(String value);
 
 } // TlsServerTrustStoreType

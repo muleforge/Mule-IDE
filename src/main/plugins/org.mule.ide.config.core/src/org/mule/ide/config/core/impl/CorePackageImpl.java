@@ -82,13 +82,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass abstractBindingTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass abstractCatchAllStrategyTypeEClass = null;
 
 	/**
@@ -118,20 +111,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass abstractConnectorTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass abstractDefineNotificationTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass abstractDisableNotificationTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,6 +167,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass abstractInboundRouterTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractLifecycleAdapterFactoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,13 +250,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass abstractStorageTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass abstractTransactionManagerTypeEClass = null;
 
 	/**
@@ -313,13 +292,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass baseContainerContextTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass baseEntryPointResolverTypeEClass = null;
 
 	/**
@@ -328,6 +300,20 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass baseServiceTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass baseTransactionTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass caseSensitivePatternFilterTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -349,6 +335,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass complexEntryPointResolverTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass configurationTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -391,13 +384,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass customConnectorTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass customContainerContextTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -460,6 +446,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass customLifecycleAdapterFactoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass customOutboundRouterTypeEClass = null;
 
 	/**
@@ -475,6 +468,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass customSecurityProviderTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass customServiceTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -509,14 +509,14 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass defaultModelTypeEClass = null;
+	private EClass defaultJavaComponentTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass defaultServiceTypeEClass = null;
+	private EClass defaultModelTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -565,6 +565,20 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass encryptionTransformerTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass endpointExceptionStrategyTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass endpointSelectorRouterTypeEClass = null;
 
 	/**
@@ -579,7 +593,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass exceptionStrategyTypeEClass = null;
+	private EClass expressionTransformerTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -614,13 +628,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass forwardingRouterTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass genericObjectFactoryTypeEClass = null;
 
 	/**
@@ -629,13 +636,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass globalEndpointTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass idempotentReceiverRouterTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -656,13 +656,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass iocContainerContextTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass jndiConnectorTypeEClass = null;
 
 	/**
@@ -671,6 +664,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass jndiTransactionManagerTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass jndiTransactionManagerType1EClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -699,13 +699,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass loggingCatchAllStrategyTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass managementContextTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -817,14 +810,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass pojoComponentTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass pooledObjectFactoryTypeEClass = null;
+	private EClass pooledJavaComponentTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -832,13 +818,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass poolingProfileTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propertiesContainerContextTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -915,7 +894,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass rmiContainerContextTypeEClass = null;
+	private EClass returnArgumentTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1104,6 +1083,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum evaluatorTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum eventTypeEEnum = null;
 
 	/**
@@ -1168,6 +1154,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EDataType enableCorrelationTypeObjectEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType evaluatorTypeObjectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1483,15 +1476,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAbstractAgentType_Name() {
-        return (EAttribute)getAbstractAgentType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAbstractAsyncReplyRouterType() {
 		if (abstractAsyncReplyRouterTypeEClass == null) {
 			abstractAsyncReplyRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(1);
@@ -1504,21 +1488,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAbstractBindingType() {
-		if (abstractBindingTypeEClass == null) {
-			abstractBindingTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(2);
-		}
-		return abstractBindingTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAbstractCatchAllStrategyType() {
 		if (abstractCatchAllStrategyTypeEClass == null) {
-			abstractCatchAllStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(3);
+			abstractCatchAllStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(2);
 		}
 		return abstractCatchAllStrategyTypeEClass;
 	}
@@ -1530,7 +1502,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractComponentThreadingProfileType() {
 		if (abstractComponentThreadingProfileTypeEClass == null) {
-			abstractComponentThreadingProfileTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(4);
+			abstractComponentThreadingProfileTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(3);
 		}
 		return abstractComponentThreadingProfileTypeEClass;
 	}
@@ -1542,7 +1514,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractComponentType() {
 		if (abstractComponentTypeEClass == null) {
-			abstractComponentTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(5);
+			abstractComponentTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(4);
 		}
 		return abstractComponentTypeEClass;
 	}
@@ -1590,7 +1562,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractConnectionStrategyType() {
 		if (abstractConnectionStrategyTypeEClass == null) {
-			abstractConnectionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(6);
+			abstractConnectionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(5);
 		}
 		return abstractConnectionStrategyTypeEClass;
 	}
@@ -1602,7 +1574,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractConnectorType() {
 		if (abstractConnectorTypeEClass == null) {
-			abstractConnectorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(7);
+			abstractConnectorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(6);
 		}
 		return abstractConnectorTypeEClass;
 	}
@@ -1621,33 +1593,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAbstractDefineNotificationType() {
-		if (abstractDefineNotificationTypeEClass == null) {
-			abstractDefineNotificationTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(8);
-		}
-		return abstractDefineNotificationTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAbstractDisableNotificationType() {
-		if (abstractDisableNotificationTypeEClass == null) {
-			abstractDisableNotificationTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(9);
-		}
-		return abstractDisableNotificationTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAbstractEntryPointResolverSetType() {
 		if (abstractEntryPointResolverSetTypeEClass == null) {
-			abstractEntryPointResolverSetTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(10);
+			abstractEntryPointResolverSetTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(7);
 		}
 		return abstractEntryPointResolverSetTypeEClass;
 	}
@@ -1659,7 +1607,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractEntryPointResolverType() {
 		if (abstractEntryPointResolverTypeEClass == null) {
-			abstractEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(11);
+			abstractEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(8);
 		}
 		return abstractEntryPointResolverTypeEClass;
 	}
@@ -1671,7 +1619,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractExceptionStrategyType() {
 		if (abstractExceptionStrategyTypeEClass == null) {
-			abstractExceptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(12);
+			abstractExceptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(9);
 		}
 		return abstractExceptionStrategyTypeEClass;
 	}
@@ -1683,7 +1631,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractExtensionType() {
 		if (abstractExtensionTypeEClass == null) {
-			abstractExtensionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(13);
+			abstractExtensionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(10);
 		}
 		return abstractExtensionTypeEClass;
 	}
@@ -1695,7 +1643,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractFilterType() {
 		if (abstractFilterTypeEClass == null) {
-			abstractFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(14);
+			abstractFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(11);
 		}
 		return abstractFilterTypeEClass;
 	}
@@ -1725,7 +1673,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractGlobalEndpointType() {
 		if (abstractGlobalEndpointTypeEClass == null) {
-			abstractGlobalEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(15);
+			abstractGlobalEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(12);
 		}
 		return abstractGlobalEndpointTypeEClass;
 	}
@@ -1746,7 +1694,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractInboundEndpointType() {
 		if (abstractInboundEndpointTypeEClass == null) {
-			abstractInboundEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(16);
+			abstractInboundEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(13);
 		}
 		return abstractInboundEndpointTypeEClass;
 	}
@@ -1767,7 +1715,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractInboundRouterType() {
 		if (abstractInboundRouterTypeEClass == null) {
-			abstractInboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(17);
+			abstractInboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(14);
 		}
 		return abstractInboundRouterTypeEClass;
 	}
@@ -1777,9 +1725,21 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAbstractLifecycleAdapterFactory() {
+		if (abstractLifecycleAdapterFactoryEClass == null) {
+			abstractLifecycleAdapterFactoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(15);
+		}
+		return abstractLifecycleAdapterFactoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAbstractModelType() {
 		if (abstractModelTypeEClass == null) {
-			abstractModelTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(18);
+			abstractModelTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(16);
 		}
 		return abstractModelTypeEClass;
 	}
@@ -1861,17 +1821,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAbstractModelType_Class() {
-        return (EAttribute)getAbstractModelType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAbstractModelType_Name() {
-        return (EAttribute)getAbstractModelType().getEStructuralFeatures().get(9);
+        return (EAttribute)getAbstractModelType().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1881,7 +1832,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractObjectFactoryType() {
 		if (abstractObjectFactoryTypeEClass == null) {
-			abstractObjectFactoryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(19);
+			abstractObjectFactoryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(17);
 		}
 		return abstractObjectFactoryTypeEClass;
 	}
@@ -1911,7 +1862,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractOutboundEndpointType() {
 		if (abstractOutboundEndpointTypeEClass == null) {
-			abstractOutboundEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(20);
+			abstractOutboundEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(18);
 		}
 		return abstractOutboundEndpointTypeEClass;
 	}
@@ -1932,7 +1883,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractOutboundRouterType() {
 		if (abstractOutboundRouterTypeEClass == null) {
-			abstractOutboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(21);
+			abstractOutboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(19);
 		}
 		return abstractOutboundRouterTypeEClass;
 	}
@@ -1944,7 +1895,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractPoolingProfileType() {
 		if (abstractPoolingProfileTypeEClass == null) {
-			abstractPoolingProfileTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(22);
+			abstractPoolingProfileTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(20);
 		}
 		return abstractPoolingProfileTypeEClass;
 	}
@@ -1956,7 +1907,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractPropertyExtractorType() {
 		if (abstractPropertyExtractorTypeEClass == null) {
-			abstractPropertyExtractorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(23);
+			abstractPropertyExtractorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(21);
 		}
 		return abstractPropertyExtractorTypeEClass;
 	}
@@ -1968,7 +1919,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractQueueProfileType() {
 		if (abstractQueueProfileTypeEClass == null) {
-			abstractQueueProfileTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(24);
+			abstractQueueProfileTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(22);
 		}
 		return abstractQueueProfileTypeEClass;
 	}
@@ -1980,7 +1931,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractSecurityFilterType() {
 		if (abstractSecurityFilterTypeEClass == null) {
-			abstractSecurityFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(25);
+			abstractSecurityFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(23);
 		}
 		return abstractSecurityFilterTypeEClass;
 	}
@@ -1992,7 +1943,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractSecurityManagerType() {
 		if (abstractSecurityManagerTypeEClass == null) {
-			abstractSecurityManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(26);
+			abstractSecurityManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(24);
 		}
 		return abstractSecurityManagerTypeEClass;
 	}
@@ -2022,7 +1973,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractServiceType() {
 		if (abstractServiceTypeEClass == null) {
-			abstractServiceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(27);
+			abstractServiceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(25);
 		}
 		return abstractServiceTypeEClass;
 	}
@@ -2041,21 +1992,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAbstractStorageType() {
-		if (abstractStorageTypeEClass == null) {
-			abstractStorageTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(28);
-		}
-		return abstractStorageTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAbstractTransactionManagerType() {
 		if (abstractTransactionManagerTypeEClass == null) {
-			abstractTransactionManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(29);
+			abstractTransactionManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(26);
 		}
 		return abstractTransactionManagerTypeEClass;
 	}
@@ -2067,7 +2006,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractTransactionType() {
 		if (abstractTransactionTypeEClass == null) {
-			abstractTransactionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(30);
+			abstractTransactionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(27);
 		}
 		return abstractTransactionTypeEClass;
 	}
@@ -2097,7 +2036,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAbstractTransformerType() {
 		if (abstractTransformerTypeEClass == null) {
-			abstractTransformerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(31);
+			abstractTransformerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(28);
 		}
 		return abstractTransformerTypeEClass;
 	}
@@ -2136,7 +2075,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAppendStringTransformerType() {
 		if (appendStringTransformerTypeEClass == null) {
-			appendStringTransformerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(34);
+			appendStringTransformerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(31);
 		}
 		return appendStringTransformerTypeEClass;
 	}
@@ -2157,7 +2096,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getAsyncReplyCollectionType() {
 		if (asyncReplyCollectionTypeEClass == null) {
-			asyncReplyCollectionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(35);
+			asyncReplyCollectionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(32);
 		}
 		return asyncReplyCollectionTypeEClass;
 	}
@@ -2230,18 +2169,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAsyncReplyCollectionType_TransformerRefs() {
-        return (EAttribute)getAsyncReplyCollectionType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAsyncReplyRouterType() {
 		if (asyncReplyRouterTypeEClass == null) {
-			asyncReplyRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(36);
+			asyncReplyRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(33);
 		}
 		return asyncReplyRouterTypeEClass;
 	}
@@ -2287,39 +2217,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAsyncReplyRouterType_CustomPropertyExtractor() {
-        return (EReference)getAsyncReplyRouterType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBaseContainerContextType() {
-		if (baseContainerContextTypeEClass == null) {
-			baseContainerContextTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(37);
-		}
-		return baseContainerContextTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBaseContainerContextType_Any() {
-        return (EAttribute)getBaseContainerContextType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getBaseEntryPointResolverType() {
 		if (baseEntryPointResolverTypeEClass == null) {
-			baseEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(38);
+			baseEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(34);
 		}
 		return baseEntryPointResolverTypeEClass;
 	}
@@ -2349,7 +2249,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getBaseServiceType() {
 		if (baseServiceTypeEClass == null) {
-			baseServiceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(39);
+			baseServiceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(35);
 		}
 		return baseServiceTypeEClass;
 	}
@@ -2422,7 +2322,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBaseServiceType_Class() {
+	public EAttribute getBaseServiceType_InitialState() {
         return (EAttribute)getBaseServiceType().getEStructuralFeatures().get(7);
 	}
 
@@ -2431,8 +2331,32 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBaseServiceType_InitialState() {
-        return (EAttribute)getBaseServiceType().getEStructuralFeatures().get(8);
+	public EClass getBaseTransactionType() {
+		if (baseTransactionTypeEClass == null) {
+			baseTransactionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(36);
+		}
+		return baseTransactionTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCaseSensitivePatternFilterType() {
+		if (caseSensitivePatternFilterTypeEClass == null) {
+			caseSensitivePatternFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(37);
+		}
+		return caseSensitivePatternFilterTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCaseSensitivePatternFilterType_CaseSensitive() {
+        return (EAttribute)getCaseSensitivePatternFilterType().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2442,7 +2366,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getChunkingRouterType() {
 		if (chunkingRouterTypeEClass == null) {
-			chunkingRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(40);
+			chunkingRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(38);
 		}
 		return chunkingRouterTypeEClass;
 	}
@@ -2472,7 +2396,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCollectionFilterType() {
 		if (collectionFilterTypeEClass == null) {
-			collectionFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(41);
+			collectionFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(39);
 		}
 		return collectionFilterTypeEClass;
 	}
@@ -2502,7 +2426,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getComplexEntryPointResolverType() {
 		if (complexEntryPointResolverTypeEClass == null) {
-			complexEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(42);
+			complexEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(40);
 		}
 		return complexEntryPointResolverTypeEClass;
 	}
@@ -2530,9 +2454,102 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getConfigurationType() {
+		if (configurationTypeEClass == null) {
+			configurationTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(41);
+		}
+		return configurationTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConfigurationType_DefaultThreadingProfile() {
+        return (EReference)getConfigurationType().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConfigurationType_DefaultDispatcherThreadingProfile() {
+        return (EReference)getConfigurationType().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConfigurationType_DefaultReceiverThreadingProfile() {
+        return (EReference)getConfigurationType().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConfigurationType_DefaultComponentThreadingProfile() {
+        return (EReference)getConfigurationType().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConfigurationType_DefaultConnectionStrategy() {
+        return (EReference)getConfigurationType().getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigurationType_DefaultRemoteSync() {
+        return (EAttribute)getConfigurationType().getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigurationType_DefaultSynchronousEndpoints() {
+        return (EAttribute)getConfigurationType().getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigurationType_DefaultSynchronousEventTimeout() {
+        return (EAttribute)getConfigurationType().getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigurationType_DefaultTransactionTimeout() {
+        return (EAttribute)getConfigurationType().getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConnectionStrategyType() {
 		if (connectionStrategyTypeEClass == null) {
-			connectionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(43);
+			connectionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(42);
 		}
 		return connectionStrategyTypeEClass;
 	}
@@ -2544,7 +2561,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getConnectorType() {
 		if (connectorTypeEClass == null) {
-			connectorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(44);
+			connectorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(43);
 		}
 		return connectorTypeEClass;
 	}
@@ -2646,7 +2663,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomAsyncReplyRouterType() {
 		if (customAsyncReplyRouterTypeEClass == null) {
-			customAsyncReplyRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(45);
+			customAsyncReplyRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(44);
 		}
 		return customAsyncReplyRouterTypeEClass;
 	}
@@ -2676,7 +2693,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomCatchAllStrategyType() {
 		if (customCatchAllStrategyTypeEClass == null) {
-			customCatchAllStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(46);
+			customCatchAllStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(45);
 		}
 		return customCatchAllStrategyTypeEClass;
 	}
@@ -2706,7 +2723,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomConnectionStrategyType() {
 		if (customConnectionStrategyTypeEClass == null) {
-			customConnectionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(47);
+			customConnectionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(46);
 		}
 		return customConnectionStrategyTypeEClass;
 	}
@@ -2736,7 +2753,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomConnectorType() {
 		if (customConnectorTypeEClass == null) {
-			customConnectorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(48);
+			customConnectorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(47);
 		}
 		return customConnectorTypeEClass;
 	}
@@ -2755,39 +2772,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCustomContainerContextType() {
-		if (customContainerContextTypeEClass == null) {
-			customContainerContextTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(49);
-		}
-		return customContainerContextTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCustomContainerContextType_Class() {
-        return (EAttribute)getCustomContainerContextType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCustomContainerContextType_Name() {
-        return (EAttribute)getCustomContainerContextType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getCustomCorrelationAggregatorRouterType() {
 		if (customCorrelationAggregatorRouterTypeEClass == null) {
-			customCorrelationAggregatorRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(50);
+			customCorrelationAggregatorRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(48);
 		}
 		return customCorrelationAggregatorRouterTypeEClass;
 	}
@@ -2808,7 +2795,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomEncryptionStrategyType() {
 		if (customEncryptionStrategyTypeEClass == null) {
-			customEncryptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(51);
+			customEncryptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(49);
 		}
 		return customEncryptionStrategyTypeEClass;
 	}
@@ -2838,7 +2825,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomEntryPointResolverSetType() {
 		if (customEntryPointResolverSetTypeEClass == null) {
-			customEntryPointResolverSetTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(52);
+			customEntryPointResolverSetTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(50);
 		}
 		return customEntryPointResolverSetTypeEClass;
 	}
@@ -2868,7 +2855,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomEntryPointResolverType() {
 		if (customEntryPointResolverTypeEClass == null) {
-			customEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(53);
+			customEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(51);
 		}
 		return customEntryPointResolverTypeEClass;
 	}
@@ -2898,7 +2885,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomExceptionStrategyType() {
 		if (customExceptionStrategyTypeEClass == null) {
-			customExceptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(54);
+			customExceptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(52);
 		}
 		return customExceptionStrategyTypeEClass;
 	}
@@ -2928,7 +2915,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomFilterType() {
 		if (customFilterTypeEClass == null) {
-			customFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(55);
+			customFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(53);
 		}
 		return customFilterTypeEClass;
 	}
@@ -2958,7 +2945,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomForwardingCatchAllStrategyType() {
 		if (customForwardingCatchAllStrategyTypeEClass == null) {
-			customForwardingCatchAllStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(56);
+			customForwardingCatchAllStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(54);
 		}
 		return customForwardingCatchAllStrategyTypeEClass;
 	}
@@ -2988,7 +2975,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomInboundRouterType() {
 		if (customInboundRouterTypeEClass == null) {
-			customInboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(57);
+			customInboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(55);
 		}
 		return customInboundRouterTypeEClass;
 	}
@@ -3034,9 +3021,30 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCustomLifecycleAdapterFactory() {
+		if (customLifecycleAdapterFactoryEClass == null) {
+			customLifecycleAdapterFactoryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(56);
+		}
+		return customLifecycleAdapterFactoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCustomLifecycleAdapterFactory_Class() {
+        return (EAttribute)getCustomLifecycleAdapterFactory().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCustomOutboundRouterType() {
 		if (customOutboundRouterTypeEClass == null) {
-			customOutboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(58);
+			customOutboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(57);
 		}
 		return customOutboundRouterTypeEClass;
 	}
@@ -3066,7 +3074,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomPropertyExtractorType() {
 		if (customPropertyExtractorTypeEClass == null) {
-			customPropertyExtractorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(59);
+			customPropertyExtractorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(58);
 		}
 		return customPropertyExtractorTypeEClass;
 	}
@@ -3096,7 +3104,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getCustomSecurityProviderType() {
 		if (customSecurityProviderTypeEClass == null) {
-			customSecurityProviderTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(60);
+			customSecurityProviderTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(59);
 		}
 		return customSecurityProviderTypeEClass;
 	}
@@ -3117,6 +3125,27 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EAttribute getCustomSecurityProviderType_ProviderRef() {
         return (EAttribute)getCustomSecurityProviderType().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCustomServiceType() {
+		if (customServiceTypeEClass == null) {
+			customServiceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(60);
+		}
+		return customServiceTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCustomServiceType_Class() {
+        return (EAttribute)getCustomServiceType().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3226,11 +3255,11 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDefaultModelType() {
-		if (defaultModelTypeEClass == null) {
-			defaultModelTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(65);
+	public EClass getDefaultJavaComponentType() {
+		if (defaultJavaComponentTypeEClass == null) {
+			defaultJavaComponentTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(65);
 		}
-		return defaultModelTypeEClass;
+		return defaultJavaComponentTypeEClass;
 	}
 
 	/**
@@ -3238,11 +3267,65 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDefaultServiceType() {
-		if (defaultServiceTypeEClass == null) {
-			defaultServiceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(66);
+	public EAttribute getDefaultJavaComponentType_AbstractObjectFactoryGroup() {
+        return (EAttribute)getDefaultJavaComponentType().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDefaultJavaComponentType_AbstractObjectFactory() {
+        return (EReference)getDefaultJavaComponentType().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDefaultJavaComponentType_AbstractLifecycleAdapterFactoryGroup() {
+        return (EAttribute)getDefaultJavaComponentType().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDefaultJavaComponentType_AbstractLifecycleAdapterFactory() {
+        return (EReference)getDefaultJavaComponentType().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDefaultJavaComponentType_Binding() {
+        return (EReference)getDefaultJavaComponentType().getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDefaultJavaComponentType_Class() {
+        return (EAttribute)getDefaultJavaComponentType().getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDefaultModelType() {
+		if (defaultModelTypeEClass == null) {
+			defaultModelTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(66);
 		}
-		return defaultServiceTypeEClass;
+		return defaultModelTypeEClass;
 	}
 
 	/**
@@ -3415,7 +3498,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractBinding() {
+	public EReference getDocumentRoot_AbstractCatchAllStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(4);
 	}
 
@@ -3424,7 +3507,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractCatchAllStrategy() {
+	public EReference getDocumentRoot_AbstractComponent() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(5);
 	}
 
@@ -3433,7 +3516,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractComponent() {
+	public EReference getDocumentRoot_AbstractComponentThreadingProfile() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(6);
 	}
 
@@ -3442,7 +3525,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractComponentThreadingProfile() {
+	public EReference getDocumentRoot_AbstractConnectionStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(7);
 	}
 
@@ -3451,7 +3534,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractConnectionStrategy() {
+	public EReference getDocumentRoot_AbstractConnector() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(8);
 	}
 
@@ -3460,7 +3543,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractConnector() {
+	public EReference getDocumentRoot_AbstractEntryPointResolver() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(9);
 	}
 
@@ -3469,7 +3552,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractDefineNotification() {
+	public EReference getDocumentRoot_AbstractEntryPointResolverSet() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(10);
 	}
 
@@ -3478,7 +3561,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractDisableNotification() {
+	public EReference getDocumentRoot_AbstractExceptionStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(11);
 	}
 
@@ -3487,7 +3570,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractEntryPointResolver() {
+	public EReference getDocumentRoot_AbstractExtension() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(12);
 	}
 
@@ -3496,7 +3579,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractEntryPointResolverSet() {
+	public EReference getDocumentRoot_AbstractFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(13);
 	}
 
@@ -3505,7 +3588,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractExceptionStrategy() {
+	public EReference getDocumentRoot_AbstractGlobalEndpoint() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(14);
 	}
 
@@ -3514,7 +3597,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractExtension() {
+	public EReference getDocumentRoot_AbstractInboundEndpoint() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(15);
 	}
 
@@ -3523,7 +3606,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractFilter() {
+	public EReference getDocumentRoot_AbstractInboundRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(16);
 	}
 
@@ -3532,7 +3615,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractGlobalEndpoint() {
+	public EReference getDocumentRoot_AbstractLifecycleAdapterFactory() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(17);
 	}
 
@@ -3541,7 +3624,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractInboundEndpoint() {
+	public EReference getDocumentRoot_AbstractModel() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(18);
 	}
 
@@ -3550,7 +3633,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractInboundRouter() {
+	public EReference getDocumentRoot_AbstractObjectFactory() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(19);
 	}
 
@@ -3559,7 +3642,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractModel() {
+	public EReference getDocumentRoot_AbstractOutboundEndpoint() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(20);
 	}
 
@@ -3568,7 +3651,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractObjectFactory() {
+	public EReference getDocumentRoot_AbstractOutboundRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(21);
 	}
 
@@ -3577,7 +3660,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractOutboundEndpoint() {
+	public EReference getDocumentRoot_AbstractPoolingProfile() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(22);
 	}
 
@@ -3586,7 +3669,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractOutboundRouter() {
+	public EReference getDocumentRoot_AbstractPropertyExtractor() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(23);
 	}
 
@@ -3595,7 +3678,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractPoolingProfile() {
+	public EReference getDocumentRoot_AbstractQueueProfile() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(24);
 	}
 
@@ -3604,7 +3687,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractPropertyExtractor() {
+	public EReference getDocumentRoot_AbstractSecurityFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(25);
 	}
 
@@ -3613,7 +3696,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractQueueProfile() {
+	public EReference getDocumentRoot_AbstractSecurityManager() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(26);
 	}
 
@@ -3622,7 +3705,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractSecurityFilter() {
+	public EReference getDocumentRoot_AbstractService() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(27);
 	}
 
@@ -3631,7 +3714,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractSecurityManager() {
+	public EReference getDocumentRoot_AbstractTransaction() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(28);
 	}
 
@@ -3640,7 +3723,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractService() {
+	public EReference getDocumentRoot_AbstractTransactionManager() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(29);
 	}
 
@@ -3649,7 +3732,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractStorage() {
+	public EReference getDocumentRoot_AbstractTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(30);
 	}
 
@@ -3658,7 +3741,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractTransaction() {
+	public EReference getDocumentRoot_AndFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(31);
 	}
 
@@ -3667,7 +3750,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractTransactionManager() {
+	public EReference getDocumentRoot_AppendStringTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(32);
 	}
 
@@ -3676,7 +3759,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AbstractTransformer() {
+	public EReference getDocumentRoot_ArrayEntryPointResolver() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(33);
 	}
 
@@ -3685,7 +3768,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AndFilter() {
+	public EReference getDocumentRoot_Base64DecoderTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(34);
 	}
 
@@ -3694,7 +3777,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_AppendStringTransformer() {
+	public EReference getDocumentRoot_Base64EncoderTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(35);
 	}
 
@@ -3703,7 +3786,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ArrayEntryPointResolver() {
+	public EReference getDocumentRoot_BridgeComponent() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(36);
 	}
 
@@ -3712,7 +3795,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Base64DecoderTransformer() {
+	public EReference getDocumentRoot_ByteArrayToHexStringTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(37);
 	}
 
@@ -3721,7 +3804,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Base64EncoderTransformer() {
+	public EReference getDocumentRoot_ByteArrayToObjectTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(38);
 	}
 
@@ -3730,7 +3813,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_BeanPropertyExtractor() {
+	public EReference getDocumentRoot_ByteArrayToSerializableTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(39);
 	}
 
@@ -3739,7 +3822,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_BridgeComponent() {
+	public EReference getDocumentRoot_ByteArrayToStringTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(40);
 	}
 
@@ -3748,7 +3831,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ByteArrayToHexStringTransformer() {
+	public EReference getDocumentRoot_CallableEntryPointResolver() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(41);
 	}
 
@@ -3757,7 +3840,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ByteArrayToObjectTransformer() {
+	public EReference getDocumentRoot_ChainingRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(42);
 	}
 
@@ -3766,7 +3849,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ByteArrayToSerializableTransformer() {
+	public EReference getDocumentRoot_Component() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(43);
 	}
 
@@ -3775,7 +3858,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ByteArrayToStringTransformer() {
+	public EReference getDocumentRoot_ComponentThreadingProfile() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(44);
 	}
 
@@ -3784,7 +3867,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CallableEntryPointResolver() {
+	public EReference getDocumentRoot_CorrelationPropertyExtractor() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(45);
 	}
 
@@ -3793,7 +3876,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ChainingRouter() {
+	public EReference getDocumentRoot_CorrelationResequencerRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(46);
 	}
 
@@ -3802,7 +3885,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Component() {
+	public EReference getDocumentRoot_CustomAsyncReplyRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(47);
 	}
 
@@ -3811,7 +3894,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ComponentThreadingProfile() {
+	public EReference getDocumentRoot_CustomCatchAllStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(48);
 	}
 
@@ -3820,7 +3903,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CorrelationPropertyExtractor() {
+	public EReference getDocumentRoot_CustomConnectionStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(49);
 	}
 
@@ -3829,7 +3912,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CorrelationResequencerRouter() {
+	public EReference getDocumentRoot_CustomConnector() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(50);
 	}
 
@@ -3838,7 +3921,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomAsyncReplyRouter() {
+	public EReference getDocumentRoot_CustomCorrelationAggregatorRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(51);
 	}
 
@@ -3847,7 +3930,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomCatchAllStrategy() {
+	public EReference getDocumentRoot_CustomEntryPointResolver() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(52);
 	}
 
@@ -3856,7 +3939,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomConnectionStrategy() {
+	public EReference getDocumentRoot_CustomEntryPointResolverSet() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(53);
 	}
 
@@ -3865,7 +3948,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomConnector() {
+	public EReference getDocumentRoot_CustomExceptionStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(54);
 	}
 
@@ -3874,7 +3957,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomContainer() {
+	public EReference getDocumentRoot_CustomFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(55);
 	}
 
@@ -3883,7 +3966,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomCorrelationAggregatorRouter() {
+	public EReference getDocumentRoot_CustomForwardingCatchAllStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(56);
 	}
 
@@ -3892,7 +3975,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomEntryPointResolver() {
+	public EReference getDocumentRoot_CustomInboundRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(57);
 	}
 
@@ -3901,7 +3984,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomEntryPointResolverSet() {
+	public EReference getDocumentRoot_CustomLifecycleAdapterFactory() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(58);
 	}
 
@@ -3910,7 +3993,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomExceptionStrategy() {
+	public EReference getDocumentRoot_CustomOutboundRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(59);
 	}
 
@@ -3919,7 +4002,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomFilter() {
+	public EReference getDocumentRoot_CustomPropertyExtractor() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(60);
 	}
 
@@ -3928,7 +4011,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomForwardingCatchAllStrategy() {
+	public EReference getDocumentRoot_CustomService() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(61);
 	}
 
@@ -3937,7 +4020,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomInboundRouter() {
+	public EReference getDocumentRoot_CustomTransaction() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(62);
 	}
 
@@ -3946,7 +4029,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomOutboundRouter() {
+	public EReference getDocumentRoot_CustomTransactionManager() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(63);
 	}
 
@@ -3955,7 +4038,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomPropertyExtractor() {
+	public EReference getDocumentRoot_CustomTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(64);
 	}
 
@@ -3964,7 +4047,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomTransaction() {
+	public EReference getDocumentRoot_DecryptTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(65);
 	}
 
@@ -3973,7 +4056,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomTransactionManager() {
+	public EReference getDocumentRoot_DefaultConnectorExceptionStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(66);
 	}
 
@@ -3982,7 +4065,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_CustomTransformer() {
+	public EReference getDocumentRoot_DefaultServiceExceptionStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(67);
 	}
 
@@ -3991,7 +4074,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DecryptTransformer() {
+	public EReference getDocumentRoot_EchoComponent() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(68);
 	}
 
@@ -4000,7 +4083,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DefaultConnectorExceptionStrategy() {
+	public EReference getDocumentRoot_EncryptionSecurityFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(69);
 	}
 
@@ -4009,7 +4092,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DefaultServiceExceptionStrategy() {
+	public EReference getDocumentRoot_EncryptTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(70);
 	}
 
@@ -4018,7 +4101,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Description() {
+	public EReference getDocumentRoot_Endpoint() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(71);
 	}
 
@@ -4027,7 +4110,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_DisableNotification() {
+	public EReference getDocumentRoot_EndpointSelectorRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(72);
 	}
 
@@ -4036,7 +4119,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_EchoComponent() {
+	public EReference getDocumentRoot_EntryPointResolverSet() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(73);
 	}
 
@@ -4045,7 +4128,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_EjbContainer() {
+	public EReference getDocumentRoot_ExceptionBasedRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(74);
 	}
 
@@ -4054,7 +4137,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_EncryptionSecurityFilter() {
+	public EReference getDocumentRoot_ExceptionTypeFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(75);
 	}
 
@@ -4063,7 +4146,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_EncryptTransformer() {
+	public EReference getDocumentRoot_ExpressionTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(76);
 	}
 
@@ -4072,7 +4155,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Endpoint() {
+	public EReference getDocumentRoot_Filter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(77);
 	}
 
@@ -4081,7 +4164,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_EndpointSelectorRouter() {
+	public EReference getDocumentRoot_FilteringRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(78);
 	}
 
@@ -4090,7 +4173,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_EntryPointResolverSet() {
+	public EReference getDocumentRoot_ForwardingCatchAllStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(79);
 	}
 
@@ -4099,7 +4182,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ExceptionBasedRouter() {
+	public EReference getDocumentRoot_ForwardingRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(80);
 	}
 
@@ -4108,7 +4191,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ExceptionTypeFilter() {
+	public EReference getDocumentRoot_FunctionPropertyExtractor() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(81);
 	}
 
@@ -4117,7 +4200,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Filter() {
+	public EReference getDocumentRoot_GzipCompressTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(82);
 	}
 
@@ -4126,7 +4209,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_FilteringRouter() {
+	public EReference getDocumentRoot_GzipUncompressTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(83);
 	}
 
@@ -4135,7 +4218,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ForwardingCatchAllStrategy() {
+	public EReference getDocumentRoot_HexStringToByteArrayTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(84);
 	}
 
@@ -4144,7 +4227,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ForwardingRouter() {
+	public EReference getDocumentRoot_IdempotentReceiverRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(85);
 	}
 
@@ -4153,7 +4236,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_GzipCompressTransformer() {
+	public EReference getDocumentRoot_IdempotentSecureHashReceiverRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(86);
 	}
 
@@ -4162,7 +4245,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_GzipUncompressTransformer() {
+	public EReference getDocumentRoot_InboundEndpoint() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(87);
 	}
 
@@ -4171,7 +4254,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_HexStringToByteArrayTransformer() {
+	public EReference getDocumentRoot_InboundPassThroughRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(88);
 	}
 
@@ -4180,7 +4263,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_HivemindContainer() {
+	public EReference getDocumentRoot_IncludeEntryPoint() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(89);
 	}
 
@@ -4189,7 +4272,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_IdempotentReceiverRouter() {
+	public EReference getDocumentRoot_JbossTransactionManager() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(90);
 	}
 
@@ -4198,7 +4281,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_IdempotentSecureHashReceiverRouter() {
+	public EReference getDocumentRoot_JndiTransactionManager() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(91);
 	}
 
@@ -4207,7 +4290,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_InboundEndpoint() {
+	public EReference getDocumentRoot_JrunTransactionManager() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(92);
 	}
 
@@ -4216,7 +4299,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_InboundPassThroughRouter() {
+	public EReference getDocumentRoot_LegacyEntryPointResolverSet() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(93);
 	}
 
@@ -4225,7 +4308,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_IncludeEntryPoint() {
+	public EReference getDocumentRoot_ListMessageSplitterRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(94);
 	}
 
@@ -4234,7 +4317,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_JbossTransactionManager() {
+	public EReference getDocumentRoot_LogComponent() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(95);
 	}
 
@@ -4243,7 +4326,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_JndiContainer() {
+	public EReference getDocumentRoot_LoggingCatchAllStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(96);
 	}
 
@@ -4252,7 +4335,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_JndiTransactionManager() {
+	public EReference getDocumentRoot_MapPropertyExtractor() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(97);
 	}
 
@@ -4261,7 +4344,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_JrunTransactionManager() {
+	public EReference getDocumentRoot_MessageChunkingAggregatorRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(98);
 	}
 
@@ -4270,7 +4353,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_LegacyEntryPointResolverSet() {
+	public EReference getDocumentRoot_MessageChunkingRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(99);
 	}
 
@@ -4279,7 +4362,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ListMessageSplitterRouter() {
+	public EReference getDocumentRoot_MessagePropertiesTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(100);
 	}
 
@@ -4288,7 +4371,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_LogComponent() {
+	public EReference getDocumentRoot_MessagePropertyExtractor() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(101);
 	}
 
@@ -4297,7 +4380,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_LoggingCatchAllStrategy() {
+	public EReference getDocumentRoot_MessagePropertyFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(102);
 	}
 
@@ -4306,7 +4389,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MapPropertyExtractor() {
+	public EReference getDocumentRoot_MethodEntryPointResolver() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(103);
 	}
 
@@ -4315,7 +4398,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MessageChunkingAggregatorRouter() {
+	public EReference getDocumentRoot_Model() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(104);
 	}
 
@@ -4324,7 +4407,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MessageChunkingRouter() {
+	public EReference getDocumentRoot_Mule() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(105);
 	}
 
@@ -4333,7 +4416,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MessagePropertiesTransformer() {
+	public EReference getDocumentRoot_MulticastingRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(106);
 	}
 
@@ -4342,7 +4425,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MessagePropertyExtractor() {
+	public EReference getDocumentRoot_NoActionTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(107);
 	}
 
@@ -4351,7 +4434,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MessagePropertyFilter() {
+	public EReference getDocumentRoot_NoArgumentsEntryPointResolver() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(108);
 	}
 
@@ -4360,7 +4443,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MethodEntryPointResolver() {
+	public EReference getDocumentRoot_NotFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(109);
 	}
 
@@ -4369,7 +4452,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Model() {
+	public EReference getDocumentRoot_NullComponent() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(110);
 	}
 
@@ -4378,7 +4461,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Mule() {
+	public EReference getDocumentRoot_ObjectToByteArrayTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(111);
 	}
 
@@ -4387,7 +4470,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_MulticastingRouter() {
+	public EReference getDocumentRoot_ObjectToStringTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(112);
 	}
 
@@ -4396,7 +4479,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_NoActionTransformer() {
+	public EReference getDocumentRoot_OrFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(113);
 	}
 
@@ -4405,7 +4488,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_NoArgumentsEntryPointResolver() {
+	public EReference getDocumentRoot_OutboundEndpoint() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(114);
 	}
 
@@ -4414,7 +4497,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_NotFilter() {
+	public EReference getDocumentRoot_OutboundPassThroughRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(115);
 	}
 
@@ -4423,7 +4506,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Notification() {
+	public EReference getDocumentRoot_PayloadTypeFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(116);
 	}
 
@@ -4432,7 +4515,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_NullComponent() {
+	public EReference getDocumentRoot_PooledComponent() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(117);
 	}
 
@@ -4441,7 +4524,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ObjectToByteArrayTransformer() {
+	public EReference getDocumentRoot_PoolingProfile() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(118);
 	}
 
@@ -4450,7 +4533,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ObjectToStringTransformer() {
+	public EReference getDocumentRoot_Properties() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(119);
 	}
 
@@ -4459,7 +4542,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_OrFilter() {
+	public EReference getDocumentRoot_PropertyEntryPointResolver() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(120);
 	}
 
@@ -4468,7 +4551,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_OutboundEndpoint() {
+	public EReference getDocumentRoot_PrototypeObject() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(121);
 	}
 
@@ -4477,7 +4560,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_OutboundPassThroughRouter() {
+	public EReference getDocumentRoot_QueueProfile() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(122);
 	}
 
@@ -4486,7 +4569,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PassThroughComponent() {
+	public EReference getDocumentRoot_ReflectionEntryPointResolver() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(123);
 	}
 
@@ -4495,7 +4578,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PayloadPropertyExtractor() {
+	public EReference getDocumentRoot_RegexFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(124);
 	}
 
@@ -4504,7 +4587,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PayloadTypeFilter() {
+	public EReference getDocumentRoot_ResinTransactionManager() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(125);
 	}
 
@@ -4513,7 +4596,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PicoContainer() {
+	public EReference getDocumentRoot_RetryConnectionStrategy() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(126);
 	}
 
@@ -4522,7 +4605,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PlexusContainer() {
+	public EReference getDocumentRoot_SecurityManager() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(127);
 	}
 
@@ -4531,7 +4614,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PooledObject() {
+	public EReference getDocumentRoot_SedaModel() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(128);
 	}
 
@@ -4540,7 +4623,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PoolingProfile() {
+	public EReference getDocumentRoot_SelectiveConsumerRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(129);
 	}
 
@@ -4549,7 +4632,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Properties() {
+	public EReference getDocumentRoot_SerializableToByteArrayTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(130);
 	}
 
@@ -4558,7 +4641,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PropertiesContainer() {
+	public EReference getDocumentRoot_Service() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(131);
 	}
 
@@ -4567,7 +4650,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PropertyEntryPointResolver() {
+	public EReference getDocumentRoot_SingleAsyncReplyRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(132);
 	}
 
@@ -4576,7 +4659,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_PrototypeObject() {
+	public EReference getDocumentRoot_SingletonObject() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(133);
 	}
 
@@ -4585,7 +4668,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_QueueProfile() {
+	public EReference getDocumentRoot_SpringObject() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(134);
 	}
 
@@ -4594,7 +4677,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ReflectionEntryPointResolver() {
+	public EReference getDocumentRoot_StaticRecipientListRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(135);
 	}
 
@@ -4603,7 +4686,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_RegexFilter() {
+	public EReference getDocumentRoot_StringToByteArrayTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(136);
 	}
 
@@ -4612,7 +4695,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_ResinTransactionManager() {
+	public EReference getDocumentRoot_TemplateEndpointRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(137);
 	}
 
@@ -4621,7 +4704,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_RetryConnectionStrategy() {
+	public EReference getDocumentRoot_Transformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(138);
 	}
 
@@ -4630,7 +4713,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_RmiContainer() {
+	public EReference getDocumentRoot_WeblogicTransactionManager() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(139);
 	}
 
@@ -4639,7 +4722,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_SecurityManager() {
+	public EReference getDocumentRoot_WebsphereTransactionManager() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(140);
 	}
 
@@ -4648,7 +4731,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_SedaModel() {
+	public EReference getDocumentRoot_WildcardFilter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(141);
 	}
 
@@ -4657,7 +4740,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_SelectiveConsumerRouter() {
+	public EReference getDocumentRoot_WireTapRouter() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(142);
 	}
 
@@ -4666,7 +4749,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_SerializableToByteArrayTransformer() {
+	public EReference getDocumentRoot_XmlEntityDecoderTransformer() {
         return (EReference)getDocumentRoot().getEStructuralFeatures().get(143);
 	}
 
@@ -4675,161 +4758,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Service() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(144);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_SingleAsyncReplyRouter() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(145);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_SingletonObject() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(146);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_SpringObject() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(147);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_StaticRecipientListRouter() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(148);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_StringToByteArrayTransformer() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(149);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_TemplateEndpointRouter() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(150);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Transformer() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(151);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_UcDecoderTransformer() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(152);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_UcEncoderTransformer() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(153);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_UuDecoderTransformer() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(154);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_UuEncoderTransformer() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(155);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_WeblogicTransactionManager() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(156);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_WebsphereTransactionManager() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(157);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_WildcardFilter() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(158);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_WireTapRouter() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(159);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_XmlEntityDecoderTransformer() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(160);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDocumentRoot_XmlEntityEncoderTransformer() {
-        return (EReference)getDocumentRoot().getEStructuralFeatures().get(161);
+        return (EReference)getDocumentRoot().getEStructuralFeatures().get(144);
 	}
 
 	/**
@@ -4879,9 +4809,60 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEncryptionTransformerType() {
+		if (encryptionTransformerTypeEClass == null) {
+			encryptionTransformerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(75);
+		}
+		return encryptionTransformerTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEncryptionTransformerType_StrategyRef() {
+        return (EAttribute)getEncryptionTransformerType().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEndpointExceptionStrategyType() {
+		if (endpointExceptionStrategyTypeEClass == null) {
+			endpointExceptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(76);
+		}
+		return endpointExceptionStrategyTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEndpointExceptionStrategyType_AbstractOutboundEndpointGroup() {
+        return (EAttribute)getEndpointExceptionStrategyType().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEndpointExceptionStrategyType_AbstractOutboundEndpoint() {
+        return (EReference)getEndpointExceptionStrategyType().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEndpointSelectorRouterType() {
 		if (endpointSelectorRouterTypeEClass == null) {
-			endpointSelectorRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(75);
+			endpointSelectorRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(77);
 		}
 		return endpointSelectorRouterTypeEClass;
 	}
@@ -4891,7 +4872,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEndpointSelectorRouterType_SelectorProperty() {
+	public EAttribute getEndpointSelectorRouterType_SelectorExpression() {
         return (EAttribute)getEndpointSelectorRouterType().getEStructuralFeatures().get(0);
 	}
 
@@ -4902,7 +4883,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getEnvironmentPropertyType() {
 		if (environmentPropertyTypeEClass == null) {
-			environmentPropertyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(76);
+			environmentPropertyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(78);
 		}
 		return environmentPropertyTypeEClass;
 	}
@@ -4930,11 +4911,11 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExceptionStrategyType() {
-		if (exceptionStrategyTypeEClass == null) {
-			exceptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(81);
+	public EClass getExpressionTransformerType() {
+		if (expressionTransformerTypeEClass == null) {
+			expressionTransformerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(87);
 		}
-		return exceptionStrategyTypeEClass;
+		return expressionTransformerTypeEClass;
 	}
 
 	/**
@@ -4942,8 +4923,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExceptionStrategyType_AbstractOutboundEndpointGroup() {
-        return (EAttribute)getExceptionStrategyType().getEStructuralFeatures().get(0);
+	public EAttribute getExpressionTransformerType_Group() {
+        return (EAttribute)getExpressionTransformerType().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4951,8 +4932,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExceptionStrategyType_AbstractOutboundEndpoint() {
-        return (EReference)getExceptionStrategyType().getEStructuralFeatures().get(1);
+	public EReference getExpressionTransformerType_ReturnArgument() {
+        return (EReference)getExpressionTransformerType().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4962,7 +4943,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getExtensibleEntryPointResolverSet() {
 		if (extensibleEntryPointResolverSetEClass == null) {
-			extensibleEntryPointResolverSetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(84);
+			extensibleEntryPointResolverSetEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(88);
 		}
 		return extensibleEntryPointResolverSetEClass;
 	}
@@ -4992,7 +4973,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getFilteredInboundRouterType() {
 		if (filteredInboundRouterTypeEClass == null) {
-			filteredInboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(85);
+			filteredInboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(89);
 		}
 		return filteredInboundRouterTypeEClass;
 	}
@@ -5038,18 +5019,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFilteredInboundRouterType_CustomPropertyExtractor() {
-        return (EReference)getFilteredInboundRouterType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFilteringOutboundRouterType() {
 		if (filteringOutboundRouterTypeEClass == null) {
-			filteringOutboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(86);
+			filteringOutboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(90);
 		}
 		return filteringOutboundRouterTypeEClass;
 	}
@@ -5106,7 +5078,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getForwardingCatchAllStrategyType() {
 		if (forwardingCatchAllStrategyTypeEClass == null) {
-			forwardingCatchAllStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(87);
+			forwardingCatchAllStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(91);
 		}
 		return forwardingCatchAllStrategyTypeEClass;
 	}
@@ -5134,39 +5106,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getForwardingRouterType() {
-		if (forwardingRouterTypeEClass == null) {
-			forwardingRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(88);
-		}
-		return forwardingRouterTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getForwardingRouterType_AbstractInboundEndpointGroup() {
-        return (EAttribute)getForwardingRouterType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getForwardingRouterType_AbstractInboundEndpoint() {
-        return (EReference)getForwardingRouterType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getGenericObjectFactoryType() {
 		if (genericObjectFactoryTypeEClass == null) {
-			genericObjectFactoryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(89);
+			genericObjectFactoryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(92);
 		}
 		return genericObjectFactoryTypeEClass;
 	}
@@ -5196,7 +5138,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getGlobalEndpointType() {
 		if (globalEndpointTypeEClass == null) {
-			globalEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(90);
+			globalEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(93);
 		}
 		return globalEndpointTypeEClass;
 	}
@@ -5422,39 +5364,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIdempotentReceiverRouterType() {
-		if (idempotentReceiverRouterTypeEClass == null) {
-			idempotentReceiverRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(91);
-		}
-		return idempotentReceiverRouterTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIdempotentReceiverRouterType_AbstractStorageGroup() {
-        return (EAttribute)getIdempotentReceiverRouterType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIdempotentReceiverRouterType_AbstractStorage() {
-        return (EReference)getIdempotentReceiverRouterType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getInboundCollectionType() {
 		if (inboundCollectionTypeEClass == null) {
-			inboundCollectionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(92);
+			inboundCollectionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(94);
 		}
 		return inboundCollectionTypeEClass;
 	}
@@ -5518,18 +5430,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getInboundCollectionType_MatchAll() {
-        return (EAttribute)getInboundCollectionType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getInboundEndpointType() {
 		if (inboundEndpointTypeEClass == null) {
-			inboundEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(93);
+			inboundEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(95);
 		}
 		return inboundEndpointTypeEClass;
 	}
@@ -5755,39 +5658,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIocContainerContextType() {
-		if (iocContainerContextTypeEClass == null) {
-			iocContainerContextTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(102);
-		}
-		return iocContainerContextTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIocContainerContextType_ConfigLocation() {
-        return (EAttribute)getIocContainerContextType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIocContainerContextType_ConfigurationText() {
-        return (EAttribute)getIocContainerContextType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getJndiConnectorType() {
 		if (jndiConnectorTypeEClass == null) {
-			jndiConnectorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(103);
+			jndiConnectorTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(104);
 		}
 		return jndiConnectorTypeEClass;
 	}
@@ -5853,7 +5726,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getJndiTransactionManagerType() {
 		if (jndiTransactionManagerTypeEClass == null) {
-			jndiTransactionManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(104);
+			jndiTransactionManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(105);
 		}
 		return jndiTransactionManagerTypeEClass;
 	}
@@ -5863,8 +5736,29 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJndiTransactionManagerType_Environment() {
-        return (EReference)getJndiTransactionManagerType().getEStructuralFeatures().get(0);
+	public EAttribute getJndiTransactionManagerType_JndiName() {
+        return (EAttribute)getJndiTransactionManagerType().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getJndiTransactionManagerType1() {
+		if (jndiTransactionManagerType1EClass == null) {
+			jndiTransactionManagerType1EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(106);
+		}
+		return jndiTransactionManagerType1EClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJndiTransactionManagerType1_Environment() {
+        return (EReference)getJndiTransactionManagerType1().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5874,7 +5768,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getKeyType() {
 		if (keyTypeEClass == null) {
-			keyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(105);
+			keyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(107);
 		}
 		return keyTypeEClass;
 	}
@@ -5895,7 +5789,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getKeyValueType() {
 		if (keyValueTypeEClass == null) {
-			keyValueTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(106);
+			keyValueTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(108);
 		}
 		return keyValueTypeEClass;
 	}
@@ -5925,7 +5819,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getListOrSetType() {
 		if (listOrSetTypeEClass == null) {
-			listOrSetTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(107);
+			listOrSetTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(109);
 		}
 		return listOrSetTypeEClass;
 	}
@@ -5937,7 +5831,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getLoggingCatchAllStrategyType() {
 		if (loggingCatchAllStrategyTypeEClass == null) {
-			loggingCatchAllStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(108);
+			loggingCatchAllStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(110);
 		}
 		return loggingCatchAllStrategyTypeEClass;
 	}
@@ -5947,165 +5841,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getManagementContextType() {
-		if (managementContextTypeEClass == null) {
-			managementContextTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(109);
-		}
-		return managementContextTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getManagementContextType_DefaultThreadingProfile() {
-        return (EReference)getManagementContextType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getManagementContextType_DefaultDispatcherThreadingProfile() {
-        return (EReference)getManagementContextType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getManagementContextType_DefaultReceiverThreadingProfile() {
-        return (EReference)getManagementContextType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getManagementContextType_DefaultComponentThreadingProfile() {
-        return (EReference)getManagementContextType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getManagementContextType_AbstractStorageGroup() {
-        return (EAttribute)getManagementContextType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getManagementContextType_AbstractStorage() {
-        return (EReference)getManagementContextType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getManagementContextType_DefaultConnectionStrategy() {
-        return (EReference)getManagementContextType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getManagementContextType_ClusterId() {
-        return (EAttribute)getManagementContextType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getManagementContextType_DefaultEncoding() {
-        return (EAttribute)getManagementContextType().getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getManagementContextType_DefaultRemoteSync() {
-        return (EAttribute)getManagementContextType().getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getManagementContextType_DefaultSynchronousEndpoints() {
-        return (EAttribute)getManagementContextType().getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getManagementContextType_DefaultSynchronousEventTimeout() {
-        return (EAttribute)getManagementContextType().getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getManagementContextType_DefaultTransactionTimeout() {
-        return (EAttribute)getManagementContextType().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getManagementContextType_DomainId() {
-        return (EAttribute)getManagementContextType().getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getManagementContextType_ServerId() {
-        return (EAttribute)getManagementContextType().getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getManagementContextType_WorkingDirectory() {
-        return (EAttribute)getManagementContextType().getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMapType() {
 		if (mapTypeEClass == null) {
-			mapTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(110);
+			mapTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(111);
 		}
 		return mapTypeEClass;
 	}
@@ -6117,7 +5855,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getMessageChunkingAggregatorRouterType() {
 		if (messageChunkingAggregatorRouterTypeEClass == null) {
-			messageChunkingAggregatorRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(111);
+			messageChunkingAggregatorRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(112);
 		}
 		return messageChunkingAggregatorRouterTypeEClass;
 	}
@@ -6138,7 +5876,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getMessagePropertiesTransformerType() {
 		if (messagePropertiesTransformerTypeEClass == null) {
-			messagePropertiesTransformerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(112);
+			messagePropertiesTransformerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(113);
 		}
 		return messagePropertiesTransformerTypeEClass;
 	}
@@ -6186,7 +5924,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getMessageSplitterOutboundRouterType() {
 		if (messageSplitterOutboundRouterTypeEClass == null) {
-			messageSplitterOutboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(113);
+			messageSplitterOutboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(114);
 		}
 		return messageSplitterOutboundRouterTypeEClass;
 	}
@@ -6207,7 +5945,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getMethodEntryPointResolverType() {
 		if (methodEntryPointResolverTypeEClass == null) {
-			methodEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(114);
+			methodEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(115);
 		}
 		return methodEntryPointResolverTypeEClass;
 	}
@@ -6228,7 +5966,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getMethodType() {
 		if (methodTypeEClass == null) {
-			methodTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(115);
+			methodTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(116);
 		}
 		return methodTypeEClass;
 	}
@@ -6249,7 +5987,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getMuleType() {
 		if (muleTypeEClass == null) {
-			muleTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(116);
+			muleTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(117);
 		}
 		return muleTypeEClass;
 	}
@@ -6260,7 +5998,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EAttribute getMuleType_Group() {
-        return (EAttribute)getMuleType().getEStructuralFeatures().get(0);
+        return (EAttribute)getMuleType().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -6269,33 +6007,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EReference getMuleType_EnvironmentProperty() {
-        return (EReference)getMuleType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMuleType_Configuration() {
-        return (EReference)getMuleType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMuleType_Notifications() {
-        return (EReference)getMuleType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMuleType_Description() {
         return (EReference)getMuleType().getEStructuralFeatures().get(4);
 	}
 
@@ -6304,8 +6015,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMuleType_AbstractExtensionGroup() {
-        return (EAttribute)getMuleType().getEStructuralFeatures().get(5);
+	public EReference getMuleType_Configuration() {
+        return (EReference)getMuleType().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -6313,7 +6024,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMuleType_AbstractExtension() {
+	public EReference getMuleType_Notifications() {
         return (EReference)getMuleType().getEStructuralFeatures().get(6);
 	}
 
@@ -6322,7 +6033,16 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMuleType_AbstractSecurityManagerGroup() {
+	public EReference getMuleType_Description() {
+        return (EReference)getMuleType().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMuleType_AbstractExtensionGroup() {
         return (EAttribute)getMuleType().getEStructuralFeatures().get(7);
 	}
 
@@ -6331,7 +6051,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMuleType_AbstractSecurityManager() {
+	public EReference getMuleType_AbstractExtension() {
         return (EReference)getMuleType().getEStructuralFeatures().get(8);
 	}
 
@@ -6340,7 +6060,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMuleType_AbstractTransactionManagerGroup() {
+	public EAttribute getMuleType_AbstractSecurityManagerGroup() {
         return (EAttribute)getMuleType().getEStructuralFeatures().get(9);
 	}
 
@@ -6349,7 +6069,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMuleType_AbstractTransactionManager() {
+	public EReference getMuleType_AbstractSecurityManager() {
         return (EReference)getMuleType().getEStructuralFeatures().get(10);
 	}
 
@@ -6358,7 +6078,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMuleType_AbstractConnectorGroup() {
+	public EAttribute getMuleType_AbstractTransactionManagerGroup() {
         return (EAttribute)getMuleType().getEStructuralFeatures().get(11);
 	}
 
@@ -6367,7 +6087,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMuleType_AbstractConnector() {
+	public EReference getMuleType_AbstractTransactionManager() {
         return (EReference)getMuleType().getEStructuralFeatures().get(12);
 	}
 
@@ -6376,7 +6096,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMuleType_AbstractGlobalEndpointGroup() {
+	public EAttribute getMuleType_AbstractConnectorGroup() {
         return (EAttribute)getMuleType().getEStructuralFeatures().get(13);
 	}
 
@@ -6385,7 +6105,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMuleType_AbstractGlobalEndpoint() {
+	public EReference getMuleType_AbstractConnector() {
         return (EReference)getMuleType().getEStructuralFeatures().get(14);
 	}
 
@@ -6394,7 +6114,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMuleType_AbstractTransformerGroup() {
+	public EAttribute getMuleType_AbstractGlobalEndpointGroup() {
         return (EAttribute)getMuleType().getEStructuralFeatures().get(15);
 	}
 
@@ -6403,7 +6123,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMuleType_AbstractTransformer() {
+	public EReference getMuleType_AbstractGlobalEndpoint() {
         return (EReference)getMuleType().getEStructuralFeatures().get(16);
 	}
 
@@ -6412,7 +6132,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMuleType_AbstractFilterGroup() {
+	public EAttribute getMuleType_AbstractTransformerGroup() {
         return (EAttribute)getMuleType().getEStructuralFeatures().get(17);
 	}
 
@@ -6421,7 +6141,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMuleType_AbstractFilter() {
+	public EReference getMuleType_AbstractTransformer() {
         return (EReference)getMuleType().getEStructuralFeatures().get(18);
 	}
 
@@ -6430,7 +6150,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMuleType_AbstractModelGroup() {
+	public EAttribute getMuleType_AbstractFilterGroup() {
         return (EAttribute)getMuleType().getEStructuralFeatures().get(19);
 	}
 
@@ -6439,7 +6159,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMuleType_AbstractModel() {
+	public EReference getMuleType_AbstractFilter() {
         return (EReference)getMuleType().getEStructuralFeatures().get(20);
 	}
 
@@ -6448,8 +6168,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMuleType_Beans() {
-        return (EReference)getMuleType().getEStructuralFeatures().get(21);
+	public EAttribute getMuleType_AbstractModelGroup() {
+        return (EAttribute)getMuleType().getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -6457,7 +6177,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMuleType_Bean() {
+	public EReference getMuleType_AbstractModel() {
         return (EReference)getMuleType().getEStructuralFeatures().get(22);
 	}
 
@@ -6466,8 +6186,17 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMuleType_Name() {
-        return (EAttribute)getMuleType().getEStructuralFeatures().get(23);
+	public EReference getMuleType_Beans() {
+        return (EReference)getMuleType().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMuleType_Bean() {
+        return (EReference)getMuleType().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -6477,7 +6206,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getNotificationListenerType() {
 		if (notificationListenerTypeEClass == null) {
-			notificationListenerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(119);
+			notificationListenerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(120);
 		}
 		return notificationListenerTypeEClass;
 	}
@@ -6507,7 +6236,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getNotificationManagerType() {
 		if (notificationManagerTypeEClass == null) {
-			notificationManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(120);
+			notificationManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(121);
 		}
 		return notificationManagerTypeEClass;
 	}
@@ -6517,8 +6246,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNotificationManagerType_Group() {
-        return (EAttribute)getNotificationManagerType().getEStructuralFeatures().get(0);
+	public EReference getNotificationManagerType_Notification() {
+        return (EReference)getNotificationManagerType().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -6526,53 +6255,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNotificationManagerType_AbstractDefineNotificationGroup() {
-        return (EAttribute)getNotificationManagerType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNotificationManagerType_AbstractDefineNotification() {
-        return (EReference)getNotificationManagerType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNotificationManagerType_Group1() {
-        return (EAttribute)getNotificationManagerType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNotificationManagerType_AbstractDisableNotificationGroup() {
-        return (EAttribute)getNotificationManagerType().getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNotificationManagerType_AbstractDisableNotification() {
-        return (EReference)getNotificationManagerType().getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNotificationManagerType_Group2() {
-        return (EAttribute)getNotificationManagerType().getEStructuralFeatures().get(6);
+	public EReference getNotificationManagerType_DisableNotification() {
+        return (EReference)getNotificationManagerType().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -6581,7 +6265,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EReference getNotificationManagerType_NotificationListener() {
-        return (EReference)getNotificationManagerType().getEStructuralFeatures().get(7);
+        return (EReference)getNotificationManagerType().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -6590,7 +6274,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EAttribute getNotificationManagerType_Dynamic() {
-        return (EAttribute)getNotificationManagerType().getEStructuralFeatures().get(8);
+        return (EAttribute)getNotificationManagerType().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -6600,7 +6284,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getOutboundCollectionType() {
 		if (outboundCollectionTypeEClass == null) {
-			outboundCollectionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(121);
+			outboundCollectionTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(122);
 		}
 		return outboundCollectionTypeEClass;
 	}
@@ -6657,7 +6341,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getOutboundEndpointType() {
 		if (outboundEndpointTypeEClass == null) {
-			outboundEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(122);
+			outboundEndpointTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(123);
 		}
 		return outboundEndpointTypeEClass;
 	}
@@ -6885,7 +6569,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getOutboundRouterType() {
 		if (outboundRouterTypeEClass == null) {
-			outboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(123);
+			outboundRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(124);
 		}
 		return outboundRouterTypeEClass;
 	}
@@ -6958,17 +6642,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOutboundRouterType_CustomPropertyExtractor() {
-        return (EReference)getOutboundRouterType().getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getOutboundRouterType_EnableCorrelation() {
-        return (EAttribute)getOutboundRouterType().getEStructuralFeatures().get(8);
+        return (EAttribute)getOutboundRouterType().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -6978,7 +6653,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getPasswordEncryptionStrategyType() {
 		if (passwordEncryptionStrategyTypeEClass == null) {
-			passwordEncryptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(124);
+			passwordEncryptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(125);
 		}
 		return passwordEncryptionStrategyTypeEClass;
 	}
@@ -7017,7 +6692,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getPatternFilterType() {
 		if (patternFilterTypeEClass == null) {
-			patternFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(125);
+			patternFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(126);
 		}
 		return patternFilterTypeEClass;
 	}
@@ -7038,7 +6713,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getPojoBindingType() {
 		if (pojoBindingTypeEClass == null) {
-			pojoBindingTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(126);
+			pojoBindingTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(127);
 		}
 		return pojoBindingTypeEClass;
 	}
@@ -7084,11 +6759,11 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPojoComponentType() {
-		if (pojoComponentTypeEClass == null) {
-			pojoComponentTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(127);
+	public EClass getPooledJavaComponentType() {
+		if (pooledJavaComponentTypeEClass == null) {
+			pooledJavaComponentTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(128);
 		}
-		return pojoComponentTypeEClass;
+		return pooledJavaComponentTypeEClass;
 	}
 
 	/**
@@ -7096,8 +6771,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPojoComponentType_AbstractObjectFactoryGroup() {
-        return (EAttribute)getPojoComponentType().getEStructuralFeatures().get(0);
+	public EAttribute getPooledJavaComponentType_AbstractPoolingProfileGroup() {
+        return (EAttribute)getPooledJavaComponentType().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -7105,65 +6780,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPojoComponentType_AbstractObjectFactory() {
-        return (EReference)getPojoComponentType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPojoComponentType_Binding() {
-        return (EReference)getPojoComponentType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPojoComponentType_Class() {
-        return (EAttribute)getPojoComponentType().getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPooledObjectFactoryType() {
-		if (pooledObjectFactoryTypeEClass == null) {
-			pooledObjectFactoryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(128);
-		}
-		return pooledObjectFactoryTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPooledObjectFactoryType_AbstractPoolingProfileGroup() {
-        return (EAttribute)getPooledObjectFactoryType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPooledObjectFactoryType_AbstractPoolingProfile() {
-        return (EReference)getPooledObjectFactoryType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPooledObjectFactoryType_Class() {
-        return (EAttribute)getPooledObjectFactoryType().getEStructuralFeatures().get(2);
+	public EReference getPooledJavaComponentType_AbstractPoolingProfile() {
+        return (EReference)getPooledJavaComponentType().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -7228,48 +6846,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropertiesContainerContextType() {
-		if (propertiesContainerContextTypeEClass == null) {
-			propertiesContainerContextTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(132);
-		}
-		return propertiesContainerContextTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPropertiesContainerContextType_EnableTemplates() {
-        return (EAttribute)getPropertiesContainerContextType().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPropertiesContainerContextType_IncludeSystemProperties() {
-        return (EAttribute)getPropertiesContainerContextType().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPropertiesContainerContextType_Name() {
-        return (EAttribute)getPropertiesContainerContextType().getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPropertyEntryPointResolverType() {
 		if (propertyEntryPointResolverTypeEClass == null) {
-			propertyEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(133);
+			propertyEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(132);
 		}
 		return propertyEntryPointResolverTypeEClass;
 	}
@@ -7290,7 +6869,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getPrototypeObjectFactoryType() {
 		if (prototypeObjectFactoryTypeEClass == null) {
-			prototypeObjectFactoryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(135);
+			prototypeObjectFactoryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(134);
 		}
 		return prototypeObjectFactoryTypeEClass;
 	}
@@ -7311,7 +6890,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getQueueProfileType() {
 		if (queueProfileTypeEClass == null) {
-			queueProfileTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(136);
+			queueProfileTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(135);
 		}
 		return queueProfileTypeEClass;
 	}
@@ -7341,7 +6920,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getReferenceType() {
 		if (referenceTypeEClass == null) {
-			referenceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(137);
+			referenceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(136);
 		}
 		return referenceTypeEClass;
 	}
@@ -7362,7 +6941,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getRefFilterType() {
 		if (refFilterTypeEClass == null) {
-			refFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(138);
+			refFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(137);
 		}
 		return refFilterTypeEClass;
 	}
@@ -7383,7 +6962,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getReflectionEntryPointResolverType() {
 		if (reflectionEntryPointResolverTypeEClass == null) {
-			reflectionEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(139);
+			reflectionEntryPointResolverTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(138);
 		}
 		return reflectionEntryPointResolverTypeEClass;
 	}
@@ -7413,7 +6992,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getRefTransformerType() {
 		if (refTransformerTypeEClass == null) {
-			refTransformerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(140);
+			refTransformerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(139);
 		}
 		return refTransformerTypeEClass;
 	}
@@ -7434,7 +7013,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getReplyToType() {
 		if (replyToTypeEClass == null) {
-			replyToTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(141);
+			replyToTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(140);
 		}
 		return replyToTypeEClass;
 	}
@@ -7455,7 +7034,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getResponseTransformersType() {
 		if (responseTransformersTypeEClass == null) {
-			responseTransformersTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(142);
+			responseTransformersTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(141);
 		}
 		return responseTransformersTypeEClass;
 	}
@@ -7485,7 +7064,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getRetryConnectionStrategyType() {
 		if (retryConnectionStrategyTypeEClass == null) {
-			retryConnectionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(143);
+			retryConnectionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(142);
 		}
 		return retryConnectionStrategyTypeEClass;
 	}
@@ -7513,11 +7092,11 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRmiContainerContextType() {
-		if (rmiContainerContextTypeEClass == null) {
-			rmiContainerContextTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(144);
+	public EClass getReturnArgumentType() {
+		if (returnArgumentTypeEClass == null) {
+			returnArgumentTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(143);
 		}
-		return rmiContainerContextTypeEClass;
+		return returnArgumentTypeEClass;
 	}
 
 	/**
@@ -7525,8 +7104,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRmiContainerContextType_Name() {
-        return (EAttribute)getRmiContainerContextType().getEStructuralFeatures().get(0);
+	public EAttribute getReturnArgumentType_CustomEvaluator() {
+        return (EAttribute)getReturnArgumentType().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -7534,8 +7113,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRmiContainerContextType_SecurityManager() {
-        return (EAttribute)getRmiContainerContextType().getEStructuralFeatures().get(1);
+	public EAttribute getReturnArgumentType_Evaluator() {
+        return (EAttribute)getReturnArgumentType().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -7543,8 +7122,17 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRmiContainerContextType_SecurityPolicy() {
-        return (EAttribute)getRmiContainerContextType().getEStructuralFeatures().get(2);
+	public EAttribute getReturnArgumentType_Expression() {
+        return (EAttribute)getReturnArgumentType().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReturnArgumentType_Optional() {
+        return (EAttribute)getReturnArgumentType().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -7554,7 +7142,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getSecretKeyEncryptionStrategyType() {
 		if (secretKeyEncryptionStrategyTypeEClass == null) {
-			secretKeyEncryptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(145);
+			secretKeyEncryptionStrategyTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(144);
 		}
 		return secretKeyEncryptionStrategyTypeEClass;
 	}
@@ -7584,7 +7172,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getSecurityManagerType() {
 		if (securityManagerTypeEClass == null) {
-			securityManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(146);
+			securityManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(145);
 		}
 		return securityManagerTypeEClass;
 	}
@@ -7632,7 +7220,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getSecurityProviderType() {
 		if (securityProviderTypeEClass == null) {
-			securityProviderTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(147);
+			securityProviderTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(146);
 		}
 		return securityProviderTypeEClass;
 	}
@@ -7653,7 +7241,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getSedaModelType() {
 		if (sedaModelTypeEClass == null) {
-			sedaModelTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(148);
+			sedaModelTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(147);
 		}
 		return sedaModelTypeEClass;
 	}
@@ -7701,7 +7289,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getSedaServiceType() {
 		if (sedaServiceTypeEClass == null) {
-			sedaServiceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(149);
+			sedaServiceTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(148);
 		}
 		return sedaServiceTypeEClass;
 	}
@@ -7758,7 +7346,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getSelectiveConsumerRouterType() {
 		if (selectiveConsumerRouterTypeEClass == null) {
-			selectiveConsumerRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(150);
+			selectiveConsumerRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(149);
 		}
 		return selectiveConsumerRouterTypeEClass;
 	}
@@ -7806,7 +7394,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getServiceOverridesType() {
 		if (serviceOverridesTypeEClass == null) {
-			serviceOverridesTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(151);
+			serviceOverridesTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(150);
 		}
 		return serviceOverridesTypeEClass;
 	}
@@ -7888,7 +7476,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getServiceOverridesType_StreamMessageAdapter() {
+	public EAttribute getServiceOverridesType_SessionHandler() {
         return (EAttribute)getServiceOverridesType().getEStructuralFeatures().get(8);
 	}
 
@@ -7897,8 +7485,17 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getServiceOverridesType_TransactedMessageReceiver() {
+	public EAttribute getServiceOverridesType_StreamMessageAdapter() {
         return (EAttribute)getServiceOverridesType().getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getServiceOverridesType_TransactedMessageReceiver() {
+        return (EAttribute)getServiceOverridesType().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -7908,7 +7505,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getSingletonObjectFactoryType() {
 		if (singletonObjectFactoryTypeEClass == null) {
-			singletonObjectFactoryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(152);
+			singletonObjectFactoryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(151);
 		}
 		return singletonObjectFactoryTypeEClass;
 	}
@@ -7929,7 +7526,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getSpringBeanLookupType() {
 		if (springBeanLookupTypeEClass == null) {
-			springBeanLookupTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(153);
+			springBeanLookupTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(152);
 		}
 		return springBeanLookupTypeEClass;
 	}
@@ -7950,7 +7547,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getStaticRecipientListRouterType() {
 		if (staticRecipientListRouterTypeEClass == null) {
-			staticRecipientListRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(154);
+			staticRecipientListRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(153);
 		}
 		return staticRecipientListRouterTypeEClass;
 	}
@@ -7989,7 +7586,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getThreadingProfileType() {
 		if (threadingProfileTypeEClass == null) {
-			threadingProfileTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(175);
+			threadingProfileTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(174);
 		}
 		return threadingProfileTypeEClass;
 	}
@@ -8035,7 +7632,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getThreadingProfileType_Name() {
+	public EAttribute getThreadingProfileType_PoolExhaustedAction() {
         return (EAttribute)getThreadingProfileType().getEStructuralFeatures().get(4);
 	}
 
@@ -8044,7 +7641,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getThreadingProfileType_PoolExhaustedAction() {
+	public EAttribute getThreadingProfileType_ThreadTTL() {
         return (EAttribute)getThreadingProfileType().getEStructuralFeatures().get(5);
 	}
 
@@ -8053,17 +7650,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getThreadingProfileType_ThreadTTL() {
-        return (EAttribute)getThreadingProfileType().getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getThreadingProfileType_ThreadWaitTimeout() {
-        return (EAttribute)getThreadingProfileType().getEStructuralFeatures().get(7);
+        return (EAttribute)getThreadingProfileType().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -8073,7 +7661,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getTlsClientKeyStoreType() {
 		if (tlsClientKeyStoreTypeEClass == null) {
-			tlsClientKeyStoreTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(176);
+			tlsClientKeyStoreTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(175);
 		}
 		return tlsClientKeyStoreTypeEClass;
 	}
@@ -8083,7 +7671,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsClientKeyStoreType_ClientKeyStore() {
+	public EAttribute getTlsClientKeyStoreType_Class() {
         return (EAttribute)getTlsClientKeyStoreType().getEStructuralFeatures().get(0);
 	}
 
@@ -8092,7 +7680,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsClientKeyStoreType_ClientKeyStorePassword() {
+	public EAttribute getTlsClientKeyStoreType_Path() {
         return (EAttribute)getTlsClientKeyStoreType().getEStructuralFeatures().get(1);
 	}
 
@@ -8101,7 +7689,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsClientKeyStoreType_ClientKeyStoreType() {
+	public EAttribute getTlsClientKeyStoreType_StorePassword() {
         return (EAttribute)getTlsClientKeyStoreType().getEStructuralFeatures().get(2);
 	}
 
@@ -8112,7 +7700,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getTlsKeyStoreType() {
 		if (tlsKeyStoreTypeEClass == null) {
-			tlsKeyStoreTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(177);
+			tlsKeyStoreTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(176);
 		}
 		return tlsKeyStoreTypeEClass;
 	}
@@ -8122,7 +7710,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsKeyStoreType_KeyManagerAlgorithm() {
+	public EAttribute getTlsKeyStoreType_Algorithm() {
         return (EAttribute)getTlsKeyStoreType().getEStructuralFeatures().get(0);
 	}
 
@@ -8131,7 +7719,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsKeyStoreType_KeyPassword() {
+	public EAttribute getTlsKeyStoreType_Class() {
         return (EAttribute)getTlsKeyStoreType().getEStructuralFeatures().get(1);
 	}
 
@@ -8140,7 +7728,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsKeyStoreType_KeyStore() {
+	public EAttribute getTlsKeyStoreType_KeyPassword() {
         return (EAttribute)getTlsKeyStoreType().getEStructuralFeatures().get(2);
 	}
 
@@ -8149,7 +7737,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsKeyStoreType_KeyStorePassword() {
+	public EAttribute getTlsKeyStoreType_Path() {
         return (EAttribute)getTlsKeyStoreType().getEStructuralFeatures().get(3);
 	}
 
@@ -8158,7 +7746,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsKeyStoreType_KeyStoreType() {
+	public EAttribute getTlsKeyStoreType_StorePassword() {
         return (EAttribute)getTlsKeyStoreType().getEStructuralFeatures().get(4);
 	}
 
@@ -8169,7 +7757,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getTlsProtocolHandler() {
 		if (tlsProtocolHandlerEClass == null) {
-			tlsProtocolHandlerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(178);
+			tlsProtocolHandlerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(177);
 		}
 		return tlsProtocolHandlerEClass;
 	}
@@ -8179,7 +7767,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsProtocolHandler_ProtocolHandler() {
+	public EAttribute getTlsProtocolHandler_Property() {
         return (EAttribute)getTlsProtocolHandler().getEStructuralFeatures().get(0);
 	}
 
@@ -8190,7 +7778,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getTlsServerTrustStoreType() {
 		if (tlsServerTrustStoreTypeEClass == null) {
-			tlsServerTrustStoreTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(179);
+			tlsServerTrustStoreTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(178);
 		}
 		return tlsServerTrustStoreTypeEClass;
 	}
@@ -8200,7 +7788,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsServerTrustStoreType_ExplicitTrustStoreOnly() {
+	public EAttribute getTlsServerTrustStoreType_Algorithm() {
         return (EAttribute)getTlsServerTrustStoreType().getEStructuralFeatures().get(0);
 	}
 
@@ -8209,7 +7797,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsServerTrustStoreType_RequireClientAuthentication() {
+	public EAttribute getTlsServerTrustStoreType_Class() {
         return (EAttribute)getTlsServerTrustStoreType().getEStructuralFeatures().get(1);
 	}
 
@@ -8218,7 +7806,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsServerTrustStoreType_TrustManagerAlgorithm() {
+	public EAttribute getTlsServerTrustStoreType_ExplicitOnly() {
         return (EAttribute)getTlsServerTrustStoreType().getEStructuralFeatures().get(2);
 	}
 
@@ -8227,7 +7815,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsServerTrustStoreType_TrustManagerFactory() {
+	public EAttribute getTlsServerTrustStoreType_FactoryRef() {
         return (EAttribute)getTlsServerTrustStoreType().getEStructuralFeatures().get(3);
 	}
 
@@ -8236,7 +7824,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsServerTrustStoreType_TrustStoreType() {
+	public EAttribute getTlsServerTrustStoreType_RequireClientAuthentication() {
         return (EAttribute)getTlsServerTrustStoreType().getEStructuralFeatures().get(4);
 	}
 
@@ -8247,7 +7835,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getTlsTrustStoreType() {
 		if (tlsTrustStoreTypeEClass == null) {
-			tlsTrustStoreTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(180);
+			tlsTrustStoreTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(179);
 		}
 		return tlsTrustStoreTypeEClass;
 	}
@@ -8257,7 +7845,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsTrustStoreType_TrustStore() {
+	public EAttribute getTlsTrustStoreType_Path() {
         return (EAttribute)getTlsTrustStoreType().getEStructuralFeatures().get(0);
 	}
 
@@ -8266,7 +7854,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTlsTrustStoreType_TrustStorePassword() {
+	public EAttribute getTlsTrustStoreType_StorePassword() {
         return (EAttribute)getTlsTrustStoreType().getEStructuralFeatures().get(1);
 	}
 
@@ -8277,7 +7865,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getTransactionManagerType() {
 		if (transactionManagerTypeEClass == null) {
-			transactionManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(181);
+			transactionManagerTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(180);
 		}
 		return transactionManagerTypeEClass;
 	}
@@ -8298,7 +7886,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getTransformersType() {
 		if (transformersTypeEClass == null) {
-			transformersTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(182);
+			transformersTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(181);
 		}
 		return transformersTypeEClass;
 	}
@@ -8328,7 +7916,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getTypeFilterType() {
 		if (typeFilterTypeEClass == null) {
-			typeFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(183);
+			typeFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(182);
 		}
 		return typeFilterTypeEClass;
 	}
@@ -8349,7 +7937,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getUnitaryFilterType() {
 		if (unitaryFilterTypeEClass == null) {
-			unitaryFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(184);
+			unitaryFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(183);
 		}
 		return unitaryFilterTypeEClass;
 	}
@@ -8379,7 +7967,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getValueType() {
 		if (valueTypeEClass == null) {
-			valueTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(185);
+			valueTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(184);
 		}
 		return valueTypeEClass;
 	}
@@ -8409,7 +7997,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getWildcardFilterType() {
 		if (wildcardFilterTypeEClass == null) {
-			wildcardFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(186);
+			wildcardFilterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(185);
 		}
 		return wildcardFilterTypeEClass;
 	}
@@ -8421,7 +8009,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getWireTapRouterType() {
 		if (wireTapRouterTypeEClass == null) {
-			wireTapRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(187);
+			wireTapRouterTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(186);
 		}
 		return wireTapRouterTypeEClass;
 	}
@@ -8451,7 +8039,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EClass getConnection() {
 		if (connectionEClass == null) {
-			connectionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(188);
+			connectionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(187);
 		}
 		return connectionEClass;
 	}
@@ -8490,7 +8078,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EEnum getActionType() {
 		if (actionTypeEEnum == null) {
-			actionTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(32);
+			actionTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(29);
 		}
 		return actionTypeEEnum;
 	}
@@ -8512,9 +8100,21 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getEvaluatorType() {
+		if (evaluatorTypeEEnum == null) {
+			evaluatorTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(79);
+		}
+		return evaluatorTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEventType() {
 		if (eventTypeEEnum == null) {
-			eventTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(77);
+			eventTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(81);
 		}
 		return eventTypeEEnum;
 	}
@@ -8526,7 +8126,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EEnum getEventType1() {
 		if (eventType1EEnum == null) {
-			eventType1EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(78);
+			eventType1EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(82);
 		}
 		return eventType1EEnum;
 	}
@@ -8538,7 +8138,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EEnum getExhaustedActionType() {
 		if (exhaustedActionTypeEEnum == null) {
-			exhaustedActionTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(82);
+			exhaustedActionTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(85);
 		}
 		return exhaustedActionTypeEEnum;
 	}
@@ -8550,7 +8150,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EEnum getInitialisationPolicyType() {
 		if (initialisationPolicyTypeEEnum == null) {
-			initialisationPolicyTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(94);
+			initialisationPolicyTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(96);
 		}
 		return initialisationPolicyTypeEEnum;
 	}
@@ -8562,7 +8162,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EEnum getInitialStateType() {
 		if (initialStateTypeEEnum == null) {
-			initialStateTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(96);
+			initialStateTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(98);
 		}
 		return initialStateTypeEEnum;
 	}
@@ -8574,7 +8174,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EEnum getInterfaceType() {
 		if (interfaceTypeEEnum == null) {
-			interfaceTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(98);
+			interfaceTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(100);
 		}
 		return interfaceTypeEEnum;
 	}
@@ -8586,7 +8186,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EEnum getInterfaceType1() {
 		if (interfaceType1EEnum == null) {
-			interfaceType1EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(99);
+			interfaceType1EEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(101);
 		}
 		return interfaceType1EEnum;
 	}
@@ -8610,7 +8210,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getActionTypeObject() {
 		if (actionTypeObjectEDataType == null) {
-			actionTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(33);
+			actionTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(30);
 		}
 		return actionTypeObjectEDataType;
 	}
@@ -8632,9 +8232,21 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getEvaluatorTypeObject() {
+		if (evaluatorTypeObjectEDataType == null) {
+			evaluatorTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(80);
+		}
+		return evaluatorTypeObjectEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getEventTypeObject() {
 		if (eventTypeObjectEDataType == null) {
-			eventTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(79);
+			eventTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(83);
 		}
 		return eventTypeObjectEDataType;
 	}
@@ -8646,7 +8258,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getEventTypeObject1() {
 		if (eventTypeObject1EDataType == null) {
-			eventTypeObject1EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(80);
+			eventTypeObject1EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(84);
 		}
 		return eventTypeObject1EDataType;
 	}
@@ -8658,7 +8270,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getExhaustedActionTypeObject() {
 		if (exhaustedActionTypeObjectEDataType == null) {
-			exhaustedActionTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(83);
+			exhaustedActionTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(86);
 		}
 		return exhaustedActionTypeObjectEDataType;
 	}
@@ -8670,7 +8282,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getInitialisationPolicyTypeObject() {
 		if (initialisationPolicyTypeObjectEDataType == null) {
-			initialisationPolicyTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(95);
+			initialisationPolicyTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(97);
 		}
 		return initialisationPolicyTypeObjectEDataType;
 	}
@@ -8682,7 +8294,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getInitialStateTypeObject() {
 		if (initialStateTypeObjectEDataType == null) {
-			initialStateTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(97);
+			initialStateTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(99);
 		}
 		return initialStateTypeObjectEDataType;
 	}
@@ -8694,7 +8306,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getInterfaceTypeObject() {
 		if (interfaceTypeObjectEDataType == null) {
-			interfaceTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(100);
+			interfaceTypeObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(102);
 		}
 		return interfaceTypeObjectEDataType;
 	}
@@ -8706,7 +8318,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getInterfaceTypeObject1() {
 		if (interfaceTypeObject1EDataType == null) {
-			interfaceTypeObject1EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(101);
+			interfaceTypeObject1EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(103);
 		}
 		return interfaceTypeObject1EDataType;
 	}
@@ -8718,7 +8330,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getNonBlankString() {
 		if (nonBlankStringEDataType == null) {
-			nonBlankStringEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(117);
+			nonBlankStringEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(118);
 		}
 		return nonBlankStringEDataType;
 	}
@@ -8730,7 +8342,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getNonBlankStringMember0() {
 		if (nonBlankStringMember0EDataType == null) {
-			nonBlankStringMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(118);
+			nonBlankStringMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(119);
 		}
 		return nonBlankStringMember0EDataType;
 	}
@@ -8754,7 +8366,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getPropertyPlaceholderType() {
 		if (propertyPlaceholderTypeEDataType == null) {
-			propertyPlaceholderTypeEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(134);
+			propertyPlaceholderTypeEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(133);
 		}
 		return propertyPlaceholderTypeEDataType;
 	}
@@ -8766,7 +8378,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableBoolean() {
 		if (substitutableBooleanEDataType == null) {
-			substitutableBooleanEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(155);
+			substitutableBooleanEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(154);
 		}
 		return substitutableBooleanEDataType;
 	}
@@ -8778,7 +8390,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableBooleanMember0() {
 		if (substitutableBooleanMember0EDataType == null) {
-			substitutableBooleanMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(156);
+			substitutableBooleanMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(155);
 		}
 		return substitutableBooleanMember0EDataType;
 	}
@@ -8790,7 +8402,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableBooleanMember0Object() {
 		if (substitutableBooleanMember0ObjectEDataType == null) {
-			substitutableBooleanMember0ObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(157);
+			substitutableBooleanMember0ObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(156);
 		}
 		return substitutableBooleanMember0ObjectEDataType;
 	}
@@ -8802,7 +8414,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableBooleanObject() {
 		if (substitutableBooleanObjectEDataType == null) {
-			substitutableBooleanObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(158);
+			substitutableBooleanObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(157);
 		}
 		return substitutableBooleanObjectEDataType;
 	}
@@ -8814,7 +8426,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableClass() {
 		if (substitutableClassEDataType == null) {
-			substitutableClassEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(159);
+			substitutableClassEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(158);
 		}
 		return substitutableClassEDataType;
 	}
@@ -8826,7 +8438,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableClassMember0() {
 		if (substitutableClassMember0EDataType == null) {
-			substitutableClassMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(160);
+			substitutableClassMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(159);
 		}
 		return substitutableClassMember0EDataType;
 	}
@@ -8838,7 +8450,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableInt() {
 		if (substitutableIntEDataType == null) {
-			substitutableIntEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(161);
+			substitutableIntEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(160);
 		}
 		return substitutableIntEDataType;
 	}
@@ -8850,7 +8462,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableIntMember0() {
 		if (substitutableIntMember0EDataType == null) {
-			substitutableIntMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(162);
+			substitutableIntMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(161);
 		}
 		return substitutableIntMember0EDataType;
 	}
@@ -8862,7 +8474,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableIntMember0Object() {
 		if (substitutableIntMember0ObjectEDataType == null) {
-			substitutableIntMember0ObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(163);
+			substitutableIntMember0ObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(162);
 		}
 		return substitutableIntMember0ObjectEDataType;
 	}
@@ -8874,7 +8486,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableIntObject() {
 		if (substitutableIntObjectEDataType == null) {
-			substitutableIntObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(164);
+			substitutableIntObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(163);
 		}
 		return substitutableIntObjectEDataType;
 	}
@@ -8886,7 +8498,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableLong() {
 		if (substitutableLongEDataType == null) {
-			substitutableLongEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(165);
+			substitutableLongEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(164);
 		}
 		return substitutableLongEDataType;
 	}
@@ -8898,7 +8510,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableLongMember0() {
 		if (substitutableLongMember0EDataType == null) {
-			substitutableLongMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(166);
+			substitutableLongMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(165);
 		}
 		return substitutableLongMember0EDataType;
 	}
@@ -8910,7 +8522,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableLongMember0Object() {
 		if (substitutableLongMember0ObjectEDataType == null) {
-			substitutableLongMember0ObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(167);
+			substitutableLongMember0ObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(166);
 		}
 		return substitutableLongMember0ObjectEDataType;
 	}
@@ -8922,7 +8534,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableLongObject() {
 		if (substitutableLongObjectEDataType == null) {
-			substitutableLongObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(168);
+			substitutableLongObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(167);
 		}
 		return substitutableLongObjectEDataType;
 	}
@@ -8934,7 +8546,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableName() {
 		if (substitutableNameEDataType == null) {
-			substitutableNameEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(169);
+			substitutableNameEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(168);
 		}
 		return substitutableNameEDataType;
 	}
@@ -8946,7 +8558,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutableNameMember0() {
 		if (substitutableNameMember0EDataType == null) {
-			substitutableNameMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(170);
+			substitutableNameMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(169);
 		}
 		return substitutableNameMember0EDataType;
 	}
@@ -8958,7 +8570,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutablePortNumber() {
 		if (substitutablePortNumberEDataType == null) {
-			substitutablePortNumberEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(171);
+			substitutablePortNumberEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(170);
 		}
 		return substitutablePortNumberEDataType;
 	}
@@ -8970,7 +8582,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutablePortNumberMember0() {
 		if (substitutablePortNumberMember0EDataType == null) {
-			substitutablePortNumberMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(172);
+			substitutablePortNumberMember0EDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(171);
 		}
 		return substitutablePortNumberMember0EDataType;
 	}
@@ -8982,7 +8594,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutablePortNumberMember0Object() {
 		if (substitutablePortNumberMember0ObjectEDataType == null) {
-			substitutablePortNumberMember0ObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(173);
+			substitutablePortNumberMember0ObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(172);
 		}
 		return substitutablePortNumberMember0ObjectEDataType;
 	}
@@ -8994,7 +8606,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EDataType getSubstitutablePortNumberObject() {
 		if (substitutablePortNumberObjectEDataType == null) {
-			substitutablePortNumberObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(174);
+			substitutablePortNumberObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI).getEClassifiers().get(173);
 		}
 		return substitutablePortNumberObjectEDataType;
 	}
@@ -9168,18 +8780,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 			results.add(new DefaultGlobalElementType(
 					getAbstractTransformerType(),
 					getDocumentRoot_Base64EncoderTransformer()));
-			results.add(new DefaultGlobalElementType(
-					getAbstractTransformerType(),
-					getDocumentRoot_UcDecoderTransformer()));
-			results.add(new DefaultGlobalElementType(
-					getAbstractTransformerType(),
-					getDocumentRoot_UcEncoderTransformer()));
-			results.add(new DefaultGlobalElementType(
-					getAbstractTransformerType(),
-					getDocumentRoot_UuDecoderTransformer()));
-			results.add(new DefaultGlobalElementType(
-					getAbstractTransformerType(),
-					getDocumentRoot_UuEncoderTransformer()));
 			results.add(new DefaultGlobalElementType(
 					getAbstractTransformerType(),
 					getDocumentRoot_XmlEntityDecoderTransformer()));

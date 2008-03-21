@@ -80,6 +80,7 @@ public class ServiceOverridesTypeItemProvider
 			addOutboundTransformerPropertyDescriptor(object);
 			addResponseTransformerPropertyDescriptor(object);
 			addServiceFinderPropertyDescriptor(object);
+			addSessionHandlerPropertyDescriptor(object);
 			addStreamMessageAdapterPropertyDescriptor(object);
 			addTransactedMessageReceiverPropertyDescriptor(object);
 		}
@@ -263,6 +264,28 @@ public class ServiceOverridesTypeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Session Handler feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSessionHandlerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ServiceOverridesType_sessionHandler_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceOverridesType_sessionHandler_feature", "_UI_ServiceOverridesType_type"),
+				 CorePackage.eINSTANCE.getServiceOverridesType_SessionHandler(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Stream Message Adapter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -340,6 +363,7 @@ public class ServiceOverridesTypeItemProvider
 			case CorePackage.SERVICE_OVERRIDES_TYPE__OUTBOUND_TRANSFORMER:
 			case CorePackage.SERVICE_OVERRIDES_TYPE__RESPONSE_TRANSFORMER:
 			case CorePackage.SERVICE_OVERRIDES_TYPE__SERVICE_FINDER:
+			case CorePackage.SERVICE_OVERRIDES_TYPE__SESSION_HANDLER:
 			case CorePackage.SERVICE_OVERRIDES_TYPE__STREAM_MESSAGE_ADAPTER:
 			case CorePackage.SERVICE_OVERRIDES_TYPE__TRANSACTED_MESSAGE_RECEIVER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

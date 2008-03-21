@@ -12,8 +12,11 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DisableNotificationType;
+import org.mule.ide.config.core.EventType;
+import org.mule.ide.config.core.InterfaceType;
 import org.mule.ide.config.core.EventType1;
 import org.mule.ide.config.core.InterfaceType1;
 
@@ -33,7 +36,7 @@ import org.mule.ide.config.core.InterfaceType1;
  *
  * @generated
  */
-public class DisableNotificationTypeImpl extends AbstractDisableNotificationTypeImpl implements DisableNotificationType {
+public class DisableNotificationTypeImpl extends EObjectImpl implements DisableNotificationType {
 	/**
 	 * The default value of the '{@link #getEvent() <em>Event</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -42,7 +45,7 @@ public class DisableNotificationTypeImpl extends AbstractDisableNotificationType
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EventType1 EVENT_EDEFAULT = EventType1.MANAGER;
+	protected static final EventType EVENT_EDEFAULT = EventType.MANAGER;
 
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' attribute.
@@ -52,7 +55,7 @@ public class DisableNotificationTypeImpl extends AbstractDisableNotificationType
 	 * @generated
 	 * @ordered
 	 */
-	protected EventType1 event = EVENT_EDEFAULT;
+	protected EventType event = EVENT_EDEFAULT;
 
 	/**
 	 * This is true if the Event attribute has been set.
@@ -91,7 +94,7 @@ public class DisableNotificationTypeImpl extends AbstractDisableNotificationType
 	 * @generated
 	 * @ordered
 	 */
-	protected static final InterfaceType1 INTERFACE_EDEFAULT = InterfaceType1.MANAGER;
+	protected static final InterfaceType INTERFACE_EDEFAULT = InterfaceType.MANAGER;
 
 	/**
 	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' attribute.
@@ -101,7 +104,7 @@ public class DisableNotificationTypeImpl extends AbstractDisableNotificationType
 	 * @generated
 	 * @ordered
 	 */
-	protected InterfaceType1 interface_ = INTERFACE_EDEFAULT;
+	protected InterfaceType interface_ = INTERFACE_EDEFAULT;
 
 	/**
 	 * This is true if the Interface attribute has been set.
@@ -156,7 +159,7 @@ public class DisableNotificationTypeImpl extends AbstractDisableNotificationType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EventType1 getEvent() {
+	public EventType getEvent() {
 		return event;
 	}
 
@@ -165,8 +168,8 @@ public class DisableNotificationTypeImpl extends AbstractDisableNotificationType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEvent(EventType1 newEvent) {
-		EventType1 oldEvent = event;
+	public void setEvent(EventType newEvent) {
+		EventType oldEvent = event;
 		event = newEvent == null ? EVENT_EDEFAULT : newEvent;
 		boolean oldEventESet = eventESet;
 		eventESet = true;
@@ -180,7 +183,7 @@ public class DisableNotificationTypeImpl extends AbstractDisableNotificationType
 	 * @generated
 	 */
 	public void unsetEvent() {
-		EventType1 oldEvent = event;
+		EventType oldEvent = event;
 		boolean oldEventESet = eventESet;
 		event = EVENT_EDEFAULT;
 		eventESet = false;
@@ -223,7 +226,7 @@ public class DisableNotificationTypeImpl extends AbstractDisableNotificationType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InterfaceType1 getInterface() {
+	public InterfaceType getInterface() {
 		return interface_;
 	}
 
@@ -232,8 +235,8 @@ public class DisableNotificationTypeImpl extends AbstractDisableNotificationType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInterface(InterfaceType1 newInterface) {
-		InterfaceType1 oldInterface = interface_;
+	public void setInterface(InterfaceType newInterface) {
+		InterfaceType oldInterface = interface_;
 		interface_ = newInterface == null ? INTERFACE_EDEFAULT : newInterface;
 		boolean oldInterfaceESet = interfaceESet;
 		interfaceESet = true;
@@ -247,7 +250,7 @@ public class DisableNotificationTypeImpl extends AbstractDisableNotificationType
 	 * @generated
 	 */
 	public void unsetInterface() {
-		InterfaceType1 oldInterface = interface_;
+		InterfaceType oldInterface = interface_;
 		boolean oldInterfaceESet = interfaceESet;
 		interface_ = INTERFACE_EDEFAULT;
 		interfaceESet = false;
@@ -314,13 +317,13 @@ public class DisableNotificationTypeImpl extends AbstractDisableNotificationType
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CorePackage.DISABLE_NOTIFICATION_TYPE__EVENT:
-				setEvent((EventType1)newValue);
+				setEvent((EventType)newValue);
 				return;
 			case CorePackage.DISABLE_NOTIFICATION_TYPE__EVENT_CLASS:
 				setEventClass((String)newValue);
 				return;
 			case CorePackage.DISABLE_NOTIFICATION_TYPE__INTERFACE:
-				setInterface((InterfaceType1)newValue);
+				setInterface((InterfaceType)newValue);
 				return;
 			case CorePackage.DISABLE_NOTIFICATION_TYPE__INTERFACE_CLASS:
 				setInterfaceClass((String)newValue);

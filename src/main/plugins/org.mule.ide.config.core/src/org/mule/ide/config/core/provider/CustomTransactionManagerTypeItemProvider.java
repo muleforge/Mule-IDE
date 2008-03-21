@@ -40,7 +40,7 @@ import org.mule.ide.config.spring.SpringFactory;
  * @generated
  */
 public class CustomTransactionManagerTypeItemProvider
-	extends JndiTransactionManagerTypeItemProvider
+	extends JndiTransactionManagerType1ItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

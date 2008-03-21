@@ -68,14 +68,11 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 		switch (eClass.getClassifierID()) {
 			case CorePackage.ABSTRACT_AGENT_TYPE: return createAbstractAgentType();
 			case CorePackage.ABSTRACT_ASYNC_REPLY_ROUTER_TYPE: return createAbstractAsyncReplyRouterType();
-			case CorePackage.ABSTRACT_BINDING_TYPE: return createAbstractBindingType();
 			case CorePackage.ABSTRACT_CATCH_ALL_STRATEGY_TYPE: return createAbstractCatchAllStrategyType();
 			case CorePackage.ABSTRACT_COMPONENT_THREADING_PROFILE_TYPE: return createAbstractComponentThreadingProfileType();
 			case CorePackage.ABSTRACT_COMPONENT_TYPE: return createAbstractComponentType();
 			case CorePackage.ABSTRACT_CONNECTION_STRATEGY_TYPE: return createAbstractConnectionStrategyType();
 			case CorePackage.ABSTRACT_CONNECTOR_TYPE: return createAbstractConnectorType();
-			case CorePackage.ABSTRACT_DEFINE_NOTIFICATION_TYPE: return createAbstractDefineNotificationType();
-			case CorePackage.ABSTRACT_DISABLE_NOTIFICATION_TYPE: return createAbstractDisableNotificationType();
 			case CorePackage.ABSTRACT_ENTRY_POINT_RESOLVER_SET_TYPE: return createAbstractEntryPointResolverSetType();
 			case CorePackage.ABSTRACT_ENTRY_POINT_RESOLVER_TYPE: return createAbstractEntryPointResolverType();
 			case CorePackage.ABSTRACT_EXCEPTION_STRATEGY_TYPE: return createAbstractExceptionStrategyType();
@@ -84,6 +81,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE: return createAbstractGlobalEndpointType();
 			case CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE: return createAbstractInboundEndpointType();
 			case CorePackage.ABSTRACT_INBOUND_ROUTER_TYPE: return createAbstractInboundRouterType();
+			case CorePackage.ABSTRACT_LIFECYCLE_ADAPTER_FACTORY: return createAbstractLifecycleAdapterFactory();
 			case CorePackage.ABSTRACT_MODEL_TYPE: return createAbstractModelType();
 			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE: return createAbstractObjectFactoryType();
 			case CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE: return createAbstractOutboundEndpointType();
@@ -94,26 +92,26 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.ABSTRACT_SECURITY_FILTER_TYPE: return createAbstractSecurityFilterType();
 			case CorePackage.ABSTRACT_SECURITY_MANAGER_TYPE: return createAbstractSecurityManagerType();
 			case CorePackage.ABSTRACT_SERVICE_TYPE: return createAbstractServiceType();
-			case CorePackage.ABSTRACT_STORAGE_TYPE: return createAbstractStorageType();
 			case CorePackage.ABSTRACT_TRANSACTION_MANAGER_TYPE: return createAbstractTransactionManagerType();
 			case CorePackage.ABSTRACT_TRANSACTION_TYPE: return createAbstractTransactionType();
 			case CorePackage.ABSTRACT_TRANSFORMER_TYPE: return createAbstractTransformerType();
 			case CorePackage.APPEND_STRING_TRANSFORMER_TYPE: return createAppendStringTransformerType();
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE: return createAsyncReplyCollectionType();
 			case CorePackage.ASYNC_REPLY_ROUTER_TYPE: return createAsyncReplyRouterType();
-			case CorePackage.BASE_CONTAINER_CONTEXT_TYPE: return createBaseContainerContextType();
 			case CorePackage.BASE_ENTRY_POINT_RESOLVER_TYPE: return createBaseEntryPointResolverType();
 			case CorePackage.BASE_SERVICE_TYPE: return createBaseServiceType();
+			case CorePackage.BASE_TRANSACTION_TYPE: return createBaseTransactionType();
+			case CorePackage.CASE_SENSITIVE_PATTERN_FILTER_TYPE: return createCaseSensitivePatternFilterType();
 			case CorePackage.CHUNKING_ROUTER_TYPE: return createChunkingRouterType();
 			case CorePackage.COLLECTION_FILTER_TYPE: return createCollectionFilterType();
 			case CorePackage.COMPLEX_ENTRY_POINT_RESOLVER_TYPE: return createComplexEntryPointResolverType();
+			case CorePackage.CONFIGURATION_TYPE: return createConfigurationType();
 			case CorePackage.CONNECTION_STRATEGY_TYPE: return createConnectionStrategyType();
 			case CorePackage.CONNECTOR_TYPE: return createConnectorType();
 			case CorePackage.CUSTOM_ASYNC_REPLY_ROUTER_TYPE: return createCustomAsyncReplyRouterType();
 			case CorePackage.CUSTOM_CATCH_ALL_STRATEGY_TYPE: return createCustomCatchAllStrategyType();
 			case CorePackage.CUSTOM_CONNECTION_STRATEGY_TYPE: return createCustomConnectionStrategyType();
 			case CorePackage.CUSTOM_CONNECTOR_TYPE: return createCustomConnectorType();
-			case CorePackage.CUSTOM_CONTAINER_CONTEXT_TYPE: return createCustomContainerContextType();
 			case CorePackage.CUSTOM_CORRELATION_AGGREGATOR_ROUTER_TYPE: return createCustomCorrelationAggregatorRouterType();
 			case CorePackage.CUSTOM_ENCRYPTION_STRATEGY_TYPE: return createCustomEncryptionStrategyType();
 			case CorePackage.CUSTOM_ENTRY_POINT_RESOLVER_SET_TYPE: return createCustomEntryPointResolverSetType();
@@ -122,42 +120,43 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.CUSTOM_FILTER_TYPE: return createCustomFilterType();
 			case CorePackage.CUSTOM_FORWARDING_CATCH_ALL_STRATEGY_TYPE: return createCustomForwardingCatchAllStrategyType();
 			case CorePackage.CUSTOM_INBOUND_ROUTER_TYPE: return createCustomInboundRouterType();
+			case CorePackage.CUSTOM_LIFECYCLE_ADAPTER_FACTORY: return createCustomLifecycleAdapterFactory();
 			case CorePackage.CUSTOM_OUTBOUND_ROUTER_TYPE: return createCustomOutboundRouterType();
 			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE: return createCustomPropertyExtractorType();
 			case CorePackage.CUSTOM_SECURITY_PROVIDER_TYPE: return createCustomSecurityProviderType();
+			case CorePackage.CUSTOM_SERVICE_TYPE: return createCustomServiceType();
 			case CorePackage.CUSTOM_TRANSACTION_MANAGER_TYPE: return createCustomTransactionManagerType();
 			case CorePackage.CUSTOM_TRANSACTION_TYPE: return createCustomTransactionType();
 			case CorePackage.CUSTOM_TRANSFORMER_TYPE: return createCustomTransformerType();
 			case CorePackage.DEFAULT_COMPONENT_TYPE: return createDefaultComponentType();
+			case CorePackage.DEFAULT_JAVA_COMPONENT_TYPE: return createDefaultJavaComponentType();
 			case CorePackage.DEFAULT_MODEL_TYPE: return createDefaultModelType();
-			case CorePackage.DEFAULT_SERVICE_TYPE: return createDefaultServiceType();
 			case CorePackage.DEFINE_NOTIFICATION_TYPE: return createDefineNotificationType();
 			case CorePackage.DESCRIPTION_TYPE: return createDescriptionType();
 			case CorePackage.DISABLE_NOTIFICATION_TYPE: return createDisableNotificationType();
 			case CorePackage.DOCUMENT_ROOT: return createDocumentRoot();
 			case CorePackage.ENCRYPTION_SECURITY_FILTER_TYPE: return createEncryptionSecurityFilterType();
 			case CorePackage.ENCRYPTION_STRATEGY_TYPE: return createEncryptionStrategyType();
+			case CorePackage.ENCRYPTION_TRANSFORMER_TYPE: return createEncryptionTransformerType();
+			case CorePackage.ENDPOINT_EXCEPTION_STRATEGY_TYPE: return createEndpointExceptionStrategyType();
 			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE: return createEndpointSelectorRouterType();
 			case CorePackage.ENVIRONMENT_PROPERTY_TYPE: return createEnvironmentPropertyType();
-			case CorePackage.EXCEPTION_STRATEGY_TYPE: return createExceptionStrategyType();
+			case CorePackage.EXPRESSION_TRANSFORMER_TYPE: return createExpressionTransformerType();
 			case CorePackage.EXTENSIBLE_ENTRY_POINT_RESOLVER_SET: return createExtensibleEntryPointResolverSet();
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE: return createFilteredInboundRouterType();
 			case CorePackage.FILTERING_OUTBOUND_ROUTER_TYPE: return createFilteringOutboundRouterType();
 			case CorePackage.FORWARDING_CATCH_ALL_STRATEGY_TYPE: return createForwardingCatchAllStrategyType();
-			case CorePackage.FORWARDING_ROUTER_TYPE: return createForwardingRouterType();
 			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE: return createGenericObjectFactoryType();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE: return createGlobalEndpointType();
-			case CorePackage.IDEMPOTENT_RECEIVER_ROUTER_TYPE: return createIdempotentReceiverRouterType();
 			case CorePackage.INBOUND_COLLECTION_TYPE: return createInboundCollectionType();
 			case CorePackage.INBOUND_ENDPOINT_TYPE: return createInboundEndpointType();
-			case CorePackage.IOC_CONTAINER_CONTEXT_TYPE: return createIocContainerContextType();
 			case CorePackage.JNDI_CONNECTOR_TYPE: return createJndiConnectorType();
 			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE: return createJndiTransactionManagerType();
+			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE1: return createJndiTransactionManagerType1();
 			case CorePackage.KEY_TYPE: return createKeyType();
 			case CorePackage.KEY_VALUE_TYPE: return createKeyValueType();
 			case CorePackage.LIST_OR_SET_TYPE: return createListOrSetType();
 			case CorePackage.LOGGING_CATCH_ALL_STRATEGY_TYPE: return createLoggingCatchAllStrategyType();
-			case CorePackage.MANAGEMENT_CONTEXT_TYPE: return createManagementContextType();
 			case CorePackage.MAP_TYPE: return createMapType();
 			case CorePackage.MESSAGE_CHUNKING_AGGREGATOR_ROUTER_TYPE: return createMessageChunkingAggregatorRouterType();
 			case CorePackage.MESSAGE_PROPERTIES_TRANSFORMER_TYPE: return createMessagePropertiesTransformerType();
@@ -173,10 +172,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.PASSWORD_ENCRYPTION_STRATEGY_TYPE: return createPasswordEncryptionStrategyType();
 			case CorePackage.PATTERN_FILTER_TYPE: return createPatternFilterType();
 			case CorePackage.POJO_BINDING_TYPE: return createPojoBindingType();
-			case CorePackage.POJO_COMPONENT_TYPE: return createPojoComponentType();
-			case CorePackage.POOLED_OBJECT_FACTORY_TYPE: return createPooledObjectFactoryType();
+			case CorePackage.POOLED_JAVA_COMPONENT_TYPE: return createPooledJavaComponentType();
 			case CorePackage.POOLING_PROFILE_TYPE: return createPoolingProfileType();
-			case CorePackage.PROPERTIES_CONTAINER_CONTEXT_TYPE: return createPropertiesContainerContextType();
 			case CorePackage.PROPERTY_ENTRY_POINT_RESOLVER_TYPE: return createPropertyEntryPointResolverType();
 			case CorePackage.PROTOTYPE_OBJECT_FACTORY_TYPE: return createPrototypeObjectFactoryType();
 			case CorePackage.QUEUE_PROFILE_TYPE: return createQueueProfileType();
@@ -187,7 +184,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.REPLY_TO_TYPE: return createReplyToType();
 			case CorePackage.RESPONSE_TRANSFORMERS_TYPE: return createResponseTransformersType();
 			case CorePackage.RETRY_CONNECTION_STRATEGY_TYPE: return createRetryConnectionStrategyType();
-			case CorePackage.RMI_CONTAINER_CONTEXT_TYPE: return createRmiContainerContextType();
+			case CorePackage.RETURN_ARGUMENT_TYPE: return createReturnArgumentType();
 			case CorePackage.SECRET_KEY_ENCRYPTION_STRATEGY_TYPE: return createSecretKeyEncryptionStrategyType();
 			case CorePackage.SECURITY_MANAGER_TYPE: return createSecurityManagerType();
 			case CorePackage.SECURITY_PROVIDER_TYPE: return createSecurityProviderType();
@@ -229,6 +226,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 				return createActionTypeFromString(eDataType, initialValue);
 			case CorePackage.ENABLE_CORRELATION_TYPE:
 				return createEnableCorrelationTypeFromString(eDataType, initialValue);
+			case CorePackage.EVALUATOR_TYPE:
+				return createEvaluatorTypeFromString(eDataType, initialValue);
 			case CorePackage.EVENT_TYPE:
 				return createEventTypeFromString(eDataType, initialValue);
 			case CorePackage.EVENT_TYPE1:
@@ -249,6 +248,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 				return createActionTypeObjectFromString(eDataType, initialValue);
 			case CorePackage.ENABLE_CORRELATION_TYPE_OBJECT:
 				return createEnableCorrelationTypeObjectFromString(eDataType, initialValue);
+			case CorePackage.EVALUATOR_TYPE_OBJECT:
+				return createEvaluatorTypeObjectFromString(eDataType, initialValue);
 			case CorePackage.EVENT_TYPE_OBJECT:
 				return createEventTypeObjectFromString(eDataType, initialValue);
 			case CorePackage.EVENT_TYPE_OBJECT1:
@@ -328,6 +329,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 				return convertActionTypeToString(eDataType, instanceValue);
 			case CorePackage.ENABLE_CORRELATION_TYPE:
 				return convertEnableCorrelationTypeToString(eDataType, instanceValue);
+			case CorePackage.EVALUATOR_TYPE:
+				return convertEvaluatorTypeToString(eDataType, instanceValue);
 			case CorePackage.EVENT_TYPE:
 				return convertEventTypeToString(eDataType, instanceValue);
 			case CorePackage.EVENT_TYPE1:
@@ -348,6 +351,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 				return convertActionTypeObjectToString(eDataType, instanceValue);
 			case CorePackage.ENABLE_CORRELATION_TYPE_OBJECT:
 				return convertEnableCorrelationTypeObjectToString(eDataType, instanceValue);
+			case CorePackage.EVALUATOR_TYPE_OBJECT:
+				return convertEvaluatorTypeObjectToString(eDataType, instanceValue);
 			case CorePackage.EVENT_TYPE_OBJECT:
 				return convertEventTypeObjectToString(eDataType, instanceValue);
 			case CorePackage.EVENT_TYPE_OBJECT1:
@@ -440,16 +445,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractBindingType createAbstractBindingType() {
-		AbstractBindingTypeImpl abstractBindingType = new AbstractBindingTypeImpl();
-		return abstractBindingType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AbstractCatchAllStrategyType createAbstractCatchAllStrategyType() {
 		AbstractCatchAllStrategyTypeImpl abstractCatchAllStrategyType = new AbstractCatchAllStrategyTypeImpl();
 		return abstractCatchAllStrategyType;
@@ -493,26 +488,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public AbstractConnectorType createAbstractConnectorType() {
 		AbstractConnectorTypeImpl abstractConnectorType = new AbstractConnectorTypeImpl();
 		return abstractConnectorType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractDefineNotificationType createAbstractDefineNotificationType() {
-		AbstractDefineNotificationTypeImpl abstractDefineNotificationType = new AbstractDefineNotificationTypeImpl();
-		return abstractDefineNotificationType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractDisableNotificationType createAbstractDisableNotificationType() {
-		AbstractDisableNotificationTypeImpl abstractDisableNotificationType = new AbstractDisableNotificationTypeImpl();
-		return abstractDisableNotificationType;
 	}
 
 	/**
@@ -593,6 +568,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public AbstractInboundRouterType createAbstractInboundRouterType() {
 		AbstractInboundRouterTypeImpl abstractInboundRouterType = new AbstractInboundRouterTypeImpl();
 		return abstractInboundRouterType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractLifecycleAdapterFactory createAbstractLifecycleAdapterFactory() {
+		AbstractLifecycleAdapterFactoryImpl abstractLifecycleAdapterFactory = new AbstractLifecycleAdapterFactoryImpl();
+		return abstractLifecycleAdapterFactory;
 	}
 
 	/**
@@ -700,16 +685,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractStorageType createAbstractStorageType() {
-		AbstractStorageTypeImpl abstractStorageType = new AbstractStorageTypeImpl();
-		return abstractStorageType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AbstractTransactionManagerType createAbstractTransactionManagerType() {
 		AbstractTransactionManagerTypeImpl abstractTransactionManagerType = new AbstractTransactionManagerTypeImpl();
 		return abstractTransactionManagerType;
@@ -770,16 +745,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BaseContainerContextType createBaseContainerContextType() {
-		BaseContainerContextTypeImpl baseContainerContextType = new BaseContainerContextTypeImpl();
-		return baseContainerContextType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public BaseEntryPointResolverType createBaseEntryPointResolverType() {
 		BaseEntryPointResolverTypeImpl baseEntryPointResolverType = new BaseEntryPointResolverTypeImpl();
 		return baseEntryPointResolverType;
@@ -793,6 +758,26 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public BaseServiceType createBaseServiceType() {
 		BaseServiceTypeImpl baseServiceType = new BaseServiceTypeImpl();
 		return baseServiceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BaseTransactionType createBaseTransactionType() {
+		BaseTransactionTypeImpl baseTransactionType = new BaseTransactionTypeImpl();
+		return baseTransactionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CaseSensitivePatternFilterType createCaseSensitivePatternFilterType() {
+		CaseSensitivePatternFilterTypeImpl caseSensitivePatternFilterType = new CaseSensitivePatternFilterTypeImpl();
+		return caseSensitivePatternFilterType;
 	}
 
 	/**
@@ -823,6 +808,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public ComplexEntryPointResolverType createComplexEntryPointResolverType() {
 		ComplexEntryPointResolverTypeImpl complexEntryPointResolverType = new ComplexEntryPointResolverTypeImpl();
 		return complexEntryPointResolverType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConfigurationType createConfigurationType() {
+		ConfigurationTypeImpl configurationType = new ConfigurationTypeImpl();
+		return configurationType;
 	}
 
 	/**
@@ -883,16 +878,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public CustomConnectorType createCustomConnectorType() {
 		CustomConnectorTypeImpl customConnectorType = new CustomConnectorTypeImpl();
 		return customConnectorType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CustomContainerContextType createCustomContainerContextType() {
-		CustomContainerContextTypeImpl customContainerContextType = new CustomContainerContextTypeImpl();
-		return customContainerContextType;
 	}
 
 	/**
@@ -980,6 +965,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CustomLifecycleAdapterFactory createCustomLifecycleAdapterFactory() {
+		CustomLifecycleAdapterFactoryImpl customLifecycleAdapterFactory = new CustomLifecycleAdapterFactoryImpl();
+		return customLifecycleAdapterFactory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CustomOutboundRouterType createCustomOutboundRouterType() {
 		CustomOutboundRouterTypeImpl customOutboundRouterType = new CustomOutboundRouterTypeImpl();
 		return customOutboundRouterType;
@@ -1003,6 +998,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public CustomSecurityProviderType createCustomSecurityProviderType() {
 		CustomSecurityProviderTypeImpl customSecurityProviderType = new CustomSecurityProviderTypeImpl();
 		return customSecurityProviderType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CustomServiceType createCustomServiceType() {
+		CustomServiceTypeImpl customServiceType = new CustomServiceTypeImpl();
+		return customServiceType;
 	}
 
 	/**
@@ -1050,9 +1055,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DefaultModelType createDefaultModelType() {
-		DefaultModelTypeImpl defaultModelType = new DefaultModelTypeImpl();
-		return defaultModelType;
+	public DefaultJavaComponentType createDefaultJavaComponentType() {
+		DefaultJavaComponentTypeImpl defaultJavaComponentType = new DefaultJavaComponentTypeImpl();
+		return defaultJavaComponentType;
 	}
 
 	/**
@@ -1060,9 +1065,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DefaultServiceType createDefaultServiceType() {
-		DefaultServiceTypeImpl defaultServiceType = new DefaultServiceTypeImpl();
-		return defaultServiceType;
+	public DefaultModelType createDefaultModelType() {
+		DefaultModelTypeImpl defaultModelType = new DefaultModelTypeImpl();
+		return defaultModelType;
 	}
 
 	/**
@@ -1130,6 +1135,26 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EncryptionTransformerType createEncryptionTransformerType() {
+		EncryptionTransformerTypeImpl encryptionTransformerType = new EncryptionTransformerTypeImpl();
+		return encryptionTransformerType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndpointExceptionStrategyType createEndpointExceptionStrategyType() {
+		EndpointExceptionStrategyTypeImpl endpointExceptionStrategyType = new EndpointExceptionStrategyTypeImpl();
+		return endpointExceptionStrategyType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EndpointSelectorRouterType createEndpointSelectorRouterType() {
 		EndpointSelectorRouterTypeImpl endpointSelectorRouterType = new EndpointSelectorRouterTypeImpl();
 		return endpointSelectorRouterType;
@@ -1150,9 +1175,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExceptionStrategyType createExceptionStrategyType() {
-		ExceptionStrategyTypeImpl exceptionStrategyType = new ExceptionStrategyTypeImpl();
-		return exceptionStrategyType;
+	public ExpressionTransformerType createExpressionTransformerType() {
+		ExpressionTransformerTypeImpl expressionTransformerType = new ExpressionTransformerTypeImpl();
+		return expressionTransformerType;
 	}
 
 	/**
@@ -1200,16 +1225,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ForwardingRouterType createForwardingRouterType() {
-		ForwardingRouterTypeImpl forwardingRouterType = new ForwardingRouterTypeImpl();
-		return forwardingRouterType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public GenericObjectFactoryType createGenericObjectFactoryType() {
 		GenericObjectFactoryTypeImpl genericObjectFactoryType = new GenericObjectFactoryTypeImpl();
 		return genericObjectFactoryType;
@@ -1223,16 +1238,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public GlobalEndpointType createGlobalEndpointType() {
 		GlobalEndpointTypeImpl globalEndpointType = new GlobalEndpointTypeImpl();
 		return globalEndpointType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IdempotentReceiverRouterType createIdempotentReceiverRouterType() {
-		IdempotentReceiverRouterTypeImpl idempotentReceiverRouterType = new IdempotentReceiverRouterTypeImpl();
-		return idempotentReceiverRouterType;
 	}
 
 	/**
@@ -1260,16 +1265,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IocContainerContextType createIocContainerContextType() {
-		IocContainerContextTypeImpl iocContainerContextType = new IocContainerContextTypeImpl();
-		return iocContainerContextType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public JndiConnectorType createJndiConnectorType() {
 		JndiConnectorTypeImpl jndiConnectorType = new JndiConnectorTypeImpl();
 		return jndiConnectorType;
@@ -1283,6 +1278,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public JndiTransactionManagerType createJndiTransactionManagerType() {
 		JndiTransactionManagerTypeImpl jndiTransactionManagerType = new JndiTransactionManagerTypeImpl();
 		return jndiTransactionManagerType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JndiTransactionManagerType1 createJndiTransactionManagerType1() {
+		JndiTransactionManagerType1Impl jndiTransactionManagerType1 = new JndiTransactionManagerType1Impl();
+		return jndiTransactionManagerType1;
 	}
 
 	/**
@@ -1323,16 +1328,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public LoggingCatchAllStrategyType createLoggingCatchAllStrategyType() {
 		LoggingCatchAllStrategyTypeImpl loggingCatchAllStrategyType = new LoggingCatchAllStrategyTypeImpl();
 		return loggingCatchAllStrategyType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ManagementContextType createManagementContextType() {
-		ManagementContextTypeImpl managementContextType = new ManagementContextTypeImpl();
-		return managementContextType;
 	}
 
 	/**
@@ -1490,19 +1485,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PojoComponentType createPojoComponentType() {
-		PojoComponentTypeImpl pojoComponentType = new PojoComponentTypeImpl();
-		return pojoComponentType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PooledObjectFactoryType createPooledObjectFactoryType() {
-		PooledObjectFactoryTypeImpl pooledObjectFactoryType = new PooledObjectFactoryTypeImpl();
-		return pooledObjectFactoryType;
+	public PooledJavaComponentType createPooledJavaComponentType() {
+		PooledJavaComponentTypeImpl pooledJavaComponentType = new PooledJavaComponentTypeImpl();
+		return pooledJavaComponentType;
 	}
 
 	/**
@@ -1513,16 +1498,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public PoolingProfileType createPoolingProfileType() {
 		PoolingProfileTypeImpl poolingProfileType = new PoolingProfileTypeImpl();
 		return poolingProfileType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropertiesContainerContextType createPropertiesContainerContextType() {
-		PropertiesContainerContextTypeImpl propertiesContainerContextType = new PropertiesContainerContextTypeImpl();
-		return propertiesContainerContextType;
 	}
 
 	/**
@@ -1630,9 +1605,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RmiContainerContextType createRmiContainerContextType() {
-		RmiContainerContextTypeImpl rmiContainerContextType = new RmiContainerContextTypeImpl();
-		return rmiContainerContextType;
+	public ReturnArgumentType createReturnArgumentType() {
+		ReturnArgumentTypeImpl returnArgumentType = new ReturnArgumentTypeImpl();
+		return returnArgumentType;
 	}
 
 	/**
@@ -1920,6 +1895,26 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EvaluatorType createEvaluatorTypeFromString(EDataType eDataType, String initialValue) {
+		EvaluatorType result = EvaluatorType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEvaluatorTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EventType createEventTypeFromString(EDataType eDataType, String initialValue) {
 		EventType result = EventType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -2109,6 +2104,24 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 */
 	public String convertEnableCorrelationTypeObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertEnableCorrelationTypeToString(CorePackage.eINSTANCE.getEnableCorrelationType(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvaluatorType createEvaluatorTypeObjectFromString(EDataType eDataType, String initialValue) {
+		return createEvaluatorTypeFromString(CorePackage.eINSTANCE.getEvaluatorType(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEvaluatorTypeObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertEvaluatorTypeToString(CorePackage.eINSTANCE.getEvaluatorType(), instanceValue);
 	}
 
 	/**

@@ -70,25 +70,25 @@ public class EndpointSelectorRouterTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSelectorPropertyPropertyDescriptor(object);
+			addSelectorExpressionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Selector Property feature.
+	 * This adds a property descriptor for the Selector Expression feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSelectorPropertyPropertyDescriptor(Object object) {
+	protected void addSelectorExpressionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EndpointSelectorRouterType_selectorProperty_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EndpointSelectorRouterType_selectorProperty_feature", "_UI_EndpointSelectorRouterType_type"),
-				 CorePackage.eINSTANCE.getEndpointSelectorRouterType_SelectorProperty(),
+				 getString("_UI_EndpointSelectorRouterType_selectorExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EndpointSelectorRouterType_selectorExpression_feature", "_UI_EndpointSelectorRouterType_type"),
+				 CorePackage.eINSTANCE.getEndpointSelectorRouterType_SelectorExpression(),
 				 true,
 				 false,
 				 false,
@@ -124,7 +124,7 @@ public class EndpointSelectorRouterTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EndpointSelectorRouterType.class)) {
-			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_PROPERTY:
+			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_EXPRESSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -161,11 +161,11 @@ public class EndpointSelectorRouterTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_AndFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OrFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter() ||
@@ -179,8 +179,6 @@ public class EndpointSelectorRouterTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer() ||
@@ -189,13 +187,11 @@ public class EndpointSelectorRouterTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transformer();
 

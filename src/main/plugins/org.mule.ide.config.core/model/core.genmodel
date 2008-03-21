@@ -20,6 +20,22 @@
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EnableCorrelationType/NEVER"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EnableCorrelationType/IFNOTSET"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="core.ecore#//EvaluatorType">
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/groovy"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/header"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/headers"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/headersList"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/attachment"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/attachments"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/attachmentsList"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/payload"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/xpath"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/jxpath"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/bean"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/ognl"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/function"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EvaluatorType/custom"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="core.ecore#//EventType">
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType/MANAGER"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType/MODEL"/>
@@ -29,7 +45,6 @@
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType/CONNECTION"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType/REGISTRY"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType/CUSTOM"/>
-      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType/MESSAGE"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType/EXCEPTION"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType/TRANSACTION"/>
     </genEnums>
@@ -42,6 +57,7 @@
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType1/CONNECTION"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType1/REGISTRY"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType1/CUSTOM"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType1/MESSAGE"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType1/EXCEPTION"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//EventType1/TRANSACTION"/>
     </genEnums>
@@ -69,7 +85,6 @@
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType/CONNECTION"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType/REGISTRY"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType/CUSTOM"/>
-      <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType/MESSAGE"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType/EXCEPTION"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType/TRANSACTION"/>
     </genEnums>
@@ -82,6 +97,7 @@
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType1/CONNECTION"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType1/REGISTRY"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType1/CUSTOM"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType1/MESSAGE"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType1/EXCEPTION"/>
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//InterfaceType1/TRANSACTION"/>
     </genEnums>
@@ -94,6 +110,7 @@
     </genEnums>
     <genDataTypes ecoreDataType="core.ecore#//ActionTypeObject"/>
     <genDataTypes ecoreDataType="core.ecore#//EnableCorrelationTypeObject"/>
+    <genDataTypes ecoreDataType="core.ecore#//EvaluatorTypeObject"/>
     <genDataTypes ecoreDataType="core.ecore#//EventTypeObject"/>
     <genDataTypes ecoreDataType="core.ecore#//EventTypeObject1"/>
     <genDataTypes ecoreDataType="core.ecore#//ExhaustedActionTypeObject"/>
@@ -125,11 +142,8 @@
     <genDataTypes ecoreDataType="core.ecore#//SubstitutablePortNumberMember0"/>
     <genDataTypes ecoreDataType="core.ecore#//SubstitutablePortNumberMember0Object"/>
     <genDataTypes ecoreDataType="core.ecore#//SubstitutablePortNumberObject"/>
-    <genClasses image="false" ecoreClass="core.ecore#//AbstractAgentType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//AbstractAgentType/name"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//AbstractAgentType"/>
     <genClasses ecoreClass="core.ecore#//AbstractAsyncReplyRouterType"/>
-    <genClasses image="false" ecoreClass="core.ecore#//AbstractBindingType"/>
     <genClasses image="false" ecoreClass="core.ecore#//AbstractCatchAllStrategyType"/>
     <genClasses image="false" ecoreClass="core.ecore#//AbstractComponentThreadingProfileType"/>
     <genClasses ecoreClass="core.ecore#//AbstractComponentType">
@@ -142,8 +156,6 @@
     <genClasses image="false" ecoreClass="core.ecore#//AbstractConnectorType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//AbstractConnectorType/name"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//AbstractDefineNotificationType"/>
-    <genClasses image="false" ecoreClass="core.ecore#//AbstractDisableNotificationType"/>
     <genClasses image="false" ecoreClass="core.ecore#//AbstractEntryPointResolverSetType"/>
     <genClasses image="false" ecoreClass="core.ecore#//AbstractEntryPointResolverType"/>
     <genClasses ecoreClass="core.ecore#//AbstractExceptionStrategyType"/>
@@ -159,6 +171,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//AbstractInboundEndpointType/name"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//AbstractInboundRouterType"/>
+    <genClasses ecoreClass="core.ecore#//AbstractLifecycleAdapterFactory"/>
     <genClasses image="false" ecoreClass="core.ecore#//AbstractModelType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//AbstractModelType/abstractExceptionStrategyGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//AbstractModelType/abstractExceptionStrategy"/>
@@ -168,7 +181,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//AbstractModelType/abstractEntryPointResolver"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//AbstractModelType/abstractServiceGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//AbstractModelType/abstractService"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//AbstractModelType/class"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//AbstractModelType/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//AbstractObjectFactoryType">
@@ -190,7 +202,6 @@
     <genClasses ecoreClass="core.ecore#//AbstractServiceType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//AbstractServiceType/name"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//AbstractStorageType"/>
     <genClasses image="false" ecoreClass="core.ecore#//AbstractTransactionManagerType"/>
     <genClasses image="false" ecoreClass="core.ecore#//AbstractTransactionType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//AbstractTransactionType/action"/>
@@ -212,17 +223,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//AsyncReplyCollectionType/abstractTransformerGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//AsyncReplyCollectionType/abstractTransformer"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//AsyncReplyCollectionType/timeout"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//AsyncReplyCollectionType/transformerRefs"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//AsyncReplyRouterType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//AsyncReplyRouterType/abstractInboundEndpointGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//AsyncReplyRouterType/abstractInboundEndpoint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//AsyncReplyRouterType/abstractPropertyExtractorGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//AsyncReplyRouterType/abstractPropertyExtractor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//AsyncReplyRouterType/customPropertyExtractor"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//BaseContainerContextType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//BaseContainerContextType/any"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//BaseEntryPointResolverType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//BaseEntryPointResolverType/acceptVoidMethods"/>
@@ -236,8 +242,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//BaseServiceType/asyncReply"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//BaseServiceType/abstractExceptionStrategyGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//BaseServiceType/abstractExceptionStrategy"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//BaseServiceType/class"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//BaseServiceType/initialState"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//BaseTransactionType"/>
+    <genClasses image="false" ecoreClass="core.ecore#//CaseSensitivePatternFilterType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//CaseSensitivePatternFilterType/caseSensitive"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//ChunkingRouterType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ChunkingRouterType/messageSize"/>
@@ -250,6 +259,17 @@
     <genClasses image="false" ecoreClass="core.ecore#//ComplexEntryPointResolverType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ComplexEntryPointResolverType/includeEntryPoint"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ComplexEntryPointResolverType/enableDiscovery"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//ConfigurationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ConfigurationType/defaultThreadingProfile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ConfigurationType/defaultDispatcherThreadingProfile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ConfigurationType/defaultReceiverThreadingProfile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ConfigurationType/defaultComponentThreadingProfile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ConfigurationType/defaultConnectionStrategy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ConfigurationType/defaultRemoteSync"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ConfigurationType/defaultSynchronousEndpoints"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ConfigurationType/defaultSynchronousEventTimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ConfigurationType/defaultTransactionTimeout"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//ConnectionStrategyType"/>
     <genClasses image="false" ecoreClass="core.ecore#//ConnectorType">
@@ -278,10 +298,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//CustomConnectorType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//CustomConnectorType/class"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//CustomContainerContextType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//CustomContainerContextType/class"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//CustomContainerContextType/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//CustomCorrelationAggregatorRouterType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//CustomCorrelationAggregatorRouterType/class"/>
@@ -316,6 +332,9 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//CustomInboundRouterType/abstractInboundEndpoint"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//CustomInboundRouterType/class"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//CustomLifecycleAdapterFactory">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//CustomLifecycleAdapterFactory/class"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//CustomOutboundRouterType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//CustomOutboundRouterType/property"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//CustomOutboundRouterType/class"/>
@@ -327,6 +346,9 @@
     <genClasses image="false" ecoreClass="core.ecore#//CustomSecurityProviderType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//CustomSecurityProviderType/property"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//CustomSecurityProviderType/providerRef"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//CustomServiceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//CustomServiceType/class"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//CustomTransactionManagerType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//CustomTransactionManagerType/property"/>
@@ -341,8 +363,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//CustomTransformerType/class"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//DefaultComponentType"/>
+    <genClasses image="false" ecoreClass="core.ecore#//DefaultJavaComponentType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//DefaultJavaComponentType/abstractObjectFactoryGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DefaultJavaComponentType/abstractObjectFactory"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//DefaultJavaComponentType/abstractLifecycleAdapterFactoryGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DefaultJavaComponentType/abstractLifecycleAdapterFactory"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DefaultJavaComponentType/binding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//DefaultJavaComponentType/class"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//DefaultModelType"/>
-    <genClasses image="false" ecoreClass="core.ecore#//DefaultServiceType"/>
     <genClasses image="false" ecoreClass="core.ecore#//DefineNotificationType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//DefineNotificationType/event"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//DefineNotificationType/eventClass"/>
@@ -363,14 +392,11 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/xMLNSPrefixMap"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/xSISchemaLocation"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractAsyncReplyRouter"/>
-      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractBinding"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractCatchAllStrategy"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractComponent"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractComponentThreadingProfile"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractConnectionStrategy"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractConnector"/>
-      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractDefineNotification"/>
-      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractDisableNotification"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractEntryPointResolver"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractEntryPointResolverSet"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractExceptionStrategy"/>
@@ -379,6 +405,7 @@
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractGlobalEndpoint"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractInboundEndpoint"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractInboundRouter"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractLifecycleAdapterFactory"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractModel"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractObjectFactory"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractOutboundEndpoint"/>
@@ -389,7 +416,6 @@
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractSecurityFilter"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractSecurityManager"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractService"/>
-      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractStorage"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractTransaction"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractTransactionManager"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/abstractTransformer"/>
@@ -398,7 +424,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/arrayEntryPointResolver"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/base64DecoderTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/base64EncoderTransformer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/beanPropertyExtractor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/bridgeComponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/byteArrayToHexStringTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/byteArrayToObjectTransformer"/>
@@ -414,7 +439,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customCatchAllStrategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customConnectionStrategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customConnector"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customContainer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customCorrelationAggregatorRouter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customEntryPointResolver"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customEntryPointResolverSet"/>
@@ -422,18 +446,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customFilter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customForwardingCatchAllStrategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customInboundRouter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customLifecycleAdapterFactory"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customOutboundRouter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customPropertyExtractor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customService"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customTransaction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customTransactionManager"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/customTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/decryptTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/defaultConnectorExceptionStrategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/defaultServiceExceptionStrategy"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/disableNotification"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/echoComponent"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/ejbContainer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/encryptionSecurityFilter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/encryptTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/endpoint"/>
@@ -441,21 +464,21 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/entryPointResolverSet"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/exceptionBasedRouter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/exceptionTypeFilter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/expressionTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/filter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/filteringRouter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/forwardingCatchAllStrategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/forwardingRouter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/functionPropertyExtractor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/gzipCompressTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/gzipUncompressTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/hexStringToByteArrayTransformer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/hivemindContainer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/idempotentReceiverRouter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/idempotentSecureHashReceiverRouter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/inboundEndpoint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/inboundPassThroughRouter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/includeEntryPoint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/jbossTransactionManager"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/jndiContainer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/jndiTransactionManager"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/jrunTransactionManager"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/legacyEntryPointResolverSet"/>
@@ -475,22 +498,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/noActionTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/noArgumentsEntryPointResolver"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/notFilter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/notification"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/nullComponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/objectToByteArrayTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/objectToStringTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/orFilter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/outboundEndpoint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/outboundPassThroughRouter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/passThroughComponent"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/payloadPropertyExtractor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/payloadTypeFilter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/picoContainer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/plexusContainer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/pooledObject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/pooledComponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/poolingProfile"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/properties"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/propertiesContainer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/propertyEntryPointResolver"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/prototypeObject"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/queueProfile"/>
@@ -498,7 +515,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/regexFilter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/resinTransactionManager"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/retryConnectionStrategy"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/rmiContainer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/securityManager"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/sedaModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/selectiveConsumerRouter"/>
@@ -511,10 +527,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/stringToByteArrayTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/templateEndpointRouter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/transformer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/ucDecoderTransformer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/ucEncoderTransformer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/uuDecoderTransformer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/uuEncoderTransformer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/weblogicTransactionManager"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/websphereTransactionManager"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//DocumentRoot/wildcardFilter"/>
@@ -528,16 +540,23 @@
     <genClasses image="false" ecoreClass="core.ecore#//EncryptionStrategyType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//EncryptionStrategyType/name"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//EncryptionTransformerType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//EncryptionTransformerType/strategyRef"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//EndpointExceptionStrategyType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//EndpointExceptionStrategyType/abstractOutboundEndpointGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//EndpointExceptionStrategyType/abstractOutboundEndpoint"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//EndpointSelectorRouterType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//EndpointSelectorRouterType/selectorProperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//EndpointSelectorRouterType/selectorExpression"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//EnvironmentPropertyType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//EnvironmentPropertyType/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//EnvironmentPropertyType/value"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//ExceptionStrategyType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//ExceptionStrategyType/abstractOutboundEndpointGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//ExceptionStrategyType/abstractOutboundEndpoint"/>
+    <genClasses image="false" ecoreClass="core.ecore#//ExpressionTransformerType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//ExpressionTransformerType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//ExpressionTransformerType/returnArgument"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//ExtensibleEntryPointResolverSet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//ExtensibleEntryPointResolverSet/abstractEntryPointResolverGroup"/>
@@ -548,7 +567,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//FilteredInboundRouterType/abstractFilter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//FilteredInboundRouterType/abstractPropertyExtractorGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//FilteredInboundRouterType/abstractPropertyExtractor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//FilteredInboundRouterType/customPropertyExtractor"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//FilteringOutboundRouterType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//FilteringOutboundRouterType/abstractFilterGroup"/>
@@ -560,10 +578,6 @@
     <genClasses image="false" ecoreClass="core.ecore#//ForwardingCatchAllStrategyType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//ForwardingCatchAllStrategyType/abstractOutboundEndpointGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//ForwardingCatchAllStrategyType/abstractOutboundEndpoint"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//ForwardingRouterType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//ForwardingRouterType/abstractInboundEndpointGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//ForwardingRouterType/abstractInboundEndpoint"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//GenericObjectFactoryType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//GenericObjectFactoryType/abstractObjectFactoryGroup"/>
@@ -595,10 +609,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//GlobalEndpointType/synchronous"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//GlobalEndpointType/transformerRefs"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//IdempotentReceiverRouterType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//IdempotentReceiverRouterType/abstractStorageGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//IdempotentReceiverRouterType/abstractStorage"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//InboundCollectionType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//InboundCollectionType/abstractCatchAllStrategyGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//InboundCollectionType/abstractCatchAllStrategy"/>
@@ -606,7 +616,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//InboundCollectionType/abstractInboundEndpoint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//InboundCollectionType/abstractInboundRouterGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//InboundCollectionType/abstractInboundRouter"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//InboundCollectionType/matchAll"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//InboundEndpointType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//InboundEndpointType/group"/>
@@ -634,10 +643,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//InboundEndpointType/synchronous"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//InboundEndpointType/transformerRefs"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//IocContainerContextType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//IocContainerContextType/configLocation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//IocContainerContextType/configurationText"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//JndiConnectorType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//JndiConnectorType/jndiProviderProperty"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//JndiConnectorType/jndiProviderProperties"/>
@@ -647,7 +652,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//JndiConnectorType/jndiUrlPkgPrefixes"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//JndiTransactionManagerType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//JndiTransactionManagerType/environment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//JndiTransactionManagerType/jndiName"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//JndiTransactionManagerType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//JndiTransactionManagerType1/environment"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//KeyType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//KeyType/key"/>
@@ -658,24 +666,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//ListOrSetType"/>
     <genClasses image="false" ecoreClass="core.ecore#//LoggingCatchAllStrategyType"/>
-    <genClasses image="false" ecoreClass="core.ecore#//ManagementContextType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ManagementContextType/defaultThreadingProfile"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ManagementContextType/defaultDispatcherThreadingProfile"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ManagementContextType/defaultReceiverThreadingProfile"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ManagementContextType/defaultComponentThreadingProfile"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//ManagementContextType/abstractStorageGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//ManagementContextType/abstractStorage"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ManagementContextType/defaultConnectionStrategy"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ManagementContextType/clusterId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ManagementContextType/defaultEncoding"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ManagementContextType/defaultRemoteSync"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ManagementContextType/defaultSynchronousEndpoints"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ManagementContextType/defaultSynchronousEventTimeout"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ManagementContextType/defaultTransactionTimeout"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ManagementContextType/domainId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ManagementContextType/serverId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ManagementContextType/workingDirectory"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//MapType"/>
     <genClasses image="false" ecoreClass="core.ecore#//MessageChunkingAggregatorRouterType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//MessageChunkingAggregatorRouterType/correlationExpression"/>
@@ -696,11 +686,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//MethodType/method"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//MuleType">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//MuleType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/beans"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/bean"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/environmentProperty"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/configuration"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/notifications"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/description"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//MuleType/abstractExtensionGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/abstractExtension"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//MuleType/abstractSecurityManagerGroup"/>
@@ -717,22 +709,14 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/abstractFilter"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//MuleType/abstractModelGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/abstractModel"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/beans"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//MuleType/bean"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//MuleType/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//NotificationListenerType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//NotificationListenerType/ref"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//NotificationListenerType/subscription"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//NotificationManagerType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//NotificationManagerType/group"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//NotificationManagerType/abstractDefineNotificationGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//NotificationManagerType/abstractDefineNotification"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//NotificationManagerType/group1"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//NotificationManagerType/abstractDisableNotificationGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//NotificationManagerType/abstractDisableNotification"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//NotificationManagerType/group2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//NotificationManagerType/notification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//NotificationManagerType/disableNotification"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//NotificationManagerType/notificationListener"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//NotificationManagerType/dynamic"/>
     </genClasses>
@@ -777,7 +761,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//OutboundRouterType/abstractTransaction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//OutboundRouterType/abstractPropertyExtractorGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//OutboundRouterType/abstractPropertyExtractor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//OutboundRouterType/customPropertyExtractor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//OutboundRouterType/enableCorrelation"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//PasswordEncryptionStrategyType">
@@ -794,16 +777,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PojoBindingType/interface"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PojoBindingType/method"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//PojoComponentType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//PojoComponentType/abstractObjectFactoryGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//PojoComponentType/abstractObjectFactory"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//PojoComponentType/binding"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PojoComponentType/class"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//PooledObjectFactoryType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//PooledObjectFactoryType/abstractPoolingProfileGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//PooledObjectFactoryType/abstractPoolingProfile"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PooledObjectFactoryType/class"/>
+    <genClasses image="false" ecoreClass="core.ecore#//PooledJavaComponentType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//PooledJavaComponentType/abstractPoolingProfileGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//PooledJavaComponentType/abstractPoolingProfile"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//PoolingProfileType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PoolingProfileType/exhaustedAction"/>
@@ -811,11 +787,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PoolingProfileType/maxActive"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PoolingProfileType/maxIdle"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PoolingProfileType/maxWait"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//PropertiesContainerContextType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PropertiesContainerContextType/enableTemplates"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PropertiesContainerContextType/includeSystemProperties"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PropertiesContainerContextType/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//PropertyEntryPointResolverType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//PropertyEntryPointResolverType/property"/>
@@ -851,10 +822,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//RetryConnectionStrategyType/retryCount"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//RetryConnectionStrategyType/retryFrequency"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="core.ecore#//RmiContainerContextType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//RmiContainerContextType/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//RmiContainerContextType/securityManager"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//RmiContainerContextType/securityPolicy"/>
+    <genClasses image="false" ecoreClass="core.ecore#//ReturnArgumentType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ReturnArgumentType/customEvaluator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ReturnArgumentType/evaluator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ReturnArgumentType/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ReturnArgumentType/optional"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//SecretKeyEncryptionStrategyType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//SecretKeyEncryptionStrategyType/key"/>
@@ -897,6 +869,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ServiceOverridesType/outboundTransformer"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ServiceOverridesType/responseTransformer"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ServiceOverridesType/serviceFinder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ServiceOverridesType/sessionHandler"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ServiceOverridesType/streamMessageAdapter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ServiceOverridesType/transactedMessageReceiver"/>
     </genClasses>
@@ -916,36 +889,35 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ThreadingProfileType/maxBufferSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ThreadingProfileType/maxThreadsActive"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ThreadingProfileType/maxThreadsIdle"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ThreadingProfileType/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ThreadingProfileType/poolExhaustedAction"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ThreadingProfileType/threadTTL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//ThreadingProfileType/threadWaitTimeout"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//TlsClientKeyStoreType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsClientKeyStoreType/clientKeyStore"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsClientKeyStoreType/clientKeyStorePassword"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsClientKeyStoreType/clientKeyStoreType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsClientKeyStoreType/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsClientKeyStoreType/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsClientKeyStoreType/storePassword"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//TlsKeyStoreType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsKeyStoreType/keyManagerAlgorithm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsKeyStoreType/algorithm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsKeyStoreType/class"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsKeyStoreType/keyPassword"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsKeyStoreType/keyStore"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsKeyStoreType/keyStorePassword"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsKeyStoreType/keyStoreType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsKeyStoreType/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsKeyStoreType/storePassword"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//TlsProtocolHandler">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsProtocolHandler/protocolHandler"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsProtocolHandler/property"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//TlsServerTrustStoreType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsServerTrustStoreType/explicitTrustStoreOnly"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsServerTrustStoreType/algorithm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsServerTrustStoreType/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsServerTrustStoreType/explicitOnly"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsServerTrustStoreType/factoryRef"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsServerTrustStoreType/requireClientAuthentication"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsServerTrustStoreType/trustManagerAlgorithm"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsServerTrustStoreType/trustManagerFactory"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsServerTrustStoreType/trustStoreType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//TlsTrustStoreType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsTrustStoreType/trustStore"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsTrustStoreType/trustStorePassword"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsTrustStoreType/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TlsTrustStoreType/storePassword"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//TransactionManagerType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//TransactionManagerType/name"/>

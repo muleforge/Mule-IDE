@@ -15,12 +15,6 @@ import org.mule.ide.config.spring.PropertyType;
  * A representation of the model object '<em><b>Custom Encryption Strategy Type</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * 
- *                 Allow any implementation of UMOEncryptionStrategy to be used.
- *             
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
@@ -63,6 +57,12 @@ public interface CustomEncryptionStrategyType extends EncryptionStrategyType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             A reference to the encryption strategy (which may be a Spring bean that
+	 *                             implements the EncryptionStrategy interface).
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Strategy Ref</em>' attribute.
 	 * @see #setStrategyRef(String)
 	 * @see org.mule.ide.config.core.CorePackage#getCustomEncryptionStrategyType_StrategyRef()

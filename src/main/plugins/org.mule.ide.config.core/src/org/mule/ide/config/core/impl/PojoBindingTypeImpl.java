@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -40,7 +41,7 @@ import org.mule.ide.config.core.PojoBindingType;
  *
  * @generated
  */
-public class PojoBindingTypeImpl extends AbstractBindingTypeImpl implements PojoBindingType {
+public class PojoBindingTypeImpl extends EObjectImpl implements PojoBindingType {
 	/**
 	 * The cached value of the '{@link #getAbstractOutboundEndpointGroup() <em>Abstract Outbound Endpoint Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->

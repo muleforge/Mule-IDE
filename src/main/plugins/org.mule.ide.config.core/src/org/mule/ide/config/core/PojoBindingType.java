@@ -8,16 +8,13 @@ package org.mule.ide.config.core;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pojo Binding Type</b></em>'.
  * <!-- end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * Binding between the pojo component and endpoints.
- * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
@@ -33,7 +30,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='pojoBindingType' kind='elementOnly'"
  * @generated
  */
-public interface PojoBindingType extends AbstractBindingType {
+public interface PojoBindingType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Abstract Outbound Endpoint Group</b></em>' attribute list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
@@ -43,6 +40,12 @@ public interface PojoBindingType extends AbstractBindingType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound endpoint elements.
+	 *                 Outbound endpoints dispatch messages to the underlying transport.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Endpoint Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getPojoBindingType_AbstractOutboundEndpointGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -60,6 +63,12 @@ public interface PojoBindingType extends AbstractBindingType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound endpoint elements.
+	 *                 Outbound endpoints dispatch messages to the underlying transport.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Endpoint</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getPojoBindingType_AbstractOutboundEndpoint()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -76,6 +85,12 @@ public interface PojoBindingType extends AbstractBindingType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The interface to be injected.
+	 *                     A proxy will be created that implements this interface by calling out to the endpoint.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interface</em>' attribute.
 	 * @see #setInterface(Object)
 	 * @see org.mule.ide.config.core.CorePackage#getPojoBindingType_Interface()
@@ -103,6 +118,12 @@ public interface PojoBindingType extends AbstractBindingType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The method on the interface that should be used.
+	 *                     This can be omitted if the interface has a single method.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Method</em>' attribute.
 	 * @see #setMethod(Object)
 	 * @see org.mule.ide.config.core.CorePackage#getPojoBindingType_Method()

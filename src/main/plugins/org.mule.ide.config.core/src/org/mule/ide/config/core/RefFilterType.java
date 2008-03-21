@@ -32,6 +32,11 @@ public interface RefFilterType extends AbstractFilterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The name of the filter to use.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ref</em>' attribute.
 	 * @see #setRef(String)
 	 * @see org.mule.ide.config.core.CorePackage#getRefFilterType_Ref()

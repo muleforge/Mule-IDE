@@ -72,27 +72,27 @@ public class TlsClientKeyStoreTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addClientKeyStorePropertyDescriptor(object);
-			addClientKeyStorePasswordPropertyDescriptor(object);
-			addClientKeyStoreTypePropertyDescriptor(object);
+			addClassPropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
+			addStorePasswordPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Client Key Store feature.
+	 * This adds a property descriptor for the Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClientKeyStorePropertyDescriptor(Object object) {
+	protected void addClassPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TlsClientKeyStoreType_clientKeyStore_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsClientKeyStoreType_clientKeyStore_feature", "_UI_TlsClientKeyStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsClientKeyStoreType_ClientKeyStore(),
+				 getString("_UI_TlsClientKeyStoreType_class_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsClientKeyStoreType_class_feature", "_UI_TlsClientKeyStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsClientKeyStoreType_Class(),
 				 true,
 				 false,
 				 false,
@@ -102,19 +102,19 @@ public class TlsClientKeyStoreTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Client Key Store Password feature.
+	 * This adds a property descriptor for the Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClientKeyStorePasswordPropertyDescriptor(Object object) {
+	protected void addPathPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TlsClientKeyStoreType_clientKeyStorePassword_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsClientKeyStoreType_clientKeyStorePassword_feature", "_UI_TlsClientKeyStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsClientKeyStoreType_ClientKeyStorePassword(),
+				 getString("_UI_TlsClientKeyStoreType_path_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsClientKeyStoreType_path_feature", "_UI_TlsClientKeyStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsClientKeyStoreType_Path(),
 				 true,
 				 false,
 				 false,
@@ -124,19 +124,19 @@ public class TlsClientKeyStoreTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Client Key Store Type feature.
+	 * This adds a property descriptor for the Store Password feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClientKeyStoreTypePropertyDescriptor(Object object) {
+	protected void addStorePasswordPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TlsClientKeyStoreType_clientKeyStoreType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsClientKeyStoreType_clientKeyStoreType_feature", "_UI_TlsClientKeyStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsClientKeyStoreType_ClientKeyStoreType(),
+				 getString("_UI_TlsClientKeyStoreType_storePassword_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsClientKeyStoreType_storePassword_feature", "_UI_TlsClientKeyStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsClientKeyStoreType_StorePassword(),
 				 true,
 				 false,
 				 false,
@@ -153,7 +153,7 @@ public class TlsClientKeyStoreTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TlsClientKeyStoreType)object).getClientKeyStore();
+		String label = ((TlsClientKeyStoreType)object).getClass_();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TlsClientKeyStoreType_type") :
 			getString("_UI_TlsClientKeyStoreType_type") + " " + label;
@@ -171,9 +171,9 @@ public class TlsClientKeyStoreTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TlsClientKeyStoreType.class)) {
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE:
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_PASSWORD:
-			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLIENT_KEY_STORE_TYPE:
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__CLASS:
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__PATH:
+			case CorePackage.TLS_CLIENT_KEY_STORE_TYPE__STORE_PASSWORD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

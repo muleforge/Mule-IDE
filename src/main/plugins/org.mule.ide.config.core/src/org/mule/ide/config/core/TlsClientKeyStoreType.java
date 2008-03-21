@@ -29,9 +29,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.TlsClientKeyStoreType#getClientKeyStore <em>Client Key Store</em>}</li>
- *   <li>{@link org.mule.ide.config.core.TlsClientKeyStoreType#getClientKeyStorePassword <em>Client Key Store Password</em>}</li>
- *   <li>{@link org.mule.ide.config.core.TlsClientKeyStoreType#getClientKeyStoreType <em>Client Key Store Type</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsClientKeyStoreType#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsClientKeyStoreType#getPath <em>Path</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsClientKeyStoreType#getStorePassword <em>Store Password</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,7 +41,35 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TlsClientKeyStoreType extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Client Key Store</b></em>' attribute.
+	 * Returns the value of the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The type of keystore used (a Java class name).
+	 *                 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Class</em>' attribute.
+	 * @see #setClass(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsClientKeyStoreType_Class()
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
+	 *        extendedMetaData="kind='attribute' name='class'"
+	 * @generated
+	 */
+	String getClass_();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsClientKeyStoreType#getClass_ <em>Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Class</em>' attribute.
+	 * @see #getClass_()
+	 * @generated
+	 */
+	void setClass(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -50,27 +78,27 @@ public interface TlsClientKeyStoreType extends EObject {
 	 *                     possible) of the keystore that contains public certificates and private keys for identification.
 	 *                 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Client Key Store</em>' attribute.
-	 * @see #setClientKeyStore(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsClientKeyStoreType_ClientKeyStore()
+	 * @return the value of the '<em>Path</em>' attribute.
+	 * @see #setPath(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsClientKeyStoreType_Path()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='clientKeyStore'"
+	 *        extendedMetaData="kind='attribute' name='path'"
 	 * @generated
 	 */
-	String getClientKeyStore();
+	String getPath();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsClientKeyStoreType#getClientKeyStore <em>Client Key Store</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsClientKeyStoreType#getPath <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Client Key Store</em>' attribute.
-	 * @see #getClientKeyStore()
+	 * @param value the new value of the '<em>Path</em>' attribute.
+	 * @see #getPath()
 	 * @generated
 	 */
-	void setClientKeyStore(String value);
+	void setPath(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Client Key Store Password</b></em>' attribute.
+	 * Returns the value of the '<em><b>Store Password</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -78,51 +106,23 @@ public interface TlsClientKeyStoreType extends EObject {
 	 *                     The password used to protect the keystore.
 	 *                 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Client Key Store Password</em>' attribute.
-	 * @see #setClientKeyStorePassword(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsClientKeyStoreType_ClientKeyStorePassword()
+	 * @return the value of the '<em>Store Password</em>' attribute.
+	 * @see #setStorePassword(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsClientKeyStoreType_StorePassword()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='clientKeyStorePassword'"
+	 *        extendedMetaData="kind='attribute' name='storePassword'"
 	 * @generated
 	 */
-	String getClientKeyStorePassword();
+	String getStorePassword();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsClientKeyStoreType#getClientKeyStorePassword <em>Client Key Store Password</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsClientKeyStoreType#getStorePassword <em>Store Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Client Key Store Password</em>' attribute.
-	 * @see #getClientKeyStorePassword()
+	 * @param value the new value of the '<em>Store Password</em>' attribute.
+	 * @see #getStorePassword()
 	 * @generated
 	 */
-	void setClientKeyStorePassword(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Client Key Store Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                     The type of keystore used (a Java class name).
-	 *                 
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Client Key Store Type</em>' attribute.
-	 * @see #setClientKeyStoreType(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsClientKeyStoreType_ClientKeyStoreType()
-	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
-	 *        extendedMetaData="kind='attribute' name='clientKeyStoreType'"
-	 * @generated
-	 */
-	String getClientKeyStoreType();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsClientKeyStoreType#getClientKeyStoreType <em>Client Key Store Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Client Key Store Type</em>' attribute.
-	 * @see #getClientKeyStoreType()
-	 * @generated
-	 */
-	void setClientKeyStoreType(String value);
+	void setStorePassword(String value);
 
 } // TlsClientKeyStoreType

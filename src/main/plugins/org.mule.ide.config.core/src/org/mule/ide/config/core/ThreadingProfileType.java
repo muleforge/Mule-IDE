@@ -19,7 +19,6 @@ package org.mule.ide.config.core;
  *   <li>{@link org.mule.ide.config.core.ThreadingProfileType#getMaxBufferSize <em>Max Buffer Size</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ThreadingProfileType#getMaxThreadsActive <em>Max Threads Active</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ThreadingProfileType#getMaxThreadsIdle <em>Max Threads Idle</em>}</li>
- *   <li>{@link org.mule.ide.config.core.ThreadingProfileType#getName <em>Name</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ThreadingProfileType#getPoolExhaustedAction <em>Pool Exhausted Action</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ThreadingProfileType#getThreadTTL <em>Thread TTL</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ThreadingProfileType#getThreadWaitTimeout <em>Thread Wait Timeout</em>}</li>
@@ -40,6 +39,11 @@ public interface ThreadingProfileType extends AbstractComponentThreadingProfileT
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             Whether threading should be used at all (default is true).
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Do Threading</em>' attribute.
 	 * @see #isSetDoThreading()
 	 * @see #unsetDoThreading()
@@ -94,24 +98,56 @@ public interface ThreadingProfileType extends AbstractComponentThreadingProfileT
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The size of the queue used (when the pool exhausted action is WAIT).
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Max Buffer Size</em>' attribute.
-	 * @see #setMaxBufferSize(String)
+	 * @see #isSetMaxBufferSize()
+	 * @see #unsetMaxBufferSize()
+	 * @see #setMaxBufferSize(int)
 	 * @see org.mule.ide.config.core.CorePackage#getThreadingProfileType_MaxBufferSize()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableInt"
 	 *        extendedMetaData="kind='attribute' name='maxBufferSize'"
 	 * @generated
 	 */
-	String getMaxBufferSize();
+	int getMaxBufferSize();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getMaxBufferSize <em>Max Buffer Size</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Max Buffer Size</em>' attribute.
+	 * @see #isSetMaxBufferSize()
+	 * @see #unsetMaxBufferSize()
 	 * @see #getMaxBufferSize()
 	 * @generated
 	 */
-	void setMaxBufferSize(String value);
+	void setMaxBufferSize(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getMaxBufferSize <em>Max Buffer Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetMaxBufferSize()
+	 * @see #getMaxBufferSize()
+	 * @see #setMaxBufferSize(int)
+	 * @generated
+	 */
+	void unsetMaxBufferSize();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getMaxBufferSize <em>Max Buffer Size</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Max Buffer Size</em>' attribute is set.
+	 * @see #unsetMaxBufferSize()
+	 * @see #getMaxBufferSize()
+	 * @see #setMaxBufferSize(int)
+	 * @generated
+	 */
+	boolean isSetMaxBufferSize();
 
 	/**
 	 * Returns the value of the '<em><b>Max Threads Active</b></em>' attribute.
@@ -121,24 +157,56 @@ public interface ThreadingProfileType extends AbstractComponentThreadingProfileT
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The maximum number of threads that will be used.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Max Threads Active</em>' attribute.
-	 * @see #setMaxThreadsActive(String)
+	 * @see #isSetMaxThreadsActive()
+	 * @see #unsetMaxThreadsActive()
+	 * @see #setMaxThreadsActive(int)
 	 * @see org.mule.ide.config.core.CorePackage#getThreadingProfileType_MaxThreadsActive()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableInt"
 	 *        extendedMetaData="kind='attribute' name='maxThreadsActive'"
 	 * @generated
 	 */
-	String getMaxThreadsActive();
+	int getMaxThreadsActive();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getMaxThreadsActive <em>Max Threads Active</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Max Threads Active</em>' attribute.
+	 * @see #isSetMaxThreadsActive()
+	 * @see #unsetMaxThreadsActive()
 	 * @see #getMaxThreadsActive()
 	 * @generated
 	 */
-	void setMaxThreadsActive(String value);
+	void setMaxThreadsActive(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getMaxThreadsActive <em>Max Threads Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetMaxThreadsActive()
+	 * @see #getMaxThreadsActive()
+	 * @see #setMaxThreadsActive(int)
+	 * @generated
+	 */
+	void unsetMaxThreadsActive();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getMaxThreadsActive <em>Max Threads Active</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Max Threads Active</em>' attribute is set.
+	 * @see #unsetMaxThreadsActive()
+	 * @see #getMaxThreadsActive()
+	 * @see #setMaxThreadsActive(int)
+	 * @generated
+	 */
+	boolean isSetMaxThreadsActive();
 
 	/**
 	 * Returns the value of the '<em><b>Max Threads Idle</b></em>' attribute.
@@ -148,51 +216,56 @@ public interface ThreadingProfileType extends AbstractComponentThreadingProfileT
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The maximum number of idle threads stored in the pool.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Max Threads Idle</em>' attribute.
-	 * @see #setMaxThreadsIdle(String)
+	 * @see #isSetMaxThreadsIdle()
+	 * @see #unsetMaxThreadsIdle()
+	 * @see #setMaxThreadsIdle(int)
 	 * @see org.mule.ide.config.core.CorePackage#getThreadingProfileType_MaxThreadsIdle()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableInt"
 	 *        extendedMetaData="kind='attribute' name='maxThreadsIdle'"
 	 * @generated
 	 */
-	String getMaxThreadsIdle();
+	int getMaxThreadsIdle();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getMaxThreadsIdle <em>Max Threads Idle</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Max Threads Idle</em>' attribute.
+	 * @see #isSetMaxThreadsIdle()
+	 * @see #unsetMaxThreadsIdle()
 	 * @see #getMaxThreadsIdle()
 	 * @generated
 	 */
-	void setMaxThreadsIdle(String value);
+	void setMaxThreadsIdle(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getMaxThreadsIdle <em>Max Threads Idle</em>}' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.mule.ide.config.core.CorePackage#getThreadingProfileType_Name()
-	 * @model dataType="org.mule.ide.config.core.SubstitutableName"
-	 *        extendedMetaData="kind='attribute' name='name'"
+	 * @see #isSetMaxThreadsIdle()
+	 * @see #getMaxThreadsIdle()
+	 * @see #setMaxThreadsIdle(int)
 	 * @generated
 	 */
-	String getName();
+	void unsetMaxThreadsIdle();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getName <em>Name</em>}' attribute.
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getMaxThreadsIdle <em>Max Threads Idle</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @return whether the value of the '<em>Max Threads Idle</em>' attribute is set.
+	 * @see #unsetMaxThreadsIdle()
+	 * @see #getMaxThreadsIdle()
+	 * @see #setMaxThreadsIdle(int)
 	 * @generated
 	 */
-	void setName(String value);
+	boolean isSetMaxThreadsIdle();
 
 	/**
 	 * Returns the value of the '<em><b>Pool Exhausted Action</b></em>' attribute.
@@ -204,6 +277,11 @@ public interface ThreadingProfileType extends AbstractComponentThreadingProfileT
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             How tasks should be handled when no more threads are available.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Pool Exhausted Action</em>' attribute.
 	 * @see org.mule.ide.config.core.PoolExhaustedActionType
 	 * @see #isSetPoolExhaustedAction()
@@ -260,24 +338,56 @@ public interface ThreadingProfileType extends AbstractComponentThreadingProfileT
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The time excess threads in the pool live before being discarded.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Thread TTL</em>' attribute.
-	 * @see #setThreadTTL(String)
+	 * @see #isSetThreadTTL()
+	 * @see #unsetThreadTTL()
+	 * @see #setThreadTTL(int)
 	 * @see org.mule.ide.config.core.CorePackage#getThreadingProfileType_ThreadTTL()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableInt"
 	 *        extendedMetaData="kind='attribute' name='threadTTL'"
 	 * @generated
 	 */
-	String getThreadTTL();
+	int getThreadTTL();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getThreadTTL <em>Thread TTL</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Thread TTL</em>' attribute.
+	 * @see #isSetThreadTTL()
+	 * @see #unsetThreadTTL()
 	 * @see #getThreadTTL()
 	 * @generated
 	 */
-	void setThreadTTL(String value);
+	void setThreadTTL(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getThreadTTL <em>Thread TTL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetThreadTTL()
+	 * @see #getThreadTTL()
+	 * @see #setThreadTTL(int)
+	 * @generated
+	 */
+	void unsetThreadTTL();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getThreadTTL <em>Thread TTL</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Thread TTL</em>' attribute is set.
+	 * @see #unsetThreadTTL()
+	 * @see #getThreadTTL()
+	 * @see #setThreadTTL(int)
+	 * @generated
+	 */
+	boolean isSetThreadTTL();
 
 	/**
 	 * Returns the value of the '<em><b>Thread Wait Timeout</b></em>' attribute.
@@ -287,23 +397,55 @@ public interface ThreadingProfileType extends AbstractComponentThreadingProfileT
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             How long to wait (when the pool exhausted action is WAIT).
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Thread Wait Timeout</em>' attribute.
-	 * @see #setThreadWaitTimeout(String)
+	 * @see #isSetThreadWaitTimeout()
+	 * @see #unsetThreadWaitTimeout()
+	 * @see #setThreadWaitTimeout(int)
 	 * @see org.mule.ide.config.core.CorePackage#getThreadingProfileType_ThreadWaitTimeout()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableInt"
 	 *        extendedMetaData="kind='attribute' name='threadWaitTimeout'"
 	 * @generated
 	 */
-	String getThreadWaitTimeout();
+	int getThreadWaitTimeout();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getThreadWaitTimeout <em>Thread Wait Timeout</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Thread Wait Timeout</em>' attribute.
+	 * @see #isSetThreadWaitTimeout()
+	 * @see #unsetThreadWaitTimeout()
 	 * @see #getThreadWaitTimeout()
 	 * @generated
 	 */
-	void setThreadWaitTimeout(String value);
+	void setThreadWaitTimeout(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getThreadWaitTimeout <em>Thread Wait Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetThreadWaitTimeout()
+	 * @see #getThreadWaitTimeout()
+	 * @see #setThreadWaitTimeout(int)
+	 * @generated
+	 */
+	void unsetThreadWaitTimeout();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.ThreadingProfileType#getThreadWaitTimeout <em>Thread Wait Timeout</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Thread Wait Timeout</em>' attribute is set.
+	 * @see #unsetThreadWaitTimeout()
+	 * @see #getThreadWaitTimeout()
+	 * @see #setThreadWaitTimeout(int)
+	 * @generated
+	 */
+	boolean isSetThreadWaitTimeout();
 
 } // ThreadingProfileType

@@ -27,7 +27,7 @@ import org.mule.ide.config.spring.PropertyType;
  * @model extendedMetaData="name='customTransactionManagerType' kind='elementOnly'"
  * @generated
  */
-public interface CustomTransactionManagerType extends JndiTransactionManagerType {
+public interface CustomTransactionManagerType extends JndiTransactionManagerType1 {
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' containment reference list.
 	 * The list contents are of type {@link org.mule.ide.config.spring.PropertyType}.
@@ -57,6 +57,11 @@ public interface CustomTransactionManagerType extends JndiTransactionManagerType
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The class to instantiate to create a transaction manager.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Class</em>' attribute.
 	 * @see #setClass(String)
 	 * @see org.mule.ide.config.core.CorePackage#getCustomTransactionManagerType_Class()

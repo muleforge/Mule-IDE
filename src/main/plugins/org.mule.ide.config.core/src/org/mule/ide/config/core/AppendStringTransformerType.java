@@ -32,6 +32,11 @@ public interface AppendStringTransformerType extends AbstractTransformerType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 The string to append.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Message</em>' attribute.
 	 * @see #setMessage(String)
 	 * @see org.mule.ide.config.core.CorePackage#getAppendStringTransformerType_Message()

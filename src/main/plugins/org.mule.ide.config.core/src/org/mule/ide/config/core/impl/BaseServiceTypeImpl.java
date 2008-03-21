@@ -41,7 +41,6 @@ import org.mule.ide.config.core.OutboundCollectionType;
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAsyncReply <em>Async Reply</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAbstractExceptionStrategyGroup <em>Abstract Exception Strategy Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getAbstractExceptionStrategy <em>Abstract Exception Strategy</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.BaseServiceTypeImpl#getInitialState <em>Initial State</em>}</li>
  * </ul>
  * </p>
@@ -98,26 +97,6 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * @ordered
 	 */
 	protected FeatureMap abstractExceptionStrategyGroup;
-
-	/**
-	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClass_()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CLASS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClass_()
-	 * @generated
-	 * @ordered
-	 */
-	protected String class_ = CLASS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getInitialState() <em>Initial State</em>}' attribute.
@@ -361,27 +340,6 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getClass_() {
-		return class_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClass(String newClass) {
-		String oldClass = class_;
-		class_ = newClass;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.BASE_SERVICE_TYPE__CLASS, oldClass, class_));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public InitialStateType getInitialState() {
 		return initialState;
 	}
@@ -473,8 +431,6 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 				return ((FeatureMap.Internal)getAbstractExceptionStrategyGroup()).getWrapper();
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY:
 				return getAbstractExceptionStrategy();
-			case CorePackage.BASE_SERVICE_TYPE__CLASS:
-				return getClass_();
 			case CorePackage.BASE_SERVICE_TYPE__INITIAL_STATE:
 				return getInitialState();
 		}
@@ -503,9 +459,6 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 				return;
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
 				((FeatureMap.Internal)getAbstractExceptionStrategyGroup()).set(newValue);
-				return;
-			case CorePackage.BASE_SERVICE_TYPE__CLASS:
-				setClass((String)newValue);
 				return;
 			case CorePackage.BASE_SERVICE_TYPE__INITIAL_STATE:
 				setInitialState((InitialStateType)newValue);
@@ -537,9 +490,6 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY_GROUP:
 				getAbstractExceptionStrategyGroup().clear();
 				return;
-			case CorePackage.BASE_SERVICE_TYPE__CLASS:
-				setClass(CLASS_EDEFAULT);
-				return;
 			case CorePackage.BASE_SERVICE_TYPE__INITIAL_STATE:
 				unsetInitialState();
 				return;
@@ -569,8 +519,6 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 				return abstractExceptionStrategyGroup != null && !abstractExceptionStrategyGroup.isEmpty();
 			case CorePackage.BASE_SERVICE_TYPE__ABSTRACT_EXCEPTION_STRATEGY:
 				return getAbstractExceptionStrategy() != null;
-			case CorePackage.BASE_SERVICE_TYPE__CLASS:
-				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
 			case CorePackage.BASE_SERVICE_TYPE__INITIAL_STATE:
 				return isSetInitialState();
 		}
@@ -591,8 +539,6 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 		result.append(abstractComponentGroup);
 		result.append(", abstractExceptionStrategyGroup: ");
 		result.append(abstractExceptionStrategyGroup);
-		result.append(", class: ");
-		result.append(class_);
 		result.append(", initialState: ");
 		if (initialStateESet) result.append(initialState); else result.append("<unset>");
 		result.append(')');

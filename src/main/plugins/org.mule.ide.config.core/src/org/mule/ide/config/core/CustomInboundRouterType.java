@@ -62,6 +62,13 @@ public interface CustomInboundRouterType extends FilteredInboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound endpoint elements.
+	 *                 Inbound endpoints receive messages from the underlying transport.
+	 *                 The message payload is then delivered to the component for processing.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Endpoint Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getCustomInboundRouterType_AbstractInboundEndpointGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -79,6 +86,13 @@ public interface CustomInboundRouterType extends FilteredInboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound endpoint elements.
+	 *                 Inbound endpoints receive messages from the underlying transport.
+	 *                 The message payload is then delivered to the component for processing.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Endpoint</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getCustomInboundRouterType_AbstractInboundEndpoint()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"

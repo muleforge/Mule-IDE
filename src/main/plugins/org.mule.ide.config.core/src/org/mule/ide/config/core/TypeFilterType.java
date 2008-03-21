@@ -32,6 +32,11 @@ public interface TypeFilterType extends AbstractFilterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The expected class used in the comparison.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expected Type</em>' attribute.
 	 * @see #setExpectedType(String)
 	 * @see org.mule.ide.config.core.CorePackage#getTypeFilterType_ExpectedType()

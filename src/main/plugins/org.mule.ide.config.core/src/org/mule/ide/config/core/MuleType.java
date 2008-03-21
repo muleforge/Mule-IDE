@@ -23,11 +23,13 @@ import org.mule.ide.config.spring.BeansType;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.mule.ide.config.core.MuleType#getDescription <em>Description</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.MuleType#getBeans <em>Beans</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.MuleType#getBean <em>Bean</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getEnvironmentProperty <em>Environment Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getNotifications <em>Notifications</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleType#getDescription <em>Description</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractExtensionGroup <em>Abstract Extension Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractExtension <em>Abstract Extension</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractSecurityManagerGroup <em>Abstract Security Manager Group</em>}</li>
@@ -44,9 +46,6 @@ import org.mule.ide.config.spring.BeansType;
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractFilter <em>Abstract Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractModelGroup <em>Abstract Model Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractModel <em>Abstract Model</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleType#getBeans <em>Beans</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleType#getBean <em>Bean</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleType#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,7 +66,7 @@ public interface MuleType extends EObject {
 	 * @return the value of the '<em>Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_Group()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
-	 *        extendedMetaData="kind='group' name='group:0'"
+	 *        extendedMetaData="kind='group' name='group:1'"
 	 * @generated
 	 */
 	FeatureMap getGroup();
@@ -81,30 +80,43 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                         An environment property is a named string.
+	 *                         It can be used inserted in most attribute values using the ${...} syntax.
+	 *                         So the attribute value "${foo}" would be replaced by the value associated with
+	 *                         the property named "foo".
+	 *                     
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Environment Property</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_EnvironmentProperty()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='environment-property' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='environment-property' namespace='##targetNamespace' group='#group:1'"
 	 * @generated
 	 */
 	EList<EnvironmentPropertyType> getEnvironmentProperty();
 
 	/**
 	 * Returns the value of the '<em><b>Configuration</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.ManagementContextType}.
+	 * The list contents are of type {@link org.mule.ide.config.core.ConfigurationType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Configuration</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                         Defaults and general settings for the entire Mule system.
+	 *                     
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Configuration</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_Configuration()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='configuration' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='configuration' namespace='##targetNamespace' group='#group:1'"
 	 * @generated
 	 */
-	EList<ManagementContextType> getConfiguration();
+	EList<ConfigurationType> getConfiguration();
 
 	/**
 	 * Returns the value of the '<em><b>Notifications</b></em>' containment reference list.
@@ -115,30 +127,52 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                         Register listeners for notifications
+	 *                         and associate interfaces with particular events.
+	 *                     
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Notifications</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_Notifications()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='notifications' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='notifications' namespace='##targetNamespace' group='#group:1'"
 	 * @generated
 	 */
 	EList<NotificationManagerType> getNotifications();
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.DescriptionType}.
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Description</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' containment reference list.
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                         This can hold any kind of documentation consistent with the overall XML format).
+	 *                         It is intended to be "human readable" only and is not used by the system.
+	 *                     
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Description</em>' containment reference.
+	 * @see #setDescription(DescriptionType)
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_Description()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace' group='#group:0'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<DescriptionType> getDescription();
+	DescriptionType getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.MuleType#getDescription <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' containment reference.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(DescriptionType value);
 
 	/**
 	 * Returns the value of the '<em><b>Abstract Extension Group</b></em>' attribute list.
@@ -147,13 +181,16 @@ public interface MuleType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 Abstract base for arbitrary extensions as children of the mule element.
+	 *                 A placeholder for arbitrary extensions as children of the mule element.
+	 *                 Other transports and modules may extend this if they need to add global
+	 *                 elements to the configuration (but consider the more specific elements
+	 *                 like abstract-connector first).
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Extension Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractExtensionGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-extension:group' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='group' name='abstract-extension:group' namespace='##targetNamespace' group='#group:1'"
 	 * @generated
 	 */
 	FeatureMap getAbstractExtensionGroup();
@@ -165,7 +202,10 @@ public interface MuleType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 Abstract base for arbitrary extensions as children of the mule element.
+	 *                 A placeholder for arbitrary extensions as children of the mule element.
+	 *                 Other transports and modules may extend this if they need to add global
+	 *                 elements to the configuration (but consider the more specific elements
+	 *                 like abstract-connector first).
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Extension</em>' containment reference list.
@@ -192,7 +232,7 @@ public interface MuleType extends EObject {
 	 * @return the value of the '<em>Abstract Security Manager Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractSecurityManagerGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-security-manager:group' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='group' name='abstract-security-manager:group' namespace='##targetNamespace' group='#group:1'"
 	 * @generated
 	 */
 	FeatureMap getAbstractSecurityManagerGroup();
@@ -227,10 +267,16 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transaction manager elements.
+	 *                 Transaction managers are used to co-ordinate transactions.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transaction Manager Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractTransactionManagerGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-transaction-manager:group' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='group' name='abstract-transaction-manager:group' namespace='##targetNamespace' group='#group:1'"
 	 * @generated
 	 */
 	FeatureMap getAbstractTransactionManagerGroup();
@@ -244,6 +290,12 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transaction manager elements.
+	 *                 Transaction managers are used to co-ordinate transactions.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transaction Manager</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractTransactionManager()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -261,10 +313,19 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for connector elements.
+	 *                 Connector elements allow properties to be configured across all endpoints that
+	 *                 use the same transport.
+	 *                 If multiple connectors are defined for the same transport then each endpoint
+	 *                 must name which connector is being used.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Connector Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractConnectorGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-connector:group' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='group' name='abstract-connector:group' namespace='##targetNamespace' group='#group:1'"
 	 * @generated
 	 */
 	FeatureMap getAbstractConnectorGroup();
@@ -278,6 +339,15 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for connector elements.
+	 *                 Connector elements allow properties to be configured across all endpoints that
+	 *                 use the same transport.
+	 *                 If multiple connectors are defined for the same transport then each endpoint
+	 *                 must name which connector is being used.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Connector</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractConnector()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -295,10 +365,18 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for global endpoint elements.
+	 *                 Global endpoints are named templates that allow us to define an endpoint once
+	 *                 and refer to it in several places.
+	 *                 Currently the same template is used for both inbound and outbound endpoints.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Global Endpoint Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractGlobalEndpointGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-global-endpoint:group' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='group' name='abstract-global-endpoint:group' namespace='##targetNamespace' group='#group:1'"
 	 * @generated
 	 */
 	FeatureMap getAbstractGlobalEndpointGroup();
@@ -312,6 +390,14 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for global endpoint elements.
+	 *                 Global endpoints are named templates that allow us to define an endpoint once
+	 *                 and refer to it in several places.
+	 *                 Currently the same template is used for both inbound and outbound endpoints.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Global Endpoint</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractGlobalEndpoint()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -329,10 +415,16 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transformer elements.
+	 *                 Transformers convert message payloads.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transformer Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractTransformerGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-transformer:group' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='group' name='abstract-transformer:group' namespace='##targetNamespace' group='#group:1'"
 	 * @generated
 	 */
 	FeatureMap getAbstractTransformerGroup();
@@ -346,6 +438,12 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transformer elements.
+	 *                 Transformers convert message payloads.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transformer</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractTransformer()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -363,10 +461,16 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractFilterGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-filter:group' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='group' name='abstract-filter:group' namespace='##targetNamespace' group='#group:1'"
 	 * @generated
 	 */
 	FeatureMap getAbstractFilterGroup();
@@ -380,6 +484,12 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractFilter()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -397,10 +507,16 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for model elements.
+	 *                 A model provides basic settings and processing for all the services it contains.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Model Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractModelGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-model:group' namespace='##targetNamespace' group='#group:0'"
+	 *        extendedMetaData="kind='group' name='abstract-model:group' namespace='##targetNamespace' group='#group:1'"
 	 * @generated
 	 */
 	FeatureMap getAbstractModelGroup();
@@ -414,6 +530,12 @@ public interface MuleType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for model elements.
+	 *                 A model provides basic settings and processing for all the services it contains.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Model</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_AbstractModel()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -429,13 +551,13 @@ public interface MuleType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                             Allow embedding of further spring documents.
-	 *                         
+	 *                         Allow embedding of further spring documents.
+	 *                     
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Beans</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_Beans()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='beans' namespace='http://www.springframework.org/schema/beans' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='beans' namespace='http://www.springframework.org/schema/beans' group='#group:1'"
 	 * @generated
 	 */
 	EList<BeansType> getBeans();
@@ -447,42 +569,15 @@ public interface MuleType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                             We support direct use of spring beans via this tag.
-	 *                         
+	 *                         We support direct use of spring beans via this tag.
+	 *                     
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Bean</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMuleType_Bean()
 	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='bean' namespace='http://www.springframework.org/schema/beans' group='#group:0'"
+	 *        extendedMetaData="kind='element' name='bean' namespace='http://www.springframework.org/schema/beans' group='#group:1'"
 	 * @generated
 	 */
 	EList<BeanType> getBean();
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.mule.ide.config.core.CorePackage#getMuleType_Name()
-	 * @model dataType="org.mule.ide.config.core.SubstitutableName"
-	 *        extendedMetaData="kind='attribute' name='name'"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.MuleType#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
 
 } // MuleType

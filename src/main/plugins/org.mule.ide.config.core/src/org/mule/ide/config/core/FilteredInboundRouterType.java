@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.FilteredInboundRouterType#getAbstractFilter <em>Abstract Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.FilteredInboundRouterType#getAbstractPropertyExtractorGroup <em>Abstract Property Extractor Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.FilteredInboundRouterType#getAbstractPropertyExtractor <em>Abstract Property Extractor</em>}</li>
- *   <li>{@link org.mule.ide.config.core.FilteredInboundRouterType#getCustomPropertyExtractor <em>Custom Property Extractor</em>}</li>
  * </ul>
  * </p>
  *
@@ -38,6 +37,12 @@ public interface FilteredInboundRouterType extends AbstractInboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getFilteredInboundRouterType_AbstractFilterGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -54,6 +59,12 @@ public interface FilteredInboundRouterType extends AbstractInboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getFilteredInboundRouterType_AbstractFilter()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -94,32 +105,5 @@ public interface FilteredInboundRouterType extends AbstractInboundRouterType {
 	 * @generated
 	 */
 	AbstractPropertyExtractorType getAbstractPropertyExtractor();
-
-	/**
-	 * Returns the value of the '<em><b>Custom Property Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Custom Property Extractor</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Custom Property Extractor</em>' containment reference.
-	 * @see #setCustomPropertyExtractor(CustomPropertyExtractorType)
-	 * @see org.mule.ide.config.core.CorePackage#getFilteredInboundRouterType_CustomPropertyExtractor()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='custom-property-extractor' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CustomPropertyExtractorType getCustomPropertyExtractor();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.FilteredInboundRouterType#getCustomPropertyExtractor <em>Custom Property Extractor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Custom Property Extractor</em>' containment reference.
-	 * @see #getCustomPropertyExtractor()
-	 * @generated
-	 */
-	void setCustomPropertyExtractor(CustomPropertyExtractorType value);
 
 } // FilteredInboundRouterType

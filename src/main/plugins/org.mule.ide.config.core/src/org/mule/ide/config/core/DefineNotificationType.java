@@ -6,6 +6,8 @@
  */
 package org.mule.ide.config.core;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -26,42 +28,42 @@ package org.mule.ide.config.core;
  * @model extendedMetaData="name='defineNotificationType' kind='empty'"
  * @generated
  */
-public interface DefineNotificationType extends AbstractDefineNotificationType {
+public interface DefineNotificationType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' attribute.
 	 * The default value is <code>"MANAGER"</code>.
-	 * The literals are from the enumeration {@link org.mule.ide.config.core.EventType}.
+	 * The literals are from the enumeration {@link org.mule.ide.config.core.EventType1}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                             The notification event to deliver.
-	 *                         
+	 *                     The notification event to deliver.
+	 *                 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Event</em>' attribute.
-	 * @see org.mule.ide.config.core.EventType
+	 * @see org.mule.ide.config.core.EventType1
 	 * @see #isSetEvent()
 	 * @see #unsetEvent()
-	 * @see #setEvent(EventType)
+	 * @see #setEvent(EventType1)
 	 * @see org.mule.ide.config.core.CorePackage#getDefineNotificationType_Event()
 	 * @model default="MANAGER" unsettable="true"
 	 *        extendedMetaData="kind='attribute' name='event'"
 	 * @generated
 	 */
-	EventType getEvent();
+	EventType1 getEvent();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DefineNotificationType#getEvent <em>Event</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Event</em>' attribute.
-	 * @see org.mule.ide.config.core.EventType
+	 * @see org.mule.ide.config.core.EventType1
 	 * @see #isSetEvent()
 	 * @see #unsetEvent()
 	 * @see #getEvent()
 	 * @generated
 	 */
-	void setEvent(EventType value);
+	void setEvent(EventType1 value);
 
 	/**
 	 * Unsets the value of the '{@link org.mule.ide.config.core.DefineNotificationType#getEvent <em>Event</em>}' attribute.
@@ -69,7 +71,7 @@ public interface DefineNotificationType extends AbstractDefineNotificationType {
 	 * <!-- end-user-doc -->
 	 * @see #isSetEvent()
 	 * @see #getEvent()
-	 * @see #setEvent(EventType)
+	 * @see #setEvent(EventType1)
 	 * @generated
 	 */
 	void unsetEvent();
@@ -81,7 +83,7 @@ public interface DefineNotificationType extends AbstractDefineNotificationType {
 	 * @return whether the value of the '<em>Event</em>' attribute is set.
 	 * @see #unsetEvent()
 	 * @see #getEvent()
-	 * @see #setEvent(EventType)
+	 * @see #setEvent(EventType1)
 	 * @generated
 	 */
 	boolean isSetEvent();
@@ -92,9 +94,9 @@ public interface DefineNotificationType extends AbstractDefineNotificationType {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                             The class associated with a notification event that will be delivered to the interface.
-	 *                             This can be used instead of the event attribute to specify a custom class.
-	 *                         
+	 *                     The class associated with a notification event that will be delivered to the interface.
+	 *                     This can be used instead of the event attribute to specify a custom class.
+	 *                 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Event Class</em>' attribute.
 	 * @see #setEventClass(String)
@@ -118,38 +120,38 @@ public interface DefineNotificationType extends AbstractDefineNotificationType {
 	/**
 	 * Returns the value of the '<em><b>Interface</b></em>' attribute.
 	 * The default value is <code>"MANAGER"</code>.
-	 * The literals are from the enumeration {@link org.mule.ide.config.core.InterfaceType}.
+	 * The literals are from the enumeration {@link org.mule.ide.config.core.InterfaceType1}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                             The interface that will receive the notification event.
-	 *                         
+	 *                     The interface that will receive the notification event.
+	 *                 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interface</em>' attribute.
-	 * @see org.mule.ide.config.core.InterfaceType
+	 * @see org.mule.ide.config.core.InterfaceType1
 	 * @see #isSetInterface()
 	 * @see #unsetInterface()
-	 * @see #setInterface(InterfaceType)
+	 * @see #setInterface(InterfaceType1)
 	 * @see org.mule.ide.config.core.CorePackage#getDefineNotificationType_Interface()
 	 * @model default="MANAGER" unsettable="true"
 	 *        extendedMetaData="kind='attribute' name='interface'"
 	 * @generated
 	 */
-	InterfaceType getInterface();
+	InterfaceType1 getInterface();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DefineNotificationType#getInterface <em>Interface</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Interface</em>' attribute.
-	 * @see org.mule.ide.config.core.InterfaceType
+	 * @see org.mule.ide.config.core.InterfaceType1
 	 * @see #isSetInterface()
 	 * @see #unsetInterface()
 	 * @see #getInterface()
 	 * @generated
 	 */
-	void setInterface(InterfaceType value);
+	void setInterface(InterfaceType1 value);
 
 	/**
 	 * Unsets the value of the '{@link org.mule.ide.config.core.DefineNotificationType#getInterface <em>Interface</em>}' attribute.
@@ -157,7 +159,7 @@ public interface DefineNotificationType extends AbstractDefineNotificationType {
 	 * <!-- end-user-doc -->
 	 * @see #isSetInterface()
 	 * @see #getInterface()
-	 * @see #setInterface(InterfaceType)
+	 * @see #setInterface(InterfaceType1)
 	 * @generated
 	 */
 	void unsetInterface();
@@ -169,7 +171,7 @@ public interface DefineNotificationType extends AbstractDefineNotificationType {
 	 * @return whether the value of the '<em>Interface</em>' attribute is set.
 	 * @see #unsetInterface()
 	 * @see #getInterface()
-	 * @see #setInterface(InterfaceType)
+	 * @see #setInterface(InterfaceType1)
 	 * @generated
 	 */
 	boolean isSetInterface();
@@ -180,8 +182,8 @@ public interface DefineNotificationType extends AbstractDefineNotificationType {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                             The interface (class name) that will receive the notification event.
-	 *                         
+	 *                     The interface (class name) that will receive the notification event.
+	 *                 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interface Class</em>' attribute.
 	 * @see #setInterfaceClass(String)

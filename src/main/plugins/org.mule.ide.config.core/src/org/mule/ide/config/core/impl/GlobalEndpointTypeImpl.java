@@ -199,7 +199,7 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REMOTE_SYNC_TIMEOUT_EDEFAULT = null;
+	protected static final int REMOTE_SYNC_TIMEOUT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getRemoteSyncTimeout() <em>Remote Sync Timeout</em>}' attribute.
@@ -209,7 +209,16 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected String remoteSyncTimeout = REMOTE_SYNC_TIMEOUT_EDEFAULT;
+	protected int remoteSyncTimeout = REMOTE_SYNC_TIMEOUT_EDEFAULT;
+
+	/**
+	 * This is true if the Remote Sync Timeout attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean remoteSyncTimeoutESet;
 
 	/**
 	 * The default value of the '{@link #getResponseTransformerRefs() <em>Response Transformer Refs</em>}' attribute.
@@ -572,7 +581,7 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRemoteSyncTimeout() {
+	public int getRemoteSyncTimeout() {
 		return remoteSyncTimeout;
 	}
 
@@ -581,11 +590,36 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRemoteSyncTimeout(String newRemoteSyncTimeout) {
-		String oldRemoteSyncTimeout = remoteSyncTimeout;
+	public void setRemoteSyncTimeout(int newRemoteSyncTimeout) {
+		int oldRemoteSyncTimeout = remoteSyncTimeout;
 		remoteSyncTimeout = newRemoteSyncTimeout;
+		boolean oldRemoteSyncTimeoutESet = remoteSyncTimeoutESet;
+		remoteSyncTimeoutESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT, oldRemoteSyncTimeout, remoteSyncTimeout));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT, oldRemoteSyncTimeout, remoteSyncTimeout, !oldRemoteSyncTimeoutESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetRemoteSyncTimeout() {
+		int oldRemoteSyncTimeout = remoteSyncTimeout;
+		boolean oldRemoteSyncTimeoutESet = remoteSyncTimeoutESet;
+		remoteSyncTimeout = REMOTE_SYNC_TIMEOUT_EDEFAULT;
+		remoteSyncTimeoutESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT, oldRemoteSyncTimeout, REMOTE_SYNC_TIMEOUT_EDEFAULT, oldRemoteSyncTimeoutESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetRemoteSyncTimeout() {
+		return remoteSyncTimeoutESet;
 	}
 
 	/**
@@ -773,7 +807,7 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC:
 				return isRemoteSync() ? Boolean.TRUE : Boolean.FALSE;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT:
-				return getRemoteSyncTimeout();
+				return new Integer(getRemoteSyncTimeout());
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__RESPONSE_TRANSFORMER_REFS:
 				return getResponseTransformerRefs();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__SYNCHRONOUS:
@@ -843,7 +877,7 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				setRemoteSync(((Boolean)newValue).booleanValue());
 				return;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT:
-				setRemoteSyncTimeout((String)newValue);
+				setRemoteSyncTimeout(((Integer)newValue).intValue());
 				return;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__RESPONSE_TRANSFORMER_REFS:
 				setResponseTransformerRefs((List<String>)newValue);
@@ -912,7 +946,7 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				unsetRemoteSync();
 				return;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT:
-				setRemoteSyncTimeout(REMOTE_SYNC_TIMEOUT_EDEFAULT);
+				unsetRemoteSyncTimeout();
 				return;
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__RESPONSE_TRANSFORMER_REFS:
 				setResponseTransformerRefs(RESPONSE_TRANSFORMER_REFS_EDEFAULT);
@@ -976,7 +1010,7 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC:
 				return isSetRemoteSync();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT:
-				return REMOTE_SYNC_TIMEOUT_EDEFAULT == null ? remoteSyncTimeout != null : !REMOTE_SYNC_TIMEOUT_EDEFAULT.equals(remoteSyncTimeout);
+				return isSetRemoteSyncTimeout();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__RESPONSE_TRANSFORMER_REFS:
 				return RESPONSE_TRANSFORMER_REFS_EDEFAULT == null ? responseTransformerRefs != null : !RESPONSE_TRANSFORMER_REFS_EDEFAULT.equals(responseTransformerRefs);
 			case CorePackage.GLOBAL_ENDPOINT_TYPE__SYNCHRONOUS:
@@ -1010,7 +1044,7 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 		result.append(", remoteSync: ");
 		if (remoteSyncESet) result.append(remoteSync); else result.append("<unset>");
 		result.append(", remoteSyncTimeout: ");
-		result.append(remoteSyncTimeout);
+		if (remoteSyncTimeoutESet) result.append(remoteSyncTimeout); else result.append("<unset>");
 		result.append(", responseTransformerRefs: ");
 		result.append(responseTransformerRefs);
 		result.append(", synchronous: ");

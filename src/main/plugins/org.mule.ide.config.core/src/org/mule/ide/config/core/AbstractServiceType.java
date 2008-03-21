@@ -33,6 +33,11 @@ public interface AbstractServiceType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The name used to identify this service.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractServiceType_Name()

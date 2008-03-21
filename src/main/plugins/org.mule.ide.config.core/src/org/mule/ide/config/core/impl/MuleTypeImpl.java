@@ -31,10 +31,10 @@ import org.mule.ide.config.core.AbstractModelType;
 import org.mule.ide.config.core.AbstractSecurityManagerType;
 import org.mule.ide.config.core.AbstractTransactionManagerType;
 import org.mule.ide.config.core.AbstractTransformerType;
+import org.mule.ide.config.core.ConfigurationType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DescriptionType;
 import org.mule.ide.config.core.EnvironmentPropertyType;
-import org.mule.ide.config.core.ManagementContextType;
 import org.mule.ide.config.core.MuleType;
 
 import org.mule.ide.config.core.NotificationManagerType;
@@ -48,11 +48,13 @@ import org.mule.ide.config.spring.BeansType;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getBeans <em>Beans</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getBean <em>Bean</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getEnvironmentProperty <em>Environment Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getNotifications <em>Notifications</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getAbstractExtensionGroup <em>Abstract Extension Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getAbstractExtension <em>Abstract Extension</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getAbstractSecurityManagerGroup <em>Abstract Security Manager Group</em>}</li>
@@ -69,15 +71,22 @@ import org.mule.ide.config.spring.BeansType;
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getAbstractFilter <em>Abstract Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getAbstractModelGroup <em>Abstract Model Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getAbstractModel <em>Abstract Model</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getBeans <em>Beans</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getBean <em>Bean</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class MuleTypeImpl extends EObjectImpl implements MuleType {
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected DescriptionType description;
+
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -87,26 +96,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	 * @ordered
 	 */
 	protected FeatureMap group;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,7 +142,7 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ManagementContextType> getConfiguration() {
+	public EList<ConfigurationType> getConfiguration() {
 		return getGroup().list(CorePackage.eINSTANCE.getMuleType_Configuration());
 	}
 
@@ -171,8 +160,42 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DescriptionType> getDescription() {
-		return getGroup().list(CorePackage.eINSTANCE.getMuleType_Description());
+	public DescriptionType getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDescription(DescriptionType newDescription, NotificationChain msgs) {
+		DescriptionType oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.MULE_TYPE__DESCRIPTION, oldDescription, newDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(DescriptionType newDescription) {
+		if (newDescription != description) {
+			NotificationChain msgs = null;
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.MULE_TYPE__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.MULE_TYPE__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.MULE_TYPE__DESCRIPTION, newDescription, newDescription));
 	}
 
 	/**
@@ -342,40 +365,23 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.MULE_TYPE__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CorePackage.MULE_TYPE__DESCRIPTION:
+				return basicSetDescription(null, msgs);
 			case CorePackage.MULE_TYPE__GROUP:
 				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
+			case CorePackage.MULE_TYPE__BEANS:
+				return ((InternalEList<?>)getBeans()).basicRemove(otherEnd, msgs);
+			case CorePackage.MULE_TYPE__BEAN:
+				return ((InternalEList<?>)getBean()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
 				return ((InternalEList<?>)getEnvironmentProperty()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return ((InternalEList<?>)getConfiguration()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__NOTIFICATIONS:
 				return ((InternalEList<?>)getNotifications()).basicRemove(otherEnd, msgs);
-			case CorePackage.MULE_TYPE__DESCRIPTION:
-				return ((InternalEList<?>)getDescription()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__ABSTRACT_EXTENSION_GROUP:
 				return ((InternalEList<?>)getAbstractExtensionGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__ABSTRACT_EXTENSION:
@@ -408,10 +414,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return ((InternalEList<?>)getAbstractModelGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__ABSTRACT_MODEL:
 				return ((InternalEList<?>)getAbstractModel()).basicRemove(otherEnd, msgs);
-			case CorePackage.MULE_TYPE__BEANS:
-				return ((InternalEList<?>)getBeans()).basicRemove(otherEnd, msgs);
-			case CorePackage.MULE_TYPE__BEAN:
-				return ((InternalEList<?>)getBean()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -424,17 +426,21 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case CorePackage.MULE_TYPE__DESCRIPTION:
+				return getDescription();
 			case CorePackage.MULE_TYPE__GROUP:
 				if (coreType) return getGroup();
 				return ((FeatureMap.Internal)getGroup()).getWrapper();
+			case CorePackage.MULE_TYPE__BEANS:
+				return getBeans();
+			case CorePackage.MULE_TYPE__BEAN:
+				return getBean();
 			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
 				return getEnvironmentProperty();
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return getConfiguration();
 			case CorePackage.MULE_TYPE__NOTIFICATIONS:
 				return getNotifications();
-			case CorePackage.MULE_TYPE__DESCRIPTION:
-				return getDescription();
 			case CorePackage.MULE_TYPE__ABSTRACT_EXTENSION_GROUP:
 				if (coreType) return getAbstractExtensionGroup();
 				return ((FeatureMap.Internal)getAbstractExtensionGroup()).getWrapper();
@@ -475,12 +481,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return ((FeatureMap.Internal)getAbstractModelGroup()).getWrapper();
 			case CorePackage.MULE_TYPE__ABSTRACT_MODEL:
 				return getAbstractModel();
-			case CorePackage.MULE_TYPE__BEANS:
-				return getBeans();
-			case CorePackage.MULE_TYPE__BEAN:
-				return getBean();
-			case CorePackage.MULE_TYPE__NAME:
-				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -494,8 +494,19 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CorePackage.MULE_TYPE__DESCRIPTION:
+				setDescription((DescriptionType)newValue);
+				return;
 			case CorePackage.MULE_TYPE__GROUP:
 				((FeatureMap.Internal)getGroup()).set(newValue);
+				return;
+			case CorePackage.MULE_TYPE__BEANS:
+				getBeans().clear();
+				getBeans().addAll((Collection<? extends BeansType>)newValue);
+				return;
+			case CorePackage.MULE_TYPE__BEAN:
+				getBean().clear();
+				getBean().addAll((Collection<? extends BeanType>)newValue);
 				return;
 			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
 				getEnvironmentProperty().clear();
@@ -503,15 +514,11 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return;
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				getConfiguration().clear();
-				getConfiguration().addAll((Collection<? extends ManagementContextType>)newValue);
+				getConfiguration().addAll((Collection<? extends ConfigurationType>)newValue);
 				return;
 			case CorePackage.MULE_TYPE__NOTIFICATIONS:
 				getNotifications().clear();
 				getNotifications().addAll((Collection<? extends NotificationManagerType>)newValue);
-				return;
-			case CorePackage.MULE_TYPE__DESCRIPTION:
-				getDescription().clear();
-				getDescription().addAll((Collection<? extends DescriptionType>)newValue);
 				return;
 			case CorePackage.MULE_TYPE__ABSTRACT_EXTENSION_GROUP:
 				((FeatureMap.Internal)getAbstractExtensionGroup()).set(newValue);
@@ -537,17 +544,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 			case CorePackage.MULE_TYPE__ABSTRACT_MODEL_GROUP:
 				((FeatureMap.Internal)getAbstractModelGroup()).set(newValue);
 				return;
-			case CorePackage.MULE_TYPE__BEANS:
-				getBeans().clear();
-				getBeans().addAll((Collection<? extends BeansType>)newValue);
-				return;
-			case CorePackage.MULE_TYPE__BEAN:
-				getBean().clear();
-				getBean().addAll((Collection<? extends BeanType>)newValue);
-				return;
-			case CorePackage.MULE_TYPE__NAME:
-				setName((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -560,8 +556,17 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CorePackage.MULE_TYPE__DESCRIPTION:
+				setDescription((DescriptionType)null);
+				return;
 			case CorePackage.MULE_TYPE__GROUP:
 				getGroup().clear();
+				return;
+			case CorePackage.MULE_TYPE__BEANS:
+				getBeans().clear();
+				return;
+			case CorePackage.MULE_TYPE__BEAN:
+				getBean().clear();
 				return;
 			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
 				getEnvironmentProperty().clear();
@@ -571,9 +576,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return;
 			case CorePackage.MULE_TYPE__NOTIFICATIONS:
 				getNotifications().clear();
-				return;
-			case CorePackage.MULE_TYPE__DESCRIPTION:
-				getDescription().clear();
 				return;
 			case CorePackage.MULE_TYPE__ABSTRACT_EXTENSION_GROUP:
 				getAbstractExtensionGroup().clear();
@@ -599,15 +601,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 			case CorePackage.MULE_TYPE__ABSTRACT_MODEL_GROUP:
 				getAbstractModelGroup().clear();
 				return;
-			case CorePackage.MULE_TYPE__BEANS:
-				getBeans().clear();
-				return;
-			case CorePackage.MULE_TYPE__BEAN:
-				getBean().clear();
-				return;
-			case CorePackage.MULE_TYPE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -620,16 +613,20 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case CorePackage.MULE_TYPE__DESCRIPTION:
+				return description != null;
 			case CorePackage.MULE_TYPE__GROUP:
 				return group != null && !group.isEmpty();
+			case CorePackage.MULE_TYPE__BEANS:
+				return !getBeans().isEmpty();
+			case CorePackage.MULE_TYPE__BEAN:
+				return !getBean().isEmpty();
 			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
 				return !getEnvironmentProperty().isEmpty();
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return !getConfiguration().isEmpty();
 			case CorePackage.MULE_TYPE__NOTIFICATIONS:
 				return !getNotifications().isEmpty();
-			case CorePackage.MULE_TYPE__DESCRIPTION:
-				return !getDescription().isEmpty();
 			case CorePackage.MULE_TYPE__ABSTRACT_EXTENSION_GROUP:
 				return !getAbstractExtensionGroup().isEmpty();
 			case CorePackage.MULE_TYPE__ABSTRACT_EXTENSION:
@@ -662,12 +659,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return !getAbstractModelGroup().isEmpty();
 			case CorePackage.MULE_TYPE__ABSTRACT_MODEL:
 				return !getAbstractModel().isEmpty();
-			case CorePackage.MULE_TYPE__BEANS:
-				return !getBeans().isEmpty();
-			case CorePackage.MULE_TYPE__BEAN:
-				return !getBean().isEmpty();
-			case CorePackage.MULE_TYPE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -684,8 +675,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (group: ");
 		result.append(group);
-		result.append(", name: ");
-		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

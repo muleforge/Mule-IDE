@@ -72,29 +72,51 @@ public class TlsKeyStoreTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addKeyManagerAlgorithmPropertyDescriptor(object);
+			addAlgorithmPropertyDescriptor(object);
+			addClassPropertyDescriptor(object);
 			addKeyPasswordPropertyDescriptor(object);
-			addKeyStorePropertyDescriptor(object);
-			addKeyStorePasswordPropertyDescriptor(object);
-			addKeyStoreTypePropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
+			addStorePasswordPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Key Manager Algorithm feature.
+	 * This adds a property descriptor for the Algorithm feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addKeyManagerAlgorithmPropertyDescriptor(Object object) {
+	protected void addAlgorithmPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TlsKeyStoreType_keyManagerAlgorithm_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsKeyStoreType_keyManagerAlgorithm_feature", "_UI_TlsKeyStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsKeyStoreType_KeyManagerAlgorithm(),
+				 getString("_UI_TlsKeyStoreType_algorithm_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsKeyStoreType_algorithm_feature", "_UI_TlsKeyStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsKeyStoreType_Algorithm(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TlsKeyStoreType_class_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsKeyStoreType_class_feature", "_UI_TlsKeyStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsKeyStoreType_Class(),
 				 true,
 				 false,
 				 false,
@@ -126,19 +148,19 @@ public class TlsKeyStoreTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Key Store feature.
+	 * This adds a property descriptor for the Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addKeyStorePropertyDescriptor(Object object) {
+	protected void addPathPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TlsKeyStoreType_keyStore_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsKeyStoreType_keyStore_feature", "_UI_TlsKeyStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsKeyStoreType_KeyStore(),
+				 getString("_UI_TlsKeyStoreType_path_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsKeyStoreType_path_feature", "_UI_TlsKeyStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsKeyStoreType_Path(),
 				 true,
 				 false,
 				 false,
@@ -148,41 +170,19 @@ public class TlsKeyStoreTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Key Store Password feature.
+	 * This adds a property descriptor for the Store Password feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addKeyStorePasswordPropertyDescriptor(Object object) {
+	protected void addStorePasswordPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TlsKeyStoreType_keyStorePassword_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsKeyStoreType_keyStorePassword_feature", "_UI_TlsKeyStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsKeyStoreType_KeyStorePassword(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Key Store Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addKeyStoreTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TlsKeyStoreType_keyStoreType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsKeyStoreType_keyStoreType_feature", "_UI_TlsKeyStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsKeyStoreType_KeyStoreType(),
+				 getString("_UI_TlsKeyStoreType_storePassword_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsKeyStoreType_storePassword_feature", "_UI_TlsKeyStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsKeyStoreType_StorePassword(),
 				 true,
 				 false,
 				 false,
@@ -199,7 +199,7 @@ public class TlsKeyStoreTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TlsKeyStoreType)object).getKeyManagerAlgorithm();
+		String label = ((TlsKeyStoreType)object).getAlgorithm();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TlsKeyStoreType_type") :
 			getString("_UI_TlsKeyStoreType_type") + " " + label;
@@ -217,11 +217,11 @@ public class TlsKeyStoreTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TlsKeyStoreType.class)) {
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_MANAGER_ALGORITHM:
+			case CorePackage.TLS_KEY_STORE_TYPE__ALGORITHM:
+			case CorePackage.TLS_KEY_STORE_TYPE__CLASS:
 			case CorePackage.TLS_KEY_STORE_TYPE__KEY_PASSWORD:
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE:
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_PASSWORD:
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_TYPE:
+			case CorePackage.TLS_KEY_STORE_TYPE__PATH:
+			case CorePackage.TLS_KEY_STORE_TYPE__STORE_PASSWORD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

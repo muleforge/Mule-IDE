@@ -37,6 +37,12 @@ public interface CollectionFilterType extends AbstractFilterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getCollectionFilterType_AbstractFilterGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" lower="2" many="true"
@@ -54,6 +60,12 @@ public interface CollectionFilterType extends AbstractFilterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getCollectionFilterType_AbstractFilter()
 	 * @model containment="true" lower="2" transient="true" changeable="false" volatile="true" derived="true"

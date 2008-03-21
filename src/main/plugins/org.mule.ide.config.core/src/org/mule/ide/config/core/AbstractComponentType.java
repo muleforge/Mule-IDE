@@ -14,12 +14,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * A representation of the model object '<em><b>Abstract Component Type</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * 
- *                 A component that will be invoked by mule.
- *             
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
@@ -45,6 +39,12 @@ public interface AbstractComponentType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for entry point resolver set elements.
+	 *                 These combine a group of entry point resolvers, trying them in turn until one succeeds.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver Set Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractComponentType_AbstractEntryPointResolverSetGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -61,6 +61,12 @@ public interface AbstractComponentType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for entry point resolver set elements.
+	 *                 These combine a group of entry point resolvers, trying them in turn until one succeeds.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver Set</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractComponentType_AbstractEntryPointResolverSet()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -78,6 +84,13 @@ public interface AbstractComponentType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an entry point resolver element.
+	 *                 Entry point resolvers define how payloads are delivered to Java code
+	 *                 (ie they choose the method to call).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractComponentType_AbstractEntryPointResolverGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -94,6 +107,13 @@ public interface AbstractComponentType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an entry point resolver element.
+	 *                 Entry point resolvers define how payloads are delivered to Java code
+	 *                 (ie they choose the method to call).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractComponentType_AbstractEntryPointResolver()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"

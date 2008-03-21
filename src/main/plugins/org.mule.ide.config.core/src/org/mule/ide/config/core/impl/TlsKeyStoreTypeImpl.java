@@ -23,11 +23,11 @@ import org.mule.ide.config.core.TlsKeyStoreType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.TlsKeyStoreTypeImpl#getKeyManagerAlgorithm <em>Key Manager Algorithm</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsKeyStoreTypeImpl#getAlgorithm <em>Algorithm</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsKeyStoreTypeImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.TlsKeyStoreTypeImpl#getKeyPassword <em>Key Password</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.TlsKeyStoreTypeImpl#getKeyStore <em>Key Store</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.TlsKeyStoreTypeImpl#getKeyStorePassword <em>Key Store Password</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.TlsKeyStoreTypeImpl#getKeyStoreType <em>Key Store Type</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsKeyStoreTypeImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsKeyStoreTypeImpl#getStorePassword <em>Store Password</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,24 +35,44 @@ import org.mule.ide.config.core.TlsKeyStoreType;
  */
 public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType {
 	/**
-	 * The default value of the '{@link #getKeyManagerAlgorithm() <em>Key Manager Algorithm</em>}' attribute.
+	 * The default value of the '{@link #getAlgorithm() <em>Algorithm</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKeyManagerAlgorithm()
+	 * @see #getAlgorithm()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String KEY_MANAGER_ALGORITHM_EDEFAULT = null;
+	protected static final String ALGORITHM_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getKeyManagerAlgorithm() <em>Key Manager Algorithm</em>}' attribute.
+	 * The cached value of the '{@link #getAlgorithm() <em>Algorithm</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKeyManagerAlgorithm()
+	 * @see #getAlgorithm()
 	 * @generated
 	 * @ordered
 	 */
-	protected String keyManagerAlgorithm = KEY_MANAGER_ALGORITHM_EDEFAULT;
+	protected String algorithm = ALGORITHM_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClass_()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CLASS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClass_()
+	 * @generated
+	 * @ordered
+	 */
+	protected String class_ = CLASS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getKeyPassword() <em>Key Password</em>}' attribute.
@@ -75,64 +95,44 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 	protected String keyPassword = KEY_PASSWORD_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getKeyStore() <em>Key Store</em>}' attribute.
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKeyStore()
+	 * @see #getPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String KEY_STORE_EDEFAULT = null;
+	protected static final String PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getKeyStore() <em>Key Store</em>}' attribute.
+	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKeyStore()
+	 * @see #getPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected String keyStore = KEY_STORE_EDEFAULT;
+	protected String path = PATH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getKeyStorePassword() <em>Key Store Password</em>}' attribute.
+	 * The default value of the '{@link #getStorePassword() <em>Store Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKeyStorePassword()
+	 * @see #getStorePassword()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String KEY_STORE_PASSWORD_EDEFAULT = null;
+	protected static final String STORE_PASSWORD_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getKeyStorePassword() <em>Key Store Password</em>}' attribute.
+	 * The cached value of the '{@link #getStorePassword() <em>Store Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKeyStorePassword()
+	 * @see #getStorePassword()
 	 * @generated
 	 * @ordered
 	 */
-	protected String keyStorePassword = KEY_STORE_PASSWORD_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getKeyStoreType() <em>Key Store Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKeyStoreType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String KEY_STORE_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getKeyStoreType() <em>Key Store Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKeyStoreType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String keyStoreType = KEY_STORE_TYPE_EDEFAULT;
+	protected String storePassword = STORE_PASSWORD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,8 +158,8 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getKeyManagerAlgorithm() {
-		return keyManagerAlgorithm;
+	public String getAlgorithm() {
+		return algorithm;
 	}
 
 	/**
@@ -167,11 +167,32 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setKeyManagerAlgorithm(String newKeyManagerAlgorithm) {
-		String oldKeyManagerAlgorithm = keyManagerAlgorithm;
-		keyManagerAlgorithm = newKeyManagerAlgorithm;
+	public void setAlgorithm(String newAlgorithm) {
+		String oldAlgorithm = algorithm;
+		algorithm = newAlgorithm;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_KEY_STORE_TYPE__KEY_MANAGER_ALGORITHM, oldKeyManagerAlgorithm, keyManagerAlgorithm));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_KEY_STORE_TYPE__ALGORITHM, oldAlgorithm, algorithm));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getClass_() {
+		return class_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClass(String newClass) {
+		String oldClass = class_;
+		class_ = newClass;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_KEY_STORE_TYPE__CLASS, oldClass, class_));
 	}
 
 	/**
@@ -200,8 +221,8 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getKeyStore() {
-		return keyStore;
+	public String getPath() {
+		return path;
 	}
 
 	/**
@@ -209,11 +230,11 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setKeyStore(String newKeyStore) {
-		String oldKeyStore = keyStore;
-		keyStore = newKeyStore;
+	public void setPath(String newPath) {
+		String oldPath = path;
+		path = newPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE, oldKeyStore, keyStore));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_KEY_STORE_TYPE__PATH, oldPath, path));
 	}
 
 	/**
@@ -221,8 +242,8 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getKeyStorePassword() {
-		return keyStorePassword;
+	public String getStorePassword() {
+		return storePassword;
 	}
 
 	/**
@@ -230,32 +251,11 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setKeyStorePassword(String newKeyStorePassword) {
-		String oldKeyStorePassword = keyStorePassword;
-		keyStorePassword = newKeyStorePassword;
+	public void setStorePassword(String newStorePassword) {
+		String oldStorePassword = storePassword;
+		storePassword = newStorePassword;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_PASSWORD, oldKeyStorePassword, keyStorePassword));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getKeyStoreType() {
-		return keyStoreType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setKeyStoreType(String newKeyStoreType) {
-		String oldKeyStoreType = keyStoreType;
-		keyStoreType = newKeyStoreType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_TYPE, oldKeyStoreType, keyStoreType));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_KEY_STORE_TYPE__STORE_PASSWORD, oldStorePassword, storePassword));
 	}
 
 	/**
@@ -266,16 +266,16 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_MANAGER_ALGORITHM:
-				return getKeyManagerAlgorithm();
+			case CorePackage.TLS_KEY_STORE_TYPE__ALGORITHM:
+				return getAlgorithm();
+			case CorePackage.TLS_KEY_STORE_TYPE__CLASS:
+				return getClass_();
 			case CorePackage.TLS_KEY_STORE_TYPE__KEY_PASSWORD:
 				return getKeyPassword();
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE:
-				return getKeyStore();
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_PASSWORD:
-				return getKeyStorePassword();
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_TYPE:
-				return getKeyStoreType();
+			case CorePackage.TLS_KEY_STORE_TYPE__PATH:
+				return getPath();
+			case CorePackage.TLS_KEY_STORE_TYPE__STORE_PASSWORD:
+				return getStorePassword();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -288,20 +288,20 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_MANAGER_ALGORITHM:
-				setKeyManagerAlgorithm((String)newValue);
+			case CorePackage.TLS_KEY_STORE_TYPE__ALGORITHM:
+				setAlgorithm((String)newValue);
+				return;
+			case CorePackage.TLS_KEY_STORE_TYPE__CLASS:
+				setClass((String)newValue);
 				return;
 			case CorePackage.TLS_KEY_STORE_TYPE__KEY_PASSWORD:
 				setKeyPassword((String)newValue);
 				return;
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE:
-				setKeyStore((String)newValue);
+			case CorePackage.TLS_KEY_STORE_TYPE__PATH:
+				setPath((String)newValue);
 				return;
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_PASSWORD:
-				setKeyStorePassword((String)newValue);
-				return;
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_TYPE:
-				setKeyStoreType((String)newValue);
+			case CorePackage.TLS_KEY_STORE_TYPE__STORE_PASSWORD:
+				setStorePassword((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -315,20 +315,20 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_MANAGER_ALGORITHM:
-				setKeyManagerAlgorithm(KEY_MANAGER_ALGORITHM_EDEFAULT);
+			case CorePackage.TLS_KEY_STORE_TYPE__ALGORITHM:
+				setAlgorithm(ALGORITHM_EDEFAULT);
+				return;
+			case CorePackage.TLS_KEY_STORE_TYPE__CLASS:
+				setClass(CLASS_EDEFAULT);
 				return;
 			case CorePackage.TLS_KEY_STORE_TYPE__KEY_PASSWORD:
 				setKeyPassword(KEY_PASSWORD_EDEFAULT);
 				return;
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE:
-				setKeyStore(KEY_STORE_EDEFAULT);
+			case CorePackage.TLS_KEY_STORE_TYPE__PATH:
+				setPath(PATH_EDEFAULT);
 				return;
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_PASSWORD:
-				setKeyStorePassword(KEY_STORE_PASSWORD_EDEFAULT);
-				return;
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_TYPE:
-				setKeyStoreType(KEY_STORE_TYPE_EDEFAULT);
+			case CorePackage.TLS_KEY_STORE_TYPE__STORE_PASSWORD:
+				setStorePassword(STORE_PASSWORD_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -342,16 +342,16 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_MANAGER_ALGORITHM:
-				return KEY_MANAGER_ALGORITHM_EDEFAULT == null ? keyManagerAlgorithm != null : !KEY_MANAGER_ALGORITHM_EDEFAULT.equals(keyManagerAlgorithm);
+			case CorePackage.TLS_KEY_STORE_TYPE__ALGORITHM:
+				return ALGORITHM_EDEFAULT == null ? algorithm != null : !ALGORITHM_EDEFAULT.equals(algorithm);
+			case CorePackage.TLS_KEY_STORE_TYPE__CLASS:
+				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
 			case CorePackage.TLS_KEY_STORE_TYPE__KEY_PASSWORD:
 				return KEY_PASSWORD_EDEFAULT == null ? keyPassword != null : !KEY_PASSWORD_EDEFAULT.equals(keyPassword);
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE:
-				return KEY_STORE_EDEFAULT == null ? keyStore != null : !KEY_STORE_EDEFAULT.equals(keyStore);
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_PASSWORD:
-				return KEY_STORE_PASSWORD_EDEFAULT == null ? keyStorePassword != null : !KEY_STORE_PASSWORD_EDEFAULT.equals(keyStorePassword);
-			case CorePackage.TLS_KEY_STORE_TYPE__KEY_STORE_TYPE:
-				return KEY_STORE_TYPE_EDEFAULT == null ? keyStoreType != null : !KEY_STORE_TYPE_EDEFAULT.equals(keyStoreType);
+			case CorePackage.TLS_KEY_STORE_TYPE__PATH:
+				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+			case CorePackage.TLS_KEY_STORE_TYPE__STORE_PASSWORD:
+				return STORE_PASSWORD_EDEFAULT == null ? storePassword != null : !STORE_PASSWORD_EDEFAULT.equals(storePassword);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -366,16 +366,16 @@ public class TlsKeyStoreTypeImpl extends EObjectImpl implements TlsKeyStoreType 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (keyManagerAlgorithm: ");
-		result.append(keyManagerAlgorithm);
+		result.append(" (algorithm: ");
+		result.append(algorithm);
+		result.append(", class: ");
+		result.append(class_);
 		result.append(", keyPassword: ");
 		result.append(keyPassword);
-		result.append(", keyStore: ");
-		result.append(keyStore);
-		result.append(", keyStorePassword: ");
-		result.append(keyStorePassword);
-		result.append(", keyStoreType: ");
-		result.append(keyStoreType);
+		result.append(", path: ");
+		result.append(path);
+		result.append(", storePassword: ");
+		result.append(storePassword);
 		result.append(')');
 		return result.toString();
 	}

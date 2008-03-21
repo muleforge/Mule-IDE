@@ -122,29 +122,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.AbstractBindingType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AbstractBindingTypeItemProvider abstractBindingTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.AbstractBindingType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAbstractBindingTypeAdapter() {
-		if (abstractBindingTypeItemProvider == null) {
-			abstractBindingTypeItemProvider = new AbstractBindingTypeItemProvider(this);
-		}
-
-		return abstractBindingTypeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.AbstractCatchAllStrategyType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -257,52 +234,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return abstractConnectorTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.AbstractDefineNotificationType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AbstractDefineNotificationTypeItemProvider abstractDefineNotificationTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.AbstractDefineNotificationType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAbstractDefineNotificationTypeAdapter() {
-		if (abstractDefineNotificationTypeItemProvider == null) {
-			abstractDefineNotificationTypeItemProvider = new AbstractDefineNotificationTypeItemProvider(this);
-		}
-
-		return abstractDefineNotificationTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.AbstractDisableNotificationType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AbstractDisableNotificationTypeItemProvider abstractDisableNotificationTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.AbstractDisableNotificationType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAbstractDisableNotificationTypeAdapter() {
-		if (abstractDisableNotificationTypeItemProvider == null) {
-			abstractDisableNotificationTypeItemProvider = new AbstractDisableNotificationTypeItemProvider(this);
-		}
-
-		return abstractDisableNotificationTypeItemProvider;
 	}
 
 	/**
@@ -487,6 +418,29 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return abstractInboundRouterTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.AbstractLifecycleAdapterFactory} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AbstractLifecycleAdapterFactoryItemProvider abstractLifecycleAdapterFactoryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mule.ide.config.core.AbstractLifecycleAdapterFactory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAbstractLifecycleAdapterFactoryAdapter() {
+		if (abstractLifecycleAdapterFactoryItemProvider == null) {
+			abstractLifecycleAdapterFactoryItemProvider = new AbstractLifecycleAdapterFactoryItemProvider(this);
+		}
+
+		return abstractLifecycleAdapterFactoryItemProvider;
 	}
 
 	/**
@@ -720,29 +674,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.AbstractStorageType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AbstractStorageTypeItemProvider abstractStorageTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.AbstractStorageType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAbstractStorageTypeAdapter() {
-		if (abstractStorageTypeItemProvider == null) {
-			abstractStorageTypeItemProvider = new AbstractStorageTypeItemProvider(this);
-		}
-
-		return abstractStorageTypeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.AbstractTransactionManagerType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -881,29 +812,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.BaseContainerContextType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BaseContainerContextTypeItemProvider baseContainerContextTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.BaseContainerContextType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBaseContainerContextTypeAdapter() {
-		if (baseContainerContextTypeItemProvider == null) {
-			baseContainerContextTypeItemProvider = new BaseContainerContextTypeItemProvider(this);
-		}
-
-		return baseContainerContextTypeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.BaseEntryPointResolverType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -947,6 +855,52 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return baseServiceTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.BaseTransactionType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BaseTransactionTypeItemProvider baseTransactionTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mule.ide.config.core.BaseTransactionType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBaseTransactionTypeAdapter() {
+		if (baseTransactionTypeItemProvider == null) {
+			baseTransactionTypeItemProvider = new BaseTransactionTypeItemProvider(this);
+		}
+
+		return baseTransactionTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.CaseSensitivePatternFilterType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CaseSensitivePatternFilterTypeItemProvider caseSensitivePatternFilterTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mule.ide.config.core.CaseSensitivePatternFilterType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCaseSensitivePatternFilterTypeAdapter() {
+		if (caseSensitivePatternFilterTypeItemProvider == null) {
+			caseSensitivePatternFilterTypeItemProvider = new CaseSensitivePatternFilterTypeItemProvider(this);
+		}
+
+		return caseSensitivePatternFilterTypeItemProvider;
 	}
 
 	/**
@@ -1016,6 +970,29 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return complexEntryPointResolverTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.ConfigurationType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfigurationTypeItemProvider configurationTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mule.ide.config.core.ConfigurationType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfigurationTypeAdapter() {
+		if (configurationTypeItemProvider == null) {
+			configurationTypeItemProvider = new ConfigurationTypeItemProvider(this);
+		}
+
+		return configurationTypeItemProvider;
 	}
 
 	/**
@@ -1154,29 +1131,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return customConnectorTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.CustomContainerContextType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CustomContainerContextTypeItemProvider customContainerContextTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.CustomContainerContextType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCustomContainerContextTypeAdapter() {
-		if (customContainerContextTypeItemProvider == null) {
-			customContainerContextTypeItemProvider = new CustomContainerContextTypeItemProvider(this);
-		}
-
-		return customContainerContextTypeItemProvider;
 	}
 
 	/**
@@ -1364,6 +1318,29 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.CustomLifecycleAdapterFactory} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CustomLifecycleAdapterFactoryItemProvider customLifecycleAdapterFactoryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mule.ide.config.core.CustomLifecycleAdapterFactory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCustomLifecycleAdapterFactoryAdapter() {
+		if (customLifecycleAdapterFactoryItemProvider == null) {
+			customLifecycleAdapterFactoryItemProvider = new CustomLifecycleAdapterFactoryItemProvider(this);
+		}
+
+		return customLifecycleAdapterFactoryItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.CustomOutboundRouterType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1430,6 +1407,29 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return customSecurityProviderTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.CustomServiceType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CustomServiceTypeItemProvider customServiceTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mule.ide.config.core.CustomServiceType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCustomServiceTypeAdapter() {
+		if (customServiceTypeItemProvider == null) {
+			customServiceTypeItemProvider = new CustomServiceTypeItemProvider(this);
+		}
+
+		return customServiceTypeItemProvider;
 	}
 
 	/**
@@ -1525,6 +1525,29 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.DefaultJavaComponentType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DefaultJavaComponentTypeItemProvider defaultJavaComponentTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mule.ide.config.core.DefaultJavaComponentType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDefaultJavaComponentTypeAdapter() {
+		if (defaultJavaComponentTypeItemProvider == null) {
+			defaultJavaComponentTypeItemProvider = new DefaultJavaComponentTypeItemProvider(this);
+		}
+
+		return defaultJavaComponentTypeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.DefaultModelType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1545,29 +1568,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return defaultModelTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.DefaultServiceType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DefaultServiceTypeItemProvider defaultServiceTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.DefaultServiceType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDefaultServiceTypeAdapter() {
-		if (defaultServiceTypeItemProvider == null) {
-			defaultServiceTypeItemProvider = new DefaultServiceTypeItemProvider(this);
-		}
-
-		return defaultServiceTypeItemProvider;
 	}
 
 	/**
@@ -1709,6 +1709,52 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.EncryptionTransformerType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EncryptionTransformerTypeItemProvider encryptionTransformerTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mule.ide.config.core.EncryptionTransformerType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEncryptionTransformerTypeAdapter() {
+		if (encryptionTransformerTypeItemProvider == null) {
+			encryptionTransformerTypeItemProvider = new EncryptionTransformerTypeItemProvider(this);
+		}
+
+		return encryptionTransformerTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.EndpointExceptionStrategyType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EndpointExceptionStrategyTypeItemProvider endpointExceptionStrategyTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mule.ide.config.core.EndpointExceptionStrategyType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEndpointExceptionStrategyTypeAdapter() {
+		if (endpointExceptionStrategyTypeItemProvider == null) {
+			endpointExceptionStrategyTypeItemProvider = new EndpointExceptionStrategyTypeItemProvider(this);
+		}
+
+		return endpointExceptionStrategyTypeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.EndpointSelectorRouterType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1755,26 +1801,26 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.ExceptionStrategyType} instances.
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.ExpressionTransformerType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExceptionStrategyTypeItemProvider exceptionStrategyTypeItemProvider;
+	protected ExpressionTransformerTypeItemProvider expressionTransformerTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.ExceptionStrategyType}.
+	 * This creates an adapter for a {@link org.mule.ide.config.core.ExpressionTransformerType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createExceptionStrategyTypeAdapter() {
-		if (exceptionStrategyTypeItemProvider == null) {
-			exceptionStrategyTypeItemProvider = new ExceptionStrategyTypeItemProvider(this);
+	public Adapter createExpressionTransformerTypeAdapter() {
+		if (expressionTransformerTypeItemProvider == null) {
+			expressionTransformerTypeItemProvider = new ExpressionTransformerTypeItemProvider(this);
 		}
 
-		return exceptionStrategyTypeItemProvider;
+		return expressionTransformerTypeItemProvider;
 	}
 
 	/**
@@ -1870,29 +1916,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.ForwardingRouterType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ForwardingRouterTypeItemProvider forwardingRouterTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.ForwardingRouterType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createForwardingRouterTypeAdapter() {
-		if (forwardingRouterTypeItemProvider == null) {
-			forwardingRouterTypeItemProvider = new ForwardingRouterTypeItemProvider(this);
-		}
-
-		return forwardingRouterTypeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.GenericObjectFactoryType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1936,29 +1959,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return globalEndpointTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.IdempotentReceiverRouterType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IdempotentReceiverRouterTypeItemProvider idempotentReceiverRouterTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.IdempotentReceiverRouterType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIdempotentReceiverRouterTypeAdapter() {
-		if (idempotentReceiverRouterTypeItemProvider == null) {
-			idempotentReceiverRouterTypeItemProvider = new IdempotentReceiverRouterTypeItemProvider(this);
-		}
-
-		return idempotentReceiverRouterTypeItemProvider;
 	}
 
 	/**
@@ -2008,29 +2008,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.IocContainerContextType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IocContainerContextTypeItemProvider iocContainerContextTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.IocContainerContextType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIocContainerContextTypeAdapter() {
-		if (iocContainerContextTypeItemProvider == null) {
-			iocContainerContextTypeItemProvider = new IocContainerContextTypeItemProvider(this);
-		}
-
-		return iocContainerContextTypeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.JndiConnectorType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2074,6 +2051,29 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return jndiTransactionManagerTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.JndiTransactionManagerType1} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JndiTransactionManagerType1ItemProvider jndiTransactionManagerType1ItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mule.ide.config.core.JndiTransactionManagerType1}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJndiTransactionManagerType1Adapter() {
+		if (jndiTransactionManagerType1ItemProvider == null) {
+			jndiTransactionManagerType1ItemProvider = new JndiTransactionManagerType1ItemProvider(this);
+		}
+
+		return jndiTransactionManagerType1ItemProvider;
 	}
 
 	/**
@@ -2166,29 +2166,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return loggingCatchAllStrategyTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.ManagementContextType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ManagementContextTypeItemProvider managementContextTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.ManagementContextType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createManagementContextTypeAdapter() {
-		if (managementContextTypeItemProvider == null) {
-			managementContextTypeItemProvider = new ManagementContextTypeItemProvider(this);
-		}
-
-		return managementContextTypeItemProvider;
 	}
 
 	/**
@@ -2537,49 +2514,26 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.PojoComponentType} instances.
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.PooledJavaComponentType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PojoComponentTypeItemProvider pojoComponentTypeItemProvider;
+	protected PooledJavaComponentTypeItemProvider pooledJavaComponentTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.PojoComponentType}.
+	 * This creates an adapter for a {@link org.mule.ide.config.core.PooledJavaComponentType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPojoComponentTypeAdapter() {
-		if (pojoComponentTypeItemProvider == null) {
-			pojoComponentTypeItemProvider = new PojoComponentTypeItemProvider(this);
+	public Adapter createPooledJavaComponentTypeAdapter() {
+		if (pooledJavaComponentTypeItemProvider == null) {
+			pooledJavaComponentTypeItemProvider = new PooledJavaComponentTypeItemProvider(this);
 		}
 
-		return pojoComponentTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.PooledObjectFactoryType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PooledObjectFactoryTypeItemProvider pooledObjectFactoryTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.PooledObjectFactoryType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPooledObjectFactoryTypeAdapter() {
-		if (pooledObjectFactoryTypeItemProvider == null) {
-			pooledObjectFactoryTypeItemProvider = new PooledObjectFactoryTypeItemProvider(this);
-		}
-
-		return pooledObjectFactoryTypeItemProvider;
+		return pooledJavaComponentTypeItemProvider;
 	}
 
 	/**
@@ -2603,29 +2557,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		}
 
 		return poolingProfileTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.PropertiesContainerContextType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PropertiesContainerContextTypeItemProvider propertiesContainerContextTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.PropertiesContainerContextType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPropertiesContainerContextTypeAdapter() {
-		if (propertiesContainerContextTypeItemProvider == null) {
-			propertiesContainerContextTypeItemProvider = new PropertiesContainerContextTypeItemProvider(this);
-		}
-
-		return propertiesContainerContextTypeItemProvider;
 	}
 
 	/**
@@ -2859,26 +2790,26 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.RmiContainerContextType} instances.
+	 * This keeps track of the one adapter used for all {@link org.mule.ide.config.core.ReturnArgumentType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RmiContainerContextTypeItemProvider rmiContainerContextTypeItemProvider;
+	protected ReturnArgumentTypeItemProvider returnArgumentTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.mule.ide.config.core.RmiContainerContextType}.
+	 * This creates an adapter for a {@link org.mule.ide.config.core.ReturnArgumentType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRmiContainerContextTypeAdapter() {
-		if (rmiContainerContextTypeItemProvider == null) {
-			rmiContainerContextTypeItemProvider = new RmiContainerContextTypeItemProvider(this);
+	public Adapter createReturnArgumentTypeAdapter() {
+		if (returnArgumentTypeItemProvider == null) {
+			returnArgumentTypeItemProvider = new ReturnArgumentTypeItemProvider(this);
 		}
 
-		return rmiContainerContextTypeItemProvider;
+		return returnArgumentTypeItemProvider;
 	}
 
 	/**
@@ -3534,14 +3465,11 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	public void dispose() {
 		if (abstractAgentTypeItemProvider != null) abstractAgentTypeItemProvider.dispose();
 		if (abstractAsyncReplyRouterTypeItemProvider != null) abstractAsyncReplyRouterTypeItemProvider.dispose();
-		if (abstractBindingTypeItemProvider != null) abstractBindingTypeItemProvider.dispose();
 		if (abstractCatchAllStrategyTypeItemProvider != null) abstractCatchAllStrategyTypeItemProvider.dispose();
 		if (abstractComponentThreadingProfileTypeItemProvider != null) abstractComponentThreadingProfileTypeItemProvider.dispose();
 		if (abstractComponentTypeItemProvider != null) abstractComponentTypeItemProvider.dispose();
 		if (abstractConnectionStrategyTypeItemProvider != null) abstractConnectionStrategyTypeItemProvider.dispose();
 		if (abstractConnectorTypeItemProvider != null) abstractConnectorTypeItemProvider.dispose();
-		if (abstractDefineNotificationTypeItemProvider != null) abstractDefineNotificationTypeItemProvider.dispose();
-		if (abstractDisableNotificationTypeItemProvider != null) abstractDisableNotificationTypeItemProvider.dispose();
 		if (abstractEntryPointResolverSetTypeItemProvider != null) abstractEntryPointResolverSetTypeItemProvider.dispose();
 		if (abstractEntryPointResolverTypeItemProvider != null) abstractEntryPointResolverTypeItemProvider.dispose();
 		if (abstractExceptionStrategyTypeItemProvider != null) abstractExceptionStrategyTypeItemProvider.dispose();
@@ -3550,6 +3478,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		if (abstractGlobalEndpointTypeItemProvider != null) abstractGlobalEndpointTypeItemProvider.dispose();
 		if (abstractInboundEndpointTypeItemProvider != null) abstractInboundEndpointTypeItemProvider.dispose();
 		if (abstractInboundRouterTypeItemProvider != null) abstractInboundRouterTypeItemProvider.dispose();
+		if (abstractLifecycleAdapterFactoryItemProvider != null) abstractLifecycleAdapterFactoryItemProvider.dispose();
 		if (abstractModelTypeItemProvider != null) abstractModelTypeItemProvider.dispose();
 		if (abstractObjectFactoryTypeItemProvider != null) abstractObjectFactoryTypeItemProvider.dispose();
 		if (abstractOutboundEndpointTypeItemProvider != null) abstractOutboundEndpointTypeItemProvider.dispose();
@@ -3560,26 +3489,26 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		if (abstractSecurityFilterTypeItemProvider != null) abstractSecurityFilterTypeItemProvider.dispose();
 		if (abstractSecurityManagerTypeItemProvider != null) abstractSecurityManagerTypeItemProvider.dispose();
 		if (abstractServiceTypeItemProvider != null) abstractServiceTypeItemProvider.dispose();
-		if (abstractStorageTypeItemProvider != null) abstractStorageTypeItemProvider.dispose();
 		if (abstractTransactionManagerTypeItemProvider != null) abstractTransactionManagerTypeItemProvider.dispose();
 		if (abstractTransactionTypeItemProvider != null) abstractTransactionTypeItemProvider.dispose();
 		if (abstractTransformerTypeItemProvider != null) abstractTransformerTypeItemProvider.dispose();
 		if (appendStringTransformerTypeItemProvider != null) appendStringTransformerTypeItemProvider.dispose();
 		if (asyncReplyCollectionTypeItemProvider != null) asyncReplyCollectionTypeItemProvider.dispose();
 		if (asyncReplyRouterTypeItemProvider != null) asyncReplyRouterTypeItemProvider.dispose();
-		if (baseContainerContextTypeItemProvider != null) baseContainerContextTypeItemProvider.dispose();
 		if (baseEntryPointResolverTypeItemProvider != null) baseEntryPointResolverTypeItemProvider.dispose();
 		if (baseServiceTypeItemProvider != null) baseServiceTypeItemProvider.dispose();
+		if (baseTransactionTypeItemProvider != null) baseTransactionTypeItemProvider.dispose();
+		if (caseSensitivePatternFilterTypeItemProvider != null) caseSensitivePatternFilterTypeItemProvider.dispose();
 		if (chunkingRouterTypeItemProvider != null) chunkingRouterTypeItemProvider.dispose();
 		if (collectionFilterTypeItemProvider != null) collectionFilterTypeItemProvider.dispose();
 		if (complexEntryPointResolverTypeItemProvider != null) complexEntryPointResolverTypeItemProvider.dispose();
+		if (configurationTypeItemProvider != null) configurationTypeItemProvider.dispose();
 		if (connectionStrategyTypeItemProvider != null) connectionStrategyTypeItemProvider.dispose();
 		if (connectorTypeItemProvider != null) connectorTypeItemProvider.dispose();
 		if (customAsyncReplyRouterTypeItemProvider != null) customAsyncReplyRouterTypeItemProvider.dispose();
 		if (customCatchAllStrategyTypeItemProvider != null) customCatchAllStrategyTypeItemProvider.dispose();
 		if (customConnectionStrategyTypeItemProvider != null) customConnectionStrategyTypeItemProvider.dispose();
 		if (customConnectorTypeItemProvider != null) customConnectorTypeItemProvider.dispose();
-		if (customContainerContextTypeItemProvider != null) customContainerContextTypeItemProvider.dispose();
 		if (customCorrelationAggregatorRouterTypeItemProvider != null) customCorrelationAggregatorRouterTypeItemProvider.dispose();
 		if (customEncryptionStrategyTypeItemProvider != null) customEncryptionStrategyTypeItemProvider.dispose();
 		if (customEntryPointResolverSetTypeItemProvider != null) customEntryPointResolverSetTypeItemProvider.dispose();
@@ -3588,42 +3517,43 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		if (customFilterTypeItemProvider != null) customFilterTypeItemProvider.dispose();
 		if (customForwardingCatchAllStrategyTypeItemProvider != null) customForwardingCatchAllStrategyTypeItemProvider.dispose();
 		if (customInboundRouterTypeItemProvider != null) customInboundRouterTypeItemProvider.dispose();
+		if (customLifecycleAdapterFactoryItemProvider != null) customLifecycleAdapterFactoryItemProvider.dispose();
 		if (customOutboundRouterTypeItemProvider != null) customOutboundRouterTypeItemProvider.dispose();
 		if (customPropertyExtractorTypeItemProvider != null) customPropertyExtractorTypeItemProvider.dispose();
 		if (customSecurityProviderTypeItemProvider != null) customSecurityProviderTypeItemProvider.dispose();
+		if (customServiceTypeItemProvider != null) customServiceTypeItemProvider.dispose();
 		if (customTransactionManagerTypeItemProvider != null) customTransactionManagerTypeItemProvider.dispose();
 		if (customTransactionTypeItemProvider != null) customTransactionTypeItemProvider.dispose();
 		if (customTransformerTypeItemProvider != null) customTransformerTypeItemProvider.dispose();
 		if (defaultComponentTypeItemProvider != null) defaultComponentTypeItemProvider.dispose();
+		if (defaultJavaComponentTypeItemProvider != null) defaultJavaComponentTypeItemProvider.dispose();
 		if (defaultModelTypeItemProvider != null) defaultModelTypeItemProvider.dispose();
-		if (defaultServiceTypeItemProvider != null) defaultServiceTypeItemProvider.dispose();
 		if (defineNotificationTypeItemProvider != null) defineNotificationTypeItemProvider.dispose();
 		if (descriptionTypeItemProvider != null) descriptionTypeItemProvider.dispose();
 		if (disableNotificationTypeItemProvider != null) disableNotificationTypeItemProvider.dispose();
 		if (documentRootItemProvider != null) documentRootItemProvider.dispose();
 		if (encryptionSecurityFilterTypeItemProvider != null) encryptionSecurityFilterTypeItemProvider.dispose();
 		if (encryptionStrategyTypeItemProvider != null) encryptionStrategyTypeItemProvider.dispose();
+		if (encryptionTransformerTypeItemProvider != null) encryptionTransformerTypeItemProvider.dispose();
+		if (endpointExceptionStrategyTypeItemProvider != null) endpointExceptionStrategyTypeItemProvider.dispose();
 		if (endpointSelectorRouterTypeItemProvider != null) endpointSelectorRouterTypeItemProvider.dispose();
 		if (environmentPropertyTypeItemProvider != null) environmentPropertyTypeItemProvider.dispose();
-		if (exceptionStrategyTypeItemProvider != null) exceptionStrategyTypeItemProvider.dispose();
+		if (expressionTransformerTypeItemProvider != null) expressionTransformerTypeItemProvider.dispose();
 		if (extensibleEntryPointResolverSetItemProvider != null) extensibleEntryPointResolverSetItemProvider.dispose();
 		if (filteredInboundRouterTypeItemProvider != null) filteredInboundRouterTypeItemProvider.dispose();
 		if (filteringOutboundRouterTypeItemProvider != null) filteringOutboundRouterTypeItemProvider.dispose();
 		if (forwardingCatchAllStrategyTypeItemProvider != null) forwardingCatchAllStrategyTypeItemProvider.dispose();
-		if (forwardingRouterTypeItemProvider != null) forwardingRouterTypeItemProvider.dispose();
 		if (genericObjectFactoryTypeItemProvider != null) genericObjectFactoryTypeItemProvider.dispose();
 		if (globalEndpointTypeItemProvider != null) globalEndpointTypeItemProvider.dispose();
-		if (idempotentReceiverRouterTypeItemProvider != null) idempotentReceiverRouterTypeItemProvider.dispose();
 		if (inboundCollectionTypeItemProvider != null) inboundCollectionTypeItemProvider.dispose();
 		if (inboundEndpointTypeItemProvider != null) inboundEndpointTypeItemProvider.dispose();
-		if (iocContainerContextTypeItemProvider != null) iocContainerContextTypeItemProvider.dispose();
 		if (jndiConnectorTypeItemProvider != null) jndiConnectorTypeItemProvider.dispose();
 		if (jndiTransactionManagerTypeItemProvider != null) jndiTransactionManagerTypeItemProvider.dispose();
+		if (jndiTransactionManagerType1ItemProvider != null) jndiTransactionManagerType1ItemProvider.dispose();
 		if (keyTypeItemProvider != null) keyTypeItemProvider.dispose();
 		if (keyValueTypeItemProvider != null) keyValueTypeItemProvider.dispose();
 		if (listOrSetTypeItemProvider != null) listOrSetTypeItemProvider.dispose();
 		if (loggingCatchAllStrategyTypeItemProvider != null) loggingCatchAllStrategyTypeItemProvider.dispose();
-		if (managementContextTypeItemProvider != null) managementContextTypeItemProvider.dispose();
 		if (mapTypeItemProvider != null) mapTypeItemProvider.dispose();
 		if (messageChunkingAggregatorRouterTypeItemProvider != null) messageChunkingAggregatorRouterTypeItemProvider.dispose();
 		if (messagePropertiesTransformerTypeItemProvider != null) messagePropertiesTransformerTypeItemProvider.dispose();
@@ -3639,10 +3569,8 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		if (passwordEncryptionStrategyTypeItemProvider != null) passwordEncryptionStrategyTypeItemProvider.dispose();
 		if (patternFilterTypeItemProvider != null) patternFilterTypeItemProvider.dispose();
 		if (pojoBindingTypeItemProvider != null) pojoBindingTypeItemProvider.dispose();
-		if (pojoComponentTypeItemProvider != null) pojoComponentTypeItemProvider.dispose();
-		if (pooledObjectFactoryTypeItemProvider != null) pooledObjectFactoryTypeItemProvider.dispose();
+		if (pooledJavaComponentTypeItemProvider != null) pooledJavaComponentTypeItemProvider.dispose();
 		if (poolingProfileTypeItemProvider != null) poolingProfileTypeItemProvider.dispose();
-		if (propertiesContainerContextTypeItemProvider != null) propertiesContainerContextTypeItemProvider.dispose();
 		if (propertyEntryPointResolverTypeItemProvider != null) propertyEntryPointResolverTypeItemProvider.dispose();
 		if (prototypeObjectFactoryTypeItemProvider != null) prototypeObjectFactoryTypeItemProvider.dispose();
 		if (queueProfileTypeItemProvider != null) queueProfileTypeItemProvider.dispose();
@@ -3653,7 +3581,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		if (replyToTypeItemProvider != null) replyToTypeItemProvider.dispose();
 		if (responseTransformersTypeItemProvider != null) responseTransformersTypeItemProvider.dispose();
 		if (retryConnectionStrategyTypeItemProvider != null) retryConnectionStrategyTypeItemProvider.dispose();
-		if (rmiContainerContextTypeItemProvider != null) rmiContainerContextTypeItemProvider.dispose();
+		if (returnArgumentTypeItemProvider != null) returnArgumentTypeItemProvider.dispose();
 		if (secretKeyEncryptionStrategyTypeItemProvider != null) secretKeyEncryptionStrategyTypeItemProvider.dispose();
 		if (securityManagerTypeItemProvider != null) securityManagerTypeItemProvider.dispose();
 		if (securityProviderTypeItemProvider != null) securityProviderTypeItemProvider.dispose();

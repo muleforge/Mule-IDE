@@ -25,23 +25,31 @@ import org.mule.ide.config.core.MapType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.JndiTransactionManagerTypeImpl#getEnvironment <em>Environment</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.JndiTransactionManagerTypeImpl#getJndiName <em>Jndi Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class JndiTransactionManagerTypeImpl extends AbstractTransactionManagerTypeImpl implements JndiTransactionManagerType {
+public class JndiTransactionManagerTypeImpl extends JndiTransactionManagerType1Impl implements JndiTransactionManagerType {
 	/**
-	 * The cached value of the '{@link #getEnvironment() <em>Environment</em>}' containment reference.
+	 * The default value of the '{@link #getJndiName() <em>Jndi Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEnvironment()
+	 * @see #getJndiName()
 	 * @generated
 	 * @ordered
 	 */
-	protected MapType environment;
-
+	protected static final String JNDI_NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getJndiName() <em>Jndi Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJndiName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String jndiName = JNDI_NAME_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,8 +74,8 @@ public class JndiTransactionManagerTypeImpl extends AbstractTransactionManagerTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MapType getEnvironment() {
-		return environment;
+	public String getJndiName() {
+		return jndiName;
 	}
 
 	/**
@@ -75,47 +83,11 @@ public class JndiTransactionManagerTypeImpl extends AbstractTransactionManagerTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEnvironment(MapType newEnvironment, NotificationChain msgs) {
-		MapType oldEnvironment = environment;
-		environment = newEnvironment;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__ENVIRONMENT, oldEnvironment, newEnvironment);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEnvironment(MapType newEnvironment) {
-		if (newEnvironment != environment) {
-			NotificationChain msgs = null;
-			if (environment != null)
-				msgs = ((InternalEObject)environment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__ENVIRONMENT, null, msgs);
-			if (newEnvironment != null)
-				msgs = ((InternalEObject)newEnvironment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__ENVIRONMENT, null, msgs);
-			msgs = basicSetEnvironment(newEnvironment, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__ENVIRONMENT, newEnvironment, newEnvironment));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__ENVIRONMENT:
-				return basicSetEnvironment(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setJndiName(String newJndiName) {
+		String oldJndiName = jndiName;
+		jndiName = newJndiName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__JNDI_NAME, oldJndiName, jndiName));
 	}
 
 	/**
@@ -126,8 +98,8 @@ public class JndiTransactionManagerTypeImpl extends AbstractTransactionManagerTy
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__ENVIRONMENT:
-				return getEnvironment();
+			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__JNDI_NAME:
+				return getJndiName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -140,8 +112,8 @@ public class JndiTransactionManagerTypeImpl extends AbstractTransactionManagerTy
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__ENVIRONMENT:
-				setEnvironment((MapType)newValue);
+			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__JNDI_NAME:
+				setJndiName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -155,8 +127,8 @@ public class JndiTransactionManagerTypeImpl extends AbstractTransactionManagerTy
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__ENVIRONMENT:
-				setEnvironment((MapType)null);
+			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__JNDI_NAME:
+				setJndiName(JNDI_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -170,10 +142,26 @@ public class JndiTransactionManagerTypeImpl extends AbstractTransactionManagerTy
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__ENVIRONMENT:
-				return environment != null;
+			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__JNDI_NAME:
+				return JNDI_NAME_EDEFAULT == null ? jndiName != null : !JNDI_NAME_EDEFAULT.equals(jndiName);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (jndiName: ");
+		result.append(jndiName);
+		result.append(')');
+		return result.toString();
 	}
 
 } //JndiTransactionManagerTypeImpl

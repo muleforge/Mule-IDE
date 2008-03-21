@@ -37,6 +37,13 @@ public interface ExtensibleEntryPointResolverSet extends AbstractEntryPointResol
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an entry point resolver element.
+	 *                 Entry point resolvers define how payloads are delivered to Java code
+	 *                 (ie they choose the method to call).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getExtensibleEntryPointResolverSet_AbstractEntryPointResolverGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -54,6 +61,13 @@ public interface ExtensibleEntryPointResolverSet extends AbstractEntryPointResol
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an entry point resolver element.
+	 *                 Entry point resolvers define how payloads are delivered to Java code
+	 *                 (ie they choose the method to call).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getExtensibleEntryPointResolverSet_AbstractEntryPointResolver()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"

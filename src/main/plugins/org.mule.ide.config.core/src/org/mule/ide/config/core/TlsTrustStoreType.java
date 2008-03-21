@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.TlsTrustStoreType#getTrustStore <em>Trust Store</em>}</li>
- *   <li>{@link org.mule.ide.config.core.TlsTrustStoreType#getTrustStorePassword <em>Trust Store Password</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsTrustStoreType#getPath <em>Path</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsTrustStoreType#getStorePassword <em>Store Password</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TlsTrustStoreType extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Trust Store</b></em>' attribute.
+	 * Returns the value of the '<em><b>Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -45,27 +45,27 @@ public interface TlsTrustStoreType extends EObject {
 	 *                     possible) of the keystore that contains public certificates of trusted servers.
 	 *                 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Trust Store</em>' attribute.
-	 * @see #setTrustStore(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsTrustStoreType_TrustStore()
+	 * @return the value of the '<em>Path</em>' attribute.
+	 * @see #setPath(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsTrustStoreType_Path()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='trustStore'"
+	 *        extendedMetaData="kind='attribute' name='path'"
 	 * @generated
 	 */
-	String getTrustStore();
+	String getPath();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsTrustStoreType#getTrustStore <em>Trust Store</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsTrustStoreType#getPath <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trust Store</em>' attribute.
-	 * @see #getTrustStore()
+	 * @param value the new value of the '<em>Path</em>' attribute.
+	 * @see #getPath()
 	 * @generated
 	 */
-	void setTrustStore(String value);
+	void setPath(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Trust Store Password</b></em>' attribute.
+	 * Returns the value of the '<em><b>Store Password</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -73,23 +73,23 @@ public interface TlsTrustStoreType extends EObject {
 	 *                     The password used to protected the trust store.
 	 *                 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Trust Store Password</em>' attribute.
-	 * @see #setTrustStorePassword(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsTrustStoreType_TrustStorePassword()
+	 * @return the value of the '<em>Store Password</em>' attribute.
+	 * @see #setStorePassword(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsTrustStoreType_StorePassword()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='trustStorePassword'"
+	 *        extendedMetaData="kind='attribute' name='storePassword'"
 	 * @generated
 	 */
-	String getTrustStorePassword();
+	String getStorePassword();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsTrustStoreType#getTrustStorePassword <em>Trust Store Password</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsTrustStoreType#getStorePassword <em>Store Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trust Store Password</em>' attribute.
-	 * @see #getTrustStorePassword()
+	 * @param value the new value of the '<em>Store Password</em>' attribute.
+	 * @see #getStorePassword()
 	 * @generated
 	 */
-	void setTrustStorePassword(String value);
+	void setStorePassword(String value);
 
 } // TlsTrustStoreType

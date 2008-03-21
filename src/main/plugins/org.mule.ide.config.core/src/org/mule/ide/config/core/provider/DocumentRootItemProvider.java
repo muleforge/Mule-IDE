@@ -88,14 +88,11 @@ public class DocumentRootItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractAsyncReplyRouter());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractBinding());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractCatchAllStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractComponent());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractComponentThreadingProfile());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractConnectionStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractConnector());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractDefineNotification());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractDisableNotification());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractEntryPointResolver());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractEntryPointResolverSet());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractExceptionStrategy());
@@ -104,6 +101,7 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractGlobalEndpoint());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractInboundEndpoint());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractInboundRouter());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractLifecycleAdapterFactory());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractModel());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractObjectFactory());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractOutboundEndpoint());
@@ -114,7 +112,6 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractSecurityFilter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractSecurityManager());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractService());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractStorage());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractTransaction());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractTransactionManager());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractTransformer());
@@ -123,7 +120,6 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ArrayEntryPointResolver());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer());
@@ -139,7 +135,6 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomCatchAllStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomConnectionStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomConnector());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomContainer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomCorrelationAggregatorRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolver());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolverSet());
@@ -147,18 +142,17 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomFilter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomForwardingCatchAllStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomInboundRouter());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomLifecycleAdapterFactory());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomOutboundRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomService());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomTransaction());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomTransactionManager());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Description());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_DisableNotification());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_EchoComponent());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_EjbContainer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_EncryptionSecurityFilter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Endpoint());
@@ -166,21 +160,21 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_EntryPointResolverSet());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ExceptionBasedRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ExpressionTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Filter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_FilteringRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ForwardingCatchAllStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_HivemindContainer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_InboundEndpoint());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_IncludeEntryPoint());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_JbossTransactionManager());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_JndiContainer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_JndiTransactionManager());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_JrunTransactionManager());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_LegacyEntryPointResolverSet());
@@ -200,22 +194,16 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_NoArgumentsEntryPointResolver());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_NotFilter());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Notification());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_NullComponent());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_OrFilter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_OutboundEndpoint());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_OutboundPassThroughRouter());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_PayloadTypeFilter());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_PicoContainer());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_PlexusContainer());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_PooledObject());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_PooledComponent());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_PoolingProfile());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Properties());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_PropertiesContainer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_PropertyEntryPointResolver());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_PrototypeObject());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_QueueProfile());
@@ -223,7 +211,6 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ResinTransactionManager());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_RetryConnectionStrategy());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_RmiContainer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_SecurityManager());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_SedaModel());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_SelectiveConsumerRouter());
@@ -236,10 +223,6 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_TemplateEndpointRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Transformer());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_WeblogicTransactionManager());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_WebsphereTransactionManager());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter());
@@ -287,14 +270,11 @@ public class DocumentRootItemProvider
 
 		switch (notification.getFeatureID(DocumentRoot.class)) {
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ASYNC_REPLY_ROUTER:
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_BINDING:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CATCH_ALL_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT_THREADING_PROFILE:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTION_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTOR:
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_DEFINE_NOTIFICATION:
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_DISABLE_NOTIFICATION:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER_SET:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_EXCEPTION_STRATEGY:
@@ -303,6 +283,7 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_GLOBAL_ENDPOINT:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_INBOUND_ENDPOINT:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_INBOUND_ROUTER:
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_LIFECYCLE_ADAPTER_FACTORY:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_MODEL:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_OBJECT_FACTORY:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_OUTBOUND_ENDPOINT:
@@ -313,7 +294,6 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_SECURITY_FILTER:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_SECURITY_MANAGER:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_SERVICE:
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_STORAGE:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSACTION:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSACTION_MANAGER:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_TRANSFORMER:
@@ -322,7 +302,6 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__ARRAY_ENTRY_POINT_RESOLVER:
 			case CorePackage.DOCUMENT_ROOT__BASE64_DECODER_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__BASE64_ENCODER_TRANSFORMER:
-			case CorePackage.DOCUMENT_ROOT__BEAN_PROPERTY_EXTRACTOR:
 			case CorePackage.DOCUMENT_ROOT__BRIDGE_COMPONENT:
 			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_HEX_STRING_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_OBJECT_TRANSFORMER:
@@ -338,7 +317,6 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CATCH_ALL_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTION_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTOR:
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONTAINER:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CORRELATION_AGGREGATOR_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER_SET:
@@ -346,18 +324,17 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_FILTER:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_FORWARDING_CATCH_ALL_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_INBOUND_ROUTER:
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_LIFECYCLE_ADAPTER_FACTORY:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_OUTBOUND_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_SERVICE:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_MANAGER:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__DECRYPT_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__DEFAULT_CONNECTOR_EXCEPTION_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__DEFAULT_SERVICE_EXCEPTION_STRATEGY:
-			case CorePackage.DOCUMENT_ROOT__DESCRIPTION:
-			case CorePackage.DOCUMENT_ROOT__DISABLE_NOTIFICATION:
 			case CorePackage.DOCUMENT_ROOT__ECHO_COMPONENT:
-			case CorePackage.DOCUMENT_ROOT__EJB_CONTAINER:
 			case CorePackage.DOCUMENT_ROOT__ENCRYPTION_SECURITY_FILTER:
 			case CorePackage.DOCUMENT_ROOT__ENCRYPT_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__ENDPOINT:
@@ -365,21 +342,21 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__ENTRY_POINT_RESOLVER_SET:
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_BASED_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_TYPE_FILTER:
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__FILTER:
 			case CorePackage.DOCUMENT_ROOT__FILTERING_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_CATCH_ALL_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
+			case CorePackage.DOCUMENT_ROOT__FUNCTION_PROPERTY_EXTRACTOR:
 			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__GZIP_UNCOMPRESS_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__HEX_STRING_TO_BYTE_ARRAY_TRANSFORMER:
-			case CorePackage.DOCUMENT_ROOT__HIVEMIND_CONTAINER:
 			case CorePackage.DOCUMENT_ROOT__IDEMPOTENT_RECEIVER_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__IDEMPOTENT_SECURE_HASH_RECEIVER_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__INBOUND_ENDPOINT:
 			case CorePackage.DOCUMENT_ROOT__INBOUND_PASS_THROUGH_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__INCLUDE_ENTRY_POINT:
 			case CorePackage.DOCUMENT_ROOT__JBOSS_TRANSACTION_MANAGER:
-			case CorePackage.DOCUMENT_ROOT__JNDI_CONTAINER:
 			case CorePackage.DOCUMENT_ROOT__JNDI_TRANSACTION_MANAGER:
 			case CorePackage.DOCUMENT_ROOT__JRUN_TRANSACTION_MANAGER:
 			case CorePackage.DOCUMENT_ROOT__LEGACY_ENTRY_POINT_RESOLVER_SET:
@@ -399,22 +376,16 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__NO_ACTION_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__NO_ARGUMENTS_ENTRY_POINT_RESOLVER:
 			case CorePackage.DOCUMENT_ROOT__NOT_FILTER:
-			case CorePackage.DOCUMENT_ROOT__NOTIFICATION:
 			case CorePackage.DOCUMENT_ROOT__NULL_COMPONENT:
 			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_BYTE_ARRAY_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__OBJECT_TO_STRING_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__OR_FILTER:
 			case CorePackage.DOCUMENT_ROOT__OUTBOUND_ENDPOINT:
 			case CorePackage.DOCUMENT_ROOT__OUTBOUND_PASS_THROUGH_ROUTER:
-			case CorePackage.DOCUMENT_ROOT__PASS_THROUGH_COMPONENT:
-			case CorePackage.DOCUMENT_ROOT__PAYLOAD_PROPERTY_EXTRACTOR:
 			case CorePackage.DOCUMENT_ROOT__PAYLOAD_TYPE_FILTER:
-			case CorePackage.DOCUMENT_ROOT__PICO_CONTAINER:
-			case CorePackage.DOCUMENT_ROOT__PLEXUS_CONTAINER:
-			case CorePackage.DOCUMENT_ROOT__POOLED_OBJECT:
+			case CorePackage.DOCUMENT_ROOT__POOLED_COMPONENT:
 			case CorePackage.DOCUMENT_ROOT__POOLING_PROFILE:
 			case CorePackage.DOCUMENT_ROOT__PROPERTIES:
-			case CorePackage.DOCUMENT_ROOT__PROPERTIES_CONTAINER:
 			case CorePackage.DOCUMENT_ROOT__PROPERTY_ENTRY_POINT_RESOLVER:
 			case CorePackage.DOCUMENT_ROOT__PROTOTYPE_OBJECT:
 			case CorePackage.DOCUMENT_ROOT__QUEUE_PROFILE:
@@ -422,7 +393,6 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__REGEX_FILTER:
 			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
 			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
-			case CorePackage.DOCUMENT_ROOT__RMI_CONTAINER:
 			case CorePackage.DOCUMENT_ROOT__SECURITY_MANAGER:
 			case CorePackage.DOCUMENT_ROOT__SEDA_MODEL:
 			case CorePackage.DOCUMENT_ROOT__SELECTIVE_CONSUMER_ROUTER:
@@ -435,10 +405,6 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__STRING_TO_BYTE_ARRAY_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__TEMPLATE_ENDPOINT_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__TRANSFORMER:
-			case CorePackage.DOCUMENT_ROOT__UC_DECODER_TRANSFORMER:
-			case CorePackage.DOCUMENT_ROOT__UC_ENCODER_TRANSFORMER:
-			case CorePackage.DOCUMENT_ROOT__UU_DECODER_TRANSFORMER:
-			case CorePackage.DOCUMENT_ROOT__UU_ENCODER_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__WEBLOGIC_TRANSACTION_MANAGER:
 			case CorePackage.DOCUMENT_ROOT__WEBSPHERE_TRANSACTION_MANAGER:
 			case CorePackage.DOCUMENT_ROOT__WILDCARD_FILTER:
@@ -490,6 +456,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer(),
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
 
 		newChildDescriptors.add
@@ -510,17 +481,17 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(),
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(),
 				 CoreFactory.eINSTANCE.createRefTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -540,6 +511,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer(),
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
 
 		newChildDescriptors.add
@@ -560,6 +536,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer(),
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
 
 		newChildDescriptors.add
@@ -580,6 +561,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer(),
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
 
 		newChildDescriptors.add
@@ -596,6 +582,11 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer(),
 				 CoreFactory.eINSTANCE.createCustomTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -675,7 +666,12 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_Component(),
-				 CoreFactory.eINSTANCE.createPojoComponentType()));
+				 CoreFactory.eINSTANCE.createDefaultJavaComponentType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_Component(),
+				 CoreFactory.eINSTANCE.createPooledJavaComponentType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -686,6 +682,11 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
 				 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -711,11 +712,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_CustomConnector(),
 				 CoreFactory.eINSTANCE.createCustomConnectorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_CustomContainer(),
-				 CoreFactory.eINSTANCE.createCustomContainerContextType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -754,6 +750,11 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_CustomLifecycleAdapterFactory(),
+				 CoreFactory.eINSTANCE.createCustomLifecycleAdapterFactory()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_CustomOutboundRouter(),
 				 CoreFactory.eINSTANCE.createCustomOutboundRouterType()));
 
@@ -761,6 +762,11 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
 				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_CustomService(),
+				 CoreFactory.eINSTANCE.createCustomServiceType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -780,27 +786,12 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-				 CoreFactory.eINSTANCE.createAbstractTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-				 CoreFactory.eINSTANCE.createCustomTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-				 CoreFactory.eINSTANCE.createRefTransformerType()));
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy(),
-				 CoreFactory.eINSTANCE.createExceptionStrategyType()));
+				 CoreFactory.eINSTANCE.createEndpointExceptionStrategyType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -810,32 +801,17 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy(),
-				 CoreFactory.eINSTANCE.createExceptionStrategyType()));
+				 CoreFactory.eINSTANCE.createEndpointExceptionStrategyType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy(),
 				 CoreFactory.eINSTANCE.createCustomExceptionStrategyType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_Description(),
-				 CoreFactory.eINSTANCE.createDescriptionType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_DisableNotification(),
-				 CoreFactory.eINSTANCE.createDisableNotificationType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_EchoComponent(),
 				 CoreFactory.eINSTANCE.createDefaultComponentType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_EjbContainer(),
-				 CoreFactory.eINSTANCE.createRmiContainerContextType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -845,22 +821,7 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-				 CoreFactory.eINSTANCE.createAbstractTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-				 CoreFactory.eINSTANCE.createCustomTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-				 CoreFactory.eINSTANCE.createRefTransformerType()));
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -914,6 +875,11 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_ExpressionTransformer(),
+				 CoreFactory.eINSTANCE.createExpressionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_Filter(),
 				 CoreFactory.eINSTANCE.createRefFilterType()));
 
@@ -960,7 +926,17 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter(),
-				 CoreFactory.eINSTANCE.createForwardingRouterType()));
+				 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -971,6 +947,11 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer(),
 				 CoreFactory.eINSTANCE.createCustomTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -995,6 +976,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer(),
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
 
 		newChildDescriptors.add
@@ -1015,22 +1001,47 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(),
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(),
 				 CoreFactory.eINSTANCE.createRefTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_HivemindContainer(),
-				 CoreFactory.eINSTANCE.createIocContainerContextType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
-				 CoreFactory.eINSTANCE.createIdempotentReceiverRouterType()));
+				 CoreFactory.eINSTANCE.createFilteredInboundRouterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
+				 CoreFactory.eINSTANCE.createMessageChunkingAggregatorRouterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
+				 CoreFactory.eINSTANCE.createCustomCorrelationAggregatorRouterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
+				 CoreFactory.eINSTANCE.createCustomInboundRouterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
+				 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
+				 CoreFactory.eINSTANCE.createWireTapRouterType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1051,16 +1062,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
 				 CoreFactory.eINSTANCE.createCustomInboundRouterType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
-				 CoreFactory.eINSTANCE.createForwardingRouterType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
-				 CoreFactory.eINSTANCE.createIdempotentReceiverRouterType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1100,16 +1101,6 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
-				 CoreFactory.eINSTANCE.createForwardingRouterType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
-				 CoreFactory.eINSTANCE.createIdempotentReceiverRouterType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
 				 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType()));
 
 		newChildDescriptors.add
@@ -1129,33 +1120,8 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_JndiContainer(),
-				 CoreFactory.eINSTANCE.createBaseContainerContextType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_JndiContainer(),
-				 CoreFactory.eINSTANCE.createCustomContainerContextType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_JndiContainer(),
-				 CoreFactory.eINSTANCE.createIocContainerContextType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_JndiContainer(),
-				 CoreFactory.eINSTANCE.createPropertiesContainerContextType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_JndiContainer(),
-				 CoreFactory.eINSTANCE.createRmiContainerContextType()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_JndiTransactionManager(),
-				 CoreFactory.eINSTANCE.createTransactionManagerType()));
+				 CoreFactory.eINSTANCE.createJndiTransactionManagerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1189,6 +1155,11 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(),
+				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter(),
 				 CoreFactory.eINSTANCE.createMessageChunkingAggregatorRouterType()));
 
@@ -1214,13 +1185,13 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter(),
-				 CoreFactory.eINSTANCE.createPatternFilterType()));
+				(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
+				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter(),
-				 CoreFactory.eINSTANCE.createWildcardFilterType()));
+				 CoreFactory.eINSTANCE.createCaseSensitivePatternFilterType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1280,6 +1251,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer(),
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
 
 		newChildDescriptors.add
@@ -1299,11 +1275,6 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_Notification(),
-				 CoreFactory.eINSTANCE.createDefineNotificationType()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_NullComponent(),
 				 CoreFactory.eINSTANCE.createDefaultComponentType()));
 
@@ -1316,6 +1287,11 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer(),
 				 CoreFactory.eINSTANCE.createCustomTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1336,6 +1312,11 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer(),
 				 CoreFactory.eINSTANCE.createCustomTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1394,33 +1375,13 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent(),
-				 CoreFactory.eINSTANCE.createDefaultComponentType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_PayloadTypeFilter(),
 				 CoreFactory.eINSTANCE.createTypeFilterType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_PicoContainer(),
-				 CoreFactory.eINSTANCE.createIocContainerContextType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_PlexusContainer(),
-				 CoreFactory.eINSTANCE.createIocContainerContextType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_PooledObject(),
-				 CoreFactory.eINSTANCE.createPooledObjectFactoryType()));
+				(CorePackage.eINSTANCE.getDocumentRoot_PooledComponent(),
+				 CoreFactory.eINSTANCE.createPooledJavaComponentType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1431,11 +1392,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_Properties(),
 				 CoreFactory.eINSTANCE.createMapType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_PropertiesContainer(),
-				 CoreFactory.eINSTANCE.createPropertiesContainerContextType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1470,6 +1426,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(),
+				 CoreFactory.eINSTANCE.createCaseSensitivePatternFilterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(),
 				 CoreFactory.eINSTANCE.createWildcardFilterType()));
 
 		newChildDescriptors.add
@@ -1481,11 +1442,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_RetryConnectionStrategy(),
 				 CoreFactory.eINSTANCE.createRetryConnectionStrategyType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_RmiContainer(),
-				 CoreFactory.eINSTANCE.createRmiContainerContextType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1520,6 +1476,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer(),
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
 
 		newChildDescriptors.add
@@ -1531,11 +1492,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_Service(),
 				 CoreFactory.eINSTANCE.createSedaServiceType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_Service(),
-				 CoreFactory.eINSTANCE.createDefaultServiceType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1571,6 +1527,11 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer(),
 				 CoreFactory.eINSTANCE.createCustomTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1619,88 +1580,8 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-				 CoreFactory.eINSTANCE.createAbstractTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-				 CoreFactory.eINSTANCE.createCustomTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-				 CoreFactory.eINSTANCE.createRefTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-				 CoreFactory.eINSTANCE.createAbstractTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-				 CoreFactory.eINSTANCE.createCustomTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-				 CoreFactory.eINSTANCE.createRefTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-				 CoreFactory.eINSTANCE.createAbstractTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-				 CoreFactory.eINSTANCE.createCustomTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-				 CoreFactory.eINSTANCE.createRefTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-				 CoreFactory.eINSTANCE.createAbstractTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-				 CoreFactory.eINSTANCE.createCustomTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-				 CoreFactory.eINSTANCE.createRefTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_WeblogicTransactionManager(),
-				 CoreFactory.eINSTANCE.createJndiTransactionManagerType()));
+				 CoreFactory.eINSTANCE.createJndiTransactionManagerType1()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1735,6 +1616,11 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(),
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
 
 		newChildDescriptors.add
@@ -1751,6 +1637,11 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer(),
 				 CoreFactory.eINSTANCE.createCustomTransformerType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer(),
+				 CoreFactory.eINSTANCE.createEncryptionTransformerType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1787,8 +1678,6 @@ public class DocumentRootItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer() ||
@@ -1797,25 +1686,17 @@ public class DocumentRootItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BridgeComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EchoComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_LogComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NullComponent() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolver() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MethodEntryPointResolver() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PropertyEntryPointResolver() ||
@@ -1830,14 +1711,21 @@ public class DocumentRootItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EndpointSelectorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ListMessageSplitterRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_StaticRecipientListRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Component() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PooledComponent() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SelectiveConsumerRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomAsyncReplyRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SingleAsyncReplyRouter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomContainer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_JndiContainer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomCorrelationAggregatorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomExceptionStrategy() ||
@@ -1848,29 +1736,20 @@ public class DocumentRootItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomInboundRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransactionManager() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WeblogicTransactionManager() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EjbContainer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RmiContainer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EntryPointResolverSet() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_LegacyEntryPointResolverSet() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadTypeFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_HivemindContainer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PicoContainer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PlexusContainer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WireTapRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_JbossTransactionManager() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_JndiTransactionManager() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_JrunTransactionManager() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ResinTransactionManager() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WebsphereTransactionManager() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PropertiesContainer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Model() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SedaModel();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SedaModel() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter();
 
 		if (qualify) {
 			return getString

@@ -87,7 +87,7 @@ public class QueueProfileTypeItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -122,10 +122,8 @@ public class QueueProfileTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((QueueProfileType)object).getMaxOutstandingMessages();
-		return label == null || label.length() == 0 ?
-			getString("_UI_QueueProfileType_type") :
-			getString("_UI_QueueProfileType_type") + " " + label;
+		QueueProfileType queueProfileType = (QueueProfileType)object;
+		return getString("_UI_QueueProfileType_type") + " " + queueProfileType.getMaxOutstandingMessages();
 	}
 
 	/**

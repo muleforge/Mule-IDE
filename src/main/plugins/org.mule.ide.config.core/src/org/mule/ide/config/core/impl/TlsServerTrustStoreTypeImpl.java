@@ -22,11 +22,11 @@ import org.mule.ide.config.core.TlsServerTrustStoreType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.TlsServerTrustStoreTypeImpl#isExplicitTrustStoreOnly <em>Explicit Trust Store Only</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsServerTrustStoreTypeImpl#getAlgorithm <em>Algorithm</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsServerTrustStoreTypeImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsServerTrustStoreTypeImpl#isExplicitOnly <em>Explicit Only</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsServerTrustStoreTypeImpl#getFactoryRef <em>Factory Ref</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.TlsServerTrustStoreTypeImpl#isRequireClientAuthentication <em>Require Client Authentication</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.TlsServerTrustStoreTypeImpl#getTrustManagerAlgorithm <em>Trust Manager Algorithm</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.TlsServerTrustStoreTypeImpl#getTrustManagerFactory <em>Trust Manager Factory</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.TlsServerTrustStoreTypeImpl#getTrustStoreType <em>Trust Store Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,33 +34,93 @@ import org.mule.ide.config.core.TlsServerTrustStoreType;
  */
 public class TlsServerTrustStoreTypeImpl extends TlsTrustStoreTypeImpl implements TlsServerTrustStoreType {
 	/**
-	 * The default value of the '{@link #isExplicitTrustStoreOnly() <em>Explicit Trust Store Only</em>}' attribute.
+	 * The default value of the '{@link #getAlgorithm() <em>Algorithm</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isExplicitTrustStoreOnly()
+	 * @see #getAlgorithm()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean EXPLICIT_TRUST_STORE_ONLY_EDEFAULT = false;
+	protected static final String ALGORITHM_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isExplicitTrustStoreOnly() <em>Explicit Trust Store Only</em>}' attribute.
+	 * The cached value of the '{@link #getAlgorithm() <em>Algorithm</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isExplicitTrustStoreOnly()
+	 * @see #getAlgorithm()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean explicitTrustStoreOnly = EXPLICIT_TRUST_STORE_ONLY_EDEFAULT;
+	protected String algorithm = ALGORITHM_EDEFAULT;
 
 	/**
-	 * This is true if the Explicit Trust Store Only attribute has been set.
+	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClass_()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CLASS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClass_()
+	 * @generated
+	 * @ordered
+	 */
+	protected String class_ = CLASS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isExplicitOnly() <em>Explicit Only</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isExplicitOnly()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean EXPLICIT_ONLY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isExplicitOnly() <em>Explicit Only</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isExplicitOnly()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean explicitOnly = EXPLICIT_ONLY_EDEFAULT;
+
+	/**
+	 * This is true if the Explicit Only attribute has been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean explicitTrustStoreOnlyESet;
+	protected boolean explicitOnlyESet;
+
+	/**
+	 * The default value of the '{@link #getFactoryRef() <em>Factory Ref</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFactoryRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FACTORY_REF_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getFactoryRef() <em>Factory Ref</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFactoryRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected String factoryRef = FACTORY_REF_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isRequireClientAuthentication() <em>Require Client Authentication</em>}' attribute.
@@ -92,66 +152,6 @@ public class TlsServerTrustStoreTypeImpl extends TlsTrustStoreTypeImpl implement
 	protected boolean requireClientAuthenticationESet;
 
 	/**
-	 * The default value of the '{@link #getTrustManagerAlgorithm() <em>Trust Manager Algorithm</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTrustManagerAlgorithm()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TRUST_MANAGER_ALGORITHM_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTrustManagerAlgorithm() <em>Trust Manager Algorithm</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTrustManagerAlgorithm()
-	 * @generated
-	 * @ordered
-	 */
-	protected String trustManagerAlgorithm = TRUST_MANAGER_ALGORITHM_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getTrustManagerFactory() <em>Trust Manager Factory</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTrustManagerFactory()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TRUST_MANAGER_FACTORY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTrustManagerFactory() <em>Trust Manager Factory</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTrustManagerFactory()
-	 * @generated
-	 * @ordered
-	 */
-	protected String trustManagerFactory = TRUST_MANAGER_FACTORY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getTrustStoreType() <em>Trust Store Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTrustStoreType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TRUST_STORE_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTrustStoreType() <em>Trust Store Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTrustStoreType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String trustStoreType = TRUST_STORE_TYPE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -175,8 +175,8 @@ public class TlsServerTrustStoreTypeImpl extends TlsTrustStoreTypeImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isExplicitTrustStoreOnly() {
-		return explicitTrustStoreOnly;
+	public String getAlgorithm() {
+		return algorithm;
 	}
 
 	/**
@@ -184,13 +184,11 @@ public class TlsServerTrustStoreTypeImpl extends TlsTrustStoreTypeImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExplicitTrustStoreOnly(boolean newExplicitTrustStoreOnly) {
-		boolean oldExplicitTrustStoreOnly = explicitTrustStoreOnly;
-		explicitTrustStoreOnly = newExplicitTrustStoreOnly;
-		boolean oldExplicitTrustStoreOnlyESet = explicitTrustStoreOnlyESet;
-		explicitTrustStoreOnlyESet = true;
+	public void setAlgorithm(String newAlgorithm) {
+		String oldAlgorithm = algorithm;
+		algorithm = newAlgorithm;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_TRUST_STORE_ONLY, oldExplicitTrustStoreOnly, explicitTrustStoreOnly, !oldExplicitTrustStoreOnlyESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_SERVER_TRUST_STORE_TYPE__ALGORITHM, oldAlgorithm, algorithm));
 	}
 
 	/**
@@ -198,13 +196,20 @@ public class TlsServerTrustStoreTypeImpl extends TlsTrustStoreTypeImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void unsetExplicitTrustStoreOnly() {
-		boolean oldExplicitTrustStoreOnly = explicitTrustStoreOnly;
-		boolean oldExplicitTrustStoreOnlyESet = explicitTrustStoreOnlyESet;
-		explicitTrustStoreOnly = EXPLICIT_TRUST_STORE_ONLY_EDEFAULT;
-		explicitTrustStoreOnlyESet = false;
+	public String getClass_() {
+		return class_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClass(String newClass) {
+		String oldClass = class_;
+		class_ = newClass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_TRUST_STORE_ONLY, oldExplicitTrustStoreOnly, EXPLICIT_TRUST_STORE_ONLY_EDEFAULT, oldExplicitTrustStoreOnlyESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_SERVER_TRUST_STORE_TYPE__CLASS, oldClass, class_));
 	}
 
 	/**
@@ -212,8 +217,66 @@ public class TlsServerTrustStoreTypeImpl extends TlsTrustStoreTypeImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isSetExplicitTrustStoreOnly() {
-		return explicitTrustStoreOnlyESet;
+	public boolean isExplicitOnly() {
+		return explicitOnly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExplicitOnly(boolean newExplicitOnly) {
+		boolean oldExplicitOnly = explicitOnly;
+		explicitOnly = newExplicitOnly;
+		boolean oldExplicitOnlyESet = explicitOnlyESet;
+		explicitOnlyESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_ONLY, oldExplicitOnly, explicitOnly, !oldExplicitOnlyESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetExplicitOnly() {
+		boolean oldExplicitOnly = explicitOnly;
+		boolean oldExplicitOnlyESet = explicitOnlyESet;
+		explicitOnly = EXPLICIT_ONLY_EDEFAULT;
+		explicitOnlyESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_ONLY, oldExplicitOnly, EXPLICIT_ONLY_EDEFAULT, oldExplicitOnlyESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetExplicitOnly() {
+		return explicitOnlyESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFactoryRef() {
+		return factoryRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFactoryRef(String newFactoryRef) {
+		String oldFactoryRef = factoryRef;
+		factoryRef = newFactoryRef;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_SERVER_TRUST_STORE_TYPE__FACTORY_REF, oldFactoryRef, factoryRef));
 	}
 
 	/**
@@ -267,82 +330,19 @@ public class TlsServerTrustStoreTypeImpl extends TlsTrustStoreTypeImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTrustManagerAlgorithm() {
-		return trustManagerAlgorithm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTrustManagerAlgorithm(String newTrustManagerAlgorithm) {
-		String oldTrustManagerAlgorithm = trustManagerAlgorithm;
-		trustManagerAlgorithm = newTrustManagerAlgorithm;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_ALGORITHM, oldTrustManagerAlgorithm, trustManagerAlgorithm));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getTrustManagerFactory() {
-		return trustManagerFactory;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTrustManagerFactory(String newTrustManagerFactory) {
-		String oldTrustManagerFactory = trustManagerFactory;
-		trustManagerFactory = newTrustManagerFactory;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_FACTORY, oldTrustManagerFactory, trustManagerFactory));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getTrustStoreType() {
-		return trustStoreType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTrustStoreType(String newTrustStoreType) {
-		String oldTrustStoreType = trustStoreType;
-		trustStoreType = newTrustStoreType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_STORE_TYPE, oldTrustStoreType, trustStoreType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_TRUST_STORE_ONLY:
-				return isExplicitTrustStoreOnly() ? Boolean.TRUE : Boolean.FALSE;
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__ALGORITHM:
+				return getAlgorithm();
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__CLASS:
+				return getClass_();
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_ONLY:
+				return isExplicitOnly() ? Boolean.TRUE : Boolean.FALSE;
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__FACTORY_REF:
+				return getFactoryRef();
 			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__REQUIRE_CLIENT_AUTHENTICATION:
 				return isRequireClientAuthentication() ? Boolean.TRUE : Boolean.FALSE;
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_ALGORITHM:
-				return getTrustManagerAlgorithm();
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_FACTORY:
-				return getTrustManagerFactory();
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_STORE_TYPE:
-				return getTrustStoreType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -355,20 +355,20 @@ public class TlsServerTrustStoreTypeImpl extends TlsTrustStoreTypeImpl implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_TRUST_STORE_ONLY:
-				setExplicitTrustStoreOnly(((Boolean)newValue).booleanValue());
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__ALGORITHM:
+				setAlgorithm((String)newValue);
+				return;
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__CLASS:
+				setClass((String)newValue);
+				return;
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_ONLY:
+				setExplicitOnly(((Boolean)newValue).booleanValue());
+				return;
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__FACTORY_REF:
+				setFactoryRef((String)newValue);
 				return;
 			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__REQUIRE_CLIENT_AUTHENTICATION:
 				setRequireClientAuthentication(((Boolean)newValue).booleanValue());
-				return;
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_ALGORITHM:
-				setTrustManagerAlgorithm((String)newValue);
-				return;
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_FACTORY:
-				setTrustManagerFactory((String)newValue);
-				return;
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_STORE_TYPE:
-				setTrustStoreType((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -382,20 +382,20 @@ public class TlsServerTrustStoreTypeImpl extends TlsTrustStoreTypeImpl implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_TRUST_STORE_ONLY:
-				unsetExplicitTrustStoreOnly();
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__ALGORITHM:
+				setAlgorithm(ALGORITHM_EDEFAULT);
+				return;
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__CLASS:
+				setClass(CLASS_EDEFAULT);
+				return;
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_ONLY:
+				unsetExplicitOnly();
+				return;
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__FACTORY_REF:
+				setFactoryRef(FACTORY_REF_EDEFAULT);
 				return;
 			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__REQUIRE_CLIENT_AUTHENTICATION:
 				unsetRequireClientAuthentication();
-				return;
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_ALGORITHM:
-				setTrustManagerAlgorithm(TRUST_MANAGER_ALGORITHM_EDEFAULT);
-				return;
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_FACTORY:
-				setTrustManagerFactory(TRUST_MANAGER_FACTORY_EDEFAULT);
-				return;
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_STORE_TYPE:
-				setTrustStoreType(TRUST_STORE_TYPE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -409,16 +409,16 @@ public class TlsServerTrustStoreTypeImpl extends TlsTrustStoreTypeImpl implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_TRUST_STORE_ONLY:
-				return isSetExplicitTrustStoreOnly();
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__ALGORITHM:
+				return ALGORITHM_EDEFAULT == null ? algorithm != null : !ALGORITHM_EDEFAULT.equals(algorithm);
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__CLASS:
+				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_ONLY:
+				return isSetExplicitOnly();
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__FACTORY_REF:
+				return FACTORY_REF_EDEFAULT == null ? factoryRef != null : !FACTORY_REF_EDEFAULT.equals(factoryRef);
 			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__REQUIRE_CLIENT_AUTHENTICATION:
 				return isSetRequireClientAuthentication();
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_ALGORITHM:
-				return TRUST_MANAGER_ALGORITHM_EDEFAULT == null ? trustManagerAlgorithm != null : !TRUST_MANAGER_ALGORITHM_EDEFAULT.equals(trustManagerAlgorithm);
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_FACTORY:
-				return TRUST_MANAGER_FACTORY_EDEFAULT == null ? trustManagerFactory != null : !TRUST_MANAGER_FACTORY_EDEFAULT.equals(trustManagerFactory);
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_STORE_TYPE:
-				return TRUST_STORE_TYPE_EDEFAULT == null ? trustStoreType != null : !TRUST_STORE_TYPE_EDEFAULT.equals(trustStoreType);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -433,16 +433,16 @@ public class TlsServerTrustStoreTypeImpl extends TlsTrustStoreTypeImpl implement
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (explicitTrustStoreOnly: ");
-		if (explicitTrustStoreOnlyESet) result.append(explicitTrustStoreOnly); else result.append("<unset>");
+		result.append(" (algorithm: ");
+		result.append(algorithm);
+		result.append(", class: ");
+		result.append(class_);
+		result.append(", explicitOnly: ");
+		if (explicitOnlyESet) result.append(explicitOnly); else result.append("<unset>");
+		result.append(", factoryRef: ");
+		result.append(factoryRef);
 		result.append(", requireClientAuthentication: ");
 		if (requireClientAuthenticationESet) result.append(requireClientAuthentication); else result.append("<unset>");
-		result.append(", trustManagerAlgorithm: ");
-		result.append(trustManagerAlgorithm);
-		result.append(", trustManagerFactory: ");
-		result.append(trustManagerFactory);
-		result.append(", trustStoreType: ");
-		result.append(trustStoreType);
 		result.append(')');
 		return result.toString();
 	}

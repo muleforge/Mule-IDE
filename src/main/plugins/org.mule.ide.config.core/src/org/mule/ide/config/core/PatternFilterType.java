@@ -32,6 +32,11 @@ public interface PatternFilterType extends AbstractFilterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The pattern to use when matching.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Pattern</em>' attribute.
 	 * @see #setPattern(String)
 	 * @see org.mule.ide.config.core.CorePackage#getPatternFilterType_Pattern()

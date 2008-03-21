@@ -40,6 +40,12 @@ public interface SedaServiceType extends BaseServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for component threading profile element.
+	 *                 Threading profils define how thread pools interact with the component.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Component Threading Profile Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getSedaServiceType_AbstractComponentThreadingProfileGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -56,6 +62,12 @@ public interface SedaServiceType extends BaseServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for component threading profile element.
+	 *                 Threading profils define how thread pools interact with the component.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Component Threading Profile</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getSedaServiceType_AbstractComponentThreadingProfile()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -73,6 +85,12 @@ public interface SedaServiceType extends BaseServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for queue profile elements.
+	 *                 A queue profile controls how messages are queued before being processed.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Queue Profile Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getSedaServiceType_AbstractQueueProfileGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -89,6 +107,12 @@ public interface SedaServiceType extends BaseServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for queue profile elements.
+	 *                 A queue profile controls how messages are queued before being processed.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Queue Profile</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getSedaServiceType_AbstractQueueProfile()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -105,6 +129,11 @@ public interface SedaServiceType extends BaseServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The timeout used when taking messages from the SEDA queue.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Queue Timeout</em>' attribute.
 	 * @see #setQueueTimeout(BigInteger)
 	 * @see org.mule.ide.config.core.CorePackage#getSedaServiceType_QueueTimeout()

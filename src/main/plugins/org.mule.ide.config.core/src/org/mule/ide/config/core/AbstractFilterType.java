@@ -34,6 +34,12 @@ public interface AbstractFilterType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     Identifies the filter so that other elements can reference it.
+	 *                     Required if the filter is defined at the global level.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractFilterType_Name()
@@ -61,6 +67,11 @@ public interface AbstractFilterType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     Inverts the filter's condition.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Not</em>' attribute.
 	 * @see #isSetNot()
 	 * @see #unsetNot()

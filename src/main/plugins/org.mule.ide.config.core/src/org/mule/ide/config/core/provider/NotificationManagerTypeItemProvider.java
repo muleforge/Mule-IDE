@@ -112,9 +112,8 @@ public class NotificationManagerTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getNotificationManagerType_Group());
-			childrenFeatures.add(CorePackage.eINSTANCE.getNotificationManagerType_Group1());
-			childrenFeatures.add(CorePackage.eINSTANCE.getNotificationManagerType_Group2());
+			childrenFeatures.add(CorePackage.eINSTANCE.getNotificationManagerType_Notification());
+			childrenFeatures.add(CorePackage.eINSTANCE.getNotificationManagerType_DisableNotification());
 		}
 		return childrenFeatures;
 	}
@@ -159,9 +158,8 @@ public class NotificationManagerTypeItemProvider
 			case CorePackage.NOTIFICATION_MANAGER_TYPE__DYNAMIC:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.NOTIFICATION_MANAGER_TYPE__GROUP:
-			case CorePackage.NOTIFICATION_MANAGER_TYPE__GROUP1:
-			case CorePackage.NOTIFICATION_MANAGER_TYPE__GROUP2:
+			case CorePackage.NOTIFICATION_MANAGER_TYPE__NOTIFICATION:
+			case CorePackage.NOTIFICATION_MANAGER_TYPE__DISABLE_NOTIFICATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,24 +179,13 @@ public class NotificationManagerTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getNotificationManagerType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_Notification(),
-					 CoreFactory.eINSTANCE.createDefineNotificationType())));
+				(CorePackage.eINSTANCE.getNotificationManagerType_Notification(),
+				 CoreFactory.eINSTANCE.createDefineNotificationType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getNotificationManagerType_Group1(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DisableNotification(),
-					 CoreFactory.eINSTANCE.createDisableNotificationType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getNotificationManagerType_Group2(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getNotificationManagerType_NotificationListener(),
-					 CoreFactory.eINSTANCE.createNotificationListenerType())));
+				(CorePackage.eINSTANCE.getNotificationManagerType_DisableNotification(),
+				 CoreFactory.eINSTANCE.createDisableNotificationType()));
 	}
 
 	/**

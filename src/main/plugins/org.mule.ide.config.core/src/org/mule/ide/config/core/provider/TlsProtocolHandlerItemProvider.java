@@ -72,25 +72,25 @@ public class TlsProtocolHandlerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addProtocolHandlerPropertyDescriptor(object);
+			addPropertyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Protocol Handler feature.
+	 * This adds a property descriptor for the Property feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProtocolHandlerPropertyDescriptor(Object object) {
+	protected void addPropertyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TlsProtocolHandler_protocolHandler_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsProtocolHandler_protocolHandler_feature", "_UI_TlsProtocolHandler_type"),
-				 CorePackage.eINSTANCE.getTlsProtocolHandler_ProtocolHandler(),
+				 getString("_UI_TlsProtocolHandler_property_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsProtocolHandler_property_feature", "_UI_TlsProtocolHandler_type"),
+				 CorePackage.eINSTANCE.getTlsProtocolHandler_Property(),
 				 true,
 				 false,
 				 false,
@@ -107,7 +107,7 @@ public class TlsProtocolHandlerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TlsProtocolHandler)object).getProtocolHandler();
+		String label = ((TlsProtocolHandler)object).getProperty();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TlsProtocolHandler_type") :
 			getString("_UI_TlsProtocolHandler_type") + " " + label;
@@ -125,7 +125,7 @@ public class TlsProtocolHandlerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TlsProtocolHandler.class)) {
-			case CorePackage.TLS_PROTOCOL_HANDLER__PROTOCOL_HANDLER:
+			case CorePackage.TLS_PROTOCOL_HANDLER__PROPERTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

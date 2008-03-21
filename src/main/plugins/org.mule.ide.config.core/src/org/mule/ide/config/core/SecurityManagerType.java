@@ -43,6 +43,11 @@ public interface SecurityManagerType extends AbstractSecurityManagerType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 Allow any implementation of UMOSecurityProvider to be used.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Security Provider</em>' containment reference.
 	 * @see #setCustomSecurityProvider(CustomSecurityProviderType)
 	 * @see org.mule.ide.config.core.CorePackage#getSecurityManagerType_CustomSecurityProvider()
@@ -70,6 +75,11 @@ public interface SecurityManagerType extends AbstractSecurityManagerType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 Allow any implementation of UMOEncryptionStrategy to be used.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Encryption Strategy</em>' containment reference.
 	 * @see #setCustomEncryptionStrategy(CustomEncryptionStrategyType)
 	 * @see org.mule.ide.config.core.CorePackage#getSecurityManagerType_CustomEncryptionStrategy()
@@ -97,6 +107,11 @@ public interface SecurityManagerType extends AbstractSecurityManagerType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 Provides secret key-based encryption using JCE.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Secret Key Encryption Strategy</em>' containment reference.
 	 * @see #setSecretKeyEncryptionStrategy(SecretKeyEncryptionStrategyType)
 	 * @see org.mule.ide.config.core.CorePackage#getSecurityManagerType_SecretKeyEncryptionStrategy()
@@ -124,6 +139,13 @@ public interface SecurityManagerType extends AbstractSecurityManagerType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 Provides password-based encryption using JCE. Users must specify a password and
+	 *                                 optionally a salt and iteration count as well. The default algorithm is
+	 *                                 PBEWithMD5AndDES, but users can specify any valid algorithm supported by JCE.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Password Encryption Strategy</em>' containment reference.
 	 * @see #setPasswordEncryptionStrategy(PasswordEncryptionStrategyType)
 	 * @see org.mule.ide.config.core.CorePackage#getSecurityManagerType_PasswordEncryptionStrategy()

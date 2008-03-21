@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,7 +38,6 @@ import org.mule.ide.config.core.CorePackage;
  *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl#getAbstractTransformerGroup <em>Abstract Transformer Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl#getAbstractTransformer <em>Abstract Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl#getTimeout <em>Timeout</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl#getTransformerRefs <em>Transformer Refs</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,7 +82,7 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TIMEOUT_EDEFAULT = null;
+	protected static final int TIMEOUT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getTimeout() <em>Timeout</em>}' attribute.
@@ -92,27 +92,16 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected String timeout = TIMEOUT_EDEFAULT;
+	protected int timeout = TIMEOUT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransformerRefs() <em>Transformer Refs</em>}' attribute.
+	 * This is true if the Timeout attribute has been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTransformerRefs()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final List<String> TRANSFORMER_REFS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTransformerRefs() <em>Transformer Refs</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransformerRefs()
-	 * @generated
-	 * @ordered
-	 */
-	protected List<String> transformerRefs = TRANSFORMER_REFS_EDEFAULT;
+	protected boolean timeoutESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -201,7 +190,7 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTimeout() {
+	public int getTimeout() {
 		return timeout;
 	}
 
@@ -210,11 +199,13 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTimeout(String newTimeout) {
-		String oldTimeout = timeout;
+	public void setTimeout(int newTimeout) {
+		int oldTimeout = timeout;
 		timeout = newTimeout;
+		boolean oldTimeoutESet = timeoutESet;
+		timeoutESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT, oldTimeout, timeout));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT, oldTimeout, timeout, !oldTimeoutESet));
 	}
 
 	/**
@@ -222,8 +213,13 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List<String> getTransformerRefs() {
-		return transformerRefs;
+	public void unsetTimeout() {
+		int oldTimeout = timeout;
+		boolean oldTimeoutESet = timeoutESet;
+		timeout = TIMEOUT_EDEFAULT;
+		timeoutESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT, oldTimeout, TIMEOUT_EDEFAULT, oldTimeoutESet));
 	}
 
 	/**
@@ -231,11 +227,8 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransformerRefs(List<String> newTransformerRefs) {
-		List<String> oldTransformerRefs = transformerRefs;
-		transformerRefs = newTransformerRefs;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TRANSFORMER_REFS, oldTransformerRefs, transformerRefs));
+	public boolean isSetTimeout() {
+		return timeoutESet;
 	}
 
 	/**
@@ -286,9 +279,7 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__ABSTRACT_TRANSFORMER:
 				return getAbstractTransformer();
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT:
-				return getTimeout();
-			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TRANSFORMER_REFS:
-				return getTransformerRefs();
+				return new Integer(getTimeout());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -312,10 +303,7 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 				((FeatureMap.Internal)getAbstractTransformerGroup()).set(newValue);
 				return;
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT:
-				setTimeout((String)newValue);
-				return;
-			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TRANSFORMER_REFS:
-				setTransformerRefs((List<String>)newValue);
+				setTimeout(((Integer)newValue).intValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -339,10 +327,7 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 				getAbstractTransformerGroup().clear();
 				return;
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT:
-				setTimeout(TIMEOUT_EDEFAULT);
-				return;
-			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TRANSFORMER_REFS:
-				setTransformerRefs(TRANSFORMER_REFS_EDEFAULT);
+				unsetTimeout();
 				return;
 		}
 		super.eUnset(featureID);
@@ -369,9 +354,7 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__ABSTRACT_TRANSFORMER:
 				return !getAbstractTransformer().isEmpty();
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT:
-				return TIMEOUT_EDEFAULT == null ? timeout != null : !TIMEOUT_EDEFAULT.equals(timeout);
-			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TRANSFORMER_REFS:
-				return TRANSFORMER_REFS_EDEFAULT == null ? transformerRefs != null : !TRANSFORMER_REFS_EDEFAULT.equals(transformerRefs);
+				return isSetTimeout();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -393,9 +376,7 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 		result.append(", abstractTransformerGroup: ");
 		result.append(abstractTransformerGroup);
 		result.append(", timeout: ");
-		result.append(timeout);
-		result.append(", transformerRefs: ");
-		result.append(transformerRefs);
+		if (timeoutESet) result.append(timeout); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

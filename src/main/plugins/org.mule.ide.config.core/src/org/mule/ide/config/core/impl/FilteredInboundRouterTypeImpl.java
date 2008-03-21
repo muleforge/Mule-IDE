@@ -35,7 +35,6 @@ import org.mule.ide.config.core.FilteredInboundRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.FilteredInboundRouterTypeImpl#getAbstractFilter <em>Abstract Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.FilteredInboundRouterTypeImpl#getAbstractPropertyExtractorGroup <em>Abstract Property Extractor Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.FilteredInboundRouterTypeImpl#getAbstractPropertyExtractor <em>Abstract Property Extractor</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.FilteredInboundRouterTypeImpl#getCustomPropertyExtractor <em>Custom Property Extractor</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,16 +60,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 	 * @ordered
 	 */
 	protected FeatureMap abstractPropertyExtractorGroup;
-
-	/**
-	 * The cached value of the '{@link #getCustomPropertyExtractor() <em>Custom Property Extractor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCustomPropertyExtractor()
-	 * @generated
-	 * @ordered
-	 */
-	protected CustomPropertyExtractorType customPropertyExtractor;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,49 +145,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomPropertyExtractorType getCustomPropertyExtractor() {
-		return customPropertyExtractor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCustomPropertyExtractor(CustomPropertyExtractorType newCustomPropertyExtractor, NotificationChain msgs) {
-		CustomPropertyExtractorType oldCustomPropertyExtractor = customPropertyExtractor;
-		customPropertyExtractor = newCustomPropertyExtractor;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR, oldCustomPropertyExtractor, newCustomPropertyExtractor);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCustomPropertyExtractor(CustomPropertyExtractorType newCustomPropertyExtractor) {
-		if (newCustomPropertyExtractor != customPropertyExtractor) {
-			NotificationChain msgs = null;
-			if (customPropertyExtractor != null)
-				msgs = ((InternalEObject)customPropertyExtractor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR, null, msgs);
-			if (newCustomPropertyExtractor != null)
-				msgs = ((InternalEObject)newCustomPropertyExtractor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR, null, msgs);
-			msgs = basicSetCustomPropertyExtractor(newCustomPropertyExtractor, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR, newCustomPropertyExtractor, newCustomPropertyExtractor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -210,8 +156,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 				return ((InternalEList<?>)getAbstractPropertyExtractorGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
 				return basicSetAbstractPropertyExtractor(null, msgs);
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
-				return basicSetCustomPropertyExtractor(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -234,8 +178,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 				return ((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).getWrapper();
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
 				return getAbstractPropertyExtractor();
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
-				return getCustomPropertyExtractor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -254,9 +196,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
 				((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).set(newValue);
 				return;
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
-				setCustomPropertyExtractor((CustomPropertyExtractorType)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -274,9 +213,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 				return;
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
 				getAbstractPropertyExtractorGroup().clear();
-				return;
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
-				setCustomPropertyExtractor((CustomPropertyExtractorType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -298,8 +234,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 				return abstractPropertyExtractorGroup != null && !abstractPropertyExtractorGroup.isEmpty();
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
 				return getAbstractPropertyExtractor() != null;
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
-				return customPropertyExtractor != null;
 		}
 		return super.eIsSet(featureID);
 	}

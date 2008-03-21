@@ -12,12 +12,6 @@ package org.mule.ide.config.core;
  * A representation of the model object '<em><b>Secret Key Encryption Strategy Type</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * 
- *                 Provides secret key-based encryption using JCE.
- *             
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
@@ -39,6 +33,12 @@ public interface SecretKeyEncryptionStrategyType extends EncryptionStrategyType 
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The key to use.
+	 *                             This and the keyFactory-ref attribute are mutually exclusive.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(String)
 	 * @see org.mule.ide.config.core.CorePackage#getSecretKeyEncryptionStrategyType_Key()
@@ -66,6 +66,13 @@ public interface SecretKeyEncryptionStrategyType extends EncryptionStrategyType 
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The name of the key factory to use.
+	 *                             This should implement the ObjectFactory interface and return a byte array.
+	 *                             This and the key attribute are mutually exclusive.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Key Factory Ref</em>' attribute.
 	 * @see #setKeyFactoryRef(String)
 	 * @see org.mule.ide.config.core.CorePackage#getSecretKeyEncryptionStrategyType_KeyFactoryRef()

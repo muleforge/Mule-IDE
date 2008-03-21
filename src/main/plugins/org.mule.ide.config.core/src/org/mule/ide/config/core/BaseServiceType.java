@@ -14,7 +14,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Base support for a model-based wrapper around the POJO service (SEDA, Streaming, etc.)
+ * 
+ *                 Base support for a model-based wrapper around the POJO service (SEDA, Streaming, etc.)
  *             
  * <!-- end-model-doc -->
  *
@@ -28,7 +29,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAsyncReply <em>Async Reply</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAbstractExceptionStrategyGroup <em>Abstract Exception Strategy Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getAbstractExceptionStrategy <em>Abstract Exception Strategy</em>}</li>
- *   <li>{@link org.mule.ide.config.core.BaseServiceType#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.mule.ide.config.core.BaseServiceType#getInitialState <em>Initial State</em>}</li>
  * </ul>
  * </p>
@@ -46,6 +46,11 @@ public interface BaseServiceType extends AbstractServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 The elements within "inbound" describe how messages enter the service.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Inbound</em>' containment reference.
 	 * @see #setInbound(InboundCollectionType)
 	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_Inbound()
@@ -74,6 +79,12 @@ public interface BaseServiceType extends AbstractServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for component element.
+	 *                 A component processes data. Typically it is a Java object.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Component Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_AbstractComponentGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -90,6 +101,12 @@ public interface BaseServiceType extends AbstractServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for component element.
+	 *                 A component processes data. Typically it is a Java object.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Component</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_AbstractComponent()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -106,6 +123,11 @@ public interface BaseServiceType extends AbstractServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 The elements within "outbound" describe how messages leave the service.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outbound</em>' containment reference.
 	 * @see #setOutbound(OutboundCollectionType)
 	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_Outbound()
@@ -133,6 +155,11 @@ public interface BaseServiceType extends AbstractServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 The elements within "async-reply" describe how asynchronous replies are handled.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Async Reply</em>' containment reference.
 	 * @see #setAsyncReply(AsyncReplyCollectionType)
 	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_AsyncReply()
@@ -161,6 +188,12 @@ public interface BaseServiceType extends AbstractServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an exception strategy element.
+	 *                 Exception strategies define how Mule should react to errors.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Exception Strategy Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_AbstractExceptionStrategyGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -177,6 +210,12 @@ public interface BaseServiceType extends AbstractServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an exception strategy element.
+	 *                 Exception strategies define how Mule should react to errors.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Exception Strategy</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_AbstractExceptionStrategy()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -184,33 +223,6 @@ public interface BaseServiceType extends AbstractServiceType {
 	 * @generated
 	 */
 	AbstractExceptionStrategyType getAbstractExceptionStrategy();
-
-	/**
-	 * Returns the value of the '<em><b>Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Class</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Class</em>' attribute.
-	 * @see #setClass(String)
-	 * @see org.mule.ide.config.core.CorePackage#getBaseServiceType_Class()
-	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
-	 *        extendedMetaData="kind='attribute' name='class'"
-	 * @generated
-	 */
-	String getClass_();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.BaseServiceType#getClass_ <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Class</em>' attribute.
-	 * @see #getClass_()
-	 * @generated
-	 */
-	void setClass(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Initial State</b></em>' attribute.
@@ -222,6 +234,14 @@ public interface BaseServiceType extends AbstractServiceType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The initial state of the service.
+	 *                             Usually a service is started automatically, but this attribute can block any
+	 *                             initial startup ("stopped") or stop the service immediately after initial
+	 *                             startup ("paused").
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial State</em>' attribute.
 	 * @see org.mule.ide.config.core.InitialStateType
 	 * @see #isSetInitialState()

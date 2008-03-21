@@ -40,7 +40,7 @@ import org.mule.ide.config.spring.PropertyType;
  *
  * @generated
  */
-public class CustomExceptionStrategyTypeImpl extends ExceptionStrategyTypeImpl implements CustomExceptionStrategyType {
+public class CustomExceptionStrategyTypeImpl extends EndpointExceptionStrategyTypeImpl implements CustomExceptionStrategyType {
 	/**
 	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

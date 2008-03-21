@@ -37,6 +37,19 @@ public interface AbstractTransactionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     NONE - Never participate in a transaction;
+	 *                     ALWAYS_BEGIN - Always start a new transaction when receiving an event. An exception will be thrown
+	 *                     if a transaction already exists;
+	 *                     BEGIN_OR_JOIN - If a transaction is already in progress when an event is received, join the
+	 *                     transaction, otherwise start a new transaction;
+	 *                     ALWAYS_JOIN - Always expects a transaction to be in progress when an event is received, if there is
+	 *                     no transaction an exception is thrown;
+	 *                     JOIN_IF_POSSIBLE - Will join the current transaction if one is available otherwise no transaction is
+	 *                     created.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Action</em>' attribute.
 	 * @see org.mule.ide.config.core.ActionType
 	 * @see #isSetAction()
@@ -93,22 +106,54 @@ public interface AbstractTransactionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     Timeout for transaction (ms).
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Timeout</em>' attribute.
-	 * @see #setTimeout(String)
+	 * @see #isSetTimeout()
+	 * @see #unsetTimeout()
+	 * @see #setTimeout(int)
 	 * @see org.mule.ide.config.core.CorePackage#getAbstractTransactionType_Timeout()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.NMTOKEN"
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableInt"
 	 *        extendedMetaData="kind='attribute' name='timeout'"
 	 * @generated
 	 */
-	String getTimeout();
+	int getTimeout();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.AbstractTransactionType#getTimeout <em>Timeout</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Timeout</em>' attribute.
+	 * @see #isSetTimeout()
+	 * @see #unsetTimeout()
 	 * @see #getTimeout()
 	 * @generated
 	 */
-	void setTimeout(String value);
+	void setTimeout(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.AbstractTransactionType#getTimeout <em>Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetTimeout()
+	 * @see #getTimeout()
+	 * @see #setTimeout(int)
+	 * @generated
+	 */
+	void unsetTimeout();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.AbstractTransactionType#getTimeout <em>Timeout</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Timeout</em>' attribute is set.
+	 * @see #unsetTimeout()
+	 * @see #getTimeout()
+	 * @see #setTimeout(int)
+	 * @generated
+	 */
+	boolean isSetTimeout();
 } // AbstractTransactionType

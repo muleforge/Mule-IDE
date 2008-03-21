@@ -37,6 +37,12 @@ public interface ForwardingCatchAllStrategyType extends AbstractCatchAllStrategy
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound endpoint elements.
+	 *                 Outbound endpoints dispatch messages to the underlying transport.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Endpoint Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getForwardingCatchAllStrategyType_AbstractOutboundEndpointGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -54,6 +60,12 @@ public interface ForwardingCatchAllStrategyType extends AbstractCatchAllStrategy
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound endpoint elements.
+	 *                 Outbound endpoints dispatch messages to the underlying transport.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Endpoint</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getForwardingCatchAllStrategyType_AbstractOutboundEndpoint()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"

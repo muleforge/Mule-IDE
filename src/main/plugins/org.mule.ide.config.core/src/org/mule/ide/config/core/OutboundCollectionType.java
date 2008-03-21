@@ -42,6 +42,11 @@ public interface OutboundCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for catch-all strategy elements.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Catch All Strategy Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getOutboundCollectionType_AbstractCatchAllStrategyGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -58,6 +63,11 @@ public interface OutboundCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for catch-all strategy elements.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Catch All Strategy</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getOutboundCollectionType_AbstractCatchAllStrategy()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -75,6 +85,12 @@ public interface OutboundCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound router elements.
+	 *                 Outbound routers control how outgoing messages are delivered to the outbound endpoints.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Router Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getOutboundCollectionType_AbstractOutboundRouterGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" required="true" many="true"
@@ -92,6 +108,12 @@ public interface OutboundCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound router elements.
+	 *                 Outbound routers control how outgoing messages are delivered to the outbound endpoints.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Router</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getOutboundCollectionType_AbstractOutboundRouter()
 	 * @model containment="true" required="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -109,6 +131,12 @@ public interface OutboundCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     If true, the output message will be sent to all routers, otherwise only
+	 *                     the first matching router is used.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Match All</em>' attribute.
 	 * @see #isSetMatchAll()
 	 * @see #unsetMatchAll()

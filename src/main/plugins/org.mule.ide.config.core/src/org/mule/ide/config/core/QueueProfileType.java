@@ -33,24 +33,56 @@ public interface QueueProfileType extends AbstractQueueProfileType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The maximum size of the queue.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Max Outstanding Messages</em>' attribute.
-	 * @see #setMaxOutstandingMessages(String)
+	 * @see #isSetMaxOutstandingMessages()
+	 * @see #unsetMaxOutstandingMessages()
+	 * @see #setMaxOutstandingMessages(int)
 	 * @see org.mule.ide.config.core.CorePackage#getQueueProfileType_MaxOutstandingMessages()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableInt"
 	 *        extendedMetaData="kind='attribute' name='maxOutstandingMessages'"
 	 * @generated
 	 */
-	String getMaxOutstandingMessages();
+	int getMaxOutstandingMessages();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.QueueProfileType#getMaxOutstandingMessages <em>Max Outstanding Messages</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Max Outstanding Messages</em>' attribute.
+	 * @see #isSetMaxOutstandingMessages()
+	 * @see #unsetMaxOutstandingMessages()
 	 * @see #getMaxOutstandingMessages()
 	 * @generated
 	 */
-	void setMaxOutstandingMessages(String value);
+	void setMaxOutstandingMessages(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.QueueProfileType#getMaxOutstandingMessages <em>Max Outstanding Messages</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetMaxOutstandingMessages()
+	 * @see #getMaxOutstandingMessages()
+	 * @see #setMaxOutstandingMessages(int)
+	 * @generated
+	 */
+	void unsetMaxOutstandingMessages();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.QueueProfileType#getMaxOutstandingMessages <em>Max Outstanding Messages</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Max Outstanding Messages</em>' attribute is set.
+	 * @see #unsetMaxOutstandingMessages()
+	 * @see #getMaxOutstandingMessages()
+	 * @see #setMaxOutstandingMessages(int)
+	 * @generated
+	 */
+	boolean isSetMaxOutstandingMessages();
 
 	/**
 	 * Returns the value of the '<em><b>Persistent</b></em>' attribute.
@@ -61,6 +93,11 @@ public interface QueueProfileType extends AbstractQueueProfileType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             Whether the queue is persistent.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Persistent</em>' attribute.
 	 * @see #isSetPersistent()
 	 * @see #unsetPersistent()

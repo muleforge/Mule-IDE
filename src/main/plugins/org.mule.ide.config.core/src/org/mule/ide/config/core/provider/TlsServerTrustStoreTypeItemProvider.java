@@ -64,33 +64,99 @@ public class TlsServerTrustStoreTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addExplicitTrustStoreOnlyPropertyDescriptor(object);
+			addAlgorithmPropertyDescriptor(object);
+			addClassPropertyDescriptor(object);
+			addExplicitOnlyPropertyDescriptor(object);
+			addFactoryRefPropertyDescriptor(object);
 			addRequireClientAuthenticationPropertyDescriptor(object);
-			addTrustManagerAlgorithmPropertyDescriptor(object);
-			addTrustManagerFactoryPropertyDescriptor(object);
-			addTrustStoreTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Explicit Trust Store Only feature.
+	 * This adds a property descriptor for the Algorithm feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addExplicitTrustStoreOnlyPropertyDescriptor(Object object) {
+	protected void addAlgorithmPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TlsServerTrustStoreType_explicitTrustStoreOnly_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsServerTrustStoreType_explicitTrustStoreOnly_feature", "_UI_TlsServerTrustStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsServerTrustStoreType_ExplicitTrustStoreOnly(),
+				 getString("_UI_TlsServerTrustStoreType_algorithm_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsServerTrustStoreType_algorithm_feature", "_UI_TlsServerTrustStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsServerTrustStoreType_Algorithm(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TlsServerTrustStoreType_class_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsServerTrustStoreType_class_feature", "_UI_TlsServerTrustStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsServerTrustStoreType_Class(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Explicit Only feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExplicitOnlyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TlsServerTrustStoreType_explicitOnly_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsServerTrustStoreType_explicitOnly_feature", "_UI_TlsServerTrustStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsServerTrustStoreType_ExplicitOnly(),
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Factory Ref feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFactoryRefPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TlsServerTrustStoreType_factoryRef_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsServerTrustStoreType_factoryRef_feature", "_UI_TlsServerTrustStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsServerTrustStoreType_FactoryRef(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -118,72 +184,6 @@ public class TlsServerTrustStoreTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Trust Manager Algorithm feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTrustManagerAlgorithmPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TlsServerTrustStoreType_trustManagerAlgorithm_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsServerTrustStoreType_trustManagerAlgorithm_feature", "_UI_TlsServerTrustStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsServerTrustStoreType_TrustManagerAlgorithm(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Trust Manager Factory feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTrustManagerFactoryPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TlsServerTrustStoreType_trustManagerFactory_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsServerTrustStoreType_trustManagerFactory_feature", "_UI_TlsServerTrustStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsServerTrustStoreType_TrustManagerFactory(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Trust Store Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTrustStoreTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TlsServerTrustStoreType_trustStoreType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsServerTrustStoreType_trustStoreType_feature", "_UI_TlsServerTrustStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsServerTrustStoreType_TrustStoreType(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -191,7 +191,7 @@ public class TlsServerTrustStoreTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TlsServerTrustStoreType)object).getTrustStore();
+		String label = ((TlsServerTrustStoreType)object).getPath();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TlsServerTrustStoreType_type") :
 			getString("_UI_TlsServerTrustStoreType_type") + " " + label;
@@ -209,11 +209,11 @@ public class TlsServerTrustStoreTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TlsServerTrustStoreType.class)) {
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_TRUST_STORE_ONLY:
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__ALGORITHM:
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__CLASS:
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__EXPLICIT_ONLY:
+			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__FACTORY_REF:
 			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__REQUIRE_CLIENT_AUTHENTICATION:
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_ALGORITHM:
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_MANAGER_FACTORY:
-			case CorePackage.TLS_SERVER_TRUST_STORE_TYPE__TRUST_STORE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

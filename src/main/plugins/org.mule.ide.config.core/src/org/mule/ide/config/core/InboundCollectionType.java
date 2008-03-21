@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.InboundCollectionType#getAbstractInboundEndpoint <em>Abstract Inbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundCollectionType#getAbstractInboundRouterGroup <em>Abstract Inbound Router Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundCollectionType#getAbstractInboundRouter <em>Abstract Inbound Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.InboundCollectionType#isMatchAll <em>Match All</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +43,11 @@ public interface InboundCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for catch-all strategy elements.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Catch All Strategy Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getInboundCollectionType_AbstractCatchAllStrategyGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -60,6 +64,11 @@ public interface InboundCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for catch-all strategy elements.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Catch All Strategy</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getInboundCollectionType_AbstractCatchAllStrategy()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -77,6 +86,13 @@ public interface InboundCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound endpoint elements.
+	 *                 Inbound endpoints receive messages from the underlying transport.
+	 *                 The message payload is then delivered to the component for processing.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Endpoint Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getInboundCollectionType_AbstractInboundEndpointGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -94,6 +110,13 @@ public interface InboundCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound endpoint elements.
+	 *                 Inbound endpoints receive messages from the underlying transport.
+	 *                 The message payload is then delivered to the component for processing.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Endpoint</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getInboundCollectionType_AbstractInboundEndpoint()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -111,6 +134,12 @@ public interface InboundCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound router elements.
+	 *                 Inbound routers control how incoming messages are handled.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Router Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getInboundCollectionType_AbstractInboundRouterGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -128,6 +157,12 @@ public interface InboundCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound router elements.
+	 *                 Inbound routers control how incoming messages are handled.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Router</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getInboundCollectionType_AbstractInboundRouter()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -135,60 +170,5 @@ public interface InboundCollectionType extends EObject {
 	 * @generated
 	 */
 	EList<AbstractInboundRouterType> getAbstractInboundRouter();
-
-	/**
-	 * Returns the value of the '<em><b>Match All</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Match All</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Match All</em>' attribute.
-	 * @see #isSetMatchAll()
-	 * @see #unsetMatchAll()
-	 * @see #setMatchAll(boolean)
-	 * @see org.mule.ide.config.core.CorePackage#getInboundCollectionType_MatchAll()
-	 * @model default="false" unsettable="true" dataType="org.mule.ide.config.core.SubstitutableBoolean"
-	 *        extendedMetaData="kind='attribute' name='matchAll'"
-	 * @generated
-	 */
-	boolean isMatchAll();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.InboundCollectionType#isMatchAll <em>Match All</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Match All</em>' attribute.
-	 * @see #isSetMatchAll()
-	 * @see #unsetMatchAll()
-	 * @see #isMatchAll()
-	 * @generated
-	 */
-	void setMatchAll(boolean value);
-
-	/**
-	 * Unsets the value of the '{@link org.mule.ide.config.core.InboundCollectionType#isMatchAll <em>Match All</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetMatchAll()
-	 * @see #isMatchAll()
-	 * @see #setMatchAll(boolean)
-	 * @generated
-	 */
-	void unsetMatchAll();
-
-	/**
-	 * Returns whether the value of the '{@link org.mule.ide.config.core.InboundCollectionType#isMatchAll <em>Match All</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Match All</em>' attribute is set.
-	 * @see #unsetMatchAll()
-	 * @see #isMatchAll()
-	 * @see #setMatchAll(boolean)
-	 * @generated
-	 */
-	boolean isSetMatchAll();
 
 } // InboundCollectionType

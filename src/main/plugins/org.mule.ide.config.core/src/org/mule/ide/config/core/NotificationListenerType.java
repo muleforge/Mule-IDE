@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see org.mule.ide.config.core.CorePackage#getNotificationListenerType()
- * @model extendedMetaData="name='notificationListenerType' kind='empty'"
+ * @model extendedMetaData="name='notification-listener_._type' kind='empty'"
  * @generated
  */
 public interface NotificationListenerType extends EObject {
@@ -34,6 +34,11 @@ public interface NotificationListenerType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 The bean that will receive notifications.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ref</em>' attribute.
 	 * @see #setRef(String)
 	 * @see org.mule.ide.config.core.CorePackage#getNotificationListenerType_Ref()
@@ -61,6 +66,13 @@ public interface NotificationListenerType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 An optional string that is compared with the event's resource identifier.
+	 *                                 Only events with matching identifiers will be sent.
+	 *                                 If no value is given, all events are sent.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Subscription</em>' attribute.
 	 * @see #setSubscription(String)
 	 * @see org.mule.ide.config.core.CorePackage#getNotificationListenerType_Subscription()

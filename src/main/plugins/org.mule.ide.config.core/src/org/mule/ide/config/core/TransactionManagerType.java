@@ -26,19 +26,25 @@ package org.mule.ide.config.core;
 public interface TransactionManagerType extends AbstractTransactionManagerType {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * The default value is <code>"transactionManagerFactory"</code>.
+	 * The default value is <code>"transactionManager"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             An optional name for the transaction manager.
+	 *                             The default value is "transactionManager".
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #isSetName()
 	 * @see #unsetName()
 	 * @see #setName(String)
 	 * @see org.mule.ide.config.core.CorePackage#getTransactionManagerType_Name()
-	 * @model default="transactionManagerFactory" unsettable="true" dataType="org.mule.ide.config.core.SubstitutableName"
+	 * @model default="transactionManager" unsettable="true" dataType="org.mule.ide.config.core.SubstitutableName"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
 	 */

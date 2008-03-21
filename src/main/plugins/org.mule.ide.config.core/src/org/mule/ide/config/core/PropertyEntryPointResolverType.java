@@ -32,6 +32,11 @@ public interface PropertyEntryPointResolverType extends BaseEntryPointResolverTy
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The name of the message property used to select a method on the component.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Property</em>' attribute.
 	 * @see #setProperty(String)
 	 * @see org.mule.ide.config.core.CorePackage#getPropertyEntryPointResolverType_Property()

@@ -41,7 +41,7 @@ import org.mule.ide.config.spring.PropertyType;
  *
  * @generated
  */
-public class CustomPropertyExtractorTypeImpl extends EObjectImpl implements CustomPropertyExtractorType {
+public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTypeImpl implements CustomPropertyExtractorType {
 	/**
 	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

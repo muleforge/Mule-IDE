@@ -42,6 +42,12 @@ public interface FilteringOutboundRouterType extends OutboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getFilteringOutboundRouterType_AbstractFilterGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -58,6 +64,12 @@ public interface FilteringOutboundRouterType extends OutboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getFilteringOutboundRouterType_AbstractFilter()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -75,6 +87,12 @@ public interface FilteringOutboundRouterType extends OutboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transformer elements.
+	 *                 Transformers convert message payloads.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transformer Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getFilteringOutboundRouterType_AbstractTransformerGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -92,6 +110,12 @@ public interface FilteringOutboundRouterType extends OutboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transformer elements.
+	 *                 Transformers convert message payloads.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transformer</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getFilteringOutboundRouterType_AbstractTransformer()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"

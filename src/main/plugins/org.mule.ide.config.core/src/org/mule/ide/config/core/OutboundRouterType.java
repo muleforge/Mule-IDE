@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.OutboundRouterType#getAbstractTransaction <em>Abstract Transaction</em>}</li>
  *   <li>{@link org.mule.ide.config.core.OutboundRouterType#getAbstractPropertyExtractorGroup <em>Abstract Property Extractor Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.OutboundRouterType#getAbstractPropertyExtractor <em>Abstract Property Extractor</em>}</li>
- *   <li>{@link org.mule.ide.config.core.OutboundRouterType#getCustomPropertyExtractor <em>Custom Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.OutboundRouterType#getEnableCorrelation <em>Enable Correlation</em>}</li>
  * </ul>
  * </p>
@@ -44,6 +43,12 @@ public interface OutboundRouterType extends AbstractOutboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound endpoint elements.
+	 *                 Outbound endpoints dispatch messages to the underlying transport.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Endpoint Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getOutboundRouterType_AbstractOutboundEndpointGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -61,6 +66,12 @@ public interface OutboundRouterType extends AbstractOutboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound endpoint elements.
+	 *                 Outbound endpoints dispatch messages to the underlying transport.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Endpoint</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getOutboundRouterType_AbstractOutboundEndpoint()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -105,6 +116,12 @@ public interface OutboundRouterType extends AbstractOutboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transaction elements.
+	 *                 Transactions allow a series of operations to be grouped together.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transaction Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getOutboundRouterType_AbstractTransactionGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
@@ -121,6 +138,12 @@ public interface OutboundRouterType extends AbstractOutboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transaction elements.
+	 *                 Transactions allow a series of operations to be grouped together.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transaction</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getOutboundRouterType_AbstractTransaction()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -161,33 +184,6 @@ public interface OutboundRouterType extends AbstractOutboundRouterType {
 	 * @generated
 	 */
 	AbstractPropertyExtractorType getAbstractPropertyExtractor();
-
-	/**
-	 * Returns the value of the '<em><b>Custom Property Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Custom Property Extractor</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Custom Property Extractor</em>' containment reference.
-	 * @see #setCustomPropertyExtractor(CustomPropertyExtractorType)
-	 * @see org.mule.ide.config.core.CorePackage#getOutboundRouterType_CustomPropertyExtractor()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='custom-property-extractor' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CustomPropertyExtractorType getCustomPropertyExtractor();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.OutboundRouterType#getCustomPropertyExtractor <em>Custom Property Extractor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Custom Property Extractor</em>' containment reference.
-	 * @see #getCustomPropertyExtractor()
-	 * @generated
-	 */
-	void setCustomPropertyExtractor(CustomPropertyExtractorType value);
 
 	/**
 	 * Returns the value of the '<em><b>Enable Correlation</b></em>' attribute.

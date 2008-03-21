@@ -75,31 +75,8 @@ public class MuleTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MuleType_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MuleType_name_feature", "_UI_MuleType_type"),
-				 CorePackage.eINSTANCE.getMuleType_Name(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -140,10 +117,7 @@ public class MuleTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MuleType)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_MuleType_type") :
-			getString("_UI_MuleType_type") + " " + label;
+		return getString("_UI_MuleType_type");
 	}
 
 	/**
@@ -158,9 +132,6 @@ public class MuleTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(MuleType.class)) {
-			case CorePackage.MULE_TYPE__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case CorePackage.MULE_TYPE__GROUP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -183,6 +154,20 @@ public class MuleTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getMuleType_Beans(),
+					 SpringFactory.eINSTANCE.createBeansType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getMuleType_Bean(),
+					 SpringFactory.eINSTANCE.createBeanType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getMuleType_EnvironmentProperty(),
 					 CoreFactory.eINSTANCE.createEnvironmentPropertyType())));
 
@@ -191,7 +176,7 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getMuleType_Configuration(),
-					 CoreFactory.eINSTANCE.createManagementContextType())));
+					 CoreFactory.eINSTANCE.createConfigurationType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -199,13 +184,6 @@ public class MuleTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getMuleType_Notifications(),
 					 CoreFactory.eINSTANCE.createNotificationManagerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getMuleType_Description(),
-					 CoreFactory.eINSTANCE.createDescriptionType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -233,7 +211,7 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_JndiTransactionManager(),
-					 CoreFactory.eINSTANCE.createTransactionManagerType())));
+					 CoreFactory.eINSTANCE.createJndiTransactionManagerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -254,7 +232,7 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_WeblogicTransactionManager(),
-					 CoreFactory.eINSTANCE.createJndiTransactionManagerType())));
+					 CoreFactory.eINSTANCE.createJndiTransactionManagerType1())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -310,6 +288,13 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -338,6 +323,13 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -366,6 +358,13 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -394,6 +393,13 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -422,6 +428,13 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -450,6 +463,13 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -471,56 +491,21 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
+					(CorePackage.eINSTANCE.getDocumentRoot_ExpressionTransformer(),
+					 CoreFactory.eINSTANCE.createExpressionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -535,6 +520,13 @@ public class MuleTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -563,6 +555,13 @@ public class MuleTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -591,6 +590,13 @@ public class MuleTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -632,6 +638,13 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_NoActionTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -660,6 +673,13 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -688,6 +708,13 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -716,6 +743,13 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -744,6 +778,13 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer(),
 					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
 
 		newChildDescriptors.add
@@ -764,118 +805,6 @@ public class MuleTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createCustomTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer(),
-					 CoreFactory.eINSTANCE.createRefTransformerType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(),
 					 CoreFactory.eINSTANCE.createAbstractTransformerType())));
 
@@ -885,6 +814,13 @@ public class MuleTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -913,6 +849,13 @@ public class MuleTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer(),
 					 CoreFactory.eINSTANCE.createCustomTransformerType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer(),
+					 CoreFactory.eINSTANCE.createEncryptionTransformerType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -961,14 +904,7 @@ public class MuleTypeItemProvider
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter(),
-					 CoreFactory.eINSTANCE.createPatternFilterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter(),
-					 CoreFactory.eINSTANCE.createWildcardFilterType())));
+					 CoreFactory.eINSTANCE.createCaseSensitivePatternFilterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -997,6 +933,13 @@ public class MuleTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(),
 					 CoreFactory.eINSTANCE.createPatternFilterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(),
+					 CoreFactory.eINSTANCE.createCaseSensitivePatternFilterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1032,20 +975,6 @@ public class MuleTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_SedaModel(),
 					 CoreFactory.eINSTANCE.createDefaultModelType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getMuleType_Beans(),
-					 SpringFactory.eINSTANCE.createBeansType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getMuleType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getMuleType_Bean(),
-					 SpringFactory.eINSTANCE.createBeanType())));
 	}
 
 	/**
@@ -1069,7 +998,6 @@ public class MuleTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransactionManager() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WeblogicTransactionManager() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_JbossTransactionManager() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_JndiTransactionManager() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_JrunTransactionManager() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ResinTransactionManager() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WebsphereTransactionManager() ||
@@ -1079,8 +1007,6 @@ public class MuleTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToObjectTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToSerializableTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer() ||
@@ -1089,13 +1015,11 @@ public class MuleTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ObjectToStringTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SerializableToByteArrayTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_StringToByteArrayTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UcEncoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuDecoderTransformer() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_UuEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityDecoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_XmlEntityEncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DecryptTransformer() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EncryptTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Transformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_AndFilter() ||

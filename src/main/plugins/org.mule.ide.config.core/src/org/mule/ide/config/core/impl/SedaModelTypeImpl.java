@@ -92,7 +92,7 @@ public class SedaModelTypeImpl extends AbstractModelTypeImpl implements SedaMode
 	 * @ordered
 	 */
 	protected EList<Connection> connections;
-	
+
 	protected ConnectionsAdapter connectionsAdapter;
 
 	/**

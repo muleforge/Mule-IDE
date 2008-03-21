@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -23,6 +24,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CoreFactory;
@@ -37,7 +39,7 @@ import org.mule.ide.config.core.JndiTransactionManagerType;
  * @generated
  */
 public class JndiTransactionManagerTypeItemProvider
-	extends AbstractTransactionManagerTypeItemProvider
+	extends JndiTransactionManagerType1ItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -65,38 +67,31 @@ public class JndiTransactionManagerTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addJndiNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Jndi Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getJndiTransactionManagerType_Environment());
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addJndiNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JndiTransactionManagerType_jndiName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JndiTransactionManagerType_jndiName_feature", "_UI_JndiTransactionManagerType_type"),
+				 CorePackage.eINSTANCE.getJndiTransactionManagerType_JndiName(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -107,7 +102,10 @@ public class JndiTransactionManagerTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_JndiTransactionManagerType_type");
+		String label = ((JndiTransactionManagerType)object).getJndiName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_JndiTransactionManagerType_type") :
+			getString("_UI_JndiTransactionManagerType_type") + " " + label;
 	}
 
 	/**
@@ -122,8 +120,8 @@ public class JndiTransactionManagerTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JndiTransactionManagerType.class)) {
-			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__ENVIRONMENT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			case CorePackage.JNDI_TRANSACTION_MANAGER_TYPE__JNDI_NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -139,11 +137,6 @@ public class JndiTransactionManagerTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getJndiTransactionManagerType_Environment(),
-				 CoreFactory.eINSTANCE.createMapType()));
 	}
 
 	/**

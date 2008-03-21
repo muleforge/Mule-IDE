@@ -23,7 +23,7 @@ import org.mule.ide.config.core.TlsProtocolHandler;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.TlsProtocolHandlerImpl#getProtocolHandler <em>Protocol Handler</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.TlsProtocolHandlerImpl#getProperty <em>Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,24 +31,24 @@ import org.mule.ide.config.core.TlsProtocolHandler;
  */
 public class TlsProtocolHandlerImpl extends EObjectImpl implements TlsProtocolHandler {
 	/**
-	 * The default value of the '{@link #getProtocolHandler() <em>Protocol Handler</em>}' attribute.
+	 * The default value of the '{@link #getProperty() <em>Property</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProtocolHandler()
+	 * @see #getProperty()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PROTOCOL_HANDLER_EDEFAULT = null;
+	protected static final String PROPERTY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getProtocolHandler() <em>Protocol Handler</em>}' attribute.
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProtocolHandler()
+	 * @see #getProperty()
 	 * @generated
 	 * @ordered
 	 */
-	protected String protocolHandler = PROTOCOL_HANDLER_EDEFAULT;
+	protected String property = PROPERTY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,8 +74,8 @@ public class TlsProtocolHandlerImpl extends EObjectImpl implements TlsProtocolHa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getProtocolHandler() {
-		return protocolHandler;
+	public String getProperty() {
+		return property;
 	}
 
 	/**
@@ -83,11 +83,11 @@ public class TlsProtocolHandlerImpl extends EObjectImpl implements TlsProtocolHa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProtocolHandler(String newProtocolHandler) {
-		String oldProtocolHandler = protocolHandler;
-		protocolHandler = newProtocolHandler;
+	public void setProperty(String newProperty) {
+		String oldProperty = property;
+		property = newProperty;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_PROTOCOL_HANDLER__PROTOCOL_HANDLER, oldProtocolHandler, protocolHandler));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TLS_PROTOCOL_HANDLER__PROPERTY, oldProperty, property));
 	}
 
 	/**
@@ -98,8 +98,8 @@ public class TlsProtocolHandlerImpl extends EObjectImpl implements TlsProtocolHa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.TLS_PROTOCOL_HANDLER__PROTOCOL_HANDLER:
-				return getProtocolHandler();
+			case CorePackage.TLS_PROTOCOL_HANDLER__PROPERTY:
+				return getProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,8 +112,8 @@ public class TlsProtocolHandlerImpl extends EObjectImpl implements TlsProtocolHa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.TLS_PROTOCOL_HANDLER__PROTOCOL_HANDLER:
-				setProtocolHandler((String)newValue);
+			case CorePackage.TLS_PROTOCOL_HANDLER__PROPERTY:
+				setProperty((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -127,8 +127,8 @@ public class TlsProtocolHandlerImpl extends EObjectImpl implements TlsProtocolHa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.TLS_PROTOCOL_HANDLER__PROTOCOL_HANDLER:
-				setProtocolHandler(PROTOCOL_HANDLER_EDEFAULT);
+			case CorePackage.TLS_PROTOCOL_HANDLER__PROPERTY:
+				setProperty(PROPERTY_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -142,8 +142,8 @@ public class TlsProtocolHandlerImpl extends EObjectImpl implements TlsProtocolHa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.TLS_PROTOCOL_HANDLER__PROTOCOL_HANDLER:
-				return PROTOCOL_HANDLER_EDEFAULT == null ? protocolHandler != null : !PROTOCOL_HANDLER_EDEFAULT.equals(protocolHandler);
+			case CorePackage.TLS_PROTOCOL_HANDLER__PROPERTY:
+				return PROPERTY_EDEFAULT == null ? property != null : !PROPERTY_EDEFAULT.equals(property);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -158,8 +158,8 @@ public class TlsProtocolHandlerImpl extends EObjectImpl implements TlsProtocolHa
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (protocolHandler: ");
-		result.append(protocolHandler);
+		result.append(" (property: ");
+		result.append(property);
 		result.append(')');
 		return result.toString();
 	}

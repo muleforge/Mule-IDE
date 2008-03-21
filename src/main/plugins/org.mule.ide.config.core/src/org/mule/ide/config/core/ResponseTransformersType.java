@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * </p>
  *
  * @see org.mule.ide.config.core.CorePackage#getResponseTransformersType()
- * @model extendedMetaData="name='responseTransformers_._type' kind='elementOnly'"
+ * @model extendedMetaData="name='response-transformers_._type' kind='elementOnly'"
  * @generated
  */
 public interface ResponseTransformersType extends EObject {
@@ -39,6 +39,12 @@ public interface ResponseTransformersType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transformer elements.
+	 *                 Transformers convert message payloads.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transformer Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getResponseTransformersType_AbstractTransformerGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -56,6 +62,12 @@ public interface ResponseTransformersType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transformer elements.
+	 *                 Transformers convert message payloads.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transformer</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getResponseTransformersType_AbstractTransformer()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"

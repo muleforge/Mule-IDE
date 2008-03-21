@@ -33,6 +33,12 @@ public interface BaseEntryPointResolverType extends AbstractEntryPointResolverTy
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             Should the resolver call void methods?
+	 *                             By default, void methods are not considered as possible candidates for message delivery.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Accept Void Methods</em>' attribute.
 	 * @see #isSetAcceptVoidMethods()
 	 * @see #unsetAcceptVoidMethods()
@@ -87,6 +93,12 @@ public interface BaseEntryPointResolverType extends AbstractEntryPointResolverTy
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             Should the message be transformer before being delivered to the component?
+	 *                             By default, messages are transformed.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Transform First</em>' attribute.
 	 * @see #isSetTransformFirst()
 	 * @see #unsetTransformFirst()

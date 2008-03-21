@@ -33,6 +33,11 @@ public interface ReplyToType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The destination address for a reply message.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Address</em>' attribute.
 	 * @see #setAddress(String)
 	 * @see org.mule.ide.config.core.CorePackage#getReplyToType_Address()

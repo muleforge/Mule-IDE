@@ -6,15 +6,19 @@
  */
 package org.mule.ide.config.core.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.mule.ide.config.core.AbstractCatchAllStrategyType;
 import org.mule.ide.config.core.AbstractInboundEndpointType;
 import org.mule.ide.config.core.AbstractInboundRouterType;
@@ -34,11 +38,10 @@ import org.mule.ide.config.core.InboundCollectionType;
  *   <li>{@link org.mule.ide.config.core.impl.InboundCollectionTypeImpl#getAbstractInboundEndpoint <em>Abstract Inbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.InboundCollectionTypeImpl#getAbstractInboundRouterGroup <em>Abstract Inbound Router Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.InboundCollectionTypeImpl#getAbstractInboundRouter <em>Abstract Inbound Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.InboundCollectionTypeImpl#isMatchAll <em>Match All</em>}</li>
  * </ul>
  * </p>
  *
- * @generated NOT
+ * @generated
  */
 public class InboundCollectionTypeImpl extends PlaceholderSupportEObjectImpl implements InboundCollectionType {
 	/**
@@ -70,35 +73,6 @@ public class InboundCollectionTypeImpl extends PlaceholderSupportEObjectImpl imp
 	 * @ordered
 	 */
 	protected FeatureMap abstractInboundRouterGroup;
-
-	/**
-	 * The default value of the '{@link #isMatchAll() <em>Match All</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMatchAll()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean MATCH_ALL_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isMatchAll() <em>Match All</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMatchAll()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean matchAll = MATCH_ALL_EDEFAULT;
-
-	/**
-	 * This is true if the Match All attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean matchAllESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -196,52 +170,6 @@ public class InboundCollectionTypeImpl extends PlaceholderSupportEObjectImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isMatchAll() {
-		return matchAll;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMatchAll(boolean newMatchAll) {
-		boolean oldMatchAll = matchAll;
-		matchAll = newMatchAll;
-		boolean oldMatchAllESet = matchAllESet;
-		matchAllESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.INBOUND_COLLECTION_TYPE__MATCH_ALL, oldMatchAll, matchAll, !oldMatchAllESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetMatchAll() {
-		boolean oldMatchAll = matchAll;
-		boolean oldMatchAllESet = matchAllESet;
-		matchAll = MATCH_ALL_EDEFAULT;
-		matchAllESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.INBOUND_COLLECTION_TYPE__MATCH_ALL, oldMatchAll, MATCH_ALL_EDEFAULT, oldMatchAllESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetMatchAll() {
-		return matchAllESet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -284,8 +212,6 @@ public class InboundCollectionTypeImpl extends PlaceholderSupportEObjectImpl imp
 				return ((FeatureMap.Internal)getAbstractInboundRouterGroup()).getWrapper();
 			case CorePackage.INBOUND_COLLECTION_TYPE__ABSTRACT_INBOUND_ROUTER:
 				return getAbstractInboundRouter();
-			case CorePackage.INBOUND_COLLECTION_TYPE__MATCH_ALL:
-				return isMatchAll() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -307,9 +233,6 @@ public class InboundCollectionTypeImpl extends PlaceholderSupportEObjectImpl imp
 			case CorePackage.INBOUND_COLLECTION_TYPE__ABSTRACT_INBOUND_ROUTER_GROUP:
 				((FeatureMap.Internal)getAbstractInboundRouterGroup()).set(newValue);
 				return;
-			case CorePackage.INBOUND_COLLECTION_TYPE__MATCH_ALL:
-				setMatchAll(((Boolean)newValue).booleanValue());
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -330,9 +253,6 @@ public class InboundCollectionTypeImpl extends PlaceholderSupportEObjectImpl imp
 				return;
 			case CorePackage.INBOUND_COLLECTION_TYPE__ABSTRACT_INBOUND_ROUTER_GROUP:
 				getAbstractInboundRouterGroup().clear();
-				return;
-			case CorePackage.INBOUND_COLLECTION_TYPE__MATCH_ALL:
-				unsetMatchAll();
 				return;
 		}
 		super.eUnset(featureID);
@@ -358,8 +278,6 @@ public class InboundCollectionTypeImpl extends PlaceholderSupportEObjectImpl imp
 				return abstractInboundRouterGroup != null && !abstractInboundRouterGroup.isEmpty();
 			case CorePackage.INBOUND_COLLECTION_TYPE__ABSTRACT_INBOUND_ROUTER:
 				return !getAbstractInboundRouter().isEmpty();
-			case CorePackage.INBOUND_COLLECTION_TYPE__MATCH_ALL:
-				return isSetMatchAll();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -380,11 +298,8 @@ public class InboundCollectionTypeImpl extends PlaceholderSupportEObjectImpl imp
 		result.append(abstractInboundEndpointGroup);
 		result.append(", abstractInboundRouterGroup: ");
 		result.append(abstractInboundRouterGroup);
-		result.append(", matchAll: ");
-		if (matchAllESet) result.append(matchAll); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}
-	
 
 } //InboundCollectionTypeImpl

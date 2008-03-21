@@ -65,7 +65,7 @@ public class AbstractTransactionTypeImpl extends EObjectImpl implements Abstract
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TIMEOUT_EDEFAULT = null;
+	protected static final int TIMEOUT_EDEFAULT = 0;
 	/**
 	 * The cached value of the '{@link #getTimeout() <em>Timeout</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,16 @@ public class AbstractTransactionTypeImpl extends EObjectImpl implements Abstract
 	 * @generated
 	 * @ordered
 	 */
-	protected String timeout = TIMEOUT_EDEFAULT;
+	protected int timeout = TIMEOUT_EDEFAULT;
+
+	/**
+	 * This is true if the Timeout attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean timeoutESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,7 +155,7 @@ public class AbstractTransactionTypeImpl extends EObjectImpl implements Abstract
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTimeout() {
+	public int getTimeout() {
 		return timeout;
 	}
 
@@ -155,11 +164,36 @@ public class AbstractTransactionTypeImpl extends EObjectImpl implements Abstract
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTimeout(String newTimeout) {
-		String oldTimeout = timeout;
+	public void setTimeout(int newTimeout) {
+		int oldTimeout = timeout;
 		timeout = newTimeout;
+		boolean oldTimeoutESet = timeoutESet;
+		timeoutESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ABSTRACT_TRANSACTION_TYPE__TIMEOUT, oldTimeout, timeout));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ABSTRACT_TRANSACTION_TYPE__TIMEOUT, oldTimeout, timeout, !oldTimeoutESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetTimeout() {
+		int oldTimeout = timeout;
+		boolean oldTimeoutESet = timeoutESet;
+		timeout = TIMEOUT_EDEFAULT;
+		timeoutESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.ABSTRACT_TRANSACTION_TYPE__TIMEOUT, oldTimeout, TIMEOUT_EDEFAULT, oldTimeoutESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetTimeout() {
+		return timeoutESet;
 	}
 
 	/**
@@ -173,7 +207,7 @@ public class AbstractTransactionTypeImpl extends EObjectImpl implements Abstract
 			case CorePackage.ABSTRACT_TRANSACTION_TYPE__ACTION:
 				return getAction();
 			case CorePackage.ABSTRACT_TRANSACTION_TYPE__TIMEOUT:
-				return getTimeout();
+				return new Integer(getTimeout());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -190,7 +224,7 @@ public class AbstractTransactionTypeImpl extends EObjectImpl implements Abstract
 				setAction((ActionType)newValue);
 				return;
 			case CorePackage.ABSTRACT_TRANSACTION_TYPE__TIMEOUT:
-				setTimeout((String)newValue);
+				setTimeout(((Integer)newValue).intValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -208,7 +242,7 @@ public class AbstractTransactionTypeImpl extends EObjectImpl implements Abstract
 				unsetAction();
 				return;
 			case CorePackage.ABSTRACT_TRANSACTION_TYPE__TIMEOUT:
-				setTimeout(TIMEOUT_EDEFAULT);
+				unsetTimeout();
 				return;
 		}
 		super.eUnset(featureID);
@@ -225,7 +259,7 @@ public class AbstractTransactionTypeImpl extends EObjectImpl implements Abstract
 			case CorePackage.ABSTRACT_TRANSACTION_TYPE__ACTION:
 				return isSetAction();
 			case CorePackage.ABSTRACT_TRANSACTION_TYPE__TIMEOUT:
-				return TIMEOUT_EDEFAULT == null ? timeout != null : !TIMEOUT_EDEFAULT.equals(timeout);
+				return isSetTimeout();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -243,7 +277,7 @@ public class AbstractTransactionTypeImpl extends EObjectImpl implements Abstract
 		result.append(" (action: ");
 		if (actionESet) result.append(action); else result.append("<unset>");
 		result.append(", timeout: ");
-		result.append(timeout);
+		if (timeoutESet) result.append(timeout); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

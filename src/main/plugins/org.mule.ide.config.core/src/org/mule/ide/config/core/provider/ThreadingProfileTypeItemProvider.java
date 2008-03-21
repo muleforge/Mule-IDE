@@ -68,7 +68,6 @@ public class ThreadingProfileTypeItemProvider
 			addMaxBufferSizePropertyDescriptor(object);
 			addMaxThreadsActivePropertyDescriptor(object);
 			addMaxThreadsIdlePropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 			addPoolExhaustedActionPropertyDescriptor(object);
 			addThreadTTLPropertyDescriptor(object);
 			addThreadWaitTimeoutPropertyDescriptor(object);
@@ -115,7 +114,7 @@ public class ThreadingProfileTypeItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -137,7 +136,7 @@ public class ThreadingProfileTypeItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -159,29 +158,7 @@ public class ThreadingProfileTypeItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ThreadingProfileType_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ThreadingProfileType_name_feature", "_UI_ThreadingProfileType_type"),
-				 CorePackage.eINSTANCE.getThreadingProfileType_Name(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -225,7 +202,7 @@ public class ThreadingProfileTypeItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -247,7 +224,7 @@ public class ThreadingProfileTypeItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -260,10 +237,8 @@ public class ThreadingProfileTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ThreadingProfileType)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ThreadingProfileType_type") :
-			getString("_UI_ThreadingProfileType_type") + " " + label;
+		ThreadingProfileType threadingProfileType = (ThreadingProfileType)object;
+		return getString("_UI_ThreadingProfileType_type") + " " + threadingProfileType.isDoThreading();
 	}
 
 	/**
@@ -282,7 +257,6 @@ public class ThreadingProfileTypeItemProvider
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_BUFFER_SIZE:
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_ACTIVE:
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_IDLE:
-			case CorePackage.THREADING_PROFILE_TYPE__NAME:
 			case CorePackage.THREADING_PROFILE_TYPE__POOL_EXHAUSTED_ACTION:
 			case CorePackage.THREADING_PROFILE_TYPE__THREAD_TTL:
 			case CorePackage.THREADING_PROFILE_TYPE__THREAD_WAIT_TIMEOUT:

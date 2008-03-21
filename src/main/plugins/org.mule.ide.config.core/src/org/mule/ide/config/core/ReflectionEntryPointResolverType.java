@@ -36,6 +36,12 @@ public interface ReflectionEntryPointResolverType extends BaseEntryPointResolver
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 If specified, methods in the Java Object interface are not included in
+	 *                                 the list of possible methods that can receive the message.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exclude Object Methods</em>' containment reference.
 	 * @see #setExcludeObjectMethods(EObject)
 	 * @see org.mule.ide.config.core.CorePackage#getReflectionEntryPointResolverType_ExcludeObjectMethods()
@@ -64,6 +70,11 @@ public interface ReflectionEntryPointResolverType extends BaseEntryPointResolver
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 Explicitly exclude a named method from receiving the message.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exclude Entry Point</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getReflectionEntryPointResolverType_ExcludeEntryPoint()
 	 * @model containment="true"

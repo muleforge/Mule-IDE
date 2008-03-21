@@ -33,6 +33,11 @@ public interface MethodType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The name of the method.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Method</em>' attribute.
 	 * @see #setMethod(String)
 	 * @see org.mule.ide.config.core.CorePackage#getMethodType_Method()

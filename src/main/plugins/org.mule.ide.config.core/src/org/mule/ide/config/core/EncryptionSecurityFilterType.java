@@ -12,12 +12,6 @@ package org.mule.ide.config.core;
  * A representation of the model object '<em><b>Encryption Security Filter Type</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * 
- *                 Password based encyption.
- *             
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
@@ -38,6 +32,13 @@ public interface EncryptionSecurityFilterType extends AbstractSecurityFilterType
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             The name of the encryption strategy to use.
+	 *                             This should be configured using the password-encryption-strategy element,
+	 *                             inside a security-manager element at the top level.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Strategy Ref</em>' attribute.
 	 * @see #setStrategyRef(String)
 	 * @see org.mule.ide.config.core.CorePackage#getEncryptionSecurityFilterType_StrategyRef()

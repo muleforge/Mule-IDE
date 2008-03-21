@@ -22,7 +22,7 @@ import org.mule.ide.config.core.EndpointSelectorRouterType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.EndpointSelectorRouterTypeImpl#getSelectorProperty <em>Selector Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.EndpointSelectorRouterTypeImpl#getSelectorExpression <em>Selector Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,24 +30,24 @@ import org.mule.ide.config.core.EndpointSelectorRouterType;
  */
 public class EndpointSelectorRouterTypeImpl extends FilteringOutboundRouterTypeImpl implements EndpointSelectorRouterType {
 	/**
-	 * The default value of the '{@link #getSelectorProperty() <em>Selector Property</em>}' attribute.
+	 * The default value of the '{@link #getSelectorExpression() <em>Selector Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelectorProperty()
+	 * @see #getSelectorExpression()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SELECTOR_PROPERTY_EDEFAULT = null;
+	protected static final String SELECTOR_EXPRESSION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSelectorProperty() <em>Selector Property</em>}' attribute.
+	 * The cached value of the '{@link #getSelectorExpression() <em>Selector Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelectorProperty()
+	 * @see #getSelectorExpression()
 	 * @generated
 	 * @ordered
 	 */
-	protected String selectorProperty = SELECTOR_PROPERTY_EDEFAULT;
+	protected String selectorExpression = SELECTOR_EXPRESSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,8 +73,8 @@ public class EndpointSelectorRouterTypeImpl extends FilteringOutboundRouterTypeI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSelectorProperty() {
-		return selectorProperty;
+	public String getSelectorExpression() {
+		return selectorExpression;
 	}
 
 	/**
@@ -82,11 +82,11 @@ public class EndpointSelectorRouterTypeImpl extends FilteringOutboundRouterTypeI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelectorProperty(String newSelectorProperty) {
-		String oldSelectorProperty = selectorProperty;
-		selectorProperty = newSelectorProperty;
+	public void setSelectorExpression(String newSelectorExpression) {
+		String oldSelectorExpression = selectorExpression;
+		selectorExpression = newSelectorExpression;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_PROPERTY, oldSelectorProperty, selectorProperty));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_EXPRESSION, oldSelectorExpression, selectorExpression));
 	}
 
 	/**
@@ -97,8 +97,8 @@ public class EndpointSelectorRouterTypeImpl extends FilteringOutboundRouterTypeI
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_PROPERTY:
-				return getSelectorProperty();
+			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_EXPRESSION:
+				return getSelectorExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -111,8 +111,8 @@ public class EndpointSelectorRouterTypeImpl extends FilteringOutboundRouterTypeI
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_PROPERTY:
-				setSelectorProperty((String)newValue);
+			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_EXPRESSION:
+				setSelectorExpression((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,8 +126,8 @@ public class EndpointSelectorRouterTypeImpl extends FilteringOutboundRouterTypeI
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_PROPERTY:
-				setSelectorProperty(SELECTOR_PROPERTY_EDEFAULT);
+			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_EXPRESSION:
+				setSelectorExpression(SELECTOR_EXPRESSION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -141,8 +141,8 @@ public class EndpointSelectorRouterTypeImpl extends FilteringOutboundRouterTypeI
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_PROPERTY:
-				return SELECTOR_PROPERTY_EDEFAULT == null ? selectorProperty != null : !SELECTOR_PROPERTY_EDEFAULT.equals(selectorProperty);
+			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE__SELECTOR_EXPRESSION:
+				return SELECTOR_EXPRESSION_EDEFAULT == null ? selectorExpression != null : !SELECTOR_EXPRESSION_EDEFAULT.equals(selectorExpression);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -157,8 +157,8 @@ public class EndpointSelectorRouterTypeImpl extends FilteringOutboundRouterTypeI
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (selectorProperty: ");
-		result.append(selectorProperty);
+		result.append(" (selectorExpression: ");
+		result.append(selectorExpression);
 		result.append(')');
 		return result.toString();
 	}

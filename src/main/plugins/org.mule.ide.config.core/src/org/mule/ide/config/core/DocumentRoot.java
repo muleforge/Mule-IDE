@@ -24,14 +24,11 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractAsyncReplyRouter <em>Abstract Async Reply Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractBinding <em>Abstract Binding</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractCatchAllStrategy <em>Abstract Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractComponent <em>Abstract Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractComponentThreadingProfile <em>Abstract Component Threading Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractConnector <em>Abstract Connector</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractDefineNotification <em>Abstract Define Notification</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractDisableNotification <em>Abstract Disable Notification</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractEntryPointResolver <em>Abstract Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractEntryPointResolverSet <em>Abstract Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractExceptionStrategy <em>Abstract Exception Strategy</em>}</li>
@@ -40,6 +37,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractGlobalEndpoint <em>Abstract Global Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractInboundEndpoint <em>Abstract Inbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractInboundRouter <em>Abstract Inbound Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractLifecycleAdapterFactory <em>Abstract Lifecycle Adapter Factory</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractModel <em>Abstract Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractObjectFactory <em>Abstract Object Factory</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractOutboundEndpoint <em>Abstract Outbound Endpoint</em>}</li>
@@ -50,7 +48,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractSecurityFilter <em>Abstract Security Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractSecurityManager <em>Abstract Security Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractService <em>Abstract Service</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractStorage <em>Abstract Storage</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractTransaction <em>Abstract Transaction</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractTransactionManager <em>Abstract Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractTransformer <em>Abstract Transformer</em>}</li>
@@ -59,7 +56,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getArrayEntryPointResolver <em>Array Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getBase64DecoderTransformer <em>Base64 Decoder Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getBase64EncoderTransformer <em>Base64 Encoder Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getBeanPropertyExtractor <em>Bean Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getBridgeComponent <em>Bridge Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getByteArrayToHexStringTransformer <em>Byte Array To Hex String Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getByteArrayToObjectTransformer <em>Byte Array To Object Transformer</em>}</li>
@@ -75,7 +71,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomCatchAllStrategy <em>Custom Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomConnectionStrategy <em>Custom Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomConnector <em>Custom Connector</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomContainer <em>Custom Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomCorrelationAggregatorRouter <em>Custom Correlation Aggregator Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomEntryPointResolver <em>Custom Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomEntryPointResolverSet <em>Custom Entry Point Resolver Set</em>}</li>
@@ -83,18 +78,17 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomFilter <em>Custom Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomForwardingCatchAllStrategy <em>Custom Forwarding Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomInboundRouter <em>Custom Inbound Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomLifecycleAdapterFactory <em>Custom Lifecycle Adapter Factory</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomOutboundRouter <em>Custom Outbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomPropertyExtractor <em>Custom Property Extractor</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomService <em>Custom Service</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransaction <em>Custom Transaction</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransactionManager <em>Custom Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransformer <em>Custom Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDecryptTransformer <em>Decrypt Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDefaultConnectorExceptionStrategy <em>Default Connector Exception Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDefaultServiceExceptionStrategy <em>Default Service Exception Strategy</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDescription <em>Description</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getDisableNotification <em>Disable Notification</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEchoComponent <em>Echo Component</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEjbContainer <em>Ejb Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEncryptionSecurityFilter <em>Encryption Security Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEncryptTransformer <em>Encrypt Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEndpoint <em>Endpoint</em>}</li>
@@ -102,21 +96,21 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEntryPointResolverSet <em>Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getExceptionBasedRouter <em>Exception Based Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getExceptionTypeFilter <em>Exception Type Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getExpressionTransformer <em>Expression Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getFilteringRouter <em>Filtering Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getForwardingCatchAllStrategy <em>Forwarding Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getForwardingRouter <em>Forwarding Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getFunctionPropertyExtractor <em>Function Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getGzipCompressTransformer <em>Gzip Compress Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getGzipUncompressTransformer <em>Gzip Uncompress Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getHexStringToByteArrayTransformer <em>Hex String To Byte Array Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getHivemindContainer <em>Hivemind Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getIdempotentReceiverRouter <em>Idempotent Receiver Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getIdempotentSecureHashReceiverRouter <em>Idempotent Secure Hash Receiver Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getInboundEndpoint <em>Inbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getInboundPassThroughRouter <em>Inbound Pass Through Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getIncludeEntryPoint <em>Include Entry Point</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getJbossTransactionManager <em>Jboss Transaction Manager</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getJndiContainer <em>Jndi Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getJndiTransactionManager <em>Jndi Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getJrunTransactionManager <em>Jrun Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getLegacyEntryPointResolverSet <em>Legacy Entry Point Resolver Set</em>}</li>
@@ -136,22 +130,16 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNoActionTransformer <em>No Action Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNoArgumentsEntryPointResolver <em>No Arguments Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNotFilter <em>Not Filter</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNotification <em>Notification</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getNullComponent <em>Null Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getObjectToByteArrayTransformer <em>Object To Byte Array Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getObjectToStringTransformer <em>Object To String Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getOrFilter <em>Or Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getOutboundEndpoint <em>Outbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getOutboundPassThroughRouter <em>Outbound Pass Through Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPassThroughComponent <em>Pass Through Component</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPayloadPropertyExtractor <em>Payload Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPayloadTypeFilter <em>Payload Type Filter</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPicoContainer <em>Pico Container</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPlexusContainer <em>Plexus Container</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPooledObject <em>Pooled Object</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPooledComponent <em>Pooled Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPoolingProfile <em>Pooling Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getProperties <em>Properties</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPropertiesContainer <em>Properties Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPropertyEntryPointResolver <em>Property Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getPrototypeObject <em>Prototype Object</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getQueueProfile <em>Queue Profile</em>}</li>
@@ -159,7 +147,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getRegexFilter <em>Regex Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getResinTransactionManager <em>Resin Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getRetryConnectionStrategy <em>Retry Connection Strategy</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getRmiContainer <em>Rmi Container</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSecurityManager <em>Security Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSedaModel <em>Seda Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSelectiveConsumerRouter <em>Selective Consumer Router</em>}</li>
@@ -172,10 +159,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getStringToByteArrayTransformer <em>String To Byte Array Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTemplateEndpointRouter <em>Template Endpoint Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getTransformer <em>Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getUcDecoderTransformer <em>Uc Decoder Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getUcEncoderTransformer <em>Uc Encoder Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getUuDecoderTransformer <em>Uu Decoder Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getUuEncoderTransformer <em>Uu Encoder Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getWeblogicTransactionManager <em>Weblogic Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getWebsphereTransactionManager <em>Websphere Transaction Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getWildcardFilter <em>Wildcard Filter</em>}</li>
@@ -251,6 +234,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an async reply router element.
+	 *                 Asynchronous replies are handled via this router.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Async Reply Router</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractAsyncReplyRouter()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -260,22 +249,6 @@ public interface DocumentRoot extends EObject {
 	AbstractAsyncReplyRouterType getAbstractAsyncReplyRouter();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Binding</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Binding</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Binding</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractBinding()
-	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-binding' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	AbstractBindingType getAbstractBinding();
-
-	/**
 	 * Returns the value of the '<em><b>Abstract Catch All Strategy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -283,6 +256,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for catch-all strategy elements.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Catch All Strategy</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractCatchAllStrategy()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -299,6 +277,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for component element.
+	 *                 A component processes data. Typically it is a Java object.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Component</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractComponent()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -315,6 +299,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for component threading profile element.
+	 *                 Threading profils define how thread pools interact with the component.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Component Threading Profile</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractComponentThreadingProfile()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -331,6 +321,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for connection strategy elements.
+	 *                 Connection strategies control how the underlying transport handles connection errors.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Connection Strategy</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractConnectionStrategy()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -347,6 +343,15 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for connector elements.
+	 *                 Connector elements allow properties to be configured across all endpoints that
+	 *                 use the same transport.
+	 *                 If multiple connectors are defined for the same transport then each endpoint
+	 *                 must name which connector is being used.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Connector</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractConnector()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -356,38 +361,6 @@ public interface DocumentRoot extends EObject {
 	AbstractConnectorType getAbstractConnector();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Define Notification</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Define Notification</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Define Notification</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractDefineNotification()
-	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-define-notification' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	AbstractDefineNotificationType getAbstractDefineNotification();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Disable Notification</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Disable Notification</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Disable Notification</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractDisableNotification()
-	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-disable-notification' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	AbstractDisableNotificationType getAbstractDisableNotification();
-
-	/**
 	 * Returns the value of the '<em><b>Abstract Entry Point Resolver</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -395,6 +368,13 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an entry point resolver element.
+	 *                 Entry point resolvers define how payloads are delivered to Java code
+	 *                 (ie they choose the method to call).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractEntryPointResolver()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -411,6 +391,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for entry point resolver set elements.
+	 *                 These combine a group of entry point resolvers, trying them in turn until one succeeds.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Entry Point Resolver Set</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractEntryPointResolverSet()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -427,6 +413,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an exception strategy element.
+	 *                 Exception strategies define how Mule should react to errors.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Exception Strategy</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractExceptionStrategy()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -441,7 +433,10 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 Abstract base for arbitrary extensions as children of the mule element.
+	 *                 A placeholder for arbitrary extensions as children of the mule element.
+	 *                 Other transports and modules may extend this if they need to add global
+	 *                 elements to the configuration (but consider the more specific elements
+	 *                 like abstract-connector first).
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Extension</em>' containment reference.
@@ -460,6 +455,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for filter elements.
+	 *                 Filters are used to make decisions within the Mule framework.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Filter</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractFilter()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -476,6 +477,14 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for global endpoint elements.
+	 *                 Global endpoints are named templates that allow us to define an endpoint once
+	 *                 and refer to it in several places.
+	 *                 Currently the same template is used for both inbound and outbound endpoints.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Global Endpoint</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractGlobalEndpoint()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -492,6 +501,13 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound endpoint elements.
+	 *                 Inbound endpoints receive messages from the underlying transport.
+	 *                 The message payload is then delivered to the component for processing.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Endpoint</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractInboundEndpoint()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -508,6 +524,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound router elements.
+	 *                 Inbound routers control how incoming messages are handled.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Router</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractInboundRouter()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -517,6 +539,22 @@ public interface DocumentRoot extends EObject {
 	AbstractInboundRouterType getAbstractInboundRouter();
 
 	/**
+	 * Returns the value of the '<em><b>Abstract Lifecycle Adapter Factory</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract Lifecycle Adapter Factory</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Lifecycle Adapter Factory</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractLifecycleAdapterFactory()
+	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='abstract-lifecycle-adapter-factory' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	AbstractLifecycleAdapterFactory getAbstractLifecycleAdapterFactory();
+
+	/**
 	 * Returns the value of the '<em><b>Abstract Model</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -524,6 +562,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for model elements.
+	 *                 A model provides basic settings and processing for all the services it contains.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Model</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractModel()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -556,6 +600,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound endpoint elements.
+	 *                 Outbound endpoints dispatch messages to the underlying transport.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Endpoint</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractOutboundEndpoint()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -572,6 +622,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound router elements.
+	 *                 Outbound routers control how outgoing messages are delivered to the outbound endpoints.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Router</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractOutboundRouter()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -620,6 +676,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for queue profile elements.
+	 *                 A queue profile controls how messages are queued before being processed.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Queue Profile</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractQueueProfile()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -636,6 +698,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for security filter elements.
+	 *                 Security filters can control access to the system, etc.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Security Filter</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractSecurityFilter()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -672,6 +740,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for a service element.
+	 *                 Services combine message routing with a Java (typically) component.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Service</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractService()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -681,22 +755,6 @@ public interface DocumentRoot extends EObject {
 	AbstractServiceType getAbstractService();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Storage</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Storage</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Storage</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractStorage()
-	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-storage' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	AbstractStorageType getAbstractStorage();
-
-	/**
 	 * Returns the value of the '<em><b>Abstract Transaction</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -704,6 +762,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transaction elements.
+	 *                 Transactions allow a series of operations to be grouped together.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transaction</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractTransaction()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -720,6 +784,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transaction manager elements.
+	 *                 Transaction managers are used to co-ordinate transactions.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transaction Manager</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractTransactionManager()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -736,6 +806,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transformer elements.
+	 *                 Transformers convert message payloads.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transformer</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractTransformer()
 	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
@@ -752,6 +828,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Return true only if all the enclosed filters return true.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>And Filter</em>' containment reference.
 	 * @see #setAndFilter(CollectionFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AndFilter()
@@ -779,6 +860,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that appends a string to a string payload.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Append String Transformer</em>' containment reference.
 	 * @see #setAppendStringTransformer(AppendStringTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AppendStringTransformer()
@@ -806,6 +892,15 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Deliver the message to a method which takes a single array as argument.
+	 *                 This element can be set on the model or component;
+	 *                 the model value provides a default which individual component values can override.
+	 *                 This element can also be used directly or as part of a set of resolvers;
+	 *                 the resolvers in a set are used in turn until one is successful.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Array Entry Point Resolver</em>' containment reference.
 	 * @see #setArrayEntryPointResolver(ComplexEntryPointResolverType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ArrayEntryPointResolver()
@@ -833,6 +928,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that base64 decodes a message to give an array of bytes.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Base64 Decoder Transformer</em>' containment reference.
 	 * @see #setBase64DecoderTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Base64DecoderTransformer()
@@ -860,6 +960,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that base64 encodes a string or byte array message.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Base64 Encoder Transformer</em>' containment reference.
 	 * @see #setBase64EncoderTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Base64EncoderTransformer()
@@ -880,39 +985,13 @@ public interface DocumentRoot extends EObject {
 	void setBase64EncoderTransformer(AbstractTransformerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Bean Property Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Bean Property Extractor</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bean Property Extractor</em>' containment reference.
-	 * @see #setBeanPropertyExtractor(AbstractPropertyExtractorType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_BeanPropertyExtractor()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='bean-property-extractor' namespace='##targetNamespace' affiliation='abstract-property-extractor'"
-	 * @generated
-	 */
-	AbstractPropertyExtractorType getBeanPropertyExtractor();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getBeanPropertyExtractor <em>Bean Property Extractor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bean Property Extractor</em>' containment reference.
-	 * @see #getBeanPropertyExtractor()
-	 * @generated
-	 */
-	void setBeanPropertyExtractor(AbstractPropertyExtractorType value);
-
-	/**
 	 * Returns the value of the '<em><b>Bridge Component</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 Built-in BridgeComponent that enables a bridge between an inbound and outbound endpoints.
+	 *                 This transfers a message from inbound to outbound endpoints.
+	 *                 This name is provided for backwards compatability - it is equivalent to not specifying any component.
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Bridge Component</em>' containment reference.
@@ -942,6 +1021,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that converts a byte array to a string of hexadecimal digits.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Byte Array To Hex String Transformer</em>' containment reference.
 	 * @see #setByteArrayToHexStringTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ByteArrayToHexStringTransformer()
@@ -969,6 +1053,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that converts a byte array to an object (either deserializing or converting to a string).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Byte Array To Object Transformer</em>' containment reference.
 	 * @see #setByteArrayToObjectTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ByteArrayToObjectTransformer()
@@ -996,6 +1085,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that converts a byte array to an object (ie deserializing the object).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Byte Array To Serializable Transformer</em>' containment reference.
 	 * @see #setByteArrayToSerializableTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ByteArrayToSerializableTransformer()
@@ -1023,6 +1117,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that converts a byte array to a string.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Byte Array To String Transformer</em>' containment reference.
 	 * @see #setByteArrayToStringTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ByteArrayToStringTransformer()
@@ -1050,6 +1149,16 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 An entry point resolver for components that implement the Callable interface.
+	 *                 This passes a MuleEventContext to the component.
+	 *                 This element can be set on the model or component;
+	 *                 the model value provides a default which individual component values can override.
+	 *                 This element can also be used directly or as part of a set of resolvers;
+	 *                 the resolvers in a set are used in turn until one is successful.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Callable Entry Point Resolver</em>' containment reference.
 	 * @see #setCallableEntryPointResolver(AbstractEntryPointResolverType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CallableEntryPointResolver()
@@ -1104,14 +1213,21 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A simple POJO (Plain Old Java Object) component
+	 *                 that will be invoked by Mule when a message is received.
+	 *                 The instance can be specified via a factory, or via a class.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Component</em>' containment reference.
-	 * @see #setComponent(PojoComponentType)
+	 * @see #setComponent(DefaultJavaComponentType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Component()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='component' namespace='##targetNamespace' affiliation='abstract-component'"
 	 * @generated
 	 */
-	PojoComponentType getComponent();
+	DefaultJavaComponentType getComponent();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getComponent <em>Component</em>}' containment reference.
@@ -1121,7 +1237,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getComponent()
 	 * @generated
 	 */
-	void setComponent(PojoComponentType value);
+	void setComponent(DefaultJavaComponentType value);
 
 	/**
 	 * Returns the value of the '<em><b>Component Threading Profile</b></em>' containment reference.
@@ -1131,6 +1247,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 The threading profile to use on the component.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Component Threading Profile</em>' containment reference.
 	 * @see #setComponentThreadingProfile(ThreadingProfileType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ComponentThreadingProfile()
@@ -1158,6 +1279,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A special extractor, this returns the correlation ID for various standard cases.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Correlation Property Extractor</em>' containment reference.
 	 * @see #setCorrelationPropertyExtractor(AbstractPropertyExtractorType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CorrelationPropertyExtractor()
@@ -1266,6 +1392,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A user-defined connection strategy.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Connection Strategy</em>' containment reference.
 	 * @see #setCustomConnectionStrategy(CustomConnectionStrategyType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomConnectionStrategy()
@@ -1293,6 +1424,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A user-defined connector.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Connector</em>' containment reference.
 	 * @see #setCustomConnector(CustomConnectorType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomConnector()
@@ -1311,33 +1447,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setCustomConnector(CustomConnectorType value);
-
-	/**
-	 * Returns the value of the '<em><b>Custom Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Custom Container</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Custom Container</em>' containment reference.
-	 * @see #setCustomContainer(CustomContainerContextType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomContainer()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='custom-container' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CustomContainerContextType getCustomContainer();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomContainer <em>Custom Container</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Custom Container</em>' containment reference.
-	 * @see #getCustomContainer()
-	 * @generated
-	 */
-	void setCustomContainer(CustomContainerContextType value);
 
 	/**
 	 * Returns the value of the '<em><b>Custom Correlation Aggregator Router</b></em>' containment reference.
@@ -1374,6 +1483,16 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A custom entry point resolver.
+	 *                 This allows user-supplied code to determine how a message is passed to a component in Java.
+	 *                 This element can be set on the model or component;
+	 *                 the model value provides a default which individual component values can override.
+	 *                 This element can also be used directly or as part of a set of resolvers;
+	 *                 the resolvers in a set are used in turn until one is successful.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Entry Point Resolver</em>' containment reference.
 	 * @see #setCustomEntryPointResolver(CustomEntryPointResolverType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomEntryPointResolver()
@@ -1401,6 +1520,14 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A custom entry point resolver set.
+	 *                 This allows user-supplied code to determine how a message is passed to a component in Java.
+	 *                 This element can be set on the model or component;
+	 *                 the model value provides a default which individual component values can override.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Entry Point Resolver Set</em>' containment reference.
 	 * @see #setCustomEntryPointResolverSet(CustomEntryPointResolverSetType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomEntryPointResolverSet()
@@ -1428,6 +1555,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A user-defined exception stratgey.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Exception Strategy</em>' containment reference.
 	 * @see #setCustomExceptionStrategy(CustomExceptionStrategyType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomExceptionStrategy()
@@ -1455,6 +1587,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A user-implemented filter.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Filter</em>' containment reference.
 	 * @see #setCustomFilter(CustomFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomFilter()
@@ -1529,6 +1666,33 @@ public interface DocumentRoot extends EObject {
 	void setCustomInboundRouter(CustomInboundRouterType value);
 
 	/**
+	 * Returns the value of the '<em><b>Custom Lifecycle Adapter Factory</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *             
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Custom Lifecycle Adapter Factory</em>' containment reference.
+	 * @see #setCustomLifecycleAdapterFactory(CustomLifecycleAdapterFactory)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomLifecycleAdapterFactory()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='custom-lifecycle-adapter-factory' namespace='##targetNamespace' affiliation='abstract-lifecycle-adapter-factory'"
+	 * @generated
+	 */
+	CustomLifecycleAdapterFactory getCustomLifecycleAdapterFactory();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomLifecycleAdapterFactory <em>Custom Lifecycle Adapter Factory</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Custom Lifecycle Adapter Factory</em>' containment reference.
+	 * @see #getCustomLifecycleAdapterFactory()
+	 * @generated
+	 */
+	void setCustomLifecycleAdapterFactory(CustomLifecycleAdapterFactory value);
+
+	/**
 	 * Returns the value of the '<em><b>Custom Outbound Router</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1563,11 +1727,16 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 This allows an arbitrary class to be used as a property extractor.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Property Extractor</em>' containment reference.
 	 * @see #setCustomPropertyExtractor(CustomPropertyExtractorType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomPropertyExtractor()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='custom-property-extractor' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='custom-property-extractor' namespace='##targetNamespace' affiliation='abstract-property-extractor'"
 	 * @generated
 	 */
 	CustomPropertyExtractorType getCustomPropertyExtractor();
@@ -1583,6 +1752,35 @@ public interface DocumentRoot extends EObject {
 	void setCustomPropertyExtractor(CustomPropertyExtractorType value);
 
 	/**
+	 * Returns the value of the '<em><b>Custom Service</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A user-implemeted service
+	 *                 (typically used only in testing).
+	 *             
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Custom Service</em>' containment reference.
+	 * @see #setCustomService(CustomServiceType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomService()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='custom-service' namespace='##targetNamespace' affiliation='abstract-service'"
+	 * @generated
+	 */
+	CustomServiceType getCustomService();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomService <em>Custom Service</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Custom Service</em>' containment reference.
+	 * @see #getCustomService()
+	 * @generated
+	 */
+	void setCustomService(CustomServiceType value);
+
+	/**
 	 * Returns the value of the '<em><b>Custom Transaction</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1590,6 +1788,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Allow access to user-defined or otherwise unsupported third party transactions.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Transaction</em>' containment reference.
 	 * @see #setCustomTransaction(CustomTransactionType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomTransaction()
@@ -1617,6 +1820,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A user-implemented transaction manager.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Transaction Manager</em>' containment reference.
 	 * @see #setCustomTransactionManager(CustomTransactionManagerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomTransactionManager()
@@ -1644,6 +1852,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A user-implemented transformer.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Transformer</em>' containment reference.
 	 * @see #setCustomTransformer(CustomTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomTransformer()
@@ -1671,14 +1884,19 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that decrypts a message.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Decrypt Transformer</em>' containment reference.
-	 * @see #setDecryptTransformer(AbstractTransformerType)
+	 * @see #setDecryptTransformer(EncryptionTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_DecryptTransformer()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='decrypt-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
 	 * @generated
 	 */
-	AbstractTransformerType getDecryptTransformer();
+	EncryptionTransformerType getDecryptTransformer();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getDecryptTransformer <em>Decrypt Transformer</em>}' containment reference.
@@ -1688,7 +1906,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getDecryptTransformer()
 	 * @generated
 	 */
-	void setDecryptTransformer(AbstractTransformerType value);
+	void setDecryptTransformer(EncryptionTransformerType value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Connector Exception Strategy</b></em>' containment reference.
@@ -1698,14 +1916,19 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Provide default exception handling via an endpoint.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Default Connector Exception Strategy</em>' containment reference.
-	 * @see #setDefaultConnectorExceptionStrategy(ExceptionStrategyType)
+	 * @see #setDefaultConnectorExceptionStrategy(EndpointExceptionStrategyType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_DefaultConnectorExceptionStrategy()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='default-connector-exception-strategy' namespace='##targetNamespace' affiliation='abstract-exception-strategy'"
 	 * @generated
 	 */
-	ExceptionStrategyType getDefaultConnectorExceptionStrategy();
+	EndpointExceptionStrategyType getDefaultConnectorExceptionStrategy();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getDefaultConnectorExceptionStrategy <em>Default Connector Exception Strategy</em>}' containment reference.
@@ -1715,7 +1938,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getDefaultConnectorExceptionStrategy()
 	 * @generated
 	 */
-	void setDefaultConnectorExceptionStrategy(ExceptionStrategyType value);
+	void setDefaultConnectorExceptionStrategy(EndpointExceptionStrategyType value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Service Exception Strategy</b></em>' containment reference.
@@ -1725,14 +1948,19 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Provide default exception handling via an endpoint.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Default Service Exception Strategy</em>' containment reference.
-	 * @see #setDefaultServiceExceptionStrategy(ExceptionStrategyType)
+	 * @see #setDefaultServiceExceptionStrategy(EndpointExceptionStrategyType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_DefaultServiceExceptionStrategy()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='default-service-exception-strategy' namespace='##targetNamespace' affiliation='abstract-exception-strategy'"
 	 * @generated
 	 */
-	ExceptionStrategyType getDefaultServiceExceptionStrategy();
+	EndpointExceptionStrategyType getDefaultServiceExceptionStrategy();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getDefaultServiceExceptionStrategy <em>Default Service Exception Strategy</em>}' containment reference.
@@ -1742,61 +1970,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getDefaultServiceExceptionStrategy()
 	 * @generated
 	 */
-	void setDefaultServiceExceptionStrategy(ExceptionStrategyType value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Description</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(DescriptionType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Description()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DescriptionType getDescription();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getDescription <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' containment reference.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(DescriptionType value);
-
-	/**
-	 * Returns the value of the '<em><b>Disable Notification</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Disable Notification</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Disable Notification</em>' containment reference.
-	 * @see #setDisableNotification(DisableNotificationType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_DisableNotification()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='disable-notification' namespace='##targetNamespace' affiliation='abstract-disable-notification'"
-	 * @generated
-	 */
-	DisableNotificationType getDisableNotification();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getDisableNotification <em>Disable Notification</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Disable Notification</em>' containment reference.
-	 * @see #getDisableNotification()
-	 * @generated
-	 */
-	void setDisableNotification(DisableNotificationType value);
+	void setDefaultServiceExceptionStrategy(EndpointExceptionStrategyType value);
 
 	/**
 	 * Returns the value of the '<em><b>Echo Component</b></em>' containment reference.
@@ -1804,7 +1978,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 Built-in EchoComponent that logs the message and returns the payload back as the result.
+	 *                 This logs the message and returns the payload back as the result.
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Echo Component</em>' containment reference.
@@ -1827,33 +2001,6 @@ public interface DocumentRoot extends EObject {
 	void setEchoComponent(DefaultComponentType value);
 
 	/**
-	 * Returns the value of the '<em><b>Ejb Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ejb Container</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ejb Container</em>' containment reference.
-	 * @see #setEjbContainer(RmiContainerContextType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_EjbContainer()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='ejb-container' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	RmiContainerContextType getEjbContainer();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getEjbContainer <em>Ejb Container</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ejb Container</em>' containment reference.
-	 * @see #getEjbContainer()
-	 * @generated
-	 */
-	void setEjbContainer(RmiContainerContextType value);
-
-	/**
 	 * Returns the value of the '<em><b>Encryption Security Filter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1861,6 +2008,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A filter that provides password based encyption.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Encryption Security Filter</em>' containment reference.
 	 * @see #setEncryptionSecurityFilter(EncryptionSecurityFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_EncryptionSecurityFilter()
@@ -1888,14 +2040,19 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that encrypts a message.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Encrypt Transformer</em>' containment reference.
-	 * @see #setEncryptTransformer(AbstractTransformerType)
+	 * @see #setEncryptTransformer(EncryptionTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_EncryptTransformer()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='encrypt-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
 	 * @generated
 	 */
-	AbstractTransformerType getEncryptTransformer();
+	EncryptionTransformerType getEncryptTransformer();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getEncryptTransformer <em>Encrypt Transformer</em>}' containment reference.
@@ -1905,7 +2062,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getEncryptTransformer()
 	 * @generated
 	 */
-	void setEncryptTransformer(AbstractTransformerType value);
+	void setEncryptTransformer(EncryptionTransformerType value);
 
 	/**
 	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference.
@@ -1915,6 +2072,15 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 An endpoint "template" which can be used to construct an inbound or outbound endpoint
+	 *                 elsewhere in the configuration by referencing the endpoint's name.
+	 *                 Each transport implements its own endpoint element, with a more friendly syntax,
+	 *                 but this generic element can be used with any transport by supplying the correct
+	 *                 address URI. For example, "vm://foo" describes a VM transport endpoint.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Endpoint</em>' containment reference.
 	 * @see #setEndpoint(GlobalEndpointType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Endpoint()
@@ -1969,6 +2135,15 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 An extensible set of entry point resolvers.
+	 *                 These determine how a message is passed to a component in Java.
+	 *                 Each entry point resolver is tried in turn until one succeeds in delivering the messge to the component.
+	 *                 This element can be set on the model or component;
+	 *                 the model value provides a default which individual component values can override.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Entry Point Resolver Set</em>' containment reference.
 	 * @see #setEntryPointResolverSet(ExtensibleEntryPointResolverSet)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_EntryPointResolverSet()
@@ -2023,6 +2198,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A filter that matches the type of an exception.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exception Type Filter</em>' containment reference.
 	 * @see #setExceptionTypeFilter(TypeFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ExceptionTypeFilter()
@@ -2043,6 +2223,34 @@ public interface DocumentRoot extends EObject {
 	void setExceptionTypeFilter(TypeFilterType value);
 
 	/**
+	 * Returns the value of the '<em><b>Expression Transformer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that evaluates one or more expressions on the current event
+	 *             
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Expression Transformer</em>' containment reference.
+	 * @see #setExpressionTransformer(ExpressionTransformerType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ExpressionTransformer()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='expression-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
+	 * @generated
+	 */
+	ExpressionTransformerType getExpressionTransformer();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getExpressionTransformer <em>Expression Transformer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expression Transformer</em>' containment reference.
+	 * @see #getExpressionTransformer()
+	 * @generated
+	 */
+	void setExpressionTransformer(ExpressionTransformerType value);
+
+	/**
 	 * Returns the value of the '<em><b>Filter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -2050,6 +2258,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A filter that is defined elsewhere (at the global level, or as a Spring bean).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Filter</em>' containment reference.
 	 * @see #setFilter(RefFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Filter()
@@ -2132,13 +2345,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Forwarding Router</em>' containment reference.
-	 * @see #setForwardingRouter(ForwardingRouterType)
+	 * @see #setForwardingRouter(SelectiveConsumerRouterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ForwardingRouter()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='forwarding-router' namespace='##targetNamespace' affiliation='abstract-inbound-router'"
 	 * @generated
 	 */
-	ForwardingRouterType getForwardingRouter();
+	SelectiveConsumerRouterType getForwardingRouter();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getForwardingRouter <em>Forwarding Router</em>}' containment reference.
@@ -2148,7 +2361,36 @@ public interface DocumentRoot extends EObject {
 	 * @see #getForwardingRouter()
 	 * @generated
 	 */
-	void setForwardingRouter(ForwardingRouterType value);
+	void setForwardingRouter(SelectiveConsumerRouterType value);
+
+	/**
+	 * Returns the value of the '<em><b>Function Property Extractor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Rather than extract a value from the message, this supports the following
+	 *                 functions: "now", "date", "uuid", "hostname" and "ip".
+	 *             
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Function Property Extractor</em>' containment reference.
+	 * @see #setFunctionPropertyExtractor(AbstractPropertyExtractorType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_FunctionPropertyExtractor()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='function-property-extractor' namespace='##targetNamespace' affiliation='abstract-property-extractor'"
+	 * @generated
+	 */
+	AbstractPropertyExtractorType getFunctionPropertyExtractor();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getFunctionPropertyExtractor <em>Function Property Extractor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Function Property Extractor</em>' containment reference.
+	 * @see #getFunctionPropertyExtractor()
+	 * @generated
+	 */
+	void setFunctionPropertyExtractor(AbstractPropertyExtractorType value);
 
 	/**
 	 * Returns the value of the '<em><b>Gzip Compress Transformer</b></em>' containment reference.
@@ -2158,6 +2400,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that compresses a byte array using gzip.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Gzip Compress Transformer</em>' containment reference.
 	 * @see #setGzipCompressTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_GzipCompressTransformer()
@@ -2185,6 +2432,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that uncompresses a byte array using gzip.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Gzip Uncompress Transformer</em>' containment reference.
 	 * @see #setGzipUncompressTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_GzipUncompressTransformer()
@@ -2212,6 +2464,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that converts a string of hexadecimal digits to a byte array.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Hex String To Byte Array Transformer</em>' containment reference.
 	 * @see #setHexStringToByteArrayTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_HexStringToByteArrayTransformer()
@@ -2232,33 +2489,6 @@ public interface DocumentRoot extends EObject {
 	void setHexStringToByteArrayTransformer(AbstractTransformerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Hivemind Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Hivemind Container</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hivemind Container</em>' containment reference.
-	 * @see #setHivemindContainer(IocContainerContextType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_HivemindContainer()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='hivemind-container' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	IocContainerContextType getHivemindContainer();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getHivemindContainer <em>Hivemind Container</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Hivemind Container</em>' containment reference.
-	 * @see #getHivemindContainer()
-	 * @generated
-	 */
-	void setHivemindContainer(IocContainerContextType value);
-
-	/**
 	 * Returns the value of the '<em><b>Idempotent Receiver Router</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -2267,13 +2497,13 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Idempotent Receiver Router</em>' containment reference.
-	 * @see #setIdempotentReceiverRouter(IdempotentReceiverRouterType)
+	 * @see #setIdempotentReceiverRouter(FilteredInboundRouterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_IdempotentReceiverRouter()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='idempotent-receiver-router' namespace='##targetNamespace' affiliation='abstract-inbound-router'"
 	 * @generated
 	 */
-	IdempotentReceiverRouterType getIdempotentReceiverRouter();
+	FilteredInboundRouterType getIdempotentReceiverRouter();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getIdempotentReceiverRouter <em>Idempotent Receiver Router</em>}' containment reference.
@@ -2283,7 +2513,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getIdempotentReceiverRouter()
 	 * @generated
 	 */
-	void setIdempotentReceiverRouter(IdempotentReceiverRouterType value);
+	void setIdempotentReceiverRouter(FilteredInboundRouterType value);
 
 	/**
 	 * Returns the value of the '<em><b>Idempotent Secure Hash Receiver Router</b></em>' containment reference.
@@ -2320,6 +2550,14 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 An inbound endpoint receives messages from the associated transport.
+	 *                 Each transport implements its own inbound endpoint element, with a more friendly syntax,
+	 *                 but this generic element can be used with any transport by supplying the correct
+	 *                 address URI. For example, "vm://foo" describes a VM transport endpoint.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Inbound Endpoint</em>' containment reference.
 	 * @see #setInboundEndpoint(InboundEndpointType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_InboundEndpoint()
@@ -2374,6 +2612,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A possible method for delivery.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Include Entry Point</em>' containment reference.
 	 * @see #setIncludeEntryPoint(MethodType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_IncludeEntryPoint()
@@ -2401,6 +2644,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 The JBoss transaction manager.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jboss Transaction Manager</em>' containment reference.
 	 * @see #setJbossTransactionManager(TransactionManagerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_JbossTransactionManager()
@@ -2421,33 +2669,6 @@ public interface DocumentRoot extends EObject {
 	void setJbossTransactionManager(TransactionManagerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Jndi Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Jndi Container</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Jndi Container</em>' containment reference.
-	 * @see #setJndiContainer(BaseContainerContextType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_JndiContainer()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='jndi-container' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	BaseContainerContextType getJndiContainer();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getJndiContainer <em>Jndi Container</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Jndi Container</em>' containment reference.
-	 * @see #getJndiContainer()
-	 * @generated
-	 */
-	void setJndiContainer(BaseContainerContextType value);
-
-	/**
 	 * Returns the value of the '<em><b>Jndi Transaction Manager</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -2455,14 +2676,19 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Retrieve a named transaction manager factory from JNDI.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jndi Transaction Manager</em>' containment reference.
-	 * @see #setJndiTransactionManager(TransactionManagerType)
+	 * @see #setJndiTransactionManager(JndiTransactionManagerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_JndiTransactionManager()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='jndi-transaction-manager' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
 	 * @generated
 	 */
-	TransactionManagerType getJndiTransactionManager();
+	JndiTransactionManagerType getJndiTransactionManager();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getJndiTransactionManager <em>Jndi Transaction Manager</em>}' containment reference.
@@ -2472,7 +2698,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getJndiTransactionManager()
 	 * @generated
 	 */
-	void setJndiTransactionManager(TransactionManagerType value);
+	void setJndiTransactionManager(JndiTransactionManagerType value);
 
 	/**
 	 * Returns the value of the '<em><b>Jrun Transaction Manager</b></em>' containment reference.
@@ -2482,6 +2708,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 The JRun transaction manager.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jrun Transaction Manager</em>' containment reference.
 	 * @see #setJrunTransactionManager(TransactionManagerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_JrunTransactionManager()
@@ -2509,6 +2740,17 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 An extensible set of entry point resolvers (which determine how a message is passed to a component in
+	 *                 Java)
+	 *                 that already contains resolvers to implement the standard logic.
+	 *                 This is already provided by default and is only needed explicitly if
+	 *                 it will be extended with other entry point resolvers.
+	 *                 This element can be set on the model or component;
+	 *                 the model value provides a default which individual component values can override.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Legacy Entry Point Resolver Set</em>' containment reference.
 	 * @see #setLegacyEntryPointResolverSet(ExtensibleEntryPointResolverSet)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_LegacyEntryPointResolverSet()
@@ -2561,8 +2803,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 Built-in LogComponent that simply logs the message content (or content length if it is a
-	 *                 large message).
+	 *                 This logs the message content (or content length if it is a large message).
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Log Component</em>' containment reference.
@@ -2619,6 +2860,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 If the message payload is a map then the property is extracted from the
+	 *                 map using the property name as key.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Map Property Extractor</em>' containment reference.
 	 * @see #setMapPropertyExtractor(AbstractPropertyExtractorType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_MapPropertyExtractor()
@@ -2700,6 +2947,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that can add or delete message properties.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Message Properties Transformer</em>' containment reference.
 	 * @see #setMessagePropertiesTransformer(MessagePropertiesTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_MessagePropertiesTransformer()
@@ -2727,6 +2979,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 The property is extracted from the message headers using the header property
+	 *                 name as key. The special value "payload" retrieves the message payload.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Message Property Extractor</em>' containment reference.
 	 * @see #setMessagePropertyExtractor(AbstractPropertyExtractorType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_MessagePropertyExtractor()
@@ -2754,14 +3012,25 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A filter that matches properties on an event.
+	 *                 This can be very useful as the event properties represent all the meta information about the event
+	 *                 from the underlying transport, so for an event received over HTTP you can check for HTTP headers etc.
+	 *                 The pattern should be expressed as a key/value pair, i.e. "propertyName=value".
+	 *                 If you want to compare more than one property you can use the logic filters for And, Or and Not
+	 *                 expressions.
+	 *                 By default the comparison is case sensitive; you can set the caseSensitive property to override this.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Message Property Filter</em>' containment reference.
-	 * @see #setMessagePropertyFilter(PatternFilterType)
+	 * @see #setMessagePropertyFilter(CaseSensitivePatternFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_MessagePropertyFilter()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='message-property-filter' namespace='##targetNamespace' affiliation='abstract-filter'"
 	 * @generated
 	 */
-	PatternFilterType getMessagePropertyFilter();
+	CaseSensitivePatternFilterType getMessagePropertyFilter();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getMessagePropertyFilter <em>Message Property Filter</em>}' containment reference.
@@ -2771,7 +3040,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getMessagePropertyFilter()
 	 * @generated
 	 */
-	void setMessagePropertyFilter(PatternFilterType value);
+	void setMessagePropertyFilter(CaseSensitivePatternFilterType value);
 
 	/**
 	 * Returns the value of the '<em><b>Method Entry Point Resolver</b></em>' containment reference.
@@ -2781,6 +3050,15 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Deliver the message to a named method.
+	 *                 This element can be set on the model or component;
+	 *                 the model value provides a default which individual component values can override.
+	 *                 This element can also be used directly or as part of a set of resolvers;
+	 *                 the resolvers in a set are used in turn until one is successful.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Method Entry Point Resolver</em>' containment reference.
 	 * @see #setMethodEntryPointResolver(MethodEntryPointResolverType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_MethodEntryPointResolver()
@@ -2808,6 +3086,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 The default model is a SEDA model.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Model</em>' containment reference.
 	 * @see #setModel(DefaultModelType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Model()
@@ -2833,8 +3116,9 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 Either the root element or a "top-level" element in a Spring configuration,
-	 *                 which contains further Mule elements.
+	 *                 Either the root element of a Mule configuration,
+	 *                 or a "top-level" element in a Spring configuration,
+	 *                 that contains further Mule elements.
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Mule</em>' containment reference.
@@ -2891,6 +3175,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that has no effect.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>No Action Transformer</em>' containment reference.
 	 * @see #setNoActionTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_NoActionTransformer()
@@ -2918,6 +3207,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Call a method without arguments (the message is not passed to the component).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>No Arguments Entry Point Resolver</em>' containment reference.
 	 * @see #setNoArgumentsEntryPointResolver(ComplexEntryPointResolverType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_NoArgumentsEntryPointResolver()
@@ -2945,6 +3239,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Invert the enclosed filter
+	 *                 (so if it returns true for some message, this will return false, and vice-versa).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Not Filter</em>' containment reference.
 	 * @see #setNotFilter(UnitaryFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_NotFilter()
@@ -2965,39 +3265,12 @@ public interface DocumentRoot extends EObject {
 	void setNotFilter(UnitaryFilterType value);
 
 	/**
-	 * Returns the value of the '<em><b>Notification</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Notification</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Notification</em>' containment reference.
-	 * @see #setNotification(DefineNotificationType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Notification()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='notification' namespace='##targetNamespace' affiliation='abstract-define-notification'"
-	 * @generated
-	 */
-	DefineNotificationType getNotification();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getNotification <em>Notification</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Notification</em>' containment reference.
-	 * @see #getNotification()
-	 * @generated
-	 */
-	void setNotification(DefineNotificationType value);
-
-	/**
 	 * Returns the value of the '<em><b>Null Component</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 Built-in NullComponent that will throw an exception if it receives a message.
+	 *                 This will throw an exception if it receives a message.
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Null Component</em>' containment reference.
@@ -3027,6 +3300,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that serializes all objects except strings (which are converted using getBytes()).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Object To Byte Array Transformer</em>' containment reference.
 	 * @see #setObjectToByteArrayTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ObjectToByteArrayTransformer()
@@ -3054,6 +3332,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that gives a human-readable description of various types (useful for debugging).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Object To String Transformer</em>' containment reference.
 	 * @see #setObjectToStringTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ObjectToStringTransformer()
@@ -3081,6 +3364,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Return true if any of the enclosed filters returns true.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Or Filter</em>' containment reference.
 	 * @see #setOrFilter(CollectionFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_OrFilter()
@@ -3108,6 +3396,14 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 An outbound endpoint sends messages to the associated transport.
+	 *                 Each transport implements its own outbound endpoint element, with a more friendly syntax,
+	 *                 but this generic element can be used with any transport by supplying the correct
+	 *                 address URI. For example, "vm://foo" describes a VM transport endpoint.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outbound Endpoint</em>' containment reference.
 	 * @see #setOutboundEndpoint(OutboundEndpointType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_OutboundEndpoint()
@@ -3155,63 +3451,6 @@ public interface DocumentRoot extends EObject {
 	void setOutboundPassThroughRouter(OutboundRouterType value);
 
 	/**
-	 * Returns the value of the '<em><b>Pass Through Component</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 Built-in PassThroughComponent that enables a bridge between an inbound and outbound endpoints.
-	 *                 This is less efficient than the BridgeComponent, but respects inbound routers that "consume"
-	 *                 messages.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Pass Through Component</em>' containment reference.
-	 * @see #setPassThroughComponent(DefaultComponentType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_PassThroughComponent()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='pass-through-component' namespace='##targetNamespace' affiliation='abstract-component'"
-	 * @generated
-	 */
-	DefaultComponentType getPassThroughComponent();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getPassThroughComponent <em>Pass Through Component</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pass Through Component</em>' containment reference.
-	 * @see #getPassThroughComponent()
-	 * @generated
-	 */
-	void setPassThroughComponent(DefaultComponentType value);
-
-	/**
-	 * Returns the value of the '<em><b>Payload Property Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Payload Property Extractor</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Payload Property Extractor</em>' containment reference.
-	 * @see #setPayloadPropertyExtractor(AbstractPropertyExtractorType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_PayloadPropertyExtractor()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='payload-property-extractor' namespace='##targetNamespace' affiliation='abstract-property-extractor'"
-	 * @generated
-	 */
-	AbstractPropertyExtractorType getPayloadPropertyExtractor();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getPayloadPropertyExtractor <em>Payload Property Extractor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Payload Property Extractor</em>' containment reference.
-	 * @see #getPayloadPropertyExtractor()
-	 * @generated
-	 */
-	void setPayloadPropertyExtractor(AbstractPropertyExtractorType value);
-
-	/**
 	 * Returns the value of the '<em><b>Payload Type Filter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -3219,6 +3458,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A filter that matches the type of the payload.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Payload Type Filter</em>' containment reference.
 	 * @see #setPayloadTypeFilter(TypeFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_PayloadTypeFilter()
@@ -3239,85 +3483,34 @@ public interface DocumentRoot extends EObject {
 	void setPayloadTypeFilter(TypeFilterType value);
 
 	/**
-	 * Returns the value of the '<em><b>Pico Container</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Pooled Component</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Pico Container</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pico Container</em>' containment reference.
-	 * @see #setPicoContainer(IocContainerContextType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_PicoContainer()
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A pooled POJO (Plain Old Java Object) component
+	 *                 that will be invoked by Mule when a message is received.
+	 *                 The instance can be specified via a factory, or via a class.
+	 *             
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Pooled Component</em>' containment reference.
+	 * @see #setPooledComponent(PooledJavaComponentType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_PooledComponent()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='pico-container' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='pooled-component' namespace='##targetNamespace' affiliation='abstract-component'"
 	 * @generated
 	 */
-	IocContainerContextType getPicoContainer();
+	PooledJavaComponentType getPooledComponent();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getPicoContainer <em>Pico Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getPooledComponent <em>Pooled Component</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pico Container</em>' containment reference.
-	 * @see #getPicoContainer()
+	 * @param value the new value of the '<em>Pooled Component</em>' containment reference.
+	 * @see #getPooledComponent()
 	 * @generated
 	 */
-	void setPicoContainer(IocContainerContextType value);
-
-	/**
-	 * Returns the value of the '<em><b>Plexus Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Plexus Container</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Plexus Container</em>' containment reference.
-	 * @see #setPlexusContainer(IocContainerContextType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_PlexusContainer()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='plexus-container' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	IocContainerContextType getPlexusContainer();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getPlexusContainer <em>Plexus Container</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Plexus Container</em>' containment reference.
-	 * @see #getPlexusContainer()
-	 * @generated
-	 */
-	void setPlexusContainer(IocContainerContextType value);
-
-	/**
-	 * Returns the value of the '<em><b>Pooled Object</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Pooled Object</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pooled Object</em>' containment reference.
-	 * @see #setPooledObject(PooledObjectFactoryType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_PooledObject()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='pooled-object' namespace='##targetNamespace' affiliation='abstract-object-factory'"
-	 * @generated
-	 */
-	PooledObjectFactoryType getPooledObject();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getPooledObject <em>Pooled Object</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pooled Object</em>' containment reference.
-	 * @see #getPooledObject()
-	 * @generated
-	 */
-	void setPooledObject(PooledObjectFactoryType value);
+	void setPooledComponent(PooledJavaComponentType value);
 
 	/**
 	 * Returns the value of the '<em><b>Pooling Profile</b></em>' containment reference.
@@ -3356,7 +3549,13 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 Set properties via Spring's entry attribute.
+	 *                 Set Mule properties.
+	 *                 These are name/value pairs that can be set on components, services, etc,
+	 *                 and which provide a generic way of configuring the system.
+	 *                 In Mule v2 you typically shouldn't need to use generic properties like
+	 *                 this, since almost all functionality is exposed via dedicated elements.
+	 *                 However, they can be useful in configuring obscure or overlooked options
+	 *                 and in configuring transports from the generic endpoint elements.
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Properties</em>' containment reference.
@@ -3379,33 +3578,6 @@ public interface DocumentRoot extends EObject {
 	void setProperties(MapType value);
 
 	/**
-	 * Returns the value of the '<em><b>Properties Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Properties Container</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties Container</em>' containment reference.
-	 * @see #setPropertiesContainer(PropertiesContainerContextType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_PropertiesContainer()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='properties-container' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	PropertiesContainerContextType getPropertiesContainer();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getPropertiesContainer <em>Properties Container</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Properties Container</em>' containment reference.
-	 * @see #getPropertiesContainer()
-	 * @generated
-	 */
-	void setPropertiesContainer(PropertiesContainerContextType value);
-
-	/**
 	 * Returns the value of the '<em><b>Property Entry Point Resolver</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -3413,6 +3585,15 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Use a message property to select the component method to be called.
+	 *                 This element can be set on the model or component;
+	 *                 the model value provides a default which individual component values can override.
+	 *                 This element can also be used directly or as part of a set of resolvers;
+	 *                 the resolvers in a set are used in turn until one is successful.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Property Entry Point Resolver</em>' containment reference.
 	 * @see #setPropertyEntryPointResolver(PropertyEntryPointResolverType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_PropertyEntryPointResolver()
@@ -3467,6 +3648,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Configure the queue used on a component.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Queue Profile</em>' containment reference.
 	 * @see #setQueueProfile(QueueProfileType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_QueueProfile()
@@ -3494,6 +3680,15 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Generate a list of candidate methods from the component via reflections.
+	 *                 This element can be set on the model or component;
+	 *                 the model value provides a default which individual component values can override.
+	 *                 This element can also be used directly or as part of a set of resolvers;
+	 *                 the resolvers in a set are used in turn until one is successful.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reflection Entry Point Resolver</em>' containment reference.
 	 * @see #setReflectionEntryPointResolver(ReflectionEntryPointResolverType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ReflectionEntryPointResolver()
@@ -3521,6 +3716,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A filter that matches string messages against a regular expression.
+	 *                 The Java regular expression engine (java.util.regex.Pattern) is used.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Regex Filter</em>' containment reference.
 	 * @see #setRegexFilter(PatternFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_RegexFilter()
@@ -3548,6 +3749,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 The Resin transaction manager.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resin Transaction Manager</em>' containment reference.
 	 * @see #setResinTransactionManager(TransactionManagerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ResinTransactionManager()
@@ -3575,6 +3781,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Retry making a connection on failure.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Retry Connection Strategy</em>' containment reference.
 	 * @see #setRetryConnectionStrategy(RetryConnectionStrategyType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_RetryConnectionStrategy()
@@ -3593,33 +3804,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setRetryConnectionStrategy(RetryConnectionStrategyType value);
-
-	/**
-	 * Returns the value of the '<em><b>Rmi Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Rmi Container</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rmi Container</em>' containment reference.
-	 * @see #setRmiContainer(RmiContainerContextType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_RmiContainer()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='rmi-container' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	RmiContainerContextType getRmiContainer();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getRmiContainer <em>Rmi Container</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rmi Container</em>' containment reference.
-	 * @see #getRmiContainer()
-	 * @generated
-	 */
-	void setRmiContainer(RmiContainerContextType value);
 
 	/**
 	 * Returns the value of the '<em><b>Security Manager</b></em>' containment reference.
@@ -3657,6 +3841,12 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A SEDA (Staged Event Drivern Architecture) model has separate threads and
+	 *                 queues for each component.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Seda Model</em>' containment reference.
 	 * @see #setSedaModel(SedaModelType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_SedaModel()
@@ -3711,6 +3901,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that converts an object to a byte array (ie serializing the object).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Serializable To Byte Array Transformer</em>' containment reference.
 	 * @see #setSerializableToByteArrayTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_SerializableToByteArrayTransformer()
@@ -3738,6 +3933,13 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 The standard SEDA service.
+	 *                 A service describes how to receive messages, deliver them to
+	 *                 a component, and handle the results (if any).
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Service</em>' containment reference.
 	 * @see #setService(SedaServiceType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Service()
@@ -3873,6 +4075,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that converts a string to a byte array.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>String To Byte Array Transformer</em>' containment reference.
 	 * @see #setStringToByteArrayTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_StringToByteArrayTransformer()
@@ -3927,6 +4134,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A reference to a transformer defined elsewhere.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Transformer</em>' containment reference.
 	 * @see #setTransformer(RefTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_Transformer()
@@ -3947,114 +4159,6 @@ public interface DocumentRoot extends EObject {
 	void setTransformer(RefTransformerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Uc Decoder Transformer</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Uc Decoder Transformer</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Uc Decoder Transformer</em>' containment reference.
-	 * @see #setUcDecoderTransformer(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_UcDecoderTransformer()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='uc-decoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getUcDecoderTransformer();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getUcDecoderTransformer <em>Uc Decoder Transformer</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uc Decoder Transformer</em>' containment reference.
-	 * @see #getUcDecoderTransformer()
-	 * @generated
-	 */
-	void setUcDecoderTransformer(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Uc Encoder Transformer</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Uc Encoder Transformer</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Uc Encoder Transformer</em>' containment reference.
-	 * @see #setUcEncoderTransformer(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_UcEncoderTransformer()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='uc-encoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getUcEncoderTransformer();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getUcEncoderTransformer <em>Uc Encoder Transformer</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uc Encoder Transformer</em>' containment reference.
-	 * @see #getUcEncoderTransformer()
-	 * @generated
-	 */
-	void setUcEncoderTransformer(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Uu Decoder Transformer</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Uu Decoder Transformer</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Uu Decoder Transformer</em>' containment reference.
-	 * @see #setUuDecoderTransformer(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_UuDecoderTransformer()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='uu-decoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getUuDecoderTransformer();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getUuDecoderTransformer <em>Uu Decoder Transformer</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uu Decoder Transformer</em>' containment reference.
-	 * @see #getUuDecoderTransformer()
-	 * @generated
-	 */
-	void setUuDecoderTransformer(AbstractTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Uu Encoder Transformer</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Uu Encoder Transformer</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Uu Encoder Transformer</em>' containment reference.
-	 * @see #setUuEncoderTransformer(AbstractTransformerType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_UuEncoderTransformer()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='uu-encoder-transformer' namespace='##targetNamespace' affiliation='abstract-transformer'"
-	 * @generated
-	 */
-	AbstractTransformerType getUuEncoderTransformer();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getUuEncoderTransformer <em>Uu Encoder Transformer</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uu Encoder Transformer</em>' containment reference.
-	 * @see #getUuEncoderTransformer()
-	 * @generated
-	 */
-	void setUuEncoderTransformer(AbstractTransformerType value);
-
-	/**
 	 * Returns the value of the '<em><b>Weblogic Transaction Manager</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -4062,14 +4166,19 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 The Weblogic transaction manager.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Weblogic Transaction Manager</em>' containment reference.
-	 * @see #setWeblogicTransactionManager(JndiTransactionManagerType)
+	 * @see #setWeblogicTransactionManager(JndiTransactionManagerType1)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_WeblogicTransactionManager()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='weblogic-transaction-manager' namespace='##targetNamespace' affiliation='abstract-transaction-manager'"
 	 * @generated
 	 */
-	JndiTransactionManagerType getWeblogicTransactionManager();
+	JndiTransactionManagerType1 getWeblogicTransactionManager();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getWeblogicTransactionManager <em>Weblogic Transaction Manager</em>}' containment reference.
@@ -4079,7 +4188,7 @@ public interface DocumentRoot extends EObject {
 	 * @see #getWeblogicTransactionManager()
 	 * @generated
 	 */
-	void setWeblogicTransactionManager(JndiTransactionManagerType value);
+	void setWeblogicTransactionManager(JndiTransactionManagerType1 value);
 
 	/**
 	 * Returns the value of the '<em><b>Websphere Transaction Manager</b></em>' containment reference.
@@ -4089,6 +4198,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 The Websphere transaction manager.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Websphere Transaction Manager</em>' containment reference.
 	 * @see #setWebsphereTransactionManager(TransactionManagerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_WebsphereTransactionManager()
@@ -4116,6 +4230,16 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A filter that matches string messages against wildcards.
+	 *                 It performs matches with "*", i.e. "jms.events.*" would catch "jms.events.customer"
+	 *                 and "jms.events.receipts".
+	 *                 This filter accepts a comma-separated list of patterns, so more than one filter pattern can be
+	 *                 matched for a given argument: "jms.events.*, jms.actions.*" will match "jms.events.system"
+	 *                 and "jms.actions" but not "jms.queue".
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Wildcard Filter</em>' containment reference.
 	 * @see #setWildcardFilter(WildcardFilterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_WildcardFilter()
@@ -4170,6 +4294,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that decodes a string containing XML entities.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Xml Entity Decoder Transformer</em>' containment reference.
 	 * @see #setXmlEntityDecoderTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_XmlEntityDecoderTransformer()
@@ -4197,6 +4326,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A transformer that encodes a string using XML entities.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Xml Entity Encoder Transformer</em>' containment reference.
 	 * @see #setXmlEntityEncoderTransformer(AbstractTransformerType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_XmlEntityEncoderTransformer()

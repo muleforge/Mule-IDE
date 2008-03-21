@@ -73,32 +73,9 @@ public class AbstractModelTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addClassPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Class feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addClassPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AbstractModelType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractModelType_class_feature", "_UI_AbstractModelType_type"),
-				 CorePackage.eINSTANCE.getAbstractModelType_Class(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -182,7 +159,6 @@ public class AbstractModelTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AbstractModelType.class)) {
-			case CorePackage.ABSTRACT_MODEL_TYPE__CLASS:
 			case CorePackage.ABSTRACT_MODEL_TYPE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -219,7 +195,7 @@ public class AbstractModelTypeItemProvider
 				(CorePackage.eINSTANCE.getAbstractModelType_AbstractExceptionStrategyGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy(),
-					 CoreFactory.eINSTANCE.createExceptionStrategyType())));
+					 CoreFactory.eINSTANCE.createEndpointExceptionStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -233,7 +209,7 @@ public class AbstractModelTypeItemProvider
 				(CorePackage.eINSTANCE.getAbstractModelType_AbstractExceptionStrategyGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy(),
-					 CoreFactory.eINSTANCE.createExceptionStrategyType())));
+					 CoreFactory.eINSTANCE.createEndpointExceptionStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -365,15 +341,15 @@ public class AbstractModelTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getAbstractModelType_AbstractServiceGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_Service(),
-					 CoreFactory.eINSTANCE.createSedaServiceType())));
+					(CorePackage.eINSTANCE.getDocumentRoot_CustomService(),
+					 CoreFactory.eINSTANCE.createCustomServiceType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getAbstractModelType_AbstractServiceGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Service(),
-					 CoreFactory.eINSTANCE.createDefaultServiceType())));
+					 CoreFactory.eINSTANCE.createSedaServiceType())));
 	}
 
 	/**

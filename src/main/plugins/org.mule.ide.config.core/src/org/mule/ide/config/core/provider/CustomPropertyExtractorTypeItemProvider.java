@@ -46,7 +46,7 @@ import org.mule.ide.config.spring.SpringFactory;
  * @generated
  */
 public class CustomPropertyExtractorTypeItemProvider
-	extends ItemProviderAdapter
+	extends AbstractPropertyExtractorTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -182,34 +182,6 @@ public class CustomPropertyExtractorTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getCustomPropertyExtractorType_Property(),
 				 SpringFactory.eINSTANCE.createPropertyType()));
-	}
-
-	/**
-	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
-		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)child;
-			feature = entry.getEStructuralFeature();
-			child = entry.getValue();        
-		}
-
-		if (feature instanceof EReference && child instanceof EObject) {
-			String name = "full/obj16/" + ((EObject)child).eClass().getName();
-
-			try {
-				return getResourceLocator().getImage(name);
-			}
-			catch (Exception e) {
-				CorePlugin.INSTANCE.log(e);
-			}
-		}
-
-		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

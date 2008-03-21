@@ -72,26 +72,26 @@ public class TlsTrustStoreTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTrustStorePropertyDescriptor(object);
-			addTrustStorePasswordPropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
+			addStorePasswordPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Trust Store feature.
+	 * This adds a property descriptor for the Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTrustStorePropertyDescriptor(Object object) {
+	protected void addPathPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TlsTrustStoreType_trustStore_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsTrustStoreType_trustStore_feature", "_UI_TlsTrustStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsTrustStoreType_TrustStore(),
+				 getString("_UI_TlsTrustStoreType_path_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsTrustStoreType_path_feature", "_UI_TlsTrustStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsTrustStoreType_Path(),
 				 true,
 				 false,
 				 false,
@@ -101,19 +101,19 @@ public class TlsTrustStoreTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Trust Store Password feature.
+	 * This adds a property descriptor for the Store Password feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTrustStorePasswordPropertyDescriptor(Object object) {
+	protected void addStorePasswordPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TlsTrustStoreType_trustStorePassword_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TlsTrustStoreType_trustStorePassword_feature", "_UI_TlsTrustStoreType_type"),
-				 CorePackage.eINSTANCE.getTlsTrustStoreType_TrustStorePassword(),
+				 getString("_UI_TlsTrustStoreType_storePassword_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TlsTrustStoreType_storePassword_feature", "_UI_TlsTrustStoreType_type"),
+				 CorePackage.eINSTANCE.getTlsTrustStoreType_StorePassword(),
 				 true,
 				 false,
 				 false,
@@ -130,7 +130,7 @@ public class TlsTrustStoreTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TlsTrustStoreType)object).getTrustStore();
+		String label = ((TlsTrustStoreType)object).getPath();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TlsTrustStoreType_type") :
 			getString("_UI_TlsTrustStoreType_type") + " " + label;
@@ -148,8 +148,8 @@ public class TlsTrustStoreTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TlsTrustStoreType.class)) {
-			case CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE:
-			case CorePackage.TLS_TRUST_STORE_TYPE__TRUST_STORE_PASSWORD:
+			case CorePackage.TLS_TRUST_STORE_TYPE__PATH:
+			case CorePackage.TLS_TRUST_STORE_TYPE__STORE_PASSWORD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

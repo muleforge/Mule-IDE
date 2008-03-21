@@ -35,6 +35,12 @@ public interface WireTapRouterType extends FilteredInboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound endpoint elements.
+	 *                 Outbound endpoints dispatch messages to the underlying transport.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Endpoint Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getWireTapRouterType_AbstractOutboundEndpointGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" required="true" many="false"
@@ -51,6 +57,12 @@ public interface WireTapRouterType extends FilteredInboundRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for outbound endpoint elements.
+	 *                 Outbound endpoints dispatch messages to the underlying transport.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Outbound Endpoint</em>' containment reference.
 	 * @see org.mule.ide.config.core.CorePackage#getWireTapRouterType_AbstractOutboundEndpoint()
 	 * @model containment="true" required="true" transient="true" changeable="false" volatile="true" derived="true"

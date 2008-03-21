@@ -25,11 +25,11 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.TlsKeyStoreType#getKeyManagerAlgorithm <em>Key Manager Algorithm</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsKeyStoreType#getAlgorithm <em>Algorithm</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsKeyStoreType#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.mule.ide.config.core.TlsKeyStoreType#getKeyPassword <em>Key Password</em>}</li>
- *   <li>{@link org.mule.ide.config.core.TlsKeyStoreType#getKeyStore <em>Key Store</em>}</li>
- *   <li>{@link org.mule.ide.config.core.TlsKeyStoreType#getKeyStorePassword <em>Key Store Password</em>}</li>
- *   <li>{@link org.mule.ide.config.core.TlsKeyStoreType#getKeyStoreType <em>Key Store Type</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsKeyStoreType#getPath <em>Path</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.TlsKeyStoreType#getStorePassword <em>Store Password</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TlsKeyStoreType extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Key Manager Algorithm</b></em>' attribute.
+	 * Returns the value of the '<em><b>Algorithm</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -47,24 +47,52 @@ public interface TlsKeyStoreType extends EObject {
 	 *                     The algorithm used by the key store.
 	 *                 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Key Manager Algorithm</em>' attribute.
-	 * @see #setKeyManagerAlgorithm(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsKeyStoreType_KeyManagerAlgorithm()
+	 * @return the value of the '<em>Algorithm</em>' attribute.
+	 * @see #setAlgorithm(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsKeyStoreType_Algorithm()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='keyManagerAlgorithm'"
+	 *        extendedMetaData="kind='attribute' name='algorithm'"
 	 * @generated
 	 */
-	String getKeyManagerAlgorithm();
+	String getAlgorithm();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsKeyStoreType#getKeyManagerAlgorithm <em>Key Manager Algorithm</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsKeyStoreType#getAlgorithm <em>Algorithm</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Key Manager Algorithm</em>' attribute.
-	 * @see #getKeyManagerAlgorithm()
+	 * @param value the new value of the '<em>Algorithm</em>' attribute.
+	 * @see #getAlgorithm()
 	 * @generated
 	 */
-	void setKeyManagerAlgorithm(String value);
+	void setAlgorithm(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The type of keystore used (a Java class name).
+	 *                 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Class</em>' attribute.
+	 * @see #setClass(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsKeyStoreType_Class()
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
+	 *        extendedMetaData="kind='attribute' name='class'"
+	 * @generated
+	 */
+	String getClass_();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsKeyStoreType#getClass_ <em>Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Class</em>' attribute.
+	 * @see #getClass_()
+	 * @generated
+	 */
+	void setClass(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Key Password</b></em>' attribute.
@@ -95,7 +123,7 @@ public interface TlsKeyStoreType extends EObject {
 	void setKeyPassword(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Key Store</b></em>' attribute.
+	 * Returns the value of the '<em><b>Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -104,27 +132,27 @@ public interface TlsKeyStoreType extends EObject {
 	 *                     possible) of the keystore that contains public certificates and private keys for identification.
 	 *                 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Key Store</em>' attribute.
-	 * @see #setKeyStore(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsKeyStoreType_KeyStore()
+	 * @return the value of the '<em>Path</em>' attribute.
+	 * @see #setPath(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsKeyStoreType_Path()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='keyStore'"
+	 *        extendedMetaData="kind='attribute' name='path'"
 	 * @generated
 	 */
-	String getKeyStore();
+	String getPath();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsKeyStoreType#getKeyStore <em>Key Store</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsKeyStoreType#getPath <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Key Store</em>' attribute.
-	 * @see #getKeyStore()
+	 * @param value the new value of the '<em>Path</em>' attribute.
+	 * @see #getPath()
 	 * @generated
 	 */
-	void setKeyStore(String value);
+	void setPath(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Key Store Password</b></em>' attribute.
+	 * Returns the value of the '<em><b>Store Password</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -132,51 +160,23 @@ public interface TlsKeyStoreType extends EObject {
 	 *                     The password used to protect the keystore.
 	 *                 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Key Store Password</em>' attribute.
-	 * @see #setKeyStorePassword(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsKeyStoreType_KeyStorePassword()
+	 * @return the value of the '<em>Store Password</em>' attribute.
+	 * @see #setStorePassword(String)
+	 * @see org.mule.ide.config.core.CorePackage#getTlsKeyStoreType_StorePassword()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='keyStorePassword'"
+	 *        extendedMetaData="kind='attribute' name='storePassword'"
 	 * @generated
 	 */
-	String getKeyStorePassword();
+	String getStorePassword();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsKeyStoreType#getKeyStorePassword <em>Key Store Password</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.TlsKeyStoreType#getStorePassword <em>Store Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Key Store Password</em>' attribute.
-	 * @see #getKeyStorePassword()
+	 * @param value the new value of the '<em>Store Password</em>' attribute.
+	 * @see #getStorePassword()
 	 * @generated
 	 */
-	void setKeyStorePassword(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Key Store Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                     The type of keystore used (a Java class name).
-	 *                 
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Key Store Type</em>' attribute.
-	 * @see #setKeyStoreType(String)
-	 * @see org.mule.ide.config.core.CorePackage#getTlsKeyStoreType_KeyStoreType()
-	 * @model dataType="org.mule.ide.config.core.SubstitutableClass"
-	 *        extendedMetaData="kind='attribute' name='keyStoreType'"
-	 * @generated
-	 */
-	String getKeyStoreType();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.TlsKeyStoreType#getKeyStoreType <em>Key Store Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Key Store Type</em>' attribute.
-	 * @see #getKeyStoreType()
-	 * @generated
-	 */
-	void setKeyStoreType(String value);
+	void setStorePassword(String value);
 
 } // TlsKeyStoreType

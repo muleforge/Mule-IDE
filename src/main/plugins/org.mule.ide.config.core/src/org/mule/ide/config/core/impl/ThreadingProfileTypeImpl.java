@@ -27,7 +27,6 @@ import org.mule.ide.config.core.ThreadingProfileType;
  *   <li>{@link org.mule.ide.config.core.impl.ThreadingProfileTypeImpl#getMaxBufferSize <em>Max Buffer Size</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ThreadingProfileTypeImpl#getMaxThreadsActive <em>Max Threads Active</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ThreadingProfileTypeImpl#getMaxThreadsIdle <em>Max Threads Idle</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.ThreadingProfileTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ThreadingProfileTypeImpl#getPoolExhaustedAction <em>Pool Exhausted Action</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ThreadingProfileTypeImpl#getThreadTTL <em>Thread TTL</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ThreadingProfileTypeImpl#getThreadWaitTimeout <em>Thread Wait Timeout</em>}</li>
@@ -74,7 +73,7 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MAX_BUFFER_SIZE_EDEFAULT = null;
+	protected static final int MAX_BUFFER_SIZE_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getMaxBufferSize() <em>Max Buffer Size</em>}' attribute.
@@ -84,7 +83,16 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * @generated
 	 * @ordered
 	 */
-	protected String maxBufferSize = MAX_BUFFER_SIZE_EDEFAULT;
+	protected int maxBufferSize = MAX_BUFFER_SIZE_EDEFAULT;
+
+	/**
+	 * This is true if the Max Buffer Size attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean maxBufferSizeESet;
 
 	/**
 	 * The default value of the '{@link #getMaxThreadsActive() <em>Max Threads Active</em>}' attribute.
@@ -94,7 +102,7 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MAX_THREADS_ACTIVE_EDEFAULT = null;
+	protected static final int MAX_THREADS_ACTIVE_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getMaxThreadsActive() <em>Max Threads Active</em>}' attribute.
@@ -104,7 +112,16 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * @generated
 	 * @ordered
 	 */
-	protected String maxThreadsActive = MAX_THREADS_ACTIVE_EDEFAULT;
+	protected int maxThreadsActive = MAX_THREADS_ACTIVE_EDEFAULT;
+
+	/**
+	 * This is true if the Max Threads Active attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean maxThreadsActiveESet;
 
 	/**
 	 * The default value of the '{@link #getMaxThreadsIdle() <em>Max Threads Idle</em>}' attribute.
@@ -114,7 +131,7 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MAX_THREADS_IDLE_EDEFAULT = null;
+	protected static final int MAX_THREADS_IDLE_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getMaxThreadsIdle() <em>Max Threads Idle</em>}' attribute.
@@ -124,27 +141,16 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * @generated
 	 * @ordered
 	 */
-	protected String maxThreadsIdle = MAX_THREADS_IDLE_EDEFAULT;
+	protected int maxThreadsIdle = MAX_THREADS_IDLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * This is true if the Max Threads Idle attribute has been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+	protected boolean maxThreadsIdleESet;
 
 	/**
 	 * The default value of the '{@link #getPoolExhaustedAction() <em>Pool Exhausted Action</em>}' attribute.
@@ -183,7 +189,7 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String THREAD_TTL_EDEFAULT = null;
+	protected static final int THREAD_TTL_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getThreadTTL() <em>Thread TTL</em>}' attribute.
@@ -193,7 +199,16 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * @generated
 	 * @ordered
 	 */
-	protected String threadTTL = THREAD_TTL_EDEFAULT;
+	protected int threadTTL = THREAD_TTL_EDEFAULT;
+
+	/**
+	 * This is true if the Thread TTL attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean threadTTLESet;
 
 	/**
 	 * The default value of the '{@link #getThreadWaitTimeout() <em>Thread Wait Timeout</em>}' attribute.
@@ -203,7 +218,7 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String THREAD_WAIT_TIMEOUT_EDEFAULT = null;
+	protected static final int THREAD_WAIT_TIMEOUT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getThreadWaitTimeout() <em>Thread Wait Timeout</em>}' attribute.
@@ -213,7 +228,16 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * @generated
 	 * @ordered
 	 */
-	protected String threadWaitTimeout = THREAD_WAIT_TIMEOUT_EDEFAULT;
+	protected int threadWaitTimeout = THREAD_WAIT_TIMEOUT_EDEFAULT;
+
+	/**
+	 * This is true if the Thread Wait Timeout attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean threadWaitTimeoutESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -285,7 +309,7 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMaxBufferSize() {
+	public int getMaxBufferSize() {
 		return maxBufferSize;
 	}
 
@@ -294,11 +318,13 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaxBufferSize(String newMaxBufferSize) {
-		String oldMaxBufferSize = maxBufferSize;
+	public void setMaxBufferSize(int newMaxBufferSize) {
+		int oldMaxBufferSize = maxBufferSize;
 		maxBufferSize = newMaxBufferSize;
+		boolean oldMaxBufferSizeESet = maxBufferSizeESet;
+		maxBufferSizeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.THREADING_PROFILE_TYPE__MAX_BUFFER_SIZE, oldMaxBufferSize, maxBufferSize));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.THREADING_PROFILE_TYPE__MAX_BUFFER_SIZE, oldMaxBufferSize, maxBufferSize, !oldMaxBufferSizeESet));
 	}
 
 	/**
@@ -306,7 +332,30 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMaxThreadsActive() {
+	public void unsetMaxBufferSize() {
+		int oldMaxBufferSize = maxBufferSize;
+		boolean oldMaxBufferSizeESet = maxBufferSizeESet;
+		maxBufferSize = MAX_BUFFER_SIZE_EDEFAULT;
+		maxBufferSizeESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.THREADING_PROFILE_TYPE__MAX_BUFFER_SIZE, oldMaxBufferSize, MAX_BUFFER_SIZE_EDEFAULT, oldMaxBufferSizeESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetMaxBufferSize() {
+		return maxBufferSizeESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMaxThreadsActive() {
 		return maxThreadsActive;
 	}
 
@@ -315,11 +364,13 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaxThreadsActive(String newMaxThreadsActive) {
-		String oldMaxThreadsActive = maxThreadsActive;
+	public void setMaxThreadsActive(int newMaxThreadsActive) {
+		int oldMaxThreadsActive = maxThreadsActive;
 		maxThreadsActive = newMaxThreadsActive;
+		boolean oldMaxThreadsActiveESet = maxThreadsActiveESet;
+		maxThreadsActiveESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_ACTIVE, oldMaxThreadsActive, maxThreadsActive));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_ACTIVE, oldMaxThreadsActive, maxThreadsActive, !oldMaxThreadsActiveESet));
 	}
 
 	/**
@@ -327,7 +378,30 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMaxThreadsIdle() {
+	public void unsetMaxThreadsActive() {
+		int oldMaxThreadsActive = maxThreadsActive;
+		boolean oldMaxThreadsActiveESet = maxThreadsActiveESet;
+		maxThreadsActive = MAX_THREADS_ACTIVE_EDEFAULT;
+		maxThreadsActiveESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_ACTIVE, oldMaxThreadsActive, MAX_THREADS_ACTIVE_EDEFAULT, oldMaxThreadsActiveESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetMaxThreadsActive() {
+		return maxThreadsActiveESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMaxThreadsIdle() {
 		return maxThreadsIdle;
 	}
 
@@ -336,11 +410,13 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaxThreadsIdle(String newMaxThreadsIdle) {
-		String oldMaxThreadsIdle = maxThreadsIdle;
+	public void setMaxThreadsIdle(int newMaxThreadsIdle) {
+		int oldMaxThreadsIdle = maxThreadsIdle;
 		maxThreadsIdle = newMaxThreadsIdle;
+		boolean oldMaxThreadsIdleESet = maxThreadsIdleESet;
+		maxThreadsIdleESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_IDLE, oldMaxThreadsIdle, maxThreadsIdle));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_IDLE, oldMaxThreadsIdle, maxThreadsIdle, !oldMaxThreadsIdleESet));
 	}
 
 	/**
@@ -348,8 +424,13 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public void unsetMaxThreadsIdle() {
+		int oldMaxThreadsIdle = maxThreadsIdle;
+		boolean oldMaxThreadsIdleESet = maxThreadsIdleESet;
+		maxThreadsIdle = MAX_THREADS_IDLE_EDEFAULT;
+		maxThreadsIdleESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_IDLE, oldMaxThreadsIdle, MAX_THREADS_IDLE_EDEFAULT, oldMaxThreadsIdleESet));
 	}
 
 	/**
@@ -357,11 +438,8 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.THREADING_PROFILE_TYPE__NAME, oldName, name));
+	public boolean isSetMaxThreadsIdle() {
+		return maxThreadsIdleESet;
 	}
 
 	/**
@@ -415,7 +493,7 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getThreadTTL() {
+	public int getThreadTTL() {
 		return threadTTL;
 	}
 
@@ -424,11 +502,13 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setThreadTTL(String newThreadTTL) {
-		String oldThreadTTL = threadTTL;
+	public void setThreadTTL(int newThreadTTL) {
+		int oldThreadTTL = threadTTL;
 		threadTTL = newThreadTTL;
+		boolean oldThreadTTLESet = threadTTLESet;
+		threadTTLESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.THREADING_PROFILE_TYPE__THREAD_TTL, oldThreadTTL, threadTTL));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.THREADING_PROFILE_TYPE__THREAD_TTL, oldThreadTTL, threadTTL, !oldThreadTTLESet));
 	}
 
 	/**
@@ -436,7 +516,30 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getThreadWaitTimeout() {
+	public void unsetThreadTTL() {
+		int oldThreadTTL = threadTTL;
+		boolean oldThreadTTLESet = threadTTLESet;
+		threadTTL = THREAD_TTL_EDEFAULT;
+		threadTTLESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.THREADING_PROFILE_TYPE__THREAD_TTL, oldThreadTTL, THREAD_TTL_EDEFAULT, oldThreadTTLESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetThreadTTL() {
+		return threadTTLESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getThreadWaitTimeout() {
 		return threadWaitTimeout;
 	}
 
@@ -445,11 +548,36 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setThreadWaitTimeout(String newThreadWaitTimeout) {
-		String oldThreadWaitTimeout = threadWaitTimeout;
+	public void setThreadWaitTimeout(int newThreadWaitTimeout) {
+		int oldThreadWaitTimeout = threadWaitTimeout;
 		threadWaitTimeout = newThreadWaitTimeout;
+		boolean oldThreadWaitTimeoutESet = threadWaitTimeoutESet;
+		threadWaitTimeoutESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.THREADING_PROFILE_TYPE__THREAD_WAIT_TIMEOUT, oldThreadWaitTimeout, threadWaitTimeout));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.THREADING_PROFILE_TYPE__THREAD_WAIT_TIMEOUT, oldThreadWaitTimeout, threadWaitTimeout, !oldThreadWaitTimeoutESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetThreadWaitTimeout() {
+		int oldThreadWaitTimeout = threadWaitTimeout;
+		boolean oldThreadWaitTimeoutESet = threadWaitTimeoutESet;
+		threadWaitTimeout = THREAD_WAIT_TIMEOUT_EDEFAULT;
+		threadWaitTimeoutESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.THREADING_PROFILE_TYPE__THREAD_WAIT_TIMEOUT, oldThreadWaitTimeout, THREAD_WAIT_TIMEOUT_EDEFAULT, oldThreadWaitTimeoutESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetThreadWaitTimeout() {
+		return threadWaitTimeoutESet;
 	}
 
 	/**
@@ -463,19 +591,17 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 			case CorePackage.THREADING_PROFILE_TYPE__DO_THREADING:
 				return isDoThreading() ? Boolean.TRUE : Boolean.FALSE;
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_BUFFER_SIZE:
-				return getMaxBufferSize();
+				return new Integer(getMaxBufferSize());
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_ACTIVE:
-				return getMaxThreadsActive();
+				return new Integer(getMaxThreadsActive());
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_IDLE:
-				return getMaxThreadsIdle();
-			case CorePackage.THREADING_PROFILE_TYPE__NAME:
-				return getName();
+				return new Integer(getMaxThreadsIdle());
 			case CorePackage.THREADING_PROFILE_TYPE__POOL_EXHAUSTED_ACTION:
 				return getPoolExhaustedAction();
 			case CorePackage.THREADING_PROFILE_TYPE__THREAD_TTL:
-				return getThreadTTL();
+				return new Integer(getThreadTTL());
 			case CorePackage.THREADING_PROFILE_TYPE__THREAD_WAIT_TIMEOUT:
-				return getThreadWaitTimeout();
+				return new Integer(getThreadWaitTimeout());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -492,25 +618,22 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 				setDoThreading(((Boolean)newValue).booleanValue());
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_BUFFER_SIZE:
-				setMaxBufferSize((String)newValue);
+				setMaxBufferSize(((Integer)newValue).intValue());
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_ACTIVE:
-				setMaxThreadsActive((String)newValue);
+				setMaxThreadsActive(((Integer)newValue).intValue());
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_IDLE:
-				setMaxThreadsIdle((String)newValue);
-				return;
-			case CorePackage.THREADING_PROFILE_TYPE__NAME:
-				setName((String)newValue);
+				setMaxThreadsIdle(((Integer)newValue).intValue());
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__POOL_EXHAUSTED_ACTION:
 				setPoolExhaustedAction((PoolExhaustedActionType)newValue);
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__THREAD_TTL:
-				setThreadTTL((String)newValue);
+				setThreadTTL(((Integer)newValue).intValue());
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__THREAD_WAIT_TIMEOUT:
-				setThreadWaitTimeout((String)newValue);
+				setThreadWaitTimeout(((Integer)newValue).intValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -528,25 +651,22 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 				unsetDoThreading();
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_BUFFER_SIZE:
-				setMaxBufferSize(MAX_BUFFER_SIZE_EDEFAULT);
+				unsetMaxBufferSize();
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_ACTIVE:
-				setMaxThreadsActive(MAX_THREADS_ACTIVE_EDEFAULT);
+				unsetMaxThreadsActive();
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_IDLE:
-				setMaxThreadsIdle(MAX_THREADS_IDLE_EDEFAULT);
-				return;
-			case CorePackage.THREADING_PROFILE_TYPE__NAME:
-				setName(NAME_EDEFAULT);
+				unsetMaxThreadsIdle();
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__POOL_EXHAUSTED_ACTION:
 				unsetPoolExhaustedAction();
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__THREAD_TTL:
-				setThreadTTL(THREAD_TTL_EDEFAULT);
+				unsetThreadTTL();
 				return;
 			case CorePackage.THREADING_PROFILE_TYPE__THREAD_WAIT_TIMEOUT:
-				setThreadWaitTimeout(THREAD_WAIT_TIMEOUT_EDEFAULT);
+				unsetThreadWaitTimeout();
 				return;
 		}
 		super.eUnset(featureID);
@@ -563,19 +683,17 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 			case CorePackage.THREADING_PROFILE_TYPE__DO_THREADING:
 				return isSetDoThreading();
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_BUFFER_SIZE:
-				return MAX_BUFFER_SIZE_EDEFAULT == null ? maxBufferSize != null : !MAX_BUFFER_SIZE_EDEFAULT.equals(maxBufferSize);
+				return isSetMaxBufferSize();
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_ACTIVE:
-				return MAX_THREADS_ACTIVE_EDEFAULT == null ? maxThreadsActive != null : !MAX_THREADS_ACTIVE_EDEFAULT.equals(maxThreadsActive);
+				return isSetMaxThreadsActive();
 			case CorePackage.THREADING_PROFILE_TYPE__MAX_THREADS_IDLE:
-				return MAX_THREADS_IDLE_EDEFAULT == null ? maxThreadsIdle != null : !MAX_THREADS_IDLE_EDEFAULT.equals(maxThreadsIdle);
-			case CorePackage.THREADING_PROFILE_TYPE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return isSetMaxThreadsIdle();
 			case CorePackage.THREADING_PROFILE_TYPE__POOL_EXHAUSTED_ACTION:
 				return isSetPoolExhaustedAction();
 			case CorePackage.THREADING_PROFILE_TYPE__THREAD_TTL:
-				return THREAD_TTL_EDEFAULT == null ? threadTTL != null : !THREAD_TTL_EDEFAULT.equals(threadTTL);
+				return isSetThreadTTL();
 			case CorePackage.THREADING_PROFILE_TYPE__THREAD_WAIT_TIMEOUT:
-				return THREAD_WAIT_TIMEOUT_EDEFAULT == null ? threadWaitTimeout != null : !THREAD_WAIT_TIMEOUT_EDEFAULT.equals(threadWaitTimeout);
+				return isSetThreadWaitTimeout();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -593,19 +711,17 @@ public class ThreadingProfileTypeImpl extends AbstractComponentThreadingProfileT
 		result.append(" (doThreading: ");
 		if (doThreadingESet) result.append(doThreading); else result.append("<unset>");
 		result.append(", maxBufferSize: ");
-		result.append(maxBufferSize);
+		if (maxBufferSizeESet) result.append(maxBufferSize); else result.append("<unset>");
 		result.append(", maxThreadsActive: ");
-		result.append(maxThreadsActive);
+		if (maxThreadsActiveESet) result.append(maxThreadsActive); else result.append("<unset>");
 		result.append(", maxThreadsIdle: ");
-		result.append(maxThreadsIdle);
-		result.append(", name: ");
-		result.append(name);
+		if (maxThreadsIdleESet) result.append(maxThreadsIdle); else result.append("<unset>");
 		result.append(", poolExhaustedAction: ");
 		if (poolExhaustedActionESet) result.append(poolExhaustedAction); else result.append("<unset>");
 		result.append(", threadTTL: ");
-		result.append(threadTTL);
+		if (threadTTLESet) result.append(threadTTL); else result.append("<unset>");
 		result.append(", threadWaitTimeout: ");
-		result.append(threadWaitTimeout);
+		if (threadWaitTimeoutESet) result.append(threadWaitTimeout); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

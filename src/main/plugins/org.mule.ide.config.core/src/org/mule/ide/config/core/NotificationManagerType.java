@@ -20,13 +20,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.NotificationManagerType#getGroup <em>Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.NotificationManagerType#getAbstractDefineNotificationGroup <em>Abstract Define Notification Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.NotificationManagerType#getAbstractDefineNotification <em>Abstract Define Notification</em>}</li>
- *   <li>{@link org.mule.ide.config.core.NotificationManagerType#getGroup1 <em>Group1</em>}</li>
- *   <li>{@link org.mule.ide.config.core.NotificationManagerType#getAbstractDisableNotificationGroup <em>Abstract Disable Notification Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.NotificationManagerType#getAbstractDisableNotification <em>Abstract Disable Notification</em>}</li>
- *   <li>{@link org.mule.ide.config.core.NotificationManagerType#getGroup2 <em>Group2</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.NotificationManagerType#getNotification <em>Notification</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.NotificationManagerType#getDisableNotification <em>Disable Notification</em>}</li>
  *   <li>{@link org.mule.ide.config.core.NotificationManagerType#getNotificationListener <em>Notification Listener</em>}</li>
  *   <li>{@link org.mule.ide.config.core.NotificationManagerType#isDynamic <em>Dynamic</em>}</li>
  * </ul>
@@ -38,123 +33,43 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  */
 public interface NotificationManagerType extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Group</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * Returns the value of the '<em><b>Notification</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.core.DefineNotificationType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Group</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Group</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getNotificationManagerType_Group()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
-	 *        extendedMetaData="kind='group' name='group:0'"
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                         Associate an event with an interface.
+	 *                         Listeners which implement the interface will receive instances of the event.
+	 *                     
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Notification</em>' containment reference list.
+	 * @see org.mule.ide.config.core.CorePackage#getNotificationManagerType_Notification()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='notification' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	FeatureMap getGroup();
+	EList<DefineNotificationType> getNotification();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Define Notification Group</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * Returns the value of the '<em><b>Disable Notification</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.core.DisableNotificationType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Define Notification Group</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Define Notification Group</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getNotificationManagerType_AbstractDefineNotificationGroup()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-define-notification:group' namespace='##targetNamespace' group='#group:0'"
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                         Block the association of an event with a particular interface.
+	 *                         This filters events after the association with a particular interface
+	 *                         (and so takes precedence).
+	 *                     
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Disable Notification</em>' containment reference list.
+	 * @see org.mule.ide.config.core.CorePackage#getNotificationManagerType_DisableNotification()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='disable-notification' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	FeatureMap getAbstractDefineNotificationGroup();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Define Notification</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.AbstractDefineNotificationType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Define Notification</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Define Notification</em>' containment reference list.
-	 * @see org.mule.ide.config.core.CorePackage#getNotificationManagerType_AbstractDefineNotification()
-	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-define-notification' namespace='##targetNamespace' group='abstract-define-notification:group'"
-	 * @generated
-	 */
-	EList<AbstractDefineNotificationType> getAbstractDefineNotification();
-
-	/**
-	 * Returns the value of the '<em><b>Group1</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Group1</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Group1</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getNotificationManagerType_Group1()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
-	 *        extendedMetaData="kind='group' name='group:3'"
-	 * @generated
-	 */
-	FeatureMap getGroup1();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Disable Notification Group</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Disable Notification Group</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Disable Notification Group</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getNotificationManagerType_AbstractDisableNotificationGroup()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-disable-notification:group' namespace='##targetNamespace' group='#group:3'"
-	 * @generated
-	 */
-	FeatureMap getAbstractDisableNotificationGroup();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Disable Notification</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.AbstractDisableNotificationType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Disable Notification</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Disable Notification</em>' containment reference list.
-	 * @see org.mule.ide.config.core.CorePackage#getNotificationManagerType_AbstractDisableNotification()
-	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-disable-notification' namespace='##targetNamespace' group='abstract-disable-notification:group'"
-	 * @generated
-	 */
-	EList<AbstractDisableNotificationType> getAbstractDisableNotification();
-
-	/**
-	 * Returns the value of the '<em><b>Group2</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Group2</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Group2</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getNotificationManagerType_Group2()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
-	 *        extendedMetaData="kind='group' name='group:6'"
-	 * @generated
-	 */
-	FeatureMap getGroup2();
+	EList<DisableNotificationType> getDisableNotification();
 
 	/**
 	 * Returns the value of the '<em><b>Notification Listener</b></em>' containment reference list.
@@ -165,10 +80,19 @@ public interface NotificationManagerType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                         Register a bean as a listener with the notification system.
+	 *                         Events are dispatched by reflection - the listener will receive all events
+	 *                         associated with any interfaces it implements.
+	 *                         The relationship between interfaces and events is configured by the
+	 *                         notification and disable-notification elements.
+	 *                     
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Notification Listener</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getNotificationManagerType_NotificationListener()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='notification-listener' namespace='##targetNamespace' group='#group:6'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='notification-listener' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<NotificationListenerType> getNotificationListener();
@@ -179,8 +103,9 @@ public interface NotificationManagerType extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                     If the notification manager is dynamic then updates to the manager will affect
-	 *                     all messages.  Otherwise, some parts of the system may cache state for
+	 *                     If the notification manager is dynamic then programatic updates to the manager
+	 *                     (ie via Java code) will affect all messages.
+	 *                     Otherwise, some parts of the system may cache state for
 	 *                     efficiency and so not generate newly enabled notifications.
 	 *                     The default value is false.
 	 *                 

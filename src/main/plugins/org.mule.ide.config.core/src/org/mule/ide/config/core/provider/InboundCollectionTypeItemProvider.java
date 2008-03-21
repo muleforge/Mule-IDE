@@ -73,31 +73,8 @@ public class InboundCollectionTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMatchAllPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Match All feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMatchAllPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_InboundCollectionType_matchAll_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InboundCollectionType_matchAll_feature", "_UI_InboundCollectionType_type"),
-				 CorePackage.eINSTANCE.getInboundCollectionType_MatchAll(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -140,8 +117,7 @@ public class InboundCollectionTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		InboundCollectionType inboundCollectionType = (InboundCollectionType)object;
-		return getString("_UI_InboundCollectionType_type") + " " + inboundCollectionType.isMatchAll();
+		return getString("_UI_InboundCollectionType_type");
 	}
 
 	/**
@@ -156,9 +132,6 @@ public class InboundCollectionTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(InboundCollectionType.class)) {
-			case CorePackage.INBOUND_COLLECTION_TYPE__MATCH_ALL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case CorePackage.INBOUND_COLLECTION_TYPE__ABSTRACT_CATCH_ALL_STRATEGY_GROUP:
 			case CorePackage.INBOUND_COLLECTION_TYPE__ABSTRACT_INBOUND_ENDPOINT_GROUP:
 			case CorePackage.INBOUND_COLLECTION_TYPE__ABSTRACT_INBOUND_ROUTER_GROUP:
@@ -247,14 +220,49 @@ public class InboundCollectionTypeItemProvider
 				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter(),
-					 CoreFactory.eINSTANCE.createForwardingRouterType())));
+					 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
-					 CoreFactory.eINSTANCE.createIdempotentReceiverRouterType())));
+					 CoreFactory.eINSTANCE.createFilteredInboundRouterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
+					 CoreFactory.eINSTANCE.createMessageChunkingAggregatorRouterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
+					 CoreFactory.eINSTANCE.createCustomCorrelationAggregatorRouterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
+					 CoreFactory.eINSTANCE.createCustomInboundRouterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
+					 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter(),
+					 CoreFactory.eINSTANCE.createWireTapRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -283,20 +291,6 @@ public class InboundCollectionTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
 					 CoreFactory.eINSTANCE.createCustomInboundRouterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
-					 CoreFactory.eINSTANCE.createForwardingRouterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter(),
-					 CoreFactory.eINSTANCE.createIdempotentReceiverRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -339,20 +333,6 @@ public class InboundCollectionTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
 					 CoreFactory.eINSTANCE.createCustomInboundRouterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
-					 CoreFactory.eINSTANCE.createForwardingRouterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundRouterGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter(),
-					 CoreFactory.eINSTANCE.createIdempotentReceiverRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -418,14 +398,14 @@ public class InboundCollectionTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomForwardingCatchAllStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ForwardingCatchAllStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SelectiveConsumerRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomCorrelationAggregatorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomInboundRouter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WireTapRouter();
 
 		if (qualify) {

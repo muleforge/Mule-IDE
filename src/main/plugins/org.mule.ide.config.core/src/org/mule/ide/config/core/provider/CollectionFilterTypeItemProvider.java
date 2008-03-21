@@ -179,14 +179,7 @@ public class CollectionFilterTypeItemProvider
 				(CorePackage.eINSTANCE.getCollectionFilterType_AbstractFilterGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter(),
-					 CoreFactory.eINSTANCE.createPatternFilterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCollectionFilterType_AbstractFilterGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter(),
-					 CoreFactory.eINSTANCE.createWildcardFilterType())));
+					 CoreFactory.eINSTANCE.createCaseSensitivePatternFilterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -215,6 +208,13 @@ public class CollectionFilterTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(),
 					 CoreFactory.eINSTANCE.createPatternFilterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getCollectionFilterType_AbstractFilterGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter(),
+					 CoreFactory.eINSTANCE.createCaseSensitivePatternFilterType())));
 
 		newChildDescriptors.add
 			(createChildParameter

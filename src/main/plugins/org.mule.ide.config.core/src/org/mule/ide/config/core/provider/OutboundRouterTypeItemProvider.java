@@ -114,7 +114,6 @@ public class OutboundRouterTypeItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getOutboundRouterType_ReplyTo());
 			childrenFeatures.add(CorePackage.eINSTANCE.getOutboundRouterType_AbstractTransactionGroup());
 			childrenFeatures.add(CorePackage.eINSTANCE.getOutboundRouterType_AbstractPropertyExtractorGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getOutboundRouterType_CustomPropertyExtractor());
 		}
 		return childrenFeatures;
 	}
@@ -166,7 +165,6 @@ public class OutboundRouterTypeItemProvider
 			case CorePackage.OUTBOUND_ROUTER_TYPE__REPLY_TO:
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_TRANSACTION_GROUP:
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-			case CorePackage.OUTBOUND_ROUTER_TYPE__CUSTOM_PROPERTY_EXTRACTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -207,7 +205,7 @@ public class OutboundRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor(),
+					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
 					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
 
 		newChildDescriptors.add
@@ -215,7 +213,28 @@ public class OutboundRouterTypeItemProvider
 				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
 					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -228,6 +247,13 @@ public class OutboundRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractPropertyExtractorGroup(),
+				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
 					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
 
@@ -235,13 +261,8 @@ public class OutboundRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractPropertyExtractorGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getOutboundRouterType_CustomPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
+					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
+					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
 	}
 
 	/**
@@ -262,11 +283,11 @@ public class OutboundRouterTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_BeanPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadPropertyExtractor();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor();
 
 		if (qualify) {
 			return getString

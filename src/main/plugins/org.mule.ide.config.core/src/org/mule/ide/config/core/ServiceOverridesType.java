@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.mule.ide.config.core.ServiceOverridesType#getOutboundTransformer <em>Outbound Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ServiceOverridesType#getResponseTransformer <em>Response Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ServiceOverridesType#getServiceFinder <em>Service Finder</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.ServiceOverridesType#getSessionHandler <em>Session Handler</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ServiceOverridesType#getStreamMessageAdapter <em>Stream Message Adapter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ServiceOverridesType#getTransactedMessageReceiver <em>Transacted Message Receiver</em>}</li>
  * </ul>
@@ -249,6 +250,33 @@ public interface ServiceOverridesType extends EObject {
 	 * @generated
 	 */
 	void setServiceFinder(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Session Handler</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Session Handler</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Session Handler</em>' attribute.
+	 * @see #setSessionHandler(String)
+	 * @see org.mule.ide.config.core.CorePackage#getServiceOverridesType_SessionHandler()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.NMTOKEN"
+	 *        extendedMetaData="kind='attribute' name='sessionHandler'"
+	 * @generated
+	 */
+	String getSessionHandler();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.ServiceOverridesType#getSessionHandler <em>Session Handler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Session Handler</em>' attribute.
+	 * @see #getSessionHandler()
+	 * @generated
+	 */
+	void setSessionHandler(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Stream Message Adapter</b></em>' attribute.

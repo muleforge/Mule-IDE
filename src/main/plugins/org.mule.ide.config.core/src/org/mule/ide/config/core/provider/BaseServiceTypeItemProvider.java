@@ -70,32 +70,9 @@ public class BaseServiceTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addClassPropertyDescriptor(object);
 			addInitialStatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Class feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addClassPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BaseServiceType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BaseServiceType_class_feature", "_UI_BaseServiceType_type"),
-				 CorePackage.eINSTANCE.getBaseServiceType_Class(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -180,7 +157,6 @@ public class BaseServiceTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BaseServiceType.class)) {
-			case CorePackage.BASE_SERVICE_TYPE__CLASS:
 			case CorePackage.BASE_SERVICE_TYPE__INITIAL_STATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -223,7 +199,14 @@ public class BaseServiceTypeItemProvider
 				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Component(),
-					 CoreFactory.eINSTANCE.createPojoComponentType())));
+					 CoreFactory.eINSTANCE.createDefaultJavaComponentType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_Component(),
+					 CoreFactory.eINSTANCE.createPooledJavaComponentType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -250,8 +233,8 @@ public class BaseServiceTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getBaseServiceType_AbstractComponentGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent(),
-					 CoreFactory.eINSTANCE.createDefaultComponentType())));
+					(CorePackage.eINSTANCE.getDocumentRoot_PooledComponent(),
+					 CoreFactory.eINSTANCE.createPooledJavaComponentType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -275,7 +258,7 @@ public class BaseServiceTypeItemProvider
 				(CorePackage.eINSTANCE.getBaseServiceType_AbstractExceptionStrategyGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy(),
-					 CoreFactory.eINSTANCE.createExceptionStrategyType())));
+					 CoreFactory.eINSTANCE.createEndpointExceptionStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -289,7 +272,7 @@ public class BaseServiceTypeItemProvider
 				(CorePackage.eINSTANCE.getBaseServiceType_AbstractExceptionStrategyGroup(),
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy(),
-					 CoreFactory.eINSTANCE.createExceptionStrategyType())));
+					 CoreFactory.eINSTANCE.createEndpointExceptionStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -321,7 +304,8 @@ public class BaseServiceTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EchoComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_LogComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_NullComponent() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Component() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PooledComponent() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomExceptionStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultConnectorExceptionStrategy() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_DefaultServiceExceptionStrategy();

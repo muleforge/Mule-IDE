@@ -35,6 +35,11 @@ public interface ComplexEntryPointResolverType extends ReflectionEntryPointResol
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A possible method for delivery.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Include Entry Point</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getComplexEntryPointResolverType_IncludeEntryPoint()
 	 * @model containment="true"

@@ -31,6 +31,11 @@ public interface CustomConnectorType extends ConnectorType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             A class that implements the Connector interface.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Class</em>' attribute.
 	 * @see #setClass(String)
 	 * @see org.mule.ide.config.core.CorePackage#getCustomConnectorType_Class()

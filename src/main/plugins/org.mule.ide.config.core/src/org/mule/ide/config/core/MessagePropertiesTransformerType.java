@@ -38,6 +38,11 @@ public interface MessagePropertiesTransformerType extends AbstractTransformerTyp
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 Delete a message property.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Delete Message Property</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMessagePropertiesTransformerType_DeleteMessageProperty()
 	 * @model containment="true"
@@ -55,6 +60,11 @@ public interface MessagePropertiesTransformerType extends AbstractTransformerTyp
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 Add a message property.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Add Message Property</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getMessagePropertiesTransformerType_AddMessageProperty()
 	 * @model containment="true"
@@ -71,6 +81,11 @@ public interface MessagePropertiesTransformerType extends AbstractTransformerTyp
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                                 Add a set of message properties.
+	 *                             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Add Message Properties</em>' containment reference.
 	 * @see #setAddMessageProperties(MapType)
 	 * @see org.mule.ide.config.core.CorePackage#getMessagePropertiesTransformerType_AddMessageProperties()
@@ -99,6 +114,11 @@ public interface MessagePropertiesTransformerType extends AbstractTransformerTyp
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                             If false, a property is not added if the message already contains a property with that name.
+	 *                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Overwrite</em>' attribute.
 	 * @see #isSetOverwrite()
 	 * @see #unsetOverwrite()

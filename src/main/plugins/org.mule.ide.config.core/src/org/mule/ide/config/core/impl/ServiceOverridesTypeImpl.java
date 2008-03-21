@@ -31,6 +31,7 @@ import org.mule.ide.config.core.ServiceOverridesType;
  *   <li>{@link org.mule.ide.config.core.impl.ServiceOverridesTypeImpl#getOutboundTransformer <em>Outbound Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ServiceOverridesTypeImpl#getResponseTransformer <em>Response Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ServiceOverridesTypeImpl#getServiceFinder <em>Service Finder</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.ServiceOverridesTypeImpl#getSessionHandler <em>Session Handler</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ServiceOverridesTypeImpl#getStreamMessageAdapter <em>Stream Message Adapter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ServiceOverridesTypeImpl#getTransactedMessageReceiver <em>Transacted Message Receiver</em>}</li>
  * </ul>
@@ -198,6 +199,26 @@ public class ServiceOverridesTypeImpl extends EObjectImpl implements ServiceOver
 	 * @ordered
 	 */
 	protected String serviceFinder = SERVICE_FINDER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSessionHandler() <em>Session Handler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSessionHandler()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SESSION_HANDLER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSessionHandler() <em>Session Handler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSessionHandler()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sessionHandler = SESSION_HANDLER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getStreamMessageAdapter() <em>Stream Message Adapter</em>}' attribute.
@@ -431,6 +452,27 @@ public class ServiceOverridesTypeImpl extends EObjectImpl implements ServiceOver
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getSessionHandler() {
+		return sessionHandler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSessionHandler(String newSessionHandler) {
+		String oldSessionHandler = sessionHandler;
+		sessionHandler = newSessionHandler;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SERVICE_OVERRIDES_TYPE__SESSION_HANDLER, oldSessionHandler, sessionHandler));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getStreamMessageAdapter() {
 		return streamMessageAdapter;
 	}
@@ -492,6 +534,8 @@ public class ServiceOverridesTypeImpl extends EObjectImpl implements ServiceOver
 				return getResponseTransformer();
 			case CorePackage.SERVICE_OVERRIDES_TYPE__SERVICE_FINDER:
 				return getServiceFinder();
+			case CorePackage.SERVICE_OVERRIDES_TYPE__SESSION_HANDLER:
+				return getSessionHandler();
 			case CorePackage.SERVICE_OVERRIDES_TYPE__STREAM_MESSAGE_ADAPTER:
 				return getStreamMessageAdapter();
 			case CorePackage.SERVICE_OVERRIDES_TYPE__TRANSACTED_MESSAGE_RECEIVER:
@@ -531,6 +575,9 @@ public class ServiceOverridesTypeImpl extends EObjectImpl implements ServiceOver
 				return;
 			case CorePackage.SERVICE_OVERRIDES_TYPE__SERVICE_FINDER:
 				setServiceFinder((String)newValue);
+				return;
+			case CorePackage.SERVICE_OVERRIDES_TYPE__SESSION_HANDLER:
+				setSessionHandler((String)newValue);
 				return;
 			case CorePackage.SERVICE_OVERRIDES_TYPE__STREAM_MESSAGE_ADAPTER:
 				setStreamMessageAdapter((String)newValue);
@@ -574,6 +621,9 @@ public class ServiceOverridesTypeImpl extends EObjectImpl implements ServiceOver
 			case CorePackage.SERVICE_OVERRIDES_TYPE__SERVICE_FINDER:
 				setServiceFinder(SERVICE_FINDER_EDEFAULT);
 				return;
+			case CorePackage.SERVICE_OVERRIDES_TYPE__SESSION_HANDLER:
+				setSessionHandler(SESSION_HANDLER_EDEFAULT);
+				return;
 			case CorePackage.SERVICE_OVERRIDES_TYPE__STREAM_MESSAGE_ADAPTER:
 				setStreamMessageAdapter(STREAM_MESSAGE_ADAPTER_EDEFAULT);
 				return;
@@ -608,6 +658,8 @@ public class ServiceOverridesTypeImpl extends EObjectImpl implements ServiceOver
 				return RESPONSE_TRANSFORMER_EDEFAULT == null ? responseTransformer != null : !RESPONSE_TRANSFORMER_EDEFAULT.equals(responseTransformer);
 			case CorePackage.SERVICE_OVERRIDES_TYPE__SERVICE_FINDER:
 				return SERVICE_FINDER_EDEFAULT == null ? serviceFinder != null : !SERVICE_FINDER_EDEFAULT.equals(serviceFinder);
+			case CorePackage.SERVICE_OVERRIDES_TYPE__SESSION_HANDLER:
+				return SESSION_HANDLER_EDEFAULT == null ? sessionHandler != null : !SESSION_HANDLER_EDEFAULT.equals(sessionHandler);
 			case CorePackage.SERVICE_OVERRIDES_TYPE__STREAM_MESSAGE_ADAPTER:
 				return STREAM_MESSAGE_ADAPTER_EDEFAULT == null ? streamMessageAdapter != null : !STREAM_MESSAGE_ADAPTER_EDEFAULT.equals(streamMessageAdapter);
 			case CorePackage.SERVICE_OVERRIDES_TYPE__TRANSACTED_MESSAGE_RECEIVER:
@@ -642,6 +694,8 @@ public class ServiceOverridesTypeImpl extends EObjectImpl implements ServiceOver
 		result.append(responseTransformer);
 		result.append(", serviceFinder: ");
 		result.append(serviceFinder);
+		result.append(", sessionHandler: ");
+		result.append(sessionHandler);
 		result.append(", streamMessageAdapter: ");
 		result.append(streamMessageAdapter);
 		result.append(", transactedMessageReceiver: ");

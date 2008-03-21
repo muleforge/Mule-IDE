@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.AsyncReplyRouterType#getAbstractInboundEndpoint <em>Abstract Inbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AsyncReplyRouterType#getAbstractPropertyExtractorGroup <em>Abstract Property Extractor Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AsyncReplyRouterType#getAbstractPropertyExtractor <em>Abstract Property Extractor</em>}</li>
- *   <li>{@link org.mule.ide.config.core.AsyncReplyRouterType#getCustomPropertyExtractor <em>Custom Property Extractor</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,6 +39,13 @@ public interface AsyncReplyRouterType extends AbstractAsyncReplyRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound endpoint elements.
+	 *                 Inbound endpoints receive messages from the underlying transport.
+	 *                 The message payload is then delivered to the component for processing.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Endpoint Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyRouterType_AbstractInboundEndpointGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -57,6 +63,13 @@ public interface AsyncReplyRouterType extends AbstractAsyncReplyRouterType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound endpoint elements.
+	 *                 Inbound endpoints receive messages from the underlying transport.
+	 *                 The message payload is then delivered to the component for processing.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Endpoint</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyRouterType_AbstractInboundEndpoint()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -97,32 +110,5 @@ public interface AsyncReplyRouterType extends AbstractAsyncReplyRouterType {
 	 * @generated
 	 */
 	AbstractPropertyExtractorType getAbstractPropertyExtractor();
-
-	/**
-	 * Returns the value of the '<em><b>Custom Property Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Custom Property Extractor</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Custom Property Extractor</em>' containment reference.
-	 * @see #setCustomPropertyExtractor(CustomPropertyExtractorType)
-	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyRouterType_CustomPropertyExtractor()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='custom-property-extractor' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CustomPropertyExtractorType getCustomPropertyExtractor();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.AsyncReplyRouterType#getCustomPropertyExtractor <em>Custom Property Extractor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Custom Property Extractor</em>' containment reference.
-	 * @see #getCustomPropertyExtractor()
-	 * @generated
-	 */
-	void setCustomPropertyExtractor(CustomPropertyExtractorType value);
 
 } // AsyncReplyRouterType

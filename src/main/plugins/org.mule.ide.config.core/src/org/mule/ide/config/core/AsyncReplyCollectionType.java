@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.AsyncReplyCollectionType#getAbstractTransformerGroup <em>Abstract Transformer Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AsyncReplyCollectionType#getAbstractTransformer <em>Abstract Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AsyncReplyCollectionType#getTimeout <em>Timeout</em>}</li>
- *   <li>{@link org.mule.ide.config.core.AsyncReplyCollectionType#getTransformerRefs <em>Transformer Refs</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +46,13 @@ public interface AsyncReplyCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound endpoint elements.
+	 *                 Inbound endpoints receive messages from the underlying transport.
+	 *                 The message payload is then delivered to the component for processing.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Endpoint Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyCollectionType_AbstractInboundEndpointGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -64,6 +70,13 @@ public interface AsyncReplyCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for inbound endpoint elements.
+	 *                 Inbound endpoints receive messages from the underlying transport.
+	 *                 The message payload is then delivered to the component for processing.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Inbound Endpoint</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyCollectionType_AbstractInboundEndpoint()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -81,6 +94,12 @@ public interface AsyncReplyCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an async reply router element.
+	 *                 Asynchronous replies are handled via this router.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Async Reply Router Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyCollectionType_AbstractAsyncReplyRouterGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -98,6 +117,12 @@ public interface AsyncReplyCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for an async reply router element.
+	 *                 Asynchronous replies are handled via this router.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Async Reply Router</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyCollectionType_AbstractAsyncReplyRouter()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -115,6 +140,12 @@ public interface AsyncReplyCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transformer elements.
+	 *                 Transformers convert message payloads.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transformer Group</em>' attribute list.
 	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyCollectionType_AbstractTransformerGroup()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -132,6 +163,12 @@ public interface AsyncReplyCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A placeholder for transformer elements.
+	 *                 Transformers convert message payloads.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract Transformer</em>' containment reference list.
 	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyCollectionType_AbstractTransformer()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
@@ -148,50 +185,55 @@ public interface AsyncReplyCollectionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     The timeout (ms) to wait for a reply.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Timeout</em>' attribute.
-	 * @see #setTimeout(String)
+	 * @see #isSetTimeout()
+	 * @see #unsetTimeout()
+	 * @see #setTimeout(int)
 	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyCollectionType_Timeout()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Int"
 	 *        extendedMetaData="kind='attribute' name='timeout'"
 	 * @generated
 	 */
-	String getTimeout();
+	int getTimeout();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.AsyncReplyCollectionType#getTimeout <em>Timeout</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Timeout</em>' attribute.
+	 * @see #isSetTimeout()
+	 * @see #unsetTimeout()
 	 * @see #getTimeout()
 	 * @generated
 	 */
-	void setTimeout(String value);
+	void setTimeout(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Transformer Refs</b></em>' attribute.
+	 * Unsets the value of the '{@link org.mule.ide.config.core.AsyncReplyCollectionType#getTimeout <em>Timeout</em>}' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transformer Refs</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformer Refs</em>' attribute.
-	 * @see #setTransformerRefs(List)
-	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyCollectionType_TransformerRefs()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.NMTOKENS" many="false"
-	 *        extendedMetaData="kind='attribute' name='transformer-refs'"
+	 * @see #isSetTimeout()
+	 * @see #getTimeout()
+	 * @see #setTimeout(int)
 	 * @generated
 	 */
-	List<String> getTransformerRefs();
+	void unsetTimeout();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.AsyncReplyCollectionType#getTransformerRefs <em>Transformer Refs</em>}' attribute.
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.AsyncReplyCollectionType#getTimeout <em>Timeout</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transformer Refs</em>' attribute.
-	 * @see #getTransformerRefs()
+	 * @return whether the value of the '<em>Timeout</em>' attribute is set.
+	 * @see #unsetTimeout()
+	 * @see #getTimeout()
+	 * @see #setTimeout(int)
 	 * @generated
 	 */
-	void setTransformerRefs(List<String> value);
+	boolean isSetTimeout();
 
 } // AsyncReplyCollectionType

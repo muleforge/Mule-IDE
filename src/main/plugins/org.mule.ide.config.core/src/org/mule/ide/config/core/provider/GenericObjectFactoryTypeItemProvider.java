@@ -150,13 +150,6 @@ public class GenericObjectFactoryTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractObjectFactoryGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_PooledObject(),
-					 CoreFactory.eINSTANCE.createPooledObjectFactoryType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getGenericObjectFactoryType_AbstractObjectFactoryGroup(),
-				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_PrototypeObject(),
 					 CoreFactory.eINSTANCE.createPrototypeObjectFactoryType())));
 

@@ -43,7 +43,7 @@ import org.w3c.dom.Node;
  * customization
  *   - use SyncResourceImpl
  */
-public class CoreResourceImpl extends XMLResourceImpl {
+public class CoreResourceImpl extends SyncResourceImpl {
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
@@ -138,7 +138,7 @@ public class CoreResourceImpl extends XMLResourceImpl {
 	 * Customize the save impl to look for ide "placeholder" elements
 	 * in the model.  Prune those out.
 	 */
-	class CustomXMLSaveImpl extends XMLSaveImpl {
+	class CustomXMLSaveImpl extends SyncXMLSaveImpl {
 		
 		CustomXMLSaveImpl(XMLHelper helper) {
 			super(helper);

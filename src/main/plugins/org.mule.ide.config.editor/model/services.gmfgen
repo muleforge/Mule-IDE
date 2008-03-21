@@ -26,18 +26,18 @@
         href="../../org.mule.ide.config.core/model/core.genmodel#//core/DefaultModelType"/>
     <childNodes
         visualID="2001"
-        editPartClassName="PojoComponentTypeEditPart"
-        itemSemanticEditPolicyClassName="PojoComponentTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="PojoComponentTypeViewFactory"
-        canonicalEditPolicyClassName="PojoComponentTypeCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="PojoComponentTypeGraphicalNodeEditPolicy"
-        createCommandClassName="PojoComponentTypeCreateCommand"
+        editPartClassName="JavaComponentTypeEditPart"
+        itemSemanticEditPolicyClassName="JavaComponentTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="JavaComponentTypeViewFactory"
+        canonicalEditPolicyClassName="JavaComponentTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="JavaComponentTypeGraphicalNodeEditPolicy"
+        createCommandClassName="JavaComponentTypeCreateCommand"
         containers="//@diagram/@compartments.0">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PojoComponentTypeEditHelper"/>
+          editHelperClassName="JavaComponentTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -53,17 +53,20 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/PojoComponentType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/DefaultJavaComponentType"/>
         <containmentMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractComponent"/>
         <childMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractComponent"/>
+        <modelElementSelector
+            body="defaultJavaComponent"
+            language="java"/>
       </modelFacet>
       <labels
           visualID="4001"
-          editPartClassName="PojoComponentTypeLabelEditPart"
-          itemSemanticEditPolicyClassName="PojoComponentTypeLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="PojoComponentTypeLabelViewFactory"
+          editPartClassName="JavaComponentTypeLabelEditPart"
+          itemSemanticEditPolicyClassName="JavaComponentTypeLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="JavaComponentTypeLabelViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
@@ -80,9 +83,9 @@
       </labels>
       <labels
           visualID="4002"
-          editPartClassName="PojoComponentTypeClassEditPart"
-          itemSemanticEditPolicyClassName="PojoComponentTypeClassItemSemanticEditPolicy"
-          notationViewFactoryClassName="PojoComponentTypeClassViewFactory">
+          editPartClassName="JavaComponentTypeClassEditPart"
+          itemSemanticEditPolicyClassName="JavaComponentTypeClassItemSemanticEditPolicy"
+          notationViewFactoryClassName="JavaComponentTypeClassViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -96,7 +99,7 @@
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet">
           <metaFeatures
-              href="../../org.mule.ide.config.core/model/core.genmodel#//core/PojoComponentType/class"/>
+              href="../../org.mule.ide.config.core/model/core.genmodel#//core/DefaultJavaComponentType/class"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -392,23 +395,23 @@
     </childNodes>
     <childNodes
         visualID="2007"
-        editPartClassName="PassThroughComponentTypeEditPart"
-        itemSemanticEditPolicyClassName="PassThroughComponentTypeItemSemanticEditPolicy"
-        notationViewFactoryClassName="PassThroughComponentTypeViewFactory"
-        canonicalEditPolicyClassName="PassThroughComponentTypeCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="PassThroughComponentTypeGraphicalNodeEditPolicy"
-        createCommandClassName="PassThroughComponentTypeCreateCommand"
+        editPartClassName="PooledJavaComponentTypeEditPart"
+        itemSemanticEditPolicyClassName="PooledJavaComponentTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="PooledJavaComponentTypeViewFactory"
+        canonicalEditPolicyClassName="PooledJavaComponentTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PooledJavaComponentTypeGraphicalNodeEditPolicy"
+        createCommandClassName="PooledJavaComponentTypeCreateCommand"
         containers="//@diagram/@compartments.0">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.1/@elementType"/>
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PooledJavaComponentTypeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
-          className="ServiceItemFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureServiceItemTypeLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureServiceItemTypeLabelFigure.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 250, 250, 190);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 8, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+          className="ClassServiceItemFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ClassServiceItemFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureClassServiceItemTypeLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureClassServiceItemClassLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ClassServiceItemFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureClassServiceItemTypeLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureClassServiceItemTypeLabelFigure.setText(&quot;&quot;);&#xA;&#x9;fFigureClassServiceItemTypeLabelFigure.setForegroundColor(org.eclipse.draw2d.ColorConstants.gray);&#xA;&#xA;fFigureClassServiceItemTypeLabelFigure.setFont(FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureClassServiceItemTypeLabelFigure);&#xA;&#xA;&#xA;&#xA;fFigureClassServiceItemClassLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureClassServiceItemClassLabelFigure.setText(&quot;&quot;);&#xA;&#xA;fFigureClassServiceItemClassLabelFigure.setFont(FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;fFigureClassServiceItemClassLabelFigure.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;this.add(fFigureClassServiceItemClassLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureClassServiceItemTypeLabelFigure() {&#xA;&#x9;&#x9;return fFigureClassServiceItemTypeLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureClassServiceItemClassLabelFigure() {&#xA;&#x9;&#x9;return fFigureClassServiceItemClassLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 250, 250, 190);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 8, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 10, org.eclipse.swt.SWT.NORMAL);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"
             fixedBackground="true"/>
@@ -419,20 +422,20 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/DefaultComponentType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/PooledJavaComponentType"/>
         <containmentMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractComponent"/>
         <childMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractComponent"/>
         <modelElementSelector
-            body="passThroughComponentConstraint"
+            body="pooledComponentConstraint"
             language="java"/>
       </modelFacet>
       <labels
           visualID="4008"
-          editPartClassName="PassThroughComponentTypeLabelEditPart"
-          itemSemanticEditPolicyClassName="PassThroughComponentTypeLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="PassThroughComponentTypeLabelViewFactory"
+          editPartClassName="PooledJavaComponentTypeLabelEditPart"
+          itemSemanticEditPolicyClassName="PooledJavaComponentTypeLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="PooledJavaComponentTypeLabelViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
@@ -446,6 +449,27 @@
               fixedFont="true"
               fixedForeground="true"/>
         </viewmap>
+      </labels>
+      <labels
+          visualID="4009"
+          editPartClassName="PooledJavaComponentTypeClassEditPart"
+          itemSemanticEditPolicyClassName="PooledJavaComponentTypeClassItemSemanticEditPolicy"
+          notationViewFactoryClassName="PooledJavaComponentTypeClassViewFactory">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureClassServiceItemClassLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet">
+          <metaFeatures
+              href="../../org.mule.ide.config.core/model/core.genmodel#//core/DefaultJavaComponentType/class"/>
+        </modelFacet>
       </labels>
     </childNodes>
     <childNodes
@@ -478,7 +502,7 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/EndpointExceptionStrategyType"/>
         <containmentMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractExceptionStrategy"/>
         <childMetaFeature
@@ -488,7 +512,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4010"
+          visualID="4011"
           editPartClassName="DefaultServiceExceptionStrategyTypeLabelEditPart"
           itemSemanticEditPolicyClassName="DefaultServiceExceptionStrategyTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="DefaultServiceExceptionStrategyTypeLabelViewFactory"
@@ -535,12 +559,12 @@
         <metaClass
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundEndpointType"/>
         <containmentMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType/abstractOutboundEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/EndpointExceptionStrategyType/abstractOutboundEndpoint"/>
         <childMetaFeature
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType/abstractOutboundEndpoint"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/EndpointExceptionStrategyType/abstractOutboundEndpoint"/>
       </modelFacet>
       <labels
-          visualID="4009"
+          visualID="4010"
           editPartClassName="OutboundEndpointTypeNameEditPart"
           itemSemanticEditPolicyClassName="OutboundEndpointTypeNameItemSemanticEditPolicy"
           notationViewFactoryClassName="OutboundEndpointTypeNameViewFactory"
@@ -598,7 +622,7 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ExceptionStrategyType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/EndpointExceptionStrategyType"/>
         <containmentMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractExceptionStrategy"/>
         <childMetaFeature
@@ -608,7 +632,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4011"
+          visualID="4012"
           editPartClassName="DefaultConnectorExceptionStrategyTypeLabelEditPart"
           itemSemanticEditPolicyClassName="DefaultConnectorExceptionStrategyTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="DefaultConnectorExceptionStrategyTypeLabelViewFactory"
@@ -664,7 +688,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/BaseServiceType/abstractExceptionStrategy"/>
       </modelFacet>
       <labels
-          visualID="4012"
+          visualID="4013"
           editPartClassName="CustomExceptionStrategyTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CustomExceptionStrategyTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomExceptionStrategyTypeLabelViewFactory"
@@ -683,7 +707,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4013"
+          visualID="4014"
           editPartClassName="CustomExceptionStrategyTypeClassEditPart"
           itemSemanticEditPolicyClassName="CustomExceptionStrategyTypeClassItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomExceptionStrategyTypeClassViewFactory">
@@ -778,7 +802,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundEndpoint"/>
       </modelFacet>
       <labels
-          visualID="4014"
+          visualID="4015"
           editPartClassName="InboundEndpointServiceItemTypeLabelEditPart"
           itemSemanticEditPolicyClassName="InboundEndpointServiceItemTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="InboundEndpointServiceItemTypeLabelViewFactory"
@@ -797,7 +821,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4015"
+          visualID="4016"
           editPartClassName="InboundEndpointServiceItemEndpointNameEditPart"
           itemSemanticEditPolicyClassName="InboundEndpointServiceItemEndpointNameItemSemanticEditPolicy"
           notationViewFactoryClassName="InboundEndpointServiceItemEndpointNameViewFactory"
@@ -854,14 +878,17 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/ForwardingRouterType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/SelectiveConsumerRouterType"/>
         <containmentMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
+        <modelElementSelector
+            body="forwardingRouter"
+            language="java"/>
       </modelFacet>
       <labels
-          visualID="4016"
+          visualID="4017"
           editPartClassName="ForwardingRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="ForwardingRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="ForwardingRouterTypeLabelViewFactory"
@@ -919,7 +946,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4017"
+          visualID="4018"
           editPartClassName="IdempotentSecureRecieverRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="IdempotentSecureRecieverRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="IdempotentSecureRecieverRouterTypeLabelViewFactory"
@@ -977,7 +1004,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4018"
+          visualID="4019"
           editPartClassName="PassThroughInboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="PassThroughInboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="PassThroughInboundRouterTypeLabelViewFactory"
@@ -1008,8 +1035,8 @@
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="IdempotentReceiverRouterTypeEditHelper"/>
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.14/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1025,14 +1052,17 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.mule.ide.config.core/model/core.genmodel#//core/IdempotentReceiverRouterType"/>
+            href="../../org.mule.ide.config.core/model/core.genmodel#//core/FilteredInboundRouterType"/>
         <containmentMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <childMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
+        <modelElementSelector
+            body="idempotentReceiverRouter"
+            language="java"/>
       </modelFacet>
       <labels
-          visualID="4019"
+          visualID="4020"
           editPartClassName="IdempotentReceiverRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="IdempotentReceiverRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="IdempotentReceiverRouterTypeLabelViewFactory"
@@ -1087,7 +1117,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
       </modelFacet>
       <labels
-          visualID="4020"
+          visualID="4021"
           editPartClassName="WireTapRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="WireTapRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="WireTapRouterTypeLabelViewFactory"
@@ -1118,8 +1148,8 @@
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="SelectiveConsumerRouterTypeEditHelper"/>
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.13/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1145,7 +1175,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4021"
+          visualID="4022"
           editPartClassName="SelectiveConsumerRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="SelectiveConsumerRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="SelectiveConsumerRouterTypeLabelViewFactory"
@@ -1203,7 +1233,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4022"
+          visualID="4023"
           editPartClassName="ChunkingInboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="ChunkingInboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="ChunkingInboundRouterTypeLabelViewFactory"
@@ -1235,7 +1265,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.18/@elementType"/>
+          metamodelType="//@diagram/@childNodes.13/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -1261,7 +1291,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4023"
+          visualID="4024"
           editPartClassName="CorrelationResequencerRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CorrelationResequencerRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CorrelationResequencerRouterTypeLabelViewFactory"
@@ -1319,7 +1349,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4024"
+          visualID="4025"
           editPartClassName="CustomCorrelationAggregatorRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CustomCorrelationAggregatorRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomCorrelationAggregatorRouterTypeLabelViewFactory"
@@ -1338,7 +1368,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4025"
+          visualID="4026"
           editPartClassName="CustomCorrelationAggregatorRouterTypeClassEditPart"
           itemSemanticEditPolicyClassName="CustomCorrelationAggregatorRouterTypeClassItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomCorrelationAggregatorRouterTypeClassViewFactory">
@@ -1396,7 +1426,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
       </modelFacet>
       <labels
-          visualID="4026"
+          visualID="4027"
           editPartClassName="CustomInboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CustomInboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomInboundRouterTypeLabelViewFactory"
@@ -1415,7 +1445,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4027"
+          visualID="4028"
           editPartClassName="CustomInboundRouterTypeClassEditPart"
           itemSemanticEditPolicyClassName="CustomInboundRouterTypeClassItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomInboundRouterTypeClassViewFactory">
@@ -1510,7 +1540,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyCollectionType/abstractInboundEndpoint"/>
       </modelFacet>
       <labels
-          visualID="4028"
+          visualID="4029"
           editPartClassName="AsyncReplyInboundEndpointServiceItemTypeLabelEditPart"
           itemSemanticEditPolicyClassName="AsyncReplyInboundEndpointServiceItemTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="AsyncReplyInboundEndpointServiceItemTypeLabelViewFactory"
@@ -1529,7 +1559,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4029"
+          visualID="4030"
           editPartClassName="AsyncReplyInboundEndpointServiceItemEndpointNameEditPart"
           itemSemanticEditPolicyClassName="AsyncReplyInboundEndpointServiceItemEndpointNameItemSemanticEditPolicy"
           notationViewFactoryClassName="AsyncReplyInboundEndpointServiceItemEndpointNameViewFactory"
@@ -1596,7 +1626,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4030"
+          visualID="4031"
           editPartClassName="AsyncReplyRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="AsyncReplyRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="AsyncReplyRouterTypeLabelViewFactory"
@@ -1651,7 +1681,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/AsyncReplyCollectionType/abstractAsyncReplyRouter"/>
       </modelFacet>
       <labels
-          visualID="4031"
+          visualID="4032"
           editPartClassName="CustomAsyncReplyRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CustomAsyncReplyRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomAsyncReplyRouterTypeLabelViewFactory"
@@ -1670,7 +1700,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4032"
+          visualID="4033"
           editPartClassName="CustomAsyncReplyRouterTypeClassEditPart"
           itemSemanticEditPolicyClassName="CustomAsyncReplyRouterTypeClassItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomAsyncReplyRouterTypeClassViewFactory">
@@ -1769,7 +1799,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4034"
+          visualID="4035"
           editPartClassName="PassThroughOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="PassThroughOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="PassThroughOutboundRouterTypeLabelViewFactory"
@@ -1821,7 +1851,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/OutboundRouterType/abstractOutboundEndpoint"/>
       </modelFacet>
       <labels
-          visualID="4033"
+          visualID="4034"
           editPartClassName="OutboundRouterOutboundEndpointTypeNameEditPart"
           itemSemanticEditPolicyClassName="OutboundRouterOutboundEndpointTypeNameItemSemanticEditPolicy"
           notationViewFactoryClassName="OutboundRouterOutboundEndpointTypeNameViewFactory"
@@ -1889,7 +1919,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4035"
+          visualID="4036"
           editPartClassName="FilteringOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="FilteringOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="FilteringOutboundRouterTypeLabelViewFactory"
@@ -1948,7 +1978,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4036"
+          visualID="4037"
           editPartClassName="ChainingOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="ChainingOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="ChainingOutboundRouterTypeLabelViewFactory"
@@ -2007,7 +2037,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4037"
+          visualID="4038"
           editPartClassName="ExceptionOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="ExceptionOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="ExceptionOutboundRouterTypeLabelViewFactory"
@@ -2066,7 +2096,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4038"
+          visualID="4039"
           editPartClassName="MulticastingOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="MulticastingOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="MulticastingOutboundRouterTypeLabelViewFactory"
@@ -2125,7 +2155,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4039"
+          visualID="4040"
           editPartClassName="TemplateEndpointOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="TemplateEndpointOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="TemplateEndpointOutboundRouterTypeLabelViewFactory"
@@ -2184,7 +2214,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4040"
+          visualID="4041"
           editPartClassName="EndpointSelectorRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="EndpointSelectorRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="EndpointSelectorRouterTypeLabelViewFactory"
@@ -2243,7 +2273,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4041"
+          visualID="4042"
           editPartClassName="MessageSplitterOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="MessageSplitterOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="MessageSplitterOutboundRouterTypeLabelViewFactory"
@@ -2302,7 +2332,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4042"
+          visualID="4043"
           editPartClassName="ChunkingRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="ChunkingRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="ChunkingRouterTypeLabelViewFactory"
@@ -2361,7 +2391,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4043"
+          visualID="4044"
           editPartClassName="StaticRecipientListRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="StaticRecipientListRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="StaticRecipientListRouterTypeLabelViewFactory"
@@ -2420,7 +2450,7 @@
             language="java"/>
       </modelFacet>
       <labels
-          visualID="4044"
+          visualID="4045"
           editPartClassName="CustomOutboundRouterTypeLabelEditPart"
           itemSemanticEditPolicyClassName="CustomOutboundRouterTypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomOutboundRouterTypeLabelViewFactory"
@@ -2439,7 +2469,7 @@
         </viewmap>
       </labels>
       <labels
-          visualID="4045"
+          visualID="4046"
           editPartClassName="CustomOutboundRouterTypeClassEditPart"
           itemSemanticEditPolicyClassName="CustomOutboundRouterTypeClassItemSemanticEditPolicy"
           notationViewFactoryClassName="CustomOutboundRouterTypeClassViewFactory">
@@ -2500,7 +2530,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/AbstractModelType/abstractService"/>
       </modelFacet>
       <labels
-          visualID="4046"
+          visualID="4047"
           editPartClassName="SedaServiceTypeNameEditPart"
           itemSemanticEditPolicyClassName="SedaServiceTypeNameItemSemanticEditPolicy"
           notationViewFactoryClassName="SedaServiceTypeNameViewFactory"
@@ -2557,7 +2587,7 @@
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/Connection/target"/>
       </modelFacet>
       <labels
-          visualID="4047"
+          visualID="4048"
           editPartClassName="ConnectionEndpointEditPart"
           itemSemanticEditPolicyClassName="ConnectionEndpointItemSemanticEditPolicy"
           notationViewFactoryClassName="ConnectionEndpointViewFactory"
@@ -2952,13 +2982,13 @@
             genNodes="//@diagram/@childNodes.5"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Pass Through Component"
-            description="Add a new Pass Through Component to a service"
+            title="Pooled Java Component"
+            description="Add a new Pooled Java Component to a service"
             genNodes="//@diagram/@childNodes.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Pojo Component"
-            description="Add a new Pojo Component to a service"
+            title="Java Component"
+            description="Add a new Java Component to a service"
             genNodes="//@diagram/@childNodes.0"/>
       </groups>
       <groups
@@ -3373,6 +3403,6 @@
   <expressionProviders>
     <providers
         xsi:type="gmfgen:GenJavaExpressionProvider"
-        expressions="//@diagram/@childNodes.1/@modelFacet/@modelElementSelector //@diagram/@childNodes.2/@modelFacet/@modelElementSelector //@diagram/@childNodes.3/@modelFacet/@modelElementSelector //@diagram/@childNodes.4/@modelFacet/@modelElementSelector //@diagram/@childNodes.5/@modelFacet/@modelElementSelector //@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.9/@modelFacet/@modelElementSelector //@diagram/@childNodes.14/@modelFacet/@modelElementSelector //@diagram/@childNodes.15/@modelFacet/@modelElementSelector //@diagram/@childNodes.18/@modelFacet/@modelElementSelector //@diagram/@childNodes.19/@modelFacet/@modelElementSelector //@diagram/@childNodes.20/@modelFacet/@modelElementSelector //@diagram/@childNodes.21/@modelFacet/@modelElementSelector //@diagram/@childNodes.25/@modelFacet/@modelElementSelector //@diagram/@childNodes.28/@modelFacet/@modelElementSelector //@diagram/@childNodes.30/@modelFacet/@modelElementSelector //@diagram/@childNodes.31/@modelFacet/@modelElementSelector //@diagram/@childNodes.32/@modelFacet/@modelElementSelector //@diagram/@childNodes.33/@modelFacet/@modelElementSelector //@diagram/@childNodes.34/@modelFacet/@modelElementSelector //@diagram/@childNodes.35/@modelFacet/@modelElementSelector //@diagram/@childNodes.36/@modelFacet/@modelElementSelector //@diagram/@childNodes.37/@modelFacet/@modelElementSelector //@diagram/@childNodes.38/@modelFacet/@modelElementSelector //@diagram/@childNodes.39/@modelFacet/@modelElementSelector"/>
+        expressions="//@diagram/@childNodes.0/@modelFacet/@modelElementSelector //@diagram/@childNodes.1/@modelFacet/@modelElementSelector //@diagram/@childNodes.2/@modelFacet/@modelElementSelector //@diagram/@childNodes.3/@modelFacet/@modelElementSelector //@diagram/@childNodes.4/@modelFacet/@modelElementSelector //@diagram/@childNodes.5/@modelFacet/@modelElementSelector //@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.9/@modelFacet/@modelElementSelector //@diagram/@childNodes.13/@modelFacet/@modelElementSelector //@diagram/@childNodes.14/@modelFacet/@modelElementSelector //@diagram/@childNodes.15/@modelFacet/@modelElementSelector //@diagram/@childNodes.16/@modelFacet/@modelElementSelector //@diagram/@childNodes.18/@modelFacet/@modelElementSelector //@diagram/@childNodes.19/@modelFacet/@modelElementSelector //@diagram/@childNodes.20/@modelFacet/@modelElementSelector //@diagram/@childNodes.21/@modelFacet/@modelElementSelector //@diagram/@childNodes.25/@modelFacet/@modelElementSelector //@diagram/@childNodes.28/@modelFacet/@modelElementSelector //@diagram/@childNodes.30/@modelFacet/@modelElementSelector //@diagram/@childNodes.31/@modelFacet/@modelElementSelector //@diagram/@childNodes.32/@modelFacet/@modelElementSelector //@diagram/@childNodes.33/@modelFacet/@modelElementSelector //@diagram/@childNodes.34/@modelFacet/@modelElementSelector //@diagram/@childNodes.35/@modelFacet/@modelElementSelector //@diagram/@childNodes.36/@modelFacet/@modelElementSelector //@diagram/@childNodes.37/@modelFacet/@modelElementSelector //@diagram/@childNodes.38/@modelFacet/@modelElementSelector //@diagram/@childNodes.39/@modelFacet/@modelElementSelector"/>
   </expressionProviders>
 </gmfgen:GenEditorGenerator>

@@ -31,7 +31,10 @@
             href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractComponent"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.mule.ide.config.core/model/core.ecore#//PojoComponentType"/>
+              href="../../org.mule.ide.config.core/model/core.ecore#//DefaultJavaComponentType"/>
+          <domainSpecialization
+              body="defaultJavaComponent"
+              language="java"/>
           <labelMappings
               readOnly="true">
             <diagramLabel
@@ -42,7 +45,7 @@
             <diagramLabel
                 href="services.gmfgraph#ClassServiceItemClassLabel"/>
             <features
-                href="../../org.mule.ide.config.core/model/core.ecore#//PojoComponentType/class"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//DefaultJavaComponentType/class"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -164,20 +167,27 @@
             href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractComponent"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.mule.ide.config.core/model/core.ecore#//DefaultComponentType"/>
+              href="../../org.mule.ide.config.core/model/core.ecore#//PooledJavaComponentType"/>
           <domainSpecialization
-              body="passThroughComponentConstraint"
+              body="pooledComponentConstraint"
               language="java"/>
           <labelMappings
               readOnly="true">
             <diagramLabel
                 href="services.gmfgraph#ServiceItemTypeLabel"/>
           </labelMappings>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="services.gmfgraph#ClassServiceItemClassLabel"/>
+            <features
+                href="../../org.mule.ide.config.core/model/core.ecore#//DefaultJavaComponentType/class"/>
+          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="services.gmftool#//@palette/@tools.1/@tools.4"/>
           <diagramNode
-              href="services.gmfgraph#ServiceItem"/>
+              href="services.gmfgraph#ClassServiceItem"/>
         </ownedChild>
       </children>
       <children
@@ -186,7 +196,7 @@
             href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractExceptionStrategy"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.mule.ide.config.core/model/core.ecore#//ExceptionStrategyType"/>
+              href="../../org.mule.ide.config.core/model/core.ecore#//EndpointExceptionStrategyType"/>
           <domainSpecialization
               body="defautServiceExceptionStrategyConstraint"
               language="java"/>
@@ -203,7 +213,7 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.7/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//ExceptionStrategyType/abstractOutboundEndpoint"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//EndpointExceptionStrategyType/abstractOutboundEndpoint"/>
             <ownedChild>
               <domainMetaElement
                   href="../../org.mule.ide.config.core/model/core.ecore#//OutboundEndpointType"/>
@@ -241,7 +251,7 @@
             href="../../org.mule.ide.config.core/model/core.ecore#//BaseServiceType/abstractExceptionStrategy"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.mule.ide.config.core/model/core.ecore#//ExceptionStrategyType"/>
+              href="../../org.mule.ide.config.core/model/core.ecore#//EndpointExceptionStrategyType"/>
           <domainSpecialization
               body="defautConnectorExceptionStrategyConstraint"
               language="java"/>
@@ -259,7 +269,7 @@
               compartment="//@nodes.0/@ownedChild/@children.8/@ownedChild/@compartments.0"
               referencedChild="//@nodes.0/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//ExceptionStrategyType/abstractOutboundEndpoint"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//EndpointExceptionStrategyType/abstractOutboundEndpoint"/>
           </children>
           <compartments
               children="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0">
@@ -296,7 +306,7 @@
               compartment="//@nodes.0/@ownedChild/@children.9/@ownedChild/@compartments.0"
               referencedChild="//@nodes.0/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
             <containmentFeature
-                href="../../org.mule.ide.config.core/model/core.ecore#//ExceptionStrategyType/abstractOutboundEndpoint"/>
+                href="../../org.mule.ide.config.core/model/core.ecore#//EndpointExceptionStrategyType/abstractOutboundEndpoint"/>
           </children>
           <compartments
               children="//@nodes.0/@ownedChild/@children.9/@ownedChild/@children.0">
@@ -352,7 +362,10 @@
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
-                  href="../../org.mule.ide.config.core/model/core.ecore#//ForwardingRouterType"/>
+                  href="../../org.mule.ide.config.core/model/core.ecore#//SelectiveConsumerRouterType"/>
+              <domainSpecialization
+                  body="forwardingRouterConstraint"
+                  language="java"/>
               <labelMappings
                   readOnly="true">
                 <diagramLabel
@@ -415,7 +428,10 @@
                 href="../../org.mule.ide.config.core/model/core.ecore#//InboundCollectionType/abstractInboundRouter"/>
             <ownedChild>
               <domainMetaElement
-                  href="../../org.mule.ide.config.core/model/core.ecore#//IdempotentReceiverRouterType"/>
+                  href="../../org.mule.ide.config.core/model/core.ecore#//FilteredInboundRouterType"/>
+              <domainSpecialization
+                  body="idempotentReceiverRouter"
+                  language="java"/>
               <labelMappings
                   readOnly="true">
                 <diagramLabel
@@ -570,7 +586,7 @@
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.0/@ownedChild/@children.10/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.0">
+              children="//@nodes.0/@ownedChild/@children.10/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.10/@ownedChild/@children.10">
             <compartment
                 href="services.gmfgraph#INBOUNDROUTERS"/>
           </compartments>

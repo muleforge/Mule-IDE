@@ -62,8 +62,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Pass Through Component"
-          description="Add a new Pass Through Component to a service">
+          title="Pooled Java Component"
+          description="Add a new Pooled Java Component to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -71,8 +71,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Pojo Component"
-          description="Add a new Pojo Component to a service">
+          title="Java Component"
+          description="Add a new Java Component to a service">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

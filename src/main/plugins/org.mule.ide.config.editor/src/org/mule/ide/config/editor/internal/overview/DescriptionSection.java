@@ -18,6 +18,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
@@ -31,7 +33,7 @@ import org.mule.ide.config.editor.internal.form.ConfigEditorFormPage;
 import org.mule.ide.config.editor.internal.form.ConfigEditorSection;
 import org.mule.ide.config.editor.internal.form.FormLayoutFactory;
 
-public class DescriptionSection extends ConfigEditorSection {
+public class DescriptionSection extends ConfigEditorSection implements ModifyListener {
 
 	private DescriptionNotificationAdapter fNotificationAdapter;
 	//private IDocument fDocument;
@@ -104,6 +106,8 @@ public class DescriptionSection extends ConfigEditorSection {
 			}
 		});	
 		*/	
+		text.addModifyListener(this);
+		
 		MuleType mule = getMuleElement();
 		if (EcoreUtil.getExistingAdapter(mule, DescriptionSection.class) == null) {
 			fNotificationAdapter = new DescriptionNotificationAdapter();
@@ -137,10 +141,9 @@ public class DescriptionSection extends ConfigEditorSection {
 		
 		fIgnoreChange = true;
 		MuleType mule = getMuleElement();
-		EList<DescriptionType> descriptions = mule.getDescription();
-		// Shouldn't really allow multiple, just use the first one.
-		if (descriptions.size() > 0) {
-			FeatureMap map = descriptions.get(0).getMixed();
+		DescriptionType description = mule.getDescription();
+		if (description != null) {
+			FeatureMap map = description.getMixed();
 			if (map.size() == 1) {
 				text.setText(map.get(0).getValue().toString());
 			}
@@ -172,5 +175,10 @@ public class DescriptionSection extends ConfigEditorSection {
 		public void notifyChanged(Notification msg) {
 			int eventType = msg.getEventType();
 		}
+	}
+
+	public void modifyText(ModifyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

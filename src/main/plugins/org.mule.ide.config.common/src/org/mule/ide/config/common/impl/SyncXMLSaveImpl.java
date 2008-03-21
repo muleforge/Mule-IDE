@@ -163,7 +163,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 
 				SyncAdapter adapter = findAdapter(o);
 				if (adapter == null && xmlResource instanceof SyncResource) {
-					adapter = new SyncAdapterImpl(o, currentNode, (SyncResource) xmlResource);
+					adapter = new SyncAdapterImpl(o, currentNode.getParentNode(), (SyncResource) xmlResource);
 					adapter.wireAdapters();
 				}
 				if (adapter != null) {

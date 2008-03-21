@@ -25,14 +25,14 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.PojoComponentTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.JavaComponentTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * customization
  */
-public class PojoComponentTypeEditPart extends ServiceItemNodeEditPart {
+public class JavaComponentTypeEditPart extends ServiceItemNodeEditPart {
 
 	/**
 	 * @generated
@@ -52,7 +52,7 @@ public class PojoComponentTypeEditPart extends ServiceItemNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public PojoComponentTypeEditPart(View view) {
+	public JavaComponentTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -63,7 +63,7 @@ public class PojoComponentTypeEditPart extends ServiceItemNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new PojoComponentTypeItemSemanticEditPolicy());
+				new JavaComponentTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -107,14 +107,14 @@ public class PojoComponentTypeEditPart extends ServiceItemNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof PojoComponentTypeLabelEditPart) {
-			((PojoComponentTypeLabelEditPart) childEditPart)
+		if (childEditPart instanceof JavaComponentTypeLabelEditPart) {
+			((JavaComponentTypeLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureClassServiceItemTypeLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof PojoComponentTypeClassEditPart) {
-			((PojoComponentTypeClassEditPart) childEditPart)
+		if (childEditPart instanceof JavaComponentTypeClassEditPart) {
+			((JavaComponentTypeClassEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureClassServiceItemClassLabelFigure());
 			return true;
@@ -183,7 +183,7 @@ public class PojoComponentTypeEditPart extends ServiceItemNodeEditPart {
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
 		ServiceEditPartUtil.configureServiceItemFigure(figure,
-				Messages.PojoComponentTypeLabel);
+				Messages.DefaultJavaComponentTypeLabel);
 		return figure;
 	}
 
@@ -217,7 +217,7 @@ public class PojoComponentTypeEditPart extends ServiceItemNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(PojoComponentTypeLabelEditPart.VISUAL_ID));
+				.getType(JavaComponentTypeLabelEditPart.VISUAL_ID));
 	}
 
 	/**

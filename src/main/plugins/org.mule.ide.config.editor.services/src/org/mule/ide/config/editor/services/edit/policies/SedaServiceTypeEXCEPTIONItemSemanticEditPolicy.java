@@ -18,7 +18,8 @@ public class SedaServiceTypeEXCEPTIONItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.ExceptionStrategyType_2008 == req.getElementType()) {
+		if (CoreElementTypes.EndpointExceptionStrategyType_2008 == req
+				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractExceptionStrategy());
@@ -26,7 +27,8 @@ public class SedaServiceTypeEXCEPTIONItemSemanticEditPolicy extends
 			return getGEFWrapper(new DefaultServiceExceptionStrategyTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.ExceptionStrategyType_2010 == req.getElementType()) {
+		if (CoreElementTypes.EndpointExceptionStrategyType_2010 == req
+				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractExceptionStrategy());

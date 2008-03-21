@@ -26,11 +26,11 @@ import org.mule.ide.config.editor.services.edit.parts.DefaultConnectorExceptionS
 import org.mule.ide.config.editor.services.edit.parts.DefaultServiceExceptionStrategyTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.EchoComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.JavaComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PooledJavaComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
@@ -113,7 +113,7 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (CoreVisualIDRegistry.getVisualID(cnode)) {
-					case PojoComponentTypeEditPart.VISUAL_ID:
+					case JavaComponentTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					case DefaultComponentTypeEditPart.VISUAL_ID:
@@ -131,7 +131,7 @@ public class SedaServiceTypeItemSemanticEditPolicy extends
 					case NullComponentTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
-					case PassThroughComponentTypeEditPart.VISUAL_ID:
+					case PooledJavaComponentTypeEditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					}

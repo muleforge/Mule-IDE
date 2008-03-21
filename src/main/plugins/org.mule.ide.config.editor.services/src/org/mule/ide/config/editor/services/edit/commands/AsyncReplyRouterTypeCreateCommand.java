@@ -14,8 +14,7 @@ import org.mule.ide.config.core.CorePackage;
  * customization
  *   - subclass CoreElementCreateCommand
  */
-public class AsyncReplyRouterTypeCreateCommand extends
-		CoreElementCreateCommand {
+public class AsyncReplyRouterTypeCreateCommand extends CoreElementCreateCommand {
 
 	/**
 	 * @generated

@@ -19,7 +19,7 @@ public abstract class AbstractExceptionStrategyTypeENDPOINTSItemSemanticEditPoli
 	@Override
 	protected void initExtensibleChildTypes(HashMap<EClass,EReference> map) {
 		map.put(CorePackage.eINSTANCE.getAbstractOutboundEndpointType(), 
-				CorePackage.eINSTANCE.getExceptionStrategyType_AbstractOutboundEndpoint());
+				CorePackage.eINSTANCE.getEndpointExceptionStrategyType_AbstractOutboundEndpoint());
 	}
 
 }

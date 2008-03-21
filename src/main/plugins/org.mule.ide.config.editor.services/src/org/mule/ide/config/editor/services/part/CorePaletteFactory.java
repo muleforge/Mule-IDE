@@ -107,7 +107,7 @@ public class CorePaletteFactory {
 				CoreElementTypes
 						.getImageDescriptor(CoreElementTypes.OutboundEndpointType_2030));
 	}
-	*/
+	 */
 
 	/*
 	 * Prepends the entries defined in this factory ahead of any entries
@@ -159,7 +159,7 @@ public class CorePaletteFactory {
 		}
 		group.setChildren(newChildren);
 	}
-	*/
+	 */
 
 	/*
 	private void addDefaultIcon(PaletteEntry entry, ImageDescriptor defaultImage) {
@@ -170,7 +170,7 @@ public class CorePaletteFactory {
 			entry.setSmallIcon(defaultImage);
 		}
 	}
-	*/
+	 */
 
 	/**
 	 * Creates "Services" palette tool group
@@ -195,8 +195,8 @@ public class CorePaletteFactory {
 		paletteContainer.add(createEchoComponent2CreationTool());
 		paletteContainer.add(createLogComponent3CreationTool());
 		paletteContainer.add(createNullComponent4CreationTool());
-		paletteContainer.add(createPassThroughComponent5CreationTool());
-		paletteContainer.add(createPojoComponent6CreationTool());
+		paletteContainer.add(createPooledJavaComponent5CreationTool());
+		paletteContainer.add(createJavaComponent6CreationTool());
 		return paletteContainer;
 	}
 
@@ -371,15 +371,15 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPassThroughComponent5CreationTool() {
+	private ToolEntry createPooledJavaComponent5CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.DefaultComponentType_2007);
+		types.add(CoreElementTypes.PooledJavaComponentType_2007);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PassThroughComponent5CreationTool_title,
-				Messages.PassThroughComponent5CreationTool_desc, types);
+				Messages.PooledJavaComponent5CreationTool_title,
+				Messages.PooledJavaComponent5CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.DefaultComponentType_2007));
+						.getImageDescriptor(CoreElementTypes.PooledJavaComponentType_2007));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -387,14 +387,15 @@ public class CorePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPojoComponent6CreationTool() {
+	private ToolEntry createJavaComponent6CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.PojoComponentType_2001);
+		types.add(CoreElementTypes.DefaultJavaComponentType_2001);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PojoComponent6CreationTool_title,
-				Messages.PojoComponent6CreationTool_desc, types);
-		entry.setSmallIcon(CoreElementTypes
-				.getImageDescriptor(CoreElementTypes.PojoComponentType_2001));
+				Messages.JavaComponent6CreationTool_title,
+				Messages.JavaComponent6CreationTool_desc, types);
+		entry
+				.setSmallIcon(CoreElementTypes
+						.getImageDescriptor(CoreElementTypes.DefaultJavaComponentType_2001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -404,13 +405,13 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createConnectorExceptionStrategy1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.ExceptionStrategyType_2010);
+		types.add(CoreElementTypes.EndpointExceptionStrategyType_2010);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ConnectorExceptionStrategy1CreationTool_title,
 				Messages.ConnectorExceptionStrategy1CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.ExceptionStrategyType_2010));
+						.getImageDescriptor(CoreElementTypes.EndpointExceptionStrategyType_2010));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -436,13 +437,13 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createServiceExceptionStrategy3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.ExceptionStrategyType_2008);
+		types.add(CoreElementTypes.EndpointExceptionStrategyType_2008);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ServiceExceptionStrategy3CreationTool_title,
 				Messages.ServiceExceptionStrategy3CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.ExceptionStrategyType_2008));
+						.getImageDescriptor(CoreElementTypes.EndpointExceptionStrategyType_2008));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -532,13 +533,13 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createForwardingRouter5CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.ForwardingRouterType_2014);
+		types.add(CoreElementTypes.SelectiveConsumerRouterType_2014);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ForwardingRouter5CreationTool_title,
 				Messages.ForwardingRouter5CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.ForwardingRouterType_2014));
+						.getImageDescriptor(CoreElementTypes.SelectiveConsumerRouterType_2014));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -548,13 +549,13 @@ public class CorePaletteFactory {
 	 */
 	private ToolEntry createIdempotentReceiverRouter6CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(CoreElementTypes.IdempotentReceiverRouterType_2017);
+		types.add(CoreElementTypes.FilteredInboundRouterType_2017);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.IdempotentReceiverRouter6CreationTool_title,
 				Messages.IdempotentReceiverRouter6CreationTool_desc, types);
 		entry
 				.setSmallIcon(CoreElementTypes
-						.getImageDescriptor(CoreElementTypes.IdempotentReceiverRouterType_2017));
+						.getImageDescriptor(CoreElementTypes.FilteredInboundRouterType_2017));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

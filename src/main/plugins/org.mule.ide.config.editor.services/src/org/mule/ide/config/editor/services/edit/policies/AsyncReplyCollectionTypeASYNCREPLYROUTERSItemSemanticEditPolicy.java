@@ -53,8 +53,9 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSItemSemanticEditPolicy
 	}
 
 	@Override
-	protected void initExtensibleChildTypes(HashMap<EClass,EReference> map) {
-		map.put(CorePackage.eINSTANCE.getAbstractInboundEndpointType(), 
-				CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractInboundEndpoint());
+	protected void initExtensibleChildTypes(HashMap<EClass, EReference> map) {
+		map.put(CorePackage.eINSTANCE.getAbstractInboundEndpointType(),
+				CorePackage.eINSTANCE
+						.getAsyncReplyCollectionType_AbstractInboundEndpoint());
 	}
 }

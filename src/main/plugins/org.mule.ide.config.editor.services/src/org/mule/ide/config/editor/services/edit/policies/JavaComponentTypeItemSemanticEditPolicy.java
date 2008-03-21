@@ -8,7 +8,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 /**
  * @generated
  */
-public class PassThroughComponentTypeItemSemanticEditPolicy extends
+public class JavaComponentTypeItemSemanticEditPolicy extends
 		CoreBaseItemSemanticEditPolicy {
 
 	/**

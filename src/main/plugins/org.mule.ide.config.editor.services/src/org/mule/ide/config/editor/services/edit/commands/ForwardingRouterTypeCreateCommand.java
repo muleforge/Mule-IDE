@@ -13,8 +13,7 @@ import org.mule.ide.config.core.InboundCollectionType;
 /**
  * customization
  */
-public class ForwardingRouterTypeCreateCommand extends
-		CoreElementCreateCommand {
+public class ForwardingRouterTypeCreateCommand extends CoreElementCreateCommand {
 
 	/**
 	 * @generated

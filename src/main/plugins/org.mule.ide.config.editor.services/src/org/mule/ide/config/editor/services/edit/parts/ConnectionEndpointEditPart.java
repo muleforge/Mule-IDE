@@ -55,7 +55,7 @@ public class ConnectionEndpointEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4047;
+	public static final int VISUAL_ID = 4048;
 
 	/**
 	 * @generated

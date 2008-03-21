@@ -58,7 +58,7 @@ public class WireTapRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4020;
+	public static final int VISUAL_ID = 4021;
 
 	/**
 	 * @generated

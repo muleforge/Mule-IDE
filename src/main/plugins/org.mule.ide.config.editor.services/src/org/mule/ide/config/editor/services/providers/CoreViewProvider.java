@@ -59,15 +59,10 @@ import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeNameEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeLabelEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
@@ -141,14 +136,12 @@ import org.mule.ide.config.editor.services.view.factories.OutboundEndpointTypeVi
 import org.mule.ide.config.editor.services.view.factories.OutboundCollectionTypeOUTBOUNDROUTERSViewFactory;
 import org.mule.ide.config.editor.services.view.factories.OutboundCollectionTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PassThroughComponentTypeLabelViewFactory;
-import org.mule.ide.config.editor.services.view.factories.PassThroughComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PassThroughInboundRouterTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PassThroughInboundRouterTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PassThroughOutboundRouterTypeLabelViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PassThroughOutboundRouterTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PojoComponentTypeClassViewFactory;
 import org.mule.ide.config.editor.services.view.factories.PojoComponentTypeLabelViewFactory;
-import org.mule.ide.config.editor.services.view.factories.PojoComponentTypeViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeCOMPONENTViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeEXCEPTIONViewFactory;
 import org.mule.ide.config.editor.services.view.factories.SedaServiceTypeNameViewFactory;
@@ -232,8 +225,9 @@ public class CoreViewProvider extends AbstractViewProvider {
 				}
 				switch (visualID) {
 				case SedaServiceTypeEditPart.VISUAL_ID:
-				case PojoComponentTypeEditPart.VISUAL_ID:
+				case JavaComponentTypeEditPart.VISUAL_ID:
 				case DefaultComponentTypeEditPart.VISUAL_ID:
+				case PooledJavaComponentTypeEditPart.VISUAL_ID:
 				case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
 				case OutboundEndpointTypeEditPart.VISUAL_ID:
 				case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
@@ -241,9 +235,7 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 				case ForwardingRouterTypeEditPart.VISUAL_ID:
 				case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
-				case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
 				case WireTapRouterTypeEditPart.VISUAL_ID:
-				case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
 				case ChunkingInboundRouterTypeEditPart.VISUAL_ID:
 				case CustomCorrelationAggregatorRouterTypeEditPart.VISUAL_ID:
 				case CustomInboundRouterTypeEditPart.VISUAL_ID:
@@ -262,9 +254,10 @@ public class CoreViewProvider extends AbstractViewProvider {
 				case EchoComponentTypeEditPart.VISUAL_ID:
 				case LogComponentTypeEditPart.VISUAL_ID:
 				case NullComponentTypeEditPart.VISUAL_ID:
-				case PassThroughComponentTypeEditPart.VISUAL_ID:
 				case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
 				case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
+				case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
+				case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
 				case CorrelationResequencerRouterTypeEditPart.VISUAL_ID:
 				case AsyncReplyInboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 				case OutboundRouterOutboundEndpointTypeEditPart.VISUAL_ID:
@@ -288,9 +281,9 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case PojoComponentTypeLabelEditPart.VISUAL_ID:
-				case PojoComponentTypeClassEditPart.VISUAL_ID:
-					if (PojoComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+				case JavaComponentTypeLabelEditPart.VISUAL_ID:
+				case JavaComponentTypeClassEditPart.VISUAL_ID:
+					if (JavaComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -331,8 +324,9 @@ public class CoreViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case PassThroughComponentTypeLabelEditPart.VISUAL_ID:
-					if (PassThroughComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
+				case PooledJavaComponentTypeLabelEditPart.VISUAL_ID:
+				case PooledJavaComponentTypeClassEditPart.VISUAL_ID:
+					if (PooledJavaComponentTypeEditPart.VISUAL_ID != CoreVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -618,12 +612,12 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return SedaServiceTypeViewFactory.class;
 		case SedaServiceTypeNameEditPart.VISUAL_ID:
 			return SedaServiceTypeNameViewFactory.class;
-		case PojoComponentTypeEditPart.VISUAL_ID:
-			return PojoComponentTypeViewFactory.class;
-		case PojoComponentTypeLabelEditPart.VISUAL_ID:
-			return PojoComponentTypeLabelViewFactory.class;
-		case PojoComponentTypeClassEditPart.VISUAL_ID:
-			return PojoComponentTypeClassViewFactory.class;
+		case JavaComponentTypeEditPart.VISUAL_ID:
+			return JavaComponentTypeViewFactory.class;
+		case JavaComponentTypeLabelEditPart.VISUAL_ID:
+			return JavaComponentTypeLabelViewFactory.class;
+		case JavaComponentTypeClassEditPart.VISUAL_ID:
+			return JavaComponentTypeClassViewFactory.class;
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return DefaultComponentTypeViewFactory.class;
 		case DefaultComponentTypeLabelEditPart.VISUAL_ID:
@@ -644,10 +638,12 @@ public class CoreViewProvider extends AbstractViewProvider {
 			return NullComponentTypeViewFactory.class;
 		case NullComponentTypeLabelEditPart.VISUAL_ID:
 			return NullComponentTypeLabelViewFactory.class;
-		case PassThroughComponentTypeEditPart.VISUAL_ID:
-			return PassThroughComponentTypeViewFactory.class;
-		case PassThroughComponentTypeLabelEditPart.VISUAL_ID:
-			return PassThroughComponentTypeLabelViewFactory.class;
+		case PooledJavaComponentTypeEditPart.VISUAL_ID:
+			return PooledJavaComponentTypeViewFactory.class;
+		case PooledJavaComponentTypeLabelEditPart.VISUAL_ID:
+			return PooledJavaComponentTypeLabelViewFactory.class;
+		case PooledJavaComponentTypeClassEditPart.VISUAL_ID:
+			return PooledJavaComponentTypeClassViewFactory.class;
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
 			return DefaultServiceExceptionStrategyTypeViewFactory.class;
 		case DefaultServiceExceptionStrategyTypeLabelEditPart.VISUAL_ID:

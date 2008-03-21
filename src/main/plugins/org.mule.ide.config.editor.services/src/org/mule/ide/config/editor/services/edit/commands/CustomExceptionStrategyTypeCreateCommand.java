@@ -55,7 +55,6 @@ public class CustomExceptionStrategyTypeCreateCommand extends
 
 	@Override
 	protected EReference getContainmentReference() {
-		return CorePackage.eINSTANCE
-						.getDocumentRoot_CustomExceptionStrategy();
+		return CorePackage.eINSTANCE.getDocumentRoot_CustomExceptionStrategy();
 	}
 }

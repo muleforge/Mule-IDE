@@ -58,7 +58,7 @@ public class CustomExceptionStrategyTypeClassEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4013;
+	public static final int VISUAL_ID = 4014;
 
 	/**
 	 * @generated

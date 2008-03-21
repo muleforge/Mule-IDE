@@ -58,7 +58,7 @@ public class DefaultServiceExceptionStrategyTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4010;
+	public static final int VISUAL_ID = 4011;
 
 	/**
 	 * @generated
@@ -308,7 +308,7 @@ public class DefaultServiceExceptionStrategyTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.ExceptionStrategyType_2008,
+					CoreElementTypes.EndpointExceptionStrategyType_2008,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

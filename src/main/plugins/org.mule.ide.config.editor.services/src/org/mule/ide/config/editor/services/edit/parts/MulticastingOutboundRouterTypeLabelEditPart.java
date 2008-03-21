@@ -58,7 +58,7 @@ public class MulticastingOutboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4038;
+	public static final int VISUAL_ID = 4039;
 
 	/**
 	 * @generated

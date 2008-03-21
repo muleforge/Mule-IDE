@@ -52,13 +52,13 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * customization
  */
-public class EndpointSelectorRouterTypeLabelEditPart extends
-		ReadOnlyLabelCompartmentEditPart implements ITextAwareEditPart {
+public class PooledJavaComponentTypeLabelEditPart extends ReadOnlyLabelCompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4041;
+	public static final int VISUAL_ID = 4008;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class EndpointSelectorRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public EndpointSelectorRouterTypeLabelEditPart(View view) {
+	public PooledJavaComponentTypeLabelEditPart(View view) {
 		super(view);
 	}
 
@@ -308,7 +308,7 @@ public class EndpointSelectorRouterTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.EndpointSelectorRouterType_2036,
+					CoreElementTypes.PooledJavaComponentType_2007,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

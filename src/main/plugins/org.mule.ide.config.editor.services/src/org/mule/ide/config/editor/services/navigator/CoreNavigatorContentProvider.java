@@ -58,6 +58,7 @@ import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRo
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.JavaComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
@@ -68,11 +69,10 @@ import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeEdit
 import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeOUTBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterOutboundEndpointTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PooledJavaComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
@@ -303,7 +303,7 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 					.singleton(view),
 					SedaServiceTypeCOMPONENTEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					PojoComponentTypeEditPart.VISUAL_ID);
+					JavaComponentTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
@@ -339,7 +339,7 @@ public class CoreNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(view),
 					SedaServiceTypeCOMPONENTEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					PassThroughComponentTypeEditPart.VISUAL_ID);
+					PooledJavaComponentTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),

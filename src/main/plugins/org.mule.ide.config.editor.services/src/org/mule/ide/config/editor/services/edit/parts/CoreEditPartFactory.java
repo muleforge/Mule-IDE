@@ -37,14 +37,14 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case SedaServiceTypeNameEditPart.VISUAL_ID:
 				return new SedaServiceTypeNameEditPart(view);
 
-			case PojoComponentTypeEditPart.VISUAL_ID:
-				return new PojoComponentTypeEditPart(view);
+			case JavaComponentTypeEditPart.VISUAL_ID:
+				return new JavaComponentTypeEditPart(view);
 
-			case PojoComponentTypeLabelEditPart.VISUAL_ID:
-				return new PojoComponentTypeLabelEditPart(view);
+			case JavaComponentTypeLabelEditPart.VISUAL_ID:
+				return new JavaComponentTypeLabelEditPart(view);
 
-			case PojoComponentTypeClassEditPart.VISUAL_ID:
-				return new PojoComponentTypeClassEditPart(view);
+			case JavaComponentTypeClassEditPart.VISUAL_ID:
+				return new JavaComponentTypeClassEditPart(view);
 
 			case DefaultComponentTypeEditPart.VISUAL_ID:
 				return new DefaultComponentTypeEditPart(view);
@@ -76,11 +76,14 @@ public class CoreEditPartFactory implements EditPartFactory {
 			case NullComponentTypeLabelEditPart.VISUAL_ID:
 				return new NullComponentTypeLabelEditPart(view);
 
-			case PassThroughComponentTypeEditPart.VISUAL_ID:
-				return new PassThroughComponentTypeEditPart(view);
+			case PooledJavaComponentTypeEditPart.VISUAL_ID:
+				return new PooledJavaComponentTypeEditPart(view);
 
-			case PassThroughComponentTypeLabelEditPart.VISUAL_ID:
-				return new PassThroughComponentTypeLabelEditPart(view);
+			case PooledJavaComponentTypeLabelEditPart.VISUAL_ID:
+				return new PooledJavaComponentTypeLabelEditPart(view);
+
+			case PooledJavaComponentTypeClassEditPart.VISUAL_ID:
+				return new PooledJavaComponentTypeClassEditPart(view);
 
 			case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
 				return new DefaultServiceExceptionStrategyTypeEditPart(view);

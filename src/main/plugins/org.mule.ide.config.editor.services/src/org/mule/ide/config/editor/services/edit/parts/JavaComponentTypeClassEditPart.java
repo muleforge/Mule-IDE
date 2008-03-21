@@ -50,15 +50,15 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 
 /**
- * customization
+ * @generated
  */
-public class PojoComponentTypeLabelEditPart extends
-		ReadOnlyLabelCompartmentEditPart implements ITextAwareEditPart {
+public class JavaComponentTypeClassEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4001;
+	public static final int VISUAL_ID = 4002;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class PojoComponentTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public PojoComponentTypeLabelEditPart(View view) {
+	public JavaComponentTypeClassEditPart(View view) {
 		super(view);
 	}
 
@@ -187,20 +187,14 @@ public class PojoComponentTypeLabelEditPart extends
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-
-		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
+		return resolveSemanticElement();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return CoreElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -247,7 +241,7 @@ public class PojoComponentTypeLabelEditPart extends
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -308,7 +302,7 @@ public class PojoComponentTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.PojoComponentType_2001,
+					CoreElementTypes.DefaultJavaComponentType_2001,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

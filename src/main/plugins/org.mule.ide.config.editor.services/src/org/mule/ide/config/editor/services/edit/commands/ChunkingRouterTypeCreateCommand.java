@@ -14,8 +14,7 @@ import org.mule.ide.config.core.OutboundCollectionType;
  * customization
  *   - subclass CoreElementCreateCommand
  */
-public class ChunkingRouterTypeCreateCommand extends
-		CoreElementCreateCommand {
+public class ChunkingRouterTypeCreateCommand extends CoreElementCreateCommand {
 
 	/**
 	 * @generated

@@ -13,8 +13,7 @@ import org.mule.ide.config.core.CorePackage;
 /**
  * customization
  */
-public class NullComponentTypeCreateCommand extends
-		CoreElementCreateCommand {
+public class NullComponentTypeCreateCommand extends CoreElementCreateCommand {
 
 	/**
 	 * @generated

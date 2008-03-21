@@ -52,6 +52,7 @@ import org.mule.ide.config.editor.services.edit.parts.IdempotentReceiverRouterTy
 import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.JavaComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MulticastingOutboundRouterTypeEditPart;
@@ -59,10 +60,9 @@ import org.mule.ide.config.editor.services.edit.parts.NullComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterOutboundEndpointTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PooledJavaComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SelectiveConsumerRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.StaticRecipientListRouterTypeEditPart;
@@ -255,10 +255,10 @@ public class DefaultModelTypeCanonicalEditPolicy extends
 					.getSedaServiceType_1001ContainedLinks(view));
 			break;
 		}
-		case PojoComponentTypeEditPart.VISUAL_ID: {
+		case JavaComponentTypeEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(CoreDiagramUpdater
-					.getPojoComponentType_2001ContainedLinks(view));
+					.getDefaultJavaComponentType_2001ContainedLinks(view));
 			break;
 		}
 		case DefaultComponentTypeEditPart.VISUAL_ID: {
@@ -291,16 +291,16 @@ public class DefaultModelTypeCanonicalEditPolicy extends
 					.getDefaultComponentType_2006ContainedLinks(view));
 			break;
 		}
-		case PassThroughComponentTypeEditPart.VISUAL_ID: {
+		case PooledJavaComponentTypeEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(CoreDiagramUpdater
-					.getDefaultComponentType_2007ContainedLinks(view));
+					.getPooledJavaComponentType_2007ContainedLinks(view));
 			break;
 		}
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(CoreDiagramUpdater
-					.getExceptionStrategyType_2008ContainedLinks(view));
+					.getEndpointExceptionStrategyType_2008ContainedLinks(view));
 			break;
 		}
 		case OutboundEndpointTypeEditPart.VISUAL_ID: {
@@ -312,7 +312,7 @@ public class DefaultModelTypeCanonicalEditPolicy extends
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(CoreDiagramUpdater
-					.getExceptionStrategyType_2010ContainedLinks(view));
+					.getEndpointExceptionStrategyType_2010ContainedLinks(view));
 			break;
 		}
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID: {
@@ -336,7 +336,7 @@ public class DefaultModelTypeCanonicalEditPolicy extends
 		case ForwardingRouterTypeEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(CoreDiagramUpdater
-					.getForwardingRouterType_2014ContainedLinks(view));
+					.getSelectiveConsumerRouterType_2014ContainedLinks(view));
 			break;
 		}
 		case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID: {
@@ -354,7 +354,7 @@ public class DefaultModelTypeCanonicalEditPolicy extends
 		case IdempotentReceiverRouterTypeEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(CoreDiagramUpdater
-					.getIdempotentReceiverRouterType_2017ContainedLinks(view));
+					.getFilteredInboundRouterType_2017ContainedLinks(view));
 			break;
 		}
 		case WireTapRouterTypeEditPart.VISUAL_ID: {

@@ -58,7 +58,7 @@ public class InboundEndpointServiceItemTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4014;
+	public static final int VISUAL_ID = 4015;
 
 	/**
 	 * @generated

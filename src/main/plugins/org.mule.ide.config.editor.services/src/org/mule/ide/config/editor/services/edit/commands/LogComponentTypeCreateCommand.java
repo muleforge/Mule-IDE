@@ -13,8 +13,7 @@ import org.mule.ide.config.core.CorePackage;
 /**
  * customization
  */
-public class LogComponentTypeCreateCommand extends
-		CoreElementCreateCommand {
+public class LogComponentTypeCreateCommand extends CoreElementCreateCommand {
 
 	/**
 	 * @generated

@@ -67,8 +67,9 @@ public class CustomExceptionStrategyTypeENDPOINTSCanonicalEditPolicy extends
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
-					.getExceptionStrategyType_AbstractOutboundEndpoint());
+			myFeaturesToSynchronize
+					.add(CorePackage.eINSTANCE
+							.getEndpointExceptionStrategyType_AbstractOutboundEndpoint());
 		}
 		return myFeaturesToSynchronize;
 	}

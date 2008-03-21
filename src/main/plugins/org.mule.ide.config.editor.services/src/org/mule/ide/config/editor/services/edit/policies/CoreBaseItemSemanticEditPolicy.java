@@ -65,20 +65,20 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	/*
 	 * Map of child type to its containment reference.
 	 */
-	private HashMap<EClass,EReference> mapTypeToReference;
-	
+	private HashMap<EClass, EReference> mapTypeToReference;
+
 	/*
 	 * Map of child type to list of policy extensions.
 	 */
-	private HashMap<EClass,List<ISemanticEditPolicyX>> mapTypeToPolicyList;
-	
+	private HashMap<EClass, List<ISemanticEditPolicyX>> mapTypeToPolicyList;
+
 	public CoreBaseItemSemanticEditPolicy() {
 		super();
-		mapTypeToReference = new HashMap<EClass,EReference>();
-		initExtensibleChildTypes(mapTypeToReference);		
+		mapTypeToReference = new HashMap<EClass, EReference>();
+		initExtensibleChildTypes(mapTypeToReference);
 	}
-	
-	protected void initExtensibleChildTypes(HashMap<EClass,EReference> map) {
+
+	protected void initExtensibleChildTypes(HashMap<EClass, EReference> map) {
 		// Subclasses should fill map with child types and references
 		// that support extended edit policy.
 	}
@@ -88,14 +88,16 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	 * 
 	 * @param extension
 	 */
-	public void registerSemanticEditPolicy(EClass type, ISemanticEditPolicyX editPolicy) {
-		assert(mapTypeToReference.get(type) != null) : 
-			"Attempt to register editPolicy "+editPolicy.getClass().getName()+
-			" for type "+type.getName()+
-			" that is not supported by "+this.getClass().getName();  //$NON-NLS-1$
-		
+	public void registerSemanticEditPolicy(EClass type,
+			ISemanticEditPolicyX editPolicy) {
+		assert (mapTypeToReference.get(type) != null) : "Attempt to register editPolicy "
+				+ editPolicy.getClass().getName()
+				+ " for type "
+				+ type.getName()
+				+ " that is not supported by " + this.getClass().getName(); //$NON-NLS-1$
+
 		if (mapTypeToPolicyList == null) {
-			mapTypeToPolicyList = new HashMap<EClass,List<ISemanticEditPolicyX>>();
+			mapTypeToPolicyList = new HashMap<EClass, List<ISemanticEditPolicyX>>();
 		}
 		List<ISemanticEditPolicyX> list = mapTypeToPolicyList.get(type);
 		if (list == null) {
@@ -104,7 +106,7 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		}
 		list.add(editPolicy);
 	}
-	
+
 	/**
 	 * Subclasses can check the type an return whether they offer
 	 * containment for this type.
@@ -260,12 +262,13 @@ public class CoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	protected Command getCreateCommand(CreateElementRequest req) {
 		return getCreateCommandX(req);
 	}
-	
+
 	protected Command getCreateCommandX(CreateElementRequest req) {
 		if (mapTypeToPolicyList == null) {
 			return null;
 		}
-		for (Map.Entry<EClass,EReference> entry : mapTypeToReference.entrySet()) {
+		for (Map.Entry<EClass, EReference> entry : mapTypeToReference
+				.entrySet()) {
 			List<ISemanticEditPolicyX> extensions;
 			extensions = mapTypeToPolicyList.get(entry.getKey());
 			if (extensions != null) {

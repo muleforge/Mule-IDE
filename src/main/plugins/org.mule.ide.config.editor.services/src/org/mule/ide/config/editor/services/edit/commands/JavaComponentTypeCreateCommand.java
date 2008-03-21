@@ -3,7 +3,6 @@ package org.mule.ide.config.editor.services.edit.commands;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
@@ -13,13 +12,12 @@ import org.mule.ide.config.core.CorePackage;
 /**
  * customization
  */
-public class PassThroughComponentTypeCreateCommand extends
-		CoreElementCreateCommand {
+public class JavaComponentTypeCreateCommand extends CoreElementCreateCommand {
 
 	/**
 	 * @generated
 	 */
-	public PassThroughComponentTypeCreateCommand(CreateElementRequest req) {
+	public JavaComponentTypeCreateCommand(CreateElementRequest req) {
 		super(req);
 	}
 
@@ -55,6 +53,6 @@ public class PassThroughComponentTypeCreateCommand extends
 
 	@Override
 	protected EReference getContainmentReference() {
-		return CorePackage.eINSTANCE.getDocumentRoot_PassThroughComponent();
+		return CorePackage.eINSTANCE.getDocumentRoot_Component();
 	}
 }

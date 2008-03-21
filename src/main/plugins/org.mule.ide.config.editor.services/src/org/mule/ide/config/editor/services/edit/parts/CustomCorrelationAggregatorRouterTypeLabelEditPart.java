@@ -58,7 +58,7 @@ public class CustomCorrelationAggregatorRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4024;
+	public static final int VISUAL_ID = 4025;
 
 	/**
 	 * @generated

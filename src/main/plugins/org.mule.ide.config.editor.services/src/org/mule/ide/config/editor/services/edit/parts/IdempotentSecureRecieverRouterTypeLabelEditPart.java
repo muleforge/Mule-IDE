@@ -58,7 +58,7 @@ public class IdempotentSecureRecieverRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4017;
+	public static final int VISUAL_ID = 4018;
 
 	/**
 	 * @generated

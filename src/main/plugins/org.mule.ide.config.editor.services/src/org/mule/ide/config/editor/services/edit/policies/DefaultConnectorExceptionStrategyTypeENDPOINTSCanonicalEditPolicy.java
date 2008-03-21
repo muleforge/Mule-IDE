@@ -33,7 +33,7 @@ public class DefaultConnectorExceptionStrategyTypeENDPOINTSCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getExceptionStrategyTypeENDPOINTS_5004SemanticChildren(
+				.getEndpointExceptionStrategyTypeENDPOINTS_5004SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}
@@ -67,8 +67,9 @@ public class DefaultConnectorExceptionStrategyTypeENDPOINTSCanonicalEditPolicy
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
-					.getExceptionStrategyType_AbstractOutboundEndpoint());
+			myFeaturesToSynchronize
+					.add(CorePackage.eINSTANCE
+							.getEndpointExceptionStrategyType_AbstractOutboundEndpoint());
 		}
 		return myFeaturesToSynchronize;
 	}

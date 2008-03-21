@@ -58,7 +58,7 @@ public class CustomOutboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4044;
+	public static final int VISUAL_ID = 4045;
 
 	/**
 	 * @generated

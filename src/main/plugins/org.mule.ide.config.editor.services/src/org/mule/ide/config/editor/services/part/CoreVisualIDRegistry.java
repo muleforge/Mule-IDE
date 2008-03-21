@@ -17,9 +17,10 @@ import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CustomCorrelationAggregatorRouterType;
 import org.mule.ide.config.core.CustomOutboundRouterType;
 import org.mule.ide.config.core.DefaultComponentType;
+import org.mule.ide.config.core.DefaultJavaComponentType;
 import org.mule.ide.config.core.DefaultModelType;
+import org.mule.ide.config.core.EndpointExceptionStrategyType;
 import org.mule.ide.config.core.EndpointSelectorRouterType;
-import org.mule.ide.config.core.ExceptionStrategyType;
 import org.mule.ide.config.core.FilteredInboundRouterType;
 import org.mule.ide.config.core.FilteringOutboundRouterType;
 import org.mule.ide.config.core.InboundCollectionType;
@@ -27,6 +28,7 @@ import org.mule.ide.config.core.MessageChunkingAggregatorRouterType;
 import org.mule.ide.config.core.MessageSplitterOutboundRouterType;
 import org.mule.ide.config.core.OutboundCollectionType;
 import org.mule.ide.config.core.OutboundRouterType;
+import org.mule.ide.config.core.PooledJavaComponentType;
 import org.mule.ide.config.core.SelectiveConsumerRouterType;
 import org.mule.ide.config.core.StaticRecipientListRouterType;
 import org.mule.ide.config.editor.services.edit.parts.*;
@@ -45,7 +47,7 @@ public class CoreVisualIDRegistry {
 	 * Extensions will use this to identify views from the Core package.
 	 */
 	public final static String MODEL_ID = DefaultModelTypeEditPart.MODEL_ID;
-	
+
 	/**
 	 * @generated
 	 */
@@ -161,9 +163,12 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getPojoComponentType().isSuperTypeOf(
-					domainElement.eClass())) {
-				return PojoComponentTypeEditPart.VISUAL_ID;
+			if (CorePackage.eINSTANCE.getDefaultJavaComponentType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.defaultJavaComponent(
+							(DefaultJavaComponentType) domainElement)
+							.booleanValue()) {
+				return JavaComponentTypeEditPart.VISUAL_ID;
 			}
 			if (CorePackage.eINSTANCE.getDefaultComponentType().isSuperTypeOf(
 					domainElement.eClass())
@@ -200,28 +205,28 @@ public class CoreVisualIDRegistry {
 							.booleanValue()) {
 				return NullComponentTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getDefaultComponentType().isSuperTypeOf(
-					domainElement.eClass())
-					&& JavaConstraints.passThroughComponentConstraint(
-							(DefaultComponentType) domainElement)
+			if (CorePackage.eINSTANCE.getPooledJavaComponentType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.pooledComponentConstraint(
+							(PooledJavaComponentType) domainElement)
 							.booleanValue()) {
-				return PassThroughComponentTypeEditPart.VISUAL_ID;
+				return PooledJavaComponentTypeEditPart.VISUAL_ID;
 			}
 			break;
 		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:
-			if (CorePackage.eINSTANCE.getExceptionStrategyType().isSuperTypeOf(
-					domainElement.eClass())
+			if (CorePackage.eINSTANCE.getEndpointExceptionStrategyType()
+					.isSuperTypeOf(domainElement.eClass())
 					&& JavaConstraints
 							.defautServiceExceptionStrategyConstraint(
-									(ExceptionStrategyType) domainElement)
+									(EndpointExceptionStrategyType) domainElement)
 							.booleanValue()) {
 				return DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getExceptionStrategyType().isSuperTypeOf(
-					domainElement.eClass())
+			if (CorePackage.eINSTANCE.getEndpointExceptionStrategyType()
+					.isSuperTypeOf(domainElement.eClass())
 					&& JavaConstraints
 							.defautConnectorExceptionStrategyConstraint(
-									(ExceptionStrategyType) domainElement)
+									(EndpointExceptionStrategyType) domainElement)
 							.booleanValue()) {
 				return DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID;
 			}
@@ -253,8 +258,11 @@ public class CoreVisualIDRegistry {
 					domainElement.eClass())) {
 				return InboundEndpointServiceItemTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getForwardingRouterType().isSuperTypeOf(
-					domainElement.eClass())) {
+			if (CorePackage.eINSTANCE.getSelectiveConsumerRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.forwardingRouterConstraint(
+							(SelectiveConsumerRouterType) domainElement)
+							.booleanValue()) {
 				return ForwardingRouterTypeEditPart.VISUAL_ID;
 			}
 			if (CorePackage.eINSTANCE.getFilteredInboundRouterType()
@@ -272,8 +280,11 @@ public class CoreVisualIDRegistry {
 							.booleanValue()) {
 				return PassThroughInboundRouterTypeEditPart.VISUAL_ID;
 			}
-			if (CorePackage.eINSTANCE.getIdempotentReceiverRouterType()
-					.isSuperTypeOf(domainElement.eClass())) {
+			if (CorePackage.eINSTANCE.getFilteredInboundRouterType()
+					.isSuperTypeOf(domainElement.eClass())
+					&& JavaConstraints.idempotentReceiverRouter(
+							(FilteredInboundRouterType) domainElement)
+							.booleanValue()) {
 				return IdempotentReceiverRouterTypeEditPart.VISUAL_ID;
 			}
 			if (CorePackage.eINSTANCE.getWireTapRouterType().isSuperTypeOf(
@@ -527,11 +538,11 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case PojoComponentTypeEditPart.VISUAL_ID:
-			if (PojoComponentTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case JavaComponentTypeEditPart.VISUAL_ID:
+			if (JavaComponentTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (PojoComponentTypeClassEditPart.VISUAL_ID == nodeVisualID) {
+			if (JavaComponentTypeClassEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -560,8 +571,11 @@ public class CoreVisualIDRegistry {
 				return true;
 			}
 			break;
-		case PassThroughComponentTypeEditPart.VISUAL_ID:
-			if (PassThroughComponentTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case PooledJavaComponentTypeEditPart.VISUAL_ID:
+			if (PooledJavaComponentTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (PooledJavaComponentTypeClassEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -794,7 +808,7 @@ public class CoreVisualIDRegistry {
 			}
 			break;
 		case SedaServiceTypeCOMPONENTEditPart.VISUAL_ID:
-			if (PojoComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (JavaComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (DefaultComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
@@ -812,7 +826,7 @@ public class CoreVisualIDRegistry {
 			if (NullComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (PassThroughComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (PooledJavaComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -1015,7 +1029,7 @@ public class CoreVisualIDRegistry {
 	private static boolean isDiagram(DefaultModelType element) {
 		return true;
 	}
-	
+
 	/**
 	 * Called from extension VisualIDRegistry implementations to determine
 	 * if a core View can contain a given domain element type.
@@ -1034,42 +1048,51 @@ public class CoreVisualIDRegistry {
 		// For performance, just using containerView.getElement().eClass() == xyzType
 		// instead of using reflection to discover if there is a containment feature
 		// for the given type.
-		if (CorePackage.eINSTANCE.getAbstractInboundEndpointType().isSuperTypeOf(type)) {
-			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getInboundCollectionType()) {
+		if (CorePackage.eINSTANCE.getAbstractInboundEndpointType()
+				.isSuperTypeOf(type)) {
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
+					.getInboundCollectionType()) {
 				return true;
 			}
-			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getAsyncReplyCollectionType()) {
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
+					.getAsyncReplyCollectionType()) {
 				return true;
 			}
 		}
-		if (CorePackage.eINSTANCE.getAbstractOutboundEndpointType().isSuperTypeOf(type)) {
-			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getExceptionStrategyType()) {
+		if (CorePackage.eINSTANCE.getAbstractOutboundEndpointType()
+				.isSuperTypeOf(type)) {
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
+					.getCustomExceptionStrategyType()) {
 				return true;
-			}			
-			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getCustomExceptionStrategyType()) {
+			}
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
+					.getOutboundRouterType()) {
 				return true;
-			}			
-			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getOutboundRouterType()) {
+			}
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
+					.getFilteringOutboundRouterType()) {
 				return true;
-			}			
-			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getFilteringOutboundRouterType()) {
+			}
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
+					.getChunkingRouterType()) {
 				return true;
-			}			
-			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getChunkingRouterType()) {
+			}
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
+					.getCustomOutboundRouterType()) {
 				return true;
-			}			
-			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getCustomOutboundRouterType()) {
+			}
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
+					.getEndpointSelectorRouterType()) {
 				return true;
-			}			
-			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getEndpointSelectorRouterType()) {
+			}
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
+					.getMessageSplitterOutboundRouterType()) {
 				return true;
-			}			
-			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getMessageSplitterOutboundRouterType()) {
+			}
+			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
+					.getStaticRecipientListRouterType()) {
 				return true;
-			}			
-			if (containerView.getElement().eClass() == CorePackage.eINSTANCE.getStaticRecipientListRouterType()) {
-				return true;
-			}			
+			}
 		}
 		return false;
 	}
@@ -1086,6 +1109,21 @@ public class CoreVisualIDRegistry {
 		private static java.lang.Boolean defaultComponentConstraint(
 				DefaultComponentType self) {
 			return false;
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean defaultJavaComponent(
+				DefaultJavaComponentType self) {
+			BaseServiceType container = (BaseServiceType) self.eContainer();
+			FeatureMap map = container.getAbstractComponentGroup();
+			// Since I know there can only be zero or one component in the container...
+			DefaultJavaComponentType component = (DefaultJavaComponentType) map.get(
+					CorePackage.eINSTANCE.getDocumentRoot_Component(),
+					false);
+			return self.equals(component);
 		}
 
 		/**
@@ -1152,14 +1190,14 @@ public class CoreVisualIDRegistry {
 		 * customization
 		 *   - implement constraint for differentiating elements of the same type
 		 */
-		private static java.lang.Boolean passThroughComponentConstraint(
-				DefaultComponentType self) {
+		private static java.lang.Boolean pooledComponentConstraint(
+				PooledJavaComponentType self) {
 			BaseServiceType container = (BaseServiceType) self.eContainer();
 			FeatureMap map = container.getAbstractComponentGroup();
 			// Since I know there can only be zero or one component in the container...
-			DefaultComponentType component = (DefaultComponentType) map.get(
-					CorePackage.eINSTANCE
-							.getDocumentRoot_PassThroughComponent(), false);
+			PooledJavaComponentType component = (PooledJavaComponentType) map.get(
+					CorePackage.eINSTANCE.getDocumentRoot_PooledComponent(),
+					false);
 			return self.equals(component);
 		}
 
@@ -1168,11 +1206,11 @@ public class CoreVisualIDRegistry {
 		 *   - implement constraint for differentiating elements of the same type
 		 */
 		private static java.lang.Boolean defautServiceExceptionStrategyConstraint(
-				ExceptionStrategyType self) {
+				EndpointExceptionStrategyType self) {
 			BaseServiceType container = (BaseServiceType) self.eContainer();
 			FeatureMap map = container.getAbstractExceptionStrategyGroup();
 			// Since I know there can only be zero or one in the container...
-			ExceptionStrategyType component = (ExceptionStrategyType) map.get(
+			EndpointExceptionStrategyType component = (EndpointExceptionStrategyType) map.get(
 					CorePackage.eINSTANCE
 							.getDocumentRoot_DefaultServiceExceptionStrategy(),
 					false);
@@ -1184,11 +1222,11 @@ public class CoreVisualIDRegistry {
 		 *   - implement constraint for differentiating elements of the same type
 		 */
 		private static java.lang.Boolean defautConnectorExceptionStrategyConstraint(
-				ExceptionStrategyType self) {
+				EndpointExceptionStrategyType self) {
 			BaseServiceType container = (BaseServiceType) self.eContainer();
 			FeatureMap map = container.getAbstractExceptionStrategyGroup();
 			// Since I know there can only be zero or one in the container...
-			ExceptionStrategyType component = (ExceptionStrategyType) map
+			EndpointExceptionStrategyType component = (EndpointExceptionStrategyType) map
 					.get(
 							CorePackage.eINSTANCE
 									.getDocumentRoot_DefaultConnectorExceptionStrategy(),
@@ -1230,6 +1268,21 @@ public class CoreVisualIDRegistry {
 		 * customization
 		 *   - implement constraint for differentiating elements of the same type
 		 */
+		private static java.lang.Boolean idempotentReceiverRouter(
+				FilteredInboundRouterType self) {
+			InboundCollectionType container = (InboundCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractInboundRouterGroup();
+			List<FilteredInboundRouterType> routers = map
+					.list(CorePackage.eINSTANCE
+							.getDocumentRoot_IdempotentReceiverRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
 		private static java.lang.Boolean selectiveConsumerRouterConstraint(
 				SelectiveConsumerRouterType self) {
 			InboundCollectionType container = (InboundCollectionType) self
@@ -1238,6 +1291,21 @@ public class CoreVisualIDRegistry {
 			List<SelectiveConsumerRouterType> routers = map
 					.list(CorePackage.eINSTANCE
 							.getDocumentRoot_SelectiveConsumerRouter());
+			return routers.contains(self);
+		}
+
+		/**
+		 * customization
+		 *   - implement constraint for differentiating elements of the same type
+		 */
+		private static java.lang.Boolean forwardingRouterConstraint(
+				SelectiveConsumerRouterType self) {
+			InboundCollectionType container = (InboundCollectionType) self
+					.eContainer();
+			FeatureMap map = container.getAbstractInboundRouterGroup();
+			List<SelectiveConsumerRouterType> routers = map
+					.list(CorePackage.eINSTANCE
+							.getDocumentRoot_ForwardingRouter());
 			return routers.contains(self);
 		}
 

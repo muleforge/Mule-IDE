@@ -6,10 +6,10 @@ import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.editor.services.edit.commands.BridgeComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.DefaultComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.EchoComponentTypeCreateCommand;
+import org.mule.ide.config.editor.services.edit.commands.JavaComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.LogComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.edit.commands.NullComponentTypeCreateCommand;
-import org.mule.ide.config.editor.services.edit.commands.PassThroughComponentTypeCreateCommand;
-import org.mule.ide.config.editor.services.edit.commands.PojoComponentTypeCreateCommand;
+import org.mule.ide.config.editor.services.edit.commands.PooledJavaComponentTypeCreateCommand;
 import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 
 /**
@@ -22,12 +22,13 @@ public class SedaServiceTypeCOMPONENTItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CoreElementTypes.PojoComponentType_2001 == req.getElementType()) {
+		if (CoreElementTypes.DefaultJavaComponentType_2001 == req
+				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());
 			}
-			return getGEFWrapper(new PojoComponentTypeCreateCommand(req));
+			return getGEFWrapper(new JavaComponentTypeCreateCommand(req));
 		}
 		if (CoreElementTypes.DefaultComponentType_2002 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
@@ -64,12 +65,13 @@ public class SedaServiceTypeCOMPONENTItemSemanticEditPolicy extends
 			}
 			return getGEFWrapper(new NullComponentTypeCreateCommand(req));
 		}
-		if (CoreElementTypes.DefaultComponentType_2007 == req.getElementType()) {
+		if (CoreElementTypes.PooledJavaComponentType_2007 == req
+				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getBaseServiceType_AbstractComponent());
 			}
-			return getGEFWrapper(new PassThroughComponentTypeCreateCommand(req));
+			return getGEFWrapper(new PooledJavaComponentTypeCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

@@ -58,7 +58,7 @@ public class FilteringOutboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4035;
+	public static final int VISUAL_ID = 4036;
 
 	/**
 	 * @generated

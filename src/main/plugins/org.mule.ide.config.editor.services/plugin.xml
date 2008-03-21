@@ -280,11 +280,11 @@
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.PojoComponentType_2001"
-               name="%metatype.name.PojoComponentType_2001"
+               id="org.mule.ide.config.editor.services.DefaultJavaComponentType_2001"
+               name="%metatype.name.DefaultJavaComponentType_2001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="PojoComponentType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.PojoComponentTypeEditHelper">
+               eclass="DefaultJavaComponentType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.JavaComponentTypeEditHelper">
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
@@ -335,20 +335,21 @@
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
-         <specializationType
-               id="org.mule.ide.config.editor.services.DefaultComponentType_2007"
-               name="%metatype.name.DefaultComponentType_2007"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.mule.ide.config.editor.services.DefaultComponentType_2002"/>
+         <metamodelType
+               id="org.mule.ide.config.editor.services.PooledJavaComponentType_2007"
+               name="%metatype.name.PooledJavaComponentType_2007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PooledJavaComponentType"
+               edithelper="org.mule.ide.config.editor.services.edit.helpers.PooledJavaComponentTypeEditHelper">
             <param name="semanticHint" value="2007"/>
-         </specializationType>
+         </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.ExceptionStrategyType_2008"
-               name="%metatype.name.ExceptionStrategyType_2008"
+               id="org.mule.ide.config.editor.services.EndpointExceptionStrategyType_2008"
+               name="%metatype.name.EndpointExceptionStrategyType_2008"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ExceptionStrategyType"
+               eclass="EndpointExceptionStrategyType"
                edithelper="org.mule.ide.config.editor.services.edit.helpers.ExceptionStrategyTypeEditHelper">
             <param name="semanticHint" value="2008"/>
          </metamodelType>
@@ -365,10 +366,10 @@
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <specializationType
-               id="org.mule.ide.config.editor.services.ExceptionStrategyType_2010"
-               name="%metatype.name.ExceptionStrategyType_2010"
+               id="org.mule.ide.config.editor.services.EndpointExceptionStrategyType_2010"
+               name="%metatype.name.EndpointExceptionStrategyType_2010"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.mule.ide.config.editor.services.ExceptionStrategyType_2008"/>
+            <specializes id="org.mule.ide.config.editor.services.EndpointExceptionStrategyType_2008"/>
             <param name="semanticHint" value="2010"/>
          </specializationType>
       </metamodel>
@@ -404,10 +405,10 @@
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
-               id="org.mule.ide.config.editor.services.ForwardingRouterType_2014"
-               name="%metatype.name.ForwardingRouterType_2014"
+               id="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2014"
+               name="%metatype.name.SelectiveConsumerRouterType_2014"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ForwardingRouterType"
+               eclass="SelectiveConsumerRouterType"
                edithelper="org.mule.ide.config.editor.services.edit.helpers.ForwardingRouterTypeEditHelper">
             <param name="semanticHint" value="2014"/>
          </metamodelType>
@@ -432,14 +433,13 @@
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
-         <metamodelType
-               id="org.mule.ide.config.editor.services.IdempotentReceiverRouterType_2017"
-               name="%metatype.name.IdempotentReceiverRouterType_2017"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="IdempotentReceiverRouterType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.IdempotentReceiverRouterTypeEditHelper">
+         <specializationType
+               id="org.mule.ide.config.editor.services.FilteredInboundRouterType_2017"
+               name="%metatype.name.FilteredInboundRouterType_2017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.mule.ide.config.editor.services.FilteredInboundRouterType_2015"/>
             <param name="semanticHint" value="2017"/>
-         </metamodelType>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
@@ -452,14 +452,13 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
-         <metamodelType
+         <specializationType
                id="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2019"
                name="%metatype.name.SelectiveConsumerRouterType_2019"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="SelectiveConsumerRouterType"
-               edithelper="org.mule.ide.config.editor.services.edit.helpers.SelectiveConsumerRouterTypeEditHelper">
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2014"/>
             <param name="semanticHint" value="2019"/>
-         </metamodelType>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.mulesource.org/schema/mule/core/2.0">
          <metamodelType
@@ -476,7 +475,7 @@
                id="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2021"
                name="%metatype.name.SelectiveConsumerRouterType_2021"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2019"/>
+            <specializes id="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2014"/>
             <param name="semanticHint" value="2021"/>
          </specializationType>
       </metamodel>
@@ -688,23 +687,23 @@
       <binding context="CoreClientContext">
          <elementType ref="org.mule.ide.config.editor.services.DefaultModelType_79"/>
          <elementType ref="org.mule.ide.config.editor.services.SedaServiceType_1001"/>
-         <elementType ref="org.mule.ide.config.editor.services.PojoComponentType_2001"/>
+         <elementType ref="org.mule.ide.config.editor.services.DefaultJavaComponentType_2001"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2002"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2003"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2004"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2005"/>
          <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2006"/>
-         <elementType ref="org.mule.ide.config.editor.services.DefaultComponentType_2007"/>
-         <elementType ref="org.mule.ide.config.editor.services.ExceptionStrategyType_2008"/>
+         <elementType ref="org.mule.ide.config.editor.services.PooledJavaComponentType_2007"/>
+         <elementType ref="org.mule.ide.config.editor.services.EndpointExceptionStrategyType_2008"/>
          <elementType ref="org.mule.ide.config.editor.services.OutboundEndpointType_2009"/>
-         <elementType ref="org.mule.ide.config.editor.services.ExceptionStrategyType_2010"/>
+         <elementType ref="org.mule.ide.config.editor.services.EndpointExceptionStrategyType_2010"/>
          <elementType ref="org.mule.ide.config.editor.services.CustomExceptionStrategyType_2011"/>
          <elementType ref="org.mule.ide.config.editor.services.InboundCollectionType_2012"/>
          <elementType ref="org.mule.ide.config.editor.services.InboundEndpointType_2013"/>
-         <elementType ref="org.mule.ide.config.editor.services.ForwardingRouterType_2014"/>
+         <elementType ref="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2014"/>
          <elementType ref="org.mule.ide.config.editor.services.FilteredInboundRouterType_2015"/>
          <elementType ref="org.mule.ide.config.editor.services.FilteredInboundRouterType_2016"/>
-         <elementType ref="org.mule.ide.config.editor.services.IdempotentReceiverRouterType_2017"/>
+         <elementType ref="org.mule.ide.config.editor.services.FilteredInboundRouterType_2017"/>
          <elementType ref="org.mule.ide.config.editor.services.WireTapRouterType_2018"/>
          <elementType ref="org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2019"/>
          <elementType ref="org.mule.ide.config.editor.services.MessageChunkingAggregatorRouterType_2020"/>

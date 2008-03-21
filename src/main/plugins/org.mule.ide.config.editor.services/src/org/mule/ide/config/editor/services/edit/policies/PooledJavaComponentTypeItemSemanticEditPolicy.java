@@ -8,7 +8,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 /**
  * @generated
  */
-public class PojoComponentTypeItemSemanticEditPolicy extends
+public class PooledJavaComponentTypeItemSemanticEditPolicy extends
 		CoreBaseItemSemanticEditPolicy {
 
 	/**

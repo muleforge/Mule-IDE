@@ -78,7 +78,7 @@ public class InboundCollectionTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.ForwardingRouterType_2014) {
+								if (type == CoreElementTypes.SelectiveConsumerRouterType_2014) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
@@ -99,7 +99,7 @@ public class InboundCollectionTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.IdempotentReceiverRouterType_2017) {
+								if (type == CoreElementTypes.FilteredInboundRouterType_2017) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

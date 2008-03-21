@@ -77,7 +77,7 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == CoreElementTypes.PojoComponentType_2001) {
+								if (type == CoreElementTypes.DefaultJavaComponentType_2001) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeCOMPONENTEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
@@ -119,21 +119,21 @@ public class SedaServiceTypeEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.DefaultComponentType_2007) {
+								if (type == CoreElementTypes.PooledJavaComponentType_2007) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeCOMPONENTEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.ExceptionStrategyType_2008) {
+								if (type == CoreElementTypes.EndpointExceptionStrategyType_2008) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == CoreElementTypes.ExceptionStrategyType_2010) {
+								if (type == CoreElementTypes.EndpointExceptionStrategyType_2010) {
 									EditPart compartmentEditPart = getChildBySemanticHint(CoreVisualIDRegistry
 											.getType(SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

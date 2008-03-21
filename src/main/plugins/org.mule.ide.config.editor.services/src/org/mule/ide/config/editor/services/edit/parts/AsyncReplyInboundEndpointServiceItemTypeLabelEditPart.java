@@ -58,7 +58,7 @@ public class AsyncReplyInboundEndpointServiceItemTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4028;
+	public static final int VISUAL_ID = 4029;
 
 	/**
 	 * @generated

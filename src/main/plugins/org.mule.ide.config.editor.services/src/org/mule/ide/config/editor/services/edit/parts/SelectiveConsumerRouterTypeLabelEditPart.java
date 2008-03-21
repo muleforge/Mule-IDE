@@ -58,7 +58,7 @@ public class SelectiveConsumerRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4021;
+	public static final int VISUAL_ID = 4022;
 
 	/**
 	 * @generated

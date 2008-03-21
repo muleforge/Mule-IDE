@@ -55,41 +55,43 @@ public class SedaServiceTypeEditHelper extends CoreBaseEditHelper {
 			//TODO figure out how to consolidate this with the corresponding
 			// load/save handling in CoreResourceImpl
 
-			InboundCollectionTypeImpl inbound = (InboundCollectionTypeImpl)CoreFactory.eINSTANCE.createInboundCollectionType();
+			InboundCollectionTypeImpl inbound = (InboundCollectionTypeImpl) CoreFactory.eINSTANCE
+					.createInboundCollectionType();
 			inbound.setIDEPlaceholder();
 			service.setInbound(inbound);
-			
-//			EClass collectionClass = CorePackage.eINSTANCE
-//					.getInboundCollectionType();
-//			EReference collectionContainer = CorePackage.eINSTANCE
-//					.getBaseServiceType_Inbound();
-//			EObject result = EMFCoreUtil.create(service, collectionContainer,
-//					collectionClass);
-//			((InboundCollectionTypeImpl) result).setIDEPlaceholder();
 
-			AsyncReplyCollectionTypeImpl asyncReply = (AsyncReplyCollectionTypeImpl)CoreFactory.eINSTANCE.createAsyncReplyCollectionType();
+			//			EClass collectionClass = CorePackage.eINSTANCE
+			//					.getInboundCollectionType();
+			//			EReference collectionContainer = CorePackage.eINSTANCE
+			//					.getBaseServiceType_Inbound();
+			//			EObject result = EMFCoreUtil.create(service, collectionContainer,
+			//					collectionClass);
+			//			((InboundCollectionTypeImpl) result).setIDEPlaceholder();
+
+			AsyncReplyCollectionTypeImpl asyncReply = (AsyncReplyCollectionTypeImpl) CoreFactory.eINSTANCE
+					.createAsyncReplyCollectionType();
 			asyncReply.setIDEPlaceholder();
 			service.setAsyncReply(asyncReply);
 
-			
-//			collectionClass = CorePackage.eINSTANCE
-//					.getAsyncReplyCollectionType();
-//			collectionContainer = CorePackage.eINSTANCE
-//					.getBaseServiceType_AsyncReply();
-//			result = EMFCoreUtil.create(service, collectionContainer,
-//					collectionClass);
-//			((AsyncReplyCollectionTypeImpl) result).setIDEPlaceholder();
+			//			collectionClass = CorePackage.eINSTANCE
+			//					.getAsyncReplyCollectionType();
+			//			collectionContainer = CorePackage.eINSTANCE
+			//					.getBaseServiceType_AsyncReply();
+			//			result = EMFCoreUtil.create(service, collectionContainer,
+			//					collectionClass);
+			//			((AsyncReplyCollectionTypeImpl) result).setIDEPlaceholder();
 
-			OutboundCollectionTypeImpl outbound = (OutboundCollectionTypeImpl)CoreFactory.eINSTANCE.createOutboundCollectionType();
+			OutboundCollectionTypeImpl outbound = (OutboundCollectionTypeImpl) CoreFactory.eINSTANCE
+					.createOutboundCollectionType();
 			outbound.setIDEPlaceholder();
 			service.setOutbound(outbound);
-									
-//			collectionClass = CorePackage.eINSTANCE.getOutboundCollectionType();
-//			collectionContainer = CorePackage.eINSTANCE
-//					.getBaseServiceType_Outbound();
-//			result = EMFCoreUtil.create(service, collectionContainer,
-//					collectionClass);
-//			((OutboundCollectionTypeImpl) result).setIDEPlaceholder();
+
+			//			collectionClass = CorePackage.eINSTANCE.getOutboundCollectionType();
+			//			collectionContainer = CorePackage.eINSTANCE
+			//					.getBaseServiceType_Outbound();
+			//			result = EMFCoreUtil.create(service, collectionContainer,
+			//					collectionClass);
+			//			((OutboundCollectionTypeImpl) result).setIDEPlaceholder();
 		}
 	}
 }

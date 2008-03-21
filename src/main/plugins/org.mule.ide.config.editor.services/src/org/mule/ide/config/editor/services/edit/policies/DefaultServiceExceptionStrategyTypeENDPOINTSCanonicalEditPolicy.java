@@ -33,7 +33,7 @@ public class DefaultServiceExceptionStrategyTypeENDPOINTSCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = CoreDiagramUpdater
-				.getExceptionStrategyTypeENDPOINTS_5003SemanticChildren(
+				.getEndpointExceptionStrategyTypeENDPOINTS_5003SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((CoreNodeDescriptor) it.next()).getModelElement());
 		}
@@ -67,8 +67,9 @@ public class DefaultServiceExceptionStrategyTypeENDPOINTSCanonicalEditPolicy
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
-					.getExceptionStrategyType_AbstractOutboundEndpoint());
+			myFeaturesToSynchronize
+					.add(CorePackage.eINSTANCE
+							.getEndpointExceptionStrategyType_AbstractOutboundEndpoint());
 		}
 		return myFeaturesToSynchronize;
 	}

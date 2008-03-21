@@ -56,7 +56,7 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType PojoComponentType_2001 = getElementType("org.mule.ide.config.editor.services.PojoComponentType_2001"); //$NON-NLS-1$
+	public static final IElementType DefaultJavaComponentType_2001 = getElementType("org.mule.ide.config.editor.services.DefaultJavaComponentType_2001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -86,12 +86,12 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType DefaultComponentType_2007 = getElementType("org.mule.ide.config.editor.services.DefaultComponentType_2007"); //$NON-NLS-1$
+	public static final IElementType PooledJavaComponentType_2007 = getElementType("org.mule.ide.config.editor.services.PooledJavaComponentType_2007"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExceptionStrategyType_2008 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2008"); //$NON-NLS-1$
+	public static final IElementType EndpointExceptionStrategyType_2008 = getElementType("org.mule.ide.config.editor.services.EndpointExceptionStrategyType_2008"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -101,7 +101,7 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExceptionStrategyType_2010 = getElementType("org.mule.ide.config.editor.services.ExceptionStrategyType_2010"); //$NON-NLS-1$
+	public static final IElementType EndpointExceptionStrategyType_2010 = getElementType("org.mule.ide.config.editor.services.EndpointExceptionStrategyType_2010"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -121,7 +121,7 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ForwardingRouterType_2014 = getElementType("org.mule.ide.config.editor.services.ForwardingRouterType_2014"); //$NON-NLS-1$
+	public static final IElementType SelectiveConsumerRouterType_2014 = getElementType("org.mule.ide.config.editor.services.SelectiveConsumerRouterType_2014"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -136,7 +136,7 @@ public class CoreElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType IdempotentReceiverRouterType_2017 = getElementType("org.mule.ide.config.editor.services.IdempotentReceiverRouterType_2017"); //$NON-NLS-1$
+	public static final IElementType FilteredInboundRouterType_2017 = getElementType("org.mule.ide.config.editor.services.FilteredInboundRouterType_2017"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -375,8 +375,8 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(SedaServiceType_1001, CorePackage.eINSTANCE
 					.getSedaServiceType());
 
-			elements.put(PojoComponentType_2001, CorePackage.eINSTANCE
-					.getPojoComponentType());
+			elements.put(DefaultJavaComponentType_2001, CorePackage.eINSTANCE
+					.getDefaultJavaComponentType());
 
 			elements.put(DefaultComponentType_2002, CorePackage.eINSTANCE
 					.getDefaultComponentType());
@@ -393,17 +393,17 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(DefaultComponentType_2006, CorePackage.eINSTANCE
 					.getDefaultComponentType());
 
-			elements.put(DefaultComponentType_2007, CorePackage.eINSTANCE
-					.getDefaultComponentType());
+			elements.put(PooledJavaComponentType_2007, CorePackage.eINSTANCE
+					.getPooledJavaComponentType());
 
-			elements.put(ExceptionStrategyType_2008, CorePackage.eINSTANCE
-					.getExceptionStrategyType());
+			elements.put(EndpointExceptionStrategyType_2008,
+					CorePackage.eINSTANCE.getEndpointExceptionStrategyType());
 
 			elements.put(OutboundEndpointType_2009, CorePackage.eINSTANCE
 					.getOutboundEndpointType());
 
-			elements.put(ExceptionStrategyType_2010, CorePackage.eINSTANCE
-					.getExceptionStrategyType());
+			elements.put(EndpointExceptionStrategyType_2010,
+					CorePackage.eINSTANCE.getEndpointExceptionStrategyType());
 
 			elements.put(CustomExceptionStrategyType_2011,
 					CorePackage.eINSTANCE.getCustomExceptionStrategyType());
@@ -414,8 +414,8 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(InboundEndpointType_2013, CorePackage.eINSTANCE
 					.getInboundEndpointType());
 
-			elements.put(ForwardingRouterType_2014, CorePackage.eINSTANCE
-					.getForwardingRouterType());
+			elements.put(SelectiveConsumerRouterType_2014,
+					CorePackage.eINSTANCE.getSelectiveConsumerRouterType());
 
 			elements.put(FilteredInboundRouterType_2015, CorePackage.eINSTANCE
 					.getFilteredInboundRouterType());
@@ -423,8 +423,8 @@ public class CoreElementTypes extends ElementInitializers {
 			elements.put(FilteredInboundRouterType_2016, CorePackage.eINSTANCE
 					.getFilteredInboundRouterType());
 
-			elements.put(IdempotentReceiverRouterType_2017,
-					CorePackage.eINSTANCE.getIdempotentReceiverRouterType());
+			elements.put(FilteredInboundRouterType_2017, CorePackage.eINSTANCE
+					.getFilteredInboundRouterType());
 
 			elements.put(WireTapRouterType_2018, CorePackage.eINSTANCE
 					.getWireTapRouterType());
@@ -519,23 +519,23 @@ public class CoreElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES = new HashSet();
 			KNOWN_ELEMENT_TYPES.add(DefaultModelType_79);
 			KNOWN_ELEMENT_TYPES.add(SedaServiceType_1001);
-			KNOWN_ELEMENT_TYPES.add(PojoComponentType_2001);
+			KNOWN_ELEMENT_TYPES.add(DefaultJavaComponentType_2001);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2002);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2003);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2004);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2005);
 			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2006);
-			KNOWN_ELEMENT_TYPES.add(DefaultComponentType_2007);
-			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2008);
+			KNOWN_ELEMENT_TYPES.add(PooledJavaComponentType_2007);
+			KNOWN_ELEMENT_TYPES.add(EndpointExceptionStrategyType_2008);
 			KNOWN_ELEMENT_TYPES.add(OutboundEndpointType_2009);
-			KNOWN_ELEMENT_TYPES.add(ExceptionStrategyType_2010);
+			KNOWN_ELEMENT_TYPES.add(EndpointExceptionStrategyType_2010);
 			KNOWN_ELEMENT_TYPES.add(CustomExceptionStrategyType_2011);
 			KNOWN_ELEMENT_TYPES.add(InboundCollectionType_2012);
 			KNOWN_ELEMENT_TYPES.add(InboundEndpointType_2013);
-			KNOWN_ELEMENT_TYPES.add(ForwardingRouterType_2014);
+			KNOWN_ELEMENT_TYPES.add(SelectiveConsumerRouterType_2014);
 			KNOWN_ELEMENT_TYPES.add(FilteredInboundRouterType_2015);
 			KNOWN_ELEMENT_TYPES.add(FilteredInboundRouterType_2016);
-			KNOWN_ELEMENT_TYPES.add(IdempotentReceiverRouterType_2017);
+			KNOWN_ELEMENT_TYPES.add(FilteredInboundRouterType_2017);
 			KNOWN_ELEMENT_TYPES.add(WireTapRouterType_2018);
 			KNOWN_ELEMENT_TYPES.add(SelectiveConsumerRouterType_2019);
 			KNOWN_ELEMENT_TYPES.add(MessageChunkingAggregatorRouterType_2020);

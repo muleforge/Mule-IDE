@@ -338,22 +338,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String PassThroughComponent5CreationTool_title;
+	public static String PooledJavaComponent5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PassThroughComponent5CreationTool_desc;
+	public static String PooledJavaComponent5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PojoComponent6CreationTool_title;
+	public static String JavaComponent6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PojoComponent6CreationTool_desc;
+	public static String JavaComponent6CreationTool_desc;
 
 	/**
 	 * @generated
@@ -892,7 +892,12 @@ public class Messages extends NLS {
 	/**
 	 * 
 	 */
-	public static String PojoComponentTypeLabel;
+	public static String DefaultJavaComponentTypeLabel;
+
+	/**
+	 * 
+	 */
+	public static String PooledJavaComponentTypeLabel;
 
 	/**
 	 * 

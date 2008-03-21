@@ -26,8 +26,8 @@ import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CustomExceptionStrategyType;
 import org.mule.ide.config.core.CustomOutboundRouterType;
 import org.mule.ide.config.core.DefaultModelType;
+import org.mule.ide.config.core.EndpointExceptionStrategyType;
 import org.mule.ide.config.core.EndpointSelectorRouterType;
-import org.mule.ide.config.core.ExceptionStrategyType;
 import org.mule.ide.config.core.FilteringOutboundRouterType;
 import org.mule.ide.config.core.InboundCollectionType;
 import org.mule.ide.config.core.MessageSplitterOutboundRouterType;
@@ -74,6 +74,7 @@ import org.mule.ide.config.editor.services.edit.parts.IdempotentSecureRecieverRo
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundCollectionTypeINBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.InboundEndpointServiceItemTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.JavaComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.LogComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.MessageSplitterOutboundRouterTypeEditPart;
@@ -84,11 +85,10 @@ import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeEdit
 import org.mule.ide.config.editor.services.edit.parts.OutboundCollectionTypeOUTBOUNDROUTERSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundEndpointTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.OutboundRouterOutboundEndpointTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughInboundRouterTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeENDPOINTSEditPart;
 import org.mule.ide.config.editor.services.edit.parts.PassThroughOutboundRouterTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PooledJavaComponentTypeEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeCOMPONENTEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEXCEPTIONEditPart;
 import org.mule.ide.config.editor.services.edit.parts.SedaServiceTypeEditPart;
@@ -117,9 +117,9 @@ public class CoreDiagramUpdater {
 		case SedaServiceTypeEXCEPTIONEditPart.VISUAL_ID:
 			return getSedaServiceTypeEXCEPTION_5002SemanticChildren(view);
 		case DefaultServiceExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
-			return getExceptionStrategyTypeENDPOINTS_5003SemanticChildren(view);
+			return getEndpointExceptionStrategyTypeENDPOINTS_5003SemanticChildren(view);
 		case DefaultConnectorExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
-			return getExceptionStrategyTypeENDPOINTS_5004SemanticChildren(view);
+			return getEndpointExceptionStrategyTypeENDPOINTS_5004SemanticChildren(view);
 		case CustomExceptionStrategyTypeENDPOINTSEditPart.VISUAL_ID:
 			return getCustomExceptionStrategyTypeENDPOINTS_5005SemanticChildren(view);
 		case InboundCollectionTypeINBOUNDROUTERSEditPart.VISUAL_ID:
@@ -213,7 +213,7 @@ public class CoreDiagramUpdater {
 					.getAbstractComponent();
 			int visualID = CoreVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == PojoComponentTypeEditPart.VISUAL_ID) {
+			if (visualID == JavaComponentTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == DefaultComponentTypeEditPart.VISUAL_ID) {
@@ -231,7 +231,7 @@ public class CoreDiagramUpdater {
 			if (visualID == NullComponentTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 			}
-			if (visualID == PassThroughComponentTypeEditPart.VISUAL_ID) {
+			if (visualID == PooledJavaComponentTypeEditPart.VISUAL_ID) {
 				result.add(new CoreNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -274,7 +274,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyTypeENDPOINTS_5003SemanticChildren(
+	public static List getEndpointExceptionStrategyTypeENDPOINTS_5003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -283,7 +283,7 @@ public class CoreDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
-		ExceptionStrategyType modelElement = (ExceptionStrategyType) containerView
+		EndpointExceptionStrategyType modelElement = (EndpointExceptionStrategyType) containerView
 				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
@@ -303,7 +303,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyTypeENDPOINTS_5004SemanticChildren(
+	public static List getEndpointExceptionStrategyTypeENDPOINTS_5004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -312,7 +312,7 @@ public class CoreDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
-		ExceptionStrategyType modelElement = (ExceptionStrategyType) containerView
+		EndpointExceptionStrategyType modelElement = (EndpointExceptionStrategyType) containerView
 				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getAbstractOutboundEndpoint()
@@ -897,8 +897,8 @@ public class CoreDiagramUpdater {
 			return getDefaultModelType_79ContainedLinks(view);
 		case SedaServiceTypeEditPart.VISUAL_ID:
 			return getSedaServiceType_1001ContainedLinks(view);
-		case PojoComponentTypeEditPart.VISUAL_ID:
-			return getPojoComponentType_2001ContainedLinks(view);
+		case JavaComponentTypeEditPart.VISUAL_ID:
+			return getDefaultJavaComponentType_2001ContainedLinks(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2002ContainedLinks(view);
 		case BridgeComponentTypeEditPart.VISUAL_ID:
@@ -909,14 +909,14 @@ public class CoreDiagramUpdater {
 			return getDefaultComponentType_2005ContainedLinks(view);
 		case NullComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2006ContainedLinks(view);
-		case PassThroughComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2007ContainedLinks(view);
+		case PooledJavaComponentTypeEditPart.VISUAL_ID:
+			return getPooledJavaComponentType_2007ContainedLinks(view);
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2008ContainedLinks(view);
+			return getEndpointExceptionStrategyType_2008ContainedLinks(view);
 		case OutboundEndpointTypeEditPart.VISUAL_ID:
 			return getOutboundEndpointType_2009ContainedLinks(view);
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2010ContainedLinks(view);
+			return getEndpointExceptionStrategyType_2010ContainedLinks(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getCustomExceptionStrategyType_2011ContainedLinks(view);
 		case InboundCollectionTypeEditPart.VISUAL_ID:
@@ -924,13 +924,13 @@ public class CoreDiagramUpdater {
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getInboundEndpointType_2013ContainedLinks(view);
 		case ForwardingRouterTypeEditPart.VISUAL_ID:
-			return getForwardingRouterType_2014ContainedLinks(view);
+			return getSelectiveConsumerRouterType_2014ContainedLinks(view);
 		case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
 			return getFilteredInboundRouterType_2015ContainedLinks(view);
 		case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
 			return getFilteredInboundRouterType_2016ContainedLinks(view);
 		case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
-			return getIdempotentReceiverRouterType_2017ContainedLinks(view);
+			return getFilteredInboundRouterType_2017ContainedLinks(view);
 		case WireTapRouterTypeEditPart.VISUAL_ID:
 			return getWireTapRouterType_2018ContainedLinks(view);
 		case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
@@ -990,8 +990,8 @@ public class CoreDiagramUpdater {
 		switch (CoreVisualIDRegistry.getVisualID(view)) {
 		case SedaServiceTypeEditPart.VISUAL_ID:
 			return getSedaServiceType_1001IncomingLinks(view);
-		case PojoComponentTypeEditPart.VISUAL_ID:
-			return getPojoComponentType_2001IncomingLinks(view);
+		case JavaComponentTypeEditPart.VISUAL_ID:
+			return getDefaultJavaComponentType_2001IncomingLinks(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2002IncomingLinks(view);
 		case BridgeComponentTypeEditPart.VISUAL_ID:
@@ -1002,14 +1002,14 @@ public class CoreDiagramUpdater {
 			return getDefaultComponentType_2005IncomingLinks(view);
 		case NullComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2006IncomingLinks(view);
-		case PassThroughComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2007IncomingLinks(view);
+		case PooledJavaComponentTypeEditPart.VISUAL_ID:
+			return getPooledJavaComponentType_2007IncomingLinks(view);
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2008IncomingLinks(view);
+			return getEndpointExceptionStrategyType_2008IncomingLinks(view);
 		case OutboundEndpointTypeEditPart.VISUAL_ID:
 			return getOutboundEndpointType_2009IncomingLinks(view);
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2010IncomingLinks(view);
+			return getEndpointExceptionStrategyType_2010IncomingLinks(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getCustomExceptionStrategyType_2011IncomingLinks(view);
 		case InboundCollectionTypeEditPart.VISUAL_ID:
@@ -1017,13 +1017,13 @@ public class CoreDiagramUpdater {
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getInboundEndpointType_2013IncomingLinks(view);
 		case ForwardingRouterTypeEditPart.VISUAL_ID:
-			return getForwardingRouterType_2014IncomingLinks(view);
+			return getSelectiveConsumerRouterType_2014IncomingLinks(view);
 		case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
 			return getFilteredInboundRouterType_2015IncomingLinks(view);
 		case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
 			return getFilteredInboundRouterType_2016IncomingLinks(view);
 		case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
-			return getIdempotentReceiverRouterType_2017IncomingLinks(view);
+			return getFilteredInboundRouterType_2017IncomingLinks(view);
 		case WireTapRouterTypeEditPart.VISUAL_ID:
 			return getWireTapRouterType_2018IncomingLinks(view);
 		case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
@@ -1083,8 +1083,8 @@ public class CoreDiagramUpdater {
 		switch (CoreVisualIDRegistry.getVisualID(view)) {
 		case SedaServiceTypeEditPart.VISUAL_ID:
 			return getSedaServiceType_1001OutgoingLinks(view);
-		case PojoComponentTypeEditPart.VISUAL_ID:
-			return getPojoComponentType_2001OutgoingLinks(view);
+		case JavaComponentTypeEditPart.VISUAL_ID:
+			return getDefaultJavaComponentType_2001OutgoingLinks(view);
 		case DefaultComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2002OutgoingLinks(view);
 		case BridgeComponentTypeEditPart.VISUAL_ID:
@@ -1095,14 +1095,14 @@ public class CoreDiagramUpdater {
 			return getDefaultComponentType_2005OutgoingLinks(view);
 		case NullComponentTypeEditPart.VISUAL_ID:
 			return getDefaultComponentType_2006OutgoingLinks(view);
-		case PassThroughComponentTypeEditPart.VISUAL_ID:
-			return getDefaultComponentType_2007OutgoingLinks(view);
+		case PooledJavaComponentTypeEditPart.VISUAL_ID:
+			return getPooledJavaComponentType_2007OutgoingLinks(view);
 		case DefaultServiceExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2008OutgoingLinks(view);
+			return getEndpointExceptionStrategyType_2008OutgoingLinks(view);
 		case OutboundEndpointTypeEditPart.VISUAL_ID:
 			return getOutboundEndpointType_2009OutgoingLinks(view);
 		case DefaultConnectorExceptionStrategyTypeEditPart.VISUAL_ID:
-			return getExceptionStrategyType_2010OutgoingLinks(view);
+			return getEndpointExceptionStrategyType_2010OutgoingLinks(view);
 		case CustomExceptionStrategyTypeEditPart.VISUAL_ID:
 			return getCustomExceptionStrategyType_2011OutgoingLinks(view);
 		case InboundCollectionTypeEditPart.VISUAL_ID:
@@ -1110,13 +1110,13 @@ public class CoreDiagramUpdater {
 		case InboundEndpointServiceItemTypeEditPart.VISUAL_ID:
 			return getInboundEndpointType_2013OutgoingLinks(view);
 		case ForwardingRouterTypeEditPart.VISUAL_ID:
-			return getForwardingRouterType_2014OutgoingLinks(view);
+			return getSelectiveConsumerRouterType_2014OutgoingLinks(view);
 		case IdempotentSecureRecieverRouterTypeEditPart.VISUAL_ID:
 			return getFilteredInboundRouterType_2015OutgoingLinks(view);
 		case PassThroughInboundRouterTypeEditPart.VISUAL_ID:
 			return getFilteredInboundRouterType_2016OutgoingLinks(view);
 		case IdempotentReceiverRouterTypeEditPart.VISUAL_ID:
-			return getIdempotentReceiverRouterType_2017OutgoingLinks(view);
+			return getFilteredInboundRouterType_2017OutgoingLinks(view);
 		case WireTapRouterTypeEditPart.VISUAL_ID:
 			return getWireTapRouterType_2018OutgoingLinks(view);
 		case SelectiveConsumerRouterTypeEditPart.VISUAL_ID:
@@ -1190,7 +1190,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getPojoComponentType_2001ContainedLinks(View view) {
+	public static List getDefaultJavaComponentType_2001ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1232,14 +1232,15 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getDefaultComponentType_2007ContainedLinks(View view) {
+	public static List getPooledJavaComponentType_2007ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2008ContainedLinks(View view) {
+	public static List getEndpointExceptionStrategyType_2008ContainedLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1253,7 +1254,8 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2010ContainedLinks(View view) {
+	public static List getEndpointExceptionStrategyType_2010ContainedLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1282,7 +1284,8 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getForwardingRouterType_2014ContainedLinks(View view) {
+	public static List getSelectiveConsumerRouterType_2014ContainedLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1303,8 +1306,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getIdempotentReceiverRouterType_2017ContainedLinks(
-			View view) {
+	public static List getFilteredInboundRouterType_2017ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1505,7 +1507,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getPojoComponentType_2001IncomingLinks(View view) {
+	public static List getDefaultJavaComponentType_2001IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1547,14 +1549,15 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getDefaultComponentType_2007IncomingLinks(View view) {
+	public static List getPooledJavaComponentType_2007IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2008IncomingLinks(View view) {
+	public static List getEndpointExceptionStrategyType_2008IncomingLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1568,7 +1571,8 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2010IncomingLinks(View view) {
+	public static List getEndpointExceptionStrategyType_2010IncomingLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1597,7 +1601,8 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getForwardingRouterType_2014IncomingLinks(View view) {
+	public static List getSelectiveConsumerRouterType_2014IncomingLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1618,8 +1623,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getIdempotentReceiverRouterType_2017IncomingLinks(
-			View view) {
+	public static List getFilteredInboundRouterType_2017IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1816,7 +1820,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getPojoComponentType_2001OutgoingLinks(View view) {
+	public static List getDefaultJavaComponentType_2001OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1858,14 +1862,15 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getDefaultComponentType_2007OutgoingLinks(View view) {
+	public static List getPooledJavaComponentType_2007OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2008OutgoingLinks(View view) {
+	public static List getEndpointExceptionStrategyType_2008OutgoingLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1879,7 +1884,8 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getExceptionStrategyType_2010OutgoingLinks(View view) {
+	public static List getEndpointExceptionStrategyType_2010OutgoingLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1908,7 +1914,8 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getForwardingRouterType_2014OutgoingLinks(View view) {
+	public static List getSelectiveConsumerRouterType_2014OutgoingLinks(
+			View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1929,8 +1936,7 @@ public class CoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getIdempotentReceiverRouterType_2017OutgoingLinks(
-			View view) {
+	public static List getFilteredInboundRouterType_2017OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

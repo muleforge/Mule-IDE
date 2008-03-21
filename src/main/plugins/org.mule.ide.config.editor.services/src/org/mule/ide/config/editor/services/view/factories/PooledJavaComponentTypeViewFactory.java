@@ -10,14 +10,15 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactor
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PassThroughComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PooledJavaComponentTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PooledJavaComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.PooledJavaComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
  * @generated
  */
-public class PassThroughComponentTypeViewFactory extends
+public class PooledJavaComponentTypeViewFactory extends
 		AbstractShapeViewFactory {
 
 	/**
@@ -37,7 +38,7 @@ public class PassThroughComponentTypeViewFactory extends
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = CoreVisualIDRegistry
-					.getType(PassThroughComponentTypeEditPart.VISUAL_ID);
+					.getType(PooledJavaComponentTypeEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
@@ -52,7 +53,14 @@ public class PassThroughComponentTypeViewFactory extends
 						eObjectAdapter,
 						view,
 						CoreVisualIDRegistry
-								.getType(PassThroughComponentTypeLabelEditPart.VISUAL_ID),
+								.getType(PooledJavaComponentTypeLabelEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						eObjectAdapter,
+						view,
+						CoreVisualIDRegistry
+								.getType(PooledJavaComponentTypeClassEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

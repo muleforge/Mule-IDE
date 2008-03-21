@@ -50,15 +50,15 @@ import org.mule.ide.config.editor.services.providers.CoreElementTypes;
 import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 
 /**
- * customization
+ * @generated
  */
-public class PassThroughComponentTypeLabelEditPart extends
-		ReadOnlyLabelCompartmentEditPart implements ITextAwareEditPart {
+public class PooledJavaComponentTypeClassEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4008;
+	public static final int VISUAL_ID = 4009;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class PassThroughComponentTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public PassThroughComponentTypeLabelEditPart(View view) {
+	public PooledJavaComponentTypeClassEditPart(View view) {
 		super(view);
 	}
 
@@ -187,20 +187,14 @@ public class PassThroughComponentTypeLabelEditPart extends
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-
-		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
+		return resolveSemanticElement();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return CoreElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -247,7 +241,7 @@ public class PassThroughComponentTypeLabelEditPart extends
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -308,7 +302,7 @@ public class PassThroughComponentTypeLabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new CoreParserProvider.HintAdapter(
-					CoreElementTypes.DefaultComponentType_2007,
+					CoreElementTypes.PooledJavaComponentType_2007,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

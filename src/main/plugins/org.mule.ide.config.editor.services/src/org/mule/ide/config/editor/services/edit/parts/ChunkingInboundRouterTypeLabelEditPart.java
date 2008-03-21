@@ -58,7 +58,7 @@ public class ChunkingInboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4022;
+	public static final int VISUAL_ID = 4023;
 
 	/**
 	 * @generated

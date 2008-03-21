@@ -25,14 +25,14 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 import org.mule.ide.config.editor.services.edit.policies.CoreTextSelectionEditPolicy;
-import org.mule.ide.config.editor.services.edit.policies.PassThroughComponentTypeItemSemanticEditPolicy;
+import org.mule.ide.config.editor.services.edit.policies.PooledJavaComponentTypeItemSemanticEditPolicy;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 import org.mule.ide.config.editor.services.part.Messages;
 
 /**
  * customization
  */
-public class PassThroughComponentTypeEditPart extends ServiceItemNodeEditPart {
+public class PooledJavaComponentTypeEditPart extends ServiceItemNodeEditPart {
 
 	/**
 	 * @generated
@@ -52,7 +52,7 @@ public class PassThroughComponentTypeEditPart extends ServiceItemNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public PassThroughComponentTypeEditPart(View view) {
+	public PooledJavaComponentTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -63,7 +63,7 @@ public class PassThroughComponentTypeEditPart extends ServiceItemNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new PassThroughComponentTypeItemSemanticEditPolicy());
+				new PooledJavaComponentTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -92,25 +92,31 @@ public class PassThroughComponentTypeEditPart extends ServiceItemNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		ServiceItemFigure figure = new ServiceItemFigure();
+		ClassServiceItemFigure figure = new ClassServiceItemFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public ServiceItemFigure getPrimaryShape() {
-		return (ServiceItemFigure) primaryShape;
+	public ClassServiceItemFigure getPrimaryShape() {
+		return (ClassServiceItemFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof PassThroughComponentTypeLabelEditPart) {
-			((PassThroughComponentTypeLabelEditPart) childEditPart)
+		if (childEditPart instanceof PooledJavaComponentTypeLabelEditPart) {
+			((PooledJavaComponentTypeLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigureServiceItemTypeLabelFigure());
+							.getFigureClassServiceItemTypeLabelFigure());
+			return true;
+		}
+		if (childEditPart instanceof PooledJavaComponentTypeClassEditPart) {
+			((PooledJavaComponentTypeClassEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureClassServiceItemClassLabelFigure());
 			return true;
 		}
 		return false;
@@ -177,7 +183,7 @@ public class PassThroughComponentTypeEditPart extends ServiceItemNodeEditPart {
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
 		ServiceEditPartUtil.configureServiceItemFigure(figure,
-				Messages.PassThroughComponentTypeLabel);
+				Messages.PooledJavaComponentTypeLabel);
 		return figure;
 	}
 
@@ -211,23 +217,27 @@ public class PassThroughComponentTypeEditPart extends ServiceItemNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(CoreVisualIDRegistry
-				.getType(PassThroughComponentTypeLabelEditPart.VISUAL_ID));
+				.getType(PooledJavaComponentTypeLabelEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class ServiceItemFigure extends RoundedRectangle {
+	public class ClassServiceItemFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureServiceItemTypeLabelFigure;
+		private WrapLabel fFigureClassServiceItemTypeLabelFigure;
+		/**
+		 * @generated
+		 */
+		private WrapLabel fFigureClassServiceItemClassLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public ServiceItemFigure() {
+		public ClassServiceItemFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
@@ -253,15 +263,27 @@ public class PassThroughComponentTypeEditPart extends ServiceItemNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureServiceItemTypeLabelFigure = new WrapLabel();
-			fFigureServiceItemTypeLabelFigure.setText("");
-			fFigureServiceItemTypeLabelFigure
+			fFigureClassServiceItemTypeLabelFigure = new WrapLabel();
+			fFigureClassServiceItemTypeLabelFigure.setText("");
+			fFigureClassServiceItemTypeLabelFigure
 					.setForegroundColor(ColorConstants.gray);
 
-			fFigureServiceItemTypeLabelFigure
-					.setFont(FFIGURESERVICEITEMTYPELABELFIGURE_FONT);
+			fFigureClassServiceItemTypeLabelFigure
+					.setFont(FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT);
 
-			this.add(fFigureServiceItemTypeLabelFigure);
+			this.add(fFigureClassServiceItemTypeLabelFigure);
+
+			fFigureClassServiceItemClassLabelFigure = new WrapLabel();
+			fFigureClassServiceItemClassLabelFigure.setText("");
+
+			fFigureClassServiceItemClassLabelFigure
+					.setFont(FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT);
+
+			fFigureClassServiceItemClassLabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(15),
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
+
+			this.add(fFigureClassServiceItemClassLabelFigure);
 
 		}
 
@@ -287,8 +309,15 @@ public class PassThroughComponentTypeEditPart extends ServiceItemNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureServiceItemTypeLabelFigure() {
-			return fFigureServiceItemTypeLabelFigure;
+		public WrapLabel getFigureClassServiceItemTypeLabelFigure() {
+			return fFigureClassServiceItemTypeLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureClassServiceItemClassLabelFigure() {
+			return fFigureClassServiceItemClassLabelFigure;
 		}
 
 	}
@@ -301,9 +330,15 @@ public class PassThroughComponentTypeEditPart extends ServiceItemNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGURESERVICEITEMTYPELABELFIGURE_FONT = new Font(Display
-			.getCurrent(),
-			Display.getDefault().getSystemFont().getFontData()[0].getName(), 8,
-			SWT.ITALIC);
+	static final Font FFIGURECLASSSERVICEITEMTYPELABELFIGURE_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 8, SWT.ITALIC);
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGURECLASSSERVICEITEMCLASSLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 10, SWT.NORMAL);
 
 }

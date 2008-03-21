@@ -44,7 +44,6 @@ public class PassThroughInboundRouterTypeCreateCommand extends
 
 	@Override
 	protected EReference getContainmentReference() {
-		return CorePackage.eINSTANCE
-				.getDocumentRoot_InboundPassThroughRouter();
+		return CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter();
 	}
 }

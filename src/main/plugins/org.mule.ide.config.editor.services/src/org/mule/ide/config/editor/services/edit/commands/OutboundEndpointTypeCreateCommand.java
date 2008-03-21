@@ -8,13 +8,11 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.ExceptionStrategyType;
 
 /**
  * customization
  */
-public class OutboundEndpointTypeCreateCommand extends
-		CoreElementCreateCommand {
+public class OutboundEndpointTypeCreateCommand extends CoreElementCreateCommand {
 
 	/**
 	 * @generated
@@ -39,7 +37,7 @@ public class OutboundEndpointTypeCreateCommand extends
 	 * @generated
 	 */
 	protected EClass getEClassToEdit() {
-		return CorePackage.eINSTANCE.getExceptionStrategyType();
+		return CorePackage.eINSTANCE.getEndpointExceptionStrategyType();
 	}
 
 	@Override

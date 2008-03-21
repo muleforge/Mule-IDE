@@ -13,8 +13,7 @@ import org.mule.ide.config.core.InboundCollectionType;
 /**
  * customization
  */
-public class WireTapRouterTypeCreateCommand extends
-		CoreElementCreateCommand {
+public class WireTapRouterTypeCreateCommand extends CoreElementCreateCommand {
 
 	/**
 	 * @generated

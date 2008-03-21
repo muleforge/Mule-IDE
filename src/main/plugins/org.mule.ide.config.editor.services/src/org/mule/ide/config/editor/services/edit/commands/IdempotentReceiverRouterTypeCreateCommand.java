@@ -44,7 +44,6 @@ public class IdempotentReceiverRouterTypeCreateCommand extends
 
 	@Override
 	protected EReference getContainmentReference() {
-		return CorePackage.eINSTANCE
-				.getDocumentRoot_IdempotentReceiverRouter();
+		return CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter();
 	}
 }

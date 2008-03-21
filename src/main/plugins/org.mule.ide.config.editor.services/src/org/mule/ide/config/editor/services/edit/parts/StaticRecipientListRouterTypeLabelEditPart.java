@@ -58,7 +58,7 @@ public class StaticRecipientListRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4043;
+	public static final int VISUAL_ID = 4044;
 
 	/**
 	 * @generated

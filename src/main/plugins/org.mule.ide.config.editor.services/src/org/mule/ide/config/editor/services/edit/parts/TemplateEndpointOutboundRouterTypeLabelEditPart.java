@@ -58,7 +58,7 @@ public class TemplateEndpointOutboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4039;
+	public static final int VISUAL_ID = 4040;
 
 	/**
 	 * @generated

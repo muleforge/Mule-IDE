@@ -58,7 +58,7 @@ public class CorrelationResequencerRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4023;
+	public static final int VISUAL_ID = 4024;
 
 	/**
 	 * @generated

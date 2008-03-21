@@ -60,15 +60,15 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(CoreElementTypes.InboundCollectionType_2012);
 			types.add(CoreElementTypes.AsyncReplyCollectionType_2024);
 			types.add(CoreElementTypes.OutboundCollectionType_2028);
-			types.add(CoreElementTypes.PojoComponentType_2001);
+			types.add(CoreElementTypes.DefaultJavaComponentType_2001);
 			types.add(CoreElementTypes.DefaultComponentType_2002);
 			types.add(CoreElementTypes.DefaultComponentType_2003);
 			types.add(CoreElementTypes.DefaultComponentType_2004);
 			types.add(CoreElementTypes.DefaultComponentType_2005);
 			types.add(CoreElementTypes.DefaultComponentType_2006);
-			types.add(CoreElementTypes.DefaultComponentType_2007);
-			types.add(CoreElementTypes.ExceptionStrategyType_2008);
-			types.add(CoreElementTypes.ExceptionStrategyType_2010);
+			types.add(CoreElementTypes.PooledJavaComponentType_2007);
+			types.add(CoreElementTypes.EndpointExceptionStrategyType_2008);
+			types.add(CoreElementTypes.EndpointExceptionStrategyType_2010);
 			types.add(CoreElementTypes.CustomExceptionStrategyType_2011);
 			return types;
 		}
@@ -90,10 +90,10 @@ public class CoreModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof InboundCollectionTypeEditPart) {
 			List types = new ArrayList();
 			types.add(CoreElementTypes.InboundEndpointType_2013);
-			types.add(CoreElementTypes.ForwardingRouterType_2014);
+			types.add(CoreElementTypes.SelectiveConsumerRouterType_2014);
 			types.add(CoreElementTypes.FilteredInboundRouterType_2015);
 			types.add(CoreElementTypes.FilteredInboundRouterType_2016);
-			types.add(CoreElementTypes.IdempotentReceiverRouterType_2017);
+			types.add(CoreElementTypes.FilteredInboundRouterType_2017);
 			types.add(CoreElementTypes.WireTapRouterType_2018);
 			types.add(CoreElementTypes.SelectiveConsumerRouterType_2019);
 			types

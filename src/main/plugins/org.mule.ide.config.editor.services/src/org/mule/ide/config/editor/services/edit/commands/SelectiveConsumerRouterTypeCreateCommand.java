@@ -44,7 +44,6 @@ public class SelectiveConsumerRouterTypeCreateCommand extends
 
 	@Override
 	protected EReference getContainmentReference() {
-		return CorePackage.eINSTANCE
-						.getDocumentRoot_SelectiveConsumerRouter();
+		return CorePackage.eINSTANCE.getDocumentRoot_SelectiveConsumerRouter();
 	}
 }

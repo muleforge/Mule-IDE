@@ -39,7 +39,8 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new InboundEndpointServiceItemTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.ForwardingRouterType_2014 == req.getElementType()) {
+		if (CoreElementTypes.SelectiveConsumerRouterType_2014 == req
+				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
 						.getInboundCollectionType_AbstractInboundRouter());
@@ -64,7 +65,7 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 			return getGEFWrapper(new PassThroughInboundRouterTypeCreateCommand(
 					req));
 		}
-		if (CoreElementTypes.IdempotentReceiverRouterType_2017 == req
+		if (CoreElementTypes.FilteredInboundRouterType_2017 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(CorePackage.eINSTANCE
@@ -125,11 +126,12 @@ public class InboundCollectionTypeINBOUNDROUTERSItemSemanticEditPolicy extends
 		}
 		return super.getCreateCommand(req);
 	}
-	
+
 	@Override
-	protected void initExtensibleChildTypes(HashMap<EClass,EReference> map) {
-		map.put(CorePackage.eINSTANCE.getAbstractInboundEndpointType(), 
-				CorePackage.eINSTANCE.getInboundCollectionType_AbstractInboundEndpoint());
+	protected void initExtensibleChildTypes(HashMap<EClass, EReference> map) {
+		map.put(CorePackage.eINSTANCE.getAbstractInboundEndpointType(),
+				CorePackage.eINSTANCE
+						.getInboundCollectionType_AbstractInboundEndpoint());
 	}
 
 }

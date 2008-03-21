@@ -58,7 +58,7 @@ public class ChainingOutboundRouterTypeLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4036;
+	public static final int VISUAL_ID = 4037;
 
 	/**
 	 * @generated

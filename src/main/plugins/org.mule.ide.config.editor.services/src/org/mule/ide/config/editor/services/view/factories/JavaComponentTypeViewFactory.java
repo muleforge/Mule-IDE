@@ -10,15 +10,15 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactor
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeClassEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeEditPart;
-import org.mule.ide.config.editor.services.edit.parts.PojoComponentTypeLabelEditPart;
+import org.mule.ide.config.editor.services.edit.parts.JavaComponentTypeClassEditPart;
+import org.mule.ide.config.editor.services.edit.parts.JavaComponentTypeEditPart;
+import org.mule.ide.config.editor.services.edit.parts.JavaComponentTypeLabelEditPart;
 import org.mule.ide.config.editor.services.part.CoreVisualIDRegistry;
 
 /**
  * @generated
  */
-public class PojoComponentTypeViewFactory extends AbstractShapeViewFactory {
+public class JavaComponentTypeViewFactory extends AbstractShapeViewFactory {
 
 	/**
 	 * @generated
@@ -37,7 +37,7 @@ public class PojoComponentTypeViewFactory extends AbstractShapeViewFactory {
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = CoreVisualIDRegistry
-					.getType(PojoComponentTypeEditPart.VISUAL_ID);
+					.getType(JavaComponentTypeEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
@@ -51,13 +51,13 @@ public class PojoComponentTypeViewFactory extends AbstractShapeViewFactory {
 				eObjectAdapter,
 				view,
 				CoreVisualIDRegistry
-						.getType(PojoComponentTypeLabelEditPart.VISUAL_ID),
+						.getType(JavaComponentTypeLabelEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService().createNode(
 				eObjectAdapter,
 				view,
 				CoreVisualIDRegistry
-						.getType(PojoComponentTypeClassEditPart.VISUAL_ID),
+						.getType(JavaComponentTypeClassEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

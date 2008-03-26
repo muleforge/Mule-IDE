@@ -97,12 +97,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.mule.ide.project.examples"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
          id="org.mule.ide.config.axis"
          download-size="0"
          install-size="0"
@@ -139,6 +133,13 @@
 
    <plugin
          id="org.mule.ide.config.stdio"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mule.ide.project"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+  	  <wizard
+           canFinishEarly="false"
+           category="org.mule.ide.MuleWizards"
+           class="org.mule.ide.project.internal.wizards.MuleNewProjectWizard"
+           hasPages="true"
+           icon="icons/mule-small.gif"
+           id="org.mule.ide.project.internal.wizards.MuleNewProjectWizardID"
+           name="Mule Project"
+           project="true">
+  	  	 <description>Create a Java project configured with Mule libraries and optionally containing example project files.</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.mule.ide.project.internal.preferences.MulePreferencesPage"
+            id="org.mule.ide.preferences.MulePreferencePage"
+            name="Mule">
+         
+         <keywordReference id="org.mule.ide.project.keyword.mule"/>
+      </page>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.keywords">
+      <keyword
+            id="org.mule.ide.project.keyword.mule"
+            label="Mule"/>
+   </extension>
+ 
+   <extension
+         point="org.eclipse.jdt.core.classpathContainerInitializer">
+          <classpathContainerInitializer    
+	         id="org.mule.ide.project.muleClasspath"
+    		 class="org.mule.ide.project.internal.runtime.MuleClasspathInitializer" />
+   </extension>
+   
+   <extension
+         point="org.eclipse.jdt.ui.classpathContainerPage">
+      <classpathContainerPage
+            class="org.mule.ide.project.internal.runtime.MuleClasspathContainerPage"
+            id="org.mule.ide.project.muleClasspath"
+            name="Mule Classpath"/>
+   </extension>
+   
+</plugin>

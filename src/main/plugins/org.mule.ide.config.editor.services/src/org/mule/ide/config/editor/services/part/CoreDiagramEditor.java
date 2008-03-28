@@ -32,6 +32,7 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorMatchingStrategy;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
@@ -49,6 +50,7 @@ public class CoreDiagramEditor extends DiagramDocumentEditor implements
 		IGotoMarker {
 
 	private ServicesPaletteManager paletteManager;
+	private IWorkbenchPart parentEditor;
 
 	/**
 	 * @generated
@@ -66,6 +68,19 @@ public class CoreDiagramEditor extends DiagramDocumentEditor implements
 	public CoreDiagramEditor() {
 		super(true);
 	}
+	
+	public CoreDiagramEditor(IWorkbenchPart parentEditor) {
+		this();
+		this.parentEditor = parentEditor;
+	}
+	
+	@Override
+	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+		if (part.equals(parentEditor))
+			updateActions(super.getSelectionActions());
+		else
+			super.selectionChanged(part, selection);
+	}	
 
 	/**
 	 * @generated

@@ -87,12 +87,12 @@
    </extension>
 	
    <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
          id="CorePresentation">
          <Priority name="Lowest"/>
-         <ViewId id="org.mule.ide.config.editor.services.part.CoreDiagramEditorID">
+         <ViewId id="org.mule.ide.config.editor.editors.MuleConfigEditor">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="delete"/>
             </ElementType>
@@ -105,7 +105,7 @@
          class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
          id="CorePresentationIDE">
          <Priority name="Lowest"/>
-         <ViewId id="org.mule.ide.config.editor.services.part.CoreDiagramEditorID">
+         <ViewId id="org.mule.ide.config.editor.editors.MuleConfigEditor">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="bookmark"/>
             </ElementType>
@@ -115,7 +115,7 @@
             class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
             id="CoreRender">
          <Priority name="Lowest"/>
-         <ViewId id="org.mule.ide.config.editor.services.part.CoreDiagramEditorID">
+         <ViewId id="org.mule.ide.config.editor.editors.MuleConfigEditor">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="cut"/>
                <GlobalActionId actionId="copy"/>

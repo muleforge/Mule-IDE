@@ -1,23 +1,12 @@
 package org.mule.ide.config.editor.internal.overview;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.jface.resource.JFaceResources;
-import org.eclipse.jface.text.Document;
-import org.eclipse.jface.text.DocumentEvent;
-import org.eclipse.jface.text.IDocument;
-import org.eclipse.jface.text.IDocumentListener;
-import org.eclipse.jface.text.ITextViewer;
-import org.eclipse.jface.text.TextViewer;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
@@ -26,6 +15,8 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
+import org.mule.ide.config.core.CoreFactory;
+import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DescriptionType;
 import org.mule.ide.config.core.MuleType;
 import org.mule.ide.config.editor.Messages;
@@ -36,13 +27,12 @@ import org.mule.ide.config.editor.internal.form.FormLayoutFactory;
 public class DescriptionSection extends ConfigEditorSection implements ModifyListener {
 
 	private DescriptionNotificationAdapter fNotificationAdapter;
-	//private IDocument fDocument;
 	private Text text;
-	private boolean fIgnoreChange;
+	private boolean fIgnoreTextEditorEvent;
+	private boolean fIgnoreEMFEvent;
 
 	public DescriptionSection(ConfigEditorFormPage page, Composite parent, int style) {
 		super(page, parent, Section.DESCRIPTION|ExpandableComposite.TITLE_BAR|style);
-		//fDocument = new Document();
 		FormToolkit toolkit = page.getManagedForm().getToolkit();
 		createClient(getSection(), toolkit);
 	}
@@ -71,21 +61,6 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 		gd.minimumHeight = 60;
 		gd.heightHint = 60;
 		text.setLayoutData(gd);
-
-		/*
-		fTextViewer = new TextViewer(container, styles);
-		fTextViewer.setDocument(fDocument);
-		fTextViewer
-			.addSelectionChangedListener(new ISelectionChangedListener() {
-				public void selectionChanged(SelectionChangedEvent event) {
-					DescriptionSection.this.selectionChanged(event.getSelection());
-				}
-			});
-		StyledText styledText = fTextViewer.getTextWidget();
-		styledText.setFont(JFaceResources.getTextFont());
-		//styledText.setMenu(getPage().getConfigEditor().getContextMenu());
-		styledText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
-		*/
 		
 		initialize();
 	}
@@ -96,16 +71,6 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 	}
 
 	public void initialize() {
-		/*
-		fDocument.addDocumentListener(new IDocumentListener() {
-			public void documentChanged(DocumentEvent e) {
-				documentModified();
-			}
-
-			public void documentAboutToBeChanged(DocumentEvent e) {
-			}
-		});	
-		*/	
 		text.addModifyListener(this);
 		
 		MuleType mule = getMuleElement();
@@ -137,9 +102,7 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 	}
 	
 	private void updateDocumentInput(boolean commitPrevious) {
-		// TODO the commit, see org.eclipse.pde.internal.ui.editor.feature.InfoSection
-		
-		fIgnoreChange = true;
+		fIgnoreTextEditorEvent = true;
 		MuleType mule = getMuleElement();
 		DescriptionType description = mule.getDescription();
 		if (description != null) {
@@ -152,9 +115,13 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 			String value = description.getValue();
 			if (value != null) {
 				text.setText(value);
+			} else {
+				text.setText("");
 			}
+		} else {
+			text.setText("");
 		}		
-		fIgnoreChange = false;
+		fIgnoreTextEditorEvent = false;
 	}
 
 	@Override
@@ -163,15 +130,15 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 		if (EcoreUtil.getExistingAdapter(mule, DescriptionSection.class) != null) {
 			mule.eAdapters().remove(fNotificationAdapter);
 		}
+		DescriptionType description = mule.getDescription();
+		if (description != null) {
+			if (EcoreUtil.getExistingAdapter(mule, DescriptionSection.class) != null) {
+				description.eAdapters().remove(fNotificationAdapter);
+			}			
+		}
 		super.dispose();
 	}
 
-	private void documentModified() {
-		if (!fIgnoreChange) {
-			markDirty();
-		}
-	}
-	
 	class DescriptionNotificationAdapter extends AdapterImpl {
 		@Override
 		public boolean isAdapterForType(Object type) {
@@ -179,12 +146,47 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 		}
 		@Override
 		public void notifyChanged(Notification msg) {
-			int eventType = msg.getEventType();
+			if (! fIgnoreEMFEvent) {
+				int eventType = msg.getEventType();
+				if (eventType == Notification.REMOVE) {
+					if (msg.getOldValue() instanceof DescriptionType) {
+						// Remove of description element
+						refresh();
+					}
+				}
+				if (eventType == Notification.SET) {
+					if (msg.getNewValue() instanceof DescriptionType) {
+						// Add new description element
+						refresh();
+					} else if (msg.getNotifier() instanceof DescriptionType) {
+						// Set description element value
+						refresh();					
+					}
+				}
+			}
 		}
 	}
 
 	public void modifyText(ModifyEvent e) {
-		// TODO Auto-generated method stub
-		
+		if (!fIgnoreTextEditorEvent) {
+			markDirty();
+
+			Command command;
+			MuleType mule = getMuleElement();
+			DescriptionType description = mule.getDescription();
+			
+			if (description == null) {
+				description = CoreFactory.eINSTANCE.createDescriptionType();
+				description.setValue(text.getText());
+				command = SetCommand.create(getEditingDomain(), mule, CorePackage.eINSTANCE.getMuleType_Description(), description);
+			} else {
+				command = SetCommand.create(getEditingDomain(), description, CorePackage.eINSTANCE.getDescriptionType_Value(), text.getText());
+			}
+			if (command.canExecute()) {
+				fIgnoreEMFEvent = true;
+				getEditingDomain().getCommandStack().execute(command);
+				fIgnoreEMFEvent = false;
+			}		
+		}
 	}
 }

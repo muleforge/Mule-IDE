@@ -4516,13 +4516,13 @@ public interface CorePackage extends EPackage, IGlobalElementTypeProvider {
 	int DEFINE_NOTIFICATION_TYPE_FEATURE_COUNT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESCRIPTION_TYPE__MIXED = 0;
+	int DESCRIPTION_TYPE__VALUE = 0;
 
 	/**
 	 * The number of structural features of the '<em>Description Type</em>' class.
@@ -12645,15 +12645,15 @@ public interface CorePackage extends EPackage, IGlobalElementTypeProvider {
 	EClass getDescriptionType();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.core.DescriptionType#getMixed <em>Mixed</em>}'.
+	 * Returns the meta object for the attribute '{@link org.mule.ide.config.core.DescriptionType#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Mixed</em>'.
-	 * @see org.mule.ide.config.core.DescriptionType#getMixed()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.mule.ide.config.core.DescriptionType#getValue()
 	 * @see #getDescriptionType()
 	 * @generated
 	 */
-	EAttribute getDescriptionType_Mixed();
+	EAttribute getDescriptionType_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.mule.ide.config.core.DisableNotificationType <em>Disable Notification Type</em>}'.

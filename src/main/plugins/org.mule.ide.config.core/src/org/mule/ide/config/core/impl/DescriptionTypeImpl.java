@@ -6,9 +6,11 @@
  */
 package org.mule.ide.config.core.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -27,7 +29,7 @@ import org.mule.ide.config.core.DescriptionType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.DescriptionTypeImpl#getMixed <em>Mixed</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DescriptionTypeImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,15 +37,23 @@ import org.mule.ide.config.core.DescriptionType;
  */
 public class DescriptionTypeImpl extends EObjectImpl implements DescriptionType {
 	/**
-	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMixed()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap mixed;
-
+	protected static final String VALUE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String value = VALUE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,11 +78,8 @@ public class DescriptionTypeImpl extends EObjectImpl implements DescriptionType 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getMixed() {
-		if (mixed == null) {
-			mixed = new BasicFeatureMap(this, CorePackage.DESCRIPTION_TYPE__MIXED);
-		}
-		return mixed;
+	public String getValue() {
+		return value;
 	}
 
 	/**
@@ -80,13 +87,11 @@ public class DescriptionTypeImpl extends EObjectImpl implements DescriptionType 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CorePackage.DESCRIPTION_TYPE__MIXED:
-				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.DESCRIPTION_TYPE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -97,9 +102,8 @@ public class DescriptionTypeImpl extends EObjectImpl implements DescriptionType 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.DESCRIPTION_TYPE__MIXED:
-				if (coreType) return getMixed();
-				return ((FeatureMap.Internal)getMixed()).getWrapper();
+			case CorePackage.DESCRIPTION_TYPE__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,8 +116,8 @@ public class DescriptionTypeImpl extends EObjectImpl implements DescriptionType 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.DESCRIPTION_TYPE__MIXED:
-				((FeatureMap.Internal)getMixed()).set(newValue);
+			case CorePackage.DESCRIPTION_TYPE__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -127,8 +131,8 @@ public class DescriptionTypeImpl extends EObjectImpl implements DescriptionType 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.DESCRIPTION_TYPE__MIXED:
-				getMixed().clear();
+			case CorePackage.DESCRIPTION_TYPE__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -142,8 +146,8 @@ public class DescriptionTypeImpl extends EObjectImpl implements DescriptionType 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.DESCRIPTION_TYPE__MIXED:
-				return mixed != null && !mixed.isEmpty();
+			case CorePackage.DESCRIPTION_TYPE__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -158,8 +162,8 @@ public class DescriptionTypeImpl extends EObjectImpl implements DescriptionType 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (mixed: ");
-		result.append(mixed);
+		result.append(" (value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

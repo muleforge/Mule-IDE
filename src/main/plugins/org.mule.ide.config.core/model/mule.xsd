@@ -112,9 +112,14 @@
     </xsd:group>
 
     <xsd:complexType name="descriptionType">
+    <!--  WORKAROUND:  the IDE's EMF/DOM sync code doesn't handle mixed yet.
         <xsd:complexContent mixed="true">
             <xsd:extension base="xsd:anyType"/>
         </xsd:complexContent>
+    -->
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string"/>
+        </xsd:simpleContent>
     </xsd:complexType>
 
     <xsd:element name="abstract-extension" abstract="true" type="abstractExtensionType">

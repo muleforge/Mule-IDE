@@ -379,7 +379,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//DefineNotificationType/interfaceClass"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//DescriptionType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute core.ecore#//DescriptionType/mixed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//DescriptionType/value"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//DisableNotificationType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//DisableNotificationType/event"/>

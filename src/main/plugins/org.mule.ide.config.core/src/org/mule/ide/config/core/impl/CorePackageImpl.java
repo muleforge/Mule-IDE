@@ -3393,7 +3393,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDescriptionType_Mixed() {
+	public EAttribute getDescriptionType_Value() {
         return (EAttribute)getDescriptionType().getEStructuralFeatures().get(0);
 	}
 

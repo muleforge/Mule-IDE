@@ -143,9 +143,15 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 		MuleType mule = getMuleElement();
 		DescriptionType description = mule.getDescription();
 		if (description != null) {
+			/* Workaround EMF/DOM sync code doesn't handle mixed yet
 			FeatureMap map = description.getMixed();
 			if (map.size() == 1) {
 				text.setText(map.get(0).getValue().toString());
+			}
+			*/
+			String value = description.getValue();
+			if (value != null) {
+				text.setText(value);
 			}
 		}		
 		fIgnoreChange = false;

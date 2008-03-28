@@ -35,6 +35,10 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.action.IToolBarManager;
@@ -77,7 +81,10 @@ import org.mule.ide.config.editor.services.part.ServicesPaletteManager;
  * 
  */
 // See also PDEFormEditor for functionality that we may want to add.
-public class MuleConfigEditor extends FormEditor implements IResourceChangeListener, ISaveablePart2 {
+// TODO: implement IDiagramWorkbenchPart to turn on the ModelingAssitant. 
+// Need to customize the current modeling assistant suggestions first.
+public class MuleConfigEditor extends FormEditor 
+	implements IResourceChangeListener, ISaveablePart2 {  
 
 	public static final String ID = "org.mule.ide.config.editor.editors.MuleConfigEditor"; //$NON-NLS-1$
 	
@@ -155,7 +162,7 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
     			 return;
     		 }
     	}
-    	servicesEditor = new CoreDiagramEditor();
+    	servicesEditor = new CoreDiagramEditor(this);
     	servicesEditor.setPaletteManager(new ServicesPaletteManager(documentRoot));
     	FileEditorInput diagramEditorInput = new FileEditorInput(diagramFile);
     	int index = addPage(servicesEditor, diagramEditorInput);
@@ -545,6 +552,38 @@ public class MuleConfigEditor extends FormEditor implements IResourceChangeListe
 	}
 
 	public void contributeToToolbar(IToolBarManager manager) {
+	}
+
+	public Diagram getDiagram() {
+		if (getActiveEditor() == servicesEditor) {
+			return servicesEditor.getDiagram();
+		} else {
+			return null;
+		}
+	}
+
+	public IDiagramEditDomain getDiagramEditDomain() {
+		if (getActiveEditor() == servicesEditor) {
+			return servicesEditor.getDiagramEditDomain();
+		} else {
+			return null;
+		}
+	}
+
+	public DiagramEditPart getDiagramEditPart() {
+		if (getActiveEditor() == servicesEditor) {
+			return servicesEditor.getDiagramEditPart();
+		} else {
+			return null;
+		}
+	}
+
+	public IDiagramGraphicalViewer getDiagramGraphicalViewer() {
+		if (getActiveEditor() == servicesEditor) {
+			return servicesEditor.getDiagramGraphicalViewer();
+		} else {
+			return null;
+		}
 	}
 
 	/*  TODO need to revisit:  when an OverviewPage section widget called setSelection here,

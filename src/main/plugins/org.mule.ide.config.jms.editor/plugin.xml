@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders">
+      <?gmfgen generated="true"?>
+      <viewProvider class="org.mule.ide.config.jms.editor.services.providers.JMSViewProvider">
+         <Priority name="Medium"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="JMS"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints=""/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="org.mule.ide.config.jms.editor.services.providers.JMSEditPartProvider">
+         <Priority name="Medium"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="org.mule.ide.config.jms.editor.services.providers.JMSModelingAssistantProvider">
+         <Priority name="Lowest"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders">
+      <?gmfgen generated="true"?>
+      <IconProvider class="org.mule.ide.config.jms.editor.services.providers.JMSIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="org.mule.ide.config.jms.editor.services.providers.JMSParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/jms/2.0">
+         <metamodelType
+               id="org.mule.ide.config.jms.editor.InboundEndpointType_2002"
+               name="%metatype.name.InboundEndpointType_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InboundEndpointType"
+               edithelper="org.mule.ide.config.jms.editor.services.edit.helpers.InboundEndpointTypeEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mulesource.org/schema/mule/jms/2.0">
+         <metamodelType
+               id="org.mule.ide.config.jms.editor.OutboundEndpointType_2004"
+               name="%metatype.name.OutboundEndpointType_2004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="OutboundEndpointType"
+               edithelper="org.mule.ide.config.jms.editor.services.edit.helpers.OutboundEndpointTypeEditHelper">
+            <param name="semanticHint" value="2004"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="JMSClientContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="org.mule.ide.config.jms.editor.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="JMSClientContext">
+         <elementType ref="org.mule.ide.config.jms.editor.InboundEndpointType_2002"/>
+         <elementType ref="org.mule.ide.config.jms.editor.OutboundEndpointType_2004"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="org.mule.ide.config.jms.editor.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="org.mule.ide.config.jms.editor.services.navigator.JMSNavigatorContentProvider" 
+            labelProvider="org.mule.ide.config.jms.editor.services.navigator.JMSNavigatorLabelProvider"
+            icon="icons/obj16/CoreDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="jms_diagram"/>
+               </and>
+               <instanceof value="org.mule.ide.config.jms.editor.services.navigator.JMSAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="org.mule.ide.config.jms.editor.services.navigator.JMSAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="org.mule.ide.config.jms.editor.navigatorSorter" 
+               class="org.mule.ide.config.jms.editor.services.navigator.JMSNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="jms_diagram"/>
+                  </and>
+                  <instanceof value="org.mule.ide.config.jms.editor.services.navigator.JMSAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="org.mule.ide.config.jms.editor.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="org.mule.ide.config.jms.editor.services.navigator.JMSDomainNavigatorContentProvider" 
+            labelProvider="org.mule.ide.config.jms.editor.services.navigator.JMSDomainNavigatorLabelProvider"
+            icon="icons/obj16/CoreDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="jms"/>
+               </and>
+               <and>
+                  <instanceof value="org.eclipse.emf.ecore.EObject"/>
+                  <test property="org.mule.ide.config.jms.editor.isDomainModelElement"/>
+               </and>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <and>
+       	       <instanceof value="org.eclipse.emf.ecore.EObject"/>
+       	       <test property="org.mule.ide.config.jms.editor.isDomainModelElement"/>
+       	    </and>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="org.mule.ide.config.jms.editor.navigatorActionProvider"
+            class="org.mule.ide.config.jms.editor.services.navigator.JMSNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="org.mule.ide.config.jms.editor.services.navigator.JMSAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+   <extension point="org.eclipse.ui.navigator.linkHelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="org.mule.ide.config.jms.editor.navigatorLinkHelper"
+            class="org.mule.ide.config.jms.editor.services.navigator.JMSNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="org.mule.ide.config.jms.editor.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="org.mule.ide.config.jms.editor.services.navigator.JMSAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+
+   <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.paletteProviders">
+      <paletteProvider
+            class="org.mule.ide.config.jms.editor.services.part.JMSPaletteFactory$PaletteProvider">
+         <Priority
+               name="Medium">
+         </Priority>
+         <editor
+               id="org.mule.ide.config.editor.services.part.CoreDiagramEditorID"></editor>
+      </paletteProvider>
+   </extension>
+	
+	<extension
+	      point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
+	   <editpolicyProvider
+	         class="org.mule.ide.config.jms.editor.services.providers.JMSEditPolicyProvider">
+	      <Priority
+	            name="Lowest">
+	      </Priority>
+	   </editpolicyProvider>
+	</extension>
+
+</plugin>

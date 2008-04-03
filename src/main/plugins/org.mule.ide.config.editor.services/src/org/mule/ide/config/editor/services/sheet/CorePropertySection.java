@@ -18,6 +18,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
+import org.mule.ide.config.editor.services.part.ServicesEditorPlugin;
 
 /**
  * @generated
@@ -98,9 +99,11 @@ public class CorePropertySection extends AdvancedPropertySection implements
 	}
 
 	/**
-	 * @generated
+	 * customization
 	 */
 	protected AdapterFactory getAdapterFactory(Object object) {
+		return ServicesEditorPlugin.getInstance().getItemProvidersAdapterFactory();
+		/*
 		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
 			return ((AdapterFactoryEditingDomain) getEditingDomain())
 					.getAdapterFactory();
@@ -112,6 +115,7 @@ public class CorePropertySection extends AdvancedPropertySection implements
 					.getAdapterFactory();
 		}
 		return null;
+		*/
 	}
 
 }

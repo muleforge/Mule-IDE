@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.xml.type.SimpleAnyType;
 import org.eclipse.wst.xml.core.internal.provisional.document.IDOMNode;
 import org.mule.ide.config.common.SyncAdapter;
 import org.mule.ide.config.common.SyncResource;
+import org.mule.ide.config.common.SyncXMLHelper;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -1368,5 +1369,8 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 
 		return resultNode;
 	}
-	
+
+	public void setHelper(SyncXMLHelper xmlHelper) {
+		this.helper = xmlHelper;
+	}
 }

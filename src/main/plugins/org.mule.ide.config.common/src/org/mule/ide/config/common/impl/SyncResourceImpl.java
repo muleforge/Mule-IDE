@@ -8,6 +8,7 @@ package org.mule.ide.config.common.impl;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 import java.util.concurrent.Executor;
@@ -18,10 +19,15 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
+import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLLoad;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.wst.sse.core.StructuredModelManager;
@@ -30,6 +36,7 @@ import org.eclipse.wst.sse.core.internal.provisional.INodeNotifier;
 import org.eclipse.wst.xml.core.internal.provisional.document.IDOMModel;
 import org.mule.ide.config.common.SyncAdapter;
 import org.mule.ide.config.common.SyncResource;
+import org.mule.ide.config.common.SyncXMLHelper;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -47,6 +54,10 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 	private IModelManager modelManager;
 	private boolean deliver = false;
 
+	private SyncXMLLoadImpl xmlLoad;
+	private SyncXMLSaveImpl xmlSave;
+	private SyncXMLHelperImpl xmlHelper;
+	
     private final static Executor defaultExecutor = new Executor() {
 	    // DirectExecutor using caller thread
 	    public void execute(Runnable r) {
@@ -137,18 +148,25 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 
 	@Override
 	protected XMLLoad createXMLLoad() {
-		return new SyncXMLLoadImpl(createXMLHelper());
+		if (xmlLoad == null) xmlLoad = new SyncXMLLoadImpl(createXMLHelper());
+		return xmlLoad;
 	}
 
 	@Override
 	protected XMLSave createXMLSave() {
-		return new SyncXMLSaveImpl(createXMLHelper());
+		XMLHelper xmlHelper = createXMLHelper();
+		if (xmlSave == null) {
+			xmlSave = new SyncXMLSaveImpl(xmlHelper);
+		} else {
+			((SyncXMLSaveImpl)xmlSave).setHelper((SyncXMLHelper)xmlHelper);
+		}
+		return xmlSave;
 	}
 
 	@Override
 	protected XMLHelper createXMLHelper() {
-		return new SyncXMLHelperImpl(this);
-
+		if (xmlHelper == null) xmlHelper = new SyncXMLHelperImpl(this);
+		return xmlHelper;
 	}
 
 	public Document getDocument() {
@@ -158,6 +176,9 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 	public void doUnload() {
 		super.doUnload();
 		this.xmlModel.releaseFromEdit();
+		xmlHelper = null;
+		xmlSave = null;
+		xmlLoad = null;
 	};
 
 	protected IModelManager getModelManager() {
@@ -210,36 +231,65 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 
 	public void xmlNotify(final Node notifier, int eventType, final Object changedFeature, Object oldValue, final Object newValue, int pos, final SyncAdapter adapter) {
 		    
-		if (notifier != adapter.getNode() && eventType != INodeNotifier.CHANGE) {
-			// This is the case where the notification was sent from a
-			// child
-		}
-		else {
-			if (eventType == INodeNotifier.STRUCTURE_CHANGED || eventType == INodeNotifier.CONTENT_CHANGED) {
-				// Update everything on STRUCTURE_CHANGE or CONTENT_CHANGE.
-				// Other event types occur too often.
+		if (eventType == INodeNotifier.CHANGE && changedFeature instanceof Attr) {
+			final String attrName = ((Attr)changedFeature).getName();
+			executor.execute(new Runnable() {
+				public void run() {
 
-			}
-			else if (eventType == INodeNotifier.CHANGE && changedFeature instanceof Attr) {
-				final String attrName = ((Attr)changedFeature).getName();
-				executor.execute(new Runnable() {
-					public void run() {
-							
-						SyncSAXXMLHandler handler = new SyncSAXXMLHandler(SyncResourceImpl.this, createXMLHelper(), getDefaultLoadOptions());
-						// Update just the attribute that changed.
+					SyncSAXXMLHandler handler = new SyncSAXXMLHandler(SyncResourceImpl.this, createXMLHelper(), getDefaultLoadOptions());
+					// Update just the attribute that changed.
+					
+					ExtendedMetaData extendedMetaData = 
+			            resourceSet == null ?
+			              ExtendedMetaData.INSTANCE :
+			              new BasicExtendedMetaData(resourceSet.getPackageRegistry());
+					
+					if (attrName.startsWith(XML_NS) && extendedMetaData != null) {
+						EObject root = getContents().isEmpty() ? null : getContents().get(0);
+
+						// Special fix for XML Namespace prefix map (marked transient, but specifically serialized)
+						EReference xmlnsPrefixMapFeature = (root != null) ? extendedMetaData.getXMLNSPrefixMapFeature(root.eClass()) : null;
+						if (xmlnsPrefixMapFeature != null)
+						{
+							String prefix = attrName.equals(XML_NS) ? "" : attrName.substring(XML_NS.length() + 1);
+
+							EMap<String, String> nsMap = (EMap<String, String>)((EObject)adapter.getTarget()).eGet(xmlnsPrefixMapFeature);
 							
 							// System.out.println("Attribute change " + attrName);
 							if (newValue != null) {
-								handler.updateAttribute((EObject)adapter.getTarget(), ((Attr)changedFeature).getName(), newValue.toString());
+								nsMap.put(prefix, newValue.toString());
 							}
 							else
 							{
-								handler.removeAttribute((EObject)adapter.getTarget(), ((Attr)changedFeature).getName());
+								nsMap.remove(prefix);
 							}
+							return;
+						}
+
+					} else {
+						
+						// System.out.println("Attribute change " + attrName);
+						if (newValue != null) {
+							handler.updateAttribute((EObject)adapter.getTarget(), ((Attr)changedFeature).getName(), newValue.toString());
+						}
+						else
+						{
+							handler.removeAttribute((EObject)adapter.getTarget(), ((Attr)changedFeature).getName());
 						}
 					}
-				);
+				}
 			}
+			);
+		} else {
+//		} else if (eventType != INodeNotifier.STRUCTURE_CHANGED){
+			// Attempt a full reparse...
+			if (adapter.getTarget() != null) executor.execute(new Runnable() {
+				public void run() {
+
+					XMLLoad loader = createXMLLoad();
+					((SyncXMLLoadImpl)loader).reload(adapter.getNode(), (EObject)adapter.getTarget(), (SyncXMLHelperImpl)createXMLHelper());
+				}
+			});
 		}
 	}
 
@@ -279,4 +329,19 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 		this.executor = executor;
 	}
 	
+	@Override
+	public void doLoad(Node node, Map<?, ?> options) throws IOException {
+		super.doLoad(node, options);
+	}
+	
+	@Override
+	public void doSave(OutputStream outputStream, Map<?, ?> options)
+			throws IOException {
+		super.doSave(outputStream, options);
+	}
+	
+	@Override
+	public EObject getEObject(String uriFragment) {
+		return super.getEObject(uriFragment != null ? uriFragment : "");
+	}
 }

@@ -136,6 +136,8 @@ public class DefaultModelTypeCanonicalEditPolicy extends
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getAbstractModelType_AbstractService());
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getAbstractModelType_AbstractServiceGroup());
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getSedaModelType_Connections());
 		}
 		return myFeaturesToSynchronize;

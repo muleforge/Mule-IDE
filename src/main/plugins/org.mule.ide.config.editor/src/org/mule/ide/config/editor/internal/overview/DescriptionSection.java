@@ -2,6 +2,7 @@ package org.mule.ide.config.editor.internal.overview;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -26,7 +27,7 @@ import org.mule.ide.config.editor.internal.form.FormLayoutFactory;
 
 public class DescriptionSection extends ConfigEditorSection implements ModifyListener {
 
-	private DescriptionNotificationAdapter fNotificationAdapter;
+	private DescriptionNotificationAdapter fNotificationAdapter  = new DescriptionNotificationAdapter();
 	private Text text;
 	private boolean fIgnoreTextEditorEvent;
 	private boolean fIgnoreEMFEvent;
@@ -72,13 +73,24 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 
 	public void initialize() {
 		text.addModifyListener(this);
-		
-		MuleType mule = getMuleElement();
-		if (EcoreUtil.getExistingAdapter(mule, DescriptionSection.class) == null) {
-			fNotificationAdapter = new DescriptionNotificationAdapter();
-			mule.eAdapters().add(fNotificationAdapter);
-		}
+		addDescriptionAdapter();
 		updateDocumentInput(false);
+	}
+
+	public void addDescriptionAdapter() {
+		MuleType mule = getMuleElement();
+		DescriptionType desc = mule == null ? null : mule.getDescription();
+		if (desc != null) {
+			addDescriptionAdapter(desc);
+		}
+		if (mule != null)
+			addDescriptionAdapter(mule);
+	}
+
+	public void addDescriptionAdapter(Notifier desc) {
+		if (EcoreUtil.getExistingAdapter(desc, DescriptionSection.class) != fNotificationAdapter) {
+			desc.eAdapters().add(fNotificationAdapter);
+		}
 	}
 
 	protected void expansionStateChanging(boolean expanding) {
@@ -104,8 +116,8 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 	private void updateDocumentInput(boolean commitPrevious) {
 		fIgnoreTextEditorEvent = true;
 		MuleType mule = getMuleElement();
-		DescriptionType description = mule.getDescription();
-		if (description != null) {
+		if (mule != null && mule.getDescription() != null) {
+			DescriptionType description = mule.getDescription();
 			/* Workaround EMF/DOM sync code doesn't handle mixed yet
 			FeatureMap map = description.getMixed();
 			if (map.size() == 1) {
@@ -126,15 +138,17 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 
 	@Override
 	public void dispose() {
-		MuleType mule = getMuleElement();		
-		if (EcoreUtil.getExistingAdapter(mule, DescriptionSection.class) != null) {
-			mule.eAdapters().remove(fNotificationAdapter);
-		}
-		DescriptionType description = mule.getDescription();
-		if (description != null) {
+		MuleType mule = getMuleElement();
+		if (mule != null) {
 			if (EcoreUtil.getExistingAdapter(mule, DescriptionSection.class) != null) {
-				description.eAdapters().remove(fNotificationAdapter);
-			}			
+				mule.eAdapters().remove(fNotificationAdapter);
+			}
+			DescriptionType description = mule.getDescription();
+			if (description != null) {
+				if (EcoreUtil.getExistingAdapter(mule, DescriptionSection.class) != null) {
+					description.eAdapters().remove(fNotificationAdapter);
+				}
+			}
 		}
 		super.dispose();
 	}
@@ -155,9 +169,12 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 					}
 				}
 				if (eventType == Notification.SET) {
-					if (msg.getNewValue() instanceof DescriptionType) {
+					if (msg.getNewValue() instanceof DescriptionType || msg.getOldValue() instanceof DescriptionType) {
 						// Add new description element
 						refresh();
+						// remember to add the adapter!
+						if (msg.getNewValue() != null) 
+							addDescriptionAdapter((DescriptionType)(msg.getNewValue()));
 					} else if (msg.getNotifier() instanceof DescriptionType) {
 						// Set description element value
 						refresh();					
@@ -179,6 +196,7 @@ public class DescriptionSection extends ConfigEditorSection implements ModifyLis
 				description = CoreFactory.eINSTANCE.createDescriptionType();
 				description.setValue(text.getText());
 				command = SetCommand.create(getEditingDomain(), mule, CorePackage.eINSTANCE.getMuleType_Description(), description);
+				addDescriptionAdapter(description);
 			} else {
 				command = SetCommand.create(getEditingDomain(), description, CorePackage.eINSTANCE.getDescriptionType_Value(), text.getText());
 			}

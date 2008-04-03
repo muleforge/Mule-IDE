@@ -23,4 +23,13 @@
        class="org.mule.ide.config.jms.util.JMSResourceFactoryImpl" />
   </extension>
 
+  <extension
+        point="org.eclipse.wst.xml.core.catalogContributions">
+        <catalogContribution id="default">
+            <uri
+                name="http://www.mulesource.org/schema/mule/jms/2.0"
+                uri="model/mule-jms.xsd" />
+        </catalogContribution>
+  </extension>
+
 </plugin>

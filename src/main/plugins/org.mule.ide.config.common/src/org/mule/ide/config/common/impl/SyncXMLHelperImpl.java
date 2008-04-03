@@ -227,9 +227,9 @@ final class SyncXMLHelperImpl extends XMLHelperImpl implements SyncXMLHelper {
 					insertGently(value, object, targetFeature, list);
 				}
 			} else if (value == null) {
-				object.eSet(feature, null);
+				setGently(object, feature, null);
 			} else {
-				object.eSet(feature, createFromString(eFactory, eDataType,
+				setGently(object, feature, createFromString(eFactory, eDataType,
 						(String) value));
 			}
 			break;
@@ -263,10 +263,19 @@ final class SyncXMLHelperImpl extends XMLHelperImpl implements SyncXMLHelper {
 			break;
 		}
 		default: {
-			object.eSet(feature, value);
+			setGently(object, feature, value);
 			break;
 		}
 		}
+	}
+
+	private void setGently(EObject object, EStructuralFeature feature,
+			Object value) {
+		Object oldValue = object.eGet(feature);
+		if (oldValue == value) return;
+		if (oldValue != null && oldValue.equals(value)) return;
+		
+		object.eSet(feature, value);
 	}
 
 	private void setCurrentFeature(EObject object,

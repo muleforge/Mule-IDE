@@ -62,13 +62,15 @@ public class StaticRecipientListRouterTypeENDPOINTSCanonicalEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * customization
 	 */
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getOutboundRouterType_AbstractOutboundEndpoint());
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getOutboundRouterType_AbstractOutboundEndpointGroup());
 		}
 		return myFeaturesToSynchronize;
 	}

@@ -62,7 +62,7 @@ public class DefaultConnectorExceptionStrategyTypeENDPOINTSCanonicalEditPolicy
 	}
 
 	/**
-	 * @generated
+	 * customization
 	 */
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
@@ -70,6 +70,9 @@ public class DefaultConnectorExceptionStrategyTypeENDPOINTSCanonicalEditPolicy
 			myFeaturesToSynchronize
 					.add(CorePackage.eINSTANCE
 							.getEndpointExceptionStrategyType_AbstractOutboundEndpoint());
+			myFeaturesToSynchronize
+					.add(CorePackage.eINSTANCE
+							.getEndpointExceptionStrategyType_AbstractOutboundEndpointGroup());
 		}
 		return myFeaturesToSynchronize;
 	}

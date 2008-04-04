@@ -82,13 +82,15 @@ public class OutboundCollectionTypeOUTBOUNDROUTERSCanonicalEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * customization
 	 */
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getOutboundCollectionType_AbstractOutboundRouter());
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getOutboundCollectionType_AbstractOutboundRouterGroup());
 		}
 		return myFeaturesToSynchronize;
 	}

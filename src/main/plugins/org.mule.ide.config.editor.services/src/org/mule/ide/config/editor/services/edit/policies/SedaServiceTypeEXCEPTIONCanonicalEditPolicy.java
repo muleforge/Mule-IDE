@@ -66,13 +66,15 @@ public class SedaServiceTypeEXCEPTIONCanonicalEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * customization
 	 */
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getBaseServiceType_AbstractExceptionStrategy());
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getBaseServiceType_AbstractExceptionStrategyGroup());
 		}
 		return myFeaturesToSynchronize;
 	}

@@ -66,7 +66,7 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSCanonicalEditPolicy
 	}
 
 	/**
-	 * @generated
+	 * customization
 	 */
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
@@ -74,7 +74,11 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSCanonicalEditPolicy
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getAsyncReplyCollectionType_AbstractInboundEndpoint());
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getAsyncReplyCollectionType_AbstractInboundEndpointGroup());
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getAsyncReplyCollectionType_AbstractAsyncReplyRouter());
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getAsyncReplyCollectionType_AbstractAsyncReplyRouterGroup());
 		}
 		return myFeaturesToSynchronize;
 	}

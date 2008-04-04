@@ -74,13 +74,15 @@ public class SedaServiceTypeCOMPONENTCanonicalEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * customization
 	 */
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getBaseServiceType_AbstractComponent());
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getBaseServiceType_AbstractComponentGroup());
 		}
 		return myFeaturesToSynchronize;
 	}

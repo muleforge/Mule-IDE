@@ -82,7 +82,7 @@ public class InboundCollectionTypeINBOUNDROUTERSCanonicalEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * customization
 	 */
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
@@ -90,7 +90,11 @@ public class InboundCollectionTypeINBOUNDROUTERSCanonicalEditPolicy extends
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getInboundCollectionType_AbstractInboundEndpoint());
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getInboundCollectionType_AbstractInboundEndpointGroup());
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getInboundCollectionType_AbstractInboundRouter());
+			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
+					.getInboundCollectionType_AbstractInboundRouterGroup());
 		}
 		return myFeaturesToSynchronize;
 	}

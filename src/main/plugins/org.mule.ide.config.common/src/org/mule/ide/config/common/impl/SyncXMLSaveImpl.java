@@ -1111,7 +1111,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		{
 			BasicEMap.Entry<String, String> entry = (BasicEMap.Entry<String, String>)msg.getOldValue();
 		
-			Element e = (Element)node;
+			Element e = node.getNodeType() == Node.DOCUMENT_NODE ? ((Document)node).getDocumentElement() : (Element)node;
 			e.removeAttribute("xmlns:" + entry.getKey());
 			return;
 		}
@@ -1223,7 +1223,7 @@ public class SyncXMLSaveImpl extends XMLSaveImpl implements XMLSave {
 		{
 			BasicEMap.Entry<String, String> entry = (BasicEMap.Entry<String, String>)msg.getNewValue();
 		
-			Element e = (Element)node;
+			Element e = node.getNodeType() == Node.DOCUMENT_NODE ? ((Document)node).getDocumentElement() : (Element)node;
 			e.setAttribute("xmlns:" + entry.getKey(), entry.getValue());
 			return;
 		}

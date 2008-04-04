@@ -253,7 +253,7 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 						{
 							String prefix = attrName.equals(XML_NS) ? "" : attrName.substring(XML_NS.length() + 1);
 
-							EMap<String, String> nsMap = (EMap<String, String>)((EObject)adapter.getTarget()).eGet(xmlnsPrefixMapFeature);
+							EMap<String, String> nsMap = (EMap<String, String>)root.eGet(xmlnsPrefixMapFeature);
 							
 							// System.out.println("Attribute change " + attrName);
 							if (newValue != null) {

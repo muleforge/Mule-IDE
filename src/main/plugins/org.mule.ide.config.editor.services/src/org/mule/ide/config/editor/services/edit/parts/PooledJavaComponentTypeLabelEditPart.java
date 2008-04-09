@@ -52,8 +52,8 @@ import org.mule.ide.config.editor.services.providers.CoreParserProvider;
 /**
  * customization
  */
-public class PooledJavaComponentTypeLabelEditPart extends ReadOnlyLabelCompartmentEditPart
-		implements ITextAwareEditPart {
+public class PooledJavaComponentTypeLabelEditPart extends
+		ReadOnlyLabelCompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated

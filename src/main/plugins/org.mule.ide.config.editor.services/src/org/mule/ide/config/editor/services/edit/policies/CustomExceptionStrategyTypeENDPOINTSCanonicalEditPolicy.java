@@ -68,11 +68,11 @@ public class CustomExceptionStrategyTypeENDPOINTSCanonicalEditPolicy extends
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize
-				.add(CorePackage.eINSTANCE
-					.getEndpointExceptionStrategyType_AbstractOutboundEndpoint());
+					.add(CorePackage.eINSTANCE
+							.getEndpointExceptionStrategyType_AbstractOutboundEndpoint());
 			myFeaturesToSynchronize
-				.add(CorePackage.eINSTANCE
-					.getEndpointExceptionStrategyType_AbstractOutboundEndpointGroup());
+					.add(CorePackage.eINSTANCE
+							.getEndpointExceptionStrategyType_AbstractOutboundEndpointGroup());
 		}
 		return myFeaturesToSynchronize;
 	}

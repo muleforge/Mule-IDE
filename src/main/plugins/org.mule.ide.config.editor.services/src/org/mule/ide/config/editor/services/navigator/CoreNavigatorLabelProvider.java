@@ -932,7 +932,7 @@ public class CoreNavigatorLabelProvider extends LabelProvider implements
 		AsyncReplyCollectionType domainModelElement = (AsyncReplyCollectionType) view
 				.getElement();
 		if (domainModelElement != null) {
-			return String.valueOf(domainModelElement.getTimeout());
+			return String.valueOf(domainModelElement.isFailOnTimeout());
 		} else {
 			ServicesEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 2024); //$NON-NLS-1$

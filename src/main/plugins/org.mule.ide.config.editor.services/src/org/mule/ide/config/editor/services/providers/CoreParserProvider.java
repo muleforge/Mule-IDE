@@ -63,6 +63,56 @@ public class CoreParserProvider extends AbstractProvider implements
 	}
 
 	/**
+	 * @generated
+	 */
+	private IParser defaultJavaComponentTypeClass_4002Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDefaultJavaComponentTypeClass_4002Parser() {
+		if (defaultJavaComponentTypeClass_4002Parser == null) {
+			defaultJavaComponentTypeClass_4002Parser = createDefaultJavaComponentTypeClass_4002Parser();
+		}
+		return defaultJavaComponentTypeClass_4002Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createDefaultJavaComponentTypeClass_4002Parser() {
+		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+				.getDefaultJavaComponentType_Class(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser pooledJavaComponentTypeClass_4009Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getPooledJavaComponentTypeClass_4009Parser() {
+		if (pooledJavaComponentTypeClass_4009Parser == null) {
+			pooledJavaComponentTypeClass_4009Parser = createPooledJavaComponentTypeClass_4009Parser();
+		}
+		return pooledJavaComponentTypeClass_4009Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createPooledJavaComponentTypeClass_4009Parser() {
+		EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+				.getDefaultJavaComponentType_Class(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
 	 * 
 	 */
 	private IParser defaultJavaComponentTypeClass_Parser;

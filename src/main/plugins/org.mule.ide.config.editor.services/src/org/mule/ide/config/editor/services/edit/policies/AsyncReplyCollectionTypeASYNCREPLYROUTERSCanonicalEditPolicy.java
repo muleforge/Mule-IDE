@@ -73,12 +73,14 @@ public class AsyncReplyCollectionTypeASYNCREPLYROUTERSCanonicalEditPolicy
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getAsyncReplyCollectionType_AbstractInboundEndpoint());
-			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
-					.getAsyncReplyCollectionType_AbstractInboundEndpointGroup());
+			myFeaturesToSynchronize
+					.add(CorePackage.eINSTANCE
+							.getAsyncReplyCollectionType_AbstractInboundEndpointGroup());
 			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
 					.getAsyncReplyCollectionType_AbstractAsyncReplyRouter());
-			myFeaturesToSynchronize.add(CorePackage.eINSTANCE
-					.getAsyncReplyCollectionType_AbstractAsyncReplyRouterGroup());
+			myFeaturesToSynchronize
+					.add(CorePackage.eINSTANCE
+							.getAsyncReplyCollectionType_AbstractAsyncReplyRouterGroup());
 		}
 		return myFeaturesToSynchronize;
 	}

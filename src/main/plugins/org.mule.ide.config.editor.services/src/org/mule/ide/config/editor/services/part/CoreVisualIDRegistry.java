@@ -1064,7 +1064,7 @@ public class CoreVisualIDRegistry {
 			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
 					.getEndpointExceptionStrategyType()) {
 				return true;
-			}			
+			}
 			if (containerView.getElement().eClass() == CorePackage.eINSTANCE
 					.getCustomExceptionStrategyType()) {
 				return true;
@@ -1124,9 +1124,9 @@ public class CoreVisualIDRegistry {
 			BaseServiceType container = (BaseServiceType) self.eContainer();
 			FeatureMap map = container.getAbstractComponentGroup();
 			// Since I know there can only be zero or one component in the container...
-			DefaultJavaComponentType component = (DefaultJavaComponentType) map.get(
-					CorePackage.eINSTANCE.getDocumentRoot_Component(),
-					false);
+			DefaultJavaComponentType component = (DefaultJavaComponentType) map
+					.get(CorePackage.eINSTANCE.getDocumentRoot_Component(),
+							false);
 			return self.equals(component);
 		}
 
@@ -1199,9 +1199,9 @@ public class CoreVisualIDRegistry {
 			BaseServiceType container = (BaseServiceType) self.eContainer();
 			FeatureMap map = container.getAbstractComponentGroup();
 			// Since I know there can only be zero or one component in the container...
-			PooledJavaComponentType component = (PooledJavaComponentType) map.get(
-					CorePackage.eINSTANCE.getDocumentRoot_PooledComponent(),
-					false);
+			PooledJavaComponentType component = (PooledJavaComponentType) map
+					.get(CorePackage.eINSTANCE
+							.getDocumentRoot_PooledComponent(), false);
 			return self.equals(component);
 		}
 
@@ -1214,10 +1214,10 @@ public class CoreVisualIDRegistry {
 			BaseServiceType container = (BaseServiceType) self.eContainer();
 			FeatureMap map = container.getAbstractExceptionStrategyGroup();
 			// Since I know there can only be zero or one in the container...
-			EndpointExceptionStrategyType component = (EndpointExceptionStrategyType) map.get(
-					CorePackage.eINSTANCE
+			EndpointExceptionStrategyType component = (EndpointExceptionStrategyType) map
+					.get(CorePackage.eINSTANCE
 							.getDocumentRoot_DefaultServiceExceptionStrategy(),
-					false);
+							false);
 			return self.equals(component);
 		}
 

@@ -102,7 +102,8 @@ public class CorePropertySection extends AdvancedPropertySection implements
 	 * customization
 	 */
 	protected AdapterFactory getAdapterFactory(Object object) {
-		return ServicesEditorPlugin.getInstance().getItemProvidersAdapterFactory();
+		return ServicesEditorPlugin.getInstance()
+				.getItemProvidersAdapterFactory();
 		/*
 		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
 			return ((AdapterFactoryEditingDomain) getEditingDomain())
@@ -115,7 +116,7 @@ public class CorePropertySection extends AdvancedPropertySection implements
 					.getAdapterFactory();
 		}
 		return null;
-		*/
+		 */
 	}
 
 }

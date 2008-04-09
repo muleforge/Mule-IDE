@@ -533,24 +533,6 @@ public interface AxisPackage extends EPackage, IGlobalElementTypeProvider {
 	int GLOBAL_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER = CorePackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER;
 
 	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP = CorePackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY = CorePackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY;
-
-	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -892,24 +874,6 @@ public interface AxisPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @ordered
 	 */
 	int INBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER = CorePackage.INBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP = CorePackage.INBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY = CorePackage.INBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -1362,24 +1326,6 @@ public interface AxisPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @ordered
 	 */
 	int OUTBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER = CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP = CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY = CorePackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.

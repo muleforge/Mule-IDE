@@ -1545,7 +1545,7 @@ public class AxisPackageImpl extends EPackageImpl implements AxisPackage {
 			 "kind", "element",
 			 "name", "soap-method",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getGlobalEndpointType_Property1(), 
 		   source, 
@@ -1649,7 +1649,7 @@ public class AxisPackageImpl extends EPackageImpl implements AxisPackage {
 			 "kind", "element",
 			 "name", "soap-method",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getInboundEndpointType_Property1(), 
 		   source, 
@@ -1828,7 +1828,7 @@ public class AxisPackageImpl extends EPackageImpl implements AxisPackage {
 			 "kind", "element",
 			 "name", "soap-method",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getOutboundEndpointType_Property1(), 
 		   source, 

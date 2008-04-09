@@ -228,6 +228,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="property1" upperBound="-1"
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//KeyValueType"
         containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                        Set a Mule property.&#xD;&#xA;                        This is a name/value pair that can be set on components, services, etc,&#xD;&#xA;                        and which provide a generic way of configuring the system.&#xD;&#xA;                        In Mule v2 you typically shouldn't need to use a generic property like&#xD;&#xA;                        this, since almost all functionality is exposed via dedicated elements.&#xD;&#xA;                        However, it can be useful in configuring obscure or overlooked options&#xD;&#xA;                        and in configuring transports from the generic endpoint elements.&#xD;&#xA;                    "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="property"/>
@@ -237,7 +240,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//MapType"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                Set properties via Spring's entry attribute.&#xD;&#xA;            "/>
+        <details key="documentation" value="&#xD;&#xA;                Set Mule properties.&#xD;&#xA;                These are name/value pairs that can be set on components, services, etc,&#xD;&#xA;                and which provide a generic way of configuring the system.&#xD;&#xA;                In Mule v2 you typically shouldn't need to use generic properties like&#xD;&#xA;                this, since almost all functionality is exposed via dedicated elements.&#xD;&#xA;                However, they can be useful in configuring obscure or overlooked options&#xD;&#xA;                and in configuring transports from the generic endpoint elements.&#xD;&#xA;            "/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
@@ -330,6 +333,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="property1" upperBound="-1"
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//KeyValueType"
         containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                        Set a Mule property.&#xD;&#xA;                        This is a name/value pair that can be set on components, services, etc,&#xD;&#xA;                        and which provide a generic way of configuring the system.&#xD;&#xA;                        In Mule v2 you typically shouldn't need to use a generic property like&#xD;&#xA;                        this, since almost all functionality is exposed via dedicated elements.&#xD;&#xA;                        However, it can be useful in configuring obscure or overlooked options&#xD;&#xA;                        and in configuring transports from the generic endpoint elements.&#xD;&#xA;                    "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="property"/>
@@ -339,7 +345,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//MapType"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                Set properties via Spring's entry attribute.&#xD;&#xA;            "/>
+        <details key="documentation" value="&#xD;&#xA;                Set Mule properties.&#xD;&#xA;                These are name/value pairs that can be set on components, services, etc,&#xD;&#xA;                and which provide a generic way of configuring the system.&#xD;&#xA;                In Mule v2 you typically shouldn't need to use generic properties like&#xD;&#xA;                this, since almost all functionality is exposed via dedicated elements.&#xD;&#xA;                However, they can be useful in configuring obscure or overlooked options&#xD;&#xA;                and in configuring transports from the generic endpoint elements.&#xD;&#xA;            "/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
@@ -499,6 +505,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="property1" upperBound="-1"
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//KeyValueType"
         containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                        Set a Mule property.&#xD;&#xA;                        This is a name/value pair that can be set on components, services, etc,&#xD;&#xA;                        and which provide a generic way of configuring the system.&#xD;&#xA;                        In Mule v2 you typically shouldn't need to use a generic property like&#xD;&#xA;                        this, since almost all functionality is exposed via dedicated elements.&#xD;&#xA;                        However, it can be useful in configuring obscure or overlooked options&#xD;&#xA;                        and in configuring transports from the generic endpoint elements.&#xD;&#xA;                    "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="property"/>
@@ -508,7 +517,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//MapType"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                Set properties via Spring's entry attribute.&#xD;&#xA;            "/>
+        <details key="documentation" value="&#xD;&#xA;                Set Mule properties.&#xD;&#xA;                These are name/value pairs that can be set on components, services, etc,&#xD;&#xA;                and which provide a generic way of configuring the system.&#xD;&#xA;                In Mule v2 you typically shouldn't need to use generic properties like&#xD;&#xA;                this, since almost all functionality is exposed via dedicated elements.&#xD;&#xA;                However, they can be useful in configuring obscure or overlooked options&#xD;&#xA;                and in configuring transports from the generic endpoint elements.&#xD;&#xA;            "/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>

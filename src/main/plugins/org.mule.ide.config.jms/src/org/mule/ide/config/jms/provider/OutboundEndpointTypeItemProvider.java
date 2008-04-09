@@ -1195,6 +1195,13 @@ public class OutboundEndpointTypeItemProvider
 			(createChildParameter
 				(JMSPackage.Literals.OUTBOUND_ENDPOINT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ExpressionFilter(),
+					 CoreFactory.eINSTANCE.createExpressionFilterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JMSPackage.Literals.OUTBOUND_ENDPOINT_TYPE__GROUP,
+				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Filter(),
 					 CoreFactory.eINSTANCE.createRefFilterType())));
 
@@ -1267,20 +1274,6 @@ public class OutboundEndpointTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_EncryptionSecurityFilter(),
 					 CoreFactory.eINSTANCE.createEncryptionSecurityFilterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.OUTBOUND_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CustomConnectionStrategy(),
-					 CoreFactory.eINSTANCE.createCustomConnectionStrategyType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JMSPackage.Literals.OUTBOUND_ENDPOINT_TYPE__GROUP,
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_RetryConnectionStrategy(),
-					 CoreFactory.eINSTANCE.createRetryConnectionStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter

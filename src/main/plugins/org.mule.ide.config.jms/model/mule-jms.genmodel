@@ -88,8 +88,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/selector"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/abstractSecurityFilterGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/abstractSecurityFilter"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/abstractConnectionStrategyGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/abstractConnectionStrategy"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//GlobalEndpointType/properties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/address"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//GlobalEndpointType/connectorRef"/>
@@ -116,8 +114,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/selector"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/abstractSecurityFilterGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/abstractSecurityFilter"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/abstractConnectionStrategyGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/abstractConnectionStrategy"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//InboundEndpointType/properties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/address"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//InboundEndpointType/connectorRef"/>
@@ -147,8 +143,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/selector"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/abstractSecurityFilterGroup"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/abstractSecurityFilter"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/abstractConnectionStrategyGroup"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/abstractConnectionStrategy"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jms.ecore#//OutboundEndpointType/properties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/address"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jms.ecore#//OutboundEndpointType/connectorRef"/>

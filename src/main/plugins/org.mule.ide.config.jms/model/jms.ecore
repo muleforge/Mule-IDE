@@ -576,33 +576,6 @@
         <details key="group" value="http://www.mulesource.org/schema/mule/core/2.0#abstract-security-filter:group"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractConnectionStrategyGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-connection-strategy:group"/>
-        <details key="namespace" value="http://www.mulesource.org/schema/mule/core/2.0"/>
-        <details key="group" value="#group:1"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractConnectionStrategy"
-        upperBound="-1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractConnectionStrategyType"
-        changeable="false" volatile="true" transient="true" derived="true" containment="true"
-        resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-connection-strategy"/>
-        <details key="namespace" value="http://www.mulesource.org/schema/mule/core/2.0"/>
-        <details key="group" value="http://www.mulesource.org/schema/mule/core/2.0#abstract-connection-strategy:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//MapType"
         volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
@@ -874,33 +847,6 @@
         <details key="name" value="abstract-security-filter"/>
         <details key="namespace" value="http://www.mulesource.org/schema/mule/core/2.0"/>
         <details key="group" value="http://www.mulesource.org/schema/mule/core/2.0#abstract-security-filter:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractConnectionStrategyGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-connection-strategy:group"/>
-        <details key="namespace" value="http://www.mulesource.org/schema/mule/core/2.0"/>
-        <details key="group" value="#group:1"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractConnectionStrategy"
-        upperBound="-1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractConnectionStrategyType"
-        changeable="false" volatile="true" transient="true" derived="true" containment="true"
-        resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-connection-strategy"/>
-        <details key="namespace" value="http://www.mulesource.org/schema/mule/core/2.0"/>
-        <details key="group" value="http://www.mulesource.org/schema/mule/core/2.0#abstract-connection-strategy:group"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
@@ -1189,33 +1135,6 @@
         <details key="name" value="abstract-security-filter"/>
         <details key="namespace" value="http://www.mulesource.org/schema/mule/core/2.0"/>
         <details key="group" value="http://www.mulesource.org/schema/mule/core/2.0#abstract-security-filter:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractConnectionStrategyGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-connection-strategy:group"/>
-        <details key="namespace" value="http://www.mulesource.org/schema/mule/core/2.0"/>
-        <details key="group" value="#group:1"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractConnectionStrategy"
-        upperBound="-1" eType="ecore:EClass ../../org.mule.ide.config.core/model/core.ecore#//AbstractConnectionStrategyType"
-        changeable="false" volatile="true" transient="true" derived="true" containment="true"
-        resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-connection-strategy"/>
-        <details key="namespace" value="http://www.mulesource.org/schema/mule/core/2.0"/>
-        <details key="group" value="http://www.mulesource.org/schema/mule/core/2.0#abstract-connection-strategy:group"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"

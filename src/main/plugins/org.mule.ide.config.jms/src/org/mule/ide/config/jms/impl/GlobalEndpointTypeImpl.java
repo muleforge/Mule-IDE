@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.mule.ide.config.core.AbstractConnectionStrategyType;
 import org.mule.ide.config.core.AbstractFilterType;
 import org.mule.ide.config.core.AbstractSecurityFilterType;
 import org.mule.ide.config.core.AbstractTransactionType;
@@ -57,8 +56,6 @@ import org.mule.ide.config.jms.JmsSelectorFilter;
  *   <li>{@link org.mule.ide.config.jms.impl.GlobalEndpointTypeImpl#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.impl.GlobalEndpointTypeImpl#getAbstractSecurityFilterGroup <em>Abstract Security Filter Group</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.impl.GlobalEndpointTypeImpl#getAbstractSecurityFilter <em>Abstract Security Filter</em>}</li>
- *   <li>{@link org.mule.ide.config.jms.impl.GlobalEndpointTypeImpl#getAbstractConnectionStrategyGroup <em>Abstract Connection Strategy Group</em>}</li>
- *   <li>{@link org.mule.ide.config.jms.impl.GlobalEndpointTypeImpl#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.impl.GlobalEndpointTypeImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.impl.GlobalEndpointTypeImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.impl.GlobalEndpointTypeImpl#getConnectorRef <em>Connector Ref</em>}</li>
@@ -469,24 +466,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getAbstractConnectionStrategyGroup() {
-		return (FeatureMap)getGroup().<FeatureMap.Entry>list(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<AbstractConnectionStrategyType> getAbstractConnectionStrategy() {
-		return getAbstractConnectionStrategyGroup().list(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<MapType> getProperties() {
 		return getGroup().list(JMSPackage.Literals.GLOBAL_ENDPOINT_TYPE__PROPERTIES);
 	}
@@ -829,10 +808,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return ((InternalEList<?>)getAbstractSecurityFilterGroup()).basicRemove(otherEnd, msgs);
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER:
 				return ((InternalEList<?>)getAbstractSecurityFilter()).basicRemove(otherEnd, msgs);
-			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
-				return ((InternalEList<?>)getAbstractConnectionStrategyGroup()).basicRemove(otherEnd, msgs);
-			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY:
-				return ((InternalEList<?>)getAbstractConnectionStrategy()).basicRemove(otherEnd, msgs);
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__PROPERTIES:
 				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
 		}
@@ -876,11 +851,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return ((FeatureMap.Internal)getAbstractSecurityFilterGroup()).getWrapper();
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER:
 				return getAbstractSecurityFilter();
-			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
-				if (coreType) return getAbstractConnectionStrategyGroup();
-				return ((FeatureMap.Internal)getAbstractConnectionStrategyGroup()).getWrapper();
-			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY:
-				return getAbstractConnectionStrategy();
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__PROPERTIES:
 				return getProperties();
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ADDRESS:
@@ -944,9 +914,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return;
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER_GROUP:
 				((FeatureMap.Internal)getAbstractSecurityFilterGroup()).set(newValue);
-				return;
-			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
-				((FeatureMap.Internal)getAbstractConnectionStrategyGroup()).set(newValue);
 				return;
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__PROPERTIES:
 				getProperties().clear();
@@ -1021,9 +988,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER_GROUP:
 				getAbstractSecurityFilterGroup().clear();
 				return;
-			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
-				getAbstractConnectionStrategyGroup().clear();
-				return;
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__PROPERTIES:
 				getProperties().clear();
 				return;
@@ -1096,10 +1060,6 @@ public class GlobalEndpointTypeImpl extends AbstractGlobalEndpointTypeImpl imple
 				return !getAbstractSecurityFilterGroup().isEmpty();
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER:
 				return !getAbstractSecurityFilter().isEmpty();
-			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
-				return !getAbstractConnectionStrategyGroup().isEmpty();
-			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY:
-				return !getAbstractConnectionStrategy().isEmpty();
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__PROPERTIES:
 				return !getProperties().isEmpty();
 			case JMSPackage.GLOBAL_ENDPOINT_TYPE__ADDRESS:

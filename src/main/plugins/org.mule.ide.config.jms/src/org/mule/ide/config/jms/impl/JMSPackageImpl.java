@@ -813,26 +813,8 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGlobalEndpointType_AbstractConnectionStrategyGroup() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGlobalEndpointType_AbstractConnectionStrategy() {
-		return (EReference)globalEndpointTypeEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getGlobalEndpointType_Properties() {
-		return (EReference)globalEndpointTypeEClass.getEStructuralFeatures().get(14);
+		return (EReference)globalEndpointTypeEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -841,7 +823,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getGlobalEndpointType_Address() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(15);
+		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -850,7 +832,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getGlobalEndpointType_ConnectorRef() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(16);
+		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -859,7 +841,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getGlobalEndpointType_Encoding() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(17);
+		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -868,7 +850,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getGlobalEndpointType_Queue() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(18);
+		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -877,7 +859,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getGlobalEndpointType_Ref() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(19);
+		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -886,7 +868,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getGlobalEndpointType_RemoteSync() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(20);
+		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -895,7 +877,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getGlobalEndpointType_RemoteSyncTimeout() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(21);
+		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -904,7 +886,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getGlobalEndpointType_ResponseTransformerRefs() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(22);
+		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -913,7 +895,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getGlobalEndpointType_Synchronous() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(23);
+		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -922,7 +904,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getGlobalEndpointType_Topic() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(24);
+		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -931,7 +913,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getGlobalEndpointType_TransformerRefs() {
-		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(25);
+		return (EAttribute)globalEndpointTypeEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -1056,26 +1038,8 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getInboundEndpointType_AbstractConnectionStrategyGroup() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInboundEndpointType_AbstractConnectionStrategy() {
-		return (EReference)inboundEndpointTypeEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getInboundEndpointType_Properties() {
-		return (EReference)inboundEndpointTypeEClass.getEStructuralFeatures().get(14);
+		return (EReference)inboundEndpointTypeEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1084,7 +1048,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getInboundEndpointType_Address() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(15);
+		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1093,7 +1057,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getInboundEndpointType_ConnectorRef() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(16);
+		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -1102,7 +1066,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getInboundEndpointType_Encoding() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(17);
+		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -1111,7 +1075,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getInboundEndpointType_Queue() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(18);
+		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -1120,7 +1084,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getInboundEndpointType_Ref() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(19);
+		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -1129,7 +1093,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getInboundEndpointType_RemoteSync() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(20);
+		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -1138,7 +1102,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getInboundEndpointType_RemoteSyncTimeout() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(21);
+		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -1147,7 +1111,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getInboundEndpointType_ResponseTransformerRefs() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(22);
+		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -1156,7 +1120,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getInboundEndpointType_Synchronous() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(23);
+		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -1165,7 +1129,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getInboundEndpointType_Topic() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(24);
+		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -1174,7 +1138,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getInboundEndpointType_TransformerRefs() {
-		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(25);
+		return (EAttribute)inboundEndpointTypeEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -1317,26 +1281,8 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOutboundEndpointType_AbstractConnectionStrategyGroup() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOutboundEndpointType_AbstractConnectionStrategy() {
-		return (EReference)outboundEndpointTypeEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getOutboundEndpointType_Properties() {
-		return (EReference)outboundEndpointTypeEClass.getEStructuralFeatures().get(14);
+		return (EReference)outboundEndpointTypeEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1345,7 +1291,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getOutboundEndpointType_Address() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(15);
+		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1354,7 +1300,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getOutboundEndpointType_ConnectorRef() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(16);
+		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -1363,7 +1309,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getOutboundEndpointType_Encoding() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(17);
+		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -1372,7 +1318,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getOutboundEndpointType_Queue() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(18);
+		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -1381,7 +1327,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getOutboundEndpointType_Ref() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(19);
+		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -1390,7 +1336,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getOutboundEndpointType_RemoteSync() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(20);
+		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -1399,7 +1345,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getOutboundEndpointType_RemoteSyncTimeout() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(21);
+		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -1408,7 +1354,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getOutboundEndpointType_ResponseTransformerRefs() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(22);
+		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -1417,7 +1363,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getOutboundEndpointType_Synchronous() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(23);
+		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -1426,7 +1372,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getOutboundEndpointType_Topic() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(24);
+		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -1435,7 +1381,7 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 	 * @generated
 	 */
 	public EAttribute getOutboundEndpointType_TransformerRefs() {
-		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(25);
+		return (EAttribute)outboundEndpointTypeEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -1760,8 +1706,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		createEReference(globalEndpointTypeEClass, GLOBAL_ENDPOINT_TYPE__SELECTOR);
 		createEAttribute(globalEndpointTypeEClass, GLOBAL_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER_GROUP);
 		createEReference(globalEndpointTypeEClass, GLOBAL_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER);
-		createEAttribute(globalEndpointTypeEClass, GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP);
-		createEReference(globalEndpointTypeEClass, GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY);
 		createEReference(globalEndpointTypeEClass, GLOBAL_ENDPOINT_TYPE__PROPERTIES);
 		createEAttribute(globalEndpointTypeEClass, GLOBAL_ENDPOINT_TYPE__ADDRESS);
 		createEAttribute(globalEndpointTypeEClass, GLOBAL_ENDPOINT_TYPE__CONNECTOR_REF);
@@ -1788,8 +1732,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		createEReference(inboundEndpointTypeEClass, INBOUND_ENDPOINT_TYPE__SELECTOR);
 		createEAttribute(inboundEndpointTypeEClass, INBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER_GROUP);
 		createEReference(inboundEndpointTypeEClass, INBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER);
-		createEAttribute(inboundEndpointTypeEClass, INBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP);
-		createEReference(inboundEndpointTypeEClass, INBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY);
 		createEReference(inboundEndpointTypeEClass, INBOUND_ENDPOINT_TYPE__PROPERTIES);
 		createEAttribute(inboundEndpointTypeEClass, INBOUND_ENDPOINT_TYPE__ADDRESS);
 		createEAttribute(inboundEndpointTypeEClass, INBOUND_ENDPOINT_TYPE__CONNECTOR_REF);
@@ -1819,8 +1761,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		createEReference(outboundEndpointTypeEClass, OUTBOUND_ENDPOINT_TYPE__SELECTOR);
 		createEAttribute(outboundEndpointTypeEClass, OUTBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER_GROUP);
 		createEReference(outboundEndpointTypeEClass, OUTBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER);
-		createEAttribute(outboundEndpointTypeEClass, OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP);
-		createEReference(outboundEndpointTypeEClass, OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY);
 		createEReference(outboundEndpointTypeEClass, OUTBOUND_ENDPOINT_TYPE__PROPERTIES);
 		createEAttribute(outboundEndpointTypeEClass, OUTBOUND_ENDPOINT_TYPE__ADDRESS);
 		createEAttribute(outboundEndpointTypeEClass, OUTBOUND_ENDPOINT_TYPE__CONNECTOR_REF);
@@ -1977,8 +1917,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		initEReference(getGlobalEndpointType_Selector(), this.getJmsSelectorFilter(), null, "selector", null, 0, -1, GlobalEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGlobalEndpointType_AbstractSecurityFilterGroup(), ecorePackage.getEFeatureMapEntry(), "abstractSecurityFilterGroup", null, 0, -1, GlobalEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getGlobalEndpointType_AbstractSecurityFilter(), theCorePackage.getAbstractSecurityFilterType(), null, "abstractSecurityFilter", null, 0, -1, GlobalEndpointType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGlobalEndpointType_AbstractConnectionStrategyGroup(), ecorePackage.getEFeatureMapEntry(), "abstractConnectionStrategyGroup", null, 0, -1, GlobalEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getGlobalEndpointType_AbstractConnectionStrategy(), theCorePackage.getAbstractConnectionStrategyType(), null, "abstractConnectionStrategy", null, 0, -1, GlobalEndpointType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getGlobalEndpointType_Properties(), theCorePackage.getMapType(), null, "properties", null, 0, -1, GlobalEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGlobalEndpointType_Address(), theXMLTypePackage.getString(), "address", null, 0, 1, GlobalEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGlobalEndpointType_ConnectorRef(), theXMLTypePackage.getNMTOKEN(), "connectorRef", null, 0, 1, GlobalEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2005,8 +1943,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		initEReference(getInboundEndpointType_Selector(), this.getJmsSelectorFilter(), null, "selector", null, 0, -1, InboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpointType_AbstractSecurityFilterGroup(), ecorePackage.getEFeatureMapEntry(), "abstractSecurityFilterGroup", null, 0, -1, InboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getInboundEndpointType_AbstractSecurityFilter(), theCorePackage.getAbstractSecurityFilterType(), null, "abstractSecurityFilter", null, 0, -1, InboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInboundEndpointType_AbstractConnectionStrategyGroup(), ecorePackage.getEFeatureMapEntry(), "abstractConnectionStrategyGroup", null, 0, -1, InboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getInboundEndpointType_AbstractConnectionStrategy(), theCorePackage.getAbstractConnectionStrategyType(), null, "abstractConnectionStrategy", null, 0, -1, InboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getInboundEndpointType_Properties(), theCorePackage.getMapType(), null, "properties", null, 0, -1, InboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpointType_Address(), theXMLTypePackage.getString(), "address", null, 0, 1, InboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpointType_ConnectorRef(), theXMLTypePackage.getNMTOKEN(), "connectorRef", null, 0, 1, InboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2036,8 +1972,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 		initEReference(getOutboundEndpointType_Selector(), this.getJmsSelectorFilter(), null, "selector", null, 0, -1, OutboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutboundEndpointType_AbstractSecurityFilterGroup(), ecorePackage.getEFeatureMapEntry(), "abstractSecurityFilterGroup", null, 0, -1, OutboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getOutboundEndpointType_AbstractSecurityFilter(), theCorePackage.getAbstractSecurityFilterType(), null, "abstractSecurityFilter", null, 0, -1, OutboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOutboundEndpointType_AbstractConnectionStrategyGroup(), ecorePackage.getEFeatureMapEntry(), "abstractConnectionStrategyGroup", null, 0, -1, OutboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getOutboundEndpointType_AbstractConnectionStrategy(), theCorePackage.getAbstractConnectionStrategyType(), null, "abstractConnectionStrategy", null, 0, -1, OutboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getOutboundEndpointType_Properties(), theCorePackage.getMapType(), null, "properties", null, 0, -1, OutboundEndpointType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutboundEndpointType_Address(), theXMLTypePackage.getString(), "address", null, 0, 1, OutboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutboundEndpointType_ConnectorRef(), theXMLTypePackage.getNMTOKEN(), "connectorRef", null, 0, 1, OutboundEndpointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2625,24 +2559,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-security-filter:group"
 		   });			
 		addAnnotation
-		  (getGlobalEndpointType_AbstractConnectionStrategyGroup(), 
-		   source, 
-		   new String[] {
-			 "kind", "group",
-			 "name", "abstract-connection-strategy:group",
-			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
-			 "group", "#group:1"
-		   });			
-		addAnnotation
-		  (getGlobalEndpointType_AbstractConnectionStrategy(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "abstract-connection-strategy",
-			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
-			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-connection-strategy:group"
-		   });			
-		addAnnotation
 		  (getGlobalEndpointType_Properties(), 
 		   source, 
 		   new String[] {
@@ -2840,24 +2756,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-security-filter",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-security-filter:group"
-		   });			
-		addAnnotation
-		  (getInboundEndpointType_AbstractConnectionStrategyGroup(), 
-		   source, 
-		   new String[] {
-			 "kind", "group",
-			 "name", "abstract-connection-strategy:group",
-			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
-			 "group", "#group:1"
-		   });			
-		addAnnotation
-		  (getInboundEndpointType_AbstractConnectionStrategy(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "abstract-connection-strategy",
-			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
-			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-connection-strategy:group"
 		   });			
 		addAnnotation
 		  (getInboundEndpointType_Properties(), 
@@ -3071,24 +2969,6 @@ public class JMSPackageImpl extends EPackageImpl implements JMSPackage {
 			 "name", "abstract-security-filter",
 			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
 			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-security-filter:group"
-		   });			
-		addAnnotation
-		  (getOutboundEndpointType_AbstractConnectionStrategyGroup(), 
-		   source, 
-		   new String[] {
-			 "kind", "group",
-			 "name", "abstract-connection-strategy:group",
-			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
-			 "group", "#group:1"
-		   });			
-		addAnnotation
-		  (getOutboundEndpointType_AbstractConnectionStrategy(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "abstract-connection-strategy",
-			 "namespace", "http://www.mulesource.org/schema/mule/core/2.0",
-			 "group", "http://www.mulesource.org/schema/mule/core/2.0#abstract-connection-strategy:group"
 		   });			
 		addAnnotation
 		  (getOutboundEndpointType_Properties(), 

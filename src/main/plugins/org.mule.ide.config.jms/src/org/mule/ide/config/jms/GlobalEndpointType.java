@@ -12,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
 
-import org.mule.ide.config.core.AbstractConnectionStrategyType;
 import org.mule.ide.config.core.AbstractFilterType;
 import org.mule.ide.config.core.AbstractGlobalEndpointType;
 import org.mule.ide.config.core.AbstractSecurityFilterType;
@@ -42,8 +41,6 @@ import org.mule.ide.config.core.TransformersType;
  *   <li>{@link org.mule.ide.config.jms.GlobalEndpointType#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.GlobalEndpointType#getAbstractSecurityFilterGroup <em>Abstract Security Filter Group</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.GlobalEndpointType#getAbstractSecurityFilter <em>Abstract Security Filter</em>}</li>
- *   <li>{@link org.mule.ide.config.jms.GlobalEndpointType#getAbstractConnectionStrategyGroup <em>Abstract Connection Strategy Group</em>}</li>
- *   <li>{@link org.mule.ide.config.jms.GlobalEndpointType#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.GlobalEndpointType#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.GlobalEndpointType#getAddress <em>Address</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.GlobalEndpointType#getConnectorRef <em>Connector Ref</em>}</li>
@@ -331,52 +328,6 @@ public interface GlobalEndpointType extends AbstractGlobalEndpointType {
 	 * @generated
 	 */
 	EList<AbstractSecurityFilterType> getAbstractSecurityFilter();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Connection Strategy Group</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Connection Strategy Group</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 A placeholder for connection strategy elements.
-	 *                 Connection strategies control how the underlying transport handles connection errors.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Abstract Connection Strategy Group</em>' attribute list.
-	 * @see org.mule.ide.config.jms.JMSPackage#getGlobalEndpointType_AbstractConnectionStrategyGroup()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-connection-strategy:group' namespace='http://www.mulesource.org/schema/mule/core/2.0' group='#group:1'"
-	 * @generated
-	 */
-	FeatureMap getAbstractConnectionStrategyGroup();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Connection Strategy</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.AbstractConnectionStrategyType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Connection Strategy</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 A placeholder for connection strategy elements.
-	 *                 Connection strategies control how the underlying transport handles connection errors.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Abstract Connection Strategy</em>' containment reference list.
-	 * @see org.mule.ide.config.jms.JMSPackage#getGlobalEndpointType_AbstractConnectionStrategy()
-	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-connection-strategy' namespace='http://www.mulesource.org/schema/mule/core/2.0' group='http://www.mulesource.org/schema/mule/core/2.0#abstract-connection-strategy:group'"
-	 * @generated
-	 */
-	EList<AbstractConnectionStrategyType> getAbstractConnectionStrategy();
 
 	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.

@@ -1426,31 +1426,13 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	int GLOBAL_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 12;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 13;
-
-	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__PROPERTIES = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 14;
+	int GLOBAL_ENDPOINT_TYPE__PROPERTIES = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' attribute.
@@ -1459,7 +1441,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__ADDRESS = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 15;
+	int GLOBAL_ENDPOINT_TYPE__ADDRESS = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Connector Ref</b></em>' attribute.
@@ -1468,7 +1450,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__CONNECTOR_REF = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 16;
+	int GLOBAL_ENDPOINT_TYPE__CONNECTOR_REF = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Encoding</b></em>' attribute.
@@ -1477,7 +1459,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__ENCODING = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 17;
+	int GLOBAL_ENDPOINT_TYPE__ENCODING = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Queue</b></em>' attribute.
@@ -1486,7 +1468,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__QUEUE = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 18;
+	int GLOBAL_ENDPOINT_TYPE__QUEUE = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -1495,7 +1477,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__REF = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 19;
+	int GLOBAL_ENDPOINT_TYPE__REF = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Remote Sync</b></em>' attribute.
@@ -1504,7 +1486,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 20;
+	int GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Remote Sync Timeout</b></em>' attribute.
@@ -1513,7 +1495,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 21;
+	int GLOBAL_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Response Transformer Refs</b></em>' attribute.
@@ -1522,7 +1504,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__RESPONSE_TRANSFORMER_REFS = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 22;
+	int GLOBAL_ENDPOINT_TYPE__RESPONSE_TRANSFORMER_REFS = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -1531,7 +1513,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__SYNCHRONOUS = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 23;
+	int GLOBAL_ENDPOINT_TYPE__SYNCHRONOUS = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Topic</b></em>' attribute.
@@ -1540,7 +1522,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__TOPIC = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 24;
+	int GLOBAL_ENDPOINT_TYPE__TOPIC = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Transformer Refs</b></em>' attribute.
@@ -1549,7 +1531,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE__TRANSFORMER_REFS = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 25;
+	int GLOBAL_ENDPOINT_TYPE__TRANSFORMER_REFS = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 23;
 
 	/**
 	 * The number of structural features of the '<em>Global Endpoint Type</em>' class.
@@ -1558,7 +1540,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 26;
+	int GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT = CorePackage.ABSTRACT_GLOBAL_ENDPOINT_TYPE_FEATURE_COUNT + 24;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.jms.impl.InboundEndpointTypeImpl <em>Inbound Endpoint Type</em>}' class.
@@ -1688,31 +1670,13 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	int INBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 12;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 13;
-
-	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__PROPERTIES = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 14;
+	int INBOUND_ENDPOINT_TYPE__PROPERTIES = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' attribute.
@@ -1721,7 +1685,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__ADDRESS = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 15;
+	int INBOUND_ENDPOINT_TYPE__ADDRESS = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Connector Ref</b></em>' attribute.
@@ -1730,7 +1694,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__CONNECTOR_REF = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 16;
+	int INBOUND_ENDPOINT_TYPE__CONNECTOR_REF = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Encoding</b></em>' attribute.
@@ -1739,7 +1703,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__ENCODING = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 17;
+	int INBOUND_ENDPOINT_TYPE__ENCODING = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Queue</b></em>' attribute.
@@ -1748,7 +1712,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__QUEUE = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 18;
+	int INBOUND_ENDPOINT_TYPE__QUEUE = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -1757,7 +1721,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__REF = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 19;
+	int INBOUND_ENDPOINT_TYPE__REF = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Remote Sync</b></em>' attribute.
@@ -1766,7 +1730,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__REMOTE_SYNC = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 20;
+	int INBOUND_ENDPOINT_TYPE__REMOTE_SYNC = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Remote Sync Timeout</b></em>' attribute.
@@ -1775,7 +1739,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 21;
+	int INBOUND_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Response Transformer Refs</b></em>' attribute.
@@ -1784,7 +1748,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__RESPONSE_TRANSFORMER_REFS = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 22;
+	int INBOUND_ENDPOINT_TYPE__RESPONSE_TRANSFORMER_REFS = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -1793,7 +1757,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__SYNCHRONOUS = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 23;
+	int INBOUND_ENDPOINT_TYPE__SYNCHRONOUS = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Topic</b></em>' attribute.
@@ -1802,7 +1766,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__TOPIC = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 24;
+	int INBOUND_ENDPOINT_TYPE__TOPIC = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Transformer Refs</b></em>' attribute.
@@ -1811,7 +1775,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE__TRANSFORMER_REFS = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 25;
+	int INBOUND_ENDPOINT_TYPE__TRANSFORMER_REFS = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 23;
 
 	/**
 	 * The number of structural features of the '<em>Inbound Endpoint Type</em>' class.
@@ -1820,7 +1784,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_TYPE_FEATURE_COUNT = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 26;
+	int INBOUND_ENDPOINT_TYPE_FEATURE_COUNT = CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 24;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.jms.impl.JmsSelectorFilterImpl <em>Jms Selector Filter</em>}' class.
@@ -1978,31 +1942,13 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	int OUTBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 12;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Connection Strategy</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 13;
-
-	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__PROPERTIES = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 14;
+	int OUTBOUND_ENDPOINT_TYPE__PROPERTIES = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' attribute.
@@ -2011,7 +1957,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__ADDRESS = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 15;
+	int OUTBOUND_ENDPOINT_TYPE__ADDRESS = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Connector Ref</b></em>' attribute.
@@ -2020,7 +1966,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__CONNECTOR_REF = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 16;
+	int OUTBOUND_ENDPOINT_TYPE__CONNECTOR_REF = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Encoding</b></em>' attribute.
@@ -2029,7 +1975,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__ENCODING = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 17;
+	int OUTBOUND_ENDPOINT_TYPE__ENCODING = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Queue</b></em>' attribute.
@@ -2038,7 +1984,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__QUEUE = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 18;
+	int OUTBOUND_ENDPOINT_TYPE__QUEUE = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -2047,7 +1993,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__REF = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 19;
+	int OUTBOUND_ENDPOINT_TYPE__REF = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Remote Sync</b></em>' attribute.
@@ -2056,7 +2002,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__REMOTE_SYNC = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 20;
+	int OUTBOUND_ENDPOINT_TYPE__REMOTE_SYNC = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Remote Sync Timeout</b></em>' attribute.
@@ -2065,7 +2011,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 21;
+	int OUTBOUND_ENDPOINT_TYPE__REMOTE_SYNC_TIMEOUT = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Response Transformer Refs</b></em>' attribute.
@@ -2074,7 +2020,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__RESPONSE_TRANSFORMER_REFS = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 22;
+	int OUTBOUND_ENDPOINT_TYPE__RESPONSE_TRANSFORMER_REFS = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -2083,7 +2029,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__SYNCHRONOUS = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 23;
+	int OUTBOUND_ENDPOINT_TYPE__SYNCHRONOUS = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Topic</b></em>' attribute.
@@ -2092,7 +2038,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__TOPIC = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 24;
+	int OUTBOUND_ENDPOINT_TYPE__TOPIC = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Transformer Refs</b></em>' attribute.
@@ -2101,7 +2047,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE__TRANSFORMER_REFS = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 25;
+	int OUTBOUND_ENDPOINT_TYPE__TRANSFORMER_REFS = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 23;
 
 	/**
 	 * The number of structural features of the '<em>Outbound Endpoint Type</em>' class.
@@ -2110,7 +2056,7 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 26;
+	int OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT = CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE_FEATURE_COUNT + 24;
 
 	/**
 	 * The meta object id for the '{@link org.mule.ide.config.jms.impl.PropertyFilterTypeImpl <em>Property Filter Type</em>}' class.
@@ -2937,28 +2883,6 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	EReference getGlobalEndpointType_AbstractSecurityFilter();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.jms.GlobalEndpointType#getAbstractConnectionStrategyGroup <em>Abstract Connection Strategy Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Abstract Connection Strategy Group</em>'.
-	 * @see org.mule.ide.config.jms.GlobalEndpointType#getAbstractConnectionStrategyGroup()
-	 * @see #getGlobalEndpointType()
-	 * @generated
-	 */
-	EAttribute getGlobalEndpointType_AbstractConnectionStrategyGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.jms.GlobalEndpointType#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abstract Connection Strategy</em>'.
-	 * @see org.mule.ide.config.jms.GlobalEndpointType#getAbstractConnectionStrategy()
-	 * @see #getGlobalEndpointType()
-	 * @generated
-	 */
-	EReference getGlobalEndpointType_AbstractConnectionStrategy();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.jms.GlobalEndpointType#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3231,28 +3155,6 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 */
 	EReference getInboundEndpointType_AbstractSecurityFilter();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.jms.InboundEndpointType#getAbstractConnectionStrategyGroup <em>Abstract Connection Strategy Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Abstract Connection Strategy Group</em>'.
-	 * @see org.mule.ide.config.jms.InboundEndpointType#getAbstractConnectionStrategyGroup()
-	 * @see #getInboundEndpointType()
-	 * @generated
-	 */
-	EAttribute getInboundEndpointType_AbstractConnectionStrategyGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.jms.InboundEndpointType#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abstract Connection Strategy</em>'.
-	 * @see org.mule.ide.config.jms.InboundEndpointType#getAbstractConnectionStrategy()
-	 * @see #getInboundEndpointType()
-	 * @generated
-	 */
-	EReference getInboundEndpointType_AbstractConnectionStrategy();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.jms.InboundEndpointType#getProperties <em>Properties</em>}'.
@@ -3548,28 +3450,6 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 	 * @generated
 	 */
 	EReference getOutboundEndpointType_AbstractSecurityFilter();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.mule.ide.config.jms.OutboundEndpointType#getAbstractConnectionStrategyGroup <em>Abstract Connection Strategy Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Abstract Connection Strategy Group</em>'.
-	 * @see org.mule.ide.config.jms.OutboundEndpointType#getAbstractConnectionStrategyGroup()
-	 * @see #getOutboundEndpointType()
-	 * @generated
-	 */
-	EAttribute getOutboundEndpointType_AbstractConnectionStrategyGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.jms.OutboundEndpointType#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abstract Connection Strategy</em>'.
-	 * @see org.mule.ide.config.jms.OutboundEndpointType#getAbstractConnectionStrategy()
-	 * @see #getOutboundEndpointType()
-	 * @generated
-	 */
-	EReference getOutboundEndpointType_AbstractConnectionStrategy();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.mule.ide.config.jms.OutboundEndpointType#getProperties <em>Properties</em>}'.
@@ -4529,22 +4409,6 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 		EReference GLOBAL_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER = eINSTANCE.getGlobalEndpointType_AbstractSecurityFilter();
 
 		/**
-		 * The meta object literal for the '<em><b>Abstract Connection Strategy Group</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP = eINSTANCE.getGlobalEndpointType_AbstractConnectionStrategyGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Abstract Connection Strategy</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GLOBAL_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY = eINSTANCE.getGlobalEndpointType_AbstractConnectionStrategy();
-
-		/**
 		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4745,22 +4609,6 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 		 * @generated
 		 */
 		EReference INBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER = eINSTANCE.getInboundEndpointType_AbstractSecurityFilter();
-
-		/**
-		 * The meta object literal for the '<em><b>Abstract Connection Strategy Group</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP = eINSTANCE.getInboundEndpointType_AbstractConnectionStrategyGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Abstract Connection Strategy</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY = eINSTANCE.getInboundEndpointType_AbstractConnectionStrategy();
 
 		/**
 		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
@@ -4981,22 +4829,6 @@ public interface JMSPackage extends EPackage, IGlobalElementTypeProvider {
 		 * @generated
 		 */
 		EReference OUTBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER = eINSTANCE.getOutboundEndpointType_AbstractSecurityFilter();
-
-		/**
-		 * The meta object literal for the '<em><b>Abstract Connection Strategy Group</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP = eINSTANCE.getOutboundEndpointType_AbstractConnectionStrategyGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Abstract Connection Strategy</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY = eINSTANCE.getOutboundEndpointType_AbstractConnectionStrategy();
 
 		/**
 		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.

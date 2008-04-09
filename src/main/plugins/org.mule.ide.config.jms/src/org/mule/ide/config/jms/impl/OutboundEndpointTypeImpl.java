@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.mule.ide.config.core.AbstractConnectionStrategyType;
 import org.mule.ide.config.core.AbstractFilterType;
 import org.mule.ide.config.core.AbstractSecurityFilterType;
 import org.mule.ide.config.core.AbstractTransactionType;
@@ -57,8 +56,6 @@ import org.mule.ide.config.jms.OutboundEndpointType;
  *   <li>{@link org.mule.ide.config.jms.impl.OutboundEndpointTypeImpl#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.impl.OutboundEndpointTypeImpl#getAbstractSecurityFilterGroup <em>Abstract Security Filter Group</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.impl.OutboundEndpointTypeImpl#getAbstractSecurityFilter <em>Abstract Security Filter</em>}</li>
- *   <li>{@link org.mule.ide.config.jms.impl.OutboundEndpointTypeImpl#getAbstractConnectionStrategyGroup <em>Abstract Connection Strategy Group</em>}</li>
- *   <li>{@link org.mule.ide.config.jms.impl.OutboundEndpointTypeImpl#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.impl.OutboundEndpointTypeImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.impl.OutboundEndpointTypeImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link org.mule.ide.config.jms.impl.OutboundEndpointTypeImpl#getConnectorRef <em>Connector Ref</em>}</li>
@@ -469,24 +466,6 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getAbstractConnectionStrategyGroup() {
-		return (FeatureMap)getGroup().<FeatureMap.Entry>list(JMSPackage.Literals.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<AbstractConnectionStrategyType> getAbstractConnectionStrategy() {
-		return getAbstractConnectionStrategyGroup().list(JMSPackage.Literals.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<MapType> getProperties() {
 		return getGroup().list(JMSPackage.Literals.OUTBOUND_ENDPOINT_TYPE__PROPERTIES);
 	}
@@ -829,10 +808,6 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 				return ((InternalEList<?>)getAbstractSecurityFilterGroup()).basicRemove(otherEnd, msgs);
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER:
 				return ((InternalEList<?>)getAbstractSecurityFilter()).basicRemove(otherEnd, msgs);
-			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
-				return ((InternalEList<?>)getAbstractConnectionStrategyGroup()).basicRemove(otherEnd, msgs);
-			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY:
-				return ((InternalEList<?>)getAbstractConnectionStrategy()).basicRemove(otherEnd, msgs);
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__PROPERTIES:
 				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
 		}
@@ -876,11 +851,6 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 				return ((FeatureMap.Internal)getAbstractSecurityFilterGroup()).getWrapper();
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER:
 				return getAbstractSecurityFilter();
-			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
-				if (coreType) return getAbstractConnectionStrategyGroup();
-				return ((FeatureMap.Internal)getAbstractConnectionStrategyGroup()).getWrapper();
-			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY:
-				return getAbstractConnectionStrategy();
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__PROPERTIES:
 				return getProperties();
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ADDRESS:
@@ -944,9 +914,6 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 				return;
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER_GROUP:
 				((FeatureMap.Internal)getAbstractSecurityFilterGroup()).set(newValue);
-				return;
-			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
-				((FeatureMap.Internal)getAbstractConnectionStrategyGroup()).set(newValue);
 				return;
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__PROPERTIES:
 				getProperties().clear();
@@ -1021,9 +988,6 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER_GROUP:
 				getAbstractSecurityFilterGroup().clear();
 				return;
-			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
-				getAbstractConnectionStrategyGroup().clear();
-				return;
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__PROPERTIES:
 				getProperties().clear();
 				return;
@@ -1096,10 +1060,6 @@ public class OutboundEndpointTypeImpl extends AbstractOutboundEndpointTypeImpl i
 				return !getAbstractSecurityFilterGroup().isEmpty();
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_SECURITY_FILTER:
 				return !getAbstractSecurityFilter().isEmpty();
-			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY_GROUP:
-				return !getAbstractConnectionStrategyGroup().isEmpty();
-			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ABSTRACT_CONNECTION_STRATEGY:
-				return !getAbstractConnectionStrategy().isEmpty();
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__PROPERTIES:
 				return !getProperties().isEmpty();
 			case JMSPackage.OUTBOUND_ENDPOINT_TYPE__ADDRESS:

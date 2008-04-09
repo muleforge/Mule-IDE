@@ -884,7 +884,7 @@
         <childMetaFeature
             href="../../org.mule.ide.config.core/model/core.genmodel#//core/InboundCollectionType/abstractInboundRouter"/>
         <modelElementSelector
-            body="forwardingRouter"
+            body="forwardingRouterConstraint"
             language="java"/>
       </modelFacet>
       <labels

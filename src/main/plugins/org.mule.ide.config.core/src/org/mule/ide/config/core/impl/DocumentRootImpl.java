@@ -27,7 +27,6 @@ import org.mule.ide.config.core.AbstractAsyncReplyRouterType;
 import org.mule.ide.config.core.AbstractCatchAllStrategyType;
 import org.mule.ide.config.core.AbstractComponentThreadingProfileType;
 import org.mule.ide.config.core.AbstractComponentType;
-import org.mule.ide.config.core.AbstractConnectionStrategyType;
 import org.mule.ide.config.core.AbstractConnectorType;
 import org.mule.ide.config.core.AbstractEntryPointResolverSetType;
 import org.mule.ide.config.core.AbstractEntryPointResolverType;
@@ -38,12 +37,12 @@ import org.mule.ide.config.core.AbstractGlobalEndpointType;
 import org.mule.ide.config.core.AbstractInboundEndpointType;
 import org.mule.ide.config.core.AbstractInboundRouterType;
 import org.mule.ide.config.core.AbstractLifecycleAdapterFactory;
+import org.mule.ide.config.core.AbstractMessageInfoMappingType;
 import org.mule.ide.config.core.AbstractModelType;
 import org.mule.ide.config.core.AbstractObjectFactoryType;
 import org.mule.ide.config.core.AbstractOutboundEndpointType;
 import org.mule.ide.config.core.AbstractOutboundRouterType;
 import org.mule.ide.config.core.AbstractPoolingProfileType;
-import org.mule.ide.config.core.AbstractPropertyExtractorType;
 import org.mule.ide.config.core.AbstractQueueProfileType;
 import org.mule.ide.config.core.AbstractSecurityFilterType;
 import org.mule.ide.config.core.AbstractSecurityManagerType;
@@ -60,7 +59,6 @@ import org.mule.ide.config.core.ComplexEntryPointResolverType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CustomAsyncReplyRouterType;
 import org.mule.ide.config.core.CustomCatchAllStrategyType;
-import org.mule.ide.config.core.CustomConnectionStrategyType;
 import org.mule.ide.config.core.CustomConnectorType;
 import org.mule.ide.config.core.CustomCorrelationAggregatorRouterType;
 import org.mule.ide.config.core.CustomEntryPointResolverSetType;
@@ -70,8 +68,8 @@ import org.mule.ide.config.core.CustomFilterType;
 import org.mule.ide.config.core.CustomForwardingCatchAllStrategyType;
 import org.mule.ide.config.core.CustomInboundRouterType;
 import org.mule.ide.config.core.CustomLifecycleAdapterFactory;
+import org.mule.ide.config.core.CustomMessageInfoMappingType;
 import org.mule.ide.config.core.CustomOutboundRouterType;
-import org.mule.ide.config.core.CustomPropertyExtractorType;
 import org.mule.ide.config.core.CustomServiceType;
 import org.mule.ide.config.core.CustomTransactionManagerType;
 import org.mule.ide.config.core.CustomTransactionType;
@@ -87,6 +85,8 @@ import org.mule.ide.config.core.EncryptionSecurityFilterType;
 import org.mule.ide.config.core.EncryptionTransformerType;
 import org.mule.ide.config.core.EndpointExceptionStrategyType;
 import org.mule.ide.config.core.EndpointSelectorRouterType;
+import org.mule.ide.config.core.ExpressionFilterType;
+import org.mule.ide.config.core.ExpressionMessageInfoMappingType;
 import org.mule.ide.config.core.ExpressionTransformerType;
 import org.mule.ide.config.core.ExtensibleEntryPointResolverSet;
 import org.mule.ide.config.core.FilteredInboundRouterType;
@@ -115,7 +115,6 @@ import org.mule.ide.config.core.QueueProfileType;
 import org.mule.ide.config.core.RefFilterType;
 import org.mule.ide.config.core.RefTransformerType;
 import org.mule.ide.config.core.ReflectionEntryPointResolverType;
-import org.mule.ide.config.core.RetryConnectionStrategyType;
 import org.mule.ide.config.core.SecurityManagerType;
 import org.mule.ide.config.core.SedaModelType;
 import org.mule.ide.config.core.SedaServiceType;
@@ -144,7 +143,6 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractCatchAllStrategy <em>Abstract Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractComponent <em>Abstract Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractComponentThreadingProfile <em>Abstract Component Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractConnector <em>Abstract Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractEntryPointResolver <em>Abstract Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractEntryPointResolverSet <em>Abstract Entry Point Resolver Set</em>}</li>
@@ -155,12 +153,12 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractInboundEndpoint <em>Abstract Inbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractInboundRouter <em>Abstract Inbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractLifecycleAdapterFactory <em>Abstract Lifecycle Adapter Factory</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractMessageInfoMapping <em>Abstract Message Info Mapping</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractModel <em>Abstract Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractObjectFactory <em>Abstract Object Factory</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractOutboundEndpoint <em>Abstract Outbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractOutboundRouter <em>Abstract Outbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractPoolingProfile <em>Abstract Pooling Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractPropertyExtractor <em>Abstract Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractQueueProfile <em>Abstract Queue Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractSecurityFilter <em>Abstract Security Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getAbstractSecurityManager <em>Abstract Security Manager</em>}</li>
@@ -180,13 +178,12 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getByteArrayToStringTransformer <em>Byte Array To String Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCallableEntryPointResolver <em>Callable Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getChainingRouter <em>Chaining Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCollectionAsyncReplyRouter <em>Collection Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getComponent <em>Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getComponentThreadingProfile <em>Component Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCorrelationPropertyExtractor <em>Correlation Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCorrelationResequencerRouter <em>Correlation Resequencer Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomAsyncReplyRouter <em>Custom Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomCatchAllStrategy <em>Custom Catch All Strategy</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomConnectionStrategy <em>Custom Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomConnector <em>Custom Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomCorrelationAggregatorRouter <em>Custom Correlation Aggregator Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomEntryPointResolver <em>Custom Entry Point Resolver</em>}</li>
@@ -196,8 +193,8 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomForwardingCatchAllStrategy <em>Custom Forwarding Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomInboundRouter <em>Custom Inbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomLifecycleAdapterFactory <em>Custom Lifecycle Adapter Factory</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomMessageInfoMapping <em>Custom Message Info Mapping</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomOutboundRouter <em>Custom Outbound Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomPropertyExtractor <em>Custom Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomService <em>Custom Service</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomTransaction <em>Custom Transaction</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getCustomTransactionManager <em>Custom Transaction Manager</em>}</li>
@@ -213,12 +210,13 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getEntryPointResolverSet <em>Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getExceptionBasedRouter <em>Exception Based Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getExceptionTypeFilter <em>Exception Type Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getExpressionFilter <em>Expression Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getExpressionMessageInfoMapping <em>Expression Message Info Mapping</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getExpressionTransformer <em>Expression Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getFilteringRouter <em>Filtering Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getForwardingCatchAllStrategy <em>Forwarding Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getForwardingRouter <em>Forwarding Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getFunctionPropertyExtractor <em>Function Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getGzipCompressTransformer <em>Gzip Compress Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getGzipUncompressTransformer <em>Gzip Uncompress Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getHexStringToByteArrayTransformer <em>Hex String To Byte Array Transformer</em>}</li>
@@ -234,11 +232,9 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getListMessageSplitterRouter <em>List Message Splitter Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getLogComponent <em>Log Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getLoggingCatchAllStrategy <em>Logging Catch All Strategy</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMapPropertyExtractor <em>Map Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMessageChunkingAggregatorRouter <em>Message Chunking Aggregator Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMessageChunkingRouter <em>Message Chunking Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMessagePropertiesTransformer <em>Message Properties Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMessagePropertyExtractor <em>Message Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMessagePropertyFilter <em>Message Property Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getMethodEntryPointResolver <em>Method Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getModel <em>Model</em>}</li>
@@ -263,7 +259,6 @@ import org.mule.ide.config.core.WireTapRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getReflectionEntryPointResolver <em>Reflection Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getRegexFilter <em>Regex Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getResinTransactionManager <em>Resin Transaction Manager</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getRetryConnectionStrategy <em>Retry Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getSecurityManager <em>Security Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getSedaModel <em>Seda Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.DocumentRootImpl#getSelectiveConsumerRouter <em>Selective Consumer Router</em>}</li>
@@ -443,24 +438,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public NotificationChain basicSetAbstractComponentThreadingProfile(AbstractComponentThreadingProfileType newAbstractComponentThreadingProfile, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AbstractComponentThreadingProfile(), newAbstractComponentThreadingProfile, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractConnectionStrategyType getAbstractConnectionStrategy() {
-		return (AbstractConnectionStrategyType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_AbstractConnectionStrategy(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAbstractConnectionStrategy(AbstractConnectionStrategyType newAbstractConnectionStrategy, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AbstractConnectionStrategy(), newAbstractConnectionStrategy, msgs);
 	}
 
 	/**
@@ -648,6 +625,24 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AbstractMessageInfoMappingType getAbstractMessageInfoMapping() {
+		return (AbstractMessageInfoMappingType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_AbstractMessageInfoMapping(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAbstractMessageInfoMapping(AbstractMessageInfoMappingType newAbstractMessageInfoMapping, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AbstractMessageInfoMapping(), newAbstractMessageInfoMapping, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AbstractModelType getAbstractModel() {
 		return (AbstractModelType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_AbstractModel(), true);
 	}
@@ -731,24 +726,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public NotificationChain basicSetAbstractPoolingProfile(AbstractPoolingProfileType newAbstractPoolingProfile, NotificationChain msgs) {
 		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AbstractPoolingProfile(), newAbstractPoolingProfile, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractPropertyExtractorType getAbstractPropertyExtractor() {
-		return (AbstractPropertyExtractorType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_AbstractPropertyExtractor(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAbstractPropertyExtractor(AbstractPropertyExtractorType newAbstractPropertyExtractor, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_AbstractPropertyExtractor(), newAbstractPropertyExtractor, msgs);
 	}
 
 	/**
@@ -1206,6 +1183,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AsyncReplyRouterType getCollectionAsyncReplyRouter() {
+		return (AsyncReplyRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CollectionAsyncReplyRouter(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCollectionAsyncReplyRouter(AsyncReplyRouterType newCollectionAsyncReplyRouter, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CollectionAsyncReplyRouter(), newCollectionAsyncReplyRouter, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCollectionAsyncReplyRouter(AsyncReplyRouterType newCollectionAsyncReplyRouter) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CollectionAsyncReplyRouter(), newCollectionAsyncReplyRouter);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DefaultJavaComponentType getComponent() {
 		return (DefaultJavaComponentType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_Component(), true);
 	}
@@ -1253,33 +1257,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setComponentThreadingProfile(ThreadingProfileType newComponentThreadingProfile) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ComponentThreadingProfile(), newComponentThreadingProfile);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractPropertyExtractorType getCorrelationPropertyExtractor() {
-		return (AbstractPropertyExtractorType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCorrelationPropertyExtractor(AbstractPropertyExtractorType newCorrelationPropertyExtractor, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(), newCorrelationPropertyExtractor, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCorrelationPropertyExtractor(AbstractPropertyExtractorType newCorrelationPropertyExtractor) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(), newCorrelationPropertyExtractor);
 	}
 
 	/**
@@ -1361,33 +1338,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setCustomCatchAllStrategy(CustomCatchAllStrategyType newCustomCatchAllStrategy) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomCatchAllStrategy(), newCustomCatchAllStrategy);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CustomConnectionStrategyType getCustomConnectionStrategy() {
-		return (CustomConnectionStrategyType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CustomConnectionStrategy(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCustomConnectionStrategy(CustomConnectionStrategyType newCustomConnectionStrategy, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CustomConnectionStrategy(), newCustomConnectionStrategy, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCustomConnectionStrategy(CustomConnectionStrategyType newCustomConnectionStrategy) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomConnectionStrategy(), newCustomConnectionStrategy);
 	}
 
 	/**
@@ -1638,6 +1588,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CustomMessageInfoMappingType getCustomMessageInfoMapping() {
+		return (CustomMessageInfoMappingType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CustomMessageInfoMapping(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCustomMessageInfoMapping(CustomMessageInfoMappingType newCustomMessageInfoMapping, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CustomMessageInfoMapping(), newCustomMessageInfoMapping, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCustomMessageInfoMapping(CustomMessageInfoMappingType newCustomMessageInfoMapping) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomMessageInfoMapping(), newCustomMessageInfoMapping);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CustomOutboundRouterType getCustomOutboundRouter() {
 		return (CustomOutboundRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CustomOutboundRouter(), true);
 	}
@@ -1658,33 +1635,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setCustomOutboundRouter(CustomOutboundRouterType newCustomOutboundRouter) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomOutboundRouter(), newCustomOutboundRouter);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CustomPropertyExtractorType getCustomPropertyExtractor() {
-		return (CustomPropertyExtractorType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCustomPropertyExtractor(CustomPropertyExtractorType newCustomPropertyExtractor, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(), newCustomPropertyExtractor, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCustomPropertyExtractor(CustomPropertyExtractorType newCustomPropertyExtractor) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(), newCustomPropertyExtractor);
 	}
 
 	/**
@@ -2097,6 +2047,60 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ExpressionFilterType getExpressionFilter() {
+		return (ExpressionFilterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ExpressionFilter(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExpressionFilter(ExpressionFilterType newExpressionFilter, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_ExpressionFilter(), newExpressionFilter, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExpressionFilter(ExpressionFilterType newExpressionFilter) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ExpressionFilter(), newExpressionFilter);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpressionMessageInfoMappingType getExpressionMessageInfoMapping() {
+		return (ExpressionMessageInfoMappingType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ExpressionMessageInfoMapping(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExpressionMessageInfoMapping(ExpressionMessageInfoMappingType newExpressionMessageInfoMapping, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_ExpressionMessageInfoMapping(), newExpressionMessageInfoMapping, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExpressionMessageInfoMapping(ExpressionMessageInfoMappingType newExpressionMessageInfoMapping) {
+		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ExpressionMessageInfoMapping(), newExpressionMessageInfoMapping);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExpressionTransformerType getExpressionTransformer() {
 		return (ExpressionTransformerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_ExpressionTransformer(), true);
 	}
@@ -2225,33 +2229,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setForwardingRouter(SelectiveConsumerRouterType newForwardingRouter) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter(), newForwardingRouter);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractPropertyExtractorType getFunctionPropertyExtractor() {
-		return (AbstractPropertyExtractorType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFunctionPropertyExtractor(AbstractPropertyExtractorType newFunctionPropertyExtractor, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(), newFunctionPropertyExtractor, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFunctionPropertyExtractor(AbstractPropertyExtractorType newFunctionPropertyExtractor) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(), newFunctionPropertyExtractor);
 	}
 
 	/**
@@ -2664,33 +2641,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractPropertyExtractorType getMapPropertyExtractor() {
-		return (AbstractPropertyExtractorType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMapPropertyExtractor(AbstractPropertyExtractorType newMapPropertyExtractor, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(), newMapPropertyExtractor, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMapPropertyExtractor(AbstractPropertyExtractorType newMapPropertyExtractor) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(), newMapPropertyExtractor);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MessageChunkingAggregatorRouterType getMessageChunkingAggregatorRouter() {
 		return (MessageChunkingAggregatorRouterType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter(), true);
 	}
@@ -2765,33 +2715,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public void setMessagePropertiesTransformer(MessagePropertiesTransformerType newMessagePropertiesTransformer) {
 		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer(), newMessagePropertiesTransformer);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractPropertyExtractorType getMessagePropertyExtractor() {
-		return (AbstractPropertyExtractorType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMessagePropertyExtractor(AbstractPropertyExtractorType newMessagePropertyExtractor, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(), newMessagePropertyExtractor, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMessagePropertyExtractor(AbstractPropertyExtractorType newMessagePropertyExtractor) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(), newMessagePropertyExtractor);
 	}
 
 	/**
@@ -3447,33 +3370,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RetryConnectionStrategyType getRetryConnectionStrategy() {
-		return (RetryConnectionStrategyType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_RetryConnectionStrategy(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRetryConnectionStrategy(RetryConnectionStrategyType newRetryConnectionStrategy, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(CorePackage.eINSTANCE.getDocumentRoot_RetryConnectionStrategy(), newRetryConnectionStrategy, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRetryConnectionStrategy(RetryConnectionStrategyType newRetryConnectionStrategy) {
-		((FeatureMap.Internal)getMixed()).set(CorePackage.eINSTANCE.getDocumentRoot_RetryConnectionStrategy(), newRetryConnectionStrategy);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SecurityManagerType getSecurityManager() {
 		return (SecurityManagerType)getMixed().get(CorePackage.eINSTANCE.getDocumentRoot_SecurityManager(), true);
 	}
@@ -3977,8 +3873,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetAbstractComponent(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT_THREADING_PROFILE:
 				return basicSetAbstractComponentThreadingProfile(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTION_STRATEGY:
-				return basicSetAbstractConnectionStrategy(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTOR:
 				return basicSetAbstractConnector(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER:
@@ -3999,6 +3893,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetAbstractInboundRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_LIFECYCLE_ADAPTER_FACTORY:
 				return basicSetAbstractLifecycleAdapterFactory(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_MESSAGE_INFO_MAPPING:
+				return basicSetAbstractMessageInfoMapping(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_MODEL:
 				return basicSetAbstractModel(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_OBJECT_FACTORY:
@@ -4009,8 +3905,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetAbstractOutboundRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_POOLING_PROFILE:
 				return basicSetAbstractPoolingProfile(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_PROPERTY_EXTRACTOR:
-				return basicSetAbstractPropertyExtractor(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_QUEUE_PROFILE:
 				return basicSetAbstractQueueProfile(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_SECURITY_FILTER:
@@ -4049,20 +3943,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetCallableEntryPointResolver(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
 				return basicSetChainingRouter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__COLLECTION_ASYNC_REPLY_ROUTER:
+				return basicSetCollectionAsyncReplyRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__COMPONENT:
 				return basicSetComponent(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				return basicSetComponentThreadingProfile(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__CORRELATION_PROPERTY_EXTRACTOR:
-				return basicSetCorrelationPropertyExtractor(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_RESEQUENCER_ROUTER:
 				return basicSetCorrelationResequencerRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_ASYNC_REPLY_ROUTER:
 				return basicSetCustomAsyncReplyRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CATCH_ALL_STRATEGY:
 				return basicSetCustomCatchAllStrategy(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTION_STRATEGY:
-				return basicSetCustomConnectionStrategy(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTOR:
 				return basicSetCustomConnector(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CORRELATION_AGGREGATOR_ROUTER:
@@ -4081,10 +3973,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetCustomInboundRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_LIFECYCLE_ADAPTER_FACTORY:
 				return basicSetCustomLifecycleAdapterFactory(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_MESSAGE_INFO_MAPPING:
+				return basicSetCustomMessageInfoMapping(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_OUTBOUND_ROUTER:
 				return basicSetCustomOutboundRouter(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
-				return basicSetCustomPropertyExtractor(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_SERVICE:
 				return basicSetCustomService(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION:
@@ -4115,6 +4007,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetExceptionBasedRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_TYPE_FILTER:
 				return basicSetExceptionTypeFilter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_FILTER:
+				return basicSetExpressionFilter(null, msgs);
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_MESSAGE_INFO_MAPPING:
+				return basicSetExpressionMessageInfoMapping(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__EXPRESSION_TRANSFORMER:
 				return basicSetExpressionTransformer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__FILTER:
@@ -4125,8 +4021,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetForwardingCatchAllStrategy(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
 				return basicSetForwardingRouter(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__FUNCTION_PROPERTY_EXTRACTOR:
-				return basicSetFunctionPropertyExtractor(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
 				return basicSetGzipCompressTransformer(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__GZIP_UNCOMPRESS_TRANSFORMER:
@@ -4157,16 +4051,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetLogComponent(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__LOGGING_CATCH_ALL_STRATEGY:
 				return basicSetLoggingCatchAllStrategy(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__MAP_PROPERTY_EXTRACTOR:
-				return basicSetMapPropertyExtractor(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_AGGREGATOR_ROUTER:
 				return basicSetMessageChunkingAggregatorRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_ROUTER:
 				return basicSetMessageChunkingRouter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTIES_TRANSFORMER:
 				return basicSetMessagePropertiesTransformer(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_EXTRACTOR:
-				return basicSetMessagePropertyExtractor(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_FILTER:
 				return basicSetMessagePropertyFilter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__METHOD_ENTRY_POINT_RESOLVER:
@@ -4215,8 +4105,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetRegexFilter(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
 				return basicSetResinTransactionManager(null, msgs);
-			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
-				return basicSetRetryConnectionStrategy(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__SECURITY_MANAGER:
 				return basicSetSecurityManager(null, msgs);
 			case CorePackage.DOCUMENT_ROOT__SEDA_MODEL:
@@ -4282,8 +4170,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractComponent();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT_THREADING_PROFILE:
 				return getAbstractComponentThreadingProfile();
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTION_STRATEGY:
-				return getAbstractConnectionStrategy();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTOR:
 				return getAbstractConnector();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER:
@@ -4304,6 +4190,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractInboundRouter();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_LIFECYCLE_ADAPTER_FACTORY:
 				return getAbstractLifecycleAdapterFactory();
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_MESSAGE_INFO_MAPPING:
+				return getAbstractMessageInfoMapping();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_MODEL:
 				return getAbstractModel();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_OBJECT_FACTORY:
@@ -4314,8 +4202,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractOutboundRouter();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_POOLING_PROFILE:
 				return getAbstractPoolingProfile();
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_PROPERTY_EXTRACTOR:
-				return getAbstractPropertyExtractor();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_QUEUE_PROFILE:
 				return getAbstractQueueProfile();
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_SECURITY_FILTER:
@@ -4354,20 +4240,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCallableEntryPointResolver();
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
 				return getChainingRouter();
+			case CorePackage.DOCUMENT_ROOT__COLLECTION_ASYNC_REPLY_ROUTER:
+				return getCollectionAsyncReplyRouter();
 			case CorePackage.DOCUMENT_ROOT__COMPONENT:
 				return getComponent();
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				return getComponentThreadingProfile();
-			case CorePackage.DOCUMENT_ROOT__CORRELATION_PROPERTY_EXTRACTOR:
-				return getCorrelationPropertyExtractor();
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_RESEQUENCER_ROUTER:
 				return getCorrelationResequencerRouter();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_ASYNC_REPLY_ROUTER:
 				return getCustomAsyncReplyRouter();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CATCH_ALL_STRATEGY:
 				return getCustomCatchAllStrategy();
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTION_STRATEGY:
-				return getCustomConnectionStrategy();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTOR:
 				return getCustomConnector();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CORRELATION_AGGREGATOR_ROUTER:
@@ -4386,10 +4270,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCustomInboundRouter();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_LIFECYCLE_ADAPTER_FACTORY:
 				return getCustomLifecycleAdapterFactory();
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_MESSAGE_INFO_MAPPING:
+				return getCustomMessageInfoMapping();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_OUTBOUND_ROUTER:
 				return getCustomOutboundRouter();
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
-				return getCustomPropertyExtractor();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_SERVICE:
 				return getCustomService();
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION:
@@ -4420,6 +4304,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getExceptionBasedRouter();
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_TYPE_FILTER:
 				return getExceptionTypeFilter();
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_FILTER:
+				return getExpressionFilter();
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_MESSAGE_INFO_MAPPING:
+				return getExpressionMessageInfoMapping();
 			case CorePackage.DOCUMENT_ROOT__EXPRESSION_TRANSFORMER:
 				return getExpressionTransformer();
 			case CorePackage.DOCUMENT_ROOT__FILTER:
@@ -4430,8 +4318,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getForwardingCatchAllStrategy();
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
 				return getForwardingRouter();
-			case CorePackage.DOCUMENT_ROOT__FUNCTION_PROPERTY_EXTRACTOR:
-				return getFunctionPropertyExtractor();
 			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
 				return getGzipCompressTransformer();
 			case CorePackage.DOCUMENT_ROOT__GZIP_UNCOMPRESS_TRANSFORMER:
@@ -4462,16 +4348,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getLogComponent();
 			case CorePackage.DOCUMENT_ROOT__LOGGING_CATCH_ALL_STRATEGY:
 				return getLoggingCatchAllStrategy();
-			case CorePackage.DOCUMENT_ROOT__MAP_PROPERTY_EXTRACTOR:
-				return getMapPropertyExtractor();
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_AGGREGATOR_ROUTER:
 				return getMessageChunkingAggregatorRouter();
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_ROUTER:
 				return getMessageChunkingRouter();
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTIES_TRANSFORMER:
 				return getMessagePropertiesTransformer();
-			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_EXTRACTOR:
-				return getMessagePropertyExtractor();
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_FILTER:
 				return getMessagePropertyFilter();
 			case CorePackage.DOCUMENT_ROOT__METHOD_ENTRY_POINT_RESOLVER:
@@ -4520,8 +4402,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getRegexFilter();
 			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
 				return getResinTransactionManager();
-			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
-				return getRetryConnectionStrategy();
 			case CorePackage.DOCUMENT_ROOT__SECURITY_MANAGER:
 				return getSecurityManager();
 			case CorePackage.DOCUMENT_ROOT__SEDA_MODEL:
@@ -4615,14 +4495,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
 				setChainingRouter((FilteringOutboundRouterType)newValue);
 				return;
+			case CorePackage.DOCUMENT_ROOT__COLLECTION_ASYNC_REPLY_ROUTER:
+				setCollectionAsyncReplyRouter((AsyncReplyRouterType)newValue);
+				return;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT:
 				setComponent((DefaultJavaComponentType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				setComponentThreadingProfile((ThreadingProfileType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__CORRELATION_PROPERTY_EXTRACTOR:
-				setCorrelationPropertyExtractor((AbstractPropertyExtractorType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_RESEQUENCER_ROUTER:
 				setCorrelationResequencerRouter((SelectiveConsumerRouterType)newValue);
@@ -4632,9 +4512,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CATCH_ALL_STRATEGY:
 				setCustomCatchAllStrategy((CustomCatchAllStrategyType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTION_STRATEGY:
-				setCustomConnectionStrategy((CustomConnectionStrategyType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTOR:
 				setCustomConnector((CustomConnectorType)newValue);
@@ -4663,11 +4540,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_LIFECYCLE_ADAPTER_FACTORY:
 				setCustomLifecycleAdapterFactory((CustomLifecycleAdapterFactory)newValue);
 				return;
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_MESSAGE_INFO_MAPPING:
+				setCustomMessageInfoMapping((CustomMessageInfoMappingType)newValue);
+				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_OUTBOUND_ROUTER:
 				setCustomOutboundRouter((CustomOutboundRouterType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
-				setCustomPropertyExtractor((CustomPropertyExtractorType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_SERVICE:
 				setCustomService((CustomServiceType)newValue);
@@ -4714,6 +4591,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_TYPE_FILTER:
 				setExceptionTypeFilter((TypeFilterType)newValue);
 				return;
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_FILTER:
+				setExpressionFilter((ExpressionFilterType)newValue);
+				return;
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_MESSAGE_INFO_MAPPING:
+				setExpressionMessageInfoMapping((ExpressionMessageInfoMappingType)newValue);
+				return;
 			case CorePackage.DOCUMENT_ROOT__EXPRESSION_TRANSFORMER:
 				setExpressionTransformer((ExpressionTransformerType)newValue);
 				return;
@@ -4728,9 +4611,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
 				setForwardingRouter((SelectiveConsumerRouterType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__FUNCTION_PROPERTY_EXTRACTOR:
-				setFunctionPropertyExtractor((AbstractPropertyExtractorType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
 				setGzipCompressTransformer((AbstractTransformerType)newValue);
@@ -4777,9 +4657,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__LOGGING_CATCH_ALL_STRATEGY:
 				setLoggingCatchAllStrategy((LoggingCatchAllStrategyType)newValue);
 				return;
-			case CorePackage.DOCUMENT_ROOT__MAP_PROPERTY_EXTRACTOR:
-				setMapPropertyExtractor((AbstractPropertyExtractorType)newValue);
-				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_AGGREGATOR_ROUTER:
 				setMessageChunkingAggregatorRouter((MessageChunkingAggregatorRouterType)newValue);
 				return;
@@ -4788,9 +4665,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTIES_TRANSFORMER:
 				setMessagePropertiesTransformer((MessagePropertiesTransformerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_EXTRACTOR:
-				setMessagePropertyExtractor((AbstractPropertyExtractorType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_FILTER:
 				setMessagePropertyFilter((CaseSensitivePatternFilterType)newValue);
@@ -4863,9 +4737,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
 				setResinTransactionManager((TransactionManagerType)newValue);
-				return;
-			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
-				setRetryConnectionStrategy((RetryConnectionStrategyType)newValue);
 				return;
 			case CorePackage.DOCUMENT_ROOT__SECURITY_MANAGER:
 				setSecurityManager((SecurityManagerType)newValue);
@@ -4978,14 +4849,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
 				setChainingRouter((FilteringOutboundRouterType)null);
 				return;
+			case CorePackage.DOCUMENT_ROOT__COLLECTION_ASYNC_REPLY_ROUTER:
+				setCollectionAsyncReplyRouter((AsyncReplyRouterType)null);
+				return;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT:
 				setComponent((DefaultJavaComponentType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				setComponentThreadingProfile((ThreadingProfileType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__CORRELATION_PROPERTY_EXTRACTOR:
-				setCorrelationPropertyExtractor((AbstractPropertyExtractorType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_RESEQUENCER_ROUTER:
 				setCorrelationResequencerRouter((SelectiveConsumerRouterType)null);
@@ -4995,9 +4866,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CATCH_ALL_STRATEGY:
 				setCustomCatchAllStrategy((CustomCatchAllStrategyType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTION_STRATEGY:
-				setCustomConnectionStrategy((CustomConnectionStrategyType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTOR:
 				setCustomConnector((CustomConnectorType)null);
@@ -5026,11 +4894,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_LIFECYCLE_ADAPTER_FACTORY:
 				setCustomLifecycleAdapterFactory((CustomLifecycleAdapterFactory)null);
 				return;
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_MESSAGE_INFO_MAPPING:
+				setCustomMessageInfoMapping((CustomMessageInfoMappingType)null);
+				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_OUTBOUND_ROUTER:
 				setCustomOutboundRouter((CustomOutboundRouterType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
-				setCustomPropertyExtractor((CustomPropertyExtractorType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_SERVICE:
 				setCustomService((CustomServiceType)null);
@@ -5077,6 +4945,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_TYPE_FILTER:
 				setExceptionTypeFilter((TypeFilterType)null);
 				return;
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_FILTER:
+				setExpressionFilter((ExpressionFilterType)null);
+				return;
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_MESSAGE_INFO_MAPPING:
+				setExpressionMessageInfoMapping((ExpressionMessageInfoMappingType)null);
+				return;
 			case CorePackage.DOCUMENT_ROOT__EXPRESSION_TRANSFORMER:
 				setExpressionTransformer((ExpressionTransformerType)null);
 				return;
@@ -5091,9 +4965,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
 				setForwardingRouter((SelectiveConsumerRouterType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__FUNCTION_PROPERTY_EXTRACTOR:
-				setFunctionPropertyExtractor((AbstractPropertyExtractorType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
 				setGzipCompressTransformer((AbstractTransformerType)null);
@@ -5140,9 +5011,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case CorePackage.DOCUMENT_ROOT__LOGGING_CATCH_ALL_STRATEGY:
 				setLoggingCatchAllStrategy((LoggingCatchAllStrategyType)null);
 				return;
-			case CorePackage.DOCUMENT_ROOT__MAP_PROPERTY_EXTRACTOR:
-				setMapPropertyExtractor((AbstractPropertyExtractorType)null);
-				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_AGGREGATOR_ROUTER:
 				setMessageChunkingAggregatorRouter((MessageChunkingAggregatorRouterType)null);
 				return;
@@ -5151,9 +5019,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTIES_TRANSFORMER:
 				setMessagePropertiesTransformer((MessagePropertiesTransformerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_EXTRACTOR:
-				setMessagePropertyExtractor((AbstractPropertyExtractorType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_FILTER:
 				setMessagePropertyFilter((CaseSensitivePatternFilterType)null);
@@ -5226,9 +5091,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
 				setResinTransactionManager((TransactionManagerType)null);
-				return;
-			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
-				setRetryConnectionStrategy((RetryConnectionStrategyType)null);
 				return;
 			case CorePackage.DOCUMENT_ROOT__SECURITY_MANAGER:
 				setSecurityManager((SecurityManagerType)null);
@@ -5310,8 +5172,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractComponent() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT_THREADING_PROFILE:
 				return getAbstractComponentThreadingProfile() != null;
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTION_STRATEGY:
-				return getAbstractConnectionStrategy() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTOR:
 				return getAbstractConnector() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER:
@@ -5332,6 +5192,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractInboundRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_LIFECYCLE_ADAPTER_FACTORY:
 				return getAbstractLifecycleAdapterFactory() != null;
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_MESSAGE_INFO_MAPPING:
+				return getAbstractMessageInfoMapping() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_MODEL:
 				return getAbstractModel() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_OBJECT_FACTORY:
@@ -5342,8 +5204,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getAbstractOutboundRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_POOLING_PROFILE:
 				return getAbstractPoolingProfile() != null;
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_PROPERTY_EXTRACTOR:
-				return getAbstractPropertyExtractor() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_QUEUE_PROFILE:
 				return getAbstractQueueProfile() != null;
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_SECURITY_FILTER:
@@ -5382,20 +5242,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCallableEntryPointResolver() != null;
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
 				return getChainingRouter() != null;
+			case CorePackage.DOCUMENT_ROOT__COLLECTION_ASYNC_REPLY_ROUTER:
+				return getCollectionAsyncReplyRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT:
 				return getComponent() != null;
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
 				return getComponentThreadingProfile() != null;
-			case CorePackage.DOCUMENT_ROOT__CORRELATION_PROPERTY_EXTRACTOR:
-				return getCorrelationPropertyExtractor() != null;
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_RESEQUENCER_ROUTER:
 				return getCorrelationResequencerRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_ASYNC_REPLY_ROUTER:
 				return getCustomAsyncReplyRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CATCH_ALL_STRATEGY:
 				return getCustomCatchAllStrategy() != null;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTION_STRATEGY:
-				return getCustomConnectionStrategy() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTOR:
 				return getCustomConnector() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CORRELATION_AGGREGATOR_ROUTER:
@@ -5414,10 +5272,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCustomInboundRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_LIFECYCLE_ADAPTER_FACTORY:
 				return getCustomLifecycleAdapterFactory() != null;
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_MESSAGE_INFO_MAPPING:
+				return getCustomMessageInfoMapping() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_OUTBOUND_ROUTER:
 				return getCustomOutboundRouter() != null;
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
-				return getCustomPropertyExtractor() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_SERVICE:
 				return getCustomService() != null;
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION:
@@ -5448,6 +5306,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getExceptionBasedRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_TYPE_FILTER:
 				return getExceptionTypeFilter() != null;
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_FILTER:
+				return getExpressionFilter() != null;
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_MESSAGE_INFO_MAPPING:
+				return getExpressionMessageInfoMapping() != null;
 			case CorePackage.DOCUMENT_ROOT__EXPRESSION_TRANSFORMER:
 				return getExpressionTransformer() != null;
 			case CorePackage.DOCUMENT_ROOT__FILTER:
@@ -5458,8 +5320,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getForwardingCatchAllStrategy() != null;
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
 				return getForwardingRouter() != null;
-			case CorePackage.DOCUMENT_ROOT__FUNCTION_PROPERTY_EXTRACTOR:
-				return getFunctionPropertyExtractor() != null;
 			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
 				return getGzipCompressTransformer() != null;
 			case CorePackage.DOCUMENT_ROOT__GZIP_UNCOMPRESS_TRANSFORMER:
@@ -5490,16 +5350,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getLogComponent() != null;
 			case CorePackage.DOCUMENT_ROOT__LOGGING_CATCH_ALL_STRATEGY:
 				return getLoggingCatchAllStrategy() != null;
-			case CorePackage.DOCUMENT_ROOT__MAP_PROPERTY_EXTRACTOR:
-				return getMapPropertyExtractor() != null;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_AGGREGATOR_ROUTER:
 				return getMessageChunkingAggregatorRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_ROUTER:
 				return getMessageChunkingRouter() != null;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTIES_TRANSFORMER:
 				return getMessagePropertiesTransformer() != null;
-			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_EXTRACTOR:
-				return getMessagePropertyExtractor() != null;
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_FILTER:
 				return getMessagePropertyFilter() != null;
 			case CorePackage.DOCUMENT_ROOT__METHOD_ENTRY_POINT_RESOLVER:
@@ -5548,8 +5404,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getRegexFilter() != null;
 			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
 				return getResinTransactionManager() != null;
-			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
-				return getRetryConnectionStrategy() != null;
 			case CorePackage.DOCUMENT_ROOT__SECURITY_MANAGER:
 				return getSecurityManager() != null;
 			case CorePackage.DOCUMENT_ROOT__SEDA_MODEL:

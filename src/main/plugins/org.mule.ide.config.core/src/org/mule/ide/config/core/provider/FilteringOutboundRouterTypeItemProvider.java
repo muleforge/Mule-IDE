@@ -203,6 +203,13 @@ public class FilteringOutboundRouterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getFilteringOutboundRouterType_AbstractFilterGroup(),
 				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ExpressionFilter(),
+					 CoreFactory.eINSTANCE.createExpressionFilterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getFilteringOutboundRouterType_AbstractFilterGroup(),
+				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Filter(),
 					 CoreFactory.eINSTANCE.createRefFilterType())));
 
@@ -890,11 +897,6 @@ public class FilteringOutboundRouterTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_AndFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OrFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter() ||

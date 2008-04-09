@@ -32,7 +32,7 @@ public interface DisableNotificationType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' attribute.
 	 * The default value is <code>"MANAGER"</code>.
-	 * The literals are from the enumeration {@link org.mule.ide.config.core.EventType}.
+	 * The literals are from the enumeration {@link org.mule.ide.config.core.NotificationTypes}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -41,29 +41,29 @@ public interface DisableNotificationType extends EObject {
 	 *                 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Event</em>' attribute.
-	 * @see org.mule.ide.config.core.EventType
+	 * @see org.mule.ide.config.core.NotificationTypes
 	 * @see #isSetEvent()
 	 * @see #unsetEvent()
-	 * @see #setEvent(EventType)
+	 * @see #setEvent(NotificationTypes)
 	 * @see org.mule.ide.config.core.CorePackage#getDisableNotificationType_Event()
 	 * @model default="MANAGER" unsettable="true"
 	 *        extendedMetaData="kind='attribute' name='event'"
 	 * @generated
 	 */
-	EventType getEvent();
+	NotificationTypes getEvent();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DisableNotificationType#getEvent <em>Event</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Event</em>' attribute.
-	 * @see org.mule.ide.config.core.EventType
+	 * @see org.mule.ide.config.core.NotificationTypes
 	 * @see #isSetEvent()
 	 * @see #unsetEvent()
 	 * @see #getEvent()
 	 * @generated
 	 */
-	void setEvent(EventType value);
+	void setEvent(NotificationTypes value);
 
 	/**
 	 * Unsets the value of the '{@link org.mule.ide.config.core.DisableNotificationType#getEvent <em>Event</em>}' attribute.
@@ -71,7 +71,7 @@ public interface DisableNotificationType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @see #isSetEvent()
 	 * @see #getEvent()
-	 * @see #setEvent(EventType)
+	 * @see #setEvent(NotificationTypes)
 	 * @generated
 	 */
 	void unsetEvent();
@@ -83,7 +83,7 @@ public interface DisableNotificationType extends EObject {
 	 * @return whether the value of the '<em>Event</em>' attribute is set.
 	 * @see #unsetEvent()
 	 * @see #getEvent()
-	 * @see #setEvent(EventType)
+	 * @see #setEvent(NotificationTypes)
 	 * @generated
 	 */
 	boolean isSetEvent();
@@ -120,7 +120,7 @@ public interface DisableNotificationType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Interface</b></em>' attribute.
 	 * The default value is <code>"MANAGER"</code>.
-	 * The literals are from the enumeration {@link org.mule.ide.config.core.InterfaceType}.
+	 * The literals are from the enumeration {@link org.mule.ide.config.core.NotificationTypes}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -129,29 +129,29 @@ public interface DisableNotificationType extends EObject {
 	 *                 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interface</em>' attribute.
-	 * @see org.mule.ide.config.core.InterfaceType
+	 * @see org.mule.ide.config.core.NotificationTypes
 	 * @see #isSetInterface()
 	 * @see #unsetInterface()
-	 * @see #setInterface(InterfaceType)
+	 * @see #setInterface(NotificationTypes)
 	 * @see org.mule.ide.config.core.CorePackage#getDisableNotificationType_Interface()
 	 * @model default="MANAGER" unsettable="true"
 	 *        extendedMetaData="kind='attribute' name='interface'"
 	 * @generated
 	 */
-	InterfaceType getInterface();
+	NotificationTypes getInterface();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.DisableNotificationType#getInterface <em>Interface</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Interface</em>' attribute.
-	 * @see org.mule.ide.config.core.InterfaceType
+	 * @see org.mule.ide.config.core.NotificationTypes
 	 * @see #isSetInterface()
 	 * @see #unsetInterface()
 	 * @see #getInterface()
 	 * @generated
 	 */
-	void setInterface(InterfaceType value);
+	void setInterface(NotificationTypes value);
 
 	/**
 	 * Unsets the value of the '{@link org.mule.ide.config.core.DisableNotificationType#getInterface <em>Interface</em>}' attribute.
@@ -159,7 +159,7 @@ public interface DisableNotificationType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @see #isSetInterface()
 	 * @see #getInterface()
-	 * @see #setInterface(InterfaceType)
+	 * @see #setInterface(NotificationTypes)
 	 * @generated
 	 */
 	void unsetInterface();
@@ -171,7 +171,7 @@ public interface DisableNotificationType extends EObject {
 	 * @return whether the value of the '<em>Interface</em>' attribute is set.
 	 * @see #unsetInterface()
 	 * @see #getInterface()
-	 * @see #setInterface(InterfaceType)
+	 * @see #setInterface(NotificationTypes)
 	 * @generated
 	 */
 	boolean isSetInterface();

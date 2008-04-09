@@ -10,25 +10,25 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.mule.ide.config.core.AbstractPropertyExtractorType;
+import org.mule.ide.config.core.AbstractMessageInfoMappingType;
 import org.mule.ide.config.core.CorePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Property Extractor Type</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Message Info Mapping Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class AbstractPropertyExtractorTypeImpl extends EObjectImpl implements AbstractPropertyExtractorType {
+public class AbstractMessageInfoMappingTypeImpl extends EObjectImpl implements AbstractMessageInfoMappingType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AbstractPropertyExtractorTypeImpl() {
+	protected AbstractMessageInfoMappingTypeImpl() {
 		super();
 	}
 
@@ -39,7 +39,7 @@ public class AbstractPropertyExtractorTypeImpl extends EObjectImpl implements Ab
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.eINSTANCE.getAbstractPropertyExtractorType();
+		return CorePackage.eINSTANCE.getAbstractMessageInfoMappingType();
 	}
 
-} //AbstractPropertyExtractorTypeImpl
+} //AbstractMessageInfoMappingTypeImpl

@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <ul>
  *   <li>{@link org.mule.ide.config.core.AsyncReplyRouterType#getAbstractInboundEndpointGroup <em>Abstract Inbound Endpoint Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AsyncReplyRouterType#getAbstractInboundEndpoint <em>Abstract Inbound Endpoint</em>}</li>
- *   <li>{@link org.mule.ide.config.core.AsyncReplyRouterType#getAbstractPropertyExtractorGroup <em>Abstract Property Extractor Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.AsyncReplyRouterType#getAbstractPropertyExtractor <em>Abstract Property Extractor</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.AsyncReplyRouterType#getAbstractMessageInfoMappingGroup <em>Abstract Message Info Mapping Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.AsyncReplyRouterType#getAbstractMessageInfoMapping <em>Abstract Message Info Mapping</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,36 +79,36 @@ public interface AsyncReplyRouterType extends AbstractAsyncReplyRouterType {
 	EList<AbstractInboundEndpointType> getAbstractInboundEndpoint();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Property Extractor Group</b></em>' attribute list.
+	 * Returns the value of the '<em><b>Abstract Message Info Mapping Group</b></em>' attribute list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Abstract Property Extractor Group</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Abstract Message Info Mapping Group</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Property Extractor Group</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyRouterType_AbstractPropertyExtractorGroup()
+	 * @return the value of the '<em>Abstract Message Info Mapping Group</em>' attribute list.
+	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyRouterType_AbstractMessageInfoMappingGroup()
 	 * @model dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="false"
-	 *        extendedMetaData="kind='group' name='abstract-property-extractor:group' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='group' name='abstract-message-info-mapping:group' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	FeatureMap getAbstractPropertyExtractorGroup();
+	FeatureMap getAbstractMessageInfoMappingGroup();
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Property Extractor</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Abstract Message Info Mapping</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Abstract Property Extractor</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Abstract Message Info Mapping</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Property Extractor</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyRouterType_AbstractPropertyExtractor()
+	 * @return the value of the '<em>Abstract Message Info Mapping</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyRouterType_AbstractMessageInfoMapping()
 	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-property-extractor' namespace='##targetNamespace' group='abstract-property-extractor:group'"
+	 *        extendedMetaData="kind='element' name='abstract-message-info-mapping' namespace='##targetNamespace' group='abstract-message-info-mapping:group'"
 	 * @generated
 	 */
-	AbstractPropertyExtractorType getAbstractPropertyExtractor();
+	AbstractMessageInfoMappingType getAbstractMessageInfoMapping();
 
 } // AsyncReplyRouterType

@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -109,7 +110,8 @@ public class EndpointExceptionStrategyTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EndpointExceptionStrategyType_type");
+		EndpointExceptionStrategyType endpointExceptionStrategyType = (EndpointExceptionStrategyType)object;
+		return getString("_UI_EndpointExceptionStrategyType_type") + " " + endpointExceptionStrategyType.isEnableNotifications();
 	}
 
 	/**
@@ -148,6 +150,35 @@ public class EndpointExceptionStrategyTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_OutboundEndpoint(),
 					 CoreFactory.eINSTANCE.createOutboundEndpointType())));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
+			childFeature = entry.getEStructuralFeature();
+			childObject = entry.getValue();
+		}
+
+		boolean qualify =
+			childFeature == CorePackage.eINSTANCE.getAbstractExceptionStrategyType_CommitTransaction() ||
+			childFeature == CorePackage.eINSTANCE.getAbstractExceptionStrategyType_RollbackTransaction();
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

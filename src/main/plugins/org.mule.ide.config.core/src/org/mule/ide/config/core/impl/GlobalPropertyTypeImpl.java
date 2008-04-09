@@ -14,23 +14,23 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.EnvironmentPropertyType;
+import org.mule.ide.config.core.GlobalPropertyType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Environment Property Type</b></em>'.
+ * An implementation of the model object '<em><b>Global Property Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.EnvironmentPropertyTypeImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.EnvironmentPropertyTypeImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.GlobalPropertyTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.GlobalPropertyTypeImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class EnvironmentPropertyTypeImpl extends EObjectImpl implements EnvironmentPropertyType {
+public class GlobalPropertyTypeImpl extends EObjectImpl implements GlobalPropertyType {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -76,7 +76,7 @@ public class EnvironmentPropertyTypeImpl extends EObjectImpl implements Environm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EnvironmentPropertyTypeImpl() {
+	protected GlobalPropertyTypeImpl() {
 		super();
 	}
 
@@ -87,7 +87,7 @@ public class EnvironmentPropertyTypeImpl extends EObjectImpl implements Environm
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.eINSTANCE.getEnvironmentPropertyType();
+		return CorePackage.eINSTANCE.getGlobalPropertyType();
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class EnvironmentPropertyTypeImpl extends EObjectImpl implements Environm
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ENVIRONMENT_PROPERTY_TYPE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.GLOBAL_PROPERTY_TYPE__NAME, oldName, name));
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class EnvironmentPropertyTypeImpl extends EObjectImpl implements Environm
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ENVIRONMENT_PROPERTY_TYPE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.GLOBAL_PROPERTY_TYPE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -140,9 +140,9 @@ public class EnvironmentPropertyTypeImpl extends EObjectImpl implements Environm
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE__NAME:
+			case CorePackage.GLOBAL_PROPERTY_TYPE__NAME:
 				return getName();
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE__VALUE:
+			case CorePackage.GLOBAL_PROPERTY_TYPE__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -156,10 +156,10 @@ public class EnvironmentPropertyTypeImpl extends EObjectImpl implements Environm
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE__NAME:
+			case CorePackage.GLOBAL_PROPERTY_TYPE__NAME:
 				setName((String)newValue);
 				return;
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE__VALUE:
+			case CorePackage.GLOBAL_PROPERTY_TYPE__VALUE:
 				setValue((String)newValue);
 				return;
 		}
@@ -174,10 +174,10 @@ public class EnvironmentPropertyTypeImpl extends EObjectImpl implements Environm
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE__NAME:
+			case CorePackage.GLOBAL_PROPERTY_TYPE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE__VALUE:
+			case CorePackage.GLOBAL_PROPERTY_TYPE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -192,9 +192,9 @@ public class EnvironmentPropertyTypeImpl extends EObjectImpl implements Environm
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE__NAME:
+			case CorePackage.GLOBAL_PROPERTY_TYPE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE__VALUE:
+			case CorePackage.GLOBAL_PROPERTY_TYPE__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
@@ -218,4 +218,4 @@ public class EnvironmentPropertyTypeImpl extends EObjectImpl implements Environm
 		return result.toString();
 	}
 
-} //EnvironmentPropertyTypeImpl
+} //GlobalPropertyTypeImpl

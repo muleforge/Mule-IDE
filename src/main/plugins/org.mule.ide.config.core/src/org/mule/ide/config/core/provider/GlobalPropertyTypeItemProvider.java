@@ -15,7 +15,12 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -25,22 +30,21 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CorePlugin;
-import org.mule.ide.config.core.CustomConnectionStrategyType;
-
-import org.mule.ide.config.spring.SpringFactory;
+import org.mule.ide.config.core.GlobalPropertyType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.CustomConnectionStrategyType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.GlobalPropertyType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CustomConnectionStrategyTypeItemProvider
-	extends ConnectionStrategyTypeItemProvider
+public class GlobalPropertyTypeItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -53,7 +57,7 @@ public class CustomConnectionStrategyTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomConnectionStrategyTypeItemProvider(AdapterFactory adapterFactory) {
+	public GlobalPropertyTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,25 +72,26 @@ public class CustomConnectionStrategyTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addClassPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Class feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClassPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CustomConnectionStrategyType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CustomConnectionStrategyType_class_feature", "_UI_CustomConnectionStrategyType_type"),
-				 CorePackage.eINSTANCE.getCustomConnectionStrategyType_Class(),
+				 getString("_UI_GlobalPropertyType_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalPropertyType_name_feature", "_UI_GlobalPropertyType_type"),
+				 CorePackage.eINSTANCE.getGlobalPropertyType_Name(),
 				 true,
 				 false,
 				 false,
@@ -96,33 +101,36 @@ public class CustomConnectionStrategyTypeItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getCustomConnectionStrategyType_Property());
-		}
-		return childrenFeatures;
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GlobalPropertyType_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalPropertyType_value_feature", "_UI_GlobalPropertyType_type"),
+				 CorePackage.eINSTANCE.getGlobalPropertyType_Value(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This returns GlobalPropertyType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GlobalPropertyType"));
 	}
 
 	/**
@@ -133,10 +141,10 @@ public class CustomConnectionStrategyTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CustomConnectionStrategyType)object).getClass_();
+		String label = ((GlobalPropertyType)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CustomConnectionStrategyType_type") :
-			getString("_UI_CustomConnectionStrategyType_type") + " " + label;
+			getString("_UI_GlobalPropertyType_type") :
+			getString("_UI_GlobalPropertyType_type") + " " + label;
 	}
 
 	/**
@@ -150,12 +158,10 @@ public class CustomConnectionStrategyTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CustomConnectionStrategyType.class)) {
-			case CorePackage.CUSTOM_CONNECTION_STRATEGY_TYPE__CLASS:
+		switch (notification.getFeatureID(GlobalPropertyType.class)) {
+			case CorePackage.GLOBAL_PROPERTY_TYPE__NAME:
+			case CorePackage.GLOBAL_PROPERTY_TYPE__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case CorePackage.CUSTOM_CONNECTION_STRATEGY_TYPE__PROPERTY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -171,11 +177,34 @@ public class CustomConnectionStrategyTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomConnectionStrategyType_Property(),
-				 SpringFactory.eINSTANCE.createPropertyType()));
+	/**
+	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)child;
+			feature = entry.getEStructuralFeature();
+			child = entry.getValue();        
+		}
+
+		if (feature instanceof EReference && child instanceof EObject) {
+			String name = "full/obj16/" + ((EObject)child).eClass().getName();
+
+			try {
+				return getResourceLocator().getImage(name);
+			}
+			catch (Exception e) {
+				CorePlugin.INSTANCE.log(e);
+			}
+		}
+
+		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

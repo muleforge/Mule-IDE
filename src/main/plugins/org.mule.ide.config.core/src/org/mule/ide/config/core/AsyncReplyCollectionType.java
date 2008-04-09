@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.AsyncReplyCollectionType#getAbstractAsyncReplyRouter <em>Abstract Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AsyncReplyCollectionType#getAbstractTransformerGroup <em>Abstract Transformer Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AsyncReplyCollectionType#getAbstractTransformer <em>Abstract Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.AsyncReplyCollectionType#isFailOnTimeout <em>Fail On Timeout</em>}</li>
  *   <li>{@link org.mule.ide.config.core.AsyncReplyCollectionType#getTimeout <em>Timeout</em>}</li>
  * </ul>
  * </p>
@@ -178,6 +179,62 @@ public interface AsyncReplyCollectionType extends EObject {
 	EList<AbstractTransformerType> getAbstractTransformer();
 
 	/**
+	 * Returns the value of the '<em><b>Fail On Timeout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                     If the router times out before all expected events have been received should an exception be thrown
+	 *                     or should the current events be returned for processing. The default is false.
+	 *                 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Fail On Timeout</em>' attribute.
+	 * @see #isSetFailOnTimeout()
+	 * @see #unsetFailOnTimeout()
+	 * @see #setFailOnTimeout(boolean)
+	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyCollectionType_FailOnTimeout()
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableBoolean"
+	 *        extendedMetaData="kind='attribute' name='failOnTimeout'"
+	 * @generated
+	 */
+	boolean isFailOnTimeout();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.AsyncReplyCollectionType#isFailOnTimeout <em>Fail On Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fail On Timeout</em>' attribute.
+	 * @see #isSetFailOnTimeout()
+	 * @see #unsetFailOnTimeout()
+	 * @see #isFailOnTimeout()
+	 * @generated
+	 */
+	void setFailOnTimeout(boolean value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.AsyncReplyCollectionType#isFailOnTimeout <em>Fail On Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetFailOnTimeout()
+	 * @see #isFailOnTimeout()
+	 * @see #setFailOnTimeout(boolean)
+	 * @generated
+	 */
+	void unsetFailOnTimeout();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.AsyncReplyCollectionType#isFailOnTimeout <em>Fail On Timeout</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Fail On Timeout</em>' attribute is set.
+	 * @see #unsetFailOnTimeout()
+	 * @see #isFailOnTimeout()
+	 * @see #setFailOnTimeout(boolean)
+	 * @generated
+	 */
+	boolean isSetFailOnTimeout();
+
+	/**
 	 * Returns the value of the '<em><b>Timeout</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -195,7 +252,7 @@ public interface AsyncReplyCollectionType extends EObject {
 	 * @see #unsetTimeout()
 	 * @see #setTimeout(int)
 	 * @see org.mule.ide.config.core.CorePackage#getAsyncReplyCollectionType_Timeout()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Int"
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableInt"
 	 *        extendedMetaData="kind='attribute' name='timeout'"
 	 * @generated
 	 */

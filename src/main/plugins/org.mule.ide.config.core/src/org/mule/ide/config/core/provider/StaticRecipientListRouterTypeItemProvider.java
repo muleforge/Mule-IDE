@@ -73,6 +73,7 @@ public class StaticRecipientListRouterTypeItemProvider
 
 			addRecipientsDelimiterPropertyDescriptor(object);
 			addRecipientsPropertyPropertyDescriptor(object);
+			addSynchronousPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -117,6 +118,28 @@ public class StaticRecipientListRouterTypeItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Synchronous feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSynchronousPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StaticRecipientListRouterType_synchronous_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StaticRecipientListRouterType_synchronous_feature", "_UI_StaticRecipientListRouterType_type"),
+				 CorePackage.eINSTANCE.getStaticRecipientListRouterType_Synchronous(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -180,6 +203,7 @@ public class StaticRecipientListRouterTypeItemProvider
 		switch (notification.getFeatureID(StaticRecipientListRouterType.class)) {
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_DELIMITER:
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_PROPERTY:
+			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__SYNCHRONOUS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS:
@@ -224,11 +248,6 @@ public class StaticRecipientListRouterTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_AndFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_OrFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter() ||

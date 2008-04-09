@@ -85,7 +85,6 @@ public class FilteredInboundRouterTypeItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractFilterGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup());
 		}
 		return childrenFeatures;
 	}
@@ -127,7 +126,6 @@ public class FilteredInboundRouterTypeItemProvider
 
 		switch (notification.getFeatureID(FilteredInboundRouterType.class)) {
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_FILTER_GROUP:
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -165,6 +163,13 @@ public class FilteredInboundRouterTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter(),
 					 CoreFactory.eINSTANCE.createTypeFilterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractFilterGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ExpressionFilter(),
+					 CoreFactory.eINSTANCE.createExpressionFilterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -228,69 +233,6 @@ public class FilteredInboundRouterTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter(),
 					 CoreFactory.eINSTANCE.createWildcardFilterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
-					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
-					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
 	}
 
 	/**
@@ -317,12 +259,7 @@ public class FilteredInboundRouterTypeItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PayloadTypeFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_RegexFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor();
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_WildcardFilter();
 
 		if (qualify) {
 			return getString

@@ -73,9 +73,32 @@ public class AsyncReplyCollectionTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addFailOnTimeoutPropertyDescriptor(object);
 			addTimeoutPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Fail On Timeout feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFailOnTimeoutPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AsyncReplyCollectionType_failOnTimeout_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AsyncReplyCollectionType_failOnTimeout_feature", "_UI_AsyncReplyCollectionType_type"),
+				 CorePackage.eINSTANCE.getAsyncReplyCollectionType_FailOnTimeout(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -141,7 +164,7 @@ public class AsyncReplyCollectionTypeItemProvider
 	@Override
 	public String getText(Object object) {
 		AsyncReplyCollectionType asyncReplyCollectionType = (AsyncReplyCollectionType)object;
-		return getString("_UI_AsyncReplyCollectionType_type") + " " + asyncReplyCollectionType.getTimeout();
+		return getString("_UI_AsyncReplyCollectionType_type") + " " + asyncReplyCollectionType.isFailOnTimeout();
 	}
 
 	/**
@@ -156,6 +179,7 @@ public class AsyncReplyCollectionTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AsyncReplyCollectionType.class)) {
+			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__FAIL_ON_TIMEOUT:
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -185,6 +209,20 @@ public class AsyncReplyCollectionTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_InboundEndpoint(),
 					 CoreFactory.eINSTANCE.createInboundEndpointType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractAsyncReplyRouterGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CollectionAsyncReplyRouter(),
+					 CoreFactory.eINSTANCE.createAsyncReplyRouterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getAsyncReplyCollectionType_AbstractAsyncReplyRouterGroup(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_CollectionAsyncReplyRouter(),
+					 CoreFactory.eINSTANCE.createCustomAsyncReplyRouterType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -835,8 +873,9 @@ public class AsyncReplyCollectionTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomAsyncReplyRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CollectionAsyncReplyRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SingleAsyncReplyRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomAsyncReplyRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Base64DecoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Base64EncoderTransformer() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToHexStringTransformer() ||

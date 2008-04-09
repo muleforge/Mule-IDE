@@ -17,31 +17,30 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CustomPropertyExtractorType;
+import org.mule.ide.config.core.CustomMessageInfoMappingType;
 
 import org.mule.ide.config.spring.PropertyType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Custom Property Extractor Type</b></em>'.
+ * An implementation of the model object '<em><b>Custom Message Info Mapping Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.impl.CustomPropertyExtractorTypeImpl#getProperty <em>Property</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.CustomPropertyExtractorTypeImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.CustomMessageInfoMappingTypeImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.CustomMessageInfoMappingTypeImpl#getClass_ <em>Class</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTypeImpl implements CustomPropertyExtractorType {
+public class CustomMessageInfoMappingTypeImpl extends AbstractMessageInfoMappingTypeImpl implements CustomMessageInfoMappingType {
 	/**
 	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -77,7 +76,7 @@ public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CustomPropertyExtractorTypeImpl() {
+	protected CustomMessageInfoMappingTypeImpl() {
 		super();
 	}
 
@@ -88,7 +87,7 @@ public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTy
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.eINSTANCE.getCustomPropertyExtractorType();
+		return CorePackage.eINSTANCE.getCustomMessageInfoMappingType();
 	}
 
 	/**
@@ -98,7 +97,7 @@ public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTy
 	 */
 	public EList<PropertyType> getProperty() {
 		if (property == null) {
-			property = new EObjectContainmentEList<PropertyType>(PropertyType.class, this, CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__PROPERTY);
+			property = new EObjectContainmentEList<PropertyType>(PropertyType.class, this, CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__PROPERTY);
 		}
 		return property;
 	}
@@ -121,7 +120,7 @@ public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTy
 		String oldClass = class_;
 		class_ = newClass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__CLASS, oldClass, class_));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__CLASS, oldClass, class_));
 	}
 
 	/**
@@ -132,7 +131,7 @@ public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTy
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__PROPERTY:
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__PROPERTY:
 				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -146,9 +145,9 @@ public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTy
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__PROPERTY:
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__PROPERTY:
 				return getProperty();
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__CLASS:
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__CLASS:
 				return getClass_();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -163,11 +162,11 @@ public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTy
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__PROPERTY:
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__PROPERTY:
 				getProperty().clear();
 				getProperty().addAll((Collection<? extends PropertyType>)newValue);
 				return;
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__CLASS:
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__CLASS:
 				setClass((String)newValue);
 				return;
 		}
@@ -182,10 +181,10 @@ public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTy
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__PROPERTY:
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__PROPERTY:
 				getProperty().clear();
 				return;
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__CLASS:
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__CLASS:
 				setClass(CLASS_EDEFAULT);
 				return;
 		}
@@ -200,9 +199,9 @@ public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTy
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__PROPERTY:
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__PROPERTY:
 				return property != null && !property.isEmpty();
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__CLASS:
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__CLASS:
 				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
 		}
 		return super.eIsSet(featureID);
@@ -224,4 +223,4 @@ public class CustomPropertyExtractorTypeImpl extends AbstractPropertyExtractorTy
 		return result.toString();
 	}
 
-} //CustomPropertyExtractorTypeImpl
+} //CustomMessageInfoMappingTypeImpl

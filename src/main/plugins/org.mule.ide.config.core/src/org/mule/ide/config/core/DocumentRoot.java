@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractCatchAllStrategy <em>Abstract Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractComponent <em>Abstract Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractComponentThreadingProfile <em>Abstract Component Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractConnector <em>Abstract Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractEntryPointResolver <em>Abstract Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractEntryPointResolverSet <em>Abstract Entry Point Resolver Set</em>}</li>
@@ -38,12 +37,12 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractInboundEndpoint <em>Abstract Inbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractInboundRouter <em>Abstract Inbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractLifecycleAdapterFactory <em>Abstract Lifecycle Adapter Factory</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractMessageInfoMapping <em>Abstract Message Info Mapping</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractModel <em>Abstract Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractObjectFactory <em>Abstract Object Factory</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractOutboundEndpoint <em>Abstract Outbound Endpoint</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractOutboundRouter <em>Abstract Outbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractPoolingProfile <em>Abstract Pooling Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractPropertyExtractor <em>Abstract Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractQueueProfile <em>Abstract Queue Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractSecurityFilter <em>Abstract Security Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getAbstractSecurityManager <em>Abstract Security Manager</em>}</li>
@@ -63,13 +62,12 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getByteArrayToStringTransformer <em>Byte Array To String Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCallableEntryPointResolver <em>Callable Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getChainingRouter <em>Chaining Router</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCollectionAsyncReplyRouter <em>Collection Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getComponent <em>Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getComponentThreadingProfile <em>Component Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCorrelationPropertyExtractor <em>Correlation Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCorrelationResequencerRouter <em>Correlation Resequencer Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomAsyncReplyRouter <em>Custom Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomCatchAllStrategy <em>Custom Catch All Strategy</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomConnectionStrategy <em>Custom Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomConnector <em>Custom Connector</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomCorrelationAggregatorRouter <em>Custom Correlation Aggregator Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomEntryPointResolver <em>Custom Entry Point Resolver</em>}</li>
@@ -79,8 +77,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomForwardingCatchAllStrategy <em>Custom Forwarding Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomInboundRouter <em>Custom Inbound Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomLifecycleAdapterFactory <em>Custom Lifecycle Adapter Factory</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomMessageInfoMapping <em>Custom Message Info Mapping</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomOutboundRouter <em>Custom Outbound Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomPropertyExtractor <em>Custom Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomService <em>Custom Service</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransaction <em>Custom Transaction</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getCustomTransactionManager <em>Custom Transaction Manager</em>}</li>
@@ -96,12 +94,13 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getEntryPointResolverSet <em>Entry Point Resolver Set</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getExceptionBasedRouter <em>Exception Based Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getExceptionTypeFilter <em>Exception Type Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getExpressionFilter <em>Expression Filter</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.DocumentRoot#getExpressionMessageInfoMapping <em>Expression Message Info Mapping</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getExpressionTransformer <em>Expression Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getFilteringRouter <em>Filtering Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getForwardingCatchAllStrategy <em>Forwarding Catch All Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getForwardingRouter <em>Forwarding Router</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getFunctionPropertyExtractor <em>Function Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getGzipCompressTransformer <em>Gzip Compress Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getGzipUncompressTransformer <em>Gzip Uncompress Transformer</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getHexStringToByteArrayTransformer <em>Hex String To Byte Array Transformer</em>}</li>
@@ -117,11 +116,9 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getListMessageSplitterRouter <em>List Message Splitter Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getLogComponent <em>Log Component</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getLoggingCatchAllStrategy <em>Logging Catch All Strategy</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMapPropertyExtractor <em>Map Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMessageChunkingAggregatorRouter <em>Message Chunking Aggregator Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMessageChunkingRouter <em>Message Chunking Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMessagePropertiesTransformer <em>Message Properties Transformer</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMessagePropertyExtractor <em>Message Property Extractor</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMessagePropertyFilter <em>Message Property Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getMethodEntryPointResolver <em>Method Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getModel <em>Model</em>}</li>
@@ -146,7 +143,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getReflectionEntryPointResolver <em>Reflection Entry Point Resolver</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getRegexFilter <em>Regex Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getResinTransactionManager <em>Resin Transaction Manager</em>}</li>
- *   <li>{@link org.mule.ide.config.core.DocumentRoot#getRetryConnectionStrategy <em>Retry Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSecurityManager <em>Security Manager</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSedaModel <em>Seda Model</em>}</li>
  *   <li>{@link org.mule.ide.config.core.DocumentRoot#getSelectiveConsumerRouter <em>Selective Consumer Router</em>}</li>
@@ -312,28 +308,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	AbstractComponentThreadingProfileType getAbstractComponentThreadingProfile();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Connection Strategy</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Connection Strategy</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 A placeholder for connection strategy elements.
-	 *                 Connection strategies control how the underlying transport handles connection errors.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Abstract Connection Strategy</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractConnectionStrategy()
-	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-connection-strategy' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	AbstractConnectionStrategyType getAbstractConnectionStrategy();
 
 	/**
 	 * Returns the value of the '<em><b>Abstract Connector</b></em>' containment reference.
@@ -555,6 +529,22 @@ public interface DocumentRoot extends EObject {
 	AbstractLifecycleAdapterFactory getAbstractLifecycleAdapterFactory();
 
 	/**
+	 * Returns the value of the '<em><b>Abstract Message Info Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract Message Info Mapping</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Message Info Mapping</em>' containment reference.
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractMessageInfoMapping()
+	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='abstract-message-info-mapping' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	AbstractMessageInfoMappingType getAbstractMessageInfoMapping();
+
+	/**
 	 * Returns the value of the '<em><b>Abstract Model</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -651,22 +641,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	AbstractPoolingProfileType getAbstractPoolingProfile();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Property Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Property Extractor</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Property Extractor</em>' containment reference.
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_AbstractPropertyExtractor()
-	 * @model containment="true" upper="-2" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-property-extractor' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	AbstractPropertyExtractorType getAbstractPropertyExtractor();
 
 	/**
 	 * Returns the value of the '<em><b>Abstract Queue Profile</b></em>' containment reference.
@@ -1206,6 +1180,34 @@ public interface DocumentRoot extends EObject {
 	void setChainingRouter(FilteringOutboundRouterType value);
 
 	/**
+	 * Returns the value of the '<em><b>Collection Async Reply Router</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Configures a Collection Response Router. This will return a MuleMEssageCollection message
+	 *                 type that will contain all events recieved for the current correlation.
+	 *             
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Collection Async Reply Router</em>' containment reference.
+	 * @see #setCollectionAsyncReplyRouter(AsyncReplyRouterType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CollectionAsyncReplyRouter()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='collection-async-reply-router' namespace='##targetNamespace' affiliation='abstract-async-reply-router'"
+	 * @generated
+	 */
+	AsyncReplyRouterType getCollectionAsyncReplyRouter();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCollectionAsyncReplyRouter <em>Collection Async Reply Router</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Collection Async Reply Router</em>' containment reference.
+	 * @see #getCollectionAsyncReplyRouter()
+	 * @generated
+	 */
+	void setCollectionAsyncReplyRouter(AsyncReplyRouterType value);
+
+	/**
 	 * Returns the value of the '<em><b>Component</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1270,38 +1272,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setComponentThreadingProfile(ThreadingProfileType value);
-
-	/**
-	 * Returns the value of the '<em><b>Correlation Property Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Correlation Property Extractor</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 A special extractor, this returns the correlation ID for various standard cases.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Correlation Property Extractor</em>' containment reference.
-	 * @see #setCorrelationPropertyExtractor(AbstractPropertyExtractorType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CorrelationPropertyExtractor()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='correlation-property-extractor' namespace='##targetNamespace' affiliation='abstract-property-extractor'"
-	 * @generated
-	 */
-	AbstractPropertyExtractorType getCorrelationPropertyExtractor();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCorrelationPropertyExtractor <em>Correlation Property Extractor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Correlation Property Extractor</em>' containment reference.
-	 * @see #getCorrelationPropertyExtractor()
-	 * @generated
-	 */
-	void setCorrelationPropertyExtractor(AbstractPropertyExtractorType value);
 
 	/**
 	 * Returns the value of the '<em><b>Correlation Resequencer Router</b></em>' containment reference.
@@ -1383,38 +1353,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setCustomCatchAllStrategy(CustomCatchAllStrategyType value);
-
-	/**
-	 * Returns the value of the '<em><b>Custom Connection Strategy</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Custom Connection Strategy</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 A user-defined connection strategy.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Custom Connection Strategy</em>' containment reference.
-	 * @see #setCustomConnectionStrategy(CustomConnectionStrategyType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomConnectionStrategy()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='custom-connection-strategy' namespace='##targetNamespace' affiliation='abstract-connection-strategy'"
-	 * @generated
-	 */
-	CustomConnectionStrategyType getCustomConnectionStrategy();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomConnectionStrategy <em>Custom Connection Strategy</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Custom Connection Strategy</em>' containment reference.
-	 * @see #getCustomConnectionStrategy()
-	 * @generated
-	 */
-	void setCustomConnectionStrategy(CustomConnectionStrategyType value);
 
 	/**
 	 * Returns the value of the '<em><b>Custom Connector</b></em>' containment reference.
@@ -1693,6 +1631,34 @@ public interface DocumentRoot extends EObject {
 	void setCustomLifecycleAdapterFactory(CustomLifecycleAdapterFactory value);
 
 	/**
+	 * Returns the value of the '<em><b>Custom Message Info Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 This allows configuraton of a custom implementation of MessageInfoMapping
+	 *             
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Custom Message Info Mapping</em>' containment reference.
+	 * @see #setCustomMessageInfoMapping(CustomMessageInfoMappingType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomMessageInfoMapping()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='custom-message-info-mapping' namespace='##targetNamespace' affiliation='abstract-message-info-mapping'"
+	 * @generated
+	 */
+	CustomMessageInfoMappingType getCustomMessageInfoMapping();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomMessageInfoMapping <em>Custom Message Info Mapping</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Custom Message Info Mapping</em>' containment reference.
+	 * @see #getCustomMessageInfoMapping()
+	 * @generated
+	 */
+	void setCustomMessageInfoMapping(CustomMessageInfoMappingType value);
+
+	/**
 	 * Returns the value of the '<em><b>Custom Outbound Router</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1718,38 +1684,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setCustomOutboundRouter(CustomOutboundRouterType value);
-
-	/**
-	 * Returns the value of the '<em><b>Custom Property Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Custom Property Extractor</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 This allows an arbitrary class to be used as a property extractor.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Custom Property Extractor</em>' containment reference.
-	 * @see #setCustomPropertyExtractor(CustomPropertyExtractorType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_CustomPropertyExtractor()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='custom-property-extractor' namespace='##targetNamespace' affiliation='abstract-property-extractor'"
-	 * @generated
-	 */
-	CustomPropertyExtractorType getCustomPropertyExtractor();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getCustomPropertyExtractor <em>Custom Property Extractor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Custom Property Extractor</em>' containment reference.
-	 * @see #getCustomPropertyExtractor()
-	 * @generated
-	 */
-	void setCustomPropertyExtractor(CustomPropertyExtractorType value);
 
 	/**
 	 * Returns the value of the '<em><b>Custom Service</b></em>' containment reference.
@@ -2223,12 +2157,70 @@ public interface DocumentRoot extends EObject {
 	void setExceptionTypeFilter(TypeFilterType value);
 
 	/**
+	 * Returns the value of the '<em><b>Expression Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 A filter that can evaluate a range of expressions. It supports some base expression types
+	 *                 such as 'header', 'payload' (payload type), 'regex' and 'wildcard'.
+	 *             
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Expression Filter</em>' containment reference.
+	 * @see #setExpressionFilter(ExpressionFilterType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ExpressionFilter()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='expression-filter' namespace='##targetNamespace' affiliation='abstract-filter'"
+	 * @generated
+	 */
+	ExpressionFilterType getExpressionFilter();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getExpressionFilter <em>Expression Filter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expression Filter</em>' containment reference.
+	 * @see #getExpressionFilter()
+	 * @generated
+	 */
+	void setExpressionFilter(ExpressionFilterType value);
+
+	/**
+	 * Returns the value of the '<em><b>Expression Message Info Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                 Allows expressions to be configured to extract the message information.
+	 *             
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Expression Message Info Mapping</em>' containment reference.
+	 * @see #setExpressionMessageInfoMapping(ExpressionMessageInfoMappingType)
+	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_ExpressionMessageInfoMapping()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='expression-message-info-mapping' namespace='##targetNamespace' affiliation='abstract-message-info-mapping'"
+	 * @generated
+	 */
+	ExpressionMessageInfoMappingType getExpressionMessageInfoMapping();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getExpressionMessageInfoMapping <em>Expression Message Info Mapping</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expression Message Info Mapping</em>' containment reference.
+	 * @see #getExpressionMessageInfoMapping()
+	 * @generated
+	 */
+	void setExpressionMessageInfoMapping(ExpressionMessageInfoMappingType value);
+
+	/**
 	 * Returns the value of the '<em><b>Expression Transformer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                 A transformer that evaluates one or more expressions on the current event
+	 *                 A transformer that evaluates one or more expressions on the current event. Each expression equates to a
+	 *                 parameter in the return message. The return message for 2 or more expressions will be an Object[].
 	 *             
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expression Transformer</em>' containment reference.
@@ -2362,35 +2354,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setForwardingRouter(SelectiveConsumerRouterType value);
-
-	/**
-	 * Returns the value of the '<em><b>Function Property Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 Rather than extract a value from the message, this supports the following
-	 *                 functions: "now", "date", "uuid", "hostname" and "ip".
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Function Property Extractor</em>' containment reference.
-	 * @see #setFunctionPropertyExtractor(AbstractPropertyExtractorType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_FunctionPropertyExtractor()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='function-property-extractor' namespace='##targetNamespace' affiliation='abstract-property-extractor'"
-	 * @generated
-	 */
-	AbstractPropertyExtractorType getFunctionPropertyExtractor();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getFunctionPropertyExtractor <em>Function Property Extractor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Function Property Extractor</em>' containment reference.
-	 * @see #getFunctionPropertyExtractor()
-	 * @generated
-	 */
-	void setFunctionPropertyExtractor(AbstractPropertyExtractorType value);
 
 	/**
 	 * Returns the value of the '<em><b>Gzip Compress Transformer</b></em>' containment reference.
@@ -2853,39 +2816,6 @@ public interface DocumentRoot extends EObject {
 	void setLoggingCatchAllStrategy(LoggingCatchAllStrategyType value);
 
 	/**
-	 * Returns the value of the '<em><b>Map Property Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Map Property Extractor</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 If the message payload is a map then the property is extracted from the
-	 *                 map using the property name as key.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Map Property Extractor</em>' containment reference.
-	 * @see #setMapPropertyExtractor(AbstractPropertyExtractorType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_MapPropertyExtractor()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='map-property-extractor' namespace='##targetNamespace' affiliation='abstract-property-extractor'"
-	 * @generated
-	 */
-	AbstractPropertyExtractorType getMapPropertyExtractor();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getMapPropertyExtractor <em>Map Property Extractor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Map Property Extractor</em>' containment reference.
-	 * @see #getMapPropertyExtractor()
-	 * @generated
-	 */
-	void setMapPropertyExtractor(AbstractPropertyExtractorType value);
-
-	/**
 	 * Returns the value of the '<em><b>Message Chunking Aggregator Router</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -2970,39 +2900,6 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setMessagePropertiesTransformer(MessagePropertiesTransformerType value);
-
-	/**
-	 * Returns the value of the '<em><b>Message Property Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Message Property Extractor</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 The property is extracted from the message headers using the header property
-	 *                 name as key. The special value "payload" retrieves the message payload.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Message Property Extractor</em>' containment reference.
-	 * @see #setMessagePropertyExtractor(AbstractPropertyExtractorType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_MessagePropertyExtractor()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='message-property-extractor' namespace='##targetNamespace' affiliation='abstract-property-extractor'"
-	 * @generated
-	 */
-	AbstractPropertyExtractorType getMessagePropertyExtractor();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getMessagePropertyExtractor <em>Message Property Extractor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Message Property Extractor</em>' containment reference.
-	 * @see #getMessagePropertyExtractor()
-	 * @generated
-	 */
-	void setMessagePropertyExtractor(AbstractPropertyExtractorType value);
 
 	/**
 	 * Returns the value of the '<em><b>Message Property Filter</b></em>' containment reference.
@@ -3774,38 +3671,6 @@ public interface DocumentRoot extends EObject {
 	void setResinTransactionManager(TransactionManagerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Retry Connection Strategy</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Retry Connection Strategy</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 Retry making a connection on failure.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Retry Connection Strategy</em>' containment reference.
-	 * @see #setRetryConnectionStrategy(RetryConnectionStrategyType)
-	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_RetryConnectionStrategy()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='retry-connection-strategy' namespace='##targetNamespace' affiliation='abstract-connection-strategy'"
-	 * @generated
-	 */
-	RetryConnectionStrategyType getRetryConnectionStrategy();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.DocumentRoot#getRetryConnectionStrategy <em>Retry Connection Strategy</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Retry Connection Strategy</em>' containment reference.
-	 * @see #getRetryConnectionStrategy()
-	 * @generated
-	 */
-	void setRetryConnectionStrategy(RetryConnectionStrategyType value);
-
-	/**
 	 * Returns the value of the '<em><b>Security Manager</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3967,6 +3832,11 @@ public interface DocumentRoot extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Configures a Single Response Router. This will return the first event it receives on a
+	 *                 reply endpoint and will discard the rest.
+	 *             
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Single Async Reply Router</em>' containment reference.
 	 * @see #setSingleAsyncReplyRouter(AsyncReplyRouterType)
 	 * @see org.mule.ide.config.core.CorePackage#getDocumentRoot_SingleAsyncReplyRouter()

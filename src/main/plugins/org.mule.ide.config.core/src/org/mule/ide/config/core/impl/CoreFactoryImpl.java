@@ -71,7 +71,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.ABSTRACT_CATCH_ALL_STRATEGY_TYPE: return createAbstractCatchAllStrategyType();
 			case CorePackage.ABSTRACT_COMPONENT_THREADING_PROFILE_TYPE: return createAbstractComponentThreadingProfileType();
 			case CorePackage.ABSTRACT_COMPONENT_TYPE: return createAbstractComponentType();
-			case CorePackage.ABSTRACT_CONNECTION_STRATEGY_TYPE: return createAbstractConnectionStrategyType();
 			case CorePackage.ABSTRACT_CONNECTOR_TYPE: return createAbstractConnectorType();
 			case CorePackage.ABSTRACT_ENTRY_POINT_RESOLVER_SET_TYPE: return createAbstractEntryPointResolverSetType();
 			case CorePackage.ABSTRACT_ENTRY_POINT_RESOLVER_TYPE: return createAbstractEntryPointResolverType();
@@ -82,12 +81,12 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.ABSTRACT_INBOUND_ENDPOINT_TYPE: return createAbstractInboundEndpointType();
 			case CorePackage.ABSTRACT_INBOUND_ROUTER_TYPE: return createAbstractInboundRouterType();
 			case CorePackage.ABSTRACT_LIFECYCLE_ADAPTER_FACTORY: return createAbstractLifecycleAdapterFactory();
+			case CorePackage.ABSTRACT_MESSAGE_INFO_MAPPING_TYPE: return createAbstractMessageInfoMappingType();
 			case CorePackage.ABSTRACT_MODEL_TYPE: return createAbstractModelType();
 			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE: return createAbstractObjectFactoryType();
 			case CorePackage.ABSTRACT_OUTBOUND_ENDPOINT_TYPE: return createAbstractOutboundEndpointType();
 			case CorePackage.ABSTRACT_OUTBOUND_ROUTER_TYPE: return createAbstractOutboundRouterType();
 			case CorePackage.ABSTRACT_POOLING_PROFILE_TYPE: return createAbstractPoolingProfileType();
-			case CorePackage.ABSTRACT_PROPERTY_EXTRACTOR_TYPE: return createAbstractPropertyExtractorType();
 			case CorePackage.ABSTRACT_QUEUE_PROFILE_TYPE: return createAbstractQueueProfileType();
 			case CorePackage.ABSTRACT_SECURITY_FILTER_TYPE: return createAbstractSecurityFilterType();
 			case CorePackage.ABSTRACT_SECURITY_MANAGER_TYPE: return createAbstractSecurityManagerType();
@@ -106,11 +105,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.COLLECTION_FILTER_TYPE: return createCollectionFilterType();
 			case CorePackage.COMPLEX_ENTRY_POINT_RESOLVER_TYPE: return createComplexEntryPointResolverType();
 			case CorePackage.CONFIGURATION_TYPE: return createConfigurationType();
-			case CorePackage.CONNECTION_STRATEGY_TYPE: return createConnectionStrategyType();
 			case CorePackage.CONNECTOR_TYPE: return createConnectorType();
 			case CorePackage.CUSTOM_ASYNC_REPLY_ROUTER_TYPE: return createCustomAsyncReplyRouterType();
 			case CorePackage.CUSTOM_CATCH_ALL_STRATEGY_TYPE: return createCustomCatchAllStrategyType();
-			case CorePackage.CUSTOM_CONNECTION_STRATEGY_TYPE: return createCustomConnectionStrategyType();
 			case CorePackage.CUSTOM_CONNECTOR_TYPE: return createCustomConnectorType();
 			case CorePackage.CUSTOM_CORRELATION_AGGREGATOR_ROUTER_TYPE: return createCustomCorrelationAggregatorRouterType();
 			case CorePackage.CUSTOM_ENCRYPTION_STRATEGY_TYPE: return createCustomEncryptionStrategyType();
@@ -121,8 +118,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.CUSTOM_FORWARDING_CATCH_ALL_STRATEGY_TYPE: return createCustomForwardingCatchAllStrategyType();
 			case CorePackage.CUSTOM_INBOUND_ROUTER_TYPE: return createCustomInboundRouterType();
 			case CorePackage.CUSTOM_LIFECYCLE_ADAPTER_FACTORY: return createCustomLifecycleAdapterFactory();
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE: return createCustomMessageInfoMappingType();
 			case CorePackage.CUSTOM_OUTBOUND_ROUTER_TYPE: return createCustomOutboundRouterType();
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE: return createCustomPropertyExtractorType();
 			case CorePackage.CUSTOM_SECURITY_PROVIDER_TYPE: return createCustomSecurityProviderType();
 			case CorePackage.CUSTOM_SERVICE_TYPE: return createCustomServiceType();
 			case CorePackage.CUSTOM_TRANSACTION_MANAGER_TYPE: return createCustomTransactionManagerType();
@@ -140,7 +137,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.ENCRYPTION_TRANSFORMER_TYPE: return createEncryptionTransformerType();
 			case CorePackage.ENDPOINT_EXCEPTION_STRATEGY_TYPE: return createEndpointExceptionStrategyType();
 			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE: return createEndpointSelectorRouterType();
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE: return createEnvironmentPropertyType();
+			case CorePackage.EXCEPTION_PATTERN_TYPE: return createExceptionPatternType();
+			case CorePackage.EXPRESSION_FILTER_TYPE: return createExpressionFilterType();
+			case CorePackage.EXPRESSION_MESSAGE_INFO_MAPPING_TYPE: return createExpressionMessageInfoMappingType();
 			case CorePackage.EXPRESSION_TRANSFORMER_TYPE: return createExpressionTransformerType();
 			case CorePackage.EXTENSIBLE_ENTRY_POINT_RESOLVER_SET: return createExtensibleEntryPointResolverSet();
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE: return createFilteredInboundRouterType();
@@ -148,6 +147,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.FORWARDING_CATCH_ALL_STRATEGY_TYPE: return createForwardingCatchAllStrategyType();
 			case CorePackage.GENERIC_OBJECT_FACTORY_TYPE: return createGenericObjectFactoryType();
 			case CorePackage.GLOBAL_ENDPOINT_TYPE: return createGlobalEndpointType();
+			case CorePackage.GLOBAL_PROPERTY_TYPE: return createGlobalPropertyType();
 			case CorePackage.INBOUND_COLLECTION_TYPE: return createInboundCollectionType();
 			case CorePackage.INBOUND_ENDPOINT_TYPE: return createInboundEndpointType();
 			case CorePackage.JNDI_CONNECTOR_TYPE: return createJndiConnectorType();
@@ -183,7 +183,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.REF_TRANSFORMER_TYPE: return createRefTransformerType();
 			case CorePackage.REPLY_TO_TYPE: return createReplyToType();
 			case CorePackage.RESPONSE_TRANSFORMERS_TYPE: return createResponseTransformersType();
-			case CorePackage.RETRY_CONNECTION_STRATEGY_TYPE: return createRetryConnectionStrategyType();
 			case CorePackage.RETURN_ARGUMENT_TYPE: return createReturnArgumentType();
 			case CorePackage.SECRET_KEY_ENCRYPTION_STRATEGY_TYPE: return createSecretKeyEncryptionStrategyType();
 			case CorePackage.SECURITY_MANAGER_TYPE: return createSecurityManagerType();
@@ -228,20 +227,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 				return createEnableCorrelationTypeFromString(eDataType, initialValue);
 			case CorePackage.EVALUATOR_TYPE:
 				return createEvaluatorTypeFromString(eDataType, initialValue);
-			case CorePackage.EVENT_TYPE:
-				return createEventTypeFromString(eDataType, initialValue);
-			case CorePackage.EVENT_TYPE1:
-				return createEventType1FromString(eDataType, initialValue);
+			case CorePackage.EVALUATOR_TYPE1:
+				return createEvaluatorType1FromString(eDataType, initialValue);
 			case CorePackage.EXHAUSTED_ACTION_TYPE:
 				return createExhaustedActionTypeFromString(eDataType, initialValue);
 			case CorePackage.INITIALISATION_POLICY_TYPE:
 				return createInitialisationPolicyTypeFromString(eDataType, initialValue);
 			case CorePackage.INITIAL_STATE_TYPE:
 				return createInitialStateTypeFromString(eDataType, initialValue);
-			case CorePackage.INTERFACE_TYPE:
-				return createInterfaceTypeFromString(eDataType, initialValue);
-			case CorePackage.INTERFACE_TYPE1:
-				return createInterfaceType1FromString(eDataType, initialValue);
+			case CorePackage.NOTIFICATION_TYPES:
+				return createNotificationTypesFromString(eDataType, initialValue);
 			case CorePackage.POOL_EXHAUSTED_ACTION_TYPE:
 				return createPoolExhaustedActionTypeFromString(eDataType, initialValue);
 			case CorePackage.ACTION_TYPE_OBJECT:
@@ -250,24 +245,20 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 				return createEnableCorrelationTypeObjectFromString(eDataType, initialValue);
 			case CorePackage.EVALUATOR_TYPE_OBJECT:
 				return createEvaluatorTypeObjectFromString(eDataType, initialValue);
-			case CorePackage.EVENT_TYPE_OBJECT:
-				return createEventTypeObjectFromString(eDataType, initialValue);
-			case CorePackage.EVENT_TYPE_OBJECT1:
-				return createEventTypeObject1FromString(eDataType, initialValue);
+			case CorePackage.EVALUATOR_TYPE_OBJECT1:
+				return createEvaluatorTypeObject1FromString(eDataType, initialValue);
 			case CorePackage.EXHAUSTED_ACTION_TYPE_OBJECT:
 				return createExhaustedActionTypeObjectFromString(eDataType, initialValue);
 			case CorePackage.INITIALISATION_POLICY_TYPE_OBJECT:
 				return createInitialisationPolicyTypeObjectFromString(eDataType, initialValue);
 			case CorePackage.INITIAL_STATE_TYPE_OBJECT:
 				return createInitialStateTypeObjectFromString(eDataType, initialValue);
-			case CorePackage.INTERFACE_TYPE_OBJECT:
-				return createInterfaceTypeObjectFromString(eDataType, initialValue);
-			case CorePackage.INTERFACE_TYPE_OBJECT1:
-				return createInterfaceTypeObject1FromString(eDataType, initialValue);
 			case CorePackage.NON_BLANK_STRING:
 				return createNonBlankStringFromString(eDataType, initialValue);
 			case CorePackage.NON_BLANK_STRING_MEMBER0:
 				return createNonBlankStringMember0FromString(eDataType, initialValue);
+			case CorePackage.NOTIFICATION_TYPES_OBJECT:
+				return createNotificationTypesObjectFromString(eDataType, initialValue);
 			case CorePackage.POOL_EXHAUSTED_ACTION_TYPE_OBJECT:
 				return createPoolExhaustedActionTypeObjectFromString(eDataType, initialValue);
 			case CorePackage.PROPERTY_PLACEHOLDER_TYPE:
@@ -331,20 +322,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 				return convertEnableCorrelationTypeToString(eDataType, instanceValue);
 			case CorePackage.EVALUATOR_TYPE:
 				return convertEvaluatorTypeToString(eDataType, instanceValue);
-			case CorePackage.EVENT_TYPE:
-				return convertEventTypeToString(eDataType, instanceValue);
-			case CorePackage.EVENT_TYPE1:
-				return convertEventType1ToString(eDataType, instanceValue);
+			case CorePackage.EVALUATOR_TYPE1:
+				return convertEvaluatorType1ToString(eDataType, instanceValue);
 			case CorePackage.EXHAUSTED_ACTION_TYPE:
 				return convertExhaustedActionTypeToString(eDataType, instanceValue);
 			case CorePackage.INITIALISATION_POLICY_TYPE:
 				return convertInitialisationPolicyTypeToString(eDataType, instanceValue);
 			case CorePackage.INITIAL_STATE_TYPE:
 				return convertInitialStateTypeToString(eDataType, instanceValue);
-			case CorePackage.INTERFACE_TYPE:
-				return convertInterfaceTypeToString(eDataType, instanceValue);
-			case CorePackage.INTERFACE_TYPE1:
-				return convertInterfaceType1ToString(eDataType, instanceValue);
+			case CorePackage.NOTIFICATION_TYPES:
+				return convertNotificationTypesToString(eDataType, instanceValue);
 			case CorePackage.POOL_EXHAUSTED_ACTION_TYPE:
 				return convertPoolExhaustedActionTypeToString(eDataType, instanceValue);
 			case CorePackage.ACTION_TYPE_OBJECT:
@@ -353,24 +340,20 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 				return convertEnableCorrelationTypeObjectToString(eDataType, instanceValue);
 			case CorePackage.EVALUATOR_TYPE_OBJECT:
 				return convertEvaluatorTypeObjectToString(eDataType, instanceValue);
-			case CorePackage.EVENT_TYPE_OBJECT:
-				return convertEventTypeObjectToString(eDataType, instanceValue);
-			case CorePackage.EVENT_TYPE_OBJECT1:
-				return convertEventTypeObject1ToString(eDataType, instanceValue);
+			case CorePackage.EVALUATOR_TYPE_OBJECT1:
+				return convertEvaluatorTypeObject1ToString(eDataType, instanceValue);
 			case CorePackage.EXHAUSTED_ACTION_TYPE_OBJECT:
 				return convertExhaustedActionTypeObjectToString(eDataType, instanceValue);
 			case CorePackage.INITIALISATION_POLICY_TYPE_OBJECT:
 				return convertInitialisationPolicyTypeObjectToString(eDataType, instanceValue);
 			case CorePackage.INITIAL_STATE_TYPE_OBJECT:
 				return convertInitialStateTypeObjectToString(eDataType, instanceValue);
-			case CorePackage.INTERFACE_TYPE_OBJECT:
-				return convertInterfaceTypeObjectToString(eDataType, instanceValue);
-			case CorePackage.INTERFACE_TYPE_OBJECT1:
-				return convertInterfaceTypeObject1ToString(eDataType, instanceValue);
 			case CorePackage.NON_BLANK_STRING:
 				return convertNonBlankStringToString(eDataType, instanceValue);
 			case CorePackage.NON_BLANK_STRING_MEMBER0:
 				return convertNonBlankStringMember0ToString(eDataType, instanceValue);
+			case CorePackage.NOTIFICATION_TYPES_OBJECT:
+				return convertNotificationTypesObjectToString(eDataType, instanceValue);
 			case CorePackage.POOL_EXHAUSTED_ACTION_TYPE_OBJECT:
 				return convertPoolExhaustedActionTypeObjectToString(eDataType, instanceValue);
 			case CorePackage.PROPERTY_PLACEHOLDER_TYPE:
@@ -468,16 +451,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public AbstractComponentType createAbstractComponentType() {
 		AbstractComponentTypeImpl abstractComponentType = new AbstractComponentTypeImpl();
 		return abstractComponentType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractConnectionStrategyType createAbstractConnectionStrategyType() {
-		AbstractConnectionStrategyTypeImpl abstractConnectionStrategyType = new AbstractConnectionStrategyTypeImpl();
-		return abstractConnectionStrategyType;
 	}
 
 	/**
@@ -585,6 +558,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AbstractMessageInfoMappingType createAbstractMessageInfoMappingType() {
+		AbstractMessageInfoMappingTypeImpl abstractMessageInfoMappingType = new AbstractMessageInfoMappingTypeImpl();
+		return abstractMessageInfoMappingType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AbstractModelType createAbstractModelType() {
 		AbstractModelTypeImpl abstractModelType = new AbstractModelTypeImpl();
 		return abstractModelType;
@@ -628,16 +611,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public AbstractPoolingProfileType createAbstractPoolingProfileType() {
 		AbstractPoolingProfileTypeImpl abstractPoolingProfileType = new AbstractPoolingProfileTypeImpl();
 		return abstractPoolingProfileType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractPropertyExtractorType createAbstractPropertyExtractorType() {
-		AbstractPropertyExtractorTypeImpl abstractPropertyExtractorType = new AbstractPropertyExtractorTypeImpl();
-		return abstractPropertyExtractorType;
 	}
 
 	/**
@@ -825,16 +798,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConnectionStrategyType createConnectionStrategyType() {
-		ConnectionStrategyTypeImpl connectionStrategyType = new ConnectionStrategyTypeImpl();
-		return connectionStrategyType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ConnectorType createConnectorType() {
 		ConnectorTypeImpl connectorType = new ConnectorTypeImpl();
 		return connectorType;
@@ -858,16 +821,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public CustomCatchAllStrategyType createCustomCatchAllStrategyType() {
 		CustomCatchAllStrategyTypeImpl customCatchAllStrategyType = new CustomCatchAllStrategyTypeImpl();
 		return customCatchAllStrategyType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CustomConnectionStrategyType createCustomConnectionStrategyType() {
-		CustomConnectionStrategyTypeImpl customConnectionStrategyType = new CustomConnectionStrategyTypeImpl();
-		return customConnectionStrategyType;
 	}
 
 	/**
@@ -975,9 +928,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomOutboundRouterType createCustomOutboundRouterType() {
-		CustomOutboundRouterTypeImpl customOutboundRouterType = new CustomOutboundRouterTypeImpl();
-		return customOutboundRouterType;
+	public CustomMessageInfoMappingType createCustomMessageInfoMappingType() {
+		CustomMessageInfoMappingTypeImpl customMessageInfoMappingType = new CustomMessageInfoMappingTypeImpl();
+		return customMessageInfoMappingType;
 	}
 
 	/**
@@ -985,9 +938,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomPropertyExtractorType createCustomPropertyExtractorType() {
-		CustomPropertyExtractorTypeImpl customPropertyExtractorType = new CustomPropertyExtractorTypeImpl();
-		return customPropertyExtractorType;
+	public CustomOutboundRouterType createCustomOutboundRouterType() {
+		CustomOutboundRouterTypeImpl customOutboundRouterType = new CustomOutboundRouterTypeImpl();
+		return customOutboundRouterType;
 	}
 
 	/**
@@ -1165,9 +1118,29 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnvironmentPropertyType createEnvironmentPropertyType() {
-		EnvironmentPropertyTypeImpl environmentPropertyType = new EnvironmentPropertyTypeImpl();
-		return environmentPropertyType;
+	public ExceptionPatternType createExceptionPatternType() {
+		ExceptionPatternTypeImpl exceptionPatternType = new ExceptionPatternTypeImpl();
+		return exceptionPatternType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpressionFilterType createExpressionFilterType() {
+		ExpressionFilterTypeImpl expressionFilterType = new ExpressionFilterTypeImpl();
+		return expressionFilterType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpressionMessageInfoMappingType createExpressionMessageInfoMappingType() {
+		ExpressionMessageInfoMappingTypeImpl expressionMessageInfoMappingType = new ExpressionMessageInfoMappingTypeImpl();
+		return expressionMessageInfoMappingType;
 	}
 
 	/**
@@ -1238,6 +1211,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public GlobalEndpointType createGlobalEndpointType() {
 		GlobalEndpointTypeImpl globalEndpointType = new GlobalEndpointTypeImpl();
 		return globalEndpointType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GlobalPropertyType createGlobalPropertyType() {
+		GlobalPropertyTypeImpl globalPropertyType = new GlobalPropertyTypeImpl();
+		return globalPropertyType;
 	}
 
 	/**
@@ -1595,16 +1578,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RetryConnectionStrategyType createRetryConnectionStrategyType() {
-		RetryConnectionStrategyTypeImpl retryConnectionStrategyType = new RetryConnectionStrategyTypeImpl();
-		return retryConnectionStrategyType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ReturnArgumentType createReturnArgumentType() {
 		ReturnArgumentTypeImpl returnArgumentType = new ReturnArgumentTypeImpl();
 		return returnArgumentType;
@@ -1915,8 +1888,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EventType createEventTypeFromString(EDataType eDataType, String initialValue) {
-		EventType result = EventType.get(initialValue);
+	public EvaluatorType1 createEvaluatorType1FromString(EDataType eDataType, String initialValue) {
+		EvaluatorType1 result = EvaluatorType1.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -1926,27 +1899,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertEventTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EventType1 createEventType1FromString(EDataType eDataType, String initialValue) {
-		EventType1 result = EventType1.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEventType1ToString(EDataType eDataType, Object instanceValue) {
+	public String convertEvaluatorType1ToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -2015,8 +1968,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InterfaceType createInterfaceTypeFromString(EDataType eDataType, String initialValue) {
-		InterfaceType result = InterfaceType.get(initialValue);
+	public NotificationTypes createNotificationTypesFromString(EDataType eDataType, String initialValue) {
+		NotificationTypes result = NotificationTypes.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -2026,27 +1979,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertInterfaceTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InterfaceType1 createInterfaceType1FromString(EDataType eDataType, String initialValue) {
-		InterfaceType1 result = InterfaceType1.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertInterfaceType1ToString(EDataType eDataType, Object instanceValue) {
+	public String convertNotificationTypesToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -2129,8 +2062,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EventType createEventTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createEventTypeFromString(CorePackage.eINSTANCE.getEventType(), initialValue);
+	public EvaluatorType1 createEvaluatorTypeObject1FromString(EDataType eDataType, String initialValue) {
+		return createEvaluatorType1FromString(CorePackage.eINSTANCE.getEvaluatorType1(), initialValue);
 	}
 
 	/**
@@ -2138,26 +2071,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertEventTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertEventTypeToString(CorePackage.eINSTANCE.getEventType(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EventType1 createEventTypeObject1FromString(EDataType eDataType, String initialValue) {
-		return createEventType1FromString(CorePackage.eINSTANCE.getEventType1(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEventTypeObject1ToString(EDataType eDataType, Object instanceValue) {
-		return convertEventType1ToString(CorePackage.eINSTANCE.getEventType1(), instanceValue);
+	public String convertEvaluatorTypeObject1ToString(EDataType eDataType, Object instanceValue) {
+		return convertEvaluatorType1ToString(CorePackage.eINSTANCE.getEvaluatorType1(), instanceValue);
 	}
 
 	/**
@@ -2219,42 +2134,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InterfaceType createInterfaceTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return createInterfaceTypeFromString(CorePackage.eINSTANCE.getInterfaceType(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertInterfaceTypeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertInterfaceTypeToString(CorePackage.eINSTANCE.getInterfaceType(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InterfaceType1 createInterfaceTypeObject1FromString(EDataType eDataType, String initialValue) {
-		return createInterfaceType1FromString(CorePackage.eINSTANCE.getInterfaceType1(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertInterfaceTypeObject1ToString(EDataType eDataType, Object instanceValue) {
-		return convertInterfaceType1ToString(CorePackage.eINSTANCE.getInterfaceType1(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String createNonBlankStringFromString(EDataType eDataType, String initialValue) {
 		if (initialValue == null) return null;
 		String result = null;
@@ -2308,6 +2187,24 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 */
 	public String convertNonBlankStringMember0ToString(EDataType eDataType, Object instanceValue) {
 		return XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.STRING, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationTypes createNotificationTypesObjectFromString(EDataType eDataType, String initialValue) {
+		return createNotificationTypesFromString(CorePackage.eINSTANCE.getNotificationTypes(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNotificationTypesObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertNotificationTypesToString(CorePackage.eINSTANCE.getNotificationTypes(), instanceValue);
 	}
 
 	/**

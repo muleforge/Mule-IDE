@@ -34,7 +34,7 @@ import org.mule.ide.config.core.AbstractTransformerType;
 import org.mule.ide.config.core.ConfigurationType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DescriptionType;
-import org.mule.ide.config.core.EnvironmentPropertyType;
+import org.mule.ide.config.core.GlobalPropertyType;
 import org.mule.ide.config.core.MuleType;
 
 import org.mule.ide.config.core.NotificationManagerType;
@@ -52,7 +52,7 @@ import org.mule.ide.config.spring.BeansType;
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getBeans <em>Beans</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getBean <em>Bean</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getEnvironmentProperty <em>Environment Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getGlobalProperty <em>Global Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getNotifications <em>Notifications</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.MuleTypeImpl#getAbstractExtensionGroup <em>Abstract Extension Group</em>}</li>
@@ -126,15 +126,6 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 			group = new BasicFeatureMap(this, CorePackage.MULE_TYPE__GROUP);
 		}
 		return group;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<EnvironmentPropertyType> getEnvironmentProperty() {
-		return getGroup().list(CorePackage.eINSTANCE.getMuleType_EnvironmentProperty());
 	}
 
 	/**
@@ -365,6 +356,15 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<GlobalPropertyType> getGlobalProperty() {
+		return getGroup().list(CorePackage.eINSTANCE.getMuleType_GlobalProperty());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -376,8 +376,8 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return ((InternalEList<?>)getBeans()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__BEAN:
 				return ((InternalEList<?>)getBean()).basicRemove(otherEnd, msgs);
-			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
-				return ((InternalEList<?>)getEnvironmentProperty()).basicRemove(otherEnd, msgs);
+			case CorePackage.MULE_TYPE__GLOBAL_PROPERTY:
+				return ((InternalEList<?>)getGlobalProperty()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return ((InternalEList<?>)getConfiguration()).basicRemove(otherEnd, msgs);
 			case CorePackage.MULE_TYPE__NOTIFICATIONS:
@@ -435,8 +435,8 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return getBeans();
 			case CorePackage.MULE_TYPE__BEAN:
 				return getBean();
-			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
-				return getEnvironmentProperty();
+			case CorePackage.MULE_TYPE__GLOBAL_PROPERTY:
+				return getGlobalProperty();
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return getConfiguration();
 			case CorePackage.MULE_TYPE__NOTIFICATIONS:
@@ -508,9 +508,9 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				getBean().clear();
 				getBean().addAll((Collection<? extends BeanType>)newValue);
 				return;
-			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
-				getEnvironmentProperty().clear();
-				getEnvironmentProperty().addAll((Collection<? extends EnvironmentPropertyType>)newValue);
+			case CorePackage.MULE_TYPE__GLOBAL_PROPERTY:
+				getGlobalProperty().clear();
+				getGlobalProperty().addAll((Collection<? extends GlobalPropertyType>)newValue);
 				return;
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				getConfiguration().clear();
@@ -568,8 +568,8 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 			case CorePackage.MULE_TYPE__BEAN:
 				getBean().clear();
 				return;
-			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
-				getEnvironmentProperty().clear();
+			case CorePackage.MULE_TYPE__GLOBAL_PROPERTY:
+				getGlobalProperty().clear();
 				return;
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				getConfiguration().clear();
@@ -621,8 +621,8 @@ public class MuleTypeImpl extends EObjectImpl implements MuleType {
 				return !getBeans().isEmpty();
 			case CorePackage.MULE_TYPE__BEAN:
 				return !getBean().isEmpty();
-			case CorePackage.MULE_TYPE__ENVIRONMENT_PROPERTY:
-				return !getEnvironmentProperty().isEmpty();
+			case CorePackage.MULE_TYPE__GLOBAL_PROPERTY:
+				return !getGlobalProperty().isEmpty();
 			case CorePackage.MULE_TYPE__CONFIGURATION:
 				return !getConfiguration().isEmpty();
 			case CorePackage.MULE_TYPE__NOTIFICATIONS:

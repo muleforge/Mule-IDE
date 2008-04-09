@@ -34,6 +34,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CorePlugin;
 import org.mule.ide.config.core.DisableNotificationType;
+import org.mule.ide.config.core.NotificationTypes;
 import org.mule.ide.config.core.EventType;
 import org.mule.ide.config.core.EventType1;
 
@@ -176,7 +177,7 @@ public class DisableNotificationTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		EventType labelValue = ((DisableNotificationType)object).getEvent();
+		NotificationTypes labelValue = ((DisableNotificationType)object).getEvent();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DisableNotificationType_type") :

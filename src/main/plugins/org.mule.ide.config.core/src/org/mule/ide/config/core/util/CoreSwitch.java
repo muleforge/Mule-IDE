@@ -121,12 +121,6 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.ABSTRACT_CONNECTION_STRATEGY_TYPE: {
-				AbstractConnectionStrategyType abstractConnectionStrategyType = (AbstractConnectionStrategyType)theEObject;
-				T result = caseAbstractConnectionStrategyType(abstractConnectionStrategyType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CorePackage.ABSTRACT_CONNECTOR_TYPE: {
 				AbstractConnectorType abstractConnectorType = (AbstractConnectorType)theEObject;
 				T result = caseAbstractConnectorType(abstractConnectorType);
@@ -187,6 +181,12 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.ABSTRACT_MESSAGE_INFO_MAPPING_TYPE: {
+				AbstractMessageInfoMappingType abstractMessageInfoMappingType = (AbstractMessageInfoMappingType)theEObject;
+				T result = caseAbstractMessageInfoMappingType(abstractMessageInfoMappingType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.ABSTRACT_MODEL_TYPE: {
 				AbstractModelType abstractModelType = (AbstractModelType)theEObject;
 				T result = caseAbstractModelType(abstractModelType);
@@ -214,12 +214,6 @@ public class CoreSwitch<T> {
 			case CorePackage.ABSTRACT_POOLING_PROFILE_TYPE: {
 				AbstractPoolingProfileType abstractPoolingProfileType = (AbstractPoolingProfileType)theEObject;
 				T result = caseAbstractPoolingProfileType(abstractPoolingProfileType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.ABSTRACT_PROPERTY_EXTRACTOR_TYPE: {
-				AbstractPropertyExtractorType abstractPropertyExtractorType = (AbstractPropertyExtractorType)theEObject;
-				T result = caseAbstractPropertyExtractorType(abstractPropertyExtractorType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -345,13 +339,6 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.CONNECTION_STRATEGY_TYPE: {
-				ConnectionStrategyType connectionStrategyType = (ConnectionStrategyType)theEObject;
-				T result = caseConnectionStrategyType(connectionStrategyType);
-				if (result == null) result = caseAbstractConnectionStrategyType(connectionStrategyType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CorePackage.CONNECTOR_TYPE: {
 				ConnectorType connectorType = (ConnectorType)theEObject;
 				T result = caseConnectorType(connectorType);
@@ -371,14 +358,6 @@ public class CoreSwitch<T> {
 				CustomCatchAllStrategyType customCatchAllStrategyType = (CustomCatchAllStrategyType)theEObject;
 				T result = caseCustomCatchAllStrategyType(customCatchAllStrategyType);
 				if (result == null) result = caseAbstractCatchAllStrategyType(customCatchAllStrategyType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.CUSTOM_CONNECTION_STRATEGY_TYPE: {
-				CustomConnectionStrategyType customConnectionStrategyType = (CustomConnectionStrategyType)theEObject;
-				T result = caseCustomConnectionStrategyType(customConnectionStrategyType);
-				if (result == null) result = caseConnectionStrategyType(customConnectionStrategyType);
-				if (result == null) result = caseAbstractConnectionStrategyType(customConnectionStrategyType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -458,19 +437,19 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE: {
+				CustomMessageInfoMappingType customMessageInfoMappingType = (CustomMessageInfoMappingType)theEObject;
+				T result = caseCustomMessageInfoMappingType(customMessageInfoMappingType);
+				if (result == null) result = caseAbstractMessageInfoMappingType(customMessageInfoMappingType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.CUSTOM_OUTBOUND_ROUTER_TYPE: {
 				CustomOutboundRouterType customOutboundRouterType = (CustomOutboundRouterType)theEObject;
 				T result = caseCustomOutboundRouterType(customOutboundRouterType);
 				if (result == null) result = caseFilteringOutboundRouterType(customOutboundRouterType);
 				if (result == null) result = caseOutboundRouterType(customOutboundRouterType);
 				if (result == null) result = caseAbstractOutboundRouterType(customOutboundRouterType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE: {
-				CustomPropertyExtractorType customPropertyExtractorType = (CustomPropertyExtractorType)theEObject;
-				T result = caseCustomPropertyExtractorType(customPropertyExtractorType);
-				if (result == null) result = caseAbstractPropertyExtractorType(customPropertyExtractorType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -594,9 +573,23 @@ public class CoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE: {
-				EnvironmentPropertyType environmentPropertyType = (EnvironmentPropertyType)theEObject;
-				T result = caseEnvironmentPropertyType(environmentPropertyType);
+			case CorePackage.EXCEPTION_PATTERN_TYPE: {
+				ExceptionPatternType exceptionPatternType = (ExceptionPatternType)theEObject;
+				T result = caseExceptionPatternType(exceptionPatternType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.EXPRESSION_FILTER_TYPE: {
+				ExpressionFilterType expressionFilterType = (ExpressionFilterType)theEObject;
+				T result = caseExpressionFilterType(expressionFilterType);
+				if (result == null) result = caseAbstractFilterType(expressionFilterType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.EXPRESSION_MESSAGE_INFO_MAPPING_TYPE: {
+				ExpressionMessageInfoMappingType expressionMessageInfoMappingType = (ExpressionMessageInfoMappingType)theEObject;
+				T result = caseExpressionMessageInfoMappingType(expressionMessageInfoMappingType);
+				if (result == null) result = caseAbstractMessageInfoMappingType(expressionMessageInfoMappingType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -646,6 +639,12 @@ public class CoreSwitch<T> {
 				GlobalEndpointType globalEndpointType = (GlobalEndpointType)theEObject;
 				T result = caseGlobalEndpointType(globalEndpointType);
 				if (result == null) result = caseAbstractGlobalEndpointType(globalEndpointType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.GLOBAL_PROPERTY_TYPE: {
+				GlobalPropertyType globalPropertyType = (GlobalPropertyType)theEObject;
+				T result = caseGlobalPropertyType(globalPropertyType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -893,14 +892,6 @@ public class CoreSwitch<T> {
 			case CorePackage.RESPONSE_TRANSFORMERS_TYPE: {
 				ResponseTransformersType responseTransformersType = (ResponseTransformersType)theEObject;
 				T result = caseResponseTransformersType(responseTransformersType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.RETRY_CONNECTION_STRATEGY_TYPE: {
-				RetryConnectionStrategyType retryConnectionStrategyType = (RetryConnectionStrategyType)theEObject;
-				T result = caseRetryConnectionStrategyType(retryConnectionStrategyType);
-				if (result == null) result = caseConnectionStrategyType(retryConnectionStrategyType);
-				if (result == null) result = caseAbstractConnectionStrategyType(retryConnectionStrategyType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1155,21 +1146,6 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abstract Connection Strategy Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Abstract Connection Strategy Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAbstractConnectionStrategyType(AbstractConnectionStrategyType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Abstract Connector Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1320,6 +1296,21 @@ public class CoreSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Message Info Mapping Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Message Info Mapping Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractMessageInfoMappingType(AbstractMessageInfoMappingType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Abstract Model Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1391,21 +1382,6 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseAbstractPoolingProfileType(AbstractPoolingProfileType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abstract Property Extractor Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Abstract Property Extractor Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAbstractPropertyExtractorType(AbstractPropertyExtractorType object) {
 		return null;
 	}
 
@@ -1680,21 +1656,6 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Connection Strategy Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Connection Strategy Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConnectionStrategyType(ConnectionStrategyType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Connector Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1736,21 +1697,6 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseCustomCatchAllStrategyType(CustomCatchAllStrategyType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Custom Connection Strategy Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Custom Connection Strategy Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCustomConnectionStrategyType(CustomConnectionStrategyType object) {
 		return null;
 	}
 
@@ -1905,6 +1851,21 @@ public class CoreSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Custom Message Info Mapping Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Custom Message Info Mapping Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCustomMessageInfoMappingType(CustomMessageInfoMappingType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Custom Outbound Router Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1916,21 +1877,6 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseCustomOutboundRouterType(CustomOutboundRouterType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Custom Property Extractor Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Custom Property Extractor Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCustomPropertyExtractorType(CustomPropertyExtractorType object) {
 		return null;
 	}
 
@@ -2190,17 +2136,47 @@ public class CoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Environment Property Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Exception Pattern Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Environment Property Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Exception Pattern Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEnvironmentPropertyType(EnvironmentPropertyType object) {
+	public T caseExceptionPatternType(ExceptionPatternType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Expression Filter Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Expression Filter Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExpressionFilterType(ExpressionFilterType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Expression Message Info Mapping Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Expression Message Info Mapping Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExpressionMessageInfoMappingType(ExpressionMessageInfoMappingType object) {
 		return null;
 	}
 
@@ -2306,6 +2282,21 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseGlobalEndpointType(GlobalEndpointType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Global Property Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Global Property Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGlobalPropertyType(GlobalPropertyType object) {
 		return null;
 	}
 
@@ -2831,21 +2822,6 @@ public class CoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseResponseTransformersType(ResponseTransformersType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Retry Connection Strategy Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Retry Connection Strategy Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRetryConnectionStrategyType(RetryConnectionStrategyType object) {
 		return null;
 	}
 

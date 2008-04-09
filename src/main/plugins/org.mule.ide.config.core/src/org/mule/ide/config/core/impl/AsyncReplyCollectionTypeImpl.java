@@ -37,6 +37,7 @@ import org.mule.ide.config.core.CorePackage;
  *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl#getAbstractAsyncReplyRouter <em>Abstract Async Reply Router</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl#getAbstractTransformerGroup <em>Abstract Transformer Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl#getAbstractTransformer <em>Abstract Transformer</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl#isFailOnTimeout <em>Fail On Timeout</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyCollectionTypeImpl#getTimeout <em>Timeout</em>}</li>
  * </ul>
  * </p>
@@ -73,6 +74,35 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 	 * @ordered
 	 */
 	protected FeatureMap abstractTransformerGroup;
+
+	/**
+	 * The default value of the '{@link #isFailOnTimeout() <em>Fail On Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFailOnTimeout()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FAIL_ON_TIMEOUT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFailOnTimeout() <em>Fail On Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFailOnTimeout()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean failOnTimeout = FAIL_ON_TIMEOUT_EDEFAULT;
+
+	/**
+	 * This is true if the Fail On Timeout attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean failOnTimeoutESet;
 
 	/**
 	 * The default value of the '{@link #getTimeout() <em>Timeout</em>}' attribute.
@@ -190,6 +220,52 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isFailOnTimeout() {
+		return failOnTimeout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFailOnTimeout(boolean newFailOnTimeout) {
+		boolean oldFailOnTimeout = failOnTimeout;
+		failOnTimeout = newFailOnTimeout;
+		boolean oldFailOnTimeoutESet = failOnTimeoutESet;
+		failOnTimeoutESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ASYNC_REPLY_COLLECTION_TYPE__FAIL_ON_TIMEOUT, oldFailOnTimeout, failOnTimeout, !oldFailOnTimeoutESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetFailOnTimeout() {
+		boolean oldFailOnTimeout = failOnTimeout;
+		boolean oldFailOnTimeoutESet = failOnTimeoutESet;
+		failOnTimeout = FAIL_ON_TIMEOUT_EDEFAULT;
+		failOnTimeoutESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.ASYNC_REPLY_COLLECTION_TYPE__FAIL_ON_TIMEOUT, oldFailOnTimeout, FAIL_ON_TIMEOUT_EDEFAULT, oldFailOnTimeoutESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetFailOnTimeout() {
+		return failOnTimeoutESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getTimeout() {
 		return timeout;
 	}
@@ -278,6 +354,8 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 				return ((FeatureMap.Internal)getAbstractTransformerGroup()).getWrapper();
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__ABSTRACT_TRANSFORMER:
 				return getAbstractTransformer();
+			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__FAIL_ON_TIMEOUT:
+				return isFailOnTimeout() ? Boolean.TRUE : Boolean.FALSE;
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT:
 				return new Integer(getTimeout());
 		}
@@ -302,6 +380,9 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__ABSTRACT_TRANSFORMER_GROUP:
 				((FeatureMap.Internal)getAbstractTransformerGroup()).set(newValue);
 				return;
+			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__FAIL_ON_TIMEOUT:
+				setFailOnTimeout(((Boolean)newValue).booleanValue());
+				return;
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT:
 				setTimeout(((Integer)newValue).intValue());
 				return;
@@ -325,6 +406,9 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 				return;
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__ABSTRACT_TRANSFORMER_GROUP:
 				getAbstractTransformerGroup().clear();
+				return;
+			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__FAIL_ON_TIMEOUT:
+				unsetFailOnTimeout();
 				return;
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT:
 				unsetTimeout();
@@ -353,6 +437,8 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 				return abstractTransformerGroup != null && !abstractTransformerGroup.isEmpty();
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__ABSTRACT_TRANSFORMER:
 				return !getAbstractTransformer().isEmpty();
+			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__FAIL_ON_TIMEOUT:
+				return isSetFailOnTimeout();
 			case CorePackage.ASYNC_REPLY_COLLECTION_TYPE__TIMEOUT:
 				return isSetTimeout();
 		}
@@ -375,6 +461,8 @@ public class AsyncReplyCollectionTypeImpl extends PlaceholderSupportEObjectImpl 
 		result.append(abstractAsyncReplyRouterGroup);
 		result.append(", abstractTransformerGroup: ");
 		result.append(abstractTransformerGroup);
+		result.append(", failOnTimeout: ");
+		if (failOnTimeoutESet) result.append(failOnTimeout); else result.append("<unset>");
 		result.append(", timeout: ");
 		if (timeoutESet) result.append(timeout); else result.append("<unset>");
 		result.append(')');

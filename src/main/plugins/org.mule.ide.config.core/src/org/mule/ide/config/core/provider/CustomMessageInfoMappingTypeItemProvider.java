@@ -17,9 +17,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.FeatureMapUtil;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -30,20 +27,20 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CorePlugin;
-import org.mule.ide.config.core.EnableCorrelationType;
-import org.mule.ide.config.core.OutboundRouterType;
+import org.mule.ide.config.core.CustomMessageInfoMappingType;
+
+import org.mule.ide.config.spring.SpringFactory;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.OutboundRouterType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.CustomMessageInfoMappingType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class OutboundRouterTypeItemProvider
-	extends AbstractOutboundRouterTypeItemProvider
+public class CustomMessageInfoMappingTypeItemProvider
+	extends AbstractMessageInfoMappingTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -56,7 +53,7 @@ public class OutboundRouterTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OutboundRouterTypeItemProvider(AdapterFactory adapterFactory) {
+	public CustomMessageInfoMappingTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -71,25 +68,25 @@ public class OutboundRouterTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addEnableCorrelationPropertyDescriptor(object);
+			addClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Enable Correlation feature.
+	 * This adds a property descriptor for the Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addEnableCorrelationPropertyDescriptor(Object object) {
+	protected void addClassPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OutboundRouterType_enableCorrelation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OutboundRouterType_enableCorrelation_feature", "_UI_OutboundRouterType_type"),
-				 CorePackage.eINSTANCE.getOutboundRouterType_EnableCorrelation(),
+				 getString("_UI_CustomMessageInfoMappingType_class_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CustomMessageInfoMappingType_class_feature", "_UI_CustomMessageInfoMappingType_type"),
+				 CorePackage.eINSTANCE.getCustomMessageInfoMappingType_Class(),
 				 true,
 				 false,
 				 false,
@@ -110,10 +107,7 @@ public class OutboundRouterTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getOutboundRouterType_AbstractOutboundEndpointGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getOutboundRouterType_ReplyTo());
-			childrenFeatures.add(CorePackage.eINSTANCE.getOutboundRouterType_AbstractTransactionGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getOutboundRouterType_AbstractMessageInfoMappingGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getCustomMessageInfoMappingType_Property());
 		}
 		return childrenFeatures;
 	}
@@ -132,6 +126,17 @@ public class OutboundRouterTypeItemProvider
 	}
 
 	/**
+	 * This returns CustomMessageInfoMappingType.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CustomMessageInfoMappingType"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,11 +144,10 @@ public class OutboundRouterTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		EnableCorrelationType labelValue = ((OutboundRouterType)object).getEnableCorrelation();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((CustomMessageInfoMappingType)object).getClass_();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OutboundRouterType_type") :
-			getString("_UI_OutboundRouterType_type") + " " + label;
+			getString("_UI_CustomMessageInfoMappingType_type") :
+			getString("_UI_CustomMessageInfoMappingType_type") + " " + label;
 	}
 
 	/**
@@ -157,14 +161,11 @@ public class OutboundRouterTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(OutboundRouterType.class)) {
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ENABLE_CORRELATION:
+		switch (notification.getFeatureID(CustomMessageInfoMappingType.class)) {
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__CLASS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_OUTBOUND_ENDPOINT_GROUP:
-			case CorePackage.OUTBOUND_ROUTER_TYPE__REPLY_TO:
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_TRANSACTION_GROUP:
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE__PROPERTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -184,36 +185,8 @@ public class OutboundRouterTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractOutboundEndpointGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_OutboundEndpoint(),
-					 CoreFactory.eINSTANCE.createOutboundEndpointType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getOutboundRouterType_ReplyTo(),
-				 CoreFactory.eINSTANCE.createReplyToType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractTransactionGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CustomTransaction(),
-					 CoreFactory.eINSTANCE.createCustomTransactionType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractMessageInfoMappingGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CustomMessageInfoMapping(),
-					 CoreFactory.eINSTANCE.createCustomMessageInfoMappingType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getOutboundRouterType_AbstractMessageInfoMappingGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_ExpressionMessageInfoMapping(),
-					 CoreFactory.eINSTANCE.createExpressionMessageInfoMappingType())));
+				(CorePackage.eINSTANCE.getCustomMessageInfoMappingType_Property(),
+				 SpringFactory.eINSTANCE.createPropertyType()));
 	}
 
 	/**

@@ -34,6 +34,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CorePlugin;
 import org.mule.ide.config.core.DefineNotificationType;
+import org.mule.ide.config.core.NotificationTypes;
 import org.mule.ide.config.core.EventType1;
 import org.mule.ide.config.core.EventType;
 
@@ -176,7 +177,7 @@ public class DefineNotificationTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		EventType1 labelValue = ((DefineNotificationType)object).getEvent();
+		NotificationTypes labelValue = ((DefineNotificationType)object).getEvent();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DefineNotificationType_type") :

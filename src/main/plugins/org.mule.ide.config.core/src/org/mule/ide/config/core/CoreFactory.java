@@ -71,15 +71,6 @@ public interface CoreFactory extends EFactory {
 	AbstractComponentType createAbstractComponentType();
 
 	/**
-	 * Returns a new object of class '<em>Abstract Connection Strategy Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Abstract Connection Strategy Type</em>'.
-	 * @generated
-	 */
-	AbstractConnectionStrategyType createAbstractConnectionStrategyType();
-
-	/**
 	 * Returns a new object of class '<em>Abstract Connector Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,6 +161,15 @@ public interface CoreFactory extends EFactory {
 	AbstractLifecycleAdapterFactory createAbstractLifecycleAdapterFactory();
 
 	/**
+	 * Returns a new object of class '<em>Abstract Message Info Mapping Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Abstract Message Info Mapping Type</em>'.
+	 * @generated
+	 */
+	AbstractMessageInfoMappingType createAbstractMessageInfoMappingType();
+
+	/**
 	 * Returns a new object of class '<em>Abstract Model Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -213,15 +213,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	AbstractPoolingProfileType createAbstractPoolingProfileType();
-
-	/**
-	 * Returns a new object of class '<em>Abstract Property Extractor Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Abstract Property Extractor Type</em>'.
-	 * @generated
-	 */
-	AbstractPropertyExtractorType createAbstractPropertyExtractorType();
 
 	/**
 	 * Returns a new object of class '<em>Abstract Queue Profile Type</em>'.
@@ -386,15 +377,6 @@ public interface CoreFactory extends EFactory {
 	ConfigurationType createConfigurationType();
 
 	/**
-	 * Returns a new object of class '<em>Connection Strategy Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Connection Strategy Type</em>'.
-	 * @generated
-	 */
-	ConnectionStrategyType createConnectionStrategyType();
-
-	/**
 	 * Returns a new object of class '<em>Connector Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -420,15 +402,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	CustomCatchAllStrategyType createCustomCatchAllStrategyType();
-
-	/**
-	 * Returns a new object of class '<em>Custom Connection Strategy Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Custom Connection Strategy Type</em>'.
-	 * @generated
-	 */
-	CustomConnectionStrategyType createCustomConnectionStrategyType();
 
 	/**
 	 * Returns a new object of class '<em>Custom Connector Type</em>'.
@@ -521,6 +494,15 @@ public interface CoreFactory extends EFactory {
 	CustomLifecycleAdapterFactory createCustomLifecycleAdapterFactory();
 
 	/**
+	 * Returns a new object of class '<em>Custom Message Info Mapping Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Custom Message Info Mapping Type</em>'.
+	 * @generated
+	 */
+	CustomMessageInfoMappingType createCustomMessageInfoMappingType();
+
+	/**
 	 * Returns a new object of class '<em>Custom Outbound Router Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -528,15 +510,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	CustomOutboundRouterType createCustomOutboundRouterType();
-
-	/**
-	 * Returns a new object of class '<em>Custom Property Extractor Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Custom Property Extractor Type</em>'.
-	 * @generated
-	 */
-	CustomPropertyExtractorType createCustomPropertyExtractorType();
 
 	/**
 	 * Returns a new object of class '<em>Custom Security Provider Type</em>'.
@@ -692,13 +665,31 @@ public interface CoreFactory extends EFactory {
 	EndpointSelectorRouterType createEndpointSelectorRouterType();
 
 	/**
-	 * Returns a new object of class '<em>Environment Property Type</em>'.
+	 * Returns a new object of class '<em>Exception Pattern Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Environment Property Type</em>'.
+	 * @return a new object of class '<em>Exception Pattern Type</em>'.
 	 * @generated
 	 */
-	EnvironmentPropertyType createEnvironmentPropertyType();
+	ExceptionPatternType createExceptionPatternType();
+
+	/**
+	 * Returns a new object of class '<em>Expression Filter Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expression Filter Type</em>'.
+	 * @generated
+	 */
+	ExpressionFilterType createExpressionFilterType();
+
+	/**
+	 * Returns a new object of class '<em>Expression Message Info Mapping Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expression Message Info Mapping Type</em>'.
+	 * @generated
+	 */
+	ExpressionMessageInfoMappingType createExpressionMessageInfoMappingType();
 
 	/**
 	 * Returns a new object of class '<em>Expression Transformer Type</em>'.
@@ -762,6 +753,15 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	GlobalEndpointType createGlobalEndpointType();
+
+	/**
+	 * Returns a new object of class '<em>Global Property Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Global Property Type</em>'.
+	 * @generated
+	 */
+	GlobalPropertyType createGlobalPropertyType();
 
 	/**
 	 * Returns a new object of class '<em>Inbound Collection Type</em>'.
@@ -1077,15 +1077,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	ResponseTransformersType createResponseTransformersType();
-
-	/**
-	 * Returns a new object of class '<em>Retry Connection Strategy Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Retry Connection Strategy Type</em>'.
-	 * @generated
-	 */
-	RetryConnectionStrategyType createRetryConnectionStrategyType();
 
 	/**
 	 * Returns a new object of class '<em>Return Argument Type</em>'.

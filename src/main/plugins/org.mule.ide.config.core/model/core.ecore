@@ -87,12 +87,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractConnectionStrategyType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="abstractConnectionStrategyType"/>
-      <details key="kind" value="empty"/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractConnectorType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="abstractConnectorType"/>
@@ -123,8 +117,40 @@
   <eClassifiers xsi:type="ecore:EClass" name="AbstractExceptionStrategyType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="abstractExceptionStrategyType"/>
-      <details key="kind" value="empty"/>
+      <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commitTransaction" eType="#//ExceptionPatternType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines when a current transaction gets rolled-back depending on the name of the&#xD;&#xA;                        exception caught. Users can set a comma delimited list of wildcard patterns that wil be matched&#xD;&#xA;                        angainst the fully qualified classname of the current exception. Patterns defined for this&#xD;&#xA;                        element will leave the current transaction (if any) untouched and llow it to be committed.&#xD;&#xA;                    "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="commit-transaction"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rollbackTransaction" eType="#//ExceptionPatternType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines when a current transaction gets rolled-back depending on the name of the&#xD;&#xA;                        exception caught. Users can set a comma delimited list of wildcard patterns that wil be matched&#xD;&#xA;                        angainst the fully qualified classname of the current exception. Patterns defined for this&#xD;&#xA;                        element will rollback the current transaction (if any).&#xD;&#xA;                    "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="rollback-transaction"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableNotifications" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Determines whether ExceptionNotifications wil be fired from this strategy when an&#xD;&#xA;                    exception occurs.&#xD;&#xA;                "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="enableNotifications"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractExtensionType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -199,6 +225,12 @@
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="abstractLifecycleAdapterFactory"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractMessageInfoMappingType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="abstractMessageInfoMappingType"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
   </eClassifiers>
@@ -368,12 +400,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="AbstractPoolingProfileType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="abstractPoolingProfileType"/>
-      <details key="kind" value="empty"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractPropertyExtractorType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="abstractPropertyExtractorType"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
   </eClassifiers>
@@ -602,7 +628,17 @@
         <details key="group" value="abstract-transformer:group"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="failOnTimeout" eType="#//SubstitutableBoolean"
+        unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    If the router times out before all expected events have been received should an exception be thrown&#xD;&#xA;                    or should the current events be returned for processing. The default is false.&#xD;&#xA;                "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="failOnTimeout"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" eType="#//SubstitutableInt"
         unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&#xD;&#xA;                    The timeout (ms) to wait for a reply.&#xD;&#xA;                "/>
@@ -642,22 +678,22 @@
         <details key="group" value="abstract-inbound-endpoint:group"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractPropertyExtractorGroup"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractMessageInfoMappingGroup"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
-        <details key="name" value="abstract-property-extractor:group"/>
+        <details key="name" value="abstract-message-info-mapping:group"/>
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractPropertyExtractor"
-        eType="#//AbstractPropertyExtractorType" changeable="false" volatile="true"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractMessageInfoMapping"
+        eType="#//AbstractMessageInfoMappingType" changeable="false" volatile="true"
         transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
-        <details key="name" value="abstract-property-extractor"/>
+        <details key="name" value="abstract-message-info-mapping"/>
         <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-property-extractor:group"/>
+        <details key="group" value="abstract-message-info-mapping:group"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -932,17 +968,6 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultConnectionStrategy"
-        eType="#//ConnectionStrategyType" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                        The default connection strategy, used if no more specific configuration is given.&#xD;&#xA;                    "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="default-connection-strategy"/>
-        <details key="namespace" value="##targetNamespace"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultRemoteSync" eType="#//SubstitutableBoolean"
         defaultValueLiteral="false" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -985,12 +1010,6 @@
         <details key="name" value="defaultTransactionTimeout"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConnectionStrategyType" eSuperTypes="#//AbstractConnectionStrategyType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="connectionStrategyType"/>
-      <details key="kind" value="empty"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectorType" eSuperTypes="#//AbstractConnectorType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1128,33 +1147,6 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" lowerBound="1" eType="#//SubstitutableClass">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="class"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CustomConnectionStrategyType" eSuperTypes="#//ConnectionStrategyType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="customConnectionStrategyType"/>
-      <details key="kind" value="elementOnly"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
-        eType="ecore:EClass ../../org.mule.ide.config.spring/model/spring.ecore#//PropertyType"
-        containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Bean definitions can have zero or more properties.&#xD;&#xA;&#x9;Property elements correspond to JavaBean setter methods exposed&#xD;&#xA;&#x9;by the bean classes. Spring supports primitives, references to other&#xD;&#xA;&#x9;beans in the same or related factories, lists, maps and properties.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="property"/>
-        <details key="namespace" value="http://www.springframework.org/schema/beans"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" lowerBound="1" eType="#//SubstitutableClass">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                            A class that implements the ConnectionStrategy interface.&#xD;&#xA;                        "/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="class"/>
@@ -1413,6 +1405,33 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomMessageInfoMappingType" eSuperTypes="#//AbstractMessageInfoMappingType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="customMessageInfoMappingType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="ecore:EClass ../../org.mule.ide.config.spring/model/spring.ecore#//PropertyType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Bean definitions can have zero or more properties.&#xD;&#xA;&#x9;Property elements correspond to JavaBean setter methods exposed&#xD;&#xA;&#x9;by the bean classes. Spring supports primitives, references to other&#xD;&#xA;&#x9;beans in the same or related factories, lists, maps and properties.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="property"/>
+        <details key="namespace" value="http://www.springframework.org/schema/beans"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" lowerBound="1" eType="#//SubstitutableClass">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                            An implementation of the MessageInfoMapping interface.&#xD;&#xA;                        "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="class"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomOutboundRouterType" eSuperTypes="#//FilteringOutboundRouterType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="customOutboundRouterType"/>
@@ -1431,33 +1450,6 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" lowerBound="1" eType="#//SubstitutableClass">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="class"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CustomPropertyExtractorType" eSuperTypes="#//AbstractPropertyExtractorType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="customPropertyExtractorType"/>
-      <details key="kind" value="elementOnly"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
-        eType="ecore:EClass ../../org.mule.ide.config.spring/model/spring.ecore#//PropertyType"
-        containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&lt;![CDATA[&#xD;&#xA;&#x9;Bean definitions can have zero or more properties.&#xD;&#xA;&#x9;Property elements correspond to JavaBean setter methods exposed&#xD;&#xA;&#x9;by the bean classes. Spring supports primitives, references to other&#xD;&#xA;&#x9;beans in the same or related factories, lists, maps and properties.&#xD;&#xA;&#x9;&#x9;&#x9;]]>"/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="property"/>
-        <details key="namespace" value="http://www.springframework.org/schema/beans"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" lowerBound="1" eType="#//SubstitutableClass">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                            An implementation of the PropertyExtractor interface.&#xD;&#xA;                        "/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="class"/>
@@ -1664,7 +1656,7 @@
       <details key="name" value="defineNotificationType"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="event" eType="#//EventType1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="event" eType="#//NotificationTypes"
         defaultValueLiteral="MANAGER" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&#xD;&#xA;                    The notification event to deliver.&#xD;&#xA;                "/>
@@ -1683,7 +1675,7 @@
         <details key="name" value="event-class"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" eType="#//InterfaceType1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" eType="#//NotificationTypes"
         defaultValueLiteral="MANAGER" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&#xD;&#xA;                    The interface that will receive the notification event.&#xD;&#xA;                "/>
@@ -1720,7 +1712,7 @@
       <details key="name" value="disableNotificationType"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="event" eType="#//EventType"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="event" eType="#//NotificationTypes"
         defaultValueLiteral="MANAGER" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&#xD;&#xA;                    The event to not deliver.&#xD;&#xA;                "/>
@@ -1739,7 +1731,7 @@
         <details key="name" value="event-class"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" eType="#//InterfaceType"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" eType="#//NotificationTypes"
         defaultValueLiteral="MANAGER" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&#xD;&#xA;                    The interface that will no longer receive an event.&#xD;&#xA;                "/>
@@ -1832,18 +1824,6 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-component-threading-profile"/>
-        <details key="namespace" value="##targetNamespace"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractConnectionStrategy"
-        upperBound="-2" eType="#//AbstractConnectionStrategyType" changeable="false"
-        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-connection-strategy"/>
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1964,6 +1944,15 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractMessageInfoMapping"
+        upperBound="-2" eType="#//AbstractMessageInfoMappingType" changeable="false"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="abstract-message-info-mapping"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="abstractModel" upperBound="-2"
         eType="#//AbstractModelType" changeable="false" volatile="true" transient="true"
         derived="true" containment="true" resolveProxies="false">
@@ -2015,15 +2004,6 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="abstract-pooling-profile"/>
-        <details key="namespace" value="##targetNamespace"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractPropertyExtractor"
-        upperBound="-2" eType="#//AbstractPropertyExtractorType" changeable="false"
-        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-property-extractor"/>
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -2264,6 +2244,19 @@
         <details key="affiliation" value="abstract-outbound-router"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="collectionAsyncReplyRouter"
+        upperBound="-2" eType="#//AsyncReplyRouterType" volatile="true" transient="true"
+        derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Configures a Collection Response Router. This will return a MuleMEssageCollection message&#xD;&#xA;                type that will contain all events recieved for the current correlation.&#xD;&#xA;            "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="collection-async-reply-router"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="affiliation" value="abstract-async-reply-router"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-2"
         eType="#//DefaultJavaComponentType" volatile="true" transient="true" derived="true"
         containment="true" resolveProxies="false">
@@ -2288,19 +2281,6 @@
         <details key="name" value="component-threading-profile"/>
         <details key="namespace" value="##targetNamespace"/>
         <details key="affiliation" value="abstract-component-threading-profile"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="correlationPropertyExtractor"
-        upperBound="-2" eType="#//AbstractPropertyExtractorType" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A special extractor, this returns the correlation ID for various standard cases.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="correlation-property-extractor"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="affiliation" value="abstract-property-extractor"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="correlationResequencerRouter"
@@ -2331,19 +2311,6 @@
         <details key="name" value="custom-catch-all-strategy"/>
         <details key="namespace" value="##targetNamespace"/>
         <details key="affiliation" value="abstract-catch-all-strategy"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="customConnectionStrategy"
-        upperBound="-2" eType="#//CustomConnectionStrategyType" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A user-defined connection strategy.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="custom-connection-strategy"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="affiliation" value="abstract-connection-strategy"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customConnector" upperBound="-2"
@@ -2454,6 +2421,19 @@
         <details key="affiliation" value="abstract-lifecycle-adapter-factory"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customMessageInfoMapping"
+        upperBound="-2" eType="#//CustomMessageInfoMappingType" volatile="true" transient="true"
+        derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                This allows configuraton of a custom implementation of MessageInfoMapping&#xD;&#xA;            "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="custom-message-info-mapping"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="affiliation" value="abstract-message-info-mapping"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customOutboundRouter" upperBound="-2"
         eType="#//CustomOutboundRouterType" volatile="true" transient="true" derived="true"
         containment="true" resolveProxies="false">
@@ -2462,19 +2442,6 @@
         <details key="name" value="custom-outbound-router"/>
         <details key="namespace" value="##targetNamespace"/>
         <details key="affiliation" value="abstract-outbound-router"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="customPropertyExtractor"
-        upperBound="-2" eType="#//CustomPropertyExtractorType" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                This allows an arbitrary class to be used as a property extractor.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="custom-property-extractor"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="affiliation" value="abstract-property-extractor"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customService" upperBound="-2"
@@ -2666,11 +2633,37 @@
         <details key="affiliation" value="abstract-filter"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionFilter" upperBound="-2"
+        eType="#//ExpressionFilterType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                A filter that can evaluate a range of expressions. It supports some base expression types&#xD;&#xA;                such as 'header', 'payload' (payload type), 'regex' and 'wildcard'.&#xD;&#xA;            "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="expression-filter"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="affiliation" value="abstract-filter"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionMessageInfoMapping"
+        upperBound="-2" eType="#//ExpressionMessageInfoMappingType" volatile="true"
+        transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                Allows expressions to be configured to extract the message information.&#xD;&#xA;            "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="expression-message-info-mapping"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="affiliation" value="abstract-message-info-mapping"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressionTransformer"
         upperBound="-2" eType="#//ExpressionTransformerType" volatile="true" transient="true"
         derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A transformer that evaluates one or more expressions on the current event&#xD;&#xA;            "/>
+        <details key="documentation" value="&#xD;&#xA;                A transformer that evaluates one or more expressions on the current event. Each expression equates to a&#xD;&#xA;                parameter in the return message. The return message for 2 or more expressions will be an Object[].&#xD;&#xA;            "/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
@@ -2720,19 +2713,6 @@
         <details key="name" value="forwarding-router"/>
         <details key="namespace" value="##targetNamespace"/>
         <details key="affiliation" value="abstract-inbound-router"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="functionPropertyExtractor"
-        upperBound="-2" eType="#//AbstractPropertyExtractorType" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                Rather than extract a value from the message, this supports the following&#xD;&#xA;                functions: &quot;now&quot;, &quot;date&quot;, &quot;uuid&quot;, &quot;hostname&quot; and &quot;ip&quot;.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="function-property-extractor"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="affiliation" value="abstract-property-extractor"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="gzipCompressTransformer"
@@ -2914,19 +2894,6 @@
         <details key="affiliation" value="abstract-catch-all-strategy"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mapPropertyExtractor" upperBound="-2"
-        eType="#//AbstractPropertyExtractorType" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                If the message payload is a map then the property is extracted from the&#xD;&#xA;                map using the property name as key.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="map-property-extractor"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="affiliation" value="abstract-property-extractor"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="messageChunkingAggregatorRouter"
         upperBound="-2" eType="#//MessageChunkingAggregatorRouterType" volatile="true"
         transient="true" derived="true" containment="true" resolveProxies="false">
@@ -2958,19 +2925,6 @@
         <details key="name" value="message-properties-transformer"/>
         <details key="namespace" value="##targetNamespace"/>
         <details key="affiliation" value="abstract-transformer"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="messagePropertyExtractor"
-        upperBound="-2" eType="#//AbstractPropertyExtractorType" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                The property is extracted from the message headers using the header property&#xD;&#xA;                name as key. The special value &quot;payload&quot; retrieves the message payload.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="message-property-extractor"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="affiliation" value="abstract-property-extractor"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="messagePropertyFilter"
@@ -3270,19 +3224,6 @@
         <details key="affiliation" value="abstract-transaction-manager"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="retryConnectionStrategy"
-        upperBound="-2" eType="#//RetryConnectionStrategyType" volatile="true" transient="true"
-        derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                Retry making a connection on failure.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="retry-connection-strategy"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="affiliation" value="abstract-connection-strategy"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityManager" upperBound="-2"
         eType="#//SecurityManagerType" volatile="true" transient="true" derived="true"
         containment="true" resolveProxies="false">
@@ -3348,6 +3289,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="singleAsyncReplyRouter"
         upperBound="-2" eType="#//AsyncReplyRouterType" volatile="true" transient="true"
         derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Configures a Single Response Router. This will return the first event it receives on a&#xD;&#xA;                reply endpoint and will discard the rest.&#xD;&#xA;            "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="single-async-reply-router"/>
@@ -3599,30 +3543,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnvironmentPropertyType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="environmentPropertyType"/>
-      <details key="kind" value="empty"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//SubstitutableName">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                    The name of the property.&#xD;&#xA;                    This is used inside ${...}.&#xD;&#xA;                "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="name"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                    The value of the property.&#xD;&#xA;                    This replaces each occurence of ${...}.&#xD;&#xA;                "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="value"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EvaluatorType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="evaluator_._type"/>
@@ -3642,54 +3562,48 @@
     <eLiterals name="function" value="12"/>
     <eLiterals name="custom" value="13"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EvaluatorType1">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="evaluator_._1_._type"/>
+    </eAnnotations>
+    <eLiterals name="header"/>
+    <eLiterals name="payloadType" value="1" literal="payload-type"/>
+    <eLiterals name="exceptionType" value="2" literal="exception-type"/>
+    <eLiterals name="wildcard" value="3"/>
+    <eLiterals name="regex" value="4"/>
+    <eLiterals name="ognl" value="5"/>
+    <eLiterals name="xpath" value="6"/>
+    <eLiterals name="jxpath" value="7"/>
+    <eLiterals name="bean" value="8"/>
+    <eLiterals name="custom" value="9"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EvaluatorTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="evaluator_._type:Object"/>
       <details key="baseType" value="evaluator_._type"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="EventType">
+  <eClassifiers xsi:type="ecore:EDataType" name="EvaluatorTypeObject1" instanceClassName="org.eclipse.emf.common.util.Enumerator">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="event_._type"/>
-    </eAnnotations>
-    <eLiterals name="MANAGER"/>
-    <eLiterals name="MODEL" value="1"/>
-    <eLiterals name="SERVICE" value="2"/>
-    <eLiterals name="SECURITY" value="3"/>
-    <eLiterals name="MANAGEMENT" value="4"/>
-    <eLiterals name="CONNECTION" value="5"/>
-    <eLiterals name="REGISTRY" value="6"/>
-    <eLiterals name="CUSTOM" value="7"/>
-    <eLiterals name="EXCEPTION" value="8"/>
-    <eLiterals name="TRANSACTION" value="9"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="EventType1">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="event_._1_._type"/>
-    </eAnnotations>
-    <eLiterals name="MANAGER"/>
-    <eLiterals name="MODEL" value="1"/>
-    <eLiterals name="SERVICE" value="2"/>
-    <eLiterals name="SECURITY" value="3"/>
-    <eLiterals name="MANAGEMENT" value="4"/>
-    <eLiterals name="CONNECTION" value="5"/>
-    <eLiterals name="REGISTRY" value="6"/>
-    <eLiterals name="CUSTOM" value="7"/>
-    <eLiterals name="MESSAGE" value="8"/>
-    <eLiterals name="EXCEPTION" value="9"/>
-    <eLiterals name="TRANSACTION" value="10"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="EventTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="event_._type:Object"/>
-      <details key="baseType" value="event_._type"/>
+      <details key="name" value="evaluator_._1_._type:Object"/>
+      <details key="baseType" value="evaluator_._1_._type"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="EventTypeObject1" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+  <eClassifiers xsi:type="ecore:EClass" name="ExceptionPatternType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="event_._1_._type:Object"/>
-      <details key="baseType" value="event_._1_._type"/>
+      <details key="name" value="exceptionPatternType"/>
+      <details key="kind" value="empty"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exceptionPattern" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A comma-separate list of wildcard expressions that will be matched against the&#xD;&#xA;                    fully qualified cassname of the current exception received by the ExceptionStrategy.&#xD;&#xA;                "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="exception-pattern"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ExhaustedActionType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -3704,6 +3618,71 @@
       <details key="name" value="exhaustedAction_._type:Object"/>
       <details key="baseType" value="exhaustedAction_._type"/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionFilterType" eSuperTypes="#//AbstractFilterType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="expressionFilterType"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customEvaluator" eType="#//SubstitutableName">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Must be set if the evaluator is set to 'custom'. Also the custom evaluator&#xD;&#xA;                            must be registered with the ExpressionEvaluatorManager if it is to be used here.&#xD;&#xA;                        "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="customEvaluator"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="evaluator" lowerBound="1"
+        eType="#//EvaluatorType1" defaultValueLiteral="header" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The expression evaluator to use. The expression filter supports some types&#xD;&#xA;                            such as header, payload, exception, wildcard and regex, that are in-built filters not&#xD;&#xA;                            registered with the ExpressionEvaluatorManager. All others are registered with the&#xD;&#xA;                            ExpressionEvaluatorManager. Where XPath, bean and ongl are used, the expression should be a&#xD;&#xA;                            boolean expression.&#xD;&#xA;                        "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="evaluator"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The expression that will be evaluated. This should always be a boolean&#xD;&#xA;                            expression.&#xD;&#xA;                        "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="expression"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullReturnsTrue" eType="#//SubstitutableBoolean"
+        unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If the specified expression returns null should the filter return true or&#xD;&#xA;                            false.&#xD;&#xA;                        "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="nullReturnsTrue"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionMessageInfoMappingType" eSuperTypes="#//AbstractMessageInfoMappingType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="expressionMessageInfoMappingType"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="correlationIdExpression"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="correlationIdExpression"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageIdExpression" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="messageIdExpression"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExpressionTransformerType" eSuperTypes="#//AbstractTransformerType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -3784,24 +3763,6 @@
         <details key="name" value="abstract-filter"/>
         <details key="namespace" value="##targetNamespace"/>
         <details key="group" value="abstract-filter:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractPropertyExtractorGroup"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-property-extractor:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractPropertyExtractor"
-        eType="#//AbstractPropertyExtractorType" changeable="false" volatile="true"
-        transient="true" derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-property-extractor"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-property-extractor:group"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -4060,32 +4021,6 @@
         <details key="group" value="abstract-security-filter:group"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractConnectionStrategyGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-connection-strategy:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:1"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractConnectionStrategy"
-        upperBound="-1" eType="#//AbstractConnectionStrategyType" changeable="false"
-        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-connection-strategy"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-connection-strategy:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
         eType="#//KeyValueType" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
@@ -4195,6 +4130,30 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="transformer-refs"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GlobalPropertyType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="globalPropertyType"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//SubstitutableName">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    The name of the property.&#xD;&#xA;                    This is used inside ${...}.&#xD;&#xA;                "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="name"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;                    The value of the property.&#xD;&#xA;                    This replaces each occurence of ${...}.&#xD;&#xA;                "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="value"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -4418,32 +4377,6 @@
         <details key="group" value="abstract-security-filter:group"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractConnectionStrategyGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-connection-strategy:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:1"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractConnectionStrategy"
-        upperBound="-1" eType="#//AbstractConnectionStrategyType" changeable="false"
-        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-connection-strategy"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-connection-strategy:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
         eType="#//KeyValueType" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
@@ -4582,49 +4515,6 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="initialState_._type:Object"/>
       <details key="baseType" value="initialState_._type"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="InterfaceType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="interface_._type"/>
-    </eAnnotations>
-    <eLiterals name="MANAGER"/>
-    <eLiterals name="MODEL" value="1"/>
-    <eLiterals name="SERVICE" value="2"/>
-    <eLiterals name="SECURITY" value="3"/>
-    <eLiterals name="MANAGEMENT" value="4"/>
-    <eLiterals name="CONNECTION" value="5"/>
-    <eLiterals name="REGISTRY" value="6"/>
-    <eLiterals name="CUSTOM" value="7"/>
-    <eLiterals name="EXCEPTION" value="8"/>
-    <eLiterals name="TRANSACTION" value="9"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="InterfaceType1">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="interface_._1_._type"/>
-    </eAnnotations>
-    <eLiterals name="MANAGER"/>
-    <eLiterals name="MODEL" value="1"/>
-    <eLiterals name="SERVICE" value="2"/>
-    <eLiterals name="SECURITY" value="3"/>
-    <eLiterals name="MANAGEMENT" value="4"/>
-    <eLiterals name="CONNECTION" value="5"/>
-    <eLiterals name="REGISTRY" value="6"/>
-    <eLiterals name="CUSTOM" value="7"/>
-    <eLiterals name="MESSAGE" value="8"/>
-    <eLiterals name="EXCEPTION" value="9"/>
-    <eLiterals name="TRANSACTION" value="10"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="InterfaceTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="interface_._type:Object"/>
-      <details key="baseType" value="interface_._type"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="InterfaceTypeObject1" instanceClassName="org.eclipse.emf.common.util.Enumerator">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="interface_._1_._type:Object"/>
-      <details key="baseType" value="interface_._1_._type"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JndiConnectorType" eSuperTypes="#//ConnectorType">
@@ -4927,15 +4817,15 @@
         <details key="group" value="#group:1"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="environmentProperty" upperBound="-1"
-        eType="#//EnvironmentPropertyType" volatile="true" transient="true" derived="true"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="globalProperty" upperBound="-1"
+        eType="#//GlobalPropertyType" volatile="true" transient="true" derived="true"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                        An environment property is a named string.&#xD;&#xA;                        It can be used inserted in most attribute values using the ${...} syntax.&#xD;&#xA;                        So the attribute value &quot;${foo}&quot; would be replaced by the value associated with&#xD;&#xA;                        the property named &quot;foo&quot;.&#xD;&#xA;                    "/>
+        <details key="documentation" value="&#xD;&#xA;                        An global property is a named string.&#xD;&#xA;                        It can be used inserted in most attribute values using the ${...} syntax.&#xD;&#xA;                        So the attribute value &quot;${foo}&quot; would be replaced by the value associated with&#xD;&#xA;                        the property named &quot;foo&quot;.&#xD;&#xA;                    "/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
-        <details key="name" value="environment-property"/>
+        <details key="name" value="global-property"/>
         <details key="namespace" value="##targetNamespace"/>
         <details key="group" value="#group:1"/>
       </eAnnotations>
@@ -5264,6 +5154,32 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NotificationTypes">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&#xD;&#xA;                The interface that will no longer receive an event.&#xD;&#xA;            "/>
+    </eAnnotations>
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="notificationTypes"/>
+    </eAnnotations>
+    <eLiterals name="MANAGER"/>
+    <eLiterals name="MODEL" value="1"/>
+    <eLiterals name="SERVICE" value="2"/>
+    <eLiterals name="SECURITY" value="3"/>
+    <eLiterals name="MESSAGE" value="4"/>
+    <eLiterals name="MANAGEMENT" value="5"/>
+    <eLiterals name="CONNECTION" value="6"/>
+    <eLiterals name="REGISTRY" value="7"/>
+    <eLiterals name="CUSTOM" value="8"/>
+    <eLiterals name="EXCEPTION" value="9"/>
+    <eLiterals name="TRANSACTION" value="10"/>
+    <eLiterals name="ROUTING" value="11"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="NotificationTypesObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="notificationTypes:Object"/>
+      <details key="baseType" value="notificationTypes"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutboundCollectionType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="outboundCollectionType"/>
@@ -5470,32 +5386,6 @@
         <details key="group" value="abstract-security-filter:group"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractConnectionStrategyGroup"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
-        volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-        <details key="name" value="abstract-connection-strategy:group"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="#group:1"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractConnectionStrategy"
-        upperBound="-1" eType="#//AbstractConnectionStrategyType" changeable="false"
-        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                A placeholder for connection strategy elements.&#xD;&#xA;                Connection strategies control how the underlying transport handles connection errors.&#xD;&#xA;            "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="abstract-connection-strategy"/>
-        <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-connection-strategy:group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
         eType="#//KeyValueType" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false">
@@ -5669,22 +5559,22 @@
         <details key="group" value="abstract-transaction:group"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractPropertyExtractorGroup"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractMessageInfoMappingGroup"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="group"/>
-        <details key="name" value="abstract-property-extractor:group"/>
+        <details key="name" value="abstract-message-info-mapping:group"/>
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractPropertyExtractor"
-        eType="#//AbstractPropertyExtractorType" changeable="false" volatile="true"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractMessageInfoMapping"
+        eType="#//AbstractMessageInfoMappingType" changeable="false" volatile="true"
         transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
-        <details key="name" value="abstract-property-extractor"/>
+        <details key="name" value="abstract-message-info-mapping"/>
         <details key="namespace" value="##targetNamespace"/>
-        <details key="group" value="abstract-property-extractor:group"/>
+        <details key="group" value="abstract-message-info-mapping:group"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableCorrelation" eType="#//EnableCorrelationType"
@@ -5776,7 +5666,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType">
+        eType="#//SubstitutableClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&#xD;&#xA;                    The interface to be injected.&#xD;&#xA;                    A proxy will be created that implements this interface by calling out to the endpoint.&#xD;&#xA;                "/>
       </eAnnotations>
@@ -6061,38 +5951,15 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RetryConnectionStrategyType" eSuperTypes="#//ConnectionStrategyType">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="retryConnectionStrategyType"/>
-      <details key="kind" value="empty"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="retryCount" eType="#//SubstitutableInt"
-        unsettable="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                            Maximum number of retries.&#xD;&#xA;                        "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="retryCount"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="retryFrequency" eType="#//SubstitutableLong"
-        unsettable="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&#xD;&#xA;                            How often to retry (pause time in ms).&#xD;&#xA;                        "/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="retryFrequency"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReturnArgumentType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="return-argument_._type"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customEvaluator" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customEvaluator" eType="#//SubstitutableName">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the custom evaluator to use. This attribute is only used when the&#xD;&#xA;                    evaluator attribute is set to 'custom'. Users can plug in their own expression evaluators by&#xD;&#xA;                    registering them with the ExpressionEvaluatorManager.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="custom-evaluator"/>
@@ -6100,6 +5967,9 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="evaluator" eType="#//EvaluatorType"
         defaultValueLiteral="groovy" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The expression evaluator to use. Expression Evaluators must be registered with the&#xD;&#xA;                    ExpressionEvaluatrManager before thay can be used. Using the custom evaluator allows the developer&#xD;&#xA;                    to define their on in the 'custom-evaluator' attribute. Note that some evaluators such as xpath,&#xD;&#xA;                    groovy and bean are loaded from other mule modules (xml and scripting respectively), these modules&#xD;&#xA;                    wll need to be on your classpath before the evaluator can be used.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="evaluator"/>
@@ -6107,13 +5977,19 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The expression to evaluate. The syntax of this will change depeneding on the&#xD;&#xA;                    evaluator being used.&#xD;&#xA;                "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="expression"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" eType="#//SubstitutableBoolean"
         unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An optional expression means that if the expression evaluates&#xD;&#xA;                                            to null, it will continue to the next expression without error.&#xD;&#xA;                                        "/>
+      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="optional"/>
@@ -6307,7 +6183,8 @@
         <details key="group" value="abstract-queue-profile:group"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Integer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueTimeout" eType="#//SubstitutableInt"
+        unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&#xD;&#xA;                            The timeout used when taking messages from the SEDA queue.&#xD;&#xA;                        "/>
       </eAnnotations>
@@ -6486,6 +6363,13 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="recipientsProperty"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synchronous" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="synchronous"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

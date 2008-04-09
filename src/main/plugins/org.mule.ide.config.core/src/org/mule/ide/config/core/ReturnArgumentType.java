@@ -36,10 +36,16 @@ public interface ReturnArgumentType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the custom evaluator to use. This attribute is only used when the
+	 *                     evaluator attribute is set to 'custom'. Users can plug in their own expression evaluators by
+	 *                     registering them with the ExpressionEvaluatorManager.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Custom Evaluator</em>' attribute.
 	 * @see #setCustomEvaluator(String)
 	 * @see org.mule.ide.config.core.CorePackage#getReturnArgumentType_CustomEvaluator()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableName"
 	 *        extendedMetaData="kind='attribute' name='custom-evaluator'"
 	 * @generated
 	 */
@@ -65,6 +71,14 @@ public interface ReturnArgumentType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The expression evaluator to use. Expression Evaluators must be registered with the
+	 *                     ExpressionEvaluatrManager before thay can be used. Using the custom evaluator allows the developer
+	 *                     to define their on in the 'custom-evaluator' attribute. Note that some evaluators such as xpath,
+	 *                     groovy and bean are loaded from other mule modules (xml and scripting respectively), these modules
+	 *                     wll need to be on your classpath before the evaluator can be used.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Evaluator</em>' attribute.
 	 * @see org.mule.ide.config.core.EvaluatorType
 	 * @see #isSetEvaluator()
@@ -121,6 +135,11 @@ public interface ReturnArgumentType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The expression to evaluate. The syntax of this will change depeneding on the
+	 *                     evaluator being used.
+	 *                 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expression</em>' attribute.
 	 * @see #setExpression(String)
 	 * @see org.mule.ide.config.core.CorePackage#getReturnArgumentType_Expression()
@@ -148,12 +167,17 @@ public interface ReturnArgumentType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * An optional expression means that if the expression evaluates
+	 *                                             to null, it will continue to the next expression without error.
+	 *                                         
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Optional</em>' attribute.
 	 * @see #isSetOptional()
 	 * @see #unsetOptional()
 	 * @see #setOptional(boolean)
 	 * @see org.mule.ide.config.core.CorePackage#getReturnArgumentType_Optional()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableBoolean"
 	 *        extendedMetaData="kind='attribute' name='optional'"
 	 * @generated
 	 */

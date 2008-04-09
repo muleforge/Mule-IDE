@@ -10,29 +10,25 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Environment Property Type</b></em>'.
+ * A representation of the model object '<em><b>Global Property Type</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.EnvironmentPropertyType#getName <em>Name</em>}</li>
- *   <li>{@link org.mule.ide.config.core.EnvironmentPropertyType#getValue <em>Value</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.GlobalPropertyType#getName <em>Name</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.GlobalPropertyType#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.mule.ide.config.core.CorePackage#getEnvironmentPropertyType()
- * @model extendedMetaData="name='environmentPropertyType' kind='empty'"
+ * @see org.mule.ide.config.core.CorePackage#getGlobalPropertyType()
+ * @model extendedMetaData="name='globalPropertyType' kind='empty'"
  * @generated
  */
-public interface EnvironmentPropertyType extends EObject {
+public interface GlobalPropertyType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
@@ -42,7 +38,7 @@ public interface EnvironmentPropertyType extends EObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see org.mule.ide.config.core.CorePackage#getEnvironmentPropertyType_Name()
+	 * @see org.mule.ide.config.core.CorePackage#getGlobalPropertyType_Name()
 	 * @model dataType="org.mule.ide.config.core.SubstitutableName" required="true"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
@@ -50,7 +46,7 @@ public interface EnvironmentPropertyType extends EObject {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.EnvironmentPropertyType#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.GlobalPropertyType#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -62,10 +58,6 @@ public interface EnvironmentPropertyType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
@@ -75,7 +67,7 @@ public interface EnvironmentPropertyType extends EObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
-	 * @see org.mule.ide.config.core.CorePackage#getEnvironmentPropertyType_Value()
+	 * @see org.mule.ide.config.core.CorePackage#getGlobalPropertyType_Value()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 *        extendedMetaData="kind='attribute' name='value'"
 	 * @generated
@@ -83,7 +75,7 @@ public interface EnvironmentPropertyType extends EObject {
 	String getValue();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.EnvironmentPropertyType#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.GlobalPropertyType#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
@@ -92,4 +84,4 @@ public interface EnvironmentPropertyType extends EObject {
 	 */
 	void setValue(String value);
 
-} // EnvironmentPropertyType
+} // GlobalPropertyType

@@ -112,8 +112,6 @@ public class CoreValidator extends EObjectValidator {
 				return validateAbstractComponentThreadingProfileType((AbstractComponentThreadingProfileType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_COMPONENT_TYPE:
 				return validateAbstractComponentType((AbstractComponentType)value, diagnostics, context);
-			case CorePackage.ABSTRACT_CONNECTION_STRATEGY_TYPE:
-				return validateAbstractConnectionStrategyType((AbstractConnectionStrategyType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_CONNECTOR_TYPE:
 				return validateAbstractConnectorType((AbstractConnectorType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_ENTRY_POINT_RESOLVER_SET_TYPE:
@@ -134,6 +132,8 @@ public class CoreValidator extends EObjectValidator {
 				return validateAbstractInboundRouterType((AbstractInboundRouterType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_LIFECYCLE_ADAPTER_FACTORY:
 				return validateAbstractLifecycleAdapterFactory((AbstractLifecycleAdapterFactory)value, diagnostics, context);
+			case CorePackage.ABSTRACT_MESSAGE_INFO_MAPPING_TYPE:
+				return validateAbstractMessageInfoMappingType((AbstractMessageInfoMappingType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_MODEL_TYPE:
 				return validateAbstractModelType((AbstractModelType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_OBJECT_FACTORY_TYPE:
@@ -144,8 +144,6 @@ public class CoreValidator extends EObjectValidator {
 				return validateAbstractOutboundRouterType((AbstractOutboundRouterType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_POOLING_PROFILE_TYPE:
 				return validateAbstractPoolingProfileType((AbstractPoolingProfileType)value, diagnostics, context);
-			case CorePackage.ABSTRACT_PROPERTY_EXTRACTOR_TYPE:
-				return validateAbstractPropertyExtractorType((AbstractPropertyExtractorType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_QUEUE_PROFILE_TYPE:
 				return validateAbstractQueueProfileType((AbstractQueueProfileType)value, diagnostics, context);
 			case CorePackage.ABSTRACT_SECURITY_FILTER_TYPE:
@@ -182,16 +180,12 @@ public class CoreValidator extends EObjectValidator {
 				return validateComplexEntryPointResolverType((ComplexEntryPointResolverType)value, diagnostics, context);
 			case CorePackage.CONFIGURATION_TYPE:
 				return validateConfigurationType((ConfigurationType)value, diagnostics, context);
-			case CorePackage.CONNECTION_STRATEGY_TYPE:
-				return validateConnectionStrategyType((ConnectionStrategyType)value, diagnostics, context);
 			case CorePackage.CONNECTOR_TYPE:
 				return validateConnectorType((ConnectorType)value, diagnostics, context);
 			case CorePackage.CUSTOM_ASYNC_REPLY_ROUTER_TYPE:
 				return validateCustomAsyncReplyRouterType((CustomAsyncReplyRouterType)value, diagnostics, context);
 			case CorePackage.CUSTOM_CATCH_ALL_STRATEGY_TYPE:
 				return validateCustomCatchAllStrategyType((CustomCatchAllStrategyType)value, diagnostics, context);
-			case CorePackage.CUSTOM_CONNECTION_STRATEGY_TYPE:
-				return validateCustomConnectionStrategyType((CustomConnectionStrategyType)value, diagnostics, context);
 			case CorePackage.CUSTOM_CONNECTOR_TYPE:
 				return validateCustomConnectorType((CustomConnectorType)value, diagnostics, context);
 			case CorePackage.CUSTOM_CORRELATION_AGGREGATOR_ROUTER_TYPE:
@@ -212,10 +206,10 @@ public class CoreValidator extends EObjectValidator {
 				return validateCustomInboundRouterType((CustomInboundRouterType)value, diagnostics, context);
 			case CorePackage.CUSTOM_LIFECYCLE_ADAPTER_FACTORY:
 				return validateCustomLifecycleAdapterFactory((CustomLifecycleAdapterFactory)value, diagnostics, context);
+			case CorePackage.CUSTOM_MESSAGE_INFO_MAPPING_TYPE:
+				return validateCustomMessageInfoMappingType((CustomMessageInfoMappingType)value, diagnostics, context);
 			case CorePackage.CUSTOM_OUTBOUND_ROUTER_TYPE:
 				return validateCustomOutboundRouterType((CustomOutboundRouterType)value, diagnostics, context);
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE:
-				return validateCustomPropertyExtractorType((CustomPropertyExtractorType)value, diagnostics, context);
 			case CorePackage.CUSTOM_SECURITY_PROVIDER_TYPE:
 				return validateCustomSecurityProviderType((CustomSecurityProviderType)value, diagnostics, context);
 			case CorePackage.CUSTOM_SERVICE_TYPE:
@@ -250,8 +244,12 @@ public class CoreValidator extends EObjectValidator {
 				return validateEndpointExceptionStrategyType((EndpointExceptionStrategyType)value, diagnostics, context);
 			case CorePackage.ENDPOINT_SELECTOR_ROUTER_TYPE:
 				return validateEndpointSelectorRouterType((EndpointSelectorRouterType)value, diagnostics, context);
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE:
-				return validateEnvironmentPropertyType((EnvironmentPropertyType)value, diagnostics, context);
+			case CorePackage.EXCEPTION_PATTERN_TYPE:
+				return validateExceptionPatternType((ExceptionPatternType)value, diagnostics, context);
+			case CorePackage.EXPRESSION_FILTER_TYPE:
+				return validateExpressionFilterType((ExpressionFilterType)value, diagnostics, context);
+			case CorePackage.EXPRESSION_MESSAGE_INFO_MAPPING_TYPE:
+				return validateExpressionMessageInfoMappingType((ExpressionMessageInfoMappingType)value, diagnostics, context);
 			case CorePackage.EXPRESSION_TRANSFORMER_TYPE:
 				return validateExpressionTransformerType((ExpressionTransformerType)value, diagnostics, context);
 			case CorePackage.EXTENSIBLE_ENTRY_POINT_RESOLVER_SET:
@@ -266,6 +264,8 @@ public class CoreValidator extends EObjectValidator {
 				return validateGenericObjectFactoryType((GenericObjectFactoryType)value, diagnostics, context);
 			case CorePackage.GLOBAL_ENDPOINT_TYPE:
 				return validateGlobalEndpointType((GlobalEndpointType)value, diagnostics, context);
+			case CorePackage.GLOBAL_PROPERTY_TYPE:
+				return validateGlobalPropertyType((GlobalPropertyType)value, diagnostics, context);
 			case CorePackage.INBOUND_COLLECTION_TYPE:
 				return validateInboundCollectionType((InboundCollectionType)value, diagnostics, context);
 			case CorePackage.INBOUND_ENDPOINT_TYPE:
@@ -336,8 +336,6 @@ public class CoreValidator extends EObjectValidator {
 				return validateReplyToType((ReplyToType)value, diagnostics, context);
 			case CorePackage.RESPONSE_TRANSFORMERS_TYPE:
 				return validateResponseTransformersType((ResponseTransformersType)value, diagnostics, context);
-			case CorePackage.RETRY_CONNECTION_STRATEGY_TYPE:
-				return validateRetryConnectionStrategyType((RetryConnectionStrategyType)value, diagnostics, context);
 			case CorePackage.RETURN_ARGUMENT_TYPE:
 				return validateReturnArgumentType((ReturnArgumentType)value, diagnostics, context);
 			case CorePackage.SECRET_KEY_ENCRYPTION_STRATEGY_TYPE:
@@ -394,20 +392,16 @@ public class CoreValidator extends EObjectValidator {
 				return validateEnableCorrelationType((EnableCorrelationType)value, diagnostics, context);
 			case CorePackage.EVALUATOR_TYPE:
 				return validateEvaluatorType((EvaluatorType)value, diagnostics, context);
-			case CorePackage.EVENT_TYPE:
-				return validateEventType((EventType)value, diagnostics, context);
-			case CorePackage.EVENT_TYPE1:
-				return validateEventType1((EventType1)value, diagnostics, context);
+			case CorePackage.EVALUATOR_TYPE1:
+				return validateEvaluatorType1((EvaluatorType1)value, diagnostics, context);
 			case CorePackage.EXHAUSTED_ACTION_TYPE:
 				return validateExhaustedActionType((ExhaustedActionType)value, diagnostics, context);
 			case CorePackage.INITIALISATION_POLICY_TYPE:
 				return validateInitialisationPolicyType((InitialisationPolicyType)value, diagnostics, context);
 			case CorePackage.INITIAL_STATE_TYPE:
 				return validateInitialStateType((InitialStateType)value, diagnostics, context);
-			case CorePackage.INTERFACE_TYPE:
-				return validateInterfaceType((InterfaceType)value, diagnostics, context);
-			case CorePackage.INTERFACE_TYPE1:
-				return validateInterfaceType1((InterfaceType1)value, diagnostics, context);
+			case CorePackage.NOTIFICATION_TYPES:
+				return validateNotificationTypes((NotificationTypes)value, diagnostics, context);
 			case CorePackage.POOL_EXHAUSTED_ACTION_TYPE:
 				return validatePoolExhaustedActionType((PoolExhaustedActionType)value, diagnostics, context);
 			case CorePackage.ACTION_TYPE_OBJECT:
@@ -416,24 +410,20 @@ public class CoreValidator extends EObjectValidator {
 				return validateEnableCorrelationTypeObject((EnableCorrelationType)value, diagnostics, context);
 			case CorePackage.EVALUATOR_TYPE_OBJECT:
 				return validateEvaluatorTypeObject((EvaluatorType)value, diagnostics, context);
-			case CorePackage.EVENT_TYPE_OBJECT:
-				return validateEventTypeObject((EventType)value, diagnostics, context);
-			case CorePackage.EVENT_TYPE_OBJECT1:
-				return validateEventTypeObject1((EventType1)value, diagnostics, context);
+			case CorePackage.EVALUATOR_TYPE_OBJECT1:
+				return validateEvaluatorTypeObject1((EvaluatorType1)value, diagnostics, context);
 			case CorePackage.EXHAUSTED_ACTION_TYPE_OBJECT:
 				return validateExhaustedActionTypeObject((ExhaustedActionType)value, diagnostics, context);
 			case CorePackage.INITIALISATION_POLICY_TYPE_OBJECT:
 				return validateInitialisationPolicyTypeObject((InitialisationPolicyType)value, diagnostics, context);
 			case CorePackage.INITIAL_STATE_TYPE_OBJECT:
 				return validateInitialStateTypeObject((InitialStateType)value, diagnostics, context);
-			case CorePackage.INTERFACE_TYPE_OBJECT:
-				return validateInterfaceTypeObject((InterfaceType)value, diagnostics, context);
-			case CorePackage.INTERFACE_TYPE_OBJECT1:
-				return validateInterfaceTypeObject1((InterfaceType1)value, diagnostics, context);
 			case CorePackage.NON_BLANK_STRING:
 				return validateNonBlankString((String)value, diagnostics, context);
 			case CorePackage.NON_BLANK_STRING_MEMBER0:
 				return validateNonBlankStringMember0((String)value, diagnostics, context);
+			case CorePackage.NOTIFICATION_TYPES_OBJECT:
+				return validateNotificationTypesObject((NotificationTypes)value, diagnostics, context);
 			case CorePackage.POOL_EXHAUSTED_ACTION_TYPE_OBJECT:
 				return validatePoolExhaustedActionTypeObject((PoolExhaustedActionType)value, diagnostics, context);
 			case CorePackage.PROPERTY_PLACEHOLDER_TYPE:
@@ -533,15 +523,6 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAbstractConnectionStrategyType(AbstractConnectionStrategyType abstractConnectionStrategyType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(abstractConnectionStrategyType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateAbstractConnectorType(AbstractConnectorType abstractConnectorType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(abstractConnectorType, diagnostics, context);
 	}
@@ -632,6 +613,15 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateAbstractMessageInfoMappingType(AbstractMessageInfoMappingType abstractMessageInfoMappingType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractMessageInfoMappingType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateAbstractModelType(AbstractModelType abstractModelType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(abstractModelType, diagnostics, context);
 	}
@@ -670,15 +660,6 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateAbstractPoolingProfileType(AbstractPoolingProfileType abstractPoolingProfileType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(abstractPoolingProfileType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateAbstractPropertyExtractorType(AbstractPropertyExtractorType abstractPropertyExtractorType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(abstractPropertyExtractorType, diagnostics, context);
 	}
 
 	/**
@@ -848,15 +829,6 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateConnectionStrategyType(ConnectionStrategyType connectionStrategyType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(connectionStrategyType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateConnectorType(ConnectorType connectorType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(connectorType, diagnostics, context);
 	}
@@ -877,15 +849,6 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateCustomCatchAllStrategyType(CustomCatchAllStrategyType customCatchAllStrategyType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(customCatchAllStrategyType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCustomConnectionStrategyType(CustomConnectionStrategyType customConnectionStrategyType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(customConnectionStrategyType, diagnostics, context);
 	}
 
 	/**
@@ -983,8 +946,8 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCustomOutboundRouterType(CustomOutboundRouterType customOutboundRouterType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(customOutboundRouterType, diagnostics, context);
+	public boolean validateCustomMessageInfoMappingType(CustomMessageInfoMappingType customMessageInfoMappingType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(customMessageInfoMappingType, diagnostics, context);
 	}
 
 	/**
@@ -992,8 +955,8 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCustomPropertyExtractorType(CustomPropertyExtractorType customPropertyExtractorType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(customPropertyExtractorType, diagnostics, context);
+	public boolean validateCustomOutboundRouterType(CustomOutboundRouterType customOutboundRouterType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(customOutboundRouterType, diagnostics, context);
 	}
 
 	/**
@@ -1154,8 +1117,26 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateEnvironmentPropertyType(EnvironmentPropertyType environmentPropertyType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(environmentPropertyType, diagnostics, context);
+	public boolean validateExceptionPatternType(ExceptionPatternType exceptionPatternType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(exceptionPatternType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateExpressionFilterType(ExpressionFilterType expressionFilterType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(expressionFilterType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateExpressionMessageInfoMappingType(ExpressionMessageInfoMappingType expressionMessageInfoMappingType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(expressionMessageInfoMappingType, diagnostics, context);
 	}
 
 	/**
@@ -1219,6 +1200,15 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateGlobalEndpointType(GlobalEndpointType globalEndpointType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(globalEndpointType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGlobalPropertyType(GlobalPropertyType globalPropertyType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(globalPropertyType, diagnostics, context);
 	}
 
 	/**
@@ -1541,15 +1531,6 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRetryConnectionStrategyType(RetryConnectionStrategyType retryConnectionStrategyType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(retryConnectionStrategyType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateReturnArgumentType(ReturnArgumentType returnArgumentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(returnArgumentType, diagnostics, context);
 	}
@@ -1802,16 +1783,7 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateEventType(EventType eventType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateEventType1(EventType1 eventType1, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateEvaluatorType1(EvaluatorType1 evaluatorType1, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -1847,16 +1819,7 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateInterfaceType(InterfaceType interfaceType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateInterfaceType1(InterfaceType1 interfaceType1, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateNotificationTypes(NotificationTypes notificationTypes, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -1901,16 +1864,7 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateEventTypeObject(EventType eventTypeObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateEventTypeObject1(EventType1 eventTypeObject1, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateEvaluatorTypeObject1(EvaluatorType1 evaluatorTypeObject1, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -1938,24 +1892,6 @@ public class CoreValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInitialStateTypeObject(InitialStateType initialStateTypeObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateInterfaceTypeObject(InterfaceType interfaceTypeObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateInterfaceTypeObject1(InterfaceType1 interfaceTypeObject1, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -2024,6 +1960,15 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateNonBlankStringMember0_Pattern(String nonBlankStringMember0, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validatePattern(CorePackage.eINSTANCE.getNonBlankStringMember0(), nonBlankStringMember0, NON_BLANK_STRING_MEMBER0__PATTERN__VALUES, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNotificationTypesObject(NotificationTypes notificationTypesObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**

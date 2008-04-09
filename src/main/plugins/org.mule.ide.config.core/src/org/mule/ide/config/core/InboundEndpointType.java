@@ -31,8 +31,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getAbstractFilter <em>Abstract Filter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getAbstractSecurityFilterGroup <em>Abstract Security Filter Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getAbstractSecurityFilter <em>Abstract Security Filter</em>}</li>
- *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getAbstractConnectionStrategyGroup <em>Abstract Connection Strategy Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getAbstractConnectionStrategy <em>Abstract Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getProperty <em>Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mule.ide.config.core.InboundEndpointType#getAddress <em>Address</em>}</li>
@@ -302,52 +300,6 @@ public interface InboundEndpointType extends AbstractInboundEndpointType {
 	 * @generated
 	 */
 	EList<AbstractSecurityFilterType> getAbstractSecurityFilter();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Connection Strategy Group</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Connection Strategy Group</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 A placeholder for connection strategy elements.
-	 *                 Connection strategies control how the underlying transport handles connection errors.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Abstract Connection Strategy Group</em>' attribute list.
-	 * @see org.mule.ide.config.core.CorePackage#getInboundEndpointType_AbstractConnectionStrategyGroup()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='group' name='abstract-connection-strategy:group' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	FeatureMap getAbstractConnectionStrategyGroup();
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Connection Strategy</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.AbstractConnectionStrategyType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Connection Strategy</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                 A placeholder for connection strategy elements.
-	 *                 Connection strategies control how the underlying transport handles connection errors.
-	 *             
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Abstract Connection Strategy</em>' containment reference list.
-	 * @see org.mule.ide.config.core.CorePackage#getInboundEndpointType_AbstractConnectionStrategy()
-	 * @model containment="true" transient="true" changeable="false" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='abstract-connection-strategy' namespace='##targetNamespace' group='abstract-connection-strategy:group'"
-	 * @generated
-	 */
-	EList<AbstractConnectionStrategyType> getAbstractConnectionStrategy();
 
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' containment reference list.

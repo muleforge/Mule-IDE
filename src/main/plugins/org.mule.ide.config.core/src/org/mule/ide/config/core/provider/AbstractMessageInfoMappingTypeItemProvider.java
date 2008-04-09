@@ -15,28 +15,31 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
-import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CorePlugin;
-import org.mule.ide.config.core.RetryConnectionStrategyType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.RetryConnectionStrategyType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.AbstractMessageInfoMappingType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RetryConnectionStrategyTypeItemProvider
-	extends ConnectionStrategyTypeItemProvider
+public class AbstractMessageInfoMappingTypeItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -49,7 +52,7 @@ public class RetryConnectionStrategyTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RetryConnectionStrategyTypeItemProvider(AdapterFactory adapterFactory) {
+	public AbstractMessageInfoMappingTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,54 +67,19 @@ public class RetryConnectionStrategyTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRetryCountPropertyDescriptor(object);
-			addRetryFrequencyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Retry Count feature.
+	 * This returns AbstractMessageInfoMappingType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRetryCountPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RetryConnectionStrategyType_retryCount_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RetryConnectionStrategyType_retryCount_feature", "_UI_RetryConnectionStrategyType_type"),
-				 CorePackage.eINSTANCE.getRetryConnectionStrategyType_RetryCount(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Retry Frequency feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRetryFrequencyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RetryConnectionStrategyType_retryFrequency_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RetryConnectionStrategyType_retryFrequency_feature", "_UI_RetryConnectionStrategyType_type"),
-				 CorePackage.eINSTANCE.getRetryConnectionStrategyType_RetryFrequency(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AbstractMessageInfoMappingType"));
 	}
 
 	/**
@@ -122,8 +90,7 @@ public class RetryConnectionStrategyTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		RetryConnectionStrategyType retryConnectionStrategyType = (RetryConnectionStrategyType)object;
-		return getString("_UI_RetryConnectionStrategyType_type") + " " + retryConnectionStrategyType.getRetryCount();
+		return getString("_UI_AbstractMessageInfoMappingType_type");
 	}
 
 	/**
@@ -136,13 +103,6 @@ public class RetryConnectionStrategyTypeItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(RetryConnectionStrategyType.class)) {
-			case CorePackage.RETRY_CONNECTION_STRATEGY_TYPE__RETRY_COUNT:
-			case CorePackage.RETRY_CONNECTION_STRATEGY_TYPE__RETRY_FREQUENCY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -156,6 +116,34 @@ public class RetryConnectionStrategyTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)child;
+			feature = entry.getEStructuralFeature();
+			child = entry.getValue();        
+		}
+
+		if (feature instanceof EReference && child instanceof EObject) {
+			String name = "full/obj16/" + ((EObject)child).eClass().getName();
+
+			try {
+				return getResourceLocator().getImage(name);
+			}
+			catch (Exception e) {
+				CorePlugin.INSTANCE.log(e);
+			}
+		}
+
+		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

@@ -15,13 +15,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.FeatureMapUtil;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -30,21 +23,20 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CorePlugin;
-import org.mule.ide.config.core.EnvironmentPropertyType;
+import org.mule.ide.config.core.ExpressionFilterType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.EnvironmentPropertyType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.ExpressionFilterType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnvironmentPropertyTypeItemProvider
-	extends ItemProviderAdapter
+public class ExpressionFilterTypeItemProvider
+	extends AbstractFilterTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -57,7 +49,7 @@ public class EnvironmentPropertyTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnvironmentPropertyTypeItemProvider(AdapterFactory adapterFactory) {
+	public ExpressionFilterTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,26 +64,28 @@ public class EnvironmentPropertyTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
+			addCustomEvaluatorPropertyDescriptor(object);
+			addEvaluatorPropertyDescriptor(object);
+			addExpressionPropertyDescriptor(object);
+			addNullReturnsTruePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Custom Evaluator feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addCustomEvaluatorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EnvironmentPropertyType_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnvironmentPropertyType_name_feature", "_UI_EnvironmentPropertyType_type"),
-				 CorePackage.eINSTANCE.getEnvironmentPropertyType_Name(),
+				 getString("_UI_ExpressionFilterType_customEvaluator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExpressionFilterType_customEvaluator_feature", "_UI_ExpressionFilterType_type"),
+				 CorePackage.eINSTANCE.getExpressionFilterType_CustomEvaluator(),
 				 true,
 				 false,
 				 false,
@@ -101,25 +95,80 @@ public class EnvironmentPropertyTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Evaluator feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addEvaluatorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EnvironmentPropertyType_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnvironmentPropertyType_value_feature", "_UI_EnvironmentPropertyType_type"),
-				 CorePackage.eINSTANCE.getEnvironmentPropertyType_Value(),
+				 getString("_UI_ExpressionFilterType_evaluator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExpressionFilterType_evaluator_feature", "_UI_ExpressionFilterType_type"),
+				 CorePackage.eINSTANCE.getExpressionFilterType_Evaluator(),
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExpressionFilterType_expression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExpressionFilterType_expression_feature", "_UI_ExpressionFilterType_type"),
+				 CorePackage.eINSTANCE.getExpressionFilterType_Expression(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Null Returns True feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNullReturnsTruePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExpressionFilterType_nullReturnsTrue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExpressionFilterType_nullReturnsTrue_feature", "_UI_ExpressionFilterType_type"),
+				 CorePackage.eINSTANCE.getExpressionFilterType_NullReturnsTrue(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns ExpressionFilterType.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExpressionFilterType"));
 	}
 
 	/**
@@ -130,10 +179,10 @@ public class EnvironmentPropertyTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EnvironmentPropertyType)object).getName();
+		String label = ((ExpressionFilterType)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EnvironmentPropertyType_type") :
-			getString("_UI_EnvironmentPropertyType_type") + " " + label;
+			getString("_UI_ExpressionFilterType_type") :
+			getString("_UI_ExpressionFilterType_type") + " " + label;
 	}
 
 	/**
@@ -147,9 +196,11 @@ public class EnvironmentPropertyTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EnvironmentPropertyType.class)) {
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE__NAME:
-			case CorePackage.ENVIRONMENT_PROPERTY_TYPE__VALUE:
+		switch (notification.getFeatureID(ExpressionFilterType.class)) {
+			case CorePackage.EXPRESSION_FILTER_TYPE__CUSTOM_EVALUATOR:
+			case CorePackage.EXPRESSION_FILTER_TYPE__EVALUATOR:
+			case CorePackage.EXPRESSION_FILTER_TYPE__EXPRESSION:
+			case CorePackage.EXPRESSION_FILTER_TYPE__NULL_RETURNS_TRUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -166,34 +217,6 @@ public class EnvironmentPropertyTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
-		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)child;
-			feature = entry.getEStructuralFeature();
-			child = entry.getValue();        
-		}
-
-		if (feature instanceof EReference && child instanceof EObject) {
-			String name = "full/obj16/" + ((EObject)child).eClass().getName();
-
-			try {
-				return getResourceLocator().getImage(name);
-			}
-			catch (Exception e) {
-				CorePlugin.INSTANCE.log(e);
-			}
-		}
-
-		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

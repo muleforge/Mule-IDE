@@ -60,7 +60,7 @@ public class PojoBindingTypeImpl extends EObjectImpl implements PojoBindingType 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object INTERFACE_EDEFAULT = null;
+	protected static final String INTERFACE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' attribute.
@@ -70,7 +70,7 @@ public class PojoBindingTypeImpl extends EObjectImpl implements PojoBindingType 
 	 * @generated
 	 * @ordered
 	 */
-	protected Object interface_ = INTERFACE_EDEFAULT;
+	protected String interface_ = INTERFACE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
@@ -137,7 +137,7 @@ public class PojoBindingTypeImpl extends EObjectImpl implements PojoBindingType 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getInterface() {
+	public String getInterface() {
 		return interface_;
 	}
 
@@ -146,8 +146,8 @@ public class PojoBindingTypeImpl extends EObjectImpl implements PojoBindingType 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInterface(Object newInterface) {
-		Object oldInterface = interface_;
+	public void setInterface(String newInterface) {
+		String oldInterface = interface_;
 		interface_ = newInterface;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.POJO_BINDING_TYPE__INTERFACE, oldInterface, interface_));
@@ -223,7 +223,7 @@ public class PojoBindingTypeImpl extends EObjectImpl implements PojoBindingType 
 				((FeatureMap.Internal)getAbstractOutboundEndpointGroup()).set(newValue);
 				return;
 			case CorePackage.POJO_BINDING_TYPE__INTERFACE:
-				setInterface(newValue);
+				setInterface((String)newValue);
 				return;
 			case CorePackage.POJO_BINDING_TYPE__METHOD:
 				setMethod(newValue);

@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.mule.ide.config.core.ConfigurationType;
-import org.mule.ide.config.core.ConnectionStrategyType;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.ThreadingProfileType;
 
@@ -31,7 +30,6 @@ import org.mule.ide.config.core.ThreadingProfileType;
  *   <li>{@link org.mule.ide.config.core.impl.ConfigurationTypeImpl#getDefaultDispatcherThreadingProfile <em>Default Dispatcher Threading Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ConfigurationTypeImpl#getDefaultReceiverThreadingProfile <em>Default Receiver Threading Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ConfigurationTypeImpl#getDefaultComponentThreadingProfile <em>Default Component Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.ConfigurationTypeImpl#getDefaultConnectionStrategy <em>Default Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ConfigurationTypeImpl#isDefaultRemoteSync <em>Default Remote Sync</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ConfigurationTypeImpl#isDefaultSynchronousEndpoints <em>Default Synchronous Endpoints</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.ConfigurationTypeImpl#getDefaultSynchronousEventTimeout <em>Default Synchronous Event Timeout</em>}</li>
@@ -81,16 +79,6 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 	 * @ordered
 	 */
 	protected ThreadingProfileType defaultComponentThreadingProfile;
-
-	/**
-	 * The cached value of the '{@link #getDefaultConnectionStrategy() <em>Default Connection Strategy</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDefaultConnectionStrategy()
-	 * @generated
-	 * @ordered
-	 */
-	protected ConnectionStrategyType defaultConnectionStrategy;
 
 	/**
 	 * The default value of the '{@link #isDefaultRemoteSync() <em>Default Remote Sync</em>}' attribute.
@@ -404,49 +392,6 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConnectionStrategyType getDefaultConnectionStrategy() {
-		return defaultConnectionStrategy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDefaultConnectionStrategy(ConnectionStrategyType newDefaultConnectionStrategy, NotificationChain msgs) {
-		ConnectionStrategyType oldDefaultConnectionStrategy = defaultConnectionStrategy;
-		defaultConnectionStrategy = newDefaultConnectionStrategy;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.CONFIGURATION_TYPE__DEFAULT_CONNECTION_STRATEGY, oldDefaultConnectionStrategy, newDefaultConnectionStrategy);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDefaultConnectionStrategy(ConnectionStrategyType newDefaultConnectionStrategy) {
-		if (newDefaultConnectionStrategy != defaultConnectionStrategy) {
-			NotificationChain msgs = null;
-			if (defaultConnectionStrategy != null)
-				msgs = ((InternalEObject)defaultConnectionStrategy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.CONFIGURATION_TYPE__DEFAULT_CONNECTION_STRATEGY, null, msgs);
-			if (newDefaultConnectionStrategy != null)
-				msgs = ((InternalEObject)newDefaultConnectionStrategy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.CONFIGURATION_TYPE__DEFAULT_CONNECTION_STRATEGY, null, msgs);
-			msgs = basicSetDefaultConnectionStrategy(newDefaultConnectionStrategy, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CONFIGURATION_TYPE__DEFAULT_CONNECTION_STRATEGY, newDefaultConnectionStrategy, newDefaultConnectionStrategy));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isDefaultRemoteSync() {
 		return defaultRemoteSync;
 	}
@@ -642,8 +587,6 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 				return basicSetDefaultReceiverThreadingProfile(null, msgs);
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_COMPONENT_THREADING_PROFILE:
 				return basicSetDefaultComponentThreadingProfile(null, msgs);
-			case CorePackage.CONFIGURATION_TYPE__DEFAULT_CONNECTION_STRATEGY:
-				return basicSetDefaultConnectionStrategy(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -664,8 +607,6 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 				return getDefaultReceiverThreadingProfile();
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_COMPONENT_THREADING_PROFILE:
 				return getDefaultComponentThreadingProfile();
-			case CorePackage.CONFIGURATION_TYPE__DEFAULT_CONNECTION_STRATEGY:
-				return getDefaultConnectionStrategy();
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_REMOTE_SYNC:
 				return isDefaultRemoteSync() ? Boolean.TRUE : Boolean.FALSE;
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_SYNCHRONOUS_ENDPOINTS:
@@ -697,9 +638,6 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 				return;
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_COMPONENT_THREADING_PROFILE:
 				setDefaultComponentThreadingProfile((ThreadingProfileType)newValue);
-				return;
-			case CorePackage.CONFIGURATION_TYPE__DEFAULT_CONNECTION_STRATEGY:
-				setDefaultConnectionStrategy((ConnectionStrategyType)newValue);
 				return;
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_REMOTE_SYNC:
 				setDefaultRemoteSync(((Boolean)newValue).booleanValue());
@@ -737,9 +675,6 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_COMPONENT_THREADING_PROFILE:
 				setDefaultComponentThreadingProfile((ThreadingProfileType)null);
 				return;
-			case CorePackage.CONFIGURATION_TYPE__DEFAULT_CONNECTION_STRATEGY:
-				setDefaultConnectionStrategy((ConnectionStrategyType)null);
-				return;
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_REMOTE_SYNC:
 				unsetDefaultRemoteSync();
 				return;
@@ -772,8 +707,6 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 				return defaultReceiverThreadingProfile != null;
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_COMPONENT_THREADING_PROFILE:
 				return defaultComponentThreadingProfile != null;
-			case CorePackage.CONFIGURATION_TYPE__DEFAULT_CONNECTION_STRATEGY:
-				return defaultConnectionStrategy != null;
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_REMOTE_SYNC:
 				return isSetDefaultRemoteSync();
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_SYNCHRONOUS_ENDPOINTS:

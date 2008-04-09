@@ -185,7 +185,6 @@ public class ConfigurationTypeItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getConfigurationType_DefaultDispatcherThreadingProfile());
 			childrenFeatures.add(CorePackage.eINSTANCE.getConfigurationType_DefaultReceiverThreadingProfile());
 			childrenFeatures.add(CorePackage.eINSTANCE.getConfigurationType_DefaultComponentThreadingProfile());
-			childrenFeatures.add(CorePackage.eINSTANCE.getConfigurationType_DefaultConnectionStrategy());
 		}
 		return childrenFeatures;
 	}
@@ -237,7 +236,6 @@ public class ConfigurationTypeItemProvider
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_DISPATCHER_THREADING_PROFILE:
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_RECEIVER_THREADING_PROFILE:
 			case CorePackage.CONFIGURATION_TYPE__DEFAULT_COMPONENT_THREADING_PROFILE:
-			case CorePackage.CONFIGURATION_TYPE__DEFAULT_CONNECTION_STRATEGY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -274,21 +272,6 @@ public class ConfigurationTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getConfigurationType_DefaultComponentThreadingProfile(),
 				 CoreFactory.eINSTANCE.createThreadingProfileType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getConfigurationType_DefaultConnectionStrategy(),
-				 CoreFactory.eINSTANCE.createConnectionStrategyType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getConfigurationType_DefaultConnectionStrategy(),
-				 CoreFactory.eINSTANCE.createCustomConnectionStrategyType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getConfigurationType_DefaultConnectionStrategy(),
-				 CoreFactory.eINSTANCE.createRetryConnectionStrategyType()));
 	}
 
 	/**

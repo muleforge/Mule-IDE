@@ -1021,6 +1021,13 @@ public class GlobalEndpointTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getGlobalEndpointType_Group(),
 				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ExpressionFilter(),
+					 CoreFactory.eINSTANCE.createExpressionFilterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getGlobalEndpointType_Group(),
+				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Filter(),
 					 CoreFactory.eINSTANCE.createRefFilterType())));
 
@@ -1086,20 +1093,6 @@ public class GlobalEndpointTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_EncryptionSecurityFilter(),
 					 CoreFactory.eINSTANCE.createEncryptionSecurityFilterType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getGlobalEndpointType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CustomConnectionStrategy(),
-					 CoreFactory.eINSTANCE.createCustomConnectionStrategyType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getGlobalEndpointType_Group(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_RetryConnectionStrategy(),
-					 CoreFactory.eINSTANCE.createRetryConnectionStrategyType())));
 
 		newChildDescriptors.add
 			(createChildParameter

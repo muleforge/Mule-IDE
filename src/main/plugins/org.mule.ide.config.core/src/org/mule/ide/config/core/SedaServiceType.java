@@ -135,22 +135,49 @@ public interface SedaServiceType extends BaseServiceType {
 	 *                         
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Queue Timeout</em>' attribute.
-	 * @see #setQueueTimeout(BigInteger)
+	 * @see #isSetQueueTimeout()
+	 * @see #unsetQueueTimeout()
+	 * @see #setQueueTimeout(int)
 	 * @see org.mule.ide.config.core.CorePackage#getSedaServiceType_QueueTimeout()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.Integer"
+	 * @model unsettable="true" dataType="org.mule.ide.config.core.SubstitutableInt"
 	 *        extendedMetaData="kind='attribute' name='queueTimeout'"
 	 * @generated
 	 */
-	BigInteger getQueueTimeout();
+	int getQueueTimeout();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.SedaServiceType#getQueueTimeout <em>Queue Timeout</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Queue Timeout</em>' attribute.
+	 * @see #isSetQueueTimeout()
+	 * @see #unsetQueueTimeout()
 	 * @see #getQueueTimeout()
 	 * @generated
 	 */
-	void setQueueTimeout(BigInteger value);
+	void setQueueTimeout(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.SedaServiceType#getQueueTimeout <em>Queue Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetQueueTimeout()
+	 * @see #getQueueTimeout()
+	 * @see #setQueueTimeout(int)
+	 * @generated
+	 */
+	void unsetQueueTimeout();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.SedaServiceType#getQueueTimeout <em>Queue Timeout</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Queue Timeout</em>' attribute is set.
+	 * @see #unsetQueueTimeout()
+	 * @see #getQueueTimeout()
+	 * @see #setQueueTimeout(int)
+	 * @generated
+	 */
+	boolean isSetQueueTimeout();
 
 } // SedaServiceType

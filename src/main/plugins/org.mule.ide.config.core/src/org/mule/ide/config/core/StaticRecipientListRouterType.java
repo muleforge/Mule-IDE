@@ -18,6 +18,7 @@ package org.mule.ide.config.core;
  *   <li>{@link org.mule.ide.config.core.StaticRecipientListRouterType#getRecipients <em>Recipients</em>}</li>
  *   <li>{@link org.mule.ide.config.core.StaticRecipientListRouterType#getRecipientsDelimiter <em>Recipients Delimiter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.StaticRecipientListRouterType#getRecipientsProperty <em>Recipients Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.StaticRecipientListRouterType#isSynchronous <em>Synchronous</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,5 +107,59 @@ public interface StaticRecipientListRouterType extends FilteringOutboundRouterTy
 	 * @generated
 	 */
 	void setRecipientsProperty(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Synchronous</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Synchronous</em>' attribute.
+	 * @see #isSetSynchronous()
+	 * @see #unsetSynchronous()
+	 * @see #setSynchronous(boolean)
+	 * @see org.mule.ide.config.core.CorePackage#getStaticRecipientListRouterType_Synchronous()
+	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 *        extendedMetaData="kind='attribute' name='synchronous'"
+	 * @generated
+	 */
+	boolean isSynchronous();
+
+	/**
+	 * Sets the value of the '{@link org.mule.ide.config.core.StaticRecipientListRouterType#isSynchronous <em>Synchronous</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Synchronous</em>' attribute.
+	 * @see #isSetSynchronous()
+	 * @see #unsetSynchronous()
+	 * @see #isSynchronous()
+	 * @generated
+	 */
+	void setSynchronous(boolean value);
+
+	/**
+	 * Unsets the value of the '{@link org.mule.ide.config.core.StaticRecipientListRouterType#isSynchronous <em>Synchronous</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetSynchronous()
+	 * @see #isSynchronous()
+	 * @see #setSynchronous(boolean)
+	 * @generated
+	 */
+	void unsetSynchronous();
+
+	/**
+	 * Returns whether the value of the '{@link org.mule.ide.config.core.StaticRecipientListRouterType#isSynchronous <em>Synchronous</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Synchronous</em>' attribute is set.
+	 * @see #unsetSynchronous()
+	 * @see #isSynchronous()
+	 * @see #setSynchronous(boolean)
+	 * @generated
+	 */
+	boolean isSetSynchronous();
 
 } // StaticRecipientListRouterType

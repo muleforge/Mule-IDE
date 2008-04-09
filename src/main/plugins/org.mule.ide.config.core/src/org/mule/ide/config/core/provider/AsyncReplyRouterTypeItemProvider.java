@@ -85,7 +85,7 @@ public class AsyncReplyRouterTypeItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractInboundEndpointGroup());
-			childrenFeatures.add(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup());
+			childrenFeatures.add(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractMessageInfoMappingGroup());
 		}
 		return childrenFeatures;
 	}
@@ -127,7 +127,7 @@ public class AsyncReplyRouterTypeItemProvider
 
 		switch (notification.getFeatureID(AsyncReplyRouterType.class)) {
 			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_INBOUND_ENDPOINT_GROUP:
-			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
+			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -154,98 +154,17 @@ public class AsyncReplyRouterTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
+				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractMessageInfoMappingGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
+					(CorePackage.eINSTANCE.getDocumentRoot_CustomMessageInfoMapping(),
+					 CoreFactory.eINSTANCE.createCustomMessageInfoMappingType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
+				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractMessageInfoMappingGroup(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(),
-					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
-					 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType())));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractorGroup(),
-				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
-					 CoreFactory.eINSTANCE.createCustomPropertyExtractorType())));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
-			childFeature = entry.getEStructuralFeature();
-			childObject = entry.getValue();
-		}
-
-		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor();
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
+					(CorePackage.eINSTANCE.getDocumentRoot_ExpressionMessageInfoMapping(),
+					 CoreFactory.eINSTANCE.createExpressionMessageInfoMappingType())));
 	}
 
 	/**

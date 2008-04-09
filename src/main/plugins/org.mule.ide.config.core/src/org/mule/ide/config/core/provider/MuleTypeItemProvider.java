@@ -168,8 +168,8 @@ public class MuleTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getMuleType_Group(),
 				 FeatureMapUtil.createEntry
-					(CorePackage.eINSTANCE.getMuleType_EnvironmentProperty(),
-					 CoreFactory.eINSTANCE.createEnvironmentPropertyType())));
+					(CorePackage.eINSTANCE.getMuleType_GlobalProperty(),
+					 CoreFactory.eINSTANCE.createGlobalPropertyType())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -891,6 +891,13 @@ public class MuleTypeItemProvider
 				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter(),
 					 CoreFactory.eINSTANCE.createTypeFilterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getMuleType_Group(),
+				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ExpressionFilter(),
+					 CoreFactory.eINSTANCE.createExpressionFilterType())));
 
 		newChildDescriptors.add
 			(createChildParameter

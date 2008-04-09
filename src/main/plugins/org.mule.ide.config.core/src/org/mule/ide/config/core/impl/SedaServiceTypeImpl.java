@@ -71,7 +71,7 @@ public class SedaServiceTypeImpl extends BaseServiceTypeImpl implements SedaServ
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BigInteger QUEUE_TIMEOUT_EDEFAULT = null;
+	protected static final int QUEUE_TIMEOUT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getQueueTimeout() <em>Queue Timeout</em>}' attribute.
@@ -81,7 +81,16 @@ public class SedaServiceTypeImpl extends BaseServiceTypeImpl implements SedaServ
 	 * @generated
 	 * @ordered
 	 */
-	protected BigInteger queueTimeout = QUEUE_TIMEOUT_EDEFAULT;
+	protected int queueTimeout = QUEUE_TIMEOUT_EDEFAULT;
+
+	/**
+	 * This is true if the Queue Timeout attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean queueTimeoutESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,7 +176,7 @@ public class SedaServiceTypeImpl extends BaseServiceTypeImpl implements SedaServ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BigInteger getQueueTimeout() {
+	public int getQueueTimeout() {
 		return queueTimeout;
 	}
 
@@ -176,11 +185,36 @@ public class SedaServiceTypeImpl extends BaseServiceTypeImpl implements SedaServ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setQueueTimeout(BigInteger newQueueTimeout) {
-		BigInteger oldQueueTimeout = queueTimeout;
+	public void setQueueTimeout(int newQueueTimeout) {
+		int oldQueueTimeout = queueTimeout;
 		queueTimeout = newQueueTimeout;
+		boolean oldQueueTimeoutESet = queueTimeoutESet;
+		queueTimeoutESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SEDA_SERVICE_TYPE__QUEUE_TIMEOUT, oldQueueTimeout, queueTimeout));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SEDA_SERVICE_TYPE__QUEUE_TIMEOUT, oldQueueTimeout, queueTimeout, !oldQueueTimeoutESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetQueueTimeout() {
+		int oldQueueTimeout = queueTimeout;
+		boolean oldQueueTimeoutESet = queueTimeoutESet;
+		queueTimeout = QUEUE_TIMEOUT_EDEFAULT;
+		queueTimeoutESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.SEDA_SERVICE_TYPE__QUEUE_TIMEOUT, oldQueueTimeout, QUEUE_TIMEOUT_EDEFAULT, oldQueueTimeoutESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetQueueTimeout() {
+		return queueTimeoutESet;
 	}
 
 	/**
@@ -222,7 +256,7 @@ public class SedaServiceTypeImpl extends BaseServiceTypeImpl implements SedaServ
 			case CorePackage.SEDA_SERVICE_TYPE__ABSTRACT_QUEUE_PROFILE:
 				return getAbstractQueueProfile();
 			case CorePackage.SEDA_SERVICE_TYPE__QUEUE_TIMEOUT:
-				return getQueueTimeout();
+				return new Integer(getQueueTimeout());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -242,7 +276,7 @@ public class SedaServiceTypeImpl extends BaseServiceTypeImpl implements SedaServ
 				((FeatureMap.Internal)getAbstractQueueProfileGroup()).set(newValue);
 				return;
 			case CorePackage.SEDA_SERVICE_TYPE__QUEUE_TIMEOUT:
-				setQueueTimeout((BigInteger)newValue);
+				setQueueTimeout(((Integer)newValue).intValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -263,7 +297,7 @@ public class SedaServiceTypeImpl extends BaseServiceTypeImpl implements SedaServ
 				getAbstractQueueProfileGroup().clear();
 				return;
 			case CorePackage.SEDA_SERVICE_TYPE__QUEUE_TIMEOUT:
-				setQueueTimeout(QUEUE_TIMEOUT_EDEFAULT);
+				unsetQueueTimeout();
 				return;
 		}
 		super.eUnset(featureID);
@@ -286,7 +320,7 @@ public class SedaServiceTypeImpl extends BaseServiceTypeImpl implements SedaServ
 			case CorePackage.SEDA_SERVICE_TYPE__ABSTRACT_QUEUE_PROFILE:
 				return getAbstractQueueProfile() != null;
 			case CorePackage.SEDA_SERVICE_TYPE__QUEUE_TIMEOUT:
-				return QUEUE_TIMEOUT_EDEFAULT == null ? queueTimeout != null : !QUEUE_TIMEOUT_EDEFAULT.equals(queueTimeout);
+				return isSetQueueTimeout();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -306,7 +340,7 @@ public class SedaServiceTypeImpl extends BaseServiceTypeImpl implements SedaServ
 		result.append(", abstractQueueProfileGroup: ");
 		result.append(abstractQueueProfileGroup);
 		result.append(", queueTimeout: ");
-		result.append(queueTimeout);
+		if (queueTimeoutESet) result.append(queueTimeout); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

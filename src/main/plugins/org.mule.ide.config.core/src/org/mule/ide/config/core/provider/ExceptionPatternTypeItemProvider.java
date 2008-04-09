@@ -35,18 +35,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CorePlugin;
-import org.mule.ide.config.core.CustomPropertyExtractorType;
-
-import org.mule.ide.config.spring.SpringFactory;
+import org.mule.ide.config.core.ExceptionPatternType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.CustomPropertyExtractorType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.ExceptionPatternType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CustomPropertyExtractorTypeItemProvider
-	extends AbstractPropertyExtractorTypeItemProvider
+public class ExceptionPatternTypeItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -59,7 +57,7 @@ public class CustomPropertyExtractorTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomPropertyExtractorTypeItemProvider(AdapterFactory adapterFactory) {
+	public ExceptionPatternTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -74,25 +72,25 @@ public class CustomPropertyExtractorTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addClassPropertyDescriptor(object);
+			addExceptionPatternPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Class feature.
+	 * This adds a property descriptor for the Exception Pattern feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClassPropertyDescriptor(Object object) {
+	protected void addExceptionPatternPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CustomPropertyExtractorType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CustomPropertyExtractorType_class_feature", "_UI_CustomPropertyExtractorType_type"),
-				 CorePackage.eINSTANCE.getCustomPropertyExtractorType_Class(),
+				 getString("_UI_ExceptionPatternType_exceptionPattern_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExceptionPatternType_exceptionPattern_feature", "_UI_ExceptionPatternType_type"),
+				 CorePackage.eINSTANCE.getExceptionPatternType_ExceptionPattern(),
 				 true,
 				 false,
 				 false,
@@ -102,33 +100,14 @@ public class CustomPropertyExtractorTypeItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This returns ExceptionPatternType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getCustomPropertyExtractorType_Property());
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExceptionPatternType"));
 	}
 
 	/**
@@ -139,10 +118,10 @@ public class CustomPropertyExtractorTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CustomPropertyExtractorType)object).getClass_();
+		String label = ((ExceptionPatternType)object).getExceptionPattern();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CustomPropertyExtractorType_type") :
-			getString("_UI_CustomPropertyExtractorType_type") + " " + label;
+			getString("_UI_ExceptionPatternType_type") :
+			getString("_UI_ExceptionPatternType_type") + " " + label;
 	}
 
 	/**
@@ -156,12 +135,9 @@ public class CustomPropertyExtractorTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CustomPropertyExtractorType.class)) {
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__CLASS:
+		switch (notification.getFeatureID(ExceptionPatternType.class)) {
+			case CorePackage.EXCEPTION_PATTERN_TYPE__EXCEPTION_PATTERN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case CorePackage.CUSTOM_PROPERTY_EXTRACTOR_TYPE__PROPERTY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -177,11 +153,34 @@ public class CustomPropertyExtractorTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomPropertyExtractorType_Property(),
-				 SpringFactory.eINSTANCE.createPropertyType()));
+	/**
+	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)child;
+			feature = entry.getEStructuralFeature();
+			child = entry.getValue();        
+		}
+
+		if (feature instanceof EReference && child instanceof EObject) {
+			String name = "full/obj16/" + ((EObject)child).eClass().getName();
+
+			try {
+				return getResourceLocator().getImage(name);
+			}
+			catch (Exception e) {
+				CorePlugin.INSTANCE.log(e);
+			}
+		}
+
+		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

@@ -28,6 +28,7 @@ import org.mule.ide.config.core.StaticRecipientListRouterType;
  *   <li>{@link org.mule.ide.config.core.impl.StaticRecipientListRouterTypeImpl#getRecipients <em>Recipients</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.StaticRecipientListRouterTypeImpl#getRecipientsDelimiter <em>Recipients Delimiter</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.StaticRecipientListRouterTypeImpl#getRecipientsProperty <em>Recipients Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.StaticRecipientListRouterTypeImpl#isSynchronous <em>Synchronous</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,6 +84,35 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 	 * @ordered
 	 */
 	protected String recipientsProperty = RECIPIENTS_PROPERTY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSynchronous() <em>Synchronous</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSynchronous()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SYNCHRONOUS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSynchronous() <em>Synchronous</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSynchronous()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean synchronous = SYNCHRONOUS_EDEFAULT;
+
+	/**
+	 * This is true if the Synchronous attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean synchronousESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +223,52 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isSynchronous() {
+		return synchronous;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSynchronous(boolean newSynchronous) {
+		boolean oldSynchronous = synchronous;
+		synchronous = newSynchronous;
+		boolean oldSynchronousESet = synchronousESet;
+		synchronousESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__SYNCHRONOUS, oldSynchronous, synchronous, !oldSynchronousESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetSynchronous() {
+		boolean oldSynchronous = synchronous;
+		boolean oldSynchronousESet = synchronousESet;
+		synchronous = SYNCHRONOUS_EDEFAULT;
+		synchronousESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__SYNCHRONOUS, oldSynchronous, SYNCHRONOUS_EDEFAULT, oldSynchronousESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetSynchronous() {
+		return synchronousESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -216,6 +292,8 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 				return getRecipientsDelimiter();
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_PROPERTY:
 				return getRecipientsProperty();
+			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__SYNCHRONOUS:
+				return isSynchronous() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,6 +314,9 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 				return;
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_PROPERTY:
 				setRecipientsProperty((String)newValue);
+				return;
+			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__SYNCHRONOUS:
+				setSynchronous(((Boolean)newValue).booleanValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -258,6 +339,9 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_PROPERTY:
 				setRecipientsProperty(RECIPIENTS_PROPERTY_EDEFAULT);
 				return;
+			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__SYNCHRONOUS:
+				unsetSynchronous();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -276,6 +360,8 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 				return RECIPIENTS_DELIMITER_EDEFAULT == null ? recipientsDelimiter != null : !RECIPIENTS_DELIMITER_EDEFAULT.equals(recipientsDelimiter);
 			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__RECIPIENTS_PROPERTY:
 				return RECIPIENTS_PROPERTY_EDEFAULT == null ? recipientsProperty != null : !RECIPIENTS_PROPERTY_EDEFAULT.equals(recipientsProperty);
+			case CorePackage.STATIC_RECIPIENT_LIST_ROUTER_TYPE__SYNCHRONOUS:
+				return isSetSynchronous();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -294,6 +380,8 @@ public class StaticRecipientListRouterTypeImpl extends FilteringOutboundRouterTy
 		result.append(recipientsDelimiter);
 		result.append(", recipientsProperty: ");
 		result.append(recipientsProperty);
+		result.append(", synchronous: ");
+		if (synchronousESet) result.append(synchronous); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

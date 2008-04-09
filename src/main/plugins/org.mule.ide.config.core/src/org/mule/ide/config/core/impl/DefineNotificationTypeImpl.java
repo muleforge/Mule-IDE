@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.DefineNotificationType;
+import org.mule.ide.config.core.NotificationTypes;
 import org.mule.ide.config.core.EventType1;
 import org.mule.ide.config.core.InterfaceType1;
 import org.mule.ide.config.core.EventType;
@@ -45,7 +46,7 @@ public class DefineNotificationTypeImpl extends EObjectImpl implements DefineNot
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EventType1 EVENT_EDEFAULT = EventType1.MANAGER;
+	protected static final NotificationTypes EVENT_EDEFAULT = NotificationTypes.MANAGER;
 
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' attribute.
@@ -55,7 +56,7 @@ public class DefineNotificationTypeImpl extends EObjectImpl implements DefineNot
 	 * @generated
 	 * @ordered
 	 */
-	protected EventType1 event = EVENT_EDEFAULT;
+	protected NotificationTypes event = EVENT_EDEFAULT;
 
 	/**
 	 * This is true if the Event attribute has been set.
@@ -94,7 +95,7 @@ public class DefineNotificationTypeImpl extends EObjectImpl implements DefineNot
 	 * @generated
 	 * @ordered
 	 */
-	protected static final InterfaceType1 INTERFACE_EDEFAULT = InterfaceType1.MANAGER;
+	protected static final NotificationTypes INTERFACE_EDEFAULT = NotificationTypes.MANAGER;
 
 	/**
 	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' attribute.
@@ -104,7 +105,7 @@ public class DefineNotificationTypeImpl extends EObjectImpl implements DefineNot
 	 * @generated
 	 * @ordered
 	 */
-	protected InterfaceType1 interface_ = INTERFACE_EDEFAULT;
+	protected NotificationTypes interface_ = INTERFACE_EDEFAULT;
 
 	/**
 	 * This is true if the Interface attribute has been set.
@@ -159,7 +160,7 @@ public class DefineNotificationTypeImpl extends EObjectImpl implements DefineNot
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EventType1 getEvent() {
+	public NotificationTypes getEvent() {
 		return event;
 	}
 
@@ -168,8 +169,8 @@ public class DefineNotificationTypeImpl extends EObjectImpl implements DefineNot
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEvent(EventType1 newEvent) {
-		EventType1 oldEvent = event;
+	public void setEvent(NotificationTypes newEvent) {
+		NotificationTypes oldEvent = event;
 		event = newEvent == null ? EVENT_EDEFAULT : newEvent;
 		boolean oldEventESet = eventESet;
 		eventESet = true;
@@ -183,7 +184,7 @@ public class DefineNotificationTypeImpl extends EObjectImpl implements DefineNot
 	 * @generated
 	 */
 	public void unsetEvent() {
-		EventType1 oldEvent = event;
+		NotificationTypes oldEvent = event;
 		boolean oldEventESet = eventESet;
 		event = EVENT_EDEFAULT;
 		eventESet = false;
@@ -226,7 +227,7 @@ public class DefineNotificationTypeImpl extends EObjectImpl implements DefineNot
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InterfaceType1 getInterface() {
+	public NotificationTypes getInterface() {
 		return interface_;
 	}
 
@@ -235,8 +236,8 @@ public class DefineNotificationTypeImpl extends EObjectImpl implements DefineNot
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInterface(InterfaceType1 newInterface) {
-		InterfaceType1 oldInterface = interface_;
+	public void setInterface(NotificationTypes newInterface) {
+		NotificationTypes oldInterface = interface_;
 		interface_ = newInterface == null ? INTERFACE_EDEFAULT : newInterface;
 		boolean oldInterfaceESet = interfaceESet;
 		interfaceESet = true;
@@ -250,7 +251,7 @@ public class DefineNotificationTypeImpl extends EObjectImpl implements DefineNot
 	 * @generated
 	 */
 	public void unsetInterface() {
-		InterfaceType1 oldInterface = interface_;
+		NotificationTypes oldInterface = interface_;
 		boolean oldInterfaceESet = interfaceESet;
 		interface_ = INTERFACE_EDEFAULT;
 		interfaceESet = false;
@@ -317,13 +318,13 @@ public class DefineNotificationTypeImpl extends EObjectImpl implements DefineNot
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CorePackage.DEFINE_NOTIFICATION_TYPE__EVENT:
-				setEvent((EventType1)newValue);
+				setEvent((NotificationTypes)newValue);
 				return;
 			case CorePackage.DEFINE_NOTIFICATION_TYPE__EVENT_CLASS:
 				setEventClass((String)newValue);
 				return;
 			case CorePackage.DEFINE_NOTIFICATION_TYPE__INTERFACE:
-				setInterface((InterfaceType1)newValue);
+				setInterface((NotificationTypes)newValue);
 				return;
 			case CorePackage.DEFINE_NOTIFICATION_TYPE__INTERFACE_CLASS:
 				setInterfaceClass((String)newValue);

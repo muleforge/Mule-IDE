@@ -92,13 +92,13 @@ public interface PojoBindingType extends EObject {
 	 *                 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interface</em>' attribute.
-	 * @see #setInterface(Object)
+	 * @see #setInterface(String)
 	 * @see org.mule.ide.config.core.CorePackage#getPojoBindingType_Interface()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnySimpleType" required="true"
+	 * @model dataType="org.mule.ide.config.core.SubstitutableClass" required="true"
 	 *        extendedMetaData="kind='attribute' name='interface'"
 	 * @generated
 	 */
-	Object getInterface();
+	String getInterface();
 
 	/**
 	 * Sets the value of the '{@link org.mule.ide.config.core.PojoBindingType#getInterface <em>Interface</em>}' attribute.
@@ -108,7 +108,7 @@ public interface PojoBindingType extends EObject {
 	 * @see #getInterface()
 	 * @generated
 	 */
-	void setInterface(Object value);
+	void setInterface(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Method</b></em>' attribute.

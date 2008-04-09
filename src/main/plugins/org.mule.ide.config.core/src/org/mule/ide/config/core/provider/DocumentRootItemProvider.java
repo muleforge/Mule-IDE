@@ -91,7 +91,6 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractCatchAllStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractComponent());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractComponentThreadingProfile());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractConnectionStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractConnector());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractEntryPointResolver());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractEntryPointResolverSet());
@@ -102,12 +101,12 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractInboundEndpoint());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractInboundRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractLifecycleAdapterFactory());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractMessageInfoMapping());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractModel());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractObjectFactory());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractOutboundEndpoint());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractOutboundRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractPoolingProfile());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractPropertyExtractor());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractQueueProfile());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractSecurityFilter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_AbstractSecurityManager());
@@ -127,13 +126,12 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ByteArrayToStringTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CallableEntryPointResolver());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ChainingRouter());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CollectionAsyncReplyRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Component());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ComponentThreadingProfile());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomAsyncReplyRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomCatchAllStrategy());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomConnectionStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomConnector());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomCorrelationAggregatorRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomEntryPointResolver());
@@ -143,8 +141,8 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomForwardingCatchAllStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomInboundRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomLifecycleAdapterFactory());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomMessageInfoMapping());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomOutboundRouter());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomService());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomTransaction());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_CustomTransactionManager());
@@ -160,12 +158,13 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_EntryPointResolverSet());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ExceptionBasedRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ExceptionTypeFilter());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ExpressionFilter());
+			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ExpressionMessageInfoMapping());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ExpressionTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Filter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_FilteringRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ForwardingCatchAllStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_GzipCompressTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_GzipUncompressTransformer());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_HexStringToByteArrayTransformer());
@@ -181,11 +180,9 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ListMessageSplitterRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_LogComponent());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_LoggingCatchAllStrategy());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingRouter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyFilter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_MethodEntryPointResolver());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_Model());
@@ -210,7 +207,6 @@ public class DocumentRootItemProvider
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ReflectionEntryPointResolver());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_RegexFilter());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_ResinTransactionManager());
-			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_RetryConnectionStrategy());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_SecurityManager());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_SedaModel());
 			childrenFeatures.add(CorePackage.eINSTANCE.getDocumentRoot_SelectiveConsumerRouter());
@@ -273,7 +269,6 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CATCH_ALL_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_COMPONENT_THREADING_PROFILE:
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTION_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_CONNECTOR:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_ENTRY_POINT_RESOLVER_SET:
@@ -284,12 +279,12 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_INBOUND_ENDPOINT:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_INBOUND_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_LIFECYCLE_ADAPTER_FACTORY:
+			case CorePackage.DOCUMENT_ROOT__ABSTRACT_MESSAGE_INFO_MAPPING:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_MODEL:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_OBJECT_FACTORY:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_OUTBOUND_ENDPOINT:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_OUTBOUND_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_POOLING_PROFILE:
-			case CorePackage.DOCUMENT_ROOT__ABSTRACT_PROPERTY_EXTRACTOR:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_QUEUE_PROFILE:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_SECURITY_FILTER:
 			case CorePackage.DOCUMENT_ROOT__ABSTRACT_SECURITY_MANAGER:
@@ -309,13 +304,12 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__BYTE_ARRAY_TO_STRING_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__CALLABLE_ENTRY_POINT_RESOLVER:
 			case CorePackage.DOCUMENT_ROOT__CHAINING_ROUTER:
+			case CorePackage.DOCUMENT_ROOT__COLLECTION_ASYNC_REPLY_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__COMPONENT:
 			case CorePackage.DOCUMENT_ROOT__COMPONENT_THREADING_PROFILE:
-			case CorePackage.DOCUMENT_ROOT__CORRELATION_PROPERTY_EXTRACTOR:
 			case CorePackage.DOCUMENT_ROOT__CORRELATION_RESEQUENCER_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_ASYNC_REPLY_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CATCH_ALL_STRATEGY:
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTION_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CONNECTOR:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_CORRELATION_AGGREGATOR_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_ENTRY_POINT_RESOLVER:
@@ -325,8 +319,8 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_FORWARDING_CATCH_ALL_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_INBOUND_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_LIFECYCLE_ADAPTER_FACTORY:
+			case CorePackage.DOCUMENT_ROOT__CUSTOM_MESSAGE_INFO_MAPPING:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_OUTBOUND_ROUTER:
-			case CorePackage.DOCUMENT_ROOT__CUSTOM_PROPERTY_EXTRACTOR:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_SERVICE:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION:
 			case CorePackage.DOCUMENT_ROOT__CUSTOM_TRANSACTION_MANAGER:
@@ -342,12 +336,13 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__ENTRY_POINT_RESOLVER_SET:
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_BASED_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__EXCEPTION_TYPE_FILTER:
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_FILTER:
+			case CorePackage.DOCUMENT_ROOT__EXPRESSION_MESSAGE_INFO_MAPPING:
 			case CorePackage.DOCUMENT_ROOT__EXPRESSION_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__FILTER:
 			case CorePackage.DOCUMENT_ROOT__FILTERING_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_CATCH_ALL_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__FORWARDING_ROUTER:
-			case CorePackage.DOCUMENT_ROOT__FUNCTION_PROPERTY_EXTRACTOR:
 			case CorePackage.DOCUMENT_ROOT__GZIP_COMPRESS_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__GZIP_UNCOMPRESS_TRANSFORMER:
 			case CorePackage.DOCUMENT_ROOT__HEX_STRING_TO_BYTE_ARRAY_TRANSFORMER:
@@ -363,11 +358,9 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__LIST_MESSAGE_SPLITTER_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__LOG_COMPONENT:
 			case CorePackage.DOCUMENT_ROOT__LOGGING_CATCH_ALL_STRATEGY:
-			case CorePackage.DOCUMENT_ROOT__MAP_PROPERTY_EXTRACTOR:
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_AGGREGATOR_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_CHUNKING_ROUTER:
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTIES_TRANSFORMER:
-			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_EXTRACTOR:
 			case CorePackage.DOCUMENT_ROOT__MESSAGE_PROPERTY_FILTER:
 			case CorePackage.DOCUMENT_ROOT__METHOD_ENTRY_POINT_RESOLVER:
 			case CorePackage.DOCUMENT_ROOT__MODEL:
@@ -392,7 +385,6 @@ public class DocumentRootItemProvider
 			case CorePackage.DOCUMENT_ROOT__REFLECTION_ENTRY_POINT_RESOLVER:
 			case CorePackage.DOCUMENT_ROOT__REGEX_FILTER:
 			case CorePackage.DOCUMENT_ROOT__RESIN_TRANSACTION_MANAGER:
-			case CorePackage.DOCUMENT_ROOT__RETRY_CONNECTION_STRATEGY:
 			case CorePackage.DOCUMENT_ROOT__SECURITY_MANAGER:
 			case CorePackage.DOCUMENT_ROOT__SEDA_MODEL:
 			case CorePackage.DOCUMENT_ROOT__SELECTIVE_CONSUMER_ROUTER:
@@ -665,6 +657,16 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_CollectionAsyncReplyRouter(),
+				 CoreFactory.eINSTANCE.createAsyncReplyRouterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_CollectionAsyncReplyRouter(),
+				 CoreFactory.eINSTANCE.createCustomAsyncReplyRouterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_Component(),
 				 CoreFactory.eINSTANCE.createDefaultJavaComponentType()));
 
@@ -680,16 +682,6 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter(),
 				 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType()));
 
@@ -702,11 +694,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_CustomCatchAllStrategy(),
 				 CoreFactory.eINSTANCE.createCustomCatchAllStrategyType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_CustomConnectionStrategy(),
-				 CoreFactory.eINSTANCE.createCustomConnectionStrategyType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -755,13 +742,13 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_CustomOutboundRouter(),
-				 CoreFactory.eINSTANCE.createCustomOutboundRouterType()));
+				(CorePackage.eINSTANCE.getDocumentRoot_CustomMessageInfoMapping(),
+				 CoreFactory.eINSTANCE.createCustomMessageInfoMappingType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
+				(CorePackage.eINSTANCE.getDocumentRoot_CustomOutboundRouter(),
+				 CoreFactory.eINSTANCE.createCustomOutboundRouterType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -875,6 +862,16 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_ExpressionFilter(),
+				 CoreFactory.eINSTANCE.createExpressionFilterType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getDocumentRoot_ExpressionMessageInfoMapping(),
+				 CoreFactory.eINSTANCE.createExpressionMessageInfoMappingType()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_ExpressionTransformer(),
 				 CoreFactory.eINSTANCE.createExpressionTransformerType()));
 
@@ -927,16 +924,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter(),
 				 CoreFactory.eINSTANCE.createSelectiveConsumerRouterType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1150,16 +1137,6 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor(),
-				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter(),
 				 CoreFactory.eINSTANCE.createMessageChunkingAggregatorRouterType()));
 
@@ -1177,16 +1154,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertiesTransformer(),
 				 CoreFactory.eINSTANCE.createMessagePropertiesTransformerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
-				 CoreFactory.eINSTANCE.createAbstractPropertyExtractorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor(),
-				 CoreFactory.eINSTANCE.createCustomPropertyExtractorType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1437,11 +1404,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getDocumentRoot_ResinTransactionManager(),
 				 CoreFactory.eINSTANCE.createTransactionManagerType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getDocumentRoot_RetryConnectionStrategy(),
-				 CoreFactory.eINSTANCE.createRetryConnectionStrategyType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1711,21 +1673,17 @@ public class DocumentRootItemProvider
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_EndpointSelectorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ListMessageSplitterRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_StaticRecipientListRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CollectionAsyncReplyRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SingleAsyncReplyRouter() ||
+			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomAsyncReplyRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_Component() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_PooledComponent() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_FunctionPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MapPropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessagePropertyExtractor() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomPropertyExtractor() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CorrelationResequencerRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_ForwardingRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_IdempotentReceiverRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_IdempotentSecureHashReceiverRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_InboundPassThroughRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SelectiveConsumerRouter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomAsyncReplyRouter() ||
-			childFeature == CorePackage.eINSTANCE.getDocumentRoot_SingleAsyncReplyRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomCorrelationAggregatorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_MessageChunkingAggregatorRouter() ||
 			childFeature == CorePackage.eINSTANCE.getDocumentRoot_CustomExceptionStrategy() ||

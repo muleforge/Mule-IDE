@@ -19,9 +19,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mule.ide.config.core.AbstractFilterType;
-import org.mule.ide.config.core.AbstractPropertyExtractorType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CustomPropertyExtractorType;
 import org.mule.ide.config.core.FilteredInboundRouterType;
 
 /**
@@ -33,8 +31,6 @@ import org.mule.ide.config.core.FilteredInboundRouterType;
  * <ul>
  *   <li>{@link org.mule.ide.config.core.impl.FilteredInboundRouterTypeImpl#getAbstractFilterGroup <em>Abstract Filter Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.FilteredInboundRouterTypeImpl#getAbstractFilter <em>Abstract Filter</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.FilteredInboundRouterTypeImpl#getAbstractPropertyExtractorGroup <em>Abstract Property Extractor Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.FilteredInboundRouterTypeImpl#getAbstractPropertyExtractor <em>Abstract Property Extractor</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,16 +46,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 	 * @ordered
 	 */
 	protected FeatureMap abstractFilterGroup;
-
-	/**
-	 * The cached value of the '{@link #getAbstractPropertyExtractorGroup() <em>Abstract Property Extractor Group</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAbstractPropertyExtractorGroup()
-	 * @generated
-	 * @ordered
-	 */
-	protected FeatureMap abstractPropertyExtractorGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,36 +101,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getAbstractPropertyExtractorGroup() {
-		if (abstractPropertyExtractorGroup == null) {
-			abstractPropertyExtractorGroup = new BasicFeatureMap(this, CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP);
-		}
-		return abstractPropertyExtractorGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractPropertyExtractorType getAbstractPropertyExtractor() {
-		return (AbstractPropertyExtractorType)getAbstractPropertyExtractorGroup().get(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractor(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAbstractPropertyExtractor(AbstractPropertyExtractorType newAbstractPropertyExtractor, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).basicAdd(CorePackage.eINSTANCE.getFilteredInboundRouterType_AbstractPropertyExtractor(), newAbstractPropertyExtractor, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -152,10 +108,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 				return ((InternalEList<?>)getAbstractFilterGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_FILTER:
 				return basicSetAbstractFilter(null, msgs);
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				return ((InternalEList<?>)getAbstractPropertyExtractorGroup()).basicRemove(otherEnd, msgs);
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
-				return basicSetAbstractPropertyExtractor(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -173,11 +125,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 				return ((FeatureMap.Internal)getAbstractFilterGroup()).getWrapper();
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_FILTER:
 				return getAbstractFilter();
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				if (coreType) return getAbstractPropertyExtractorGroup();
-				return ((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).getWrapper();
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
-				return getAbstractPropertyExtractor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -193,9 +140,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_FILTER_GROUP:
 				((FeatureMap.Internal)getAbstractFilterGroup()).set(newValue);
 				return;
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).set(newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -210,9 +154,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 		switch (featureID) {
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_FILTER_GROUP:
 				getAbstractFilterGroup().clear();
-				return;
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				getAbstractPropertyExtractorGroup().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -230,10 +171,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 				return abstractFilterGroup != null && !abstractFilterGroup.isEmpty();
 			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_FILTER:
 				return getAbstractFilter() != null;
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				return abstractPropertyExtractorGroup != null && !abstractPropertyExtractorGroup.isEmpty();
-			case CorePackage.FILTERED_INBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
-				return getAbstractPropertyExtractor() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -250,8 +187,6 @@ public class FilteredInboundRouterTypeImpl extends AbstractInboundRouterTypeImpl
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (abstractFilterGroup: ");
 		result.append(abstractFilterGroup);
-		result.append(", abstractPropertyExtractorGroup: ");
-		result.append(abstractPropertyExtractorGroup);
 		result.append(')');
 		return result.toString();
 	}

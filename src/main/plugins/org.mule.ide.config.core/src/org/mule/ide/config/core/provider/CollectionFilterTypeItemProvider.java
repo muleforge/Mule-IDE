@@ -171,6 +171,13 @@ public class CollectionFilterTypeItemProvider
 			(createChildParameter
 				(CorePackage.eINSTANCE.getCollectionFilterType_AbstractFilterGroup(),
 				 FeatureMapUtil.createEntry
+					(CorePackage.eINSTANCE.getDocumentRoot_ExpressionFilter(),
+					 CoreFactory.eINSTANCE.createExpressionFilterType())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.eINSTANCE.getCollectionFilterType_AbstractFilterGroup(),
+				 FeatureMapUtil.createEntry
 					(CorePackage.eINSTANCE.getDocumentRoot_Filter(),
 					 CoreFactory.eINSTANCE.createRefFilterType())));
 

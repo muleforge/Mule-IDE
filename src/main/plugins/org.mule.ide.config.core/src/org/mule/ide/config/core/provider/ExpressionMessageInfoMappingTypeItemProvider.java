@@ -15,10 +15,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -31,18 +27,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.CorePlugin;
-import org.mule.ide.config.core.CustomExceptionStrategyType;
-
-import org.mule.ide.config.spring.SpringFactory;
+import org.mule.ide.config.core.ExpressionMessageInfoMappingType;
 
 /**
- * This is the item provider adapter for a {@link org.mule.ide.config.core.CustomExceptionStrategyType} object.
+ * This is the item provider adapter for a {@link org.mule.ide.config.core.ExpressionMessageInfoMappingType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CustomExceptionStrategyTypeItemProvider
-	extends EndpointExceptionStrategyTypeItemProvider
+public class ExpressionMessageInfoMappingTypeItemProvider
+	extends AbstractMessageInfoMappingTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -55,7 +49,7 @@ public class CustomExceptionStrategyTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomExceptionStrategyTypeItemProvider(AdapterFactory adapterFactory) {
+	public ExpressionMessageInfoMappingTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,25 +64,26 @@ public class CustomExceptionStrategyTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addClassPropertyDescriptor(object);
+			addCorrelationIdExpressionPropertyDescriptor(object);
+			addMessageIdExpressionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Class feature.
+	 * This adds a property descriptor for the Correlation Id Expression feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClassPropertyDescriptor(Object object) {
+	protected void addCorrelationIdExpressionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CustomExceptionStrategyType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CustomExceptionStrategyType_class_feature", "_UI_CustomExceptionStrategyType_type"),
-				 CorePackage.eINSTANCE.getCustomExceptionStrategyType_Class(),
+				 getString("_UI_ExpressionMessageInfoMappingType_correlationIdExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExpressionMessageInfoMappingType_correlationIdExpression_feature", "_UI_ExpressionMessageInfoMappingType_type"),
+				 CorePackage.eINSTANCE.getExpressionMessageInfoMappingType_CorrelationIdExpression(),
 				 true,
 				 false,
 				 false,
@@ -98,33 +93,36 @@ public class CustomExceptionStrategyTypeItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Message Id Expression feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.eINSTANCE.getCustomExceptionStrategyType_Property());
-		}
-		return childrenFeatures;
+	protected void addMessageIdExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExpressionMessageInfoMappingType_messageIdExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExpressionMessageInfoMappingType_messageIdExpression_feature", "_UI_ExpressionMessageInfoMappingType_type"),
+				 CorePackage.eINSTANCE.getExpressionMessageInfoMappingType_MessageIdExpression(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This returns ExpressionMessageInfoMappingType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExpressionMessageInfoMappingType"));
 	}
 
 	/**
@@ -135,8 +133,10 @@ public class CustomExceptionStrategyTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		CustomExceptionStrategyType customExceptionStrategyType = (CustomExceptionStrategyType)object;
-		return getString("_UI_CustomExceptionStrategyType_type") + " " + customExceptionStrategyType.isEnableNotifications();
+		String label = ((ExpressionMessageInfoMappingType)object).getCorrelationIdExpression();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExpressionMessageInfoMappingType_type") :
+			getString("_UI_ExpressionMessageInfoMappingType_type") + " " + label;
 	}
 
 	/**
@@ -150,12 +150,10 @@ public class CustomExceptionStrategyTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CustomExceptionStrategyType.class)) {
-			case CorePackage.CUSTOM_EXCEPTION_STRATEGY_TYPE__CLASS:
+		switch (notification.getFeatureID(ExpressionMessageInfoMappingType.class)) {
+			case CorePackage.EXPRESSION_MESSAGE_INFO_MAPPING_TYPE__CORRELATION_ID_EXPRESSION:
+			case CorePackage.EXPRESSION_MESSAGE_INFO_MAPPING_TYPE__MESSAGE_ID_EXPRESSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case CorePackage.CUSTOM_EXCEPTION_STRATEGY_TYPE__PROPERTY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -171,40 +169,6 @@ public class CustomExceptionStrategyTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.eINSTANCE.getCustomExceptionStrategyType_Property(),
-				 SpringFactory.eINSTANCE.createPropertyType()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
-			childFeature = entry.getEStructuralFeature();
-			childObject = entry.getValue();
-		}
-
-		boolean qualify =
-			childFeature == CorePackage.eINSTANCE.getAbstractExceptionStrategyType_CommitTransaction() ||
-			childFeature == CorePackage.eINSTANCE.getAbstractExceptionStrategyType_RollbackTransaction();
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

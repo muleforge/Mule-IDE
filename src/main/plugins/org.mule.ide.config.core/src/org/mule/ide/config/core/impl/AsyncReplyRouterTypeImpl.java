@@ -21,10 +21,9 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mule.ide.config.core.AbstractInboundEndpointType;
-import org.mule.ide.config.core.AbstractPropertyExtractorType;
+import org.mule.ide.config.core.AbstractMessageInfoMappingType;
 import org.mule.ide.config.core.AsyncReplyRouterType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CustomPropertyExtractorType;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +34,8 @@ import org.mule.ide.config.core.CustomPropertyExtractorType;
  * <ul>
  *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyRouterTypeImpl#getAbstractInboundEndpointGroup <em>Abstract Inbound Endpoint Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyRouterTypeImpl#getAbstractInboundEndpoint <em>Abstract Inbound Endpoint</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyRouterTypeImpl#getAbstractPropertyExtractorGroup <em>Abstract Property Extractor Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyRouterTypeImpl#getAbstractPropertyExtractor <em>Abstract Property Extractor</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyRouterTypeImpl#getAbstractMessageInfoMappingGroup <em>Abstract Message Info Mapping Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.AsyncReplyRouterTypeImpl#getAbstractMessageInfoMapping <em>Abstract Message Info Mapping</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,14 +53,14 @@ public class AsyncReplyRouterTypeImpl extends AbstractAsyncReplyRouterTypeImpl i
 	protected FeatureMap abstractInboundEndpointGroup;
 
 	/**
-	 * The cached value of the '{@link #getAbstractPropertyExtractorGroup() <em>Abstract Property Extractor Group</em>}' attribute list.
+	 * The cached value of the '{@link #getAbstractMessageInfoMappingGroup() <em>Abstract Message Info Mapping Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbstractPropertyExtractorGroup()
+	 * @see #getAbstractMessageInfoMappingGroup()
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap abstractPropertyExtractorGroup;
+	protected FeatureMap abstractMessageInfoMappingGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,11 +107,11 @@ public class AsyncReplyRouterTypeImpl extends AbstractAsyncReplyRouterTypeImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getAbstractPropertyExtractorGroup() {
-		if (abstractPropertyExtractorGroup == null) {
-			abstractPropertyExtractorGroup = new BasicFeatureMap(this, CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP);
+	public FeatureMap getAbstractMessageInfoMappingGroup() {
+		if (abstractMessageInfoMappingGroup == null) {
+			abstractMessageInfoMappingGroup = new BasicFeatureMap(this, CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP);
 		}
-		return abstractPropertyExtractorGroup;
+		return abstractMessageInfoMappingGroup;
 	}
 
 	/**
@@ -120,8 +119,8 @@ public class AsyncReplyRouterTypeImpl extends AbstractAsyncReplyRouterTypeImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractPropertyExtractorType getAbstractPropertyExtractor() {
-		return (AbstractPropertyExtractorType)getAbstractPropertyExtractorGroup().get(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractor(), true);
+	public AbstractMessageInfoMappingType getAbstractMessageInfoMapping() {
+		return (AbstractMessageInfoMappingType)getAbstractMessageInfoMappingGroup().get(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractMessageInfoMapping(), true);
 	}
 
 	/**
@@ -129,8 +128,8 @@ public class AsyncReplyRouterTypeImpl extends AbstractAsyncReplyRouterTypeImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAbstractPropertyExtractor(AbstractPropertyExtractorType newAbstractPropertyExtractor, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).basicAdd(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractPropertyExtractor(), newAbstractPropertyExtractor, msgs);
+	public NotificationChain basicSetAbstractMessageInfoMapping(AbstractMessageInfoMappingType newAbstractMessageInfoMapping, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getAbstractMessageInfoMappingGroup()).basicAdd(CorePackage.eINSTANCE.getAsyncReplyRouterType_AbstractMessageInfoMapping(), newAbstractMessageInfoMapping, msgs);
 	}
 
 	/**
@@ -145,10 +144,10 @@ public class AsyncReplyRouterTypeImpl extends AbstractAsyncReplyRouterTypeImpl i
 				return ((InternalEList<?>)getAbstractInboundEndpointGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_INBOUND_ENDPOINT:
 				return ((InternalEList<?>)getAbstractInboundEndpoint()).basicRemove(otherEnd, msgs);
-			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				return ((InternalEList<?>)getAbstractPropertyExtractorGroup()).basicRemove(otherEnd, msgs);
-			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
-				return basicSetAbstractPropertyExtractor(null, msgs);
+			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
+				return ((InternalEList<?>)getAbstractMessageInfoMappingGroup()).basicRemove(otherEnd, msgs);
+			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING:
+				return basicSetAbstractMessageInfoMapping(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -166,11 +165,11 @@ public class AsyncReplyRouterTypeImpl extends AbstractAsyncReplyRouterTypeImpl i
 				return ((FeatureMap.Internal)getAbstractInboundEndpointGroup()).getWrapper();
 			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_INBOUND_ENDPOINT:
 				return getAbstractInboundEndpoint();
-			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				if (coreType) return getAbstractPropertyExtractorGroup();
-				return ((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).getWrapper();
-			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
-				return getAbstractPropertyExtractor();
+			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
+				if (coreType) return getAbstractMessageInfoMappingGroup();
+				return ((FeatureMap.Internal)getAbstractMessageInfoMappingGroup()).getWrapper();
+			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING:
+				return getAbstractMessageInfoMapping();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -186,8 +185,8 @@ public class AsyncReplyRouterTypeImpl extends AbstractAsyncReplyRouterTypeImpl i
 			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_INBOUND_ENDPOINT_GROUP:
 				((FeatureMap.Internal)getAbstractInboundEndpointGroup()).set(newValue);
 				return;
-			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).set(newValue);
+			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
+				((FeatureMap.Internal)getAbstractMessageInfoMappingGroup()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -204,8 +203,8 @@ public class AsyncReplyRouterTypeImpl extends AbstractAsyncReplyRouterTypeImpl i
 			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_INBOUND_ENDPOINT_GROUP:
 				getAbstractInboundEndpointGroup().clear();
 				return;
-			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				getAbstractPropertyExtractorGroup().clear();
+			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
+				getAbstractMessageInfoMappingGroup().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -223,10 +222,10 @@ public class AsyncReplyRouterTypeImpl extends AbstractAsyncReplyRouterTypeImpl i
 				return abstractInboundEndpointGroup != null && !abstractInboundEndpointGroup.isEmpty();
 			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_INBOUND_ENDPOINT:
 				return !getAbstractInboundEndpoint().isEmpty();
-			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				return abstractPropertyExtractorGroup != null && !abstractPropertyExtractorGroup.isEmpty();
-			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
-				return getAbstractPropertyExtractor() != null;
+			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
+				return abstractMessageInfoMappingGroup != null && !abstractMessageInfoMappingGroup.isEmpty();
+			case CorePackage.ASYNC_REPLY_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING:
+				return getAbstractMessageInfoMapping() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -243,8 +242,8 @@ public class AsyncReplyRouterTypeImpl extends AbstractAsyncReplyRouterTypeImpl i
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (abstractInboundEndpointGroup: ");
 		result.append(abstractInboundEndpointGroup);
-		result.append(", abstractPropertyExtractorGroup: ");
-		result.append(abstractPropertyExtractorGroup);
+		result.append(", abstractMessageInfoMappingGroup: ");
+		result.append(abstractMessageInfoMappingGroup);
 		result.append(')');
 		return result.toString();
 	}

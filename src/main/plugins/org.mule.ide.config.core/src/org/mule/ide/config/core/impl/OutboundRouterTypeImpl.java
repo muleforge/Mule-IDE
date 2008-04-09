@@ -20,11 +20,10 @@ import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.mule.ide.config.core.AbstractMessageInfoMappingType;
 import org.mule.ide.config.core.AbstractOutboundEndpointType;
-import org.mule.ide.config.core.AbstractPropertyExtractorType;
 import org.mule.ide.config.core.AbstractTransactionType;
 import org.mule.ide.config.core.CorePackage;
-import org.mule.ide.config.core.CustomPropertyExtractorType;
 import org.mule.ide.config.core.EnableCorrelationType;
 import org.mule.ide.config.core.OutboundRouterType;
 import org.mule.ide.config.core.ReplyToType;
@@ -41,8 +40,8 @@ import org.mule.ide.config.core.ReplyToType;
  *   <li>{@link org.mule.ide.config.core.impl.OutboundRouterTypeImpl#getReplyTo <em>Reply To</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.OutboundRouterTypeImpl#getAbstractTransactionGroup <em>Abstract Transaction Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.OutboundRouterTypeImpl#getAbstractTransaction <em>Abstract Transaction</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.OutboundRouterTypeImpl#getAbstractPropertyExtractorGroup <em>Abstract Property Extractor Group</em>}</li>
- *   <li>{@link org.mule.ide.config.core.impl.OutboundRouterTypeImpl#getAbstractPropertyExtractor <em>Abstract Property Extractor</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.OutboundRouterTypeImpl#getAbstractMessageInfoMappingGroup <em>Abstract Message Info Mapping Group</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.impl.OutboundRouterTypeImpl#getAbstractMessageInfoMapping <em>Abstract Message Info Mapping</em>}</li>
  *   <li>{@link org.mule.ide.config.core.impl.OutboundRouterTypeImpl#getEnableCorrelation <em>Enable Correlation</em>}</li>
  * </ul>
  * </p>
@@ -81,14 +80,14 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 	protected FeatureMap abstractTransactionGroup;
 
 	/**
-	 * The cached value of the '{@link #getAbstractPropertyExtractorGroup() <em>Abstract Property Extractor Group</em>}' attribute list.
+	 * The cached value of the '{@link #getAbstractMessageInfoMappingGroup() <em>Abstract Message Info Mapping Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbstractPropertyExtractorGroup()
+	 * @see #getAbstractMessageInfoMappingGroup()
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap abstractPropertyExtractorGroup;
+	protected FeatureMap abstractMessageInfoMappingGroup;
 
 	/**
 	 * The default value of the '{@link #getEnableCorrelation() <em>Enable Correlation</em>}' attribute.
@@ -237,11 +236,11 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getAbstractPropertyExtractorGroup() {
-		if (abstractPropertyExtractorGroup == null) {
-			abstractPropertyExtractorGroup = new BasicFeatureMap(this, CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP);
+	public FeatureMap getAbstractMessageInfoMappingGroup() {
+		if (abstractMessageInfoMappingGroup == null) {
+			abstractMessageInfoMappingGroup = new BasicFeatureMap(this, CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP);
 		}
-		return abstractPropertyExtractorGroup;
+		return abstractMessageInfoMappingGroup;
 	}
 
 	/**
@@ -249,8 +248,8 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractPropertyExtractorType getAbstractPropertyExtractor() {
-		return (AbstractPropertyExtractorType)getAbstractPropertyExtractorGroup().get(CorePackage.eINSTANCE.getOutboundRouterType_AbstractPropertyExtractor(), true);
+	public AbstractMessageInfoMappingType getAbstractMessageInfoMapping() {
+		return (AbstractMessageInfoMappingType)getAbstractMessageInfoMappingGroup().get(CorePackage.eINSTANCE.getOutboundRouterType_AbstractMessageInfoMapping(), true);
 	}
 
 	/**
@@ -258,8 +257,8 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAbstractPropertyExtractor(AbstractPropertyExtractorType newAbstractPropertyExtractor, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).basicAdd(CorePackage.eINSTANCE.getOutboundRouterType_AbstractPropertyExtractor(), newAbstractPropertyExtractor, msgs);
+	public NotificationChain basicSetAbstractMessageInfoMapping(AbstractMessageInfoMappingType newAbstractMessageInfoMapping, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getAbstractMessageInfoMappingGroup()).basicAdd(CorePackage.eINSTANCE.getOutboundRouterType_AbstractMessageInfoMapping(), newAbstractMessageInfoMapping, msgs);
 	}
 
 	/**
@@ -326,10 +325,10 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 				return ((InternalEList<?>)getAbstractTransactionGroup()).basicRemove(otherEnd, msgs);
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_TRANSACTION:
 				return basicSetAbstractTransaction(null, msgs);
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				return ((InternalEList<?>)getAbstractPropertyExtractorGroup()).basicRemove(otherEnd, msgs);
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
-				return basicSetAbstractPropertyExtractor(null, msgs);
+			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
+				return ((InternalEList<?>)getAbstractMessageInfoMappingGroup()).basicRemove(otherEnd, msgs);
+			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING:
+				return basicSetAbstractMessageInfoMapping(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -354,11 +353,11 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 				return ((FeatureMap.Internal)getAbstractTransactionGroup()).getWrapper();
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_TRANSACTION:
 				return getAbstractTransaction();
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				if (coreType) return getAbstractPropertyExtractorGroup();
-				return ((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).getWrapper();
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
-				return getAbstractPropertyExtractor();
+			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
+				if (coreType) return getAbstractMessageInfoMappingGroup();
+				return ((FeatureMap.Internal)getAbstractMessageInfoMappingGroup()).getWrapper();
+			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING:
+				return getAbstractMessageInfoMapping();
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ENABLE_CORRELATION:
 				return getEnableCorrelation();
 		}
@@ -382,8 +381,8 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_TRANSACTION_GROUP:
 				((FeatureMap.Internal)getAbstractTransactionGroup()).set(newValue);
 				return;
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				((FeatureMap.Internal)getAbstractPropertyExtractorGroup()).set(newValue);
+			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
+				((FeatureMap.Internal)getAbstractMessageInfoMappingGroup()).set(newValue);
 				return;
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ENABLE_CORRELATION:
 				setEnableCorrelation((EnableCorrelationType)newValue);
@@ -409,8 +408,8 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_TRANSACTION_GROUP:
 				getAbstractTransactionGroup().clear();
 				return;
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				getAbstractPropertyExtractorGroup().clear();
+			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
+				getAbstractMessageInfoMappingGroup().clear();
 				return;
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ENABLE_CORRELATION:
 				unsetEnableCorrelation();
@@ -437,10 +436,10 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 				return abstractTransactionGroup != null && !abstractTransactionGroup.isEmpty();
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_TRANSACTION:
 				return getAbstractTransaction() != null;
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR_GROUP:
-				return abstractPropertyExtractorGroup != null && !abstractPropertyExtractorGroup.isEmpty();
-			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_PROPERTY_EXTRACTOR:
-				return getAbstractPropertyExtractor() != null;
+			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING_GROUP:
+				return abstractMessageInfoMappingGroup != null && !abstractMessageInfoMappingGroup.isEmpty();
+			case CorePackage.OUTBOUND_ROUTER_TYPE__ABSTRACT_MESSAGE_INFO_MAPPING:
+				return getAbstractMessageInfoMapping() != null;
 			case CorePackage.OUTBOUND_ROUTER_TYPE__ENABLE_CORRELATION:
 				return isSetEnableCorrelation();
 		}
@@ -461,8 +460,8 @@ public class OutboundRouterTypeImpl extends AbstractOutboundRouterTypeImpl imple
 		result.append(abstractOutboundEndpointGroup);
 		result.append(", abstractTransactionGroup: ");
 		result.append(abstractTransactionGroup);
-		result.append(", abstractPropertyExtractorGroup: ");
-		result.append(abstractPropertyExtractorGroup);
+		result.append(", abstractMessageInfoMappingGroup: ");
+		result.append(abstractMessageInfoMappingGroup);
 		result.append(", enableCorrelation: ");
 		if (enableCorrelationESet) result.append(enableCorrelation); else result.append("<unset>");
 		result.append(')');

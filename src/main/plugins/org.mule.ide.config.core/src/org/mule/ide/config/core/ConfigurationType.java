@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.mule.ide.config.core.ConfigurationType#getDefaultDispatcherThreadingProfile <em>Default Dispatcher Threading Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ConfigurationType#getDefaultReceiverThreadingProfile <em>Default Receiver Threading Profile</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ConfigurationType#getDefaultComponentThreadingProfile <em>Default Component Threading Profile</em>}</li>
- *   <li>{@link org.mule.ide.config.core.ConfigurationType#getDefaultConnectionStrategy <em>Default Connection Strategy</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ConfigurationType#isDefaultRemoteSync <em>Default Remote Sync</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ConfigurationType#isDefaultSynchronousEndpoints <em>Default Synchronous Endpoints</em>}</li>
  *   <li>{@link org.mule.ide.config.core.ConfigurationType#getDefaultSynchronousEventTimeout <em>Default Synchronous Event Timeout</em>}</li>
@@ -151,34 +150,6 @@ public interface ConfigurationType extends EObject {
 	 * @generated
 	 */
 	void setDefaultComponentThreadingProfile(ThreadingProfileType value);
-
-	/**
-	 * Returns the value of the '<em><b>Default Connection Strategy</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                         The default connection strategy, used if no more specific configuration is given.
-	 *                     
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Default Connection Strategy</em>' containment reference.
-	 * @see #setDefaultConnectionStrategy(ConnectionStrategyType)
-	 * @see org.mule.ide.config.core.CorePackage#getConfigurationType_DefaultConnectionStrategy()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='default-connection-strategy' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ConnectionStrategyType getDefaultConnectionStrategy();
-
-	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.ConfigurationType#getDefaultConnectionStrategy <em>Default Connection Strategy</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Default Connection Strategy</em>' containment reference.
-	 * @see #getDefaultConnectionStrategy()
-	 * @generated
-	 */
-	void setDefaultConnectionStrategy(ConnectionStrategyType value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Remote Sync</b></em>' attribute.

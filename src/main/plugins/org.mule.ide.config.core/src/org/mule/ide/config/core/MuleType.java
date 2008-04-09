@@ -27,7 +27,7 @@ import org.mule.ide.config.spring.BeansType;
  *   <li>{@link org.mule.ide.config.core.MuleType#getGroup <em>Group</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getBeans <em>Beans</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getBean <em>Bean</em>}</li>
- *   <li>{@link org.mule.ide.config.core.MuleType#getEnvironmentProperty <em>Environment Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.MuleType#getGlobalProperty <em>Global Property</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getNotifications <em>Notifications</em>}</li>
  *   <li>{@link org.mule.ide.config.core.MuleType#getAbstractExtensionGroup <em>Abstract Extension Group</em>}</li>
@@ -70,31 +70,6 @@ public interface MuleType extends EObject {
 	 * @generated
 	 */
 	FeatureMap getGroup();
-
-	/**
-	 * Returns the value of the '<em><b>Environment Property</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mule.ide.config.core.EnvironmentPropertyType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Environment Property</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 *                         An environment property is a named string.
-	 *                         It can be used inserted in most attribute values using the ${...} syntax.
-	 *                         So the attribute value "${foo}" would be replaced by the value associated with
-	 *                         the property named "foo".
-	 *                     
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Environment Property</em>' containment reference list.
-	 * @see org.mule.ide.config.core.CorePackage#getMuleType_EnvironmentProperty()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='environment-property' namespace='##targetNamespace' group='#group:1'"
-	 * @generated
-	 */
-	EList<EnvironmentPropertyType> getEnvironmentProperty();
 
 	/**
 	 * Returns the value of the '<em><b>Configuration</b></em>' containment reference list.
@@ -579,5 +554,26 @@ public interface MuleType extends EObject {
 	 * @generated
 	 */
 	EList<BeanType> getBean();
+
+	/**
+	 * Returns the value of the '<em><b>Global Property</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mule.ide.config.core.GlobalPropertyType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 *                         An global property is a named string.
+	 *                         It can be used inserted in most attribute values using the ${...} syntax.
+	 *                         So the attribute value "${foo}" would be replaced by the value associated with
+	 *                         the property named "foo".
+	 *                     
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Global Property</em>' containment reference list.
+	 * @see org.mule.ide.config.core.CorePackage#getMuleType_GlobalProperty()
+	 * @model containment="true" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='global-property' namespace='##targetNamespace' group='#group:1'"
+	 * @generated
+	 */
+	EList<GlobalPropertyType> getGlobalProperty();
 
 } // MuleType

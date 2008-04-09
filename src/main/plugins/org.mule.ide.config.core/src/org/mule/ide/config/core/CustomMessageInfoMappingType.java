@@ -8,28 +8,26 @@ package org.mule.ide.config.core;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 import org.mule.ide.config.spring.PropertyType;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Custom Property Extractor Type</b></em>'.
+ * A representation of the model object '<em><b>Custom Message Info Mapping Type</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mule.ide.config.core.CustomPropertyExtractorType#getProperty <em>Property</em>}</li>
- *   <li>{@link org.mule.ide.config.core.CustomPropertyExtractorType#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.CustomMessageInfoMappingType#getProperty <em>Property</em>}</li>
+ *   <li>{@link org.mule.ide.config.core.CustomMessageInfoMappingType#getClass_ <em>Class</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.mule.ide.config.core.CorePackage#getCustomPropertyExtractorType()
- * @model extendedMetaData="name='customPropertyExtractorType' kind='elementOnly'"
+ * @see org.mule.ide.config.core.CorePackage#getCustomMessageInfoMappingType()
+ * @model extendedMetaData="name='customMessageInfoMappingType' kind='elementOnly'"
  * @generated
  */
-public interface CustomPropertyExtractorType extends AbstractPropertyExtractorType {
+public interface CustomMessageInfoMappingType extends AbstractMessageInfoMappingType {
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' containment reference list.
 	 * The list contents are of type {@link org.mule.ide.config.spring.PropertyType}.
@@ -44,7 +42,7 @@ public interface CustomPropertyExtractorType extends AbstractPropertyExtractorTy
 	 * 			]]>
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Property</em>' containment reference list.
-	 * @see org.mule.ide.config.core.CorePackage#getCustomPropertyExtractorType_Property()
+	 * @see org.mule.ide.config.core.CorePackage#getCustomMessageInfoMappingType_Property()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='property' namespace='http://www.springframework.org/schema/beans'"
 	 * @generated
@@ -54,19 +52,15 @@ public interface CustomPropertyExtractorType extends AbstractPropertyExtractorTy
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Class</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 *                             An implementation of the PropertyExtractor interface.
+	 *                             An implementation of the MessageInfoMapping interface.
 	 *                         
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Class</em>' attribute.
 	 * @see #setClass(String)
-	 * @see org.mule.ide.config.core.CorePackage#getCustomPropertyExtractorType_Class()
+	 * @see org.mule.ide.config.core.CorePackage#getCustomMessageInfoMappingType_Class()
 	 * @model dataType="org.mule.ide.config.core.SubstitutableClass" required="true"
 	 *        extendedMetaData="kind='attribute' name='class'"
 	 * @generated
@@ -74,7 +68,7 @@ public interface CustomPropertyExtractorType extends AbstractPropertyExtractorTy
 	String getClass_();
 
 	/**
-	 * Sets the value of the '{@link org.mule.ide.config.core.CustomPropertyExtractorType#getClass_ <em>Class</em>}' attribute.
+	 * Sets the value of the '{@link org.mule.ide.config.core.CustomMessageInfoMappingType#getClass_ <em>Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Class</em>' attribute.
@@ -83,4 +77,4 @@ public interface CustomPropertyExtractorType extends AbstractPropertyExtractorTy
 	 */
 	void setClass(String value);
 
-} // CustomPropertyExtractorType
+} // CustomMessageInfoMappingType

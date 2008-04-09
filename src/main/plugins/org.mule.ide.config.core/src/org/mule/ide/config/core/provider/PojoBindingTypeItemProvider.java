@@ -161,8 +161,7 @@ public class PojoBindingTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((PojoBindingType)object).getInterface();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((PojoBindingType)object).getInterface();
 		return label == null || label.length() == 0 ?
 			getString("_UI_PojoBindingType_type") :
 			getString("_UI_PojoBindingType_type") + " " + label;

@@ -22,6 +22,7 @@ import org.mule.ide.config.core.AbstractComponentType;
 import org.mule.ide.config.core.AbstractExceptionStrategyType;
 import org.mule.ide.config.core.AsyncReplyCollectionType;
 import org.mule.ide.config.core.BaseServiceType;
+import org.mule.ide.config.core.CoreFactory;
 import org.mule.ide.config.core.CorePackage;
 import org.mule.ide.config.core.InboundCollectionType;
 import org.mule.ide.config.core.InitialStateType;
@@ -130,10 +131,16 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * customization
 	 */
 	protected BaseServiceTypeImpl() {
 		super();
+		
+		// Initialize the inbound/outbound/asyncreply collections with
+		// placeholder instances.
+		setInbound(CoreFactory.eINSTANCE.createInboundCollectionType());
+		setAsyncReply(CoreFactory.eINSTANCE.createAsyncReplyCollectionType());
+		setOutbound(CoreFactory.eINSTANCE.createOutboundCollectionType());
 	}
 
 	/**
@@ -173,9 +180,22 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * customization
 	 */
 	public void setInbound(InboundCollectionType newInbound) {
+		// After object construction, this collection should never be set to null
+		// (except via eInverseRemove() called when the object is being orphaned for GC, see below).
+		// The sync reloader will call this with null when the collection is being deleted
+		// in source during source editing.  In this case, we should replace the existing collection 
+		// with a new placeholder instance.
+		if (newInbound == null && inbound != null) {
+			if (inbound.isIDEPlaceholder()) {
+				return;
+			} else {
+				newInbound = CoreFactory.eINSTANCE.createInboundCollectionType();
+			}
+		}
+		
 		if (newInbound != inbound) {
 			NotificationChain msgs = null;
 			if (inbound != null)
@@ -246,9 +266,22 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * customization
 	 */
 	public void setOutbound(OutboundCollectionType newOutbound) {
+		// After object construction, this collection should never be set to null
+		// (except via eInverseRemove() called when the object is being orphaned for GC, see below).
+		// The sync reloader will call this with null when the collection is being deleted
+		// in source during source editing.  In this case, we should replace the existing collection 
+		// with a new placeholder instance.
+		if (newOutbound == null && outbound != null) {
+			if (outbound.isIDEPlaceholder()) {
+				return;
+			} else {
+				newOutbound = CoreFactory.eINSTANCE.createOutboundCollectionType();
+			}
+		}
+		
 		if (newOutbound != outbound) {
 			NotificationChain msgs = null;
 			if (outbound != null)
@@ -289,9 +322,22 @@ public class BaseServiceTypeImpl extends AbstractServiceTypeImpl implements Base
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * customization
 	 */
 	public void setAsyncReply(AsyncReplyCollectionType newAsyncReply) {
+		// After object construction, this collection should never be set to null
+		// (except via eInverseRemove() called when the object is being orphaned for GC, see below).
+		// The sync reloader will call this with null when the collection is being deleted
+		// in source during source editing.  In this case, we should replace the existing collection 
+		// with a new placeholder instance.
+		if (newAsyncReply == null && asyncReply != null) {
+			if (asyncReply.isIDEPlaceholder()) {
+				return;
+			} else {
+				newAsyncReply = CoreFactory.eINSTANCE.createAsyncReplyCollectionType();
+			}
+		}
+
 		if (newAsyncReply != asyncReply) {
 			NotificationChain msgs = null;
 			if (asyncReply != null)

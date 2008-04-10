@@ -62,6 +62,7 @@ public class CoreResourceImpl extends SyncResourceImpl {
 		return defaults;
 	}
 	
+	/*
 	@Override
 	public void doLoad(InputStream inputStream, Map<?, ?> options) throws IOException {
 		super.doLoad(inputStream, options);
@@ -73,7 +74,7 @@ public class CoreResourceImpl extends SyncResourceImpl {
 		super.doLoad(node, options);
 		createPlaceholders();
 	}
-	
+
 	private void createPlaceholders() {
 		// TODO factor this out, probably into a ResourceHandler
 		EList<EObject> contents = getContents();
@@ -127,6 +128,7 @@ public class CoreResourceImpl extends SyncResourceImpl {
 			service.eSet(collectionContainer, result);
 		}
 	}
+	*/
 
 	protected XMLSave createXMLSave()
 	{
@@ -150,28 +152,6 @@ public class CoreResourceImpl extends SyncResourceImpl {
 			if (child instanceof PlaceholderSupport) {
 				return ! ((PlaceholderSupport)child).isIDEPlaceholder();
 			}
-			/*	
-			 			EClass eClass = o.eClass();
-			
-			// Ted's implementation:
-			if (CorePackage.eINSTANCE.getBaseServiceType().isSuperTypeOf(eClass)) {
-				if (f.equals(CorePackage.eINSTANCE.getBaseServiceType_Inbound())
-						&& ((BaseServiceTypeImpl) o).getInbound() != null
-						&& ((InboundCollectionTypeImpl) ((BaseServiceTypeImpl) o).getInbound()).isIDEPlaceholder()) {
-					return false;
-				}
-				if (f.equals(CorePackage.eINSTANCE.getBaseServiceType_AsyncReply())
-						&& ((BaseServiceTypeImpl) o).getAsyncReply() != null
-						&& ((AsyncReplyCollectionTypeImpl) ((BaseServiceTypeImpl) o).getAsyncReply()).isIDEPlaceholder()) {
-					return false;
-				}
-				if (f.equals(CorePackage.eINSTANCE.getBaseServiceType_Outbound())
-						&& ((BaseServiceTypeImpl) o).getOutbound() != null
-						&& ((OutboundCollectionTypeImpl) ((BaseServiceTypeImpl) o).getOutbound()).isIDEPlaceholder()) {
-					return false;
-				}
-			}
-	*/		    
 			return super.shouldSaveFeature(o, f);
 		}
 	}

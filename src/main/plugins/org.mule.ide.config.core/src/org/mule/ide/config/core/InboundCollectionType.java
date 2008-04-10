@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='inboundCollectionType' kind='elementOnly'"
  * @generated
  */
-public interface InboundCollectionType extends EObject {
+public interface InboundCollectionType extends EObject, PlaceholderSupport {
 	/**
 	 * Returns the value of the '<em><b>Abstract Catch All Strategy Group</b></em>' attribute list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.

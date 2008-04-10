@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='asyncReplyCollectionType' kind='elementOnly'"
  * @generated
  */
-public interface AsyncReplyCollectionType extends EObject {
+public interface AsyncReplyCollectionType extends EObject, PlaceholderSupport {
 	/**
 	 * Returns the value of the '<em><b>Abstract Inbound Endpoint Group</b></em>' attribute list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.

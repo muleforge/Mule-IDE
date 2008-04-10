@@ -84,13 +84,15 @@ public class ConnectionsAdapter extends EContentAdapter {
         
         if (n.getEventType() == Notification.SET
         		&& n.getNotifier() instanceof InboundEndpointType
-        		&& n.getFeatureID(InboundEndpointType.class) == CorePackage.INBOUND_ENDPOINT_TYPE__REF) {
+        		&& (n.getFeatureID(InboundEndpointType.class) == CorePackage.INBOUND_ENDPOINT_TYPE__REF
+        				|| n.getFeatureID(InboundEndpointType.class) == CorePackage.INBOUND_ENDPOINT_TYPE__ADDRESS)) {
         	
         	handleInboundEndpointRefSet(n);
         	
         } else if (n.getEventType() == Notification.SET
         		&& n.getNotifier() instanceof OutboundEndpointType
-        		&& n.getFeatureID(OutboundEndpointType.class) == CorePackage.OUTBOUND_ENDPOINT_TYPE__REF) {
+        		&& (n.getFeatureID(OutboundEndpointType.class) == CorePackage.OUTBOUND_ENDPOINT_TYPE__REF
+        				|| n.getFeatureID(OutboundEndpointType.class) == CorePackage.OUTBOUND_ENDPOINT_TYPE__ADDRESS)) {
         	
         	handleOutboundEndpointRefSet(n);
             
@@ -195,7 +197,10 @@ public class ConnectionsAdapter extends EContentAdapter {
 
     private void handleInboundEndpointAdd(SedaServiceType service, InboundEndpointType inboundEndpoint, List<Connection> results) {
     	String ref = inboundEndpoint.getRef();
-    	if (ref == null) return;
+    	if (ref == null) {
+	    	ref = inboundEndpoint.getAddress();
+	    	if (ref == null) return;
+    	}
     	
     	addTargetRef(service, ref, results);   	
     }
@@ -208,7 +213,10 @@ public class ConnectionsAdapter extends EContentAdapter {
 
     private void handleOutboundEndpointAdd(SedaServiceType service, OutboundEndpointType outboundEndpoint, List<Connection> results) {
     	String ref = outboundEndpoint.getRef();
-    	if (ref == null) return;
+    	if (ref == null) {
+	    	ref = outboundEndpoint.getAddress();
+	    	if (ref == null) return;
+    	}
     	
     	addSourceRef(service, ref, results);   	
     }

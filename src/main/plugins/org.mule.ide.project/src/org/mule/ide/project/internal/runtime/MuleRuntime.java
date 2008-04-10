@@ -163,7 +163,7 @@ public class MuleRuntime implements IMuleRuntime {
 			initializeLibraryMap();
 		}
 		ArrayList<IMuleBundle> result = new ArrayList<IMuleBundle>();
-		File f = new File(getDirectory(), "lib/mule/mule-core-2.0.0-RC3.jar");
+		File f = new File(getDirectory(), "lib/mule/mule-core-2.0.0.jar");
 		if (f.exists()) {
 			result.add(mapNameToBundle.get(MuleClasspathInitializer.pathify(f)));
 		}

@@ -2,7 +2,6 @@ package org.mule.ide.config.core.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.mule.ide.config.core.PlaceholderSupport;
 
@@ -34,8 +33,6 @@ public class PlaceholderSupportEObjectImpl extends EObjectImpl implements
 			// adapters in the chain can see when we're gone
 			eAdapters().add(0, placeholderListener);
 		}
-		if (this.eContainer != null)
-			this.eContainer.eSet(this.eContainingFeature(), this);
 	}
 	
 	/*
@@ -46,16 +43,19 @@ public class PlaceholderSupportEObjectImpl extends EObjectImpl implements
 	 */
 	private void unsetIDEPlaceholder() {
 		isIDEPlaceholder = false;
+		if (placeholderListener != null) {
+			eAdapters().remove(placeholderListener);
+			placeholderListener = null;
+		}
 		this.eContainer.eSet(this.eContainingFeature(), this);
 	}
 
 	class IDEPlaceholderListener extends AdapterImpl {
 		public void notifyChanged(Notification msg) {
-			boolean hasChildren = !((EObject)msg.getNotifier()).eContents().isEmpty();
-			if (hasChildren && isIDEPlaceholder()) { 
+			int eventType = msg.getEventType();
+			if (eventType == Notification.ADD || eventType == Notification.ADD_MANY
+					|| eventType == Notification.SET ) {
 				unsetIDEPlaceholder();
-			} else if (!hasChildren && !isIDEPlaceholder()){
-				setIDEPlaceholder();
 			}
 		}
 	}

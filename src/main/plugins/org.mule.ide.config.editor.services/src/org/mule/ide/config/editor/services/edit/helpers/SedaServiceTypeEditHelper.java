@@ -55,10 +55,10 @@ public class SedaServiceTypeEditHelper extends CoreBaseEditHelper {
 			//TODO figure out how to consolidate this with the corresponding
 			// load/save handling in CoreResourceImpl
 
-			InboundCollectionTypeImpl inbound = (InboundCollectionTypeImpl) CoreFactory.eINSTANCE
-					.createInboundCollectionType();
-			inbound.setIDEPlaceholder();
-			service.setInbound(inbound);
+			//InboundCollectionTypeImpl inbound = (InboundCollectionTypeImpl) CoreFactory.eINSTANCE
+			//		.createInboundCollectionType();
+			//inbound.setIDEPlaceholder();
+			//service.setInbound(inbound);
 
 			//			EClass collectionClass = CorePackage.eINSTANCE
 			//					.getInboundCollectionType();
@@ -68,10 +68,10 @@ public class SedaServiceTypeEditHelper extends CoreBaseEditHelper {
 			//					collectionClass);
 			//			((InboundCollectionTypeImpl) result).setIDEPlaceholder();
 
-			AsyncReplyCollectionTypeImpl asyncReply = (AsyncReplyCollectionTypeImpl) CoreFactory.eINSTANCE
-					.createAsyncReplyCollectionType();
-			asyncReply.setIDEPlaceholder();
-			service.setAsyncReply(asyncReply);
+			//AsyncReplyCollectionTypeImpl asyncReply = (AsyncReplyCollectionTypeImpl) CoreFactory.eINSTANCE
+			//		.createAsyncReplyCollectionType();
+			//asyncReply.setIDEPlaceholder();
+			//service.setAsyncReply(asyncReply);
 
 			//			collectionClass = CorePackage.eINSTANCE
 			//					.getAsyncReplyCollectionType();
@@ -81,10 +81,10 @@ public class SedaServiceTypeEditHelper extends CoreBaseEditHelper {
 			//					collectionClass);
 			//			((AsyncReplyCollectionTypeImpl) result).setIDEPlaceholder();
 
-			OutboundCollectionTypeImpl outbound = (OutboundCollectionTypeImpl) CoreFactory.eINSTANCE
-					.createOutboundCollectionType();
-			outbound.setIDEPlaceholder();
-			service.setOutbound(outbound);
+			//OutboundCollectionTypeImpl outbound = (OutboundCollectionTypeImpl) CoreFactory.eINSTANCE
+			//		.createOutboundCollectionType();
+			//outbound.setIDEPlaceholder();
+			//service.setOutbound(outbound);
 
 			//			collectionClass = CorePackage.eINSTANCE.getOutboundCollectionType();
 			//			collectionContainer = CorePackage.eINSTANCE

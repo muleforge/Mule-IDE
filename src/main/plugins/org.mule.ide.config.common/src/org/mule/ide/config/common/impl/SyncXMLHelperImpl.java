@@ -287,12 +287,21 @@ final class SyncXMLHelperImpl extends XMLHelperImpl implements SyncXMLHelper {
 
 	private ReloaderContext findContext(EObject object,
 			EStructuralFeature targetFeature) {
+		ReloaderContext ctx = findContext(object);
+		ctx.setActiveFeature(targetFeature);
+		return ctx;
+	}
+
+	/**
+	 * @param object
+	 * @return
+	 */
+	private ReloaderContext findContext(EObject object) {
 		ReloaderContext ctx = contextMap.get(object);
 		if (ctx == null) {
 			ctx = new ReloaderContext(object);
 			contextMap.put(object, ctx);
 		}
-		ctx.setActiveFeature(targetFeature);
 		return ctx;
 	}
 
@@ -353,6 +362,7 @@ final class SyncXMLHelperImpl extends XMLHelperImpl implements SyncXMLHelper {
 		this.currentElement = node.getNodeType() == Node.ELEMENT_NODE ? (Element)node : null;
 		reloading = true;
 		contextMap= new HashMap<EObject, ReloaderContext>();
+		findContext(target);
 
 		pushContext();
 	}
@@ -378,6 +388,8 @@ final class SyncXMLHelperImpl extends XMLHelperImpl implements SyncXMLHelper {
 		}
 		EObject temp = super.createObject(factory, classifier);
 		if (DEBUG) System.out.println("Created object " + (temp != null ? temp.eClass().getName() : "<null>"));
+
+		if (reloading) findContext(temp); // Ensure the object will be cleared out even if no features are ever set 
 
 		return temp;
 	}

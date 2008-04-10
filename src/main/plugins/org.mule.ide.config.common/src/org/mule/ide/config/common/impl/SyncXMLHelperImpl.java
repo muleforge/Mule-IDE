@@ -94,6 +94,7 @@ final class SyncXMLHelperImpl extends XMLHelperImpl implements SyncXMLHelper {
 		public void flushObject() {
 			flushFeature();
 			EList<EStructuralFeature> allFeatures = contextObject.eClass().getEAllStructuralFeatures();
+			SyncAdapter sa = (SyncAdapter)EcoreUtil.getExistingAdapter(contextObject, SyncAdapter.class);
 			for (EStructuralFeature f : allFeatures) {
 				if (f.isTransient()) continue;
 //				if (f.getName().equals("mixed")) continue;
@@ -112,6 +113,7 @@ final class SyncXMLHelperImpl extends XMLHelperImpl implements SyncXMLHelper {
 							if (DEBUG) System.out.println("Feature " + f.getName() + " unset");
 						}
 					}
+					if (sa != null) sa.clearFeatureElement(f); // Remove recorded mapping from feature to element
 				}
 			}
 		}

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -20,8 +21,10 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.internal.util.XMLUtils;
@@ -111,9 +114,18 @@ public class MuleSampleProject implements IMuleSampleProject {
 		// Copy resource files
 		dirs = getResourceDirectories();
 		for (File dir : dirs) {
-			File[] subs = dir.listFiles();
-			for (int j = 0; j < subs.length; ++j ) {
-				copyIntoProject(subs[j], project.getProject());
+			copyIntoProject(dir, project.getProject());
+			IPath projectPath = project.getProject().getFullPath();
+			IPath resourcePath = new Path(dir.getName());
+			IClasspathEntry srcEntry = JavaCore.newSourceEntry(projectPath.append(resourcePath));
+			try {
+				IClasspathEntry[] entries = project.getRawClasspath();
+				IClasspathEntry[] newEntries = new IClasspathEntry[entries.length+1];
+				System.arraycopy(entries, 0, newEntries, 0, entries.length);
+				newEntries[entries.length] = srcEntry;
+				project.setRawClasspath(newEntries, null);
+			} catch (JavaModelException e) {
+				MuleProjectPlugin.getInstance().logError("Error making "+dir.getName()+" a Source Folder.", e);
 			}
 		}
 

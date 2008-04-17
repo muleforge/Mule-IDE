@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.mule.ide.project.MulePreferences;
 import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.internal.runtime.MuleRuntime;
 import org.mule.ide.project.runtime.IMuleRuntime;

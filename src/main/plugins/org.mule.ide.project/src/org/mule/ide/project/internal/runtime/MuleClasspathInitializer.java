@@ -26,8 +26,8 @@ import org.eclipse.jdt.core.IClasspathContainer;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
+import org.mule.ide.project.MulePreferences;
 import org.mule.ide.project.MuleProjectPlugin;
-import org.mule.ide.project.internal.preferences.MulePreferences;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
@@ -127,8 +127,12 @@ public class MuleClasspathInitializer extends ClasspathContainerInitializer {
 			IMuleBundle bundle = runtime.getMuleLibrary(name);
 			if (bundle != null) {
 				File f = bundle.getFile();
-				// TODO source
-				entries.add(JavaCore.newLibraryEntry(new Path(f.getAbsolutePath()), null, null));				
+				File fileSource = bundle.getSourcePath();
+				Path pathSource = null;
+				if (fileSource != null) {
+					pathSource = new Path(fileSource.getAbsolutePath());
+				}
+				entries.add(JavaCore.newLibraryEntry(new Path(f.getAbsolutePath()), pathSource, null));				
 			}
 		}
 		return entries.toArray(new IClasspathEntry[entries.size()]);	

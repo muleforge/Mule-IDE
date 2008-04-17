@@ -3,7 +3,6 @@ package org.mule.ide.project;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.mule.ide.project.internal.preferences.MulePreferences;
 import org.osgi.framework.BundleContext;
 
 /**

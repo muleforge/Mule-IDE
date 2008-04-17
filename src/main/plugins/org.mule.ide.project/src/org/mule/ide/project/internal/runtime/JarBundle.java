@@ -114,6 +114,9 @@ public class JarBundle implements IMuleBundle {
 			return new File(getLocation(), "src/transports/" + transportName + "/target/mule-" + getName() + "-" + getVersion() + "-sources.jar"); 
 		}
 		*/
+		if (jar.getName().startsWith(IMuleRuntime.MULE_BUNDLE_PREFIX)) {
+			return runtime.getSourceZip();
+		}
 		return null;
 	}
 

@@ -8,7 +8,7 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ide.project.internal.wizards;
+package org.mule.ide.project.runtime.ui;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -37,8 +37,8 @@ import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.dialogs.PreferencesUtil;
+import org.mule.ide.project.MulePreferences;
 import org.mule.ide.project.MuleProjectPlugin;
-import org.mule.ide.project.internal.preferences.MulePreferences;
 import org.mule.ide.project.internal.runtime.MuleClasspathInitializer;
 import org.mule.ide.project.internal.util.MuleClasspathUtils;
 import org.mule.ide.project.runtime.IMuleBundle;
@@ -449,6 +449,14 @@ public class MuleRuntimeChooserPanel extends Composite {
 	 */
 	public IMuleRuntime getRuntime() {
 		return selectedPath != null ? MulePreferences.getMuleRuntime(selectedPath) : null;
+	}
+	
+	public void setReadOnly(boolean readOnly) {
+		if (readOnly) {
+			radioUseDefault.setEnabled(false);
+			radioSpecifyDistribution.setEnabled(false);
+			comboDistribution.setEnabled(false);
+		}
 	}
 	
 }  //  @jve:decl-index=0:visual-constraint="10,10"

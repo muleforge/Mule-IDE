@@ -54,6 +54,8 @@ public interface IMuleRuntime {
 
 	IMuleBundle getMuleLibrary(String name);
 	
+	File getSourceZip();
+	
 	/**
 	 * @return The bundle describing the core plugin. Is never null.
 	 */

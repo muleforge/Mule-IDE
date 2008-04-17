@@ -16,7 +16,7 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.mule.ide.project.internal.util.MuleClasspathUtils;
-import org.mule.ide.project.internal.wizards.MuleRuntimeChooserPanel;
+import org.mule.ide.project.runtime.ui.MuleRuntimeChooserPanel;
 
 public class MuleClasspathContainerPage extends WizardPage implements
 		IClasspathContainerPage {

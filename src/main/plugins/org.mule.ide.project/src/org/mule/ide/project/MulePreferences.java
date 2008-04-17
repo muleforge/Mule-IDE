@@ -8,13 +8,12 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ide.project.internal.preferences;
+package org.mule.ide.project;
 
 import java.io.File;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.internal.runtime.MuleRuntime;
 import org.mule.ide.project.runtime.IMuleRuntime;
 

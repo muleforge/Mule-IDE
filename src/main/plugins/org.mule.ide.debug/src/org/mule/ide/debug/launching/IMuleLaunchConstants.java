@@ -10,12 +10,11 @@
 
 package org.mule.ide.debug.launching;
 
-import org.mule.ide.debug.DebugPlugin;
-
 public interface IMuleLaunchConstants {
 
-	/** Identifier for the Local Mule Server launch configuration type */
-	public static final String ID_MULE_LOCAL_SERVER = DebugPlugin.PLUGIN_ID + ".localMuleServer";
+	/** Identifier for the Local Mule Server launch configuration type.
+	 *  must match the id in plugin.xml */
+	public static final String ID_MULE_LOCAL_SERVER = "org.mule.ide.debug.launching.localMuleServer";
 
 	/** Attribute that holds the selected Mule project */
 	static final String ATTR_MULE_EXEC_CLASS = "org.mule.MuleExecClass";

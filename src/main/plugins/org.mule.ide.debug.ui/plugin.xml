@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="org.mule.ide.debug.ui.launching.MuleLaunchTabGroup"
+            id="org.mule.ide.debug.ui.launching.localMuleServerTabGroup"
+            type="org.mule.ide.debug.launching.localMuleServer">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="org.mule.ide.debug.launching.localMuleServer"
+            icon="icons/config-file.gif"
+            id="org.mule.ide.debug.ui.launching.localMuleServerConfigurationTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
+
+</plugin>

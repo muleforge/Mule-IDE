@@ -17,5 +17,28 @@
             id="org.mule.ide.debug.ui.launching.localMuleServerConfigurationTypeImage">
       </launchConfigurationTypeImage>
    </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="org.mule.ide.debug.ui.launching.MuleLaunchShortcut"
+            icon="icons/config-file.gif"
+            id="org.mule.ide.debug.ui.MuleLaunchShortcut"
+            label="Mule Server"
+            modes="run,debug">
+		<contextualLaunch>
+			<enablement>
+				<with variable="selection">
+					<count value="1"/>
+					<iterate>
+						<test property="org.eclipse.debug.ui.matchesPattern" value="*.xml"/>
+					</iterate>
+				</with>
+			</enablement>
+		</contextualLaunch>
+		<configurationType
+		    id="org.eclipse.jdt.launching.localJavaApplication">
+		</configurationType>
+	  </shortcut>
+   </extension>
 
 </plugin>

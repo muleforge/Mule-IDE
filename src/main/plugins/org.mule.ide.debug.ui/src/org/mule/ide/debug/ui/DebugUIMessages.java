@@ -13,4 +13,10 @@ public class DebugUIMessages extends NLS {
 
 	public static String MuleLaunch_MainTab_name;
 	public static String MuleLaunch_MainTab_ConfigGroup;
+	
+	public static String MuleLaunch_Shortcut_errorTitle;
+	public static String MuleLaunch_Shortcut_selectLaunchConfigTitle;
+	public static String MuleLaunch_Shortcut_selectLaunchConfigMsg;
+	public static String MuleLaunch_Shortcut_errorNoProject;
+	public static String MuleLaunch_Shortcut_errorSameProject;
 }

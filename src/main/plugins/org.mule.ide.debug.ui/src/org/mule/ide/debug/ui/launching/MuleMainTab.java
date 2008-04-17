@@ -252,7 +252,6 @@ public class MuleMainTab extends AbstractJavaMainTab {
 								break;
 							}
 						}
-						int i = path.segmentCount();
 					}
 				} catch (JavaModelException ex) {
 					//TODO log it
@@ -264,10 +263,10 @@ public class MuleMainTab extends AbstractJavaMainTab {
 		if (project == null) {
 			runtimeChooser.initialize(null);
 		} else {
+			runtimeChooser.initialize(muleCPContainerPath);
 			if (muleCPContainerPath != null) {
 				runtimeChooser.setReadOnly(true);
 			}
-			runtimeChooser.initialize(muleCPContainerPath);
 		}
 	}
 	

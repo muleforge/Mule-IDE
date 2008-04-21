@@ -266,7 +266,7 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 							return;
 						}
 
-					} else {
+					} else if (adapter.getTarget() != null) {
 						
 						// System.out.println("Attribute change " + attrName);
 						if (newValue != null) {

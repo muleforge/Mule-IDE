@@ -472,7 +472,10 @@ public class MuleConfigEditor extends FormEditor
 		//  <project>/.settings/services_diagram/<relative_path>/<config_file_name>_0.services_diagram
 		// so that eventually multiple model diagrams could be supported.
     	String relativePathString = sourceFile.getProjectRelativePath().toString();
-    	relativePathString = relativePathString.replace(".xml", "_"+modelIndex+".services_diagram");
+    	if (relativePathString.endsWith(".xml")) {
+    		relativePathString = relativePathString.substring(0, relativePathString.length() - ".xml".length());
+    	}
+    	relativePathString = relativePathString+"_"+modelIndex+".services_diagram";
     	IProject project = sourceFile.getProject();
     	IFile diagramFile = project.getFile(".settings/org.mule.ide.config.editor/services_diagram/"+relativePathString);
 		return diagramFile;

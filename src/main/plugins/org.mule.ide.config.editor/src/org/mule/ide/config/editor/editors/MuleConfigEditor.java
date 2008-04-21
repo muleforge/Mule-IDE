@@ -95,12 +95,19 @@ public class MuleConfigEditor extends FormEditor
 	private StructuredTextEditor xmlEditor;
 	
 	// Editor for model element content, may be null.
+	// TODO support multiple model elements in a config file.
 	private CoreDiagramEditor servicesEditor;
 	
 	private TransactionalEditingDomain editingDomain;
 	private ResourceSet resourceSet;
 	private DocumentRoot documentRoot;
 
+	// We may want to change how this is done, but for now maintain
+	// a model dirty flag here by listening over entire mule element for
+	// edit notifications.
+	private boolean isModelDirty;
+	private boolean isDiagramDirtyOnClose = false;
+	
 	/**
 	 * Mule configuration file editor
 	 */
@@ -142,13 +149,24 @@ public class MuleConfigEditor extends FormEditor
 	 */
 	void createServicesPage() throws PartInitException {
     	final IFile sourceFile = ((IFileEditorInput) getEditorInput()).getFile();
-    	final IFile diagramFile = getServicesDiagramFile(sourceFile);
+    	
+		EList<AbstractModelType> modelElementList = getMuleElement().getAbstractModel();
+		final EObject modelElement;
+		// TODO handle multiple model elements.  Create a Sevices page for each model.  For now just use the first one.
+		if (modelElementList.size() > 0) {
+			modelElement = (EObject) modelElementList.get(0);
+		} else {
+			//throw new InvocationTargetException(new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Configuration file has no <model> element.")));
+			return;
+		}
+    	final IFile diagramFile = getServicesDiagramFile(sourceFile, 0);
+    	
     	if (! diagramFile.exists()) {
     		 try {
     			 WorkspaceModifyOperation op = new WorkspaceModifyOperation() {
     				 protected void execute(IProgressMonitor monitor)
     							throws InvocationTargetException, CoreException, InterruptedException {
-    					 generateServicesDiagramFile(sourceFile, diagramFile, monitor);
+    					 createServicesDiagramFile(sourceFile, diagramFile, modelElement, monitor);
     				 }
     			 };
     			 getSite().getWorkbenchWindow().run(true, true, op);
@@ -266,6 +284,10 @@ public class MuleConfigEditor extends FormEditor
 		try {
 			Resource resource = resourceSet.getResource(domainModelURI, true);
 			documentRoot = (DocumentRoot) resource.getContents().get(0);
+			MuleType muleElement = documentRoot.getMule();
+			if (muleElement == null) {
+				throw new PartInitException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Cannot open in the Mule Configuration Editor.  Must have <mule> root element."));			
+			}
 			if (resource instanceof SyncResource) {
 				SyncResource syncResource = (SyncResource) resource;
 				syncResource.setModelUpdateExecutor(new Executor() {
@@ -305,12 +327,6 @@ public class MuleConfigEditor extends FormEditor
 		super.init(site, editorInput);
 	}
 
-	// We may want to change how this is done, but for now maintain
-	// a model dirty flag here by listening on over entire mule element for
-	// edit notifications.
-	private boolean isModelDirty;
-	private boolean isDiagramDirtyOnClose = false;
-	
     private void setModelDirty(boolean dirty) {
     	isModelDirty = dirty;
         firePropertyChange(IEditorPart.PROP_DIRTY);
@@ -451,10 +467,12 @@ public class MuleConfigEditor extends FormEditor
 	 * @param sourceFile  the mule config file
 	 * @return IFile
 	 */
-	public static IFile getServicesDiagramFile(IFile sourceFile) {
-    	IPath sourceFullPath = sourceFile.getFullPath();
-    	String relativePathString = sourceFullPath.lastSegment();
-    	relativePathString = relativePathString.replace(".xml", ".services_diagram");
+	public static IFile getServicesDiagramFile(IFile sourceFile, int modelIndex) {
+		// Add an index suffix to the generated services diagram file,
+		//  <project>/.settings/services_diagram/<relative_path>/<config_file_name>_0.services_diagram
+		// so that eventually multiple model diagrams could be supported.
+    	String relativePathString = sourceFile.getProjectRelativePath().toString();
+    	relativePathString = relativePathString.replace(".xml", "_"+modelIndex+".services_diagram");
     	IProject project = sourceFile.getProject();
     	IFile diagramFile = project.getFile(".settings/org.mule.ide.config.editor/services_diagram/"+relativePathString);
 		return diagramFile;
@@ -469,22 +487,8 @@ public class MuleConfigEditor extends FormEditor
 	 * @param monitor
 	 * @throws CoreException
 	 */
-	public void generateServicesDiagramFile(IFile sourceFile, IFile diagramFile, IProgressMonitor monitor) 
+	public void createServicesDiagramFile(IFile sourceFile, IFile diagramFile, final EObject modelElement, IProgressMonitor monitor) 
 			throws InvocationTargetException, CoreException {
-		MuleType muleElement = documentRoot.getMule();
-		if (muleElement == null) {
-			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Configuration file has no <mule> element."));			
-		}
-		EList<AbstractModelType> modelElementList = muleElement.getAbstractModel();
-		
-		final EObject modelElement;
-		if (modelElementList.size() > 0) {
-			// TODO handle multiple model elements.  For now just use the first one.
-			modelElement = (EObject) modelElementList.get(0);
-		} else {
-			// TODO No model element should not be an error condition
-			throw new InvocationTargetException(new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Configuration file has no <model> element.")));			
-		}
 		try {
 			CreateFileOperation op = new CreateFileOperation(diagramFile,
 					null, null,

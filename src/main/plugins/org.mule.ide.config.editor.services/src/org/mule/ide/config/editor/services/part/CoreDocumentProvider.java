@@ -333,12 +333,25 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 		return (ResourceSetInfo) super.getElementInfo(editorInput);
 	}
 
+	private boolean doResourceUnload = true;
+	
 	/**
-	 * @generated
+	 * Allow control over whether dispose() causes
+	 * all resources to be unloaded.
+	 * 
+	 * @param doResourceUnload
+	 */
+	public void setDoResourceUnload(boolean doResourceUnload) {
+		this.doResourceUnload = doResourceUnload;
+	}
+	
+	/**
+	 * customization
 	 */
 	protected void disposeElementInfo(Object element, ElementInfo info) {
 		if (info instanceof ResourceSetInfo) {
 			ResourceSetInfo resourceSetInfo = (ResourceSetInfo) info;
+			resourceSetInfo.setDoResourceUnload(doResourceUnload);
 			resourceSetInfo.dispose();
 		}
 		super.disposeElementInfo(element, info);
@@ -882,17 +895,31 @@ public class CoreDocumentProvider extends AbstractDocumentProvider implements
 		public IEditorInput getEditorInput() {
 			return myEditorInput;
 		}
+		
+		private boolean doResourceUnload = true;
+		
+		/**
+		 * Allow control over whether dispose() causes
+		 * all resources to be unloaded.
+		 * 
+		 * @param doResourceUnload
+		 */
+		public void setDoResourceUnload(boolean doResourceUnload) {
+			this.doResourceUnload = doResourceUnload;
+		}
 
 		/**
-		 * @generated
+		 * customization
 		 */
 		public void dispose() {
 			stopResourceListening();
 			getResourceSet().eAdapters().remove(myResourceSetListener);
-			for (Iterator it = getResourceSet().getResources().iterator(); it
-					.hasNext();) {
-				Resource resource = (Resource) it.next();
-				resource.unload();
+			if (doResourceUnload) {
+				for (Iterator it = getResourceSet().getResources().iterator(); it
+						.hasNext();) {
+					Resource resource = (Resource) it.next();
+					resource.unload();
+				}
 			}
 		}
 

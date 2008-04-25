@@ -67,4 +67,8 @@ public class Messages extends NLS {
 	public static String NewGlobalElementWizard_TypePage_TableColumn0Label;
 	public static String NewGlobalElementWizard_TypePage_TableColumn1Label;
 	public static String NewGlobalElementWizard_TypePage_NameLabel;
+	
+	public static String SaveConfigurationFileTask;
+	public static String SaveNextResourceTask;
+
 }

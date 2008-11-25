@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLLoad;
-import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.wst.sse.core.StructuredModelManager;
@@ -104,12 +103,15 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 		
 		if (options != null && options.containsKey(SAVE_OPTION_SUPRESS_TEXT_SAVE)) {		
 			super.save(options);
-		} else
+		} else {
 			try {
 				getXMLModel().save();
 			} catch (CoreException e) {
-				throw new IOException("Unable to save SSE model", e);
+				IOException iox = new IOException("Unable to save SSE model");
+				iox.initCause(e);
+				throw iox;
 			}
+		}
 	}
 
 	private IDOMModel initializeXMLModel(IFile file, boolean forWrite)
@@ -234,6 +236,8 @@ public class SyncResourceImpl extends XMLResourceImpl implements SyncResource {
 		if (eventType == INodeNotifier.CHANGE && changedFeature instanceof Attr) {
 			final String attrName = ((Attr)changedFeature).getName();
 			executor.execute(new Runnable() {
+				
+				@SuppressWarnings("unchecked")
 				public void run() {
 
 					SyncSAXXMLHandler handler = new SyncSAXXMLHandler(SyncResourceImpl.this, createXMLHelper(), getDefaultLoadOptions());

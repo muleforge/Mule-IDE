@@ -23,11 +23,11 @@
 
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.wst.xml.core"/>
       <import plugin="org.eclipse.wst.sse.core"/>
+      <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="org.eclipse.jface"/>
       <import plugin="org.eclipse.jface.text"/>
@@ -59,94 +59,16 @@
       <import plugin="org.eclipse.ocl.ecore"/>
       <import plugin="org.eclipse.jdt.core"/>
       <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.mule.ide.config.spring"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.jdt.launching"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.jdt.debug.ui"/>
+      <import plugin="org.eclipse.emf.common.ui"/>
    </requires>
 
    <plugin
-         id="org.mule.ide.config.common"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.editor.services"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.spring"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.axis"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.jms"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.vm"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.vm.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.axis.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.stdio"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.mule.ide.project"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.jms.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -13,8 +13,6 @@ package org.mule.ide.project.internal.runtime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -27,7 +25,6 @@ import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.mule.ide.project.MulePreferences;
-import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 

@@ -4,15 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -27,12 +20,8 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.mule.ide.project.MuleProjectPlugin;
-import org.mule.ide.project.internal.util.XMLUtils;
 import org.mule.ide.project.runtime.IMuleRuntime;
 import org.mule.ide.project.runtime.IMuleSampleProject;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 public class MuleSampleProject implements IMuleSampleProject {
 	
@@ -40,6 +29,13 @@ public class MuleSampleProject implements IMuleSampleProject {
 	private String name;
 	private String description;
 	private File root;
+
+	public static final Comparator<IMuleSampleProject> CompareByName = new Comparator<IMuleSampleProject>() {
+		@Override
+		public int compare(IMuleSampleProject p1, IMuleSampleProject p2) {
+			return p1.getName().compareTo(p2.getName());
+		}
+	};
 
 	public MuleSampleProject(IMuleRuntime runtime, String name, String description, File root) {
 		this.runtime = runtime;
@@ -186,5 +182,16 @@ public class MuleSampleProject implements IMuleSampleProject {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder buf = new StringBuilder(64);
+		buf.append("<MuleSampleProject@");
+		buf.append(System.identityHashCode(this));
+		buf.append(" ");
+		buf.append(this.getName());
+		buf.append(">");
+		return buf.toString();
 	}
 }

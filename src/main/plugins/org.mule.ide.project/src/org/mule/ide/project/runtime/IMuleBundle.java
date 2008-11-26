@@ -18,4 +18,5 @@ public interface IMuleBundle {
 	String getPathifiedName();
 	Set<IMuleBundle> getDependencies();
 	File getSourcePath();
+	String getVersion();
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: MuleProjectWizard.java 18 2007-10-31 23:42:22Z ted.bashor $
+ * $Id$
  * --------------------------------------------------------------------------------------
  * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
  *

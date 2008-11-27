@@ -1,5 +1,5 @@
 /*
- * $Id: MuleClasspathUtils.java 1 2007-08-16 16:30:25Z quoc $
+ * $Id$
  * --------------------------------------------------------------------------------------
  * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
  *

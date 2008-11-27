@@ -1,5 +1,5 @@
 /*
- * $Id: MuleClasspathChooserPanel.java 3 2007-10-22 21:24:07Z ted.bashor $
+ * $Id$
  * --------------------------------------------------------------------------------------
  * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
  *

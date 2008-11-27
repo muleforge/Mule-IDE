@@ -7,8 +7,8 @@
 
  This DTD describes the grammar of the Mule configuration properties.
 
- $Date: 2007-08-21 07:26:13 -0700 (Tue, 21 Aug 2007) $
- $Revision: 7976 $
+ $Date$
+ $Revision$
 
  @root mule-configuration
 -->

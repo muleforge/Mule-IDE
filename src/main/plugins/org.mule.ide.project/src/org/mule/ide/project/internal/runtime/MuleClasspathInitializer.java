@@ -1,5 +1,5 @@
 /*
- * $Id: MuleDistributionClasspathInitializer.java 6 2007-10-25 22:47:26Z ted.bashor $
+ * $Id$
  * --------------------------------------------------------------------------------------
  * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
  *

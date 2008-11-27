@@ -368,6 +368,17 @@ public class MuleRuntime implements IMuleRuntime {
 			// OK: This is so unlikely that it's not worth catching here.
 		}
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder buf = new StringBuilder(128);
+		buf.append("<MuleRuntime@");
+		buf.append(System.identityHashCode(this));
+		buf.append(" ");
+		buf.append(getDirectory().getName());
+		buf.append(">");
+		return buf.toString();
+	}
 	
 	/*
 	public File[] getLibrariesDependencies(IMuleBundle[] bundles) {

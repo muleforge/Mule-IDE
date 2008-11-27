@@ -13,11 +13,6 @@ package org.mule.ide.project.runtime.ui;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -26,7 +21,6 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -38,7 +32,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.dialogs.PreferencesUtil;
 import org.mule.ide.project.MulePreferences;
-import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.internal.runtime.MuleClasspathInitializer;
 import org.mule.ide.project.internal.util.MuleClasspathUtils;
 import org.mule.ide.project.runtime.IMuleBundle;
@@ -430,7 +423,9 @@ public class MuleRuntimeChooserPanel extends Composite {
 	}
 	
 	void fireDistributionChanged(IMuleRuntime newMuleDistribution) {
-		if (listener != null) listener.distributionChanged(newMuleDistribution);		
+		if (listener != null) {
+			listener.distributionChanged(newMuleDistribution);		
+		}
 	}
 
 	/**

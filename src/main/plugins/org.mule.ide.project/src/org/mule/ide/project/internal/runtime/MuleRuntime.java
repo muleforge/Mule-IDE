@@ -1,5 +1,5 @@
 /*
- * $Id: MuleFullDistribution.java 17 2007-10-31 23:40:25Z ted.bashor $
+ * $Id$
  * --------------------------------------------------------------------------------------
  * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
  *

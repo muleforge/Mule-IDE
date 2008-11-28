@@ -28,7 +28,7 @@ public class MuleSampleProject implements IMuleSampleProject {
 	private IMuleRuntime runtime;
 	private String name;
 	private String description;
-	private File root;
+	protected File root;
 
 	public static final Comparator<IMuleSampleProject> CompareByName = new Comparator<IMuleSampleProject>() {
 		public int compare(IMuleSampleProject p1, IMuleSampleProject p2) {
@@ -104,6 +104,19 @@ public class MuleSampleProject implements IMuleSampleProject {
 		dirs = getConfDirectories();
 		for (File dir : dirs) {
 			copyIntoProject(dir, project.getProject());
+
+			IPath projectPath = project.getProject().getFullPath();
+			IPath confPath = new Path(dir.getName());
+			IClasspathEntry confEntry = JavaCore.newSourceEntry(projectPath.append(confPath));
+			try {
+				IClasspathEntry[] entries = project.getRawClasspath();
+				IClasspathEntry[] newEntries = new IClasspathEntry[entries.length+1];
+				System.arraycopy(entries, 0, newEntries, 0, entries.length);
+				newEntries[entries.length] = confEntry;
+				project.setRawClasspath(newEntries, null);
+			} catch (JavaModelException e) {
+				MuleProjectPlugin.getInstance().logError("Error making "+dir.getName()+" a Source Folder.", e);
+			}
 		}
 
 		// Copy resource files
@@ -132,7 +145,7 @@ public class MuleSampleProject implements IMuleSampleProject {
 	 * @param input
 	 * @param project
 	 */
-	private void copyIntoProject(File input, IContainer parent) {
+	protected void copyIntoProject(File input, IContainer parent) {
 		try {
 			IPath relative = new Path(input.getName());
 

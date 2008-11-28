@@ -162,6 +162,5 @@ public class MulePreferences {
 	 */
 	protected static void clearPreferenceValue(String key) {
 		MuleProjectPlugin.getInstance().getPreferenceStore().setToDefault(key);
-	}
-	
+	}	
 }

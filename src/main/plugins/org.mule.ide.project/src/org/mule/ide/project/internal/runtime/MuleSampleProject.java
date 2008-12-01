@@ -71,7 +71,7 @@ public class MuleSampleProject implements IMuleSampleProject {
 		return root;
 	}
 
-	private List<File> getSourceDirectories() {
+	protected List<File> getSourceDirectories() {
 		ArrayList<File> results = new ArrayList<File>();
 		File srcJava = new File(root, "src/main/java");
 		if (srcJava.exists()) {

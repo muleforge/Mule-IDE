@@ -340,10 +340,13 @@ public class MuleRuntime implements IMuleRuntime {
 		Pom pom = new Pom(pomFile);
 		Iterator<String> moduleIter = pom.getSubmodules();
 		if (moduleIter.hasNext()) {
-			while (moduleIter.hasNext()) {
-				String subModule = moduleIter.next();
-				gatherSamples(new File(dir, subModule), results);
-			}
+			// do not add samples with sub-modules (e.g. the loanbroker) as we cannot make
+			// proper eclipse projects out of it
+			
+//			while (moduleIter.hasNext()) {
+//				String subModule = moduleIter.next();
+//				gatherSamples(new File(dir, subModule), results);
+//			}			
 		}
 		else {
 			String artifactId = pom.getArtifactId();

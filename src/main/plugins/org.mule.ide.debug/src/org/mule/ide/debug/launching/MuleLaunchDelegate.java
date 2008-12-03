@@ -12,8 +12,6 @@ package org.mule.ide.debug.launching;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -104,12 +102,6 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate {
 	 *             MULE_HOME\lib\boot\mule-module-boot-2.0.0.jar ?
 	 *             MULE_HOME\conf
 	 */
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jdt.launching.AbstractJavaLaunchConfigurationDelegate#getProgramArguments(org.eclipse.debug.core.ILaunchConfiguration)
-	 */
 	public String getProgramArguments(ILaunchConfiguration configuration) throws CoreException {
 		// Build the argument string.
 		StringBuffer buffer = new StringBuffer();
@@ -144,11 +136,6 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate {
 		return buffer.toString();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jdt.launching.AbstractJavaLaunchConfigurationDelegate#getMainTypeName(org.eclipse.debug.core.ILaunchConfiguration)
-	 */
 	public String getMainTypeName(ILaunchConfiguration configuration) throws CoreException {
 		return configuration.getAttribute(IMuleLaunchConstants.ATTR_MULE_EXEC_CLASS,
 				IMuleLaunchConstants.DEFAULT_MULE_EXEC_CLASS);

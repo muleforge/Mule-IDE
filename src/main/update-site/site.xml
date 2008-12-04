@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description url="http://dist.muleforge.org/mule-ide/updates-2.0.0">
-      Mule IDE 2.0.0 pre-release update site
+   <description url="http://dist.muleforge.org/mule-ide/updates-2.0.0/">
+      Mule IDE 2.0-M1 pre-release update site
    </description>
    <feature url="features/org.mule.ide_2.0.0.vqualifier.jar" id="org.mule.ide" version="2.0.0.vqualifier">
       <category name="Mule IDE"/>

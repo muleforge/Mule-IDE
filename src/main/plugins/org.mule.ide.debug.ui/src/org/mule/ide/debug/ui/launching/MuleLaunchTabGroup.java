@@ -1,11 +1,11 @@
-/**
+/*
  * $Id$
  * --------------------------------------------------------------------------------------
  * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
  *
- * The software in this package is published under the terms of the MuleSource MPL
+ * The software in this package is published under the terms of the CPAL v1.0
  * license, a copy of which has been included with this distribution in the
- * MULE_LICENSE.txt file.
+ * LICENSE.txt file.
  */
 
 package org.mule.ide.debug.ui.launching;
@@ -23,12 +23,6 @@ import org.eclipse.jdt.debug.ui.launchConfigurations.JavaJRETab;
 
 public class MuleLaunchTabGroup extends AbstractLaunchConfigurationTabGroup {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTabGroup#createTabs(org.eclipse.debug.ui.ILaunchConfigurationDialog,
-	 * java.lang.String)
-	 */
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] { new MuleMainTab(),
 				new JavaArgumentsTab(), new JavaClasspathTab(), new JavaJRETab(),
@@ -36,11 +30,6 @@ public class MuleLaunchTabGroup extends AbstractLaunchConfigurationTabGroup {
 		setTabs(tabs);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTabGroup#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
-	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy config) {
 		super.setDefaults(config);
 	}

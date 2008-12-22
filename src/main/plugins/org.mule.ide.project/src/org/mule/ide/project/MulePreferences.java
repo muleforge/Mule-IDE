@@ -3,7 +3,7 @@
  * --------------------------------------------------------------------------------------
  * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
  *
- * The software in this package is published under the terms of the MuleSource MPL
+ * The software in this package is published under the terms of the CPAL v1.0
  * license, a copy of which has been included with this distribution in the
  * LICENSE.txt file.
  */
@@ -11,9 +11,10 @@
 package org.mule.ide.project;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.WeakHashMap;
 
+import org.mule.ide.project.internal.runtime.MuleClasspathInitializer;
 import org.mule.ide.project.internal.runtime.MuleRuntime;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
@@ -35,7 +36,8 @@ public class MulePreferences {
 	/** Number of the default Mule installation root */
 	public static final String DEFAULT_EXTERNAL_MULE_ROOT = "defaultExternalMuleRoot";
 
-	private static Map<File, IMuleRuntime> mapFileToRuntime = new WeakHashMap<File, IMuleRuntime>();
+	private static Map<String, IMuleRuntime> mapPathifiedToRuntime = new HashMap<String, IMuleRuntime>();
+	private static Map<File, IMuleRuntime> mapFileToRuntime = new HashMap<File, IMuleRuntime>();
 	
 	public static String[] getDistributionPaths() {
 		int n = getIntPreference(EXTERNAL_MULE_ROOT_COUNT);
@@ -90,14 +92,20 @@ public class MulePreferences {
 	/**
 	 * Gets a instance of IMuleRuntime for the given root directory.
 	 * 
-	 * @param path
+	 * @param path is either a proper filesystem path or a pathified path in case
+	 *         a different library is selected when creating a project.
 	 * @return null if the dir is not a valid mule distribution directory.
-	 * Otherwise
 	 */
 	public static IMuleRuntime getMuleRuntime(String path) {
 		assert (path != null);
+		
+		IMuleRuntime runtime = mapPathifiedToRuntime.get(path);
+		if (runtime != null) {
+			return runtime;
+		}
+		
 		File file = new File(path);
-		IMuleRuntime runtime = mapFileToRuntime.get(file);
+		runtime = mapFileToRuntime.get(file);
 		if (runtime == null) {
 			// I don't believe that synchronization is too critical, since 
 			// the runtime is a read only data structure...
@@ -106,12 +114,14 @@ public class MulePreferences {
 			}
 			runtime = new MuleRuntime(file);
 			mapFileToRuntime.put(file, runtime);
+			mapPathifiedToRuntime.put(MuleClasspathInitializer.pathify(path), runtime);
 		}
 		return runtime;
 	}
 	
 	public static void clearRuntimeCache() {
 		mapFileToRuntime.clear();
+		mapPathifiedToRuntime.clear();
 	}
 
 	/**

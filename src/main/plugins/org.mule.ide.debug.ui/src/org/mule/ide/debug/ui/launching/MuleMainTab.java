@@ -1,3 +1,13 @@
+/*
+ * $Id$
+ * --------------------------------------------------------------------------------------
+ * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
+ *
+ * The software in this package is published under the terms of the CPAL v1.0
+ * license, a copy of which has been included with this distribution in the
+ * LICENSE.txt file.
+ */
+
 package org.mule.ide.debug.ui.launching;
 
 import java.util.ArrayList;
@@ -9,20 +19,16 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
-import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
-import org.eclipse.jdt.core.IClasspathContainer;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaModel;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jdt.internal.core.JavaModel;
-import org.eclipse.jdt.internal.core.JavaModelManager;
 import org.eclipse.jdt.internal.debug.ui.launcher.AbstractJavaMainTab;
+import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
@@ -37,12 +43,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.ui.dialogs.ResourceSelectionDialog;
-import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.mule.ide.debug.DebugMessages;
 import org.mule.ide.debug.launching.MuleLaunchDelegate;
-import org.mule.ide.debug.ui.DebugUIPlugin;
 import org.mule.ide.debug.ui.DebugUIMessages;
+import org.mule.ide.debug.ui.DebugUIPlugin;
 import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.runtime.ui.MuleRuntimeChooserPanel;
 
@@ -93,8 +97,7 @@ public class MuleMainTab extends AbstractJavaMainTab {
 	}
 
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		// TODO Auto-generated method stub
-
+		// nothing to do
 	}
 
 	public void initializeFrom(ILaunchConfiguration config) {

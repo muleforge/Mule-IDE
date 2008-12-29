@@ -11,50 +11,33 @@
 package org.mule.ide.project.internal.runtime;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FilenameFilter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
 import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.jar.Attributes;
-import java.util.jar.JarFile;
-import java.util.jar.Manifest;
-import java.util.zip.ZipEntry;
+
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.jdt.core.IClasspathEntry;
-import org.eclipse.jdt.core.JavaCore;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
+
 import org.eclipse.core.runtime.IStatus;
-import org.mule.ide.project.MulePreferences;
+import org.eclipse.core.runtime.Status;
 import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.internal.util.XMLUtils;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 import org.mule.ide.project.runtime.IMuleSampleProject;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 public class MuleRuntime implements IMuleRuntime {
-	private static final String VERSION = "2.0.0";
 	private static final String JAR_SUFFIX = ".jar";
 	private static final String MULE_JAR_SUFFIX = "-2.0.0.jar";
-	private static final String MULE_SRC_ZIP = "src/mule-2.0.0-src.zip";
 	
 	//private static final String MODULE_PREFIX = "module-";
 	//private static final String TRANSPORT_PREFIX = "transport-";
@@ -64,7 +47,7 @@ public class MuleRuntime implements IMuleRuntime {
 	// Map of artifactID to IMuleBundle
 	private Map<String, IMuleBundle> mapArtifactIdToBundle = null;
 	private File rootDirectory;
-	//private String version;
+	private String version = null;
 	
 	private List<IMuleBundle> defaultLibraries = null;
 	
@@ -91,13 +74,26 @@ public class MuleRuntime implements IMuleRuntime {
 	}
 	
 	public String getVersion() {
-		return VERSION;  //TODO
+		initializeLibraryMap();
+		
+		for (String artifactId : mapArtifactIdToBundle.keySet()) {
+			if (artifactId.startsWith("mule-core-")) {
+				IMuleBundle muleBundle = mapArtifactIdToBundle.get(artifactId);
+				version = muleBundle.getVersion();
+				if (version != null) {
+					break;
+				}
+			}
+		}
+		return version;
 	}
 	
 	public File getSourceZip() {
-		File fileSource = new File(getDirectory(), MULE_SRC_ZIP);
-		if (fileSource.exists()) {
-			return fileSource;
+		File sourceDir = new File(getDirectory(), "src");
+		String sourceFilename = "mule-" + getVersion() + "-src.zip";
+		File sourceFile = new File(sourceDir, sourceFilename);
+		if (sourceFile.exists()) {
+			return sourceFile;
 		}
 		return null;
 	}
@@ -112,6 +108,8 @@ public class MuleRuntime implements IMuleRuntime {
 		for (int i = 0; i < allSamples.length; ++i) {
 			gatherSamples(allSamples[i], results);
 		}
+		
+		Collections.sort(results, MuleSampleProject.CompareByName);
 		return results;
 	}
 	
@@ -153,12 +151,14 @@ public class MuleRuntime implements IMuleRuntime {
 		return dependencies;		
 	}
 	
+	/*
 	private IMuleBundle getMuleBundleByArtifactId(String artifactId) {
 		if (mapArtifactIdToBundle == null) {
 			initializeLibraryMap();
 		}
 		return mapArtifactIdToBundle.get(artifactId);
 	}
+	*/
 	
 	public IMuleBundle getMuleLibrary(String name) {
 		if (mapNameToBundle == null) {
@@ -175,9 +175,8 @@ public class MuleRuntime implements IMuleRuntime {
 	}
 		
 	public Collection<IMuleBundle> getDefaultLibraries() {
-		if (mapNameToBundle == null) {
-			initializeLibraryMap();
-		}
+		initializeLibraryMap();
+		
 		/*
 		ArrayList<IMuleBundle> result = new ArrayList<IMuleBundle>();
 		File f = new File(getDirectory(), "lib/mule/mule-core-2.0.0.jar");
@@ -215,7 +214,7 @@ public class MuleRuntime implements IMuleRuntime {
 					}
 				}
 			}
-			
+						
 			muleLibDir = new File(getDirectory(), "lib/boot");
 			if (muleLibDir.exists() && muleLibDir.isDirectory()) {
 				File[] files = muleLibDir.listFiles();
@@ -245,7 +244,7 @@ public class MuleRuntime implements IMuleRuntime {
 					cacheLibFile(lib);
 				}
 			}
-		}		
+		}
 	}
 	
 	private String cacheLibFile(File lib) {

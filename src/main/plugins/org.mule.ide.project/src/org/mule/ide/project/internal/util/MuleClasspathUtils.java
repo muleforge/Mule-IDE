@@ -12,7 +12,6 @@ package org.mule.ide.project.internal.util;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -21,7 +20,6 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.JavaCore;
 import org.mule.ide.project.MuleProjectPlugin;
-import org.mule.ide.project.internal.runtime.MuleClasspathInitializer;
 import org.mule.ide.project.runtime.IMuleBundle;
 
 /**
@@ -53,20 +51,23 @@ public class MuleClasspathUtils {
         return false;
     }
     
-	public static Set<String> commaStringToSet(String bundleSelectString2) {
+	public static Set<String> commaStringToSet(String bundleString) {
 		Set<String> selection = new HashSet<String>();
-		StringTokenizer st = new StringTokenizer(bundleSelectString2, ",");
-		while (st.hasMoreTokens()) selection.add(st.nextToken().trim());
+		StringTokenizer st = new StringTokenizer(bundleString, ",");
+		while (st.hasMoreTokens()) {
+			selection.add(st.nextToken().trim());
+		}
 		return selection;
 	}
 
 	public static String collectionToCommaString(Collection<IMuleBundle> bundles) {
-		StringBuffer sb = new StringBuffer();
+		StringBuffer sb = new StringBuffer(64);
 		for (IMuleBundle bundle : bundles) {
-			if (sb.length() > 0) sb.append(',');
+			if (sb.length() > 0) {
+				sb.append(',');
+			}
 			sb.append(bundle.getPathifiedName());
 		}
 		return sb.toString();
 	}
-
 }

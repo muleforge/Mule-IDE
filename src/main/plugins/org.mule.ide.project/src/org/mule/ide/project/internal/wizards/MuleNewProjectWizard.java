@@ -10,25 +10,13 @@
 
 package org.mule.ide.project.internal.wizards;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -36,7 +24,6 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPage;
@@ -73,11 +60,6 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard {
 	/** Static constant for config folder name */
 	private static final String CONFIG_FOLDER_NAME = "conf";
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jface.wizard.IWizard#addPages()
-	 */
 	public void addPages() {
 		setWindowTitle("New Mule Project");
 		//setDefaultPageImageDescriptor(ExamplesPlugin.getDefault().getImageRegistry().getDescriptor(
@@ -88,11 +70,6 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard {
 		addPage(javaPage);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jface.wizard.IWizard#performFinish()
-	 */
 	public boolean performFinish() {
 		try {
 			// Set up the Java project according to entries on Java page.
@@ -186,6 +163,7 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard {
 			}
 			IClasspathEntry[] entries = 
 				new IClasspathEntry[] { MuleClasspathUtils.createMuleClasspathContainer(projectPage.getRuntimeHint(), selectedLibraries)};
+			
 			IClasspathEntry[] result = new IClasspathEntry[initial.length + entries.length];
 			System.arraycopy(initial, 0, result, 0, initial.length);
 			System.arraycopy(entries, 0, result, initial.length, entries.length);
@@ -195,12 +173,6 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IWorkbenchWizard#init(org.eclipse.ui.IWorkbench,
-	 * org.eclipse.jface.viewers.IStructuredSelection)
-	 */
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		setNeedsProgressMonitor(true);

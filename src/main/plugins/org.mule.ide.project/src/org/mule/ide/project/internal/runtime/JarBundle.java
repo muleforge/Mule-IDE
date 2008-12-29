@@ -1,17 +1,11 @@
 package org.mule.ide.project.internal.runtime;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.StringTokenizer;
-import java.util.jar.Attributes;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
-import java.util.zip.ZipEntry;
 
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
@@ -22,10 +16,12 @@ public class JarBundle implements IMuleBundle {
 	private final File jar;
 	private List muleDependencies;
 	private List otherDependencies;
+	private String version;
 
 	public JarBundle(IMuleRuntime runtime, File jar) {
 		this.runtime = runtime;
 		this.jar = jar;
+		this.version = null;
 	}
 
 	public File getFile() {
@@ -119,5 +115,18 @@ public class JarBundle implements IMuleBundle {
 		}
 		return null;
 	}
-
+	
+	public String getVersion() {
+		if (version == null) {
+			try {
+				JarFile jarFile = new JarFile(jar);
+				Manifest manifest = jarFile.getManifest();
+				version = manifest.getMainAttributes().getValue("Implementation-Version");
+			}
+			catch (IOException iox) {
+				version = null;
+			}
+		}
+		return version;
+	}
 }

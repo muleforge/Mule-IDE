@@ -11,29 +11,22 @@
 package org.mule.ide.project.internal.runtime;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.mule.ide.project.MuleProjectPlugin;
-import org.mule.ide.project.internal.util.XMLUtils;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 import org.mule.ide.project.runtime.IMuleSampleProject;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 public class MuleRuntime implements IMuleRuntime {
 	private static final String JAR_SUFFIX = ".jar";
@@ -339,34 +332,39 @@ public class MuleRuntime implements IMuleRuntime {
 	*/
 
 	public void gatherSamples(File dir, List<IMuleSampleProject> results) {
-		try {
-			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-			dbf.setValidating(false);
-			dbf.setNamespaceAware(true);
-			File pomFile = new File(dir, "pom.xml");
-			if (! pomFile.exists()) return;
-			Document doc = dbf.newDocumentBuilder().parse(pomFile);
-			
-			NodeList nl = XMLUtils.queryDomNodes(doc, "project/modules/module");
-			if (nl.getLength() > 0) {
-				// Has submodules....
-				for (int i=0; i < nl.getLength(); ++i) {
-					String subModule = XMLUtils.text(nl.item(i));
-					gatherSamples(new File(dir, subModule), results);
-				}
-			} else {
-				final String name = XMLUtils.queryDomString(doc, "project/name");
-				final String description = XMLUtils.queryDomString(doc, "project/description");
-				
-				results.add(new MuleSampleProject(this, name, description, dir));
-			}
-		} catch (SAXException e) {
-			// OK: We swallow this exception - thereby ignoring any parse errors in the XML
-		} catch (IOException e) {
-			// OK: Same goes for missing files
-		} catch (ParserConfigurationException e) {
-			// OK: This is so unlikely that it's not worth catching here.
+		File pomFile = new File(dir, "pom.xml");
+		if (! pomFile.exists()) {
+			return;
 		}
+
+		Pom pom = new Pom(pomFile);
+		Iterator<String> moduleIter = pom.getSubmodules();
+		if (moduleIter.hasNext()) {
+			// do not add samples with sub-modules (e.g. the loanbroker) as we cannot make
+			// proper eclipse projects out of it
+			
+//			while (moduleIter.hasNext()) {
+//				String subModule = moduleIter.next();
+//				gatherSamples(new File(dir, subModule), results);
+//			}			
+		}
+		else {
+			String artifactId = pom.getArtifactId();
+			IMuleSampleProject sampleProject = MuleSampleFactory.create(artifactId, this, 
+				pom.getName(), pom.getDescription(), dir);
+			results.add(sampleProject);
+		}
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder buf = new StringBuilder(128);
+		buf.append("<MuleRuntime@");
+		buf.append(System.identityHashCode(this));
+		buf.append(" ");
+		buf.append(getDirectory().getName());
+		buf.append(">");
+		return buf.toString();
 	}
 	
 	/*

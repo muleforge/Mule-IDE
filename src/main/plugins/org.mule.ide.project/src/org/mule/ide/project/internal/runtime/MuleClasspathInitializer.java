@@ -37,13 +37,13 @@ public class MuleClasspathInitializer extends ClasspathContainerInitializer {
 	 * @param hint
 	 * @return
 	 */
-	static public String pathify(String hint) {
+	public static String pathify(String hint) {
 		return hint.replace('\\', '_').replace(':', '_').replace('/', '_');
 	}
 	
 	// Generate a classpath container id string for a jar file
 	// TODO this will move into JarBundle
-	static public String pathify(File f) {
+	public static String pathify(File f) {
 		StringBuffer buf = new StringBuffer(f.getParentFile().getName());
 		buf.append('_');
 		buf.append(f.getName());
@@ -138,16 +138,9 @@ public class MuleClasspathInitializer extends ClasspathContainerInitializer {
 	private static Set<String> commaStringToSet(String bundleSelectString2) {
 		Set<String> selection = new HashSet<String>();
 		StringTokenizer st = new StringTokenizer(bundleSelectString2, ",");
-		while (st.hasMoreTokens()) selection.add(st.nextToken());
+		while (st.hasMoreTokens()) {
+			selection.add(st.nextToken());
+		}
 		return selection;
-	}
-	
-	
-	public boolean canUpdateClasspathContainer(IPath containerPath, IJavaProject project) {
-		return super.canUpdateClasspathContainer(containerPath, project);
-	}
-	public void requestClasspathContainerUpdate(IPath containerPath, IJavaProject project, IClasspathContainer containerSuggestion) throws CoreException {
-		super.requestClasspathContainerUpdate(containerPath, project,
-				containerSuggestion);
 	}
 }

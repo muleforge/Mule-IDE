@@ -3,7 +3,7 @@
  * --------------------------------------------------------------------------------------
  * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
  *
- * The software in this package is published under the terms of the MuleSource MPL
+ * The software in this package is published under the terms of the CPAL v1.0
  * license, a copy of which has been included with this distribution in the
  * LICENSE.txt file.
  */
@@ -13,11 +13,6 @@ package org.mule.ide.project.runtime.ui;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -26,7 +21,6 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -38,7 +32,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.dialogs.PreferencesUtil;
 import org.mule.ide.project.MulePreferences;
-import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.internal.runtime.MuleClasspathInitializer;
 import org.mule.ide.project.internal.util.MuleClasspathUtils;
 import org.mule.ide.project.runtime.IMuleBundle;
@@ -225,9 +218,10 @@ public class MuleRuntimeChooserPanel extends Composite {
 			int itemCount = tableLibraries.getItemCount();
 			for (int i = 0; i < itemCount; ++i) {
 				TableItem item = tableLibraries.getItem(i);
-				if (item.getChecked()) {
+				// TODO: we don't care if libraries are checked in the GUI for now ...
+//				if (item.getChecked()) {
 					selection.add(allLibraries[i]);
-				}
+//				}
 			}
 		}
 		return selection;
@@ -430,7 +424,9 @@ public class MuleRuntimeChooserPanel extends Composite {
 	}
 	
 	void fireDistributionChanged(IMuleRuntime newMuleDistribution) {
-		if (listener != null) listener.distributionChanged(newMuleDistribution);		
+		if (listener != null) {
+			listener.distributionChanged(newMuleDistribution);		
+		}
 	}
 
 	/**
@@ -440,7 +436,9 @@ public class MuleRuntimeChooserPanel extends Composite {
 	 * @return null if default runtime should be used, or none available.
 	 */
 	public String getRuntimeHint() {
-		if (radioUseDefault.getSelection()) return null;
+		if (radioUseDefault.getSelection()) {
+			return null;
+		}
 		return pathify(selectedPath);
 	}
 	

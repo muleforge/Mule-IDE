@@ -24,21 +24,14 @@ public class MuleProjectPlugin extends AbstractUIPlugin {
 	 * The constructor
 	 */
 	public MuleProjectPlugin() {
+		super();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
-	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
-	 */
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		MulePreferences.clearRuntimeCache();
@@ -54,16 +47,10 @@ public class MuleProjectPlugin extends AbstractUIPlugin {
 		return plugin;
 	}
 	
-	/**
-	 * 
-	 */
 	public void logError(String error) {
 		logError(error, null);
 	}
 
-	/**
-	 * 
-	 */
 	public void logError(String error, Throwable throwable) {
 		if (error == null && throwable != null) {
 			error = throwable.getMessage();
@@ -74,9 +61,6 @@ public class MuleProjectPlugin extends AbstractUIPlugin {
 		debug(error, throwable);
 	}
 	
-	/**
-	 * 
-	 */
 	private void debug(String message, Throwable throwable) {
 		if (!isDebugging()) {
 			return;
@@ -88,5 +72,4 @@ public class MuleProjectPlugin extends AbstractUIPlugin {
 			throwable.printStackTrace();
 		}
 	}
-
 }

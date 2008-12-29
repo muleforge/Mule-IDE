@@ -28,14 +28,29 @@ public class MuleSampleProject implements IMuleSampleProject {
 	private IMuleRuntime runtime;
 	private String name;
 	private String description;
-	private File root;
+	protected File root;
 
 	public static final Comparator<IMuleSampleProject> CompareByName = new Comparator<IMuleSampleProject>() {
-		@Override
 		public int compare(IMuleSampleProject p1, IMuleSampleProject p2) {
 			return p1.getName().compareTo(p2.getName());
 		}
 	};
+
+	protected static void addSourceFolder(IJavaProject project, File sourceFolder) {
+		IPath projectPath = project.getProject().getFullPath();
+		IPath confPath = new Path(sourceFolder.getName());
+		IClasspathEntry confEntry = JavaCore.newSourceEntry(projectPath.append(confPath));
+		
+		try {
+			IClasspathEntry[] entries = project.getRawClasspath();
+			IClasspathEntry[] newEntries = new IClasspathEntry[entries.length+1];
+			System.arraycopy(entries, 0, newEntries, 0, entries.length);
+			newEntries[entries.length] = confEntry;
+			project.setRawClasspath(newEntries, null);
+		} catch (JavaModelException e) {
+			MuleProjectPlugin.getInstance().logError("Error making " + sourceFolder.getName() + " a Source Folder.", e);
+		}
+	}
 
 	public MuleSampleProject(IMuleRuntime runtime, String name, String description, File root) {
 		this.runtime = runtime;
@@ -56,7 +71,7 @@ public class MuleSampleProject implements IMuleSampleProject {
 		return root;
 	}
 
-	private List<File> getSourceDirectories() {
+	protected List<File> getSourceDirectories() {
 		ArrayList<File> results = new ArrayList<File>();
 		File srcJava = new File(root, "src/main/java");
 		if (srcJava.exists()) {
@@ -105,24 +120,14 @@ public class MuleSampleProject implements IMuleSampleProject {
 		dirs = getConfDirectories();
 		for (File dir : dirs) {
 			copyIntoProject(dir, project.getProject());
+			addSourceFolder(project, dir);
 		}
 
 		// Copy resource files
 		dirs = getResourceDirectories();
 		for (File dir : dirs) {
 			copyIntoProject(dir, project.getProject());
-			IPath projectPath = project.getProject().getFullPath();
-			IPath resourcePath = new Path(dir.getName());
-			IClasspathEntry srcEntry = JavaCore.newSourceEntry(projectPath.append(resourcePath));
-			try {
-				IClasspathEntry[] entries = project.getRawClasspath();
-				IClasspathEntry[] newEntries = new IClasspathEntry[entries.length+1];
-				System.arraycopy(entries, 0, newEntries, 0, entries.length);
-				newEntries[entries.length] = srcEntry;
-				project.setRawClasspath(newEntries, null);
-			} catch (JavaModelException e) {
-				MuleProjectPlugin.getInstance().logError("Error making "+dir.getName()+" a Source Folder.", e);
-			}
+			addSourceFolder(project, dir);
 		}
 
 	}
@@ -133,7 +138,7 @@ public class MuleSampleProject implements IMuleSampleProject {
 	 * @param input
 	 * @param project
 	 */
-	private void copyIntoProject(File input, IContainer parent) {
+	protected void copyIntoProject(File input, IContainer parent) {
 		try {
 			IPath relative = new Path(input.getName());
 

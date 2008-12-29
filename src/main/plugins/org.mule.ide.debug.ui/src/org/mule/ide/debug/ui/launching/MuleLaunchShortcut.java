@@ -43,6 +43,7 @@ import org.mule.ide.debug.ui.DebugUIPlugin;
 
 public class MuleLaunchShortcut implements ILaunchShortcut {
 
+	@SuppressWarnings("unchecked")
 	public void launch(ISelection selection, String mode) {
 		if (selection instanceof IStructuredSelection) {
 			List selections = ((IStructuredSelection)selection).toList();

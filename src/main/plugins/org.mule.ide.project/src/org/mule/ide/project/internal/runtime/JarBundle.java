@@ -15,7 +15,7 @@ public class JarBundle implements IMuleBundle {
 	private final IMuleRuntime runtime;
 	private final File jar;
 	private List muleDependencies;
-	private List otherDependencies;
+	private List<String> otherDependencies;
 	private String version;
 
 	public JarBundle(IMuleRuntime runtime, File jar) {
@@ -78,7 +78,7 @@ public class JarBundle implements IMuleBundle {
 		{
 			//loadDependencies();
 		}
-		return (String[]) otherDependencies.toArray(new String[otherDependencies.size()]);
+		return otherDependencies.toArray(new String[otherDependencies.size()]);
 	}
 
 	public boolean equals(Object obj) {

@@ -5,11 +5,11 @@ Bundle-SymbolicName: org.mule.ide.debug;singleton:=true
 Bundle-Version: 1.0.0.vqualifier
 Bundle-Activator: org.mule.ide.debug.DebugPlugin
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.core.resources,
  org.eclipse.debug.core,
  org.eclipse.jdt.launching,
  org.mule.ide.project
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName
 Export-Package: org.mule.ide.debug,
  org.mule.ide.debug.launching
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -69,7 +69,8 @@ public class XMLUtils {
     	return queryDomString(doc.getDocumentElement(), path);
     }
 
-    private static void collectResults(Element element, String[] path, int index, Collection destination) {
+    @SuppressWarnings("unchecked")
+	private static void collectResults(Element element, String[] path, int index, Collection destination) {
     	// If we matched all the way to the leaf of the path, add the element to the destination....
     	String elemName = element.getNodeName();
     	int lastColon = elemName.lastIndexOf(':');

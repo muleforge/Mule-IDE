@@ -14,6 +14,10 @@
            project="true">
   	  	 <description>Create a Java project configured with Mule libraries and optionally containing example project files.</description>  
       </wizard>
+     <category
+           id="org.mule.ide.MuleWizards"
+           name="Mule">
+     </category>
    </extension>
 
    <extension point="org.eclipse.ui.preferencePages">

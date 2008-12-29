@@ -45,11 +45,6 @@ public class MuleNewProjectPage extends WizardNewProjectCreationPage {
 		setDescription("Create a new Mule project.");
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.dialogs.WizardNewProjectCreationPage#createControl(org.eclipse.swt.widgets.Composite)
-	 */
 	public void createControl(Composite parent) {
 		super.createControl(parent);
 		Composite existing = (Composite) getControl();
@@ -171,6 +166,9 @@ public class MuleNewProjectPage extends WizardNewProjectCreationPage {
 				return;
 			}
 
+			// clear out all choices. The list of choices may have been populated
+			// before when choosing a different Mule runtime
+			comboSamples.removeAll();
 			for (IMuleSampleProject sampleProject : sampleProjects) {
 				comboSamples.add(sampleProject.getName());
 			}

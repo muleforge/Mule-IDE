@@ -216,6 +216,17 @@ public class MuleRuntime implements IMuleRuntime {
 				}
 			}
 			
+			muleLibDir = new File(getDirectory(), "lib/boot");
+			if (muleLibDir.exists() && muleLibDir.isDirectory()) {
+				File[] files = muleLibDir.listFiles();
+				for (File lib : files) {
+					key = cacheLibFile(lib);
+					if (key != null) {
+						defaultLibraries.add(mapNameToBundle.get(key));
+					}
+				}
+			}
+			
 			muleLibDir = new File(getDirectory(), "lib/opt");
 			if (muleLibDir.exists() && muleLibDir.isDirectory()) {
 				File[] files = muleLibDir.listFiles();

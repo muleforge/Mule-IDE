@@ -335,7 +335,7 @@ public class MuleRuntimeChooserPanel extends Composite {
 		tableViewerLibraries.setContentProvider(new ArrayContentProvider() {
 		    public Object[] getElements(Object inputElement) {
 		    	IMuleRuntime runtime = (IMuleRuntime) inputElement;
-		    	Collection<IMuleBundle> libs = runtime.getMuleLibraries();
+		    	Collection<IMuleBundle> libs = runtime.getDefaultLibraries();
 		    	allLibraries = libs.toArray(new IMuleBundle[libs.size()]);
 		    	return allLibraries;
 		    }			

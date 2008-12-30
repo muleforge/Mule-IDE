@@ -1,9 +1,22 @@
+/*
+ * $Id$
+ * --------------------------------------------------------------------------------------
+ * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
+ *
+ * The software in this package is published under the terms of the CPAL v1.0
+ * license, a copy of which has been included with this distribution in the
+ * LICENSE.txt file.
+ */
+
 package org.mule.ide.project.internal.runtime;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Set;
+import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 
@@ -14,9 +27,10 @@ public class JarBundle implements IMuleBundle {
 
 	private final IMuleRuntime runtime;
 	private final File jar;
-	private List muleDependencies;
+//	private List muleDependencies;
 	private List<String> otherDependencies;
 	private String version;
+	private Pom pom = null;
 
 	public JarBundle(IMuleRuntime runtime, File jar) {
 		this.runtime = runtime;
@@ -74,24 +88,25 @@ public class JarBundle implements IMuleBundle {
 	}
 
 	public String[] getOtherDependencies() throws IOException {
-		if (otherDependencies == null)
-		{
+		if (otherDependencies == null) {
 			//loadDependencies();
 		}
 		return otherDependencies.toArray(new String[otherDependencies.size()]);
 	}
 
 	public boolean equals(Object obj) {
-		if (! (obj instanceof JarBundle)) return false;
-		return getFile().equals(((JarBundle)obj).getFile());
+		if (! (obj instanceof JarBundle)) {
+			return false;
+		}
+		return this.getFile().equals(((JarBundle)obj).getFile());
 	}
 
 	public int hashCode() {
-		return getFile().hashCode();
+		return this.getFile().hashCode();
 	}
 
 	public String toString() {
-		return getFile().toString();
+		return this.getFile().toString();
 	}
 	
 	public File getSourcePath() {
@@ -128,5 +143,35 @@ public class JarBundle implements IMuleBundle {
 			}
 		}
 		return version;
+	}
+	
+	public String getDisplayName() {
+		return this.getPom().getName();
+	}
+	
+	private Pom getPom() {
+		if (pom == null) {
+			InputStream pomStream = this.getPomInputStream();
+			pom = new Pom(pomStream);
+		}
+		return pom;
+	}
+	
+	private InputStream getPomInputStream() {
+		try {
+			JarFile jarFile = new JarFile(this.getFile());
+			Enumeration<JarEntry> entries = jarFile.entries();
+			while (entries.hasMoreElements()) {
+				JarEntry entry = entries.nextElement();				
+				if (entry.getName().endsWith("pom.xml")) {
+					return jarFile.getInputStream(entry);
+				}
+			}
+			
+			throw new IllegalStateException("no pom.xml found");
+		}
+		catch (IOException iox) {
+			throw new IllegalStateException(iox);
+		}
 	}
 }

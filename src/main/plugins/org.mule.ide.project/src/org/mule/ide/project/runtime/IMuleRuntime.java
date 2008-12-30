@@ -1,11 +1,11 @@
-/**
+/*
  * $Id$
  * --------------------------------------------------------------------------------------
  * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
  *
- * The software in this package is published under the terms of the MuleSource MPL
+ * The software in this package is published under the terms of the CPAL v1.0
  * license, a copy of which has been included with this distribution in the
- * MULE_LICENSE.txt file.
+ * LICENSE.txt file.
  */
 
 package org.mule.ide.project.runtime;
@@ -48,8 +48,14 @@ public interface IMuleRuntime {
 	
 	Collection<IMuleBundle> getSampleProjectDependencies(IMuleSampleProject project);
 
+	/**
+	 * @return all libraries contained in this mule installation.
+	 */
 	Collection<IMuleBundle> getDefaultLibraries();
 	
+	/**
+	 * @return all Mule libraries contained in this mule installation
+	 */
 	Collection<IMuleBundle> getMuleLibraries();
 
 	IMuleBundle getMuleLibrary(String name);
@@ -96,13 +102,4 @@ public interface IMuleRuntime {
 	 * libraries 
 	 */
 	//public IClasspathEntry[] getClasspath(IMuleBundle[] selectedBundles);
-	
-	/**
-	 * @param dtdName Name of the DTD to query for (mule-configuration.dtd or mule-spring-configuration.dtd) 
-	 * @return An inputstream for the stream, or null
-	 * 
-	 * @throws IOException If the JAR file cannot be read
-	 */
-	//InputStream getDTDContents(String dtdName) throws IOException;
-
 }

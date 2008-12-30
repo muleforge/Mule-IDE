@@ -1,7 +1,20 @@
+/*
+ * $Id$
+ * --------------------------------------------------------------------------------------
+ * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
+ *
+ * The software in this package is published under the terms of the CPAL v1.0
+ * license, a copy of which has been included with this distribution in the
+ * LICENSE.txt file.
+ */
+
 package org.mule.ide.project.internal.runtime;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,7 +28,11 @@ import org.xml.sax.SAXException;
 public class Pom {
 	private Document document;
 
-	public Pom(File pomFile) {
+	public Pom(File pomFile) throws FileNotFoundException {
+		this(new FileInputStream(pomFile));
+	}
+	
+	public Pom(InputStream inputStream) {
 		super();
 		
 		// parse the pom file right away so we have the document ready
@@ -24,7 +41,7 @@ public class Pom {
 		dbf.setNamespaceAware(true);
 		
 		try {
-			document = dbf.newDocumentBuilder().parse(pomFile);
+			document = dbf.newDocumentBuilder().parse(inputStream);
 		} catch (SAXException e) {
 			// OK: We swallow this exception - thereby ignoring any parse errors in the XML
 			//     The POM must be valid otherwise building with Maven would not work either.
@@ -33,6 +50,7 @@ public class Pom {
 		} catch (ParserConfigurationException e) {
 			// OK: This is so unlikely that it's not worth catching here.
 		}
+
 	}
 	
 	public String getArtifactId() {

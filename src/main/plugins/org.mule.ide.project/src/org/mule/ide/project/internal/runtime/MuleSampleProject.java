@@ -1,3 +1,13 @@
+/*
+ * $Id$
+ * --------------------------------------------------------------------------------------
+ * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
+ *
+ * The software in this package is published under the terms of the CPAL v1.0
+ * license, a copy of which has been included with this distribution in the
+ * LICENSE.txt file.
+ */
+
 package org.mule.ide.project.internal.runtime;
 
 import java.io.File;
@@ -31,6 +41,7 @@ public class MuleSampleProject implements IMuleSampleProject {
 	protected File root;
 
 	public static final Comparator<IMuleSampleProject> CompareByName = new Comparator<IMuleSampleProject>() {
+		@Override
 		public int compare(IMuleSampleProject p1, IMuleSampleProject p2) {
 			return p1.getName().compareTo(p2.getName());
 		}

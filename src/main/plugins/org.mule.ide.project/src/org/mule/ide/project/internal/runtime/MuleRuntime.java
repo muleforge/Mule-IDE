@@ -3,7 +3,7 @@
  * --------------------------------------------------------------------------------------
  * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
  *
- * The software in this package is published under the terms of the MuleSource MPL
+ * The software in this package is published under the terms of the CPAL v1.0
  * license, a copy of which has been included with this distribution in the
  * LICENSE.txt file.
  */
@@ -11,6 +11,7 @@
 package org.mule.ide.project.internal.runtime;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -164,7 +165,15 @@ public class MuleRuntime implements IMuleRuntime {
 		if (mapNameToBundle == null) {
 			initializeLibraryMap();
 		}
-		return mapNameToBundle.values();		
+		
+		Collection<IMuleBundle> muleLibs = new HashSet<IMuleBundle>();
+		for (IMuleBundle bundle : mapNameToBundle.values()) {
+			if (bundle.getFile().getName().startsWith(IMuleRuntime.MULE_BUNDLE_PREFIX)) {
+				muleLibs.add(bundle);
+			}
+		}
+		
+		return muleLibs;
 	}
 		
 	public Collection<IMuleBundle> getDefaultLibraries() {
@@ -337,7 +346,14 @@ public class MuleRuntime implements IMuleRuntime {
 			return;
 		}
 
-		Pom pom = new Pom(pomFile);
+		Pom pom = null;
+		try {
+			pom = new Pom(pomFile);
+		} catch (FileNotFoundException fnfe) {
+			// this may actually never happen because the code above makes sure that 
+			// the file exists.
+			throw new IllegalStateException(fnfe);
+		}
 		Iterator<String> moduleIter = pom.getSubmodules();
 		if (moduleIter.hasNext()) {
 			// do not add samples with sub-modules (e.g. the loanbroker) as we cannot make

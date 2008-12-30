@@ -14,6 +14,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -36,6 +37,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.mule.ide.project.runtime.IMuleBundle;
 
 public class MuleConfigWizard extends Wizard implements INewWizard {
 	private MuleConfigWizardPage page;
@@ -110,6 +112,7 @@ public class MuleConfigWizard extends Wizard implements INewWizard {
 			}
 			stream.close();
 		} catch (IOException e) {
+			throw new IllegalStateException(e);
 		}
 		monitor.worked(1);
 		monitor.setTaskName("Opening file for editing...");
@@ -127,9 +130,16 @@ public class MuleConfigWizard extends Wizard implements INewWizard {
 	}
 	
 	private InputStream openContentStream() {
-		String contents =
-			"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-		return new ByteArrayInputStream(contents.getBytes());
+		StringBuilder buf = new StringBuilder(128);
+		buf.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+
+		List<IMuleBundle> muleArtifacts = page.getSelectedMuleArtifacts();
+		for (IMuleBundle bundle : muleArtifacts) {
+			buf.append(bundle.getDisplayName());
+			buf.append("\n");
+		}
+		
+		return new ByteArrayInputStream(buf.toString().getBytes());
 	}
 
 	private void throwCoreException(String message) throws CoreException {

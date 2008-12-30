@@ -3,7 +3,7 @@
  * --------------------------------------------------------------------------------------
  * Copyright (c) MuleSource, Inc.  All rights reserved.  http://www.mulesource.com
  *
- * The software in this package is published under the terms of the MuleSource MPL
+ * The software in this package is published under the terms of the CPAL v1.0
  * license, a copy of which has been included with this distribution in the
  * LICENSE.txt file.
  */
@@ -108,12 +108,11 @@ public class MuleRuntimePreferencePanel extends Composite {
 		buttonAddDir.setText("&Add...");
 		gridData = new GridData(GridData.FILL, SWT.CENTER, false, false);
 		buttonAddDir.setLayoutData(gridData);
-		buttonAddDir
-				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-					public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
-						handleAddButton();
-					}
-				});
+		buttonAddDir.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+			public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
+				handleAddButton();
+			}
+		});
 		/*
 		buttonAddJar = new Button(distroGroup, SWT.NONE);
 		buttonAddJar.setText("Add Mule &JAR/RAR");
@@ -130,12 +129,11 @@ public class MuleRuntimePreferencePanel extends Composite {
 		buttonRemove.setText("&Remove");
 		gridData = new GridData(GridData.FILL, SWT.CENTER, false, false);
 		buttonRemove.setLayoutData(gridData);
-		buttonRemove
-				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-					public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
-						handleRemoveButton();
-					}
-				});
+		buttonRemove.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+			public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
+				handleRemoveButton();
+			}
+		});
 	}
 
 	/**

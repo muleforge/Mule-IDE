@@ -13,8 +13,9 @@ package org.mule.ide.config.simple.wizards;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
@@ -55,6 +56,8 @@ public class MuleConfigWizardPage extends WizardPage {
 	private Text fileText;
 	private ISelection selection;
 	private Table muleArtifactTable;
+	private Set<IMuleBundle> selectedMuleArtifacts;
+	private int lastEventTime = -1;
 
 	public MuleConfigWizardPage(ISelection selection) {
 		super("wizardPage");
@@ -143,7 +146,24 @@ public class MuleConfigWizardPage extends WizardPage {
 
 		muleArtifactTable = new Table(group, SWT.CHECK | SWT.BORDER);
 		muleArtifactTable.setHeaderVisible(false);
-		
+		muleArtifactTable.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent event) {				
+				// when clicking a checkbox at least on linux we recevie two events here, the 
+				// first one is the one we want and the other one, bearing the same timestamp,
+				// actually reverts the operation
+				if (event.time == lastEventTime) {
+					return;
+				}	
+
+				// even worse than the above is the effect that the SWT.CHECK event always comes
+				// first, even when unchecking an artifact. So the state of the event is totally
+				// useless and we have to implement the trigger semantics manually :-(
+				muleArtifactSelected((IMuleBundle)event.item.getData());
+
+				lastEventTime = event.time;
+			}
+		});
+
 		gridData = new GridData();
 		gridData.verticalSpan = 3;
 		gridData.grabExcessVerticalSpace = true;
@@ -173,24 +193,32 @@ public class MuleConfigWizardPage extends WizardPage {
 		}
 		
 		// sort by display name
-		Collections.sort(modulesAndTransports, new Comparator<IMuleBundle>() {
-			@Override
-			public int compare(IMuleBundle b1, IMuleBundle b2) {
-				return b1.getDisplayName().compareTo(b2.getDisplayName());
-			}
-		});
+		Collections.sort(modulesAndTransports, IMuleBundle.CompareByDisplayName);
 		
 		for (IMuleBundle bundle : modulesAndTransports) {
 			TableItem ti = new TableItem(muleArtifactTable, SWT.CHECK);
 			ti.setChecked(false);
 			ti.setText(bundle.getDisplayName());
+			ti.setData(bundle);
 		}		
 	}
-	
+
+	private void muleArtifactSelected(IMuleBundle bundle) {
+		boolean bundleAlreadyInSelection = selectedMuleArtifacts.contains(bundle);
+		if (bundleAlreadyInSelection) {
+			selectedMuleArtifacts.remove(bundle);
+		}
+		else {
+			selectedMuleArtifacts.add(bundle);
+		}
+	}
+
 	/**
 	 * Tests if the current workbench selection is a suitable folder to use.
 	 */
-	private void initialize() {
+	private void initialize() {		
+		selectedMuleArtifacts = new HashSet<IMuleBundle>();
+
 		if (selection != null && selection.isEmpty() == false && selection instanceof IStructuredSelection) {
 			IStructuredSelection ssel = (IStructuredSelection) selection;
 			if (ssel.size() > 1) {
@@ -275,10 +303,11 @@ public class MuleConfigWizardPage extends WizardPage {
 		IResource container = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getFolderName()));
 		String fileName = getFileName();
 
-		if (getFolderName().length() == 0) {
-			updateStatus("File container must be specified");
-			return;
-		}
+//		if (getFolderName().length() == 0) {
+//			updateStatus("File container must be specified");
+//			return;
+//		}
+		
 		if (container == null
 				|| (container.getType() & (IResource.PROJECT | IResource.FOLDER)) == 0) {
 			updateStatus("File container must exist");
@@ -318,5 +347,11 @@ public class MuleConfigWizardPage extends WizardPage {
 
 	public String getFileName() {
 		return fileText.getText();
+	}
+	
+	public List<IMuleBundle> getSelectedMuleArtifacts() {
+		List<IMuleBundle> selected = new ArrayList<IMuleBundle>(selectedMuleArtifacts);
+		Collections.sort(selected, IMuleBundle.CompareByDisplayName);
+		return selected;
 	}
 }

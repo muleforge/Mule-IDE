@@ -10,10 +10,23 @@
 
 package org.mule.ide.config.simple.wizards;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
@@ -32,11 +45,16 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
+import org.mule.ide.project.MulePreferences;
+import org.mule.ide.project.MuleProjectPlugin;
+import org.mule.ide.project.runtime.IMuleBundle;
+import org.mule.ide.project.runtime.IMuleRuntime;
 
 public class MuleConfigWizardPage extends WizardPage {
-	private Text containerText;
+	private Text folderText;
 	private Text fileText;
 	private ISelection selection;
+	private Table muleArtifactTable;
 
 	public MuleConfigWizardPage(ISelection selection) {
 		super("wizardPage");
@@ -78,12 +96,12 @@ public class MuleConfigWizardPage extends WizardPage {
 		Label label = new Label(group, SWT.NULL);
 		label.setText("&Folder:");
 
-		containerText = new Text(group, SWT.BORDER | SWT.SINGLE);
+		folderText = new Text(group, SWT.BORDER | SWT.SINGLE);
 		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-		containerText.setLayoutData(gd);
-		containerText.addModifyListener(new ModifyListener() {
+		folderText.setLayoutData(gd);
+		folderText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
-				dialogChanged();
+				folderTextChanged();
 			}
 		});
 
@@ -123,8 +141,8 @@ public class MuleConfigWizardPage extends WizardPage {
 		gridData.grabExcessHorizontalSpace = true;
 		group.setLayoutData(gridData);
 
-		Table table = new Table(group, SWT.CHECK | SWT.BORDER);
-		table.setHeaderVisible(false);
+		muleArtifactTable = new Table(group, SWT.CHECK | SWT.BORDER);
+		muleArtifactTable.setHeaderVisible(false);
 		
 		gridData = new GridData();
 		gridData.verticalSpan = 3;
@@ -132,64 +150,132 @@ public class MuleConfigWizardPage extends WizardPage {
 		gridData.grabExcessHorizontalSpace = true;
 		gridData.verticalAlignment = org.eclipse.swt.layout.GridData.FILL;
 		gridData.horizontalAlignment = org.eclipse.swt.layout.GridData.FILL;
-		table.setLayoutData(gridData);
-		table.setLinesVisible(false);
-
-		table.clearAll();
-		
-		for (int i = 0; i < 40; i++) {
-			TableItem ti = new TableItem(table, SWT.CHECK);
-			ti.setChecked(false);
-			ti.setText("Axis Transport");
-		}
+		muleArtifactTable.setLayoutData(gridData);
+		muleArtifactTable.setLinesVisible(false);
 	}
-
+	
+	private void populateMuleArtifactTable(IMuleRuntime runtime) {
+		if (runtime == null) {
+			return;
+		}
+		
+		muleArtifactTable.clearAll();
+		
+		// filter out examples etc.
+		Collection<IMuleBundle> muleLibs = runtime.getMuleLibraries();
+		List<IMuleBundle> modulesAndTransports = new ArrayList<IMuleBundle>();
+		for (IMuleBundle bundle : muleLibs) {
+			String fileName = bundle.getFile().getName();
+			if (fileName.startsWith(IMuleBundle.MULE_MODULE_PREFIX) ||
+				fileName.startsWith(IMuleBundle.MULE_TRANSPORT_PREFIX)) {
+				modulesAndTransports.add(bundle);
+			}
+		}
+		
+		// sort by display name
+		Collections.sort(modulesAndTransports, new Comparator<IMuleBundle>() {
+			@Override
+			public int compare(IMuleBundle b1, IMuleBundle b2) {
+				return b1.getDisplayName().compareTo(b2.getDisplayName());
+			}
+		});
+		
+		for (IMuleBundle bundle : modulesAndTransports) {
+			TableItem ti = new TableItem(muleArtifactTable, SWT.CHECK);
+			ti.setChecked(false);
+			ti.setText(bundle.getDisplayName());
+		}		
+	}
+	
 	/**
-	 * Tests if the current workbench selection is a suitable container to use.
+	 * Tests if the current workbench selection is a suitable folder to use.
 	 */
 	private void initialize() {
-		if (selection != null && selection.isEmpty() == false
-				&& selection instanceof IStructuredSelection) {
+		if (selection != null && selection.isEmpty() == false && selection instanceof IStructuredSelection) {
 			IStructuredSelection ssel = (IStructuredSelection) selection;
-			if (ssel.size() > 1)
+			if (ssel.size() > 1) {
 				return;
+			}
+			
 			Object obj = ssel.getFirstElement();
 			if (obj instanceof IResource) {
 				IContainer container;
-				if (obj instanceof IContainer)
+				if (obj instanceof IContainer) {
 					container = (IContainer) obj;
-				else
+				}
+				else {
 					container = ((IResource) obj).getParent();
-				containerText.setText(container.getFullPath().toString());
+				}
+				
+				folderText.setText(container.getFullPath().toString());
 			}
 		}
+		
 		fileText.setText("mule-config.xml");
 	}
 
 	/**
 	 * Uses the standard container selection dialog to choose the new value for
-	 * the container field.
+	 * the folder field.
 	 */
 	private void handleBrowse() {
 		ContainerSelectionDialog dialog = new ContainerSelectionDialog(
 				getShell(), ResourcesPlugin.getWorkspace().getRoot(), false,
-				"Select new file container");
+				"Select folder");
 		if (dialog.open() == ContainerSelectionDialog.OK) {
 			Object[] result = dialog.getResult();
 			if (result.length == 1) {
-				containerText.setText(((Path) result[0]).toString());
+				folderText.setText(((Path) result[0]).toString());
 			}
 		}
 	}
 
+	private void folderTextChanged() {
+		IPath path = new Path(this.getFolderName());
+		IResource container = ResourcesPlugin.getWorkspace().getRoot().findMember(path);
+
+		// find the selected project
+		IProject project = null;
+		while (container != null) {
+			container = container.getParent();
+			if (container instanceof IProject) {
+				project = (IProject)container;
+				break;
+			}
+		}
+		
+		if (project != null) {
+			// find the respective JavaProject
+			IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+			IJavaProject javaProject = JavaCore.create(workspaceRoot).getJavaProject(project.getName());
+			try {
+				IClasspathEntry[] classpath = javaProject.getRawClasspath();
+				for (IClasspathEntry entry : classpath) {
+					if (entry.getEntryKind() == IClasspathEntry.CPE_CONTAINER) {
+						IPath entryPath = entry.getPath();
+						IPath muleRuntimeIdentifier = new Path(MuleProjectPlugin.ID_MULE_CLASSPATH_CONTAINER);
+						if (entryPath.matchingFirstSegments(muleRuntimeIdentifier) == 1) {
+							// this is the Mule library, extract the version from it
+							String muleRuntimePath = entryPath.lastSegment();
+							IMuleRuntime runtime = MulePreferences.getMuleRuntime(muleRuntimePath);
+							this.populateMuleArtifactTable(runtime);
+						}
+					}
+				}
+			} catch (JavaModelException e) {
+				MuleProjectPlugin.getInstance().logError("error determining classpath", e);
+			}
+		}
+	}
+	
 	/**
 	 * Ensures that both text fields are set.
 	 */
 	private void dialogChanged() {
-		IResource container = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getContainerName()));
+		IResource container = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getFolderName()));
 		String fileName = getFileName();
 
-		if (getContainerName().length() == 0) {
+		if (getFolderName().length() == 0) {
 			updateStatus("File container must be specified");
 			return;
 		}
@@ -226,8 +312,8 @@ public class MuleConfigWizardPage extends WizardPage {
 		setPageComplete(message == null);
 	}
 
-	public String getContainerName() {
-		return containerText.getText();
+	public String getFolderName() {
+		return folderText.getText();
 	}
 
 	public String getFileName() {

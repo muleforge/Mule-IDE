@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.mule.ide.MuleWizards"
+            class="org.mule.ide.config.simple.wizards.MuleConfigWizard"
+            icon="icons/mule-small.gif"
+            id="org.mule.ide.config.simple.wizards.MuleConfigWizard"
+            name="Mule Configuration">
+         <description>
+            Create a new Mule configuration file
+         </description>
+      </wizard>
+   </extension>
+
+</plugin>

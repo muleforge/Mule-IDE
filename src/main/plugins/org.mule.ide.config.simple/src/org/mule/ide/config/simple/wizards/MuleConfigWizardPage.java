@@ -300,9 +300,17 @@ public class MuleConfigWizardPage extends WizardPage {
 						IPath entryPath = entry.getPath();
 						IPath muleRuntimeIdentifier = new Path(MuleProjectPlugin.ID_MULE_CLASSPATH_CONTAINER);
 						if (entryPath.matchingFirstSegments(muleRuntimeIdentifier) == 1) {
-							// this is the Mule library, extract the version from it
-							String muleRuntimePath = entryPath.lastSegment();
-							IMuleRuntime runtime = MulePreferences.getMuleRuntime(muleRuntimePath);
+							IMuleRuntime runtime = null;
+
+							if (entryPath.segmentCount() == 2) {
+								// this is the default Mule Runtime
+								runtime = MulePreferences.getDefaultMuleRuntime();
+							}
+							else {
+								// this is the Mule library, extract the version from it
+								String muleRuntimePath = entryPath.lastSegment();						
+								runtime = MulePreferences.getMuleRuntime(muleRuntimePath);
+							}
 							this.populateMuleArtifactTable(runtime);
 						}
 					}

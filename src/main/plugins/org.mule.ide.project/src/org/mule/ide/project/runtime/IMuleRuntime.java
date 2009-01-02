@@ -58,7 +58,18 @@ public interface IMuleRuntime {
 	 */
 	Collection<IMuleBundle> getMuleLibraries();
 
+	/**
+	 * @return the library from the <code>lib/mule</code> folder that matches <code>name</code>.
+	 * @param name can be either a full key (i.e. mule_mule-core-2.1.jar) or an abbreviated key
+	 *         (e.g. mule-core).
+	 */
 	IMuleBundle getMuleLibrary(String name);
+	
+	/**
+	 * @return IMuleBundle that represents the library <code>name</code>.
+	 * @param name of the library as cached internally in MuleRuntime (i.e. opt_log4j-1.2.12.jar)
+	 */
+	IMuleBundle getLibrary(String name);
 	
 	File getSourceZip();
 	

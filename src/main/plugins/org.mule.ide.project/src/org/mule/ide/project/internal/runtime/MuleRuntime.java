@@ -151,18 +151,20 @@ public class MuleRuntime implements IMuleRuntime {
 	}
 	*/
 	
-	public IMuleBundle getMuleLibrary(String name) {
-		if (mapNameToBundle == null) {
-			initializeLibraryMap();
-		}
-		
+	public IMuleBundle getMuleLibrary(String name) {		
 		if (name.startsWith("mule_") == false) {
 			name = "mule_" + name;
 		}
 		if (name.endsWith(this.getVersion()) == false) {
 			name = name + "-" + this.getVersion() + ".jar";
 		}
-		
+		return this.getLibrary(name);
+	}
+	
+	public IMuleBundle getLibrary(String name) {
+		if (mapNameToBundle == null) {
+			initializeLibraryMap();
+		}
 		return mapNameToBundle.get(name);				
 	}
 	

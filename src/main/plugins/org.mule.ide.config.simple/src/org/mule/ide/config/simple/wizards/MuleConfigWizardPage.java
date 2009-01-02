@@ -179,6 +179,11 @@ public class MuleConfigWizardPage extends WizardPage {
 			return;
 		}
 		
+		// the spring-config module must be selected in any case because it contains the
+		// URL to the mule.xsd
+		IMuleBundle springConfigBundle = runtime.getMuleLibrary(IMuleBundle.MULE_MODULE_SPRING_CONFIG);
+		selectedMuleArtifacts.add(springConfigBundle);
+		
 		muleArtifactTable.clearAll();
 		
 		// filter out examples etc.
@@ -197,13 +202,25 @@ public class MuleConfigWizardPage extends WizardPage {
 		
 		for (IMuleBundle bundle : modulesAndTransports) {
 			TableItem ti = new TableItem(muleArtifactTable, SWT.CHECK);
-			ti.setChecked(false);
+			
+			if (bundle.getFile().getName().indexOf(IMuleBundle.MULE_MODULE_SPRING_CONFIG) > -1) {
+				ti.setChecked(true);
+			}
+			else {
+				ti.setChecked(false);
+			}
 			ti.setText(bundle.getDisplayName());
 			ti.setData(bundle);
 		}		
 	}
 
 	private void muleArtifactSelected(IMuleBundle bundle) {
+		// filter out events for mule-module-spring-config, we always need it because it contains
+		// the core mule.xsd
+		if (bundle.getFile().getName().indexOf(IMuleBundle.MULE_MODULE_SPRING_CONFIG) > -1) {
+			return;
+		}
+		
 		boolean bundleAlreadyInSelection = selectedMuleArtifacts.contains(bundle);
 		if (bundleAlreadyInSelection) {
 			selectedMuleArtifacts.remove(bundle);
@@ -304,13 +321,12 @@ public class MuleConfigWizardPage extends WizardPage {
 		String fileName = getFileName();
 
 //		if (getFolderName().length() == 0) {
-//			updateStatus("File container must be specified");
+//			updateStatus("Folder must be specified");
 //			return;
 //		}
 		
-		if (container == null
-				|| (container.getType() & (IResource.PROJECT | IResource.FOLDER)) == 0) {
-			updateStatus("File container must exist");
+		if (container == null || (container.getType() & (IResource.PROJECT | IResource.FOLDER)) == 0) {
+			updateStatus("Folder must exist");
 			return;
 		}
 		if (!container.isAccessible()) {

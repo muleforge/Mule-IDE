@@ -15,10 +15,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
+import java.util.zip.ZipEntry;
 
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
@@ -173,5 +175,34 @@ public class JarBundle implements IMuleBundle {
 		catch (IOException iox) {
 			throw new IllegalStateException(iox);
 		}
+	}
+
+	@Override
+	public String[] getNamespaceUrls() {
+		try {
+			JarFile jarFile = new JarFile(this.getFile());
+			ZipEntry springSchemas = jarFile.getEntry("META-INF/spring.schemas");
+			if (springSchemas != null)
+			{
+				Properties props = new Properties();
+				props.load(jarFile.getInputStream(springSchemas));
+				
+				Set<Object> keys = props.keySet();
+				String[] namespaceUrls = new String[keys.size()];
+				int i = 0;
+				for (Object key : keys) {
+					String url = key.toString();
+					namespaceUrls[i] = url.replace("\\:", ":");
+					
+					i++;
+				}
+				
+				return namespaceUrls;
+			}
+		}
+		catch (IOException iox) {
+			throw new IllegalStateException(iox);
+		}
+		return new String[0];
 	}
 }

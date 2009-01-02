@@ -33,9 +33,6 @@ public class MuleRuntime implements IMuleRuntime {
 	private static final String JAR_SUFFIX = ".jar";
 	private static final String MULE_JAR_SUFFIX = "-2.0.0.jar";
 	
-	//private static final String MODULE_PREFIX = "module-";
-	//private static final String TRANSPORT_PREFIX = "transport-";
-
 	// Map of pathified bundle name to IMuleBundle
 	private TreeMap<String, IMuleBundle> mapNameToBundle = null;
 	// Map of artifactID to IMuleBundle
@@ -158,6 +155,14 @@ public class MuleRuntime implements IMuleRuntime {
 		if (mapNameToBundle == null) {
 			initializeLibraryMap();
 		}
+		
+		if (name.startsWith("mule_") == false) {
+			name = "mule_" + name;
+		}
+		if (name.endsWith(this.getVersion()) == false) {
+			name = name + "-" + this.getVersion() + ".jar";
+		}
+		
 		return mapNameToBundle.get(name);				
 	}
 	

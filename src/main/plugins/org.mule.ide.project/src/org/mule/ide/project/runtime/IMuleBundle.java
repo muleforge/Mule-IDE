@@ -19,6 +19,11 @@ public interface IMuleBundle {
 	String MULE_TRANSPORT_PREFIX = IMuleRuntime.MULE_BUNDLE_PREFIX + "transport-";
 	
 	/**
+	 * Constants for certain prominent mule bundles
+	 */
+	String MULE_MODULE_SPRING_CONFIG = MULE_MODULE_PREFIX + "spring-config";
+	
+	/**
 	 * Comparator to compare IMuleBundle instances by their {@link #getDisplayName()} method.
 	 */
 	Comparator<IMuleBundle> CompareByDisplayName = new Comparator<IMuleBundle>() {
@@ -34,4 +39,9 @@ public interface IMuleBundle {
 	File getSourcePath();
 	String getVersion();
 	String getDisplayName();
+	
+	/**
+	 * @return String[] with namespace URLs that this bundle supports
+	 */
+	String[] getNamespaceUrls();
 }

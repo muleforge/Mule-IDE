@@ -10,7 +10,6 @@
 
 package org.mule.ide.config.simple.wizards;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -130,16 +129,8 @@ public class MuleConfigWizard extends Wizard implements INewWizard {
 	}
 	
 	private InputStream openContentStream() {
-		StringBuilder buf = new StringBuilder(128);
-		buf.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-
 		List<IMuleBundle> muleArtifacts = page.getSelectedMuleArtifacts();
-		for (IMuleBundle bundle : muleArtifacts) {
-			buf.append(bundle.getDisplayName());
-			buf.append("\n");
-		}
-		
-		return new ByteArrayInputStream(buf.toString().getBytes());
+		return MuleXmlFile.generateXmlFile(muleArtifacts);
 	}
 
 	private void throwCoreException(String message) throws CoreException {

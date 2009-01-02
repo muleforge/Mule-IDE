@@ -327,13 +327,8 @@ public class MuleConfigWizardPage extends WizardPage {
 	private void dialogChanged() {
 		IResource container = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getFolderName()));
 		String fileName = getFileName();
-
-//		if (getFolderName().length() == 0) {
-//			updateStatus("Folder must be specified");
-//			return;
-//		}
 		
-		if (container == null || (container.getType() & (IResource.PROJECT | IResource.FOLDER)) == 0) {
+		if (container.exists() == false) {
 			updateStatus("Folder must exist");
 			return;
 		}
@@ -341,6 +336,7 @@ public class MuleConfigWizardPage extends WizardPage {
 			updateStatus("Project must be writable");
 			return;
 		}
+		
 		if (fileName.length() == 0) {
 			updateStatus("File name must be specified");
 			return;

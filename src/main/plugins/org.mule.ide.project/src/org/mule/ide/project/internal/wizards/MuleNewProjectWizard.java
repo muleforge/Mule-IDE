@@ -44,9 +44,8 @@ import org.mule.ide.project.runtime.IMuleSampleProject;
  */
 public class MuleNewProjectWizard extends Wizard implements INewWizard {
 
-	private static final String MULE_MODULE_BUILDER_NAME = "module-builder";
-
-	private static final String MULE_TRANSPORT_TCP_NAME = "transport-tcp";
+//	private static final String MULE_MODULE_BUILDER_NAME = "module-builder";
+//	private static final String MULE_TRANSPORT_TCP_NAME = "transport-tcp";
 
 	/** The workbench handle */
 	private IWorkbench workbench;
@@ -56,9 +55,6 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard {
 
 	/** Page for setting up java project capabilities */
 	private NewJavaProjectWizardPage javaPage;
-
-	/** Static constant for config folder name */
-	private static final String CONFIG_FOLDER_NAME = "conf";
 
 	public void addPages() {
 		setWindowTitle("New Mule Project");

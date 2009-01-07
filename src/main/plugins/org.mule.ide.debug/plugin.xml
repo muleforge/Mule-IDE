@@ -8,7 +8,7 @@
             delegate="org.mule.ide.debug.launching.MuleLaunchDelegate"
             id="org.mule.ide.debug.launching.localMuleServer"
             modes="run, debug"
-            name="Local Mule Server"
+            name="%launchConfigurationType.name.0"
             sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
             sourcePathComputerId="org.eclipse.jdt.launching.sourceLookup.javaSourcePathComputer">
       </launchConfigurationType>

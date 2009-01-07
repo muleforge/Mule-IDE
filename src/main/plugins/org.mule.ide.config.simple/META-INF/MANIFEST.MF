@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Simple Mule Config Editor
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.mule.ide.config.simple;singleton:=true
 Bundle-Version: 1.0.0.vqualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
@@ -10,3 +10,5 @@ Require-Bundle: org.eclipse.core.resources,
  org.eclipse.core.runtime,
  org.mule.ide.project;bundle-version="1.0.0",
  org.eclipse.jdt.core
+Bundle-Localization: plugin
+Bundle-Vendor: %providerName

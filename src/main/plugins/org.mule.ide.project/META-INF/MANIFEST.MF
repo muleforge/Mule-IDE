@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Mule Project
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.mule.ide.project; singleton:=true
 Bundle-Version: 1.0.0.vqualifier
 Bundle-Activator: org.mule.ide.project.MuleProjectPlugin
@@ -15,3 +15,5 @@ Export-Package: org.mule.ide.project,
  org.mule.ide.project.runtime,
  org.mule.ide.project.runtime.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Localization: plugin
+Bundle-Vendor: %providerName

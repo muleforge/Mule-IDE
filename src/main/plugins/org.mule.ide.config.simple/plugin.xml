@@ -8,9 +8,9 @@
             class="org.mule.ide.config.simple.wizards.MuleConfigWizard"
             icon="icons/mule-small.gif"
             id="org.mule.ide.config.simple.wizards.MuleConfigWizard"
-            name="Mule Configuration">
+            name="%wizard.name.0">
          <description>
-            Create a new Mule configuration file
+            %wizard.description.0
          </description>
       </wizard>
    </extension>

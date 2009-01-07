@@ -10,13 +10,13 @@
            hasPages="true"
            icon="icons/mule-small.gif"
            id="org.mule.ide.project.internal.wizards.MuleNewProjectWizardID"
-           name="Mule Project"
+           name="%wizard.name.0"
            project="true">
-  	  	 <description>Create a Java project configured with Mule libraries and optionally containing example project files.</description>  
+  	  	 <description>%wizard.description.0</description>  
       </wizard>
      <category
            id="org.mule.ide.MuleWizards"
-           name="Mule">
+           name="%category.name.0">
      </category>
    </extension>
 
@@ -24,7 +24,7 @@
       <page
             class="org.mule.ide.project.internal.preferences.MulePreferencesPage"
             id="org.mule.ide.preferences.MulePreferencePage"
-            name="Mule">
+            name="%page.name.0">
          
          <keywordReference id="org.mule.ide.project.keyword.mule"/>
       </page>
@@ -34,7 +34,7 @@
          point="org.eclipse.ui.keywords">
       <keyword
             id="org.mule.ide.project.keyword.mule"
-            label="Mule"/>
+            label="%keyword.label.0"/>
    </extension>
  
    <extension
@@ -49,7 +49,7 @@
       <classpathContainerPage
             class="org.mule.ide.project.internal.runtime.MuleClasspathContainerPage"
             id="org.mule.ide.project.muleClasspath"
-            name="Mule Classpath"/>
+            name="%classpathContainerPage.name.0"/>
    </extension>
    
 </plugin>

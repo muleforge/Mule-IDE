@@ -23,7 +23,7 @@
             class="org.mule.ide.debug.ui.launching.MuleLaunchShortcut"
             icon="icons/config-file.gif"
             id="org.mule.ide.debug.ui.MuleLaunchShortcut"
-            label="Mule Server"
+            label="%shortcut.label.0"
             modes="run,debug">
 		<contextualLaunch>
 			<enablement>

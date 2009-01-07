@@ -56,7 +56,33 @@ public class MuleRuntime implements IMuleRuntime {
 		if (! rootDirectory.isDirectory()) {
 			return new Status(IStatus.ERROR, MuleProjectPlugin.PLUGIN_ID, "Mule runtime location must be a directory: " + rootDirectory);	
 		}
-		// TODO validate content
+
+		File libDir = new File(rootDirectory, "lib");
+		if ((libDir.isDirectory() == false) || (libDir.canRead() == false)) {
+			return new Status(IStatus.ERROR, MuleProjectPlugin.PLUGIN_ID, "Library directory missing from " + rootDirectory);
+		}
+		File bootLibDir = new File(libDir, "boot");
+		if ((bootLibDir.isDirectory() == false) || (bootLibDir.canRead() == false)) {
+			return new Status(IStatus.ERROR, MuleProjectPlugin.PLUGIN_ID, "lib/boot directory missing from " + rootDirectory);
+		}
+		File muleLibDir = new File(libDir, "mule");
+		if ((muleLibDir.isDirectory() == false) || (muleLibDir.canRead() == false)) {
+			return new Status(IStatus.ERROR, MuleProjectPlugin.PLUGIN_ID, "lib/mule directory missing from " + rootDirectory);
+		}
+		File optLibDir = new File(libDir, "opt");
+		if ((optLibDir.isDirectory() == false) || (optLibDir.canRead() == false)) {
+			return new Status(IStatus.ERROR, MuleProjectPlugin.PLUGIN_ID, "lib/opt directory missing from " + rootDirectory);
+		}
+		File userLibDir = new File(libDir, "user");
+		if ((userLibDir.isDirectory() == false) || (userLibDir.canRead() == false)) {
+			return new Status(IStatus.ERROR, MuleProjectPlugin.PLUGIN_ID, "lib/user directory missing from " + rootDirectory);
+		}
+
+		File srcDir = new File(rootDirectory, "src");
+		if ((srcDir.isDirectory() == false) || (srcDir.canRead() == false)) {
+			return new Status(IStatus.ERROR, MuleProjectPlugin.PLUGIN_ID, "Source directory missing from " + rootDirectory);
+		}
+		
 		return Status.OK_STATUS;
 	}
 	

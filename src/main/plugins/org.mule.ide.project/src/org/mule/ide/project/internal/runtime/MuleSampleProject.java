@@ -41,7 +41,6 @@ public class MuleSampleProject implements IMuleSampleProject {
 	protected File root;
 
 	public static final Comparator<IMuleSampleProject> CompareByName = new Comparator<IMuleSampleProject>() {
-		@Override
 		public int compare(IMuleSampleProject p1, IMuleSampleProject p2) {
 			return p1.getName().compareTo(p2.getName());
 		}

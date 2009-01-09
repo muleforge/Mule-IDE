@@ -14,6 +14,6 @@ Bundle-ActivationPolicy: lazy
 Export-Package: org.mule.ide.project,
  org.mule.ide.project.runtime,
  org.mule.ide.project.runtime.ui
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Localization: plugin
 Bundle-Vendor: %providerName

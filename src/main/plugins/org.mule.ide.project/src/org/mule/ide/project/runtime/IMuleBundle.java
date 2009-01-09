@@ -27,7 +27,6 @@ public interface IMuleBundle {
 	 * Comparator to compare IMuleBundle instances by their {@link #getDisplayName()} method.
 	 */
 	Comparator<IMuleBundle> CompareByDisplayName = new Comparator<IMuleBundle>() {
-		@Override
 		public int compare(IMuleBundle b1, IMuleBundle b2) {
 			return b1.getDisplayName().compareTo(b2.getDisplayName());
 		}

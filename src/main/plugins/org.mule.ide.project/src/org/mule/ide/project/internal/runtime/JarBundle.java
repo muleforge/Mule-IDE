@@ -177,7 +177,6 @@ public class JarBundle implements IMuleBundle {
 		}
 	}
 
-	@Override
 	public String[] getNamespaceUrls() {
 		try {
 			JarFile jarFile = new JarFile(this.getFile());

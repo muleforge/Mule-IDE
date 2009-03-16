@@ -31,7 +31,6 @@ import org.mule.ide.project.runtime.IMuleSampleProject;
 
 public class MuleRuntime implements IMuleRuntime {
 	private static final String JAR_SUFFIX = ".jar";
-	private static final String MULE_JAR_SUFFIX = "-2.0.0.jar";
 	
 	// Map of pathified bundle name to IMuleBundle
 	private TreeMap<String, IMuleBundle> mapNameToBundle = null;
@@ -233,50 +232,26 @@ public class MuleRuntime implements IMuleRuntime {
 	}
 
 	private synchronized void initializeLibraryMap() {
-		String key;
 		if (mapNameToBundle == null) {
 			mapNameToBundle = new TreeMap<String, IMuleBundle>();
 			mapArtifactIdToBundle = new HashMap<String, IMuleBundle>();
 			defaultLibraries = new ArrayList<IMuleBundle>(100);
 			
-			File muleLibDir = new File(getDirectory(), "lib/mule");
-			if (muleLibDir.exists() && muleLibDir.isDirectory()) {
-				File[] files = muleLibDir.listFiles();
-				for (File lib : files) {
-					key = cacheLibFile(lib);
-					if (key != null) {
-						defaultLibraries.add(mapNameToBundle.get(key));
-					}
-				}
-			}
-						
-			muleLibDir = new File(getDirectory(), "lib/boot");
-			if (muleLibDir.exists() && muleLibDir.isDirectory()) {
-				File[] files = muleLibDir.listFiles();
-				for (File lib : files) {
-					key = cacheLibFile(lib);
-					if (key != null) {
-						defaultLibraries.add(mapNameToBundle.get(key));
-					}
-				}
-			}
-			
-			muleLibDir = new File(getDirectory(), "lib/opt");
-			if (muleLibDir.exists() && muleLibDir.isDirectory()) {
-				File[] files = muleLibDir.listFiles();
-				for (File lib : files) {
-					key = cacheLibFile(lib);
-					if (key != null) {
-						defaultLibraries.add(mapNameToBundle.get(key));
-					}
-				}
-			}
+			cacheDirectory("lib/mule");
+			cacheDirectory("lib/boot");
+			cacheDirectory("lib/opt");
+			cacheDirectory("lib/user");
+		}
+	}
 	
-			muleLibDir = new File(getDirectory(), "lib/user");
-			if (muleLibDir.exists() && muleLibDir.isDirectory()) {
-				File[] files = muleLibDir.listFiles();
-				for (File lib : files) {
-					cacheLibFile(lib);
+	private void cacheDirectory(String dirSuffix) {
+		File muleLibDir = new File(getDirectory(), dirSuffix);
+		if (muleLibDir.exists() && muleLibDir.isDirectory()) {
+			File[] files = muleLibDir.listFiles();
+			for (File lib : files) {
+				String key = cacheLibFile(lib);
+				if (key != null) {
+					defaultLibraries.add(mapNameToBundle.get(key));
 				}
 			}
 		}
@@ -287,15 +262,12 @@ public class MuleRuntime implements IMuleRuntime {
 		String libFileName = lib.getName();
 		if (libFileName.endsWith(JAR_SUFFIX)) {
 			JarBundle jarBundle = new JarBundle(this, lib);
+			
 			lookupKey = jarBundle.getPathifiedName();
 			mapNameToBundle.put(lookupKey, jarBundle);
-			if (libFileName.endsWith(MULE_JAR_SUFFIX)) {
-				String artifactId = libFileName.substring(0, libFileName.length()-MULE_JAR_SUFFIX.length());
-				mapArtifactIdToBundle.put(artifactId, jarBundle);
-			} else {
-				String artifactId = libFileName.substring(0, libFileName.length()-JAR_SUFFIX.length());
-				mapArtifactIdToBundle.put(artifactId, jarBundle);				
-			}
+			
+			String artifactId = libFileName.substring(0, libFileName.length() - JAR_SUFFIX.length());
+			mapArtifactIdToBundle.put(artifactId, jarBundle);				
 		}	
 		return lookupKey;
 	}

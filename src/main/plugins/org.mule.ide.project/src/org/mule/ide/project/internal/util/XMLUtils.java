@@ -29,7 +29,7 @@ public class XMLUtils {
      * @return NodeList of matching nodes
      */
     public static NodeList queryDomNodes(Element element, String path) {
-    	final List nodeList = new ArrayList(10);
+    	final List<Node> nodeList = new ArrayList<Node>(10);
     	String steps[] = path.split("/");
         collectResults(element, steps, 0, nodeList);
     	
@@ -38,8 +38,10 @@ public class XMLUtils {
         		return nodeList.size();
         	}
         	public Node item(int index) {
-        		if (index < 0 || index >= nodeList.size()) return null;
-        		return (Node)nodeList.get(index);
+        		if (index < 0 || index >= nodeList.size()) {
+        			return null;
+        		}
+        		return nodeList.get(index);
         	}
         };
     }
@@ -69,8 +71,7 @@ public class XMLUtils {
     	return queryDomString(doc.getDocumentElement(), path);
     }
 
-    @SuppressWarnings("unchecked")
-	private static void collectResults(Element element, String[] path, int index, Collection destination) {
+	private static void collectResults(Element element, String[] path, int index, Collection<Node> destination) {
     	// If we matched all the way to the leaf of the path, add the element to the destination....
     	String elemName = element.getNodeName();
     	int lastColon = elemName.lastIndexOf(':');

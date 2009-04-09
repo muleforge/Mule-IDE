@@ -27,8 +27,6 @@ public class MuleClasspathContainerPage extends WizardPage implements IClasspath
 		super("Mule Classpath");
 		this.setTitle("Mule Distribution and Modules");
 		this.setDescription("Please choose the Mule distribution to use for this project, and choose which modules and transports to include");
-		//this.setImageDescriptor(MulePlugin.getDefault().getImageRegistry().getDescriptor(
-		//		IMuleImages.KEY_MULE_WIZARD_BANNER));
 	}
 	
 	public boolean finish() {
@@ -45,12 +43,12 @@ public class MuleClasspathContainerPage extends WizardPage implements IClasspath
 		this.selection = containerEntry;
 	}
 
-	
 	public void createControl(Composite parent) {
 		chooserPanel = new MuleRuntimeChooserPanel(parent, SWT.NONE, false);
 		setControl(chooserPanel);
 	}
 
+	@Override
 	public void setVisible(boolean visible) {
 		super.setVisible(visible);
 		if (visible) {

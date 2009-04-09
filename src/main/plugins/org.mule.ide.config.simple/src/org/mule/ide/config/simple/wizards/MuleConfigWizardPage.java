@@ -25,10 +25,10 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -54,12 +54,12 @@ import org.mule.ide.project.runtime.IMuleRuntime;
 public class MuleConfigWizardPage extends WizardPage {
 	private Text folderText;
 	private Text fileText;
-	private ISelection selection;
+	private IStructuredSelection selection;
 	private Table muleArtifactTable;
 	private Set<IMuleBundle> selectedMuleArtifacts;
 	private int lastEventTime = -1;
 
-	public MuleConfigWizardPage(ISelection selection) {
+	public MuleConfigWizardPage(IStructuredSelection selection) {
 		super("wizardPage");
 		setTitle("Mule Configuration File");
 		setDescription("This wizard creates a new Mule configuration file with the selected namespaces.");
@@ -236,13 +236,12 @@ public class MuleConfigWizardPage extends WizardPage {
 	private void initialize() {		
 		selectedMuleArtifacts = new HashSet<IMuleBundle>();
 
-		if (selection != null && selection.isEmpty() == false && selection instanceof IStructuredSelection) {
-			IStructuredSelection ssel = (IStructuredSelection) selection;
-			if (ssel.size() > 1) {
+		if ((selection != null) && (selection.isEmpty() == false)) {
+			if (selection.size() > 1) {
 				return;
 			}
 			
-			Object obj = ssel.getFirstElement();
+			Object obj = selection.getFirstElement();
 			if (obj instanceof IResource) {
 				IContainer container;
 				if (obj instanceof IContainer) {
@@ -253,6 +252,10 @@ public class MuleConfigWizardPage extends WizardPage {
 				}
 				
 				folderText.setText(container.getFullPath().toString());
+			}
+			else if (obj instanceof IJavaElement) {
+				IJavaElement javaElement = (IJavaElement)obj;
+				folderText.setText(javaElement.getPath().toString());
 			}
 		}
 		

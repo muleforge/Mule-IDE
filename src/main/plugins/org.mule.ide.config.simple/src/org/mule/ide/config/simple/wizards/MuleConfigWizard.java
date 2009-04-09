@@ -27,7 +27,6 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
@@ -40,7 +39,7 @@ import org.mule.ide.project.runtime.IMuleBundle;
 
 public class MuleConfigWizard extends Wizard implements INewWizard {
 	private MuleConfigWizardPage page;
-	private ISelection selection;
+	private IStructuredSelection selection;
 
 	public MuleConfigWizard() {
 		super();

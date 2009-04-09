@@ -17,16 +17,20 @@ import java.util.List;
 import org.mule.ide.project.runtime.IMuleBundle;
 
 public class MuleXmlFile {
+	private static final String LINE_SEP = System.getProperty("line.separator");
+	
 
 	public static InputStream generateXmlFile(List<IMuleBundle> muleArtifacts) {
 		StringBuilder buf = new StringBuilder(128);
-		buf.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+		buf.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+		buf.append(LINE_SEP);
 
 		appendCoreNamespace(buf, muleArtifacts);
 		appendNamespaces(buf, muleArtifacts);
 		appendSchemaLocations(buf, muleArtifacts);
 		
-		buf.append("</mule>\n");
+		buf.append("</mule>");
+		buf.append(LINE_SEP);
 		
 		return new ByteArrayInputStream(buf.toString().getBytes());
 	}
@@ -45,11 +49,13 @@ public class MuleXmlFile {
 		String coreUrl = findCoreUrl(springConfigBundle.getNamespaceUrls());		
 		buf.append("<mule xmlns=\"");
 		buf.append(namespaceIdFromUrl(coreUrl));
-		buf.append("\"\n");
+		buf.append("\"");
+		buf.append(LINE_SEP);
 	}
 
 	private static void appendNamespaces(StringBuilder buf, List<IMuleBundle> muleArtifacts) {
-		buf.append("      xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n");
+		buf.append("      xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
+		buf.append(LINE_SEP);
 		
 		for (IMuleBundle bundle : muleArtifacts) {
 			// mule-module-spring-config contains the core namespace and is the core namespace
@@ -65,7 +71,7 @@ public class MuleXmlFile {
 				buf.append("=\"");
 				buf.append(namespaceIdFromUrl(url));
 				buf.append("\"");
-				buf.append("\n");
+				buf.append(LINE_SEP);
 			}
 		}
 	}
@@ -77,14 +83,16 @@ public class MuleXmlFile {
 			// only include the core namespace from the spring-config bundle
 			if (bundle.getFile().getName().contains(IMuleBundle.MULE_MODULE_SPRING_CONFIG)) {
 				String coreNamespaceUrl = findCoreUrl(bundle.getNamespaceUrls());
-				buf.append("\n          ");
+				buf.append(LINE_SEP);
+				buf.append("          ");
 				buf.append(namespaceIdFromUrl(coreNamespaceUrl));
 				buf.append(" ");
 				buf.append(coreNamespaceUrl);
 			}
 			else {
 				for (String url : bundle.getNamespaceUrls()) {
-					buf.append("\n          ");
+					buf.append(LINE_SEP);
+					buf.append("          ");
 					buf.append(namespaceIdFromUrl(url));
 					buf.append(" ");
 					buf.append(url);
@@ -92,7 +100,9 @@ public class MuleXmlFile {
 			}
 		}
 		
-		buf.append("\">\n\n");
+		buf.append("\">");
+		buf.append(LINE_SEP);
+		buf.append(LINE_SEP);
 	}
 
 	private static String namespaceIdFromUrl(String url) {

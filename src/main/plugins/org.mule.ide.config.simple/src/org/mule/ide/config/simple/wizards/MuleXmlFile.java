@@ -19,7 +19,6 @@ import org.mule.ide.project.runtime.IMuleBundle;
 public class MuleXmlFile {
 	private static final String LINE_SEP = System.getProperty("line.separator");
 	
-
 	public static InputStream generateXmlFile(List<IMuleBundle> muleArtifacts) {
 		StringBuilder buf = new StringBuilder(128);
 		buf.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");

@@ -168,7 +168,7 @@ public class MuleRuntimeChooserPanel extends Composite {
 		if (hint != null) {
 			boolean match = false;
 			String temp = pathify(hint);
-			for (int i=0; i<distributions.length; ++i) {
+			for (int i = 0; i < distributions.length; ++i) {
 				if (temp.equals(pathify(distributions[i]))) {
 					match = true;
 					break;
@@ -181,7 +181,7 @@ public class MuleRuntimeChooserPanel extends Composite {
 		
 		// (Re)populate the combo
 		comboDistribution.removeAll();
-		for (int i=0; i<distributions.length; ++i) {
+		for (int i = 0; i < distributions.length; ++i) {
 			comboDistribution.add(distributions[i]);
 		}
 		

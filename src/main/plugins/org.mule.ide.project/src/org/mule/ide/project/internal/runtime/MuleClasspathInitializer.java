@@ -70,8 +70,9 @@ public class MuleClasspathInitializer extends ClasspathContainerInitializer {
 		}
 		
 		// We should have a candidate either way.
-		if (temp == null) return; // Silently fail as expected
-		// TODO: Mark the Mule nature as having a bad path or missing prefs
+		if (temp == null) {
+			return; // Silently fail as expected
+		}
 				
 		Set<String> included = null;
 		if (path != null && path.segmentCount() > 1) {
@@ -92,7 +93,6 @@ public class MuleClasspathInitializer extends ClasspathContainerInitializer {
 		*/
 		
 		final IMuleRuntime runtime = temp;
-		//final IClasspathEntry containerEntries[] = distrib.getClasspath(allRequiredBundles);
 		final IClasspathEntry muleEntries[] = getMuleClasspathEntries(runtime, included);	                                       
 		IClasspathContainer container = new IClasspathContainer() {
 			public IClasspathEntry[] getClasspathEntries() {

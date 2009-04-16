@@ -28,13 +28,13 @@ public class MulePreferences {
 	public static final String MULE_PREFERENCES_ID = "org.mule.ide.preferences.MulePreferencePage";
 
 	/** Prefix for Mule installation roots */
-	public static final String EXTERNAL_MULE_ROOT_PREFIX = "externalMuleRoot.";
+	private static final String EXTERNAL_MULE_ROOT_PREFIX = "externalMuleRoot.";
 
 	/** Location of external Mule installation root */
-	public static final String EXTERNAL_MULE_ROOT_COUNT = "externalMuleRootCount";
+	private static final String EXTERNAL_MULE_ROOT_COUNT = "externalMuleRootCount";
 
 	/** Number of the default Mule installation root */
-	public static final String DEFAULT_EXTERNAL_MULE_ROOT = "defaultExternalMuleRoot";
+	private static final String DEFAULT_EXTERNAL_MULE_ROOT = "defaultExternalMuleRoot";
 
 	private static Map<String, IMuleRuntime> mapPathifiedToRuntime = new HashMap<String, IMuleRuntime>();
 	private static Map<File, IMuleRuntime> mapFileToRuntime = new HashMap<File, IMuleRuntime>();

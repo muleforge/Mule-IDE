@@ -87,20 +87,28 @@ public class MuleConfigWizard extends Wizard implements INewWizard {
 	 * file if missing or just replace its contents, and open
 	 * the editor on the newly created file.
 	 */
-	private void doFinish(
-		String containerName,
-		String fileName,
-		IProgressMonitor monitor)
-		throws CoreException {
+	private void doFinish(String containerName, String fileName, IProgressMonitor monitor) throws CoreException {
 		// create the file
 		monitor.beginTask("Creating " + fileName, 2);
+		
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IResource resource = root.findMember(new Path(containerName));
 		if (!resource.exists() || !(resource instanceof IContainer)) {
 			throwCoreException("Container \"" + containerName + "\" does not exist.");
 		}
+		
 		IContainer container = (IContainer) resource;
-		final IFile file = container.getFile(new Path(fileName));
+		IFile file = container.getFile(new Path(fileName));
+		createMuleConfigFile(monitor, file);
+		
+		monitor.worked(1);
+		monitor.setTaskName("Opening file for editing...");
+		openFile(file);
+		
+		monitor.worked(1);
+	}
+
+	private void createMuleConfigFile(IProgressMonitor monitor, IFile file) throws CoreException {
 		try {
 			InputStream stream = openContentStream();
 			if (file.exists()) {
@@ -112,9 +120,10 @@ public class MuleConfigWizard extends Wizard implements INewWizard {
 		} catch (IOException e) {
 			throw new IllegalStateException(e);
 		}
-		monitor.worked(1);
-		monitor.setTaskName("Opening file for editing...");
-		getShell().getDisplay().asyncExec(new Runnable() {
+	}
+	
+	private void openFile(final IFile file) {
+		this.getShell().getDisplay().asyncExec(new Runnable() {
 			public void run() {
 				IWorkbenchPage page =
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
@@ -124,9 +133,8 @@ public class MuleConfigWizard extends Wizard implements INewWizard {
 				}
 			}
 		});
-		monitor.worked(1);
 	}
-	
+
 	private InputStream openContentStream() {
 		List<IMuleBundle> muleArtifacts = page.getSelectedMuleArtifacts();
 		return MuleXmlFile.generateXmlFile(muleArtifacts);

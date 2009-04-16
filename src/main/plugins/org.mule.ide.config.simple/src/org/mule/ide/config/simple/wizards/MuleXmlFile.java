@@ -12,12 +12,21 @@ package org.mule.ide.config.simple.wizards;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.mule.ide.project.runtime.IMuleBundle;
 
 public class MuleXmlFile {
 	private static final String LINE_SEP = System.getProperty("line.separator");
+	private static final Set<String> RESERVED_WORDS;
+	
+	static {
+		RESERVED_WORDS = new HashSet<String>();
+		RESERVED_WORDS.add("xml");
+		RESERVED_WORDS.add("xmlns");
+	}
 	
 	public static InputStream generateXmlFile(List<IMuleBundle> muleArtifacts) {
 		StringBuilder buf = new StringBuilder(128);
@@ -110,9 +119,18 @@ public class MuleXmlFile {
 		return url.substring(0, index);
 	}
 
+	/**
+	 * Extracts the short name that's used as schema prefix from the URL.
+	 */
 	private static String namespaceShortNameFromUrl(String url) {
 		String[] urlElements = url.split("/");
-		return urlElements[urlElements.length - 3];
+		String shortName = urlElements[urlElements.length - 3].toLowerCase();
+		
+		// check if the detected short name clashes with the xml namespace spec
+		if (RESERVED_WORDS.contains(shortName) || shortName.startsWith("xml")) {
+			shortName = "mule-" + shortName;
+		}
+		return shortName;
 	}
 	
 	private static String findCoreUrl(String[] namespaceUrls) {

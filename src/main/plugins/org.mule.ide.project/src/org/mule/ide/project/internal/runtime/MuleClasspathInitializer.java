@@ -53,24 +53,24 @@ public class MuleClasspathInitializer extends ClasspathContainerInitializer {
 	public void initialize(final IPath path, final IJavaProject project) throws CoreException {
 		// Get the project and the required libs, find the Mule distro, add the libs
 		
-		IMuleRuntime temp = null;
+		IMuleRuntime runtime = null;
 		
 		// Now, see if the supplied classpath has specified the distribution (as "pathified" hint)
 		if (path.segmentCount() > 2) {
 			String hint = path.segment(2);
 			if (hint != null) {
 				hint = pathify(hint);
-				temp = MulePreferences.getMuleRuntime(hint);
+				runtime = MulePreferences.getMuleRuntime(hint);
 			}
 			// Should we error if there is an invalid hint?
 		}
 		
-		if (temp == null) {
-			temp = MulePreferences.getDefaultMuleRuntime();
+		if (runtime == null) {
+			runtime = MulePreferences.getDefaultMuleRuntime();
 		}
 		
 		// We should have a candidate either way.
-		if (temp == null) {
+		if (runtime == null) {
 			return; // Silently fail as expected
 		}
 				
@@ -92,25 +92,8 @@ public class MuleClasspathInitializer extends ClasspathContainerInitializer {
 		IMuleBundle[] allRequiredBundles = distrib.getTransitiveMuleDependencies((IMuleBundle[])bundles.toArray(new IMuleBundle[bundles.size()]));
 		*/
 		
-		final IMuleRuntime runtime = temp;
-		final IClasspathEntry muleEntries[] = getMuleClasspathEntries(runtime, included);	                                       
-		IClasspathContainer container = new IClasspathContainer() {
-			public IClasspathEntry[] getClasspathEntries() {
-				return muleEntries;
-			}
-			public String getDescription() {
-				return "Mule Libraries ["+ runtime.getDirectory().getName()+"]";
-			}
-			public int getKind() {
-				return K_APPLICATION; 
-			}
-			public IPath getPath() {
-				return path;
-			}
-			public String toString() {
-				return getDescription();
-			}
-		};
+		IClasspathEntry muleEntries[] = getMuleClasspathEntries(runtime, included);	                                       
+		IClasspathContainer container = new MuleClasspathContainer(path, runtime, muleEntries);
 		JavaCore.setClasspathContainer(path, new IJavaProject[] { project }, new IClasspathContainer[] { container }, null);
 	}
 

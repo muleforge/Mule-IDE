@@ -217,7 +217,7 @@ public class MuleRuntimeChooserPanel extends Composite {
 		if (tableLibraries != null) {
 			int itemCount = tableLibraries.getItemCount();
 			for (int i = 0; i < itemCount; ++i) {
-				TableItem item = tableLibraries.getItem(i);
+//				TableItem item = tableLibraries.getItem(i);
 				// TODO: we don't care if libraries are checked in the GUI for now ...
 //				if (item.getChecked()) {
 					selection.add(allLibraries[i]);

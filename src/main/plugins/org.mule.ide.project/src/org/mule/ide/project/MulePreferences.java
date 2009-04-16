@@ -119,6 +119,16 @@ public class MulePreferences {
 		return runtime;
 	}
 	
+	/**
+	 * Initialize the cache of all runtimes.
+	 */
+	// TODO See MULEIDE-144
+	public static void initRuntimeCache() {
+		for (String path : getDistributionPaths()) {
+			getMuleRuntime(path);
+		}
+	}
+
 	public static void clearRuntimeCache() {
 		mapFileToRuntime.clear();
 		mapPathifiedToRuntime.clear();

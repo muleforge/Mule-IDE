@@ -131,7 +131,7 @@ public class MulePreferences {
 	 * @param defaultValue the fallback value
 	 * @return the value or 0 if not found
 	 */
-	protected static int getIntPreference(String key) {
+	private static int getIntPreference(String key) {
 		return MuleProjectPlugin.getInstance().getPreferenceStore().getInt(key);
 	}
 
@@ -141,7 +141,7 @@ public class MulePreferences {
 	 * @param key the preference key
 	 * @param value the new value for the preference
 	 */
-	protected static void setIntPreference(String key, int value) {
+	private static void setIntPreference(String key, int value) {
 		MuleProjectPlugin.getInstance().getPreferenceStore().setValue(key, value);
 	}
 	
@@ -151,7 +151,7 @@ public class MulePreferences {
 	 * @param key the preference key
 	 * @return the value or null if not found
 	 */
-	protected static String getStringPreference(String key) {
+	private static String getStringPreference(String key) {
 		return MuleProjectPlugin.getInstance().getPreferenceStore().getString(key);
 	}
 
@@ -161,7 +161,7 @@ public class MulePreferences {
 	 * @param key the preference key
 	 * @param value the preference value
 	 */
-	protected static void setStringPreference(String key, String value) {
+	private static void setStringPreference(String key, String value) {
 		MuleProjectPlugin.getInstance().getPreferenceStore().setValue(key, value);
 	}
 
@@ -170,7 +170,7 @@ public class MulePreferences {
 	 * 
 	 * @param key the preference key
 	 */
-	protected static void clearPreferenceValue(String key) {
+	private static void clearPreferenceValue(String key) {
 		MuleProjectPlugin.getInstance().getPreferenceStore().setToDefault(key);
 	}	
 }

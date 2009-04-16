@@ -50,7 +50,13 @@ public class Pom {
 		} catch (ParserConfigurationException e) {
 			// OK: This is so unlikely that it's not worth catching here.
 		}
-
+		finally {
+			try {
+				inputStream.close();
+			}
+			catch (IOException iox) {
+			}
+		}
 	}
 	
 	public String getArtifactId() {

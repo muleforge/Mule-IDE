@@ -345,7 +345,7 @@ public class MuleRuntime implements IMuleRuntime {
 	}
 	*/
 
-	public void gatherSamples(File dir, List<IMuleSampleProject> results) {
+	private void gatherSamples(File dir, List<IMuleSampleProject> results) {
 		File pomFile = new File(dir, "pom.xml");
 		if (! pomFile.exists()) {
 			return;

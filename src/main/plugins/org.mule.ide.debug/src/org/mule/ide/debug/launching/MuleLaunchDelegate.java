@@ -23,24 +23,26 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.jdt.launching.JavaLaunchDelegate;
 import org.mule.ide.debug.DebugMessages;
 import org.mule.ide.project.MulePreferences;
+import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
 public class MuleLaunchDelegate extends JavaLaunchDelegate {
 	
 	private static final String MULE_HOME_ARG = "-Dmule.home";  //$NON-NLS-1$
 	
-	
 	private IMuleRuntime getMuleRuntime(ILaunchConfiguration configuration) throws CoreException {
 		IMuleRuntime runtime = null;
 
-		String runtimeId = configuration.getAttribute(
-				IMuleLaunchConstants.ATTR_MULE_RUNTIME_ID, (String) null);
+		String runtimeId = configuration.getAttribute(IMuleLaunchConstants.ATTR_MULE_RUNTIME_ID, (String)null);
 		if (runtimeId == null) {
-			runtime = MulePreferences.getDefaultMuleRuntime();
+			runtime = getRuntimeFromJavaProject(configuration);
+			// TODO save the id of the runtime (which does not yet exist) to the launch config
 		} else {
 			runtime = MulePreferences.getMuleRuntime(runtimeId);			
 		}
@@ -51,6 +53,24 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate {
 		return runtime;
 	}
 	
+	private IMuleRuntime getRuntimeFromJavaProject(ILaunchConfiguration configuration) throws CoreException {
+		IJavaProject javaProject = getJavaProject(configuration);
+		IClasspathEntry[] classpath = javaProject.getRawClasspath();
+		for (IClasspathEntry classpathEntry : classpath) {
+			IPath path = classpathEntry.getPath();
+			if (path.segment(0).equals(MuleProjectPlugin.ID_MULE_CLASSPATH_CONTAINER)) {
+				IMuleRuntime runtime = MulePreferences.getDefaultMuleRuntime();
+				if (path.segmentCount() > 2) {
+					String runtimeName = path.segment(2);
+					runtime = MulePreferences.getMuleRuntime(runtimeName);
+				}
+				return runtime;
+			}
+		}
+		return null;
+	}	
+	
+	@Override
 	public String getVMArguments(ILaunchConfiguration configuration) throws CoreException {
 		IMuleRuntime runtime = getMuleRuntime(configuration);
 
@@ -61,22 +81,21 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate {
 		if (args != null && args.length() > 0) {
 			newArgs = new StringBuffer(args);
 			muleHome = args.indexOf(MULE_HOME_ARG);
-			newArgs.append(" "); //$NON-NLS-1$
+			newArgs.append(" "); 
 		} else {
 			newArgs = new StringBuffer();
 		}
 		if (muleHome < 0) {
-			newArgs.append(MULE_HOME_ARG); //$NON-NLS-1$				
-			newArgs.append("="); //$NON-NLS-1$
+			newArgs.append(MULE_HOME_ARG);
+			newArgs.append("=");
 			newArgs.append(runtime.getDirectory().getAbsolutePath());
 		}
-
 		
 		return newArgs.toString();
 	}
 
-	public String[] getClasspath(ILaunchConfiguration configuration)
-			throws CoreException {
+	@Override
+	public String[] getClasspath(ILaunchConfiguration configuration) throws CoreException {
 		IMuleRuntime runtime = getMuleRuntime(configuration);
 
 		String[] classpath = super.getClasspath(configuration);
@@ -102,6 +121,7 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate {
 	 *             MULE_HOME\lib\boot\mule-module-boot-2.0.0.jar ?
 	 *             MULE_HOME\conf
 	 */
+	@Override
 	public String getProgramArguments(ILaunchConfiguration configuration) throws CoreException {
 		// Build the argument string.
 		StringBuffer buffer = new StringBuffer();
@@ -136,6 +156,7 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate {
 		return buffer.toString();
 	}
 
+	@Override
 	public String getMainTypeName(ILaunchConfiguration configuration) throws CoreException {
 		return configuration.getAttribute(IMuleLaunchConstants.ATTR_MULE_EXEC_CLASS,
 				IMuleLaunchConstants.DEFAULT_MULE_EXEC_CLASS);

@@ -7,7 +7,7 @@ Bundle-Activator: org.mule.ide.project.MuleProjectPlugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
- org.eclipse.jdt.core,
+ org.eclipse.jdt.core;visibility:=reexport,
  org.eclipse.jdt.ui,
  org.eclipse.ui.ide
 Bundle-ActivationPolicy: lazy

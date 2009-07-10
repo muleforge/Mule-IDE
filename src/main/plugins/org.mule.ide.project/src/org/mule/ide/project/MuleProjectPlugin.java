@@ -10,40 +10,38 @@ import org.osgi.framework.BundleContext;
  */
 public class MuleProjectPlugin extends AbstractUIPlugin {
 
-	// The plug-in ID
+	/**
+	 * The plug-in ID
+	 */
 	public static final String PLUGIN_ID = "org.mule.ide.project";
 
-    /** Unique for the Mule classpath container. This matches the id in the 
-     * classpathContainerInitializer extension in plugin.xml */
+    /** 
+     * Unique for the Mule classpath container. This matches the id in the 
+     * classpathContainerInitializer extension in plugin.xml 
+     */
     public static final String ID_MULE_CLASSPATH_CONTAINER = "org.mule.ide.project.muleClasspath";
 
 	// The shared instance
 	private static MuleProjectPlugin plugin;
 	
-	/**
-	 * The constructor
-	 */
 	public MuleProjectPlugin() {
 		super();
 	}
 
+	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
 		MulePreferences.initRuntimeCache();
 	}
 
+	@Override
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		MulePreferences.clearRuntimeCache();
 		super.stop(context);
 	}
 
-	/**
-	 * Returns the shared instance
-	 *
-	 * @return the shared instance
-	 */
 	public static MuleProjectPlugin getInstance() {
 		return plugin;
 	}

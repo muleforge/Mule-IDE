@@ -33,10 +33,15 @@ public interface IMuleBundle {
 	};
 	
 	File getFile();
+	
 	String getPathifiedName();
+	
 	Set<IMuleBundle> getDependencies();
+	
 	File getSourcePath();
+	
 	String getVersion();
+	
 	String getDisplayName();
 	
 	/**

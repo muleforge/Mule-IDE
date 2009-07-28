@@ -11,6 +11,7 @@
 package org.mule.ide.project.runtime;
 
 import java.io.File;
+import java.util.Collection;
 
 import org.eclipse.jdt.core.IJavaProject;
 
@@ -23,4 +24,10 @@ public interface IMuleSampleProject {
 	//List<IMuleBundle> getMuleLibraryDependencies();
 	//List<File> getOtherLibraryDependencies();
 	void copyIntoProject(IJavaProject project);
+	
+	/**
+	 * @return The additional libraries that are downloaded as part of creating this sample
+	 * project. Always returns a {@link Collection}, never <code>null</code>.
+	 */
+	Collection<IMuleBundle> getAdditionalLibraries();
 }

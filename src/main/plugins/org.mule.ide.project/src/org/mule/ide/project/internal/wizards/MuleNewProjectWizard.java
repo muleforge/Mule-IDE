@@ -90,25 +90,26 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard {
 						IJavaProject javaProject = JavaCore.create(project);
 						IMuleSampleProject sample = projectPage.getSelectedSample();
 						IMuleRuntime runtime = projectPage.getRuntime();
-						
-						addMuleLibraries(javaProject, runtime, sample);
+
+						// copy the example into the project before setting the classpath as the example
+						// may download additional jars to Mule's lib dir
+						if (sample != null) {
+							sample.copyIntoProject(javaProject);
+						}
 						monitor.worked(25);
+
+						addMuleLibraries(javaProject, runtime, sample);
 
 						// Create a conf directory in all mule projects.
 						IPath relative = new Path("conf");
 						IFolder folder = javaProject.getProject().getFolder(relative);
-						if (! folder.exists()) {
+						if (folder.exists() == false) {
 							try {
 								folder.create(true, true, new NullProgressMonitor());
 							} catch (CoreException ex) {
 								MuleProjectPlugin.getInstance().logError("Error creating conf directory.", ex);									
 							}
-						}							
-
-						if (sample != null) {
-							sample.copyIntoProject(javaProject);
 						}
-						
 						monitor.worked(25);
 					} finally {
 				    	monitor.done();
@@ -135,28 +136,11 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard {
 		try {
 			IClasspathEntry[] initial = muleProject.getRawClasspath();
 			
-			/*
-			HashSet moduleNames = new HashSet();
-			try {
-				IMuleBundle[] bundles;
-				bundles = sample.getMuleDependencies();
-				for (int i=0; i<bundles.length; ++i)
-					moduleNames.add(bundles[i].getName()); // skip MULE prefix
-	
-				// Add mandatory modules (we can't launch without these)
-				moduleNames.add(MULE_TRANSPORT_TCP_NAME);
-				moduleNames.add(MULE_MODULE_BUILDER_NAME);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			*/
-			Collection<IMuleBundle> selectedLibraries = null;
+			Collection<IMuleBundle> selectedLibraries = runtime.getDefaultLibraries();
 			if (sample != null) {
-				selectedLibraries = runtime.getSampleProjectDependencies(sample);
+				selectedLibraries.addAll(sample.getAdditionalLibraries());
 			}
-			if (selectedLibraries == null || selectedLibraries.isEmpty()) {
-				selectedLibraries = runtime.getDefaultLibraries();
-			}
+
 			IClasspathEntry[] entries = 
 				new IClasspathEntry[] { MuleClasspathUtils.createMuleClasspathContainer(projectPage.getRuntimeHint(), selectedLibraries)};
 			

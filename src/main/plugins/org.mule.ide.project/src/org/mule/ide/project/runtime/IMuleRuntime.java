@@ -20,9 +20,15 @@ import java.util.List;
 public interface IMuleRuntime {
 
 	String MULE_BUNDLE_PREFIX = "mule-";
+	
+	String LIB_DIRECTORY = "lib";
+	String BOOT_LIB_DIRECTORY = LIB_DIRECTORY + "/boot";
+	String MULE_LIB_DIRECTORY = LIB_DIRECTORY + "/mule";
+	String OPT_LIB_DIRECTORY = LIB_DIRECTORY + "/opt";
+	String USER_LIB_DIRECTORY = LIB_DIRECTORY + "/user";
 
 	/**
-	 * Returns the location of the Mule Distribution 
+	 * Returns the location of the Mule distribution 
 	 * 
 	 * @return
 	 */

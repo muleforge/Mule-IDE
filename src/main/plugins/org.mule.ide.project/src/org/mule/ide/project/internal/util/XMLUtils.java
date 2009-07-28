@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -71,6 +72,30 @@ public class XMLUtils {
     	return queryDomString(doc.getDocumentElement(), path);
     }
 
+	public static List<Node> findChildNodes(Node node, String childName) {
+		List<Node> result = new ArrayList<Node>();
+		
+		NodeList childNodes = node.getChildNodes();
+		int length = childNodes.getLength();
+		for (int i = 0; i < length; i++) {
+			Node child = childNodes.item(i);
+			if (child.getNodeName().equals(childName)) {
+				result.add(child);
+			}
+		}
+		
+		return result;
+	}
+
+	public static String attributeValue(Node node, String attributeName) {
+		NamedNodeMap attributes = node.getAttributes();
+		Node matchingNode = attributes.getNamedItem(attributeName);
+		if (matchingNode != null) {
+			return matchingNode.getNodeValue();
+		}
+		return null;
+	}
+	
 	private static void collectResults(Element element, String[] path, int index, Collection<Node> destination) {
     	// If we matched all the way to the leaf of the path, add the element to the destination....
     	String elemName = element.getNodeName();

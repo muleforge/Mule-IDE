@@ -14,6 +14,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -30,12 +32,13 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.mule.ide.project.MuleProjectPlugin;
+import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 import org.mule.ide.project.runtime.IMuleSampleProject;
 
 public class MuleSampleProject implements IMuleSampleProject {
 	
-	private IMuleRuntime runtime;
+	protected IMuleRuntime runtime;
 	private String name;
 	private String description;
 	protected File root;
@@ -140,8 +143,9 @@ public class MuleSampleProject implements IMuleSampleProject {
 			addSourceFolder(project, dir);
 		}
 
+		finishCopying();
 	}
-
+	
 	/**
 	 * Copy a file or directory from a URL into a file on the project.
 	 * 
@@ -183,6 +187,14 @@ public class MuleSampleProject implements IMuleSampleProject {
 	}
 
 	/**
+	 * Subclasses may override this method to perform custom steps to finish copying the project
+	 * into the workspace
+	 */
+	protected void finishCopying() {
+		// do nothing
+	}
+
+	/**
 	 * Get the first source folder from the project.
 	 * 
 	 * @param project the Java project
@@ -208,5 +220,9 @@ public class MuleSampleProject implements IMuleSampleProject {
 		buf.append(this.getName());
 		buf.append(">");
 		return buf.toString();
+	}
+
+	public Collection<IMuleBundle> getAdditionalLibraries() {
+		return Collections.emptyList();
 	}
 }

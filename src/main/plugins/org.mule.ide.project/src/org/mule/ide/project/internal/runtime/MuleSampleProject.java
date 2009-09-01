@@ -111,22 +111,19 @@ public class MuleSampleProject implements IMuleSampleProject {
 		return results;
 	}
 	
-	public void copyIntoProject(IJavaProject project) {
+	public void copyIntoProject(IJavaProject project) throws CoreException {
 		List<File> dirs;
 		// Copy source files.
-		try {
-			// TODO Should create a separate source folders if
-			// there are multiple source folders in the project.
-			IContainer sourceContainer = getSourceContainer(project);
-			dirs = getSourceDirectories();
-			for (File dir : dirs) {
-				File[] subs = dir.listFiles();
-				for (int j = 0; j < subs.length; ++j ) {
-					copyIntoProject(subs[j], sourceContainer);
-				}
+
+		// TODO Should create a separate source folders if
+		// there are multiple source folders in the project.
+		IContainer sourceContainer = getSourceContainer(project);
+		dirs = getSourceDirectories();
+		for (File dir : dirs) {
+			File[] subs = dir.listFiles();
+			for (int j = 0; j < subs.length; ++j) {
+				copyIntoProject(subs[j], sourceContainer);
 			}
-		} catch (JavaModelException e) {
-			MuleProjectPlugin.getInstance().logError("Unable to find a source folder.", e);
 		}
 		
 		// Copy configuration files
@@ -152,7 +149,7 @@ public class MuleSampleProject implements IMuleSampleProject {
 	 * @param input
 	 * @param project
 	 */
-	protected void copyIntoProject(File input, IContainer parent) {
+	protected void copyIntoProject(File input, IContainer parent) throws CoreException {
 		try {
 			IPath relative = new Path(input.getName());
 
@@ -181,8 +178,6 @@ public class MuleSampleProject implements IMuleSampleProject {
 			}
 		} catch (IOException e) {
 			MuleProjectPlugin.getInstance().logError("Unable to copy sample resource.", e);
-		} catch (CoreException e) {
-			MuleProjectPlugin.getInstance().logError("Unable to create resource.", e);
 		}
 	}
 
@@ -190,7 +185,7 @@ public class MuleSampleProject implements IMuleSampleProject {
 	 * Subclasses may override this method to perform custom steps to finish copying the project
 	 * into the workspace
 	 */
-	protected void finishCopying() {
+	protected void finishCopying() throws CoreException {
 		// do nothing
 	}
 

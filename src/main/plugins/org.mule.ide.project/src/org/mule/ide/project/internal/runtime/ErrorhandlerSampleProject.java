@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ecf.core.ContainerFactory;
 import org.eclipse.ecf.core.IContainer;
 import org.eclipse.ecf.filetransfer.IFileTransferListener;
@@ -24,7 +25,6 @@ import org.eclipse.ecf.filetransfer.events.IIncomingFileTransferReceiveStartEven
 import org.eclipse.ecf.filetransfer.identity.FileIDFactory;
 import org.eclipse.ecf.filetransfer.identity.IFileID;
 import org.eclipse.jdt.core.IJavaProject;
-import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
@@ -47,7 +47,7 @@ public class ErrorhandlerSampleProject extends MuleSampleProject {
 	}
 
 	@Override
-	public void copyIntoProject(IJavaProject project) {
+	public void copyIntoProject(IJavaProject project) throws CoreException {
 		super.copyIntoProject(project);
 		
 		// copy the test-data directory
@@ -56,17 +56,11 @@ public class ErrorhandlerSampleProject extends MuleSampleProject {
 	}
 
 	@Override
-	protected void finishCopying() {
-		try {
-			downloadDependenciesIfNecessary();
-		}
-		catch (Exception ex) {
-			// TODO: rework exception handling while creating projects, we don't want to swallow anything here
-			MuleProjectPlugin.getInstance().logError("Unable to create project.", ex);
-		}
+	protected void finishCopying() throws CoreException {
+		downloadDependenciesIfNecessary();
 	}
 
-	private void downloadDependenciesIfNecessary() throws Exception {
+	private void downloadDependenciesIfNecessary() throws CoreException {
 		File activemqJar = new File(runtime.getDirectory(), ACTIVEMQ_PATH);
 		if (activemqJar.exists() == false) {
 			downloadJarToFile(ACTIVEMQ_URL, activemqJar);
@@ -78,14 +72,14 @@ public class ErrorhandlerSampleProject extends MuleSampleProject {
 		}
 	}
 
-	private void downloadJarToFile(String url, final File destinationFile) throws Exception {
+	private void downloadJarToFile(String url, final File destinationFile) throws CoreException {
 		IMuleBundle jar = new JarBundle(runtime, destinationFile);
 		additionalLibraries.add(jar);
 		
 		downloadUrlToFile(url, destinationFile);
 	}
 
-	private void downloadUrlToFile(String url, final File destinationFile) throws Exception {
+	private void downloadUrlToFile(String url, final File destinationFile) throws CoreException {
 		// see http://www.eclipse.org/ecf/documentation.php
 		IContainer container = ContainerFactory.getDefault().createContainer("ecf.base");
 		

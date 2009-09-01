@@ -13,6 +13,7 @@ package org.mule.ide.project.runtime;
 import java.io.File;
 import java.util.Collection;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jdt.core.IJavaProject;
 
 public interface IMuleSampleProject {
@@ -23,7 +24,7 @@ public interface IMuleSampleProject {
 	//List<File> getConfigFiles();
 	//List<IMuleBundle> getMuleLibraryDependencies();
 	//List<File> getOtherLibraryDependencies();
-	void copyIntoProject(IJavaProject project);
+	void copyIntoProject(IJavaProject project) throws CoreException;
 	
 	/**
 	 * @return The additional libraries that are downloaded as part of creating this sample

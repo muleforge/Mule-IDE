@@ -3,6 +3,7 @@ package org.mule.ide.project.internal.runtime;
 import java.io.File;
 import java.util.List;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jdt.core.IJavaProject;
 
 public class WebappSampleProject extends MuleSampleProject {
@@ -12,7 +13,7 @@ public class WebappSampleProject extends MuleSampleProject {
 	}
 
 	@Override
-	public void copyIntoProject(IJavaProject project) {
+	public void copyIntoProject(IJavaProject project) throws CoreException {
 		super.copyIntoProject(project);
 		
 		// copy the test-data directory

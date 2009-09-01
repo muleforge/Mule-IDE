@@ -85,19 +85,19 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard {
 				        // Add the Mule nature.
 						//MuleCorePlugin.getDefault().setMuleNature(projectPage.getProjectHandle(), true);
 
-						// Add the Mule classpath container.
 						IProject project = projectPage.getProjectHandle();
 						IJavaProject javaProject = JavaCore.create(project);
-						IMuleSampleProject sample = projectPage.getSelectedSample();
-						IMuleRuntime runtime = projectPage.getRuntime();
 
 						// copy the example into the project before setting the classpath as the example
 						// may download additional jars to Mule's lib dir
+                        IMuleSampleProject sample = projectPage.getSelectedSample();
 						if (sample != null) {
 							sample.copyIntoProject(javaProject);
 						}
 						monitor.worked(25);
 
+                        // Add the Mule classpath container.
+                        IMuleRuntime runtime = projectPage.getRuntime();
 						addMuleLibraries(javaProject, runtime, sample);
 
 						// Create a conf directory in all mule projects.
@@ -111,6 +111,12 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard {
 							}
 						}
 						monitor.worked(25);
+					} catch (CoreException ce) {
+                        MuleProjectPlugin.getInstance().logError("Error creating project.", ce);                                 
+
+					    if (getWorkbench().getActiveWorkbenchWindow() != null) {
+			                MessageDialog.openError(getWorkbench().getActiveWorkbenchWindow().getShell(), "Error", "Project creation failed (see Error log view)");
+			            }
 					} finally {
 				    	monitor.done();
 					}

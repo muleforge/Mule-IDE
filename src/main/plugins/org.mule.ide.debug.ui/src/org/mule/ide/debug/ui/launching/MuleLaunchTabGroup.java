@@ -10,7 +10,6 @@
 
 package org.mule.ide.debug.ui.launching;
 
-import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.EnvironmentTab;
@@ -28,9 +27,5 @@ public class MuleLaunchTabGroup extends AbstractLaunchConfigurationTabGroup {
 				new JavaArgumentsTab(), new JavaClasspathTab(), new JavaJRETab(),
 				new SourceLookupTab(), new EnvironmentTab(), new CommonTab() };
 		setTabs(tabs);
-	}
-
-	public void setDefaults(ILaunchConfigurationWorkingCopy config) {
-		super.setDefaults(config);
 	}
 }

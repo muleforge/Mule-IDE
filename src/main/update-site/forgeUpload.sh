@@ -124,6 +124,7 @@ End-of-message
 cd ..
 put artifacts.jar
 put content.jar
+put site.xml
 exit
 End-of-message
 }

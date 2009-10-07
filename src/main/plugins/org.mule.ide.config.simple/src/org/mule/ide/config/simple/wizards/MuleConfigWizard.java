@@ -35,6 +35,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.runtime.IMuleBundle;
 
 public class MuleConfigWizard extends Wizard implements INewWizard {
@@ -76,6 +77,7 @@ public class MuleConfigWizard extends Wizard implements INewWizard {
 			return false;
 		} catch (InvocationTargetException e) {
 			Throwable realException = e.getTargetException();
+			MuleProjectPlugin.getInstance().logError("Error in performFinish", realException);
 			MessageDialog.openError(getShell(), "Error", realException.getMessage());
 			return false;
 		}

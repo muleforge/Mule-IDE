@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class FileUtils {
 	public static File createTempDirectory() throws IOException {
-		File tempFile = File.createTempFile("temp", ".tmp");
+		File tempFile = File.createTempFile("tmp", "dir");
 		deleteFile(tempFile);
 		
 		if (tempFile.mkdir() == false) {
@@ -31,9 +31,8 @@ public class FileUtils {
 				deleteRecursively(file);
 			}
 		}
-		else {
-			deleteFile(fileOrDirectory);
-		}
+		
+		deleteFile(fileOrDirectory);
 	}
 
 	public static void createDirectory(File parent, String name) throws IOException {

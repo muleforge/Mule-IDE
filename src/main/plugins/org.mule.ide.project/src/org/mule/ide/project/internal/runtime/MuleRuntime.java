@@ -11,7 +11,6 @@
 package org.mule.ide.project.internal.runtime;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -177,26 +176,27 @@ public class MuleRuntime implements IMuleRuntime {
 	*/
 	
 	public IMuleBundle getMuleLibrary(String name) {		
+		initializeLibraryMap();
+
 		if (name.startsWith("mule_") == false) {
 			name = "mule_" + name;
 		}
-		if (name.endsWith(this.getVersion()) == false) {
-			name = name + "-" + this.getVersion() + ".jar";
+		
+		String version = getVersion();
+		if (name.endsWith(version) == false) {
+			name = name + "-" + version + ".jar";
 		}
+		
 		return this.getLibrary(name);
 	}
 	
 	public IMuleBundle getLibrary(String name) {
-		if (mapNameToBundle == null) {
-			initializeLibraryMap();
-		}
+		initializeLibraryMap();
 		return mapNameToBundle.get(name);				
 	}
 	
 	public Collection<IMuleBundle> getMuleLibraries() {
-		if (mapNameToBundle == null) {
-			initializeLibraryMap();
-		}
+		initializeLibraryMap();
 		
 		Collection<IMuleBundle> muleLibs = new HashSet<IMuleBundle>();
 		for (IMuleBundle bundle : mapNameToBundle.values()) {
@@ -208,6 +208,24 @@ public class MuleRuntime implements IMuleRuntime {
 		return muleLibs;
 	}
 		
+	/**
+	 * Filter out examples etc.
+	 */
+    public Collection<IMuleBundle> getMuleModulesAndTransports() {
+        Collection<IMuleBundle> muleLibs = getMuleLibraries();
+        
+        List<IMuleBundle> modulesAndTransports = new ArrayList<IMuleBundle>();
+        for (IMuleBundle bundle : muleLibs) {
+            String fileName = bundle.getFile().getName();
+            if (fileName.startsWith(IMuleBundle.MULE_MODULE_PREFIX) ||
+                fileName.startsWith(IMuleBundle.MULE_TRANSPORT_PREFIX)) {
+                modulesAndTransports.add(bundle);
+            }
+        }
+        
+        return modulesAndTransports;
+    }
+
 	public Collection<IMuleBundle> getDefaultLibraries() {
 		initializeLibraryMap();
 		
@@ -261,7 +279,7 @@ public class MuleRuntime implements IMuleRuntime {
 		String lookupKey = null;
 		String libFileName = lib.getName();
 		if (libFileName.endsWith(JAR_SUFFIX)) {
-			JarBundle jarBundle = new JarBundle(this, lib);
+			IMuleBundle jarBundle = createMuleBundle(this, lib);
 			
 			lookupKey = jarBundle.getPathifiedName();
 			mapNameToBundle.put(lookupKey, jarBundle);
@@ -270,6 +288,19 @@ public class MuleRuntime implements IMuleRuntime {
 			mapArtifactIdToBundle.put(artifactId, jarBundle);				
 		}	
 		return lookupKey;
+	}
+	
+	private IMuleBundle createMuleBundle(IMuleRuntime runtime, File jarFile) {
+	    Pom pom = Pom.loadFromJar(jarFile);
+        
+        boolean isMuleModulesGroupId = pom.getGroupId().equals(IMuleBundle.MULE_MODULES_GROUP_ID);
+        boolean isSpringConfigArtifactId = pom.getArtifactId().equals(IMuleBundle.MULE_MODULE_SPRING_CONFIG);
+	    if (isMuleModulesGroupId && isSpringConfigArtifactId) {
+	        return new SpringConfigMuleBundle(this, jarFile);
+	    }
+	    else {
+	        return new JarBundle(this, jarFile);
+	    }
 	}
 	
 	/*
@@ -351,14 +382,9 @@ public class MuleRuntime implements IMuleRuntime {
 			return;
 		}
 
-		Pom pom = null;
-		try {
-			pom = new Pom(pomFile);
-		} catch (FileNotFoundException fnfe) {
-			// this may actually never happen because the code above makes sure that 
-			// the file exists.
-			throw new IllegalStateException(fnfe);
-		}
+		// the code above makes sure that the file exists.
+		Pom pom = Pom.loadFromFile(pomFile);
+		
 		Iterator<String> moduleIter = pom.getSubmodules();
 		if (moduleIter.hasNext()) {
 			// do not add samples with sub-modules (e.g. the loanbroker) as we cannot make

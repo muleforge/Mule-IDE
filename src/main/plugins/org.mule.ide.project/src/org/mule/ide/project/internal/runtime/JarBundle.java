@@ -12,12 +12,9 @@ package org.mule.ide.project.internal.runtime;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
-import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.zip.ZipEntry;
@@ -153,30 +150,11 @@ public class JarBundle implements IMuleBundle {
 	
 	private Pom getPom() {
 		if (pom == null) {
-			InputStream pomStream = this.getPomInputStream();
-			pom = new Pom(pomStream);
+			pom = Pom.loadFromJar(this.getFile());
 		}
 		return pom;
 	}
 	
-	private InputStream getPomInputStream() {
-		try {
-			JarFile jarFile = new JarFile(this.getFile());
-			Enumeration<JarEntry> entries = jarFile.entries();
-			while (entries.hasMoreElements()) {
-				JarEntry entry = entries.nextElement();				
-				if (entry.getName().endsWith("pom.xml")) {
-					return jarFile.getInputStream(entry);
-				}
-			}
-			
-			throw new IllegalStateException("no pom.xml found");
-		}
-		catch (IOException iox) {
-			throw new IllegalStateException(iox);
-		}
-	}
-
 	public String[] getNamespaceUrls() {
 		try {
 			JarFile jarFile = new JarFile(this.getFile());
@@ -204,4 +182,8 @@ public class JarBundle implements IMuleBundle {
 		}
 		return new String[0];
 	}
+
+    public boolean isSpringConfigBundle() {
+        return false;
+    }
 }

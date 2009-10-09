@@ -15,7 +15,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Enumeration;
 import java.util.Iterator;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -28,27 +31,57 @@ import org.xml.sax.SAXException;
 public class Pom {
 	private Document document;
 
-	public Pom(File pomFile) throws FileNotFoundException {
-		this(new FileInputStream(pomFile));
+	public static Pom loadFromJar(File jarFile) {
+		InputStream pomStream = findPomFile(jarFile);
+		return loadFromStream(pomStream);
 	}
 	
-	public Pom(InputStream inputStream) {
-		super();
-		
-		// parse the pom file right away so we have the document ready
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		dbf.setValidating(false);
-		dbf.setNamespaceAware(true);
+	private static InputStream findPomFile(File file) {
+		try {
+			JarFile jarFile = new JarFile(file);
+			Enumeration<JarEntry> entries = jarFile.entries();
+			while (entries.hasMoreElements()) {
+				JarEntry entry = entries.nextElement();				
+				if (entry.getName().endsWith("pom.xml") &&
+				    entry.getName().contains("META-INF")) {
+					return jarFile.getInputStream(entry);
+				}
+			}
+			
+			throw new IllegalStateException("no pom.xml found");
+		}
+		catch (IOException iox) {
+			throw new RuntimeException(iox);
+		}
+	}
+	
+	/**
+	 * Load from <code>pomFile</code> wrapping any exception in a {@link RuntimeException}.
+	 */
+	public static Pom loadFromFile(File pomFile) {
+		try {
+			InputStream stream = new FileInputStream(pomFile);
+			return loadFromStream(stream);
+		} catch (FileNotFoundException fnfe) {
+			throw new RuntimeException(fnfe);
+		}
+	}
+
+	/**
+	 * Load the pom from <code>inputStream</code> and close the stream when done.
+	 */
+	public static Pom loadFromStream(InputStream inputStream) {
+		Pom pom = null;
 		
 		try {
-			document = dbf.newDocumentBuilder().parse(inputStream);
+			pom = new Pom(inputStream);
 		} catch (SAXException e) {
-			// OK: We swallow this exception - thereby ignoring any parse errors in the XML
-			//     The POM must be valid otherwise building with Maven would not work either.
+			// Swallow this exception - thereby ignoring any parse errors in the XML
+			// The POM must be valid otherwise building with Maven would not work either.
 		} catch (IOException e) {
-			// OK: Same goes for missing files
+			// Same goes for missing files
 		} catch (ParserConfigurationException e) {
-			// OK: This is so unlikely that it's not worth catching here.
+			// This is so unlikely that it's not worth catching here.
 		}
 		finally {
 			try {
@@ -57,8 +90,27 @@ public class Pom {
 			catch (IOException iox) {
 			}
 		}
+		return pom;
 	}
 	
+	private Pom(InputStream inputStream) throws SAXException, IOException, ParserConfigurationException {
+		super();
+		
+		// parse the pom file right away so we have the document ready
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		dbf.setValidating(false);
+		dbf.setNamespaceAware(true);
+		document = dbf.newDocumentBuilder().parse(inputStream);
+	}
+	
+    public String getGroupId() {
+        String groupId = XMLUtils.queryDomString(document, "project/parent/groupId");
+        if (groupId == null) {
+        	groupId = XMLUtils.queryDomString(document, "project/groupId");
+        }
+        return groupId;
+    }
+
 	public String getArtifactId() {
 		return XMLUtils.queryDomString(document, "project/artifactId");
 	}

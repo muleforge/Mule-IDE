@@ -22,6 +22,7 @@ public interface IMuleBundle {
 	 * Constants for certain prominent mule bundles
 	 */
 	String MULE_MODULE_SPRING_CONFIG = MULE_MODULE_PREFIX + "spring-config";
+	String MULE_MODULES_GROUP_ID = "org.mule.modules";
 	
 	/**
 	 * Comparator to compare IMuleBundle instances by their {@link #getDisplayName()} method.
@@ -48,4 +49,6 @@ public interface IMuleBundle {
 	 * @return String[] with namespace URLs that this bundle supports
 	 */
 	String[] getNamespaceUrls();
+	
+	boolean isSpringConfigBundle();
 }

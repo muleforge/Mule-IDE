@@ -63,6 +63,11 @@ public interface IMuleRuntime {
 	 * @return all Mule libraries contained in this mule installation
 	 */
 	Collection<IMuleBundle> getMuleLibraries();
+	
+	/**
+	 * @return all Mule libraries from this installation without the examples jars
+	 */
+	Collection<IMuleBundle> getMuleModulesAndTransports();
 
 	/**
 	 * @return the library from the <code>lib/mule</code> folder that matches <code>name</code>.

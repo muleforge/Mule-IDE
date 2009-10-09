@@ -48,7 +48,8 @@ public class Pom {
 				}
 			}
 			
-			throw new IllegalStateException("no pom.xml found");
+			throw new IllegalStateException(	
+					"Could not find pom.xml in subdir of META-INF in " + file.getAbsolutePath());
 		}
 		catch (IOException iox) {
 			throw new RuntimeException(iox);

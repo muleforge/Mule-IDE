@@ -279,10 +279,7 @@ public class MuleRuntime implements IMuleRuntime {
 	
 	private boolean shouldBeCached(File file) {
 		// The directory may be cluttered with other files, e.g. the infamous .DS_Store file on Mac
-		if (file.getName().endsWith(JAR_SUFFIX)	== false) {
-			return false;
-		}
-		return true;
+		return file.getName().endsWith(JAR_SUFFIX);
 	}
 
 	private String cacheLibFile(File lib) {

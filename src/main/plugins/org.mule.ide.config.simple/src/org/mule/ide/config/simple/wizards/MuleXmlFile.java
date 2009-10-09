@@ -47,7 +47,7 @@ public class MuleXmlFile {
 		// find mule-module-spring-config
 		IMuleBundle springConfigBundle = null;
 		for (IMuleBundle bundle : muleArtifacts) {
-			if (bundle.getFile().getName().contains(IMuleBundle.MULE_MODULE_SPRING_CONFIG)) {
+			if (bundle.isSpringConfigBundle()) {
 				springConfigBundle = bundle;
 				break;
 			}
@@ -68,7 +68,7 @@ public class MuleXmlFile {
 		for (IMuleBundle bundle : muleArtifacts) {
 			// mule-module-spring-config contains the core namespace and is the core namespace
 			// of the generated xml file
-			if (bundle.getFile().getName().contains(IMuleBundle.MULE_MODULE_SPRING_CONFIG)) {
+			if (bundle.isSpringConfigBundle()) {
 				continue;
 			}
 			
@@ -89,7 +89,7 @@ public class MuleXmlFile {
 		
 		for (IMuleBundle bundle : muleArtifacts) {
 			// only include the core namespace from the spring-config bundle
-			if (bundle.getFile().getName().contains(IMuleBundle.MULE_MODULE_SPRING_CONFIG)) {
+			if (bundle.isSpringConfigBundle()) {
 				String coreNamespaceUrl = findCoreUrl(bundle.getNamespaceUrls());
 				buf.append(LINE_SEP);
 				buf.append("          ");

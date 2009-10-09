@@ -11,7 +11,6 @@
 package org.mule.ide.config.simple.wizards;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -179,23 +178,10 @@ public class MuleConfigWizardPage extends WizardPage {
 			return;
 		}
 		
-		// the spring-config module must be selected in any case because it contains the
-		// URL to the mule.xsd
-		IMuleBundle springConfigBundle = runtime.getMuleLibrary(IMuleBundle.MULE_MODULE_SPRING_CONFIG);
-		selectedMuleArtifacts.add(springConfigBundle);
-		
 		muleArtifactTable.clearAll();
 		
-		// filter out examples etc.
-		Collection<IMuleBundle> muleLibs = runtime.getMuleLibraries();
-		List<IMuleBundle> modulesAndTransports = new ArrayList<IMuleBundle>();
-		for (IMuleBundle bundle : muleLibs) {
-			String fileName = bundle.getFile().getName();
-			if (fileName.startsWith(IMuleBundle.MULE_MODULE_PREFIX) ||
-				fileName.startsWith(IMuleBundle.MULE_TRANSPORT_PREFIX)) {
-				modulesAndTransports.add(bundle);
-			}
-		}
+		List<IMuleBundle> modulesAndTransports = 
+		    new ArrayList<IMuleBundle>(runtime.getMuleModulesAndTransports());
 		
 		// sort by display name
 		Collections.sort(modulesAndTransports, IMuleBundle.CompareByDisplayName);
@@ -203,8 +189,12 @@ public class MuleConfigWizardPage extends WizardPage {
 		for (IMuleBundle bundle : modulesAndTransports) {
 			TableItem ti = new TableItem(muleArtifactTable, SWT.CHECK);
 			
-			if (bundle.getFile().getName().indexOf(IMuleBundle.MULE_MODULE_SPRING_CONFIG) > -1) {
+			if (bundle.isSpringConfigBundle()) {
 				ti.setChecked(true);
+				
+		        // the spring-config module must be selected in any case because it 
+		        // contains the URL to the mule.xsd
+				selectedMuleArtifacts.add(bundle);
 			}
 			else {
 				ti.setChecked(false);
@@ -217,7 +207,7 @@ public class MuleConfigWizardPage extends WizardPage {
 	private void muleArtifactSelected(IMuleBundle bundle) {
 		// filter out events for mule-module-spring-config, we always need it because it contains
 		// the core mule.xsd
-		if (bundle.getFile().getName().indexOf(IMuleBundle.MULE_MODULE_SPRING_CONFIG) > -1) {
+		if (bundle.isSpringConfigBundle()) {
 			return;
 		}
 		

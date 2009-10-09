@@ -2,7 +2,7 @@ package org.mule.ide.project.internal.runtime;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertNull;
 import static org.mule.ide.project.util.Assert.assertExists;
 
 import java.io.File;
@@ -31,11 +31,11 @@ public class PomTestCase {
     	assertNotNull(pom);
     }
     
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void loadFromJarWherePomIsNotInMetaInfDir() {
     	File jarFile = getTestResource("jar-with-pom.jar");
-    	Pom.loadFromJar(jarFile);
-    	fail();
+    	Pom result = Pom.loadFromJar(jarFile);
+    	assertNull(result);
     }
     
     private void loadPomAndAssertGroupId(String fileName) throws Exception {

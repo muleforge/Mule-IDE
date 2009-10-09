@@ -33,7 +33,10 @@ public class Pom {
 
 	public static Pom loadFromJar(File jarFile) {
 		InputStream pomStream = findPomFile(jarFile);
-		return loadFromStream(pomStream);
+		if (pomStream != null) {
+			return loadFromStream(pomStream);
+		}
+		return null;
 	}
 	
 	private static InputStream findPomFile(File file) {
@@ -47,12 +50,11 @@ public class Pom {
 					return jarFile.getInputStream(entry);
 				}
 			}
-			
-			throw new IllegalStateException(	
-					"Could not find pom.xml in subdir of META-INF in " + file.getAbsolutePath());
+			return null;
 		}
 		catch (IOException iox) {
-			throw new RuntimeException(iox);
+			String message = "Error loading pom.xml from " + file.getAbsolutePath();
+			throw new RuntimeException(message, iox);
 		}
 	}
 	

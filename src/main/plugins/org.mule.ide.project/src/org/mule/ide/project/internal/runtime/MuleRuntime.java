@@ -30,7 +30,7 @@ import org.mule.ide.project.runtime.IMuleSampleProject;
 
 public class MuleRuntime implements IMuleRuntime {
 	private static final String JAR_SUFFIX = ".jar";
-	
+
 	// Map of pathified bundle name to IMuleBundle
 	private TreeMap<String, IMuleBundle> mapNameToBundle = null;
 	// Map of artifactID to IMuleBundle
@@ -266,15 +266,25 @@ public class MuleRuntime implements IMuleRuntime {
 		File muleLibDir = new File(getDirectory(), dirSuffix);
 		if (muleLibDir.exists() && muleLibDir.isDirectory()) {
 			File[] files = muleLibDir.listFiles();
-			for (File lib : files) {
-				String key = cacheLibFile(lib);
-				if (key != null) {
-					defaultLibraries.add(mapNameToBundle.get(key));
+			for (File jar : files) {
+				if (shouldBeCached(jar)) {
+					String key = cacheLibFile(jar);
+					if (key != null) {
+						defaultLibraries.add(mapNameToBundle.get(key));
+					}
 				}
 			}
 		}
 	}
 	
+	private boolean shouldBeCached(File file) {
+		// The directory may be cluttered with other files, e.g. the infamous .DS_Store file on Mac
+		if (file.getName().endsWith(JAR_SUFFIX)	== false) {
+			return false;
+		}
+		return true;
+	}
+
 	private String cacheLibFile(File lib) {
 		String lookupKey = null;
 		String libFileName = lib.getName();
@@ -292,15 +302,16 @@ public class MuleRuntime implements IMuleRuntime {
 	
 	private IMuleBundle createMuleBundle(IMuleRuntime runtime, File jarFile) {
 	    Pom pom = Pom.loadFromJar(jarFile);
-        
-        boolean isMuleModulesGroupId = pom.getGroupId().equals(IMuleBundle.MULE_MODULES_GROUP_ID);
-        boolean isSpringConfigArtifactId = pom.getArtifactId().equals(IMuleBundle.MULE_MODULE_SPRING_CONFIG);
-	    if (isMuleModulesGroupId && isSpringConfigArtifactId) {
-	        return new SpringConfigMuleBundle(this, jarFile);
+	    
+	    if (pom != null) {
+	    	boolean isMuleModulesGroupId = pom.getGroupId().equals(IMuleBundle.MULE_MODULES_GROUP_ID);
+	    	boolean isSpringConfigArtifactId = pom.getArtifactId().equals(IMuleBundle.MULE_MODULE_SPRING_CONFIG);
+		    if (isMuleModulesGroupId && isSpringConfigArtifactId) {
+		        return new SpringConfigMuleBundle(this, jarFile);
+		    }
 	    }
-	    else {
-	        return new JarBundle(this, jarFile);
-	    }
+	    
+	    return new JarBundle(this, jarFile);
 	}
 	
 	/*

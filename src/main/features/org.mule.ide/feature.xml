@@ -5,15 +5,15 @@
       version="2.0.0.qualifier"
       provider-name="%featureProvider">
 
-   <description url="http://mule.mulesource.org">
+   <description url="http://mule.mulesoft.org">
       Eclipse feature for working with the Mule ESB.
    </description>
 
-   <copyright url="http://www.mulesource.com/products/licensing.php">
+   <copyright url="http://www.mulesoft.com/products/licensing.php">
       %copyright
    </copyright>
 
-   <license url="http://www.mulesource.com/products/licensing.php">
+   <license url="http://www.mulesoft.com/products/licensing.php">
       %license
    </license>
 

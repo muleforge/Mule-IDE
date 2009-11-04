@@ -3,6 +3,9 @@
 # Script for automatic upload to the forge
 #
 
+SNAPSHOT_URL="https://dav.muleforge.org/snapshots.dist/mule-ide/"
+RELEASE_URL="https://dav.muleforge.org/dist/mule-ide/"
+
 function processArgs()
 {
     until [ -z "$1" ]
@@ -19,7 +22,7 @@ function processArgs()
                 ;;
 
             --snapshot)
-                URL="https://dav.muleforge.org/snapshots.dist/mule-ide/"
+                URL=${SNAPSHOT_URL}
                 ;;
 
             *)
@@ -159,7 +162,7 @@ function restoreCadaverRc()
 #
 # main
 #
-URL="https://dav.muleforge.org/dist/mule-ide/"
+URL=${RELEASE_URL}
 USER=
 PASSWORD=
 BACKUP_SUFFIX=".upload-bak"

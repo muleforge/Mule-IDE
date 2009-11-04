@@ -25,6 +25,10 @@ function processArgs()
                 URL=${SNAPSHOT_URL}
                 ;;
 
+            --release)
+            	URL=${RELEASE_URL}
+            	;;
+
             *)
                 echo "unknown arg: $1"
                 exit

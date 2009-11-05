@@ -79,17 +79,20 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate {
 		String args = super.getVMArguments(configuration);
 		int muleHome = -1;
 		if (args != null && args.length() > 0) {
-			newArgs = new StringBuffer(args);
 			muleHome = args.indexOf(MULE_HOME_ARG);
 			newArgs.append(" "); 
-		} else {
-			newArgs = new StringBuffer();
 		}
+		
 		if (muleHome < 0) {
 			newArgs.append(MULE_HOME_ARG);
 			newArgs.append("=");
 			newArgs.append(runtime.getDirectory().getAbsolutePath());
 		}
+	
+		// Allow the launched config to see where our workspace is and that we are launched from the IDE
+		newArgs.append(" -Dosgi.dev=true");
+        newArgs.append(" -Dosgi.instance.area=");
+        newArgs.append(ResourcesPlugin.getWorkspace().getRoot().getLocationURI().toString());
 		
 		return newArgs.toString();
 	}

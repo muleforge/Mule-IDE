@@ -315,10 +315,12 @@ public class MuleConfigWizardPage extends WizardPage {
 	}
 	
 	/**
-	 * Ensures that both text fields are set.
+	 * Check prerequsites for creating the new config file
 	 */
 	private void dialogChanged() {
-		IResource container = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getFolderName()));
+		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+        Path folder = new Path(getFolderName());
+        IResource container = workspaceRoot.findMember(folder);
 		String fileName = getFileName();
 		
 		if (container.exists() == false) {
@@ -346,6 +348,13 @@ public class MuleConfigWizardPage extends WizardPage {
 				return;
 			}
 		}
+		
+		IPath destinationFile = folder.append(fileName);
+		if (workspaceRoot.exists(destinationFile)) {
+		    updateStatus("File already exists");
+		    return;
+		}
+		
 		updateStatus(null);
 	}
 

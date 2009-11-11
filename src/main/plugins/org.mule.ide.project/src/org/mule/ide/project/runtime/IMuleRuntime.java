@@ -14,6 +14,8 @@ import java.io.File;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.core.runtime.IPath;
+
 /**
  * Interface for inquiring about a Mule distribution 
  */
@@ -82,7 +84,7 @@ public interface IMuleRuntime {
 	 */
 	IMuleBundle getLibrary(String name);
 	
-	File getSourceZip();
+	IPath getSourceZip();
 	
 	/**
 	 * @return The bundle describing the core plugin. Is never null.

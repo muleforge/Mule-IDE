@@ -14,6 +14,8 @@ import java.io.File;
 import java.util.Comparator;
 import java.util.Set;
 
+import org.eclipse.core.runtime.IPath;
+
 public interface IMuleBundle {
 	String MULE_MODULE_PREFIX = IMuleRuntime.MULE_BUNDLE_PREFIX + "module-";
 	String MULE_TRANSPORT_PREFIX = IMuleRuntime.MULE_BUNDLE_PREFIX + "transport-";
@@ -39,7 +41,7 @@ public interface IMuleBundle {
 	
 	Set<IMuleBundle> getDependencies();
 	
-	File getSourcePath();
+	IPath getSourcePath();
 	
 	String getVersion();
 	

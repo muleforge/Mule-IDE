@@ -19,6 +19,7 @@ import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.zip.ZipEntry;
 
+import org.eclipse.core.runtime.IPath;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
@@ -108,7 +109,7 @@ public class JarBundle implements IMuleBundle {
 		return this.getFile().toString();
 	}
 	
-	public File getSourcePath() {
+	public IPath getSourcePath() {
 		/*
 		if (getName().equals(CORE_BUNDLE_NAME))
 		{

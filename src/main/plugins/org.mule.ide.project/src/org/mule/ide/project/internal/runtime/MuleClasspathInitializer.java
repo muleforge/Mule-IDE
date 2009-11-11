@@ -106,13 +106,9 @@ public class MuleClasspathInitializer extends ClasspathContainerInitializer {
 		for (String name : selectedBundles) {
 			IMuleBundle bundle = runtime.getLibrary(name);
 			if (bundle != null) {
-				File f = bundle.getFile();
-				File fileSource = bundle.getSourcePath();
-				Path pathSource = null;
-				if (fileSource != null) {
-					pathSource = new Path(fileSource.getAbsolutePath());
-				}
-				entries.add(JavaCore.newLibraryEntry(new Path(f.getAbsolutePath()), pathSource, null));				
+			    IPath libraryPath = new Path(bundle.getFile().getAbsolutePath());
+				IPath sourcePath = bundle.getSourcePath();
+				entries.add(JavaCore.newLibraryEntry(libraryPath, sourcePath, null));				
 			}
 		}
 		return entries.toArray(new IClasspathEntry[entries.size()]);	

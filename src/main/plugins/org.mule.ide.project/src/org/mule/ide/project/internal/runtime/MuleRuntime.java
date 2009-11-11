@@ -21,7 +21,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.runtime.IMuleBundle;
@@ -103,14 +105,19 @@ public class MuleRuntime implements IMuleRuntime {
 		return version;
 	}
 	
-	public File getSourceZip() {
+	public IPath getSourceZip() {
 		File sourceDir = new File(getDirectory(), "src");
+		if (sourceDir.exists() == false) {
+		    return null;
+		}
+		
 		String sourceFilename = "mule-" + getVersion() + "-src.zip";
 		File sourceFile = new File(sourceDir, sourceFilename);
-		if (sourceFile.exists()) {
-			return sourceFile;
+		if (sourceFile.exists() == false) {
+		    return null;
 		}
-		return null;
+		
+		return new Path(sourceFile.getAbsolutePath());
 	}
 
 	public List<IMuleSampleProject> getSampleProjects() {

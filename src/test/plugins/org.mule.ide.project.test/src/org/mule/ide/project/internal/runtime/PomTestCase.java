@@ -13,7 +13,6 @@ package org.mule.ide.project.internal.runtime;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.mule.ide.project.util.Assert.assertExists;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,7 +21,7 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
-public class PomTestCase {
+public class PomTestCase extends ResourceTestCase {
     @Test
     public void groupIdFromParentDeclaration() throws Exception {
     	loadPomAndAssertGroupId("pom-with-groupId-in-parent.xml");
@@ -48,6 +47,12 @@ public class PomTestCase {
     	assertNull(result);
     }
     
+    @Test
+    public void parsePomWithoutNameElement() throws Exception {
+        Pom pom = loadPom("pom-without-name.xml");
+        assertNull(pom.getName());
+    }
+    
     private void loadPomAndAssertGroupId(String fileName) throws Exception {
         Pom pom = loadPom(fileName);
         String groupId = pom.getGroupId();
@@ -60,11 +65,5 @@ public class PomTestCase {
         
         InputStream pomInputStream = new FileInputStream(pomFile);
         return Pom.loadFromStream(pomInputStream);
-    }
-    
-    private File getTestResource(String filename) {
-    	File testResource = new File("test-resources", filename);
-    	assertExists(testResource);
-    	return testResource;
     }
 }

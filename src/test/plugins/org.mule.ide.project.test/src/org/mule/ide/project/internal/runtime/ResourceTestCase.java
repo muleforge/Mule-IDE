@@ -8,16 +8,16 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ide.project.util;
+package org.mule.ide.project.internal.runtime;
+
+import static org.mule.ide.project.util.Assert.assertExists;
 
 import java.io.File;
 
-public class Assert extends org.junit.Assert {
-	public static void assertExists(File file) {
-		assertTrue(file.exists());
-	}
-	
-	public static void assertExists(String filename, File file) {
-	    assertTrue("File " + filename + " does not exist", file.exists());
-	}
+public class ResourceTestCase {
+    protected static File getTestResource(String filename) {
+    	File testResource = new File("test-resources", filename);
+    	assertExists(filename, testResource);
+    	return testResource;
+    }
 }

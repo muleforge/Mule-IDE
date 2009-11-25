@@ -25,16 +25,14 @@ import org.mule.ide.project.runtime.IMuleRuntime;
 import org.mule.ide.project.util.FileUtils;
 import org.mule.ide.project.util.Unzip;
 
-public class CreateJarBundleTestCase {
+public class CreateJarBundleTestCase extends ResourceTestCase {
 	private static File TempDir = null;
 	
 	@BeforeClass
 	public static void unpackMuleTestDistribution() throws Exception {
 		TempDir = FileUtils.createTempDirectory();
 		
-		File distributionFile = new File("test-resources", "mule-test-distro.zip");
-		assertTrue(distributionFile.exists());
-		
+		File distributionFile = getTestResource("mule-test-distro.zip");		
 		new Unzip(distributionFile).unpack(TempDir);
 	}
 

@@ -216,16 +216,16 @@ public class MuleRuntime implements IMuleRuntime {
 	}
 		
 	/**
-	 * Filter out examples etc.
+	 * Match only jar files that have the transport or the module prefix. Note that 
+	 * &quot;foreign&quot; jars, i.e. jars that do not come as part of a Mule distribution may
+	 * still match the naming scheme but may not necessarily contain a valid pom.
 	 */
     public Collection<IMuleBundle> getMuleModulesAndTransports() {
         Collection<IMuleBundle> muleLibs = getMuleLibraries();
         
         List<IMuleBundle> modulesAndTransports = new ArrayList<IMuleBundle>();
         for (IMuleBundle bundle : muleLibs) {
-            String fileName = bundle.getFile().getName();
-            if (fileName.startsWith(IMuleBundle.MULE_MODULE_PREFIX) ||
-                fileName.startsWith(IMuleBundle.MULE_TRANSPORT_PREFIX)) {
+            if (bundle.isModuleOrTransport()) {
                 modulesAndTransports.add(bundle);
             }
         }

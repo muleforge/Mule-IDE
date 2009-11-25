@@ -53,4 +53,10 @@ public interface IMuleBundle {
 	String[] getNamespaceUrls();
 	
 	boolean isSpringConfigBundle();
+
+	/**
+	 * @return <code>true</code> if this instance is either a Mule transport or a Mule module,
+	 * otherwise return <code>false</code>.
+	 */
+    boolean isModuleOrTransport();
 }

@@ -12,7 +12,6 @@ package org.mule.ide.project.internal.runtime;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import java.util.jar.JarFile;
@@ -27,8 +26,6 @@ public class JarBundle implements IMuleBundle {
 
 	private final IMuleRuntime runtime;
 	private final File jar;
-//	private List muleDependencies;
-	private List<String> otherDependencies;
 	private String version;
 	private Pom pom = null;
 
@@ -87,12 +84,12 @@ public class JarBundle implements IMuleBundle {
 		return null;
 	}
 
-	public String[] getOtherDependencies() throws IOException {
-		if (otherDependencies == null) {
-			//loadDependencies();
-		}
-		return otherDependencies.toArray(new String[otherDependencies.size()]);
-	}
+//	public String[] getOtherDependencies() throws IOException {
+//		if (otherDependencies == null) {
+//			//loadDependencies();
+//		}
+//		return otherDependencies.toArray(new String[otherDependencies.size()]);
+//	}
 
 	public boolean equals(Object obj) {
 		if (! (obj instanceof JarBundle)) {
@@ -146,9 +143,15 @@ public class JarBundle implements IMuleBundle {
 	}
 	
 	public String getDisplayName() {
-		return this.getPom().getName();
-	}
-	
+	    String name = getPom().getName();
+	    if (name == null) {
+	        // This may show up in the new config file wizard, then again this gives users
+	        // a clue as to what's wrong inside their lib directory
+	        name = "Missing <name> element in pom.xml inside " + jar.getName();
+	    }
+	    return name;
+    }
+
 	private Pom getPom() {
 		if (pom == null) {
 			pom = Pom.loadFromJar(this.getFile());
@@ -160,8 +163,7 @@ public class JarBundle implements IMuleBundle {
 		try {
 			JarFile jarFile = new JarFile(this.getFile());
 			ZipEntry springSchemas = jarFile.getEntry("META-INF/spring.schemas");
-			if (springSchemas != null)
-			{
+			if (springSchemas != null) {
 				Properties props = new Properties();
 				props.load(jarFile.getInputStream(springSchemas));
 				
@@ -186,5 +188,24 @@ public class JarBundle implements IMuleBundle {
 
     public boolean isSpringConfigBundle() {
         return false;
+    }
+
+    public boolean isModuleOrTransport() {
+        boolean isModuleOrTransport = false;
+        
+        if (filenameHasModuleOrTransportPrefix()) {
+            // users may put custom jar files into the lib dir which match the filename scheme but
+            // which are still invalid files, e.g. mule-module-xxx-sources.jar etc.
+            if (getPom() != null) {
+                isModuleOrTransport = true;
+            }
+        }
+
+        return isModuleOrTransport;
+    }
+
+    private boolean filenameHasModuleOrTransportPrefix() {
+        String fileName = jar.getName();
+        return fileName.startsWith(MULE_MODULE_PREFIX) || fileName.startsWith(MULE_TRANSPORT_PREFIX);
     }
 }

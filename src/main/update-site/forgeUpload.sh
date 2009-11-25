@@ -166,7 +166,7 @@ function restoreCadaverRc()
 #
 # main
 #
-URL=${RELEASE_URL}
+URL=${SNAPSHOT_URL}
 USER=
 PASSWORD=
 BACKUP_SUFFIX=".upload-bak"

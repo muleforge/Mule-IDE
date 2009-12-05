@@ -107,9 +107,10 @@ public class Pom {
 	}
 	
     public String getGroupId() {
-        String groupId = XMLUtils.queryDomString(document, "project/parent/groupId");
+        String groupId = XMLUtils.queryDomString(document, "project/groupId");
         if (groupId == null) {
-        	groupId = XMLUtils.queryDomString(document, "project/groupId");
+            // no groupId in project itself, look at the parent declaration, it must have a groupId
+            groupId = XMLUtils.queryDomString(document, "project/parent/groupId");
         }
         return groupId;
     }

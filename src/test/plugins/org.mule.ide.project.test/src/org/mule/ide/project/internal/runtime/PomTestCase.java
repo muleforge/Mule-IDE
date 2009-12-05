@@ -33,6 +33,11 @@ public class PomTestCase extends ResourceTestCase {
     }
     
     @Test
+    public void groupIdFromPomAndParentHasGroupId() throws Exception {
+        loadPomAndAssertGroupId("pom-with-parent-and-groupId.xml");
+    }
+    
+    @Test
     public void loadFromJarWherePomIsInMetaInfDir() {
     	File jarFile = getTestResource("jar-with-pom-in-META-INF.jar");
     	

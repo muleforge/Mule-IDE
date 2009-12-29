@@ -275,11 +275,11 @@ public class MuleConfigWizardPage extends WizardPage {
 		// find the selected project
 		IProject project = null;
 		while (container != null) {
-			container = container.getParent();
 			if (container instanceof IProject) {
 				project = (IProject)container;
 				break;
 			}
+			container = container.getParent();
 		}
 		
 		if (project != null) {

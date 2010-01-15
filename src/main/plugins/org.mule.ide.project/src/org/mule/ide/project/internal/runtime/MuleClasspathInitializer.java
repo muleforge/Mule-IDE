@@ -52,7 +52,6 @@ public class MuleClasspathInitializer extends ClasspathContainerInitializer {
 
 	public void initialize(final IPath path, final IJavaProject project) throws CoreException {
 		// Get the project and the required libs, find the Mule distro, add the libs
-		
 		IMuleRuntime runtime = null;
 		
 		// Now, see if the supplied classpath has specified the distribution (as "pathified" hint)
@@ -78,6 +77,7 @@ public class MuleClasspathInitializer extends ClasspathContainerInitializer {
 		if (path != null && path.segmentCount() > 1) {
 			included = commaStringToSet(path.segment(1));
 		}
+
 		/*
 		List bundles = new LinkedList();
 		bundles.add(distrib.getCoreModule());
@@ -97,7 +97,7 @@ public class MuleClasspathInitializer extends ClasspathContainerInitializer {
 		JavaCore.setClasspathContainer(path, new IJavaProject[] { project }, new IClasspathContainer[] { container }, null);
 	}
 
-	public IClasspathEntry[] getMuleClasspathEntries(IMuleRuntime runtime, Set<String> selectedBundles) {
+	private IClasspathEntry[] getMuleClasspathEntries(IMuleRuntime runtime, Set<String> selectedBundles) {
 		if (selectedBundles == null) {
 			return new IClasspathEntry[] {};
 		}

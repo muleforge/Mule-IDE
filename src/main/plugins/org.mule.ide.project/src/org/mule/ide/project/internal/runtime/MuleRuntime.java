@@ -233,6 +233,13 @@ public class MuleRuntime implements IMuleRuntime {
         return modulesAndTransports;
     }
 
+    public IMuleBundle getLibraryByArtifactId(String artifactId) {
+        // see MULEIDE-144: have to append our version in order to generate a key that
+        // will have a chance to come up with a valid result.
+        String key = artifactId + "-" + getVersion();
+        return mapArtifactIdToBundle.get(key);
+    }
+    
 	public Collection<IMuleBundle> getDefaultLibraries() {
 		initializeLibraryMap();
 		

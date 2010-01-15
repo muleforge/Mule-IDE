@@ -60,6 +60,7 @@ public class MuleConfigWizard extends Wizard implements INewWizard {
 	public boolean performFinish() {
 		final String containerName = page.getFolderName();
 		final String fileName = page.getFileName();
+		
 		IRunnableWithProgress op = new IRunnableWithProgress() {
 			public void run(IProgressMonitor monitor) throws InvocationTargetException {
 				try {
@@ -71,6 +72,7 @@ public class MuleConfigWizard extends Wizard implements INewWizard {
 				}
 			}
 		};
+		
 		try {
 			getContainer().run(true, false, op);
 		} catch (InterruptedException e) {

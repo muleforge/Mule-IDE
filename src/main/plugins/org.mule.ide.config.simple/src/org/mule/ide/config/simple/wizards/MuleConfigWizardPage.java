@@ -179,14 +179,9 @@ public class MuleConfigWizardPage extends WizardPage {
 		}
 		
 		muleArtifactTable.clearAll();
-		
-		List<IMuleBundle> modulesAndTransports = 
-		    new ArrayList<IMuleBundle>(runtime.getMuleModulesAndTransports());
-		
-		// sort by display name
-		Collections.sort(modulesAndTransports, IMuleBundle.CompareByDisplayName);
-		
-		for (IMuleBundle bundle : modulesAndTransports) {
+
+		List<IMuleBundle> bundles = collectMuleBundles(runtime);
+		for (IMuleBundle bundle : bundles) {
 			TableItem ti = new TableItem(muleArtifactTable, SWT.CHECK);
 			
 			if (bundle.isSpringConfigBundle()) {
@@ -203,6 +198,19 @@ public class MuleConfigWizardPage extends WizardPage {
 			ti.setData(bundle);
 		}		
 	}
+
+    private List<IMuleBundle> collectMuleBundles(IMuleRuntime runtime) {
+        List<IMuleBundle> modulesAndTransports = 
+		    new ArrayList<IMuleBundle>(runtime.getMuleModulesAndTransports());
+		
+        // add mule-tests-functional.jar as it contains the test namespace
+        IMuleBundle functionalTests = runtime.getLibraryByArtifactId("mule-tests-functional");
+        modulesAndTransports.add(functionalTests);
+        
+		// sort by display name
+		Collections.sort(modulesAndTransports, IMuleBundle.CompareByDisplayName);
+        return modulesAndTransports;
+    }
 
 	private void muleArtifactSelected(IMuleBundle bundle) {
 		// filter out events for mule-module-spring-config, we always need it because it contains

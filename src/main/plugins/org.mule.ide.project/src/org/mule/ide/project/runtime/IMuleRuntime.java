@@ -83,9 +83,14 @@ public interface IMuleRuntime {
 	 * @param name of the library as cached internally in MuleRuntime (i.e. opt_log4j-1.2.12.jar)
 	 */
 	IMuleBundle getLibrary(String name);
-	
+
+	/**
+	 * @return {@link IMuleBundle} that has <code>artifactId</code>.
+	 */
+    IMuleBundle getLibraryByArtifactId(String artifactId);
+
 	IPath getSourceZip();
-	
+
 	/**
 	 * @return The bundle describing the core plugin. Is never null.
 	 */

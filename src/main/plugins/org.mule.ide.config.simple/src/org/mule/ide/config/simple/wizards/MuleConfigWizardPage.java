@@ -77,10 +77,21 @@ public class MuleConfigWizardPage extends WizardPage {
 
 		initialize();
 		dialogChanged();
+		checkProjectHasMuleClasspathContainer();
 		setControl(parentContainer);
 	}
 	
-	private void createNewFileGroup(Composite parent) {
+	private void checkProjectHasMuleClasspathContainer() {
+	    ProjectAdapter project = ProjectAdapter.with(selection);
+	    if (project.isMuleProject()) {
+	        updateStatus(null);
+	    }
+	    else {
+	        updateStatus(project.getName() + " does not have the Mule libraries attached");
+	    }
+    }
+
+    private void createNewFileGroup(Composite parent) {
 		Group group = new Group(parent, SWT.NONE);
 		group.setText("Mule &Configuration");
 		

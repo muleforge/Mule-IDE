@@ -129,10 +129,10 @@ public class MuleConfigWizard extends Wizard implements INewWizard {
 	private void openFile(final IFile file) {
 		this.getShell().getDisplay().asyncExec(new Runnable() {
 			public void run() {
-				IWorkbenchPage page =
+				IWorkbenchPage activePage =
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 				try {
-					IDE.openEditor(page, file, true);
+					IDE.openEditor(activePage, file, true);
 				} catch (PartInitException e) {
 				}
 			}
@@ -150,7 +150,7 @@ public class MuleConfigWizard extends Wizard implements INewWizard {
 		throw new CoreException(status);
 	}
 
-	public void init(IWorkbench workbench, IStructuredSelection selection) {
-		this.selection = selection;
+	public void init(IWorkbench workbench, IStructuredSelection structuredSelection) {
+		this.selection = structuredSelection;
 	}
 }

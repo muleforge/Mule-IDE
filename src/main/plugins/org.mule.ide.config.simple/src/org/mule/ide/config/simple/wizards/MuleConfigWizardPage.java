@@ -17,17 +17,12 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -45,8 +40,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
-import org.mule.ide.project.MulePreferences;
-import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
@@ -57,12 +50,14 @@ public class MuleConfigWizardPage extends WizardPage {
 	private Table muleArtifactTable;
 	private Set<IMuleBundle> selectedMuleArtifacts;
 	private int lastEventTime = -1;
+    private MuleIdeProject project;
 
 	public MuleConfigWizardPage(IStructuredSelection selection) {
 		super("wizardPage");
 		setTitle("Mule Configuration File");
 		setDescription("This wizard creates a new Mule configuration file with the selected namespaces.");
 		this.selection = selection;
+		project = MuleIdeProject.from(selection);
 	}
 
 	public void createControl(Composite parent) {
@@ -76,18 +71,21 @@ public class MuleConfigWizardPage extends WizardPage {
 		createMuleArtifactSelector(parentContainer);
 
 		initialize();
-		dialogChanged();
-		checkProjectHasMuleClasspathContainer();
+		fileTextChanged();
 		setControl(parentContainer);
 	}
 	
 	private void checkProjectHasMuleClasspathContainer() {
-	    ProjectAdapter project = ProjectAdapter.with(selection);
 	    if (project.isMuleProject()) {
 	        updateStatus(null);
 	    }
 	    else {
-	        updateStatus(project.getName() + " does not have the Mule libraries attached");
+	        if (project.isValid()) {
+	            updateStatus(project.getName() + " does not have the Mule libraries attached");
+	        }
+	        else {
+	            updateStatus("Could not determine project from selection");
+	        }
 	    }
     }
 
@@ -134,7 +132,7 @@ public class MuleConfigWizardPage extends WizardPage {
 		fileText.setLayoutData(gd);
 		fileText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
-				dialogChanged();
+				fileTextChanged();
 			}
 		});
 	}
@@ -243,42 +241,72 @@ public class MuleConfigWizardPage extends WizardPage {
 	 * Tests if the current workbench selection is a suitable folder to use.
 	 */
 	private void initialize() {		
-		selectedMuleArtifacts = new HashSet<IMuleBundle>();
+	    selectedMuleArtifacts = new HashSet<IMuleBundle>();
+	    fileText.setText("mule-config.xml");
 
-		if ((selection != null) && (selection.isEmpty() == false)) {
-			if (selection.size() > 1) {
-				return;
-			}
-			
-			Object obj = selection.getFirstElement();
-			if (obj instanceof IResource) {
-				IContainer container;
-				if (obj instanceof IContainer) {
-					container = (IContainer) obj;
-				}
-				else {
-					container = ((IResource) obj).getParent();
-				}
-				
-				folderText.setText(container.getFullPath().toString());
-			}
-			else if (obj instanceof IJavaElement) {
-				IJavaElement javaElement = (IJavaElement)obj;
-				folderText.setText(javaElement.getPath().toString());
-			}
-		}
-		
-		fileText.setText("mule-config.xml");
+	    checkProjectHasMuleClasspathContainer();
+	    
+	    IPath folderPath = folderFromSelection();
+	    if (folderPath == null) {
+	        updateStatus("Please select folder");
+	    }
+	    else {
+	        folderText.setText(folderPath.toString());
+	    }
 	}
 
-	/**
+	private IPath folderFromSelection() {
+        if ((selection != null) && (selection.isEmpty() == false)) {
+            if (selection.size() > 1) {
+                return null;
+            }
+            
+            Object obj = selection.getFirstElement();
+            if (obj instanceof IResource) {
+                IResource resource = (IResource)obj;
+                return folderFromResource(resource);
+            }
+            else if (obj instanceof IJavaElement) {
+                IJavaElement javaElement = (IJavaElement)obj;
+                return folderFromJavaElement(javaElement);
+            }
+        }
+        return null;
+    }
+
+    private IPath folderFromResource(IResource resource) {
+        IContainer container;
+        if (resource instanceof IContainer) {
+            container = (IContainer) resource;
+        }
+        else {
+            container = ((IResource) resource).getParent();
+        }
+        return container.getFullPath();
+    }
+
+    private IPath folderFromJavaElement(IJavaElement javaElement) {
+        int type = javaElement.getElementType();
+        
+        // The constants in IJavaElement are ordered ascending, more specific types have
+        // higher values. Java elements that are more specific than a package fragment
+        // (i.e. class files, classes etc.) need to determine their package's folder
+        // on disk
+        while (type > IJavaElement.PACKAGE_FRAGMENT) { 
+            javaElement = javaElement.getParent();
+            type = javaElement.getElementType();
+        }
+        return javaElement.getPath();
+    }
+    
+    /**
 	 * Uses the standard container selection dialog to choose the new value for
 	 * the folder field.
 	 */
 	private void handleBrowse() {
-		ContainerSelectionDialog dialog = new ContainerSelectionDialog(
-				getShell(), ResourcesPlugin.getWorkspace().getRoot(), false,
-				"Select folder");
+		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+        ContainerSelectionDialog dialog = new ContainerSelectionDialog(getShell(), 
+            workspaceRoot, false, "Select folder");
 		if (dialog.open() == ContainerSelectionDialog.OK) {
 			Object[] result = dialog.getResult();
 			if (result.length == 1) {
@@ -288,55 +316,16 @@ public class MuleConfigWizardPage extends WizardPage {
 	}
 
 	private void folderTextChanged() {
-		IPath path = new Path(this.getFolderName());
-		IResource container = ResourcesPlugin.getWorkspace().getRoot().findMember(path);
-
-		// find the selected project
-		IProject project = null;
-		while (container != null) {
-			if (container instanceof IProject) {
-				project = (IProject)container;
-				break;
-			}
-			container = container.getParent();
-		}
-		
-		if (project != null) {
-			// find the respective JavaProject
-			IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
-			IJavaProject javaProject = JavaCore.create(workspaceRoot).getJavaProject(project.getName());
-			try {
-				IClasspathEntry[] classpath = javaProject.getRawClasspath();
-				for (IClasspathEntry entry : classpath) {
-					if (entry.getEntryKind() == IClasspathEntry.CPE_CONTAINER) {
-						IPath entryPath = entry.getPath();
-						IPath muleRuntimeIdentifier = new Path(MuleProjectPlugin.ID_MULE_CLASSPATH_CONTAINER);
-						if (entryPath.matchingFirstSegments(muleRuntimeIdentifier) == 1) {
-							IMuleRuntime runtime = null;
-
-							if (entryPath.segmentCount() == 2) {
-								// this is the default Mule Runtime
-								runtime = MulePreferences.getDefaultMuleRuntime();
-							}
-							else {
-								// this is the Mule library, extract the version from it
-								String muleRuntimePath = entryPath.lastSegment();						
-								runtime = MulePreferences.getMuleRuntime(muleRuntimePath);
-							}
-							this.populateMuleArtifactTable(runtime);
-						}
-					}
-				}
-			} catch (JavaModelException e) {
-				MuleProjectPlugin.getInstance().logError("error determining classpath", e);
-			}
-		}
+	    if (project.isMuleProject()) {
+	        IMuleRuntime runtime = project.getMuleRuntime();
+	        populateMuleArtifactTable(runtime);
+	    }
 	}
 	
 	/**
 	 * Check prerequsites for creating the new config file
 	 */
-	private void dialogChanged() {
+	private void fileTextChanged() {
 		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
         Path folder = new Path(getFolderName());
         IResource container = workspaceRoot.findMember(folder);

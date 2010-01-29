@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name.0
+Bundle-SymbolicName: org.mule.ide.common;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.mule.ide.common.CommonCodePlugin
+Bundle-Vendor: %Bundle-Vendor.0
+Require-Bundle: org.eclipse.ui;bundle-version="3.4.1";visibility:=reexport,
+ org.eclipse.core.runtime;bundle-version="3.4.0";visibility:=reexport,
+ org.eclipse.jdt.core;bundle-version="3.4.2";visibility:=reexport,
+ org.eclipse.core.resources;bundle-version="3.4.1";visibility:=reexport,
+ org.eclipse.jdt.ui;bundle-version="3.4.1";visibility:=reexport
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy
+Export-Package: org.mule.ide.common
+Bundle-Localization: plugin

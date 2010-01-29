@@ -9,6 +9,10 @@ if [ ! -d plugins ]; then
     exit 1
 fi
 
+if [ "${ECLIPSE_PATH}" != "" ]; then
+    export PATH="${ECLIPSE_PATH}:${PATH}"
+fi 
+
 # Delete artifacts.xml and content.xml. If you fail to to this before
 # running the p2 metadata generator, it will not output the compressed
 # metadata archives,

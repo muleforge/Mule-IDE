@@ -12,21 +12,13 @@ package org.mule.ide.config.simple.wizards;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.mule.ide.project.runtime.IMuleBundle;
+import org.mule.ide.project.runtime.Namespace;
 
 public class MuleXmlFile {
 	private static final String LINE_SEP = System.getProperty("line.separator");
-	private static final Set<String> RESERVED_WORDS;
-	
-	static {
-		RESERVED_WORDS = new HashSet<String>();
-		RESERVED_WORDS.add("xml");
-		RESERVED_WORDS.add("xmlns");
-	}
 	
 	public static InputStream generateXmlFile(List<IMuleBundle> muleArtifacts) {
 		StringBuilder buf = new StringBuilder(128);
@@ -44,104 +36,88 @@ public class MuleXmlFile {
 	}
 
 	private static void appendCoreNamespace(StringBuilder buf, List<IMuleBundle> muleArtifacts) {
-		// find mule-module-spring-config
-		IMuleBundle springConfigBundle = null;
-		for (IMuleBundle bundle : muleArtifacts) {
-			if (bundle.isSpringConfigBundle()) {
-				springConfigBundle = bundle;
-				break;
-			}
-		}
+		IMuleBundle springConfigBundle = findSpringConfigBundle(muleArtifacts);
 		
 		// find mule-core.xsd and make it the default namespace for the document
-		String coreUrl = findCoreUrl(springConfigBundle.getNamespaceUrls());		
+		Namespace coreNamespace = findCoreNamespace(springConfigBundle.getNamespaces());
 		buf.append("<mule xmlns=\"");
-		buf.append(namespaceIdFromUrl(coreUrl));
+		buf.append(coreNamespace.location);
 		buf.append("\"");
 		buf.append(LINE_SEP);
 	}
 
-	private static void appendNamespaces(StringBuilder buf, List<IMuleBundle> muleArtifacts) {
-		buf.append("      xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
-		buf.append(LINE_SEP);
-		
-		for (IMuleBundle bundle : muleArtifacts) {
-			// mule-module-spring-config contains the core namespace and is the core namespace
-			// of the generated xml file
-			if (bundle.isSpringConfigBundle()) {
-				continue;
-			}
-			
-			String[] namespaceUrls = bundle.getNamespaceUrls();
-			for (String url : namespaceUrls) {
-				buf.append("      xmlns:");
-				buf.append(namespaceShortNameFromUrl(url));
-				buf.append("=\"");
-				buf.append(namespaceIdFromUrl(url));
-				buf.append("\"");
-				buf.append(LINE_SEP);
-			}
-		}
-	}
+	private static Namespace findCoreNamespace(Namespace[] namespaces) {
+        // find mule-core.xsd
+        Namespace coreNamespace = null;
+        for (Namespace namespace: namespaces) {
+            if (namespace.location.endsWith("mule.xsd")) {
+                coreNamespace = namespace;
+                break;
+            }
+        }
+        return coreNamespace;
+    }
 
-	private static void appendSchemaLocations(StringBuilder buf, List<IMuleBundle> muleArtifacts) {
-		buf.append("      xsi:schemaLocation=\"");
-		
-		for (IMuleBundle bundle : muleArtifacts) {
-			// only include the core namespace from the spring-config bundle
-			if (bundle.isSpringConfigBundle()) {
-				String coreNamespaceUrl = findCoreUrl(bundle.getNamespaceUrls());
-				buf.append(LINE_SEP);
-				buf.append("          ");
-				buf.append(namespaceIdFromUrl(coreNamespaceUrl));
-				buf.append(" ");
-				buf.append(coreNamespaceUrl);
-			}
-			else {
-				for (String url : bundle.getNamespaceUrls()) {
-					buf.append(LINE_SEP);
-					buf.append("          ");
-					buf.append(namespaceIdFromUrl(url));
-					buf.append(" ");
-					buf.append(url);
-				}
-			}
-		}
-		
-		buf.append("\">");
-		buf.append(LINE_SEP);
-		buf.append(LINE_SEP);
-	}
+    private static void appendNamespaces(StringBuilder buf, List<IMuleBundle> muleArtifacts) {
+        buf.append("      xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
+        buf.append(LINE_SEP);
+        
+        for (IMuleBundle bundle : muleArtifacts) {
+            // mule-module-spring-config contains the core namespace and is the default namespace
+            // of the generated xml file
+            if (bundle.isSpringConfigBundle()) {
+                continue;
+            }
+            
+            for (Namespace namespace : bundle.getNamespaces()) {
+                buf.append("      xmlns:");
+                buf.append(namespace.prefix);
+                buf.append("=\"");
+                buf.append(namespace.uri);
+                buf.append("\"");
+                buf.append(LINE_SEP);
+            }
+        }
+    }
 
-	private static String namespaceIdFromUrl(String url) {
-		// the namespace id is the same URL but without the final filename.xsd
-		int index = url.lastIndexOf('/');
-		return url.substring(0, index);
-	}
+    private static void appendSchemaLocations(StringBuilder buf, List<IMuleBundle> muleArtifacts) {
+        buf.append("      xsi:schemaLocation=\"");
+        
+        for (IMuleBundle bundle : muleArtifacts) {
+            // only include the core namespace from the spring-config bundle
+            if (bundle.isSpringConfigBundle()) {
+                Namespace coreNamespace = findCoreNamespace(bundle.getNamespaces());
+                appendSchemaLocation(buf, coreNamespace);
+            }
+            else {
+                for (Namespace namespace : bundle.getNamespaces()) {
+                    appendSchemaLocation(buf, namespace);
+                }
+            }
+        }
+        
+        buf.append("\">");
+        buf.append(LINE_SEP);
+        buf.append(LINE_SEP);
+    }
+    
+    private static void appendSchemaLocation(StringBuilder buf, Namespace namespace) {
+        buf.append(LINE_SEP);
+        buf.append("          ");
+        buf.append(namespace.uri);
+        buf.append(" ");
+        buf.append(namespace.location);
+    }
 
-	/**
-	 * Extracts the short name that's used as schema prefix from the URL.
-	 */
-	private static String namespaceShortNameFromUrl(String url) {
-		String[] urlElements = url.split("/");
-		String shortName = urlElements[urlElements.length - 3].toLowerCase();
-		
-		// check if the detected short name clashes with the xml namespace spec
-		if (RESERVED_WORDS.contains(shortName) || shortName.startsWith("xml")) {
-			shortName = "mule-" + shortName;
-		}
-		return shortName;
-	}
-	
-	private static String findCoreUrl(String[] namespaceUrls) {
-		// find mule-core.xsd
-		String coreUrl = null;
-		for (String url : namespaceUrls) {
-			if (url.contains("mule.xsd")) {
-				coreUrl = url;
-				break;
-			}
-		}
-		return coreUrl;
-	}
+	private static IMuleBundle findSpringConfigBundle(List<IMuleBundle> muleArtifacts) {
+        for (IMuleBundle bundle : muleArtifacts) {
+            if (bundle.isSpringConfigBundle()) {
+                return bundle;
+            }
+        }
+        
+        // this should not happen, the dialog using this class should make sure that the
+        // spring config plugin cannot be deselected
+        return null;
+    }
 }

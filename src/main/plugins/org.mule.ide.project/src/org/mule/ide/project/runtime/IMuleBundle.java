@@ -46,11 +46,12 @@ public interface IMuleBundle {
 	String getVersion();
 	
 	String getDisplayName();
-	
+		
 	/**
-	 * @return String[] with namespace URLs that this bundle supports
+	 * @return XML namespaces that are provided by this transport/module or an empty array if this
+	 * bundle does not supply any namespaces.
 	 */
-	String[] getNamespaceUrls();
+    Namespace[] getNamespaces();
 	
 	boolean isSpringConfigBundle();
 

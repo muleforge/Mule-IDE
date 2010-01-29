@@ -12,15 +12,14 @@ package org.mule.ide.project.internal.runtime;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Properties;
 import java.util.Set;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
-import java.util.zip.ZipEntry;
 
 import org.eclipse.core.runtime.IPath;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
+import org.mule.ide.project.runtime.Namespace;
 
 public class JarBundle implements IMuleBundle {
 
@@ -28,6 +27,7 @@ public class JarBundle implements IMuleBundle {
 	private final File jar;
 	private String version;
 	private Pom pom = null;
+    private Namespace[] namespaces;
 
 	public JarBundle(IMuleRuntime runtime, File jar) {
 		this.runtime = runtime;
@@ -159,33 +159,19 @@ public class JarBundle implements IMuleBundle {
 		return pom;
 	}
 	
-	public String[] getNamespaceUrls() {
-		try {
-			JarFile jarFile = new JarFile(this.getFile());
-			ZipEntry springSchemas = jarFile.getEntry("META-INF/spring.schemas");
-			if (springSchemas != null) {
-				Properties props = new Properties();
-				props.load(jarFile.getInputStream(springSchemas));
-				
-				Set<Object> keys = props.keySet();
-				String[] namespaceUrls = new String[keys.size()];
-				int i = 0;
-				for (Object key : keys) {
-					String url = key.toString();
-					namespaceUrls[i] = url.replace("\\:", ":");
-					
-					i++;
-				}
-				
-				return namespaceUrls;
-			}
-		}
-		catch (IOException iox) {
-			throw new IllegalStateException(iox);
-		}
-		return new String[0];
+	public Namespace[] getNamespaces() {
+	    if (namespaces == null) {
+	        try {
+                namespaces = new NamespaceLoader().load(getFile());
+            }
+            catch (IOException iox) {
+                String message = "cannot load jar file " + getFile().getAbsolutePath();
+                throw new IllegalStateException(message, iox);
+            }
+	    }
+	    return namespaces;
 	}
-
+	
     public boolean isSpringConfigBundle() {
         return false;
     }

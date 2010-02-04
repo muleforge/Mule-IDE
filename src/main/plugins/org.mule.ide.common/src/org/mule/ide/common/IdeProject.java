@@ -10,7 +10,12 @@
 
 package org.mule.ide.common;
 
+import org.apache.commons.lang.ArrayUtils;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
@@ -61,6 +66,41 @@ public class IdeProject {
         
         return null;
     }
+    
+    public void toggleNature(String natureId) throws CoreException {
+        if (hasNature(natureId)) {
+            removeNature(natureId);
+        }
+        else {
+            addNature(natureId);
+        }
+    }
+    
+    public boolean hasNature(String natureId) throws CoreException {
+        return javaProject.getProject().hasNature(natureId);
+    }
+
+    public void removeNature(String natureId) throws CoreException {
+        IProject project = javaProject.getProject();
+        IProjectDescription description = project.getDescription();
+
+        String[] newNatures = 
+            (String[])ArrayUtils.removeElement(description.getNatureIds(), natureId);
+        
+        description.setNatureIds(newNatures);
+        project.setDescription(description, new NullProgressMonitor());
+    }        
+
+    private void addNature(String natureId) throws CoreException {
+        IProject project = javaProject.getProject();
+        IProjectDescription description = project.getDescription();
+        
+        String[] newNatures = 
+            (String[])ArrayUtils.add(description.getNatureIds(), natureId);
+        
+        description.setNatureIds(newNatures);
+        project.setDescription(description, new NullProgressMonitor());
+    }
 
     public IJavaProject getJavaProject() {
         return javaProject;
@@ -73,4 +113,14 @@ public class IdeProject {
     public IPath getPath() {
         return javaProject.getPath();
     }        
+
+    /**
+     * A common use pattern with this class is to have a subclass that represents an invalid 
+     * project e.g. when the selection in the IDE could not be adapted to an IdeProject instance.
+     * Subclasses can override this method to flag their validity. This implementation simply
+     * returns <code>true</code>.
+     */
+    public boolean isValid() {
+        return true;
+    }
 }

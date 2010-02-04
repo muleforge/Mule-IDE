@@ -55,10 +55,6 @@ public class MuleIdeProject extends IdeProject {
         }
     }
 
-    public boolean isValid() {
-        return true;
-    }
-
     public IMuleRuntime getMuleRuntime() {
         try {
             IClasspathEntry entry = findClasspathEntryWithFirstPathSegment(

@@ -25,6 +25,7 @@ import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.mule.ide.project.MulePreferences;
 import org.mule.ide.project.runtime.IMuleRuntime;
 import org.mule.ide.project.runtime.IMuleSampleProject;
+import org.mule.ide.project.runtime.ui.IDistributionChangeListener;
 import org.mule.ide.project.runtime.ui.MuleRuntimeChooserPanel;
 
 /**
@@ -49,12 +50,11 @@ public class MuleNewProjectPage extends WizardNewProjectCreationPage
     {
         super.createControl(parent);
         Composite existing = (Composite) getControl();
-        // existing.setLayout(new RowLayout(SWT.VERTICAL));
 
         // Middle group - choose runtime
         runtimeChooser = new MuleRuntimeChooserPanel(existing, SWT.NONE, true);
         runtimeChooser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
-        runtimeChooser.addDistributionChangeListener(new MuleRuntimeChooserPanel.IDistributionChangeListener()
+        runtimeChooser.addDistributionChangeListener(new IDistributionChangeListener()
         {
             public void distributionChanged(IMuleRuntime newDistribution)
             {

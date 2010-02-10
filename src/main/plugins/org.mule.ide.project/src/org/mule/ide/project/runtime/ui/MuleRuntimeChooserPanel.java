@@ -53,10 +53,9 @@ public class MuleRuntimeChooserPanel extends Composite
     private Button buttonDeSelectAll = null;
 
     IMuleBundle[] allLibraries = null;
-    // String distributions[] = new String[] { }; // @jve:decl-index=0:
-    // int selectedDistribution = -1, defaultDistribution = -1;
 
     String selectedPath = null;
+    private IDistributionChangeListener listener = null; // @jve:decl-index=0:
 
     public MuleRuntimeChooserPanel(Composite parent, int style, boolean omitModuleSelection)
     {
@@ -177,7 +176,7 @@ public class MuleRuntimeChooserPanel extends Composite
      * Reset the panel's contents to the chosen distribution and bundle selection. If
      * hint is provided and is not found amoung configured distributions, default
      * distribution will be used.
-     * 
+     *
      * @param hint Path to select. Null for default.
      * @param bundleSelectString
      */
@@ -293,6 +292,7 @@ public class MuleRuntimeChooserPanel extends Composite
         radioUseDefault.setLayoutData(gdUseDefault);
         radioUseDefault.addSelectionListener(new SelectionAdapter()
         {
+            @Override
             public void widgetSelected(org.eclipse.swt.events.SelectionEvent e)
             {
                 if (radioUseDefault.getSelection())
@@ -311,6 +311,7 @@ public class MuleRuntimeChooserPanel extends Composite
         linkPrefs.setLayoutData(gdPrefs);
         linkPrefs.addSelectionListener(new SelectionAdapter()
         {
+            @Override
             public void widgetSelected(SelectionEvent e)
             {
                 PreferencesUtil.createPreferenceDialogOn(getShell(), MulePreferences.MULE_PREFERENCES_ID,
@@ -335,6 +336,7 @@ public class MuleRuntimeChooserPanel extends Composite
         createComboDistribution();
         radioSpecifyDistribution.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter()
         {
+            @Override
             public void widgetSelected(org.eclipse.swt.events.SelectionEvent e)
             {
                 if (radioSpecifyDistribution.getSelection())
@@ -384,6 +386,7 @@ public class MuleRuntimeChooserPanel extends Composite
         tableViewerLibraries = new TableViewer(groupModule, SWT.BORDER | SWT.CHECK);
         tableViewerLibraries.setContentProvider(new ArrayContentProvider()
         {
+            @Override
             public Object[] getElements(Object inputElement)
             {
                 IMuleRuntime runtime = (IMuleRuntime) inputElement;
@@ -394,6 +397,7 @@ public class MuleRuntimeChooserPanel extends Composite
         });
         tableViewerLibraries.setLabelProvider(new LabelProvider()
         {
+            @Override
             public String getText(Object element)
             {
                 IMuleBundle bundle = (IMuleBundle) element;
@@ -416,6 +420,7 @@ public class MuleRuntimeChooserPanel extends Composite
         buttonDeSelectAll.setLayoutData(gridData3);
         buttonDeSelectAll.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter()
         {
+            @Override
             public void widgetSelected(org.eclipse.swt.events.SelectionEvent e)
             {
                 for (int i = 0; i < tableLibraries.getItemCount(); ++i)
@@ -429,6 +434,7 @@ public class MuleRuntimeChooserPanel extends Composite
         buttonSelectAll.setLayoutData(gridData4);
         buttonSelectAll.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter()
         {
+            @Override
             public void widgetSelected(org.eclipse.swt.events.SelectionEvent e)
             {
                 for (int i = 0; i < tableLibraries.getItemCount(); ++i)
@@ -455,7 +461,8 @@ public class MuleRuntimeChooserPanel extends Composite
         comboDistribution.setLayoutData(gd3);
         comboDistribution.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter()
         {
-            public void widgetSelected(org.eclipse.swt.events.SelectionEvent e)
+            @Override
+            public void widgetSelected(SelectionEvent event)
             {
                 setDistributionSelection(comboDistribution.getItem(comboDistribution.getSelectionIndex()));
             }
@@ -467,17 +474,6 @@ public class MuleRuntimeChooserPanel extends Composite
     {
         return radioUseDefault.getSelection();
     }
-
-    public interface IDistributionChangeListener
-    {
-        /**
-         * @param newDistribution New distribution. Null if there was a previously
-         *            selected distribution and now there are none available.
-         */
-        void distributionChanged(IMuleRuntime newDistribution);
-    }
-
-    private IDistributionChangeListener listener = null; // @jve:decl-index=0:
 
     public void addDistributionChangeListener(IDistributionChangeListener newLstener)
     {
@@ -496,7 +492,7 @@ public class MuleRuntimeChooserPanel extends Composite
     /**
      * Returns a string suitable for using as the runtime identifier for a mule
      * classpath container.
-     * 
+     *
      * @return null if default runtime should be used, or none available.
      */
     public String getRuntimeHint()
@@ -509,7 +505,7 @@ public class MuleRuntimeChooserPanel extends Composite
     }
 
     /**
-	 * 
+	 *
 	 */
     public IMuleRuntime getRuntime()
     {

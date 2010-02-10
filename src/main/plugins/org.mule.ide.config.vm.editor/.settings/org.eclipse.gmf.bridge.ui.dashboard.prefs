@@ -1,7 +1,0 @@
-#Fri Feb 15 13:43:44 PST 2008
-eclipse.preferences.version=1
-gmf_dashboard/domainGenerationModel=platform\:/resource/org.mule.ide.config.vm/model/mule-vm.genmodel
-gmf_dashboard/domainModel=platform\:/resource/org.mule.ide.config.vm/model/vm.ecore
-gmf_dashboard/graphicalDefinitionModel=platform\:/resource/org.mule.ide.config.vm.editor/model/vm-services.gmfgraph
-gmf_dashboard/mappingModel=platform\:/resource/org.mule.ide.config.vm.editor/model/vm-services.gmfmap
-gmf_dashboard/toolingDefinitionModel=platform\:/resource/org.mule.ide.config.vm.editor/model/vm-services.gmftool

@@ -1,7 +1,0 @@
-# Tracing options for the org.mule.ide.config.axis.editor plug-in
-
-# Common issues
-org.mule.ide.config.axis.editor/debug=false
-
-# Visual IDs
-org.mule.ide.config.axis.editor/debug/visualID=false

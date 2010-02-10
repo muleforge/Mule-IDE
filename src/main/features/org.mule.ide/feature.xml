@@ -2,7 +2,7 @@
 <feature
       id="org.mule.ide"
       label="%featureName"
-      version="2.0.3.qualifier"
+      version="2.1.0.qualifier"
       provider-name="%featureProvider">
 
    <description url="http://mule.mulesoft.org">
@@ -18,7 +18,7 @@
    </license>
 
    <url>
-      <update label="Mule IDE 2.0" url="http://dist.muleforge.org/mule-ide/updates/3.4/"/>
+      <update label="Mule IDE 2.1" url="http://dist.muleforge.org/mule-ide/updates/3.4/"/>
    </url>
 
    <requires>

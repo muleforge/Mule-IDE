@@ -18,41 +18,48 @@ import org.eclipse.swt.widgets.Composite;
 import org.mule.ide.project.internal.util.MuleClasspathUtils;
 import org.mule.ide.project.runtime.ui.MuleRuntimeChooserPanel;
 
-public class MuleClasspathContainerPage extends WizardPage implements IClasspathContainerPage {
+public class MuleClasspathContainerPage extends WizardPage implements IClasspathContainerPage
+{
+    private IClasspathEntry selection;
+    private MuleRuntimeChooserPanel chooserPanel;
 
-	private IClasspathEntry selection;
-	private MuleRuntimeChooserPanel chooserPanel; 
+    public MuleClasspathContainerPage()
+    {
+        super("Mule Classpath");
+        this.setTitle("Mule Distribution and Modules");
+        this.setDescription("Please choose the Mule distribution to use for this project, and choose which modules and transports to include");
+    }
 
-	public MuleClasspathContainerPage() {
-		super("Mule Classpath");
-		this.setTitle("Mule Distribution and Modules");
-		this.setDescription("Please choose the Mule distribution to use for this project, and choose which modules and transports to include");
-	}
-	
-	public boolean finish() {
-		String hint = chooserPanel.getRuntimeHint();
-		selection = MuleClasspathUtils.createMuleClasspathContainer(hint, chooserPanel.getLibrarySelection());
-		return true;
-	}
+    public boolean finish()
+    {
+        String hint = chooserPanel.getRuntimeHint();
+        selection = MuleClasspathUtils.createMuleClasspathContainer(hint, chooserPanel.getLibrarySelection());
+        return true;
+    }
 
-	public IClasspathEntry getSelection() {
-		return selection;
-	}
+    public IClasspathEntry getSelection()
+    {
+        return selection;
+    }
 
-	public void setSelection(IClasspathEntry containerEntry) {
-		this.selection = containerEntry;
-	}
+    public void setSelection(IClasspathEntry containerEntry)
+    {
+        this.selection = containerEntry;
+    }
 
-	public void createControl(Composite parent) {
-		chooserPanel = new MuleRuntimeChooserPanel(parent, SWT.NONE, false);
-		setControl(chooserPanel);
-	}
+    public void createControl(Composite parent)
+    {
+        chooserPanel = new MuleRuntimeChooserPanel(parent, SWT.NONE, false);
+        setControl(chooserPanel);
+    }
 
-	@Override
-	public void setVisible(boolean visible) {
-		super.setVisible(visible);
-		if (visible) {
-			chooserPanel.initialize(getSelection() != null ? getSelection().getPath() : null);
-		}
-	}
+    @Override
+    public void setVisible(boolean visible)
+    {
+        super.setVisible(visible);
+        if (visible)
+        {
+            chooserPanel.initialize(getSelection() != null ? getSelection().getPath() : null);
+        }
+    }
 }

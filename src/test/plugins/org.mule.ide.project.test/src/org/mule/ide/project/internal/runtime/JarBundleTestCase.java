@@ -17,26 +17,30 @@ import java.io.File;
 
 import org.junit.Test;
 
-public class JarBundleTestCase extends ResourceTestCase {
+public class JarBundleTestCase extends ResourceTestCase
+{
     @Test
-    public void jarBundleWithoutPom() {
+    public void jarBundleWithoutPom()
+    {
         File jarFile = getTestResource("mule-module-without-pom.jar");
         JarBundle jarBundle = new JarBundle(null, jarFile);
         assertFalse(jarBundle.isModuleOrTransport());
     }
 
     @Test
-    public void jarBundleWithPomThatHasNoNameElement() {
+    public void jarBundleWithPomThatHasNoNameElement()
+    {
         File jarFile = getTestResource("jar-with-pom-no-name-element.jar");
         JarBundle jarBundle = new JarBundle(null, jarFile);
         assertEquals("Missing <name> element in pom.xml inside jar-with-pom-no-name-element.jar",
             jarBundle.getDisplayName());
-    }    
-    
+    }
+
     @Test
-    public void jarBundleWithPom() throws Exception {
+    public void jarBundleWithPom() throws Exception
+    {
         File jarFile = getTestResource("jar-with-pom-in-META-INF.jar");
-        JarBundle jarBundle = new JarBundle(null , jarFile);
+        JarBundle jarBundle = new JarBundle(null, jarFile);
         assertEquals("Spring Config", jarBundle.getDisplayName());
     }
 }

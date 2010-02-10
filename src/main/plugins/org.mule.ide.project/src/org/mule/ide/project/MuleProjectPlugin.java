@@ -18,67 +18,76 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class MuleProjectPlugin extends AbstractUIPlugin {
+public class MuleProjectPlugin extends AbstractUIPlugin
+{
+    /**
+     * The plug-in ID
+     */
+    public static final String PLUGIN_ID = "org.mule.ide.project";
 
-	/**
-	 * The plug-in ID
-	 */
-	public static final String PLUGIN_ID = "org.mule.ide.project";
-
-    /** 
-     * Unique for the Mule classpath container. This matches the id in the 
-     * classpathContainerInitializer extension in plugin.xml 
+    /**
+     * Unique for the Mule classpath container. This matches the id in the
+     * classpathContainerInitializer extension in plugin.xml
      */
     public static final String ID_MULE_CLASSPATH_CONTAINER = "org.mule.ide.project.muleClasspath";
 
-	// The shared instance
-	private static MuleProjectPlugin plugin;
-	
-	public MuleProjectPlugin() {
-		super();
-	}
+    // The shared instance
+    private static MuleProjectPlugin plugin;
 
-	@Override
-	public void start(BundleContext context) throws Exception {
-		super.start(context);
-		plugin = this;
-		MulePreferences.initRuntimeCache();
-	}
+    public MuleProjectPlugin()
+    {
+        super();
+    }
 
-	@Override
-	public void stop(BundleContext context) throws Exception {
-		plugin = null;
-		MulePreferences.clearRuntimeCache();
-		super.stop(context);
-	}
+    @Override
+    public void start(BundleContext context) throws Exception
+    {
+        super.start(context);
+        plugin = this;
+        MulePreferences.initRuntimeCache();
+    }
 
-	public static MuleProjectPlugin getInstance() {
-		return plugin;
-	}
-	
-	public void logError(String error) {
-		logError(error, null);
-	}
+    @Override
+    public void stop(BundleContext context) throws Exception
+    {
+        plugin = null;
+        MulePreferences.clearRuntimeCache();
+        super.stop(context);
+    }
 
-	public void logError(String error, Throwable throwable) {
-		if (error == null && throwable != null) {
-			error = throwable.getMessage();
-		}
-		getLog().log(
-				new Status(IStatus.ERROR, PLUGIN_ID, IStatus.OK,
-						error, throwable));
-		debug(error, throwable);
-	}
-	
-	private void debug(String message, Throwable throwable) {
-		if (!isDebugging()) {
-			return;
-		}
-		if (message != null) {
-			System.err.println(message);
-		}
-		if (throwable != null) {
-			throwable.printStackTrace();
-		}
-	}
+    public static MuleProjectPlugin getInstance()
+    {
+        return plugin;
+    }
+
+    public void logError(String error)
+    {
+        logError(error, null);
+    }
+
+    public void logError(String error, Throwable throwable)
+    {
+        if (error == null && throwable != null)
+        {
+            error = throwable.getMessage();
+        }
+        getLog().log(new Status(IStatus.ERROR, PLUGIN_ID, IStatus.OK, error, throwable));
+        debug(error, throwable);
+    }
+
+    private void debug(String message, Throwable throwable)
+    {
+        if (!isDebugging())
+        {
+            return;
+        }
+        if (message != null)
+        {
+            System.err.println(message);
+        }
+        if (throwable != null)
+        {
+            throwable.printStackTrace();
+        }
+    }
 }

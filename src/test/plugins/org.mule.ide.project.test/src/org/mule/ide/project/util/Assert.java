@@ -12,12 +12,15 @@ package org.mule.ide.project.util;
 
 import java.io.File;
 
-public class Assert extends org.junit.Assert {
-	public static void assertExists(File file) {
-		assertTrue(file.exists());
-	}
-	
-	public static void assertExists(String filename, File file) {
-	    assertTrue("File " + filename + " does not exist", file.exists());
-	}
+public class Assert extends org.junit.Assert
+{
+    public static void assertExists(File file)
+    {
+        assertTrue(file.exists());
+    }
+
+    public static void assertExists(String filename, File file)
+    {
+        assertTrue("File " + filename + " does not exist", file.exists());
+    }
 }

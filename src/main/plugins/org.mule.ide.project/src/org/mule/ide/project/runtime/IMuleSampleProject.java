@@ -16,19 +16,24 @@ import java.util.Collection;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jdt.core.IJavaProject;
 
-public interface IMuleSampleProject {
-	String getName();
-	String getDescription();
-	File getDirectory();
-	//List<File> getSourceDirectories();
-	//List<File> getConfigFiles();
-	//List<IMuleBundle> getMuleLibraryDependencies();
-	//List<File> getOtherLibraryDependencies();
-	void copyIntoProject(IJavaProject project) throws CoreException;
-	
-	/**
-	 * @return The additional libraries that are downloaded as part of creating this sample
-	 * project. Always returns a {@link Collection}, never <code>null</code>.
-	 */
-	Collection<IMuleBundle> getAdditionalLibraries();
+public interface IMuleSampleProject
+{
+    String getName();
+
+    String getDescription();
+
+    File getDirectory();
+
+    // List<File> getSourceDirectories();
+    // List<File> getConfigFiles();
+    // List<IMuleBundle> getMuleLibraryDependencies();
+    // List<File> getOtherLibraryDependencies();
+    void copyIntoProject(IJavaProject project) throws CoreException;
+
+    /**
+     * @return The additional libraries that are downloaded as part of creating this
+     *         sample project. Always returns a {@link Collection}, never
+     *         <code>null</code>.
+     */
+    Collection<IMuleBundle> getAdditionalLibraries();
 }

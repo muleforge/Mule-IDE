@@ -25,39 +25,45 @@ import org.mule.ide.project.runtime.IMuleRuntime;
 import org.mule.ide.project.util.FileUtils;
 import org.mule.ide.project.util.Unzip;
 
-public class CreateJarBundleTestCase extends ResourceTestCase {
-	private static File TempDir = null;
-	
-	@BeforeClass
-	public static void unpackMuleTestDistribution() throws Exception {
-		TempDir = FileUtils.createTempDirectory();
-		
-		File distributionFile = getTestResource("mule-test-distro.zip");		
-		new Unzip(distributionFile).unpack(TempDir);
-	}
+public class CreateJarBundleTestCase extends ResourceTestCase
+{
+    private static File TempDir = null;
 
-	@AfterClass
-	public static void deleteMuleDistro() throws IOException {
-		FileUtils.deleteRecursively(TempDir);
-	}
-	
-	@Test
-	public void regularMuleBundle() {
-		IMuleBundle regularBundle = getMuleBundle("mule-module-xml");
-		assertNotNull(regularBundle);
-		assertFalse(regularBundle.isSpringConfigBundle());
-	}
-	
-	@Test
-	public void springConfigMuleBundle() {
-		IMuleBundle springConfigBundle = getMuleBundle("mule-module-spring-config");
-		assertNotNull(springConfigBundle);
-		assertTrue(springConfigBundle.isSpringConfigBundle());
-	}
-	
-	private IMuleBundle getMuleBundle(String name) {
-		File distroDir = new File(TempDir, "mule");
-		IMuleRuntime runtime = new MuleRuntime(distroDir);
-		return runtime.getMuleLibrary(name);
-	}
+    @BeforeClass
+    public static void unpackMuleTestDistribution() throws Exception
+    {
+        TempDir = FileUtils.createTempDirectory();
+
+        File distributionFile = getTestResource("mule-test-distro.zip");
+        new Unzip(distributionFile).unpack(TempDir);
+    }
+
+    @AfterClass
+    public static void deleteMuleDistro() throws IOException
+    {
+        FileUtils.deleteRecursively(TempDir);
+    }
+
+    @Test
+    public void regularMuleBundle()
+    {
+        IMuleBundle regularBundle = getMuleBundle("mule-module-xml");
+        assertNotNull(regularBundle);
+        assertFalse(regularBundle.isSpringConfigBundle());
+    }
+
+    @Test
+    public void springConfigMuleBundle()
+    {
+        IMuleBundle springConfigBundle = getMuleBundle("mule-module-spring-config");
+        assertNotNull(springConfigBundle);
+        assertTrue(springConfigBundle.isSpringConfigBundle());
+    }
+
+    private IMuleBundle getMuleBundle(String name)
+    {
+        File distroDir = new File(TempDir, "mule");
+        IMuleRuntime runtime = new MuleRuntime(distroDir);
+        return runtime.getMuleLibrary(name);
+    }
 }

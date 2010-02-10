@@ -42,143 +42,183 @@ import org.mule.ide.project.runtime.IMuleSampleProject;
 /**
  * Wizard for creating a new Mule project.
  */
-public class MuleNewProjectWizard extends Wizard implements INewWizard {
+public class MuleNewProjectWizard extends Wizard implements INewWizard
+{
+    // private static final String MULE_MODULE_BUILDER_NAME = "module-builder";
+    // private static final String MULE_TRANSPORT_TCP_NAME = "transport-tcp";
 
-//	private static final String MULE_MODULE_BUILDER_NAME = "module-builder";
-//	private static final String MULE_TRANSPORT_TCP_NAME = "transport-tcp";
+    /** The workbench handle */
+    private IWorkbench workbench;
 
-	/** The workbench handle */
-	private IWorkbench workbench;
+    /** Page for creating a new project */
+    private MuleNewProjectPage projectPage;
 
-	/** Page for creating a new project */
-	private MuleNewProjectPage projectPage;
+    /** Page for setting up java project capabilities */
+    private NewJavaProjectWizardPage javaPage;
 
-	/** Page for setting up java project capabilities */
-	private NewJavaProjectWizardPage javaPage;
+    public void addPages()
+    {
+        setWindowTitle("New Mule Project");
+        // setDefaultPageImageDescriptor(ExamplesPlugin.getDefault().getImageRegistry().getDescriptor(
+        // IMuleImages.KEY_MULE_WIZARD_BANNER));
+        projectPage = new MuleNewProjectPage();
+        addPage(projectPage);
+        javaPage = new NewJavaProjectWizardPage(ResourcesPlugin.getWorkspace().getRoot(), projectPage);
+        addPage(javaPage);
+    }
 
-	public void addPages() {
-		setWindowTitle("New Mule Project");
-		//setDefaultPageImageDescriptor(ExamplesPlugin.getDefault().getImageRegistry().getDescriptor(
-		//		IMuleImages.KEY_MULE_WIZARD_BANNER));
-		projectPage = new MuleNewProjectPage();
-		addPage(projectPage);
-		javaPage = new NewJavaProjectWizardPage(ResourcesPlugin.getWorkspace().getRoot(), projectPage);
-		addPage(javaPage);
-	}
+    public boolean performFinish()
+    {
+        try
+        {
+            // Set up the Java project according to entries on Java page.
+            getContainer().run(false, true, new IRunnableWithProgress()
+            {
+                public void run(IProgressMonitor monitor)
+                    throws InvocationTargetException, InterruptedException
+                {
+                    try
+                    {
+                        monitor.beginTask("Setting up Mule project", 100);
 
-	public boolean performFinish() {
-		try {
-			// Set up the Java project according to entries on Java page.
-			getContainer().run(false, true, new IRunnableWithProgress() {
-				public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
-					try {
-						monitor.beginTask("Setting up Mule project", 100);
-						
-						// Run the Java project task in a sub-progress by itself 
-						SubProgressMonitor subMonitor= new SubProgressMonitor(monitor, 50);
-				        try {
-				        	javaPage.getRunnable().run(subMonitor);
-				        } finally {
-			        	  subMonitor.done();
-				        }
-				        
-				        // Add the Mule nature.
-						//MuleCorePlugin.getDefault().setMuleNature(projectPage.getProjectHandle(), true);
+                        // Run the Java project task in a sub-progress by itself
+                        SubProgressMonitor subMonitor = new SubProgressMonitor(monitor, 50);
+                        try
+                        {
+                            javaPage.getRunnable().run(subMonitor);
+                        }
+                        finally
+                        {
+                            subMonitor.done();
+                        }
 
-						IProject project = projectPage.getProjectHandle();
-						IJavaProject javaProject = JavaCore.create(project);
+                        // Add the Mule nature.
+                        // MuleCorePlugin.getDefault().setMuleNature(projectPage.getProjectHandle(),
+                        // true);
 
-						// copy the example into the project before setting the classpath as the example
-						// may download additional jars to Mule's lib dir
+                        IProject project = projectPage.getProjectHandle();
+                        IJavaProject javaProject = JavaCore.create(project);
+
+                        // copy the example into the project before setting the
+                        // classpath as the example
+                        // may download additional jars to Mule's lib dir
                         IMuleSampleProject sample = projectPage.getSelectedSample();
-						if (sample != null) {
-							sample.copyIntoProject(javaProject);
-						}
-						monitor.worked(25);
+                        if (sample != null)
+                        {
+                            sample.copyIntoProject(javaProject);
+                        }
+                        monitor.worked(25);
 
                         // Add the Mule classpath container.
                         IMuleRuntime runtime = projectPage.getRuntime();
-						addMuleLibraries(javaProject, runtime, sample);
+                        addMuleLibraries(javaProject, runtime, sample);
 
-						// Create a conf directory in all mule projects.
-						IPath relative = new Path("conf");
-						IFolder folder = javaProject.getProject().getFolder(relative);
-						if (folder.exists() == false) {
-							try {
-								folder.create(true, true, new NullProgressMonitor());
-							} catch (CoreException ex) {
-								MuleProjectPlugin.getInstance().logError("Error creating conf directory.", ex);									
-							}
-						}
-						monitor.worked(25);
-					} catch (CoreException ce) {
-                        MuleProjectPlugin.getInstance().logError("Error creating project.", ce);                                 
+                        // Create a conf directory in all mule projects.
+                        IPath relative = new Path("conf");
+                        IFolder folder = javaProject.getProject().getFolder(relative);
+                        if (folder.exists() == false)
+                        {
+                            try
+                            {
+                                folder.create(true, true, new NullProgressMonitor());
+                            }
+                            catch (CoreException ex)
+                            {
+                                MuleProjectPlugin.getInstance()
+                                    .logError("Error creating conf directory.", ex);
+                            }
+                        }
+                        monitor.worked(25);
+                    }
+                    catch (CoreException ce)
+                    {
+                        MuleProjectPlugin.getInstance().logError("Error creating project.", ce);
 
-					    if (getWorkbench().getActiveWorkbenchWindow() != null) {
-			                MessageDialog.openError(getWorkbench().getActiveWorkbenchWindow().getShell(), "Error", "Project creation failed (see Error log view)");
-			            }
-					} finally {
-				    	monitor.done();
-					}
-				}});
-		} catch (InvocationTargetException e) {
-			MuleProjectPlugin.getInstance().logError("Unable to create project.", e);
-		} catch (InterruptedException e) {
-			if (getWorkbench().getActiveWorkbenchWindow() != null) {
-				MessageDialog.openInformation(getWorkbench().getActiveWorkbenchWindow().getShell(), "Interrupted", "Project creation interrupted");
-			}
-		}
-		// Even if there was a problem, we return true, otherwise the user will be stuck in the wizard
-		return true;
-	}
-	
-	/**
-	 * Add the Mule libraries to the project classpath.
-	 * 
-	 * @param muleProject the mule project
-	 * @throws JavaModelException
-	 */
-	private void addMuleLibraries(IJavaProject muleProject, IMuleRuntime runtime, IMuleSampleProject sample) {
-		try {
-			IClasspathEntry[] initial = muleProject.getRawClasspath();
-			
-			Collection<IMuleBundle> selectedLibraries = runtime.getDefaultLibraries();
-			if (sample != null) {
-				selectedLibraries.addAll(sample.getAdditionalLibraries());
-			}
+                        if (getWorkbench().getActiveWorkbenchWindow() != null)
+                        {
+                            MessageDialog.openError(getWorkbench().getActiveWorkbenchWindow().getShell(),
+                                "Error", "Project creation failed (see Error log view)");
+                        }
+                    }
+                    finally
+                    {
+                        monitor.done();
+                    }
+                }
+            });
+        }
+        catch (InvocationTargetException e)
+        {
+            MuleProjectPlugin.getInstance().logError("Unable to create project.", e);
+        }
+        catch (InterruptedException e)
+        {
+            if (getWorkbench().getActiveWorkbenchWindow() != null)
+            {
+                MessageDialog.openInformation(getWorkbench().getActiveWorkbenchWindow().getShell(),
+                    "Interrupted", "Project creation interrupted");
+            }
+        }
+        // Even if there was a problem, we return true, otherwise the user will be
+        // stuck in the wizard
+        return true;
+    }
 
-			IClasspathEntry[] entries = 
-				new IClasspathEntry[] { MuleClasspathUtils.createMuleClasspathContainer(projectPage.getRuntimeHint(), selectedLibraries)};
-			
-			IClasspathEntry[] result = new IClasspathEntry[initial.length + entries.length];
-			System.arraycopy(initial, 0, result, 0, initial.length);
-			System.arraycopy(entries, 0, result, initial.length, entries.length);
-			muleProject.setRawClasspath(result, new NullProgressMonitor());
-		} catch (JavaModelException ex) {
-			MuleProjectPlugin.getInstance().logError("Error creating Mule classpath container", ex);
-		}
-	}
+    /**
+     * Add the Mule libraries to the project classpath.
+     * 
+     * @param muleProject the mule project
+     * @throws JavaModelException
+     */
+    private void addMuleLibraries(IJavaProject muleProject, IMuleRuntime runtime, IMuleSampleProject sample)
+    {
+        try
+        {
+            IClasspathEntry[] initial = muleProject.getRawClasspath();
 
-	public void init(IWorkbench workbench, IStructuredSelection selection) {
-		this.workbench = workbench;
-		setNeedsProgressMonitor(true);
-	}
+            Collection<IMuleBundle> selectedLibraries = runtime.getDefaultLibraries();
+            if (sample != null)
+            {
+                selectedLibraries.addAll(sample.getAdditionalLibraries());
+            }
 
-	/**
-	 * Get the workbench that hosts the wizard.
-	 * 
-	 * @return the workbench
-	 */
-	protected IWorkbench getWorkbench() {
-		return workbench;
-	}
+            IClasspathEntry[] entries = new IClasspathEntry[]{MuleClasspathUtils.createMuleClasspathContainer(
+                projectPage.getRuntimeHint(), selectedLibraries)};
 
-	/**
-	 * Set the workbench that hosts the wizard.
-	 * 
-	 * @param workbench the workbench
-	 */
-	protected void setWorkbench(IWorkbench workbench) {
-		this.workbench = workbench;
-	}
+            IClasspathEntry[] result = new IClasspathEntry[initial.length + entries.length];
+            System.arraycopy(initial, 0, result, 0, initial.length);
+            System.arraycopy(entries, 0, result, initial.length, entries.length);
+            muleProject.setRawClasspath(result, new NullProgressMonitor());
+        }
+        catch (JavaModelException ex)
+        {
+            MuleProjectPlugin.getInstance().logError("Error creating Mule classpath container", ex);
+        }
+    }
+
+    public void init(IWorkbench workbench, IStructuredSelection selection)
+    {
+        this.workbench = workbench;
+        setNeedsProgressMonitor(true);
+    }
+
+    /**
+     * Get the workbench that hosts the wizard.
+     * 
+     * @return the workbench
+     */
+    protected IWorkbench getWorkbench()
+    {
+        return workbench;
+    }
+
+    /**
+     * Set the workbench that hosts the wizard.
+     * 
+     * @param workbench the workbench
+     */
+    protected void setWorkbench(IWorkbench workbench)
+    {
+        this.workbench = workbench;
+    }
 }

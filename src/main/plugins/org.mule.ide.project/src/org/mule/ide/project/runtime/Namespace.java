@@ -10,16 +10,17 @@
 
 package org.mule.ide.project.runtime;
 
-
 /**
  * This class aggregates the parts that identify a Mule XML namespace.
  */
-public class Namespace {
+public class Namespace
+{
     public final String prefix;
     public final String uri;
     public final String location;
 
-    public Namespace(String prefix, String uri, String location) {
+    public Namespace(String prefix, String uri, String location)
+    {
         super();
         this.prefix = prefix;
         this.uri = uri;

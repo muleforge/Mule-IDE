@@ -27,47 +27,55 @@ import org.mule.ide.project.runtime.IMuleBundle;
  * 
  * @author Derek Adams
  */
-public class MuleClasspathUtils {
+public class MuleClasspathUtils
+{
+    public static IClasspathEntry createMuleClasspathContainer(String hint,
+                                                               Collection<IMuleBundle> selectedBundles)
+    {
+        IPath path = new Path(MuleProjectPlugin.ID_MULE_CLASSPATH_CONTAINER);
+        path = path.append(collectionToCommaString(selectedBundles));
+        if (hint != null) path = path.append(hint);
 
-	public static IClasspathEntry createMuleClasspathContainer(String hint, Collection<IMuleBundle> selectedBundles) {
-		IPath path = new Path(MuleProjectPlugin.ID_MULE_CLASSPATH_CONTAINER);
-		path = path.append(collectionToCommaString(selectedBundles));
-		if (hint != null)
-			path = path.append(hint);
-		
-		return JavaCore.newContainerEntry(path);
-	}
-	
+        return JavaCore.newContainerEntry(path);
+    }
+
     /**
      * Checks whether a jar is the main Mule jar.
-     *
+     * 
      * @param fileName
      * @return
      */
-    protected static boolean isMuleJar(String fileName) {
-        if ((fileName.startsWith("mule-")) && (fileName.endsWith(".jar"))) {
+    protected static boolean isMuleJar(String fileName)
+    {
+        if ((fileName.startsWith("mule-")) && (fileName.endsWith(".jar")))
+        {
             return true;
         }
         return false;
     }
-    
-	public static Set<String> commaStringToSet(String bundleString) {
-		Set<String> selection = new HashSet<String>();
-		StringTokenizer st = new StringTokenizer(bundleString, ",");
-		while (st.hasMoreTokens()) {
-			selection.add(st.nextToken().trim());
-		}
-		return selection;
-	}
 
-	public static String collectionToCommaString(Collection<IMuleBundle> bundles) {
-		StringBuffer sb = new StringBuffer(64);
-		for (IMuleBundle bundle : bundles) {
-			if (sb.length() > 0) {
-				sb.append(',');
-			}
-			sb.append(bundle.getPathifiedName());
-		}
-		return sb.toString();
-	}
+    public static Set<String> commaStringToSet(String bundleString)
+    {
+        Set<String> selection = new HashSet<String>();
+        StringTokenizer st = new StringTokenizer(bundleString, ",");
+        while (st.hasMoreTokens())
+        {
+            selection.add(st.nextToken().trim());
+        }
+        return selection;
+    }
+
+    public static String collectionToCommaString(Collection<IMuleBundle> bundles)
+    {
+        StringBuffer sb = new StringBuffer(64);
+        for (IMuleBundle bundle : bundles)
+        {
+            if (sb.length() > 0)
+            {
+                sb.append(',');
+            }
+            sb.append(bundle.getPathifiedName());
+        }
+        return sb.toString();
+    }
 }

@@ -38,119 +38,152 @@ import org.eclipse.ui.ide.IDE;
 import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.runtime.IMuleBundle;
 
-public class MuleConfigWizard extends Wizard implements INewWizard {
-	private MuleConfigWizardPage page;
-	private IStructuredSelection selection;
+public class MuleConfigWizard extends Wizard implements INewWizard
+{
+    private MuleConfigWizardPage page;
+    private IStructuredSelection selection;
 
-	public MuleConfigWizard() {
-		super();
-		setNeedsProgressMonitor(true);
-	}
-	
-	public void addPages() {
-		page = new MuleConfigWizardPage(selection);
-		addPage(page);
-	}
+    public MuleConfigWizard()
+    {
+        super();
+        setNeedsProgressMonitor(true);
+    }
 
-	/**
-	 * This method is called when 'Finish' button is pressed in
-	 * the wizard. We will create an operation and run it
-	 * using wizard as execution context.
-	 */
-	public boolean performFinish() {
-		final String containerName = page.getFolderName();
-		final String fileName = page.getFileName();
-		
-		IRunnableWithProgress op = new IRunnableWithProgress() {
-			public void run(IProgressMonitor monitor) throws InvocationTargetException {
-				try {
-					doFinish(containerName, fileName, monitor);
-				} catch (CoreException e) {
-					throw new InvocationTargetException(e);
-				} finally {
-					monitor.done();
-				}
-			}
-		};
-		
-		try {
-			getContainer().run(true, false, op);
-		} catch (InterruptedException e) {
-			return false;
-		} catch (InvocationTargetException e) {
-			Throwable realException = e.getTargetException();
-			MuleProjectPlugin.getInstance().logError("Error in performFinish", realException);
-			MessageDialog.openError(getShell(), "Error", realException.getMessage());
-			return false;
-		}
-		return true;
-	}
-	
-	/**
-	 * The worker method. It will find the container, create the
-	 * file if missing or just replace its contents, and open
-	 * the editor on the newly created file.
-	 */
-	private void doFinish(String containerName, String fileName, IProgressMonitor monitor) throws CoreException {
-		// create the file
-		monitor.beginTask("Creating " + fileName, 2);
-		
-		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		IResource resource = root.findMember(new Path(containerName));
-		if (!resource.exists() || !(resource instanceof IContainer)) {
-			throwCoreException("Container \"" + containerName + "\" does not exist.");
-		}
-		
-		IContainer container = (IContainer) resource;
-		IFile file = container.getFile(new Path(fileName));
-		createMuleConfigFile(monitor, file);
-		
-		monitor.worked(1);
-		monitor.setTaskName("Opening file for editing...");
-		openFile(file);
-		
-		monitor.worked(1);
-	}
+    public void addPages()
+    {
+        page = new MuleConfigWizardPage(selection);
+        addPage(page);
+    }
 
-	private void createMuleConfigFile(IProgressMonitor monitor, IFile file) throws CoreException {
-		try {
-			InputStream stream = openContentStream();
-			if (file.exists()) {
-				file.setContents(stream, true, true, monitor);
-			} else {
-				file.create(stream, true, monitor);
-			}
-			stream.close();
-		} catch (IOException e) {
-			throw new IllegalStateException(e);
-		}
-	}
-	
-	private void openFile(final IFile file) {
-		this.getShell().getDisplay().asyncExec(new Runnable() {
-			public void run() {
-				IWorkbenchPage activePage =
-					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-				try {
-					IDE.openEditor(activePage, file, true);
-				} catch (PartInitException e) {
-				}
-			}
-		});
-	}
+    /**
+     * This method is called when 'Finish' button is pressed in the wizard. We will
+     * create an operation and run it using wizard as execution context.
+     */
+    public boolean performFinish()
+    {
+        final String containerName = page.getFolderName();
+        final String fileName = page.getFileName();
 
-	private InputStream openContentStream() {
-		List<IMuleBundle> muleArtifacts = page.getSelectedMuleArtifacts();
-		return MuleXmlFile.generateXmlFile(muleArtifacts);
-	}
+        IRunnableWithProgress op = new IRunnableWithProgress()
+        {
+            public void run(IProgressMonitor monitor) throws InvocationTargetException
+            {
+                try
+                {
+                    doFinish(containerName, fileName, monitor);
+                }
+                catch (CoreException e)
+                {
+                    throw new InvocationTargetException(e);
+                }
+                finally
+                {
+                    monitor.done();
+                }
+            }
+        };
 
-	private void throwCoreException(String message) throws CoreException {
-		IStatus status =
-			new Status(IStatus.ERROR, "org.mule.ide.config.simple", IStatus.OK, message, null);
-		throw new CoreException(status);
-	}
+        try
+        {
+            getContainer().run(true, false, op);
+        }
+        catch (InterruptedException e)
+        {
+            return false;
+        }
+        catch (InvocationTargetException e)
+        {
+            Throwable realException = e.getTargetException();
+            MuleProjectPlugin.getInstance().logError("Error in performFinish", realException);
+            MessageDialog.openError(getShell(), "Error", realException.getMessage());
+            return false;
+        }
+        return true;
+    }
 
-	public void init(IWorkbench workbench, IStructuredSelection structuredSelection) {
-		this.selection = structuredSelection;
-	}
+    /**
+     * The worker method. It will find the container, create the file if missing or
+     * just replace its contents, and open the editor on the newly created file.
+     */
+    private void doFinish(String containerName, String fileName, IProgressMonitor monitor)
+        throws CoreException
+    {
+        // create the file
+        monitor.beginTask("Creating " + fileName, 2);
+
+        IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+        IResource resource = root.findMember(new Path(containerName));
+        if (!resource.exists() || !(resource instanceof IContainer))
+        {
+            throwCoreException("Container \"" + containerName + "\" does not exist.");
+        }
+
+        IContainer container = (IContainer) resource;
+        IFile file = container.getFile(new Path(fileName));
+        createMuleConfigFile(monitor, file);
+
+        monitor.worked(1);
+        monitor.setTaskName("Opening file for editing...");
+        openFile(file);
+
+        monitor.worked(1);
+    }
+
+    private void createMuleConfigFile(IProgressMonitor monitor, IFile file) throws CoreException
+    {
+        try
+        {
+            InputStream stream = openContentStream();
+            if (file.exists())
+            {
+                file.setContents(stream, true, true, monitor);
+            }
+            else
+            {
+                file.create(stream, true, monitor);
+            }
+            stream.close();
+        }
+        catch (IOException e)
+        {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    private void openFile(final IFile file)
+    {
+        this.getShell().getDisplay().asyncExec(new Runnable()
+        {
+            public void run()
+            {
+                IWorkbenchPage activePage = PlatformUI.getWorkbench()
+                    .getActiveWorkbenchWindow()
+                    .getActivePage();
+                try
+                {
+                    IDE.openEditor(activePage, file, true);
+                }
+                catch (PartInitException e)
+                {
+                }
+            }
+        });
+    }
+
+    private InputStream openContentStream()
+    {
+        List<IMuleBundle> muleArtifacts = page.getSelectedMuleArtifacts();
+        return MuleXmlFile.generateXmlFile(muleArtifacts);
+    }
+
+    private void throwCoreException(String message) throws CoreException
+    {
+        IStatus status = new Status(IStatus.ERROR, "org.mule.ide.config.simple", IStatus.OK, message, null);
+        throw new CoreException(status);
+    }
+
+    public void init(IWorkbench workbench, IStructuredSelection structuredSelection)
+    {
+        this.selection = structuredSelection;
+    }
 }

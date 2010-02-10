@@ -18,57 +18,68 @@ import org.eclipse.jdt.core.IClasspathContainer;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
-public class MuleClasspathContainer implements IClasspathContainer {
-	private IPath path;
-	private IMuleRuntime runtime;
-	private IClasspathEntry[] classpathEntries;
+public class MuleClasspathContainer implements IClasspathContainer
+{
+    private IPath path;
+    private IMuleRuntime runtime;
+    private IClasspathEntry[] classpathEntries;
 
-	public MuleClasspathContainer(IPath path, IMuleRuntime runtime, IClasspathEntry[] entries) {
-		super();
-		this.path = path;
-		this.runtime = runtime;
-		this.classpathEntries = sort(entries);
-	}
-	
-	private IClasspathEntry[] sort(IClasspathEntry[] entries) {
-	    IClasspathEntry[] sorted = new IClasspathEntry[entries.length];
-	    System.arraycopy(entries, 0, sorted, 0, entries.length);
-	    
-	    Arrays.sort(sorted, new CompareFilenames());
-	    return sorted;
-	}
-	
-	public IClasspathEntry[] getClasspathEntries() {
-		return classpathEntries;
-	}
+    public MuleClasspathContainer(IPath path, IMuleRuntime runtime, IClasspathEntry[] entries)
+    {
+        super();
+        this.path = path;
+        this.runtime = runtime;
+        this.classpathEntries = sort(entries);
+    }
 
-	public String getDescription() {
-		return "Mule Libraries [" + runtime.getDirectory().getName() + "]";
-	}
+    private IClasspathEntry[] sort(IClasspathEntry[] entries)
+    {
+        IClasspathEntry[] sorted = new IClasspathEntry[entries.length];
+        System.arraycopy(entries, 0, sorted, 0, entries.length);
 
-	public int getKind() {
-		return K_APPLICATION; 
-	}
+        Arrays.sort(sorted, new CompareFilenames());
+        return sorted;
+    }
 
-	public IPath getPath() {
-		return path;
-	}
+    public IClasspathEntry[] getClasspathEntries()
+    {
+        return classpathEntries;
+    }
 
-	@Override
-	public String toString() {
-		return getDescription();
-	}
+    public String getDescription()
+    {
+        return "Mule Libraries [" + runtime.getDirectory().getName() + "]";
+    }
 
-	private static class CompareFilenames implements Comparator<IClasspathEntry> {
-        public int compare(IClasspathEntry entry1, IClasspathEntry entry2) {
+    public int getKind()
+    {
+        return K_APPLICATION;
+    }
+
+    public IPath getPath()
+    {
+        return path;
+    }
+
+    @Override
+    public String toString()
+    {
+        return getDescription();
+    }
+
+    private static class CompareFilenames implements Comparator<IClasspathEntry>
+    {
+        public int compare(IClasspathEntry entry1, IClasspathEntry entry2)
+        {
             String filename1 = filename(entry1);
             String filename2 = filename(entry2);
-            
+
             return filename1.compareTo(filename2);
         }
 
-        private String filename(IClasspathEntry entry) {
+        private String filename(IClasspathEntry entry)
+        {
             return entry.getPath().lastSegment().toLowerCase();
         }
-	}
+    }
 }

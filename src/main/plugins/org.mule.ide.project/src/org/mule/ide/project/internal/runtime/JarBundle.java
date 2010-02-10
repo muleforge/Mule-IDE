@@ -21,168 +21,175 @@ import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 import org.mule.ide.project.runtime.Namespace;
 
-public class JarBundle implements IMuleBundle {
-
-	private final IMuleRuntime runtime;
-	private final File jar;
-	private String version;
-	private Pom pom = null;
+public class JarBundle implements IMuleBundle
+{
+    private final IMuleRuntime runtime;
+    private final File jar;
+    private String version;
+    private Pom pom = null;
     private Namespace[] namespaces;
 
-	public JarBundle(IMuleRuntime runtime, File jar) {
-		this.runtime = runtime;
-		this.jar = jar;
-		this.version = null;
-	}
-
-	public File getFile() {
-		return jar;
-	}
-
-	public String getPathifiedName() {
-		return MuleClasspathInitializer.pathify(jar);
-	}
-
-	/*
-	private void loadDependencies() throws IOException {
-		muleDependencies = new ArrayList();
-		otherDependencies = new ArrayList();
-	
-		Manifest mf = new Manifest(getArchiveStream("META-INF/MANIFEST.MF"));
-		String deps = mf.getMainAttributes().getValue(Attributes.Name.CLASS_PATH);
-		StringTokenizer st = new StringTokenizer(deps, " ");
-		while (st.hasMoreTokens()) {
-			String dep = st.nextToken();
-			if (dep.startsWith(IMuleRuntime.MULE_BUNDLE_PREFIX) && dep.endsWith(runtime.getVersion() + ".jar")) {
-				IFileBasedBundle muleModule = lookupMuleModule(fileToModule(dep));
-				if (muleModule != null) {
-					muleDependencies.add(muleModule);
-				}
-			} else {
-				otherDependencies.add(dep);
-			}
-		}
-	}
-
-	public InputStream getArchiveStream(String path) throws IOException {
-		final JarFile jar = new JarFile(getBundleJarFile());
-		ZipEntry entry = jar.getEntry(path);
-		if (entry == null) throw new FileNotFoundException("No '" + path + "' found in " + getBundleJarFile());
-		
-		InputStream jarInputStream = jar.getInputStream(entry);
-		return new DecoratingInputStream(jarInputStream) {
-			public void close() throws IOException {
-				super.close();
-				jar.close();
-			}
-		};
-	}
-	*/
-
-	public Set<IMuleBundle> getDependencies() {
-		//TODO
-		return null;
-	}
-
-//	public String[] getOtherDependencies() throws IOException {
-//		if (otherDependencies == null) {
-//			//loadDependencies();
-//		}
-//		return otherDependencies.toArray(new String[otherDependencies.size()]);
-//	}
-
-	public boolean equals(Object obj) {
-		if (! (obj instanceof JarBundle)) {
-			return false;
-		}
-		return this.getFile().equals(((JarBundle)obj).getFile());
-	}
-
-	public int hashCode() {
-		return this.getFile().hashCode();
-	}
-
-	public String toString() {
-		return this.getFile().toString();
-	}
-	
-	public IPath getSourcePath() {
-		/*
-		if (getName().equals(CORE_BUNDLE_NAME))
-		{
-			return new File(getLocation(), "src/core/target/mule-core-" + getVersion() + "-sources.jar");
-		}
-		else if (getName().startsWith(MODULE_PREFIX))
-		{
-			String moduleName = getName().substring(MODULE_PREFIX.length());
-			return new File(getLocation(), "src/modules/" + moduleName + "/target/mule-" + getName() + "-" + getVersion() + "-sources.jar");
-		}
-		else if (getName().startsWith(TRANSPORT_PREFIX)) {
-			String transportName = getName().substring(TRANSPORT_PREFIX.length());
-			return new File(getLocation(), "src/transports/" + transportName + "/target/mule-" + getName() + "-" + getVersion() + "-sources.jar"); 
-		}
-		*/
-		if (jar.getName().startsWith(IMuleRuntime.MULE_BUNDLE_PREFIX)) {
-			return runtime.getSourceZip();
-		}
-		return null;
-	}
-	
-	public String getVersion() {
-		if (version == null) {
-			try {
-				JarFile jarFile = new JarFile(jar);
-				Manifest manifest = jarFile.getManifest();
-				version = manifest.getMainAttributes().getValue("Implementation-Version");
-			}
-			catch (IOException iox) {
-				version = null;
-			}
-		}
-		return version;
-	}
-	
-	public String getDisplayName() {
-	    String name = getPom().getName();
-	    if (name == null) {
-	        // This may show up in the new config file wizard, then again this gives users
-	        // a clue as to what's wrong inside their lib directory
-	        name = "Missing <name> element in pom.xml inside " + jar.getName();
-	    }
-	    return name;
+    public JarBundle(IMuleRuntime runtime, File jar)
+    {
+        this.runtime = runtime;
+        this.jar = jar;
+        this.version = null;
     }
 
-	private Pom getPom() {
-		if (pom == null) {
-			pom = Pom.loadFromJar(this.getFile());
-		}
-		return pom;
-	}
-	
-	public Namespace[] getNamespaces() {
-	    if (namespaces == null) {
-	        try {
+    public File getFile()
+    {
+        return jar;
+    }
+
+    public String getPathifiedName()
+    {
+        return MuleClasspathInitializer.pathify(jar);
+    }
+
+    /*
+     * private void loadDependencies() throws IOException { muleDependencies = new
+     * ArrayList(); otherDependencies = new ArrayList(); Manifest mf = new
+     * Manifest(getArchiveStream("META-INF/MANIFEST.MF")); String deps =
+     * mf.getMainAttributes().getValue(Attributes.Name.CLASS_PATH); StringTokenizer
+     * st = new StringTokenizer(deps, " "); while (st.hasMoreTokens()) { String dep =
+     * st.nextToken(); if (dep.startsWith(IMuleRuntime.MULE_BUNDLE_PREFIX) &&
+     * dep.endsWith(runtime.getVersion() + ".jar")) { IFileBasedBundle muleModule =
+     * lookupMuleModule(fileToModule(dep)); if (muleModule != null) {
+     * muleDependencies.add(muleModule); } } else { otherDependencies.add(dep); } } }
+     * public InputStream getArchiveStream(String path) throws IOException { final
+     * JarFile jar = new JarFile(getBundleJarFile()); ZipEntry entry =
+     * jar.getEntry(path); if (entry == null) throw new FileNotFoundException("No '"
+     * + path + "' found in " + getBundleJarFile()); InputStream jarInputStream =
+     * jar.getInputStream(entry); return new DecoratingInputStream(jarInputStream) {
+     * public void close() throws IOException { super.close(); jar.close(); } }; }
+     */
+
+    public Set<IMuleBundle> getDependencies()
+    {
+        // TODO
+        return null;
+    }
+
+    // public String[] getOtherDependencies() throws IOException {
+    // if (otherDependencies == null) {
+    // //loadDependencies();
+    // }
+    // return otherDependencies.toArray(new String[otherDependencies.size()]);
+    // }
+
+    public boolean equals(Object obj)
+    {
+        if (!(obj instanceof JarBundle))
+        {
+            return false;
+        }
+        return this.getFile().equals(((JarBundle) obj).getFile());
+    }
+
+    public int hashCode()
+    {
+        return this.getFile().hashCode();
+    }
+
+    public String toString()
+    {
+        return this.getFile().toString();
+    }
+
+    public IPath getSourcePath()
+    {
+        /*
+         * if (getName().equals(CORE_BUNDLE_NAME)) { return new File(getLocation(),
+         * "src/core/target/mule-core-" + getVersion() + "-sources.jar"); } else if
+         * (getName().startsWith(MODULE_PREFIX)) { String moduleName =
+         * getName().substring(MODULE_PREFIX.length()); return new
+         * File(getLocation(), "src/modules/" + moduleName + "/target/mule-" +
+         * getName() + "-" + getVersion() + "-sources.jar"); } else if
+         * (getName().startsWith(TRANSPORT_PREFIX)) { String transportName =
+         * getName().substring(TRANSPORT_PREFIX.length()); return new
+         * File(getLocation(), "src/transports/" + transportName + "/target/mule-" +
+         * getName() + "-" + getVersion() + "-sources.jar"); }
+         */
+        if (jar.getName().startsWith(IMuleRuntime.MULE_BUNDLE_PREFIX))
+        {
+            return runtime.getSourceZip();
+        }
+        return null;
+    }
+
+    public String getVersion()
+    {
+        if (version == null)
+        {
+            try
+            {
+                JarFile jarFile = new JarFile(jar);
+                Manifest manifest = jarFile.getManifest();
+                version = manifest.getMainAttributes().getValue("Implementation-Version");
+            }
+            catch (IOException iox)
+            {
+                version = null;
+            }
+        }
+        return version;
+    }
+
+    public String getDisplayName()
+    {
+        String name = getPom().getName();
+        if (name == null)
+        {
+            // This may show up in the new config file wizard, then again this gives
+            // users
+            // a clue as to what's wrong inside their lib directory
+            name = "Missing <name> element in pom.xml inside " + jar.getName();
+        }
+        return name;
+    }
+
+    private Pom getPom()
+    {
+        if (pom == null)
+        {
+            pom = Pom.loadFromJar(this.getFile());
+        }
+        return pom;
+    }
+
+    public Namespace[] getNamespaces()
+    {
+        if (namespaces == null)
+        {
+            try
+            {
                 namespaces = new NamespaceLoader().load(getFile());
             }
-            catch (IOException iox) {
+            catch (IOException iox)
+            {
                 String message = "cannot load jar file " + getFile().getAbsolutePath();
                 throw new IllegalStateException(message, iox);
             }
-	    }
-	    return namespaces;
-	}
-	
-    public boolean isSpringConfigBundle() {
+        }
+        return namespaces;
+    }
+
+    public boolean isSpringConfigBundle()
+    {
         return false;
     }
 
-    public boolean isModuleOrTransport() {
+    public boolean isModuleOrTransport()
+    {
         boolean isModuleOrTransport = false;
-        
-        if (filenameHasModuleOrTransportPrefix()) {
-            // users may put custom jar files into the lib dir which match the filename scheme but
+
+        if (filenameHasModuleOrTransportPrefix())
+        {
+            // users may put custom jar files into the lib dir which match the
+            // filename scheme but
             // which are still invalid files, e.g. mule-module-xxx-sources.jar etc.
-            if (getPom() != null) {
+            if (getPom() != null)
+            {
                 isModuleOrTransport = true;
             }
         }
@@ -190,7 +197,8 @@ public class JarBundle implements IMuleBundle {
         return isModuleOrTransport;
     }
 
-    private boolean filenameHasModuleOrTransportPrefix() {
+    private boolean filenameHasModuleOrTransportPrefix()
+    {
         String fileName = jar.getName();
         return fileName.startsWith(MULE_MODULE_PREFIX) || fileName.startsWith(MULE_TRANSPORT_PREFIX);
     }

@@ -21,33 +21,38 @@ import org.mule.ide.project.MuleProjectPlugin;
 /**
  * Preference page for Mule settings.
  */
-public class MulePreferencesPage extends PreferencePage implements IWorkbenchPreferencePage {
+public class MulePreferencesPage extends PreferencePage implements IWorkbenchPreferencePage
+{
+    // Runtime directory selection
+    private MuleRuntimePreferencePanel runtimePanel;
 
-	// Runtime directory selection
-	private MuleRuntimePreferencePanel runtimePanel;
+    public MulePreferencesPage()
+    {
+        setPreferenceStore(MuleProjectPlugin.getInstance().getPreferenceStore());
+        setDescription("Add Mule installation directories and select the default distribution to use with Mule projects.");
+    }
 
-	public MulePreferencesPage() {
-		setPreferenceStore(MuleProjectPlugin.getInstance().getPreferenceStore());
-		setDescription("Add Mule installation directories and select the default distribution to use with Mule projects.");
-	}
+    protected Control createContents(Composite parent)
+    {
+        runtimePanel = new MuleRuntimePreferencePanel(this, parent, SWT.NONE);
+        runtimePanel.initializeFromPreferences();
+        return runtimePanel;
+    }
 
-	protected Control createContents(Composite parent) {
-		runtimePanel = new MuleRuntimePreferencePanel(this, parent, SWT.NONE);
-		runtimePanel.initializeFromPreferences();
-		return runtimePanel;
-	}
+    public void init(IWorkbench workbench)
+    {
+        // no initialization necessary
+    }
 
-	public void init(IWorkbench workbench) {
-		// no initialization necessary
-	}
-	
-	public boolean performOk() {
-		runtimePanel.saveToPreferences();
-		return true;
-	}
+    public boolean performOk()
+    {
+        runtimePanel.saveToPreferences();
+        return true;
+    }
 
-	public void setErrorMessage(String newMessage) {
-		setValid(newMessage == null);
-		super.setErrorMessage(newMessage);
-	}
+    public void setErrorMessage(String newMessage)
+    {
+        setValid(newMessage == null);
+        super.setErrorMessage(newMessage);
+    }
 }

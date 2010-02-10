@@ -22,10 +22,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mule.ide.project.runtime.Namespace;
 
-public class NamespaceLoaderTestCase extends ResourceTestCase {
-
-    private static Comparator<Namespace> CompareByPrefix = new Comparator<Namespace>() {
-        public int compare(Namespace ns1, Namespace ns2) {
+public class NamespaceLoaderTestCase extends ResourceTestCase
+{
+    private static Comparator<Namespace> CompareByPrefix = new Comparator<Namespace>()
+    {
+        public int compare(Namespace ns1, Namespace ns2)
+        {
             return ns1.prefix.compareTo(ns2.prefix);
         }
     };
@@ -33,64 +35,74 @@ public class NamespaceLoaderTestCase extends ResourceTestCase {
     private NamespaceLoader loader;
 
     @Before
-    public void createNamespaceLoader() {
+    public void createNamespaceLoader()
+    {
         loader = new NamespaceLoader();
     }
-    
+
     @Test
-    public void loadJarWithoutSpringPropertiesFiles() throws Exception {
+    public void loadJarWithoutSpringPropertiesFiles() throws Exception
+    {
         Namespace[] namespaces = loadNamespaces("mule-module-without-pom.jar");
         assertNotNull(namespaces);
         assertEquals(0, namespaces.length);
     }
-    
+
     @Test
-    public void loadJarWithMuleTwoFormat() throws Exception {
+    public void loadJarWithMuleTwoFormat() throws Exception
+    {
         Namespace[] namespaces = loadNamespaces("NamespaceLoader-Mule2.jar");
         assertEquals(7, namespaces.length);
-        
+
         assertNamespacePrefixes(namespaces, "email", "imap", "imaps", "pop3", "pop3s", "smtp", "smtps");
         assertUri("http://www.mulesource.org/schema/mule/email/2.2", namespaces[0]);
         assertLocation("http://www.mulesource.org/schema/mule/email/2.2/mule-email.xsd", namespaces[0]);
     }
-    
+
     @Test
-    public void loadJarWithMuleThreeFormat() throws Exception {
+    public void loadJarWithMuleThreeFormat() throws Exception
+    {
         Namespace[] namespaces = loadNamespaces("NamespaceLoader-Mule3.jar");
         assertEquals(7, namespaces.length);
-        
+
         assertNamespacePrefixes(namespaces, "email", "imap", "imaps", "pop3", "pop3s", "smtp", "smtps");
         assertUri("http://www.mulesoft.org/schema/mule/email", namespaces[0]);
         assertLocation("http://www.mulesoft.org/schema/mule/email/3.0/mule-email.xsd", namespaces[0]);
     }
-    
+
     @Test
-    public void escapeInvalidSchemaPrefix() throws Exception {
+    public void escapeInvalidSchemaPrefix() throws Exception
+    {
         Namespace[] namespaces = loadNamespaces("NamespaceLoader-InvalidPrefixes.jar");
         assertEquals(1, namespaces.length);
         assertEquals("mule-xml", namespaces[0].prefix);
     }
-    
-    private Namespace[] loadNamespaces(String jarName) throws Exception {
-        File file = getTestResource(jarName); 
+
+    private Namespace[] loadNamespaces(String jarName) throws Exception
+    {
+        File file = getTestResource(jarName);
         return loader.load(file);
     }
-    
-    private void assertNamespacePrefixes(Namespace[] namespaces, String... expectedPrefixes) {
+
+    private void assertNamespacePrefixes(Namespace[] namespaces, String... expectedPrefixes)
+    {
         Arrays.sort(namespaces, CompareByPrefix);
 
         int i = 0;
-        for (String prefix : expectedPrefixes) {
+        for (String prefix : expectedPrefixes)
+        {
             Assert.assertEquals(prefix, namespaces[i].prefix);
             i++;
         }
     }
-    
-    private void assertLocation(String expected, Namespace namespace) {
+
+    private void assertLocation(String expected, Namespace namespace)
+    {
         assertEquals(expected, namespace.location.toString());
     }
 
-    private void assertUri(String expected, Namespace namespace) {
+    private void assertUri(String expected, Namespace namespace)
+    {
         assertEquals(expected, namespace.uri.toString());
     }
 }

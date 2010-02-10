@@ -28,98 +28,112 @@ import org.mule.ide.project.MulePreferences;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
-public class MuleClasspathInitializer extends ClasspathContainerInitializer {
+public class MuleClasspathInitializer extends ClasspathContainerInitializer
+{
+    /**
+     * This algorithm matches the one in the UI -
+     * 
+     * @param hint
+     * @return
+     */
+    public static String pathify(String hint)
+    {
+        return hint.replace('\\', '_').replace(':', '_').replace('/', '_');
+    }
 
-	
-	/**
-	 * This algorithm matches the one in the UI - 
-	 * 
-	 * @param hint
-	 * @return
-	 */
-	public static String pathify(String hint) {
-		return hint.replace('\\', '_').replace(':', '_').replace('/', '_');
-	}
-	
-	// Generate a classpath container id string for a jar file
-	// TODO this will move into JarBundle
-	public static String pathify(File f) {
-		StringBuffer buf = new StringBuffer(f.getParentFile().getName());
-		buf.append('_');
-		buf.append(f.getName());
-		return buf.toString();		
-	}
+    // Generate a classpath container id string for a jar file
+    // TODO this will move into JarBundle
+    public static String pathify(File f)
+    {
+        StringBuffer buf = new StringBuffer(f.getParentFile().getName());
+        buf.append('_');
+        buf.append(f.getName());
+        return buf.toString();
+    }
 
-	public void initialize(final IPath path, final IJavaProject project) throws CoreException {
-		// Get the project and the required libs, find the Mule distro, add the libs
-		IMuleRuntime runtime = null;
-		
-		// Now, see if the supplied classpath has specified the distribution (as "pathified" hint)
-		if (path.segmentCount() > 2) {
-			String hint = path.segment(2);
-			if (hint != null) {
-				hint = pathify(hint);
-				runtime = MulePreferences.getMuleRuntime(hint);
-			}
-			// Should we error if there is an invalid hint?
-		}
-		
-		if (runtime == null) {
-			runtime = MulePreferences.getDefaultMuleRuntime();
-		}
-		
-		// We should have a candidate either way.
-		if (runtime == null) {
-			return; // Silently fail as expected
-		}
-				
-		Set<String> included = null;
-		if (path != null && path.segmentCount() > 1) {
-			included = commaStringToSet(path.segment(1));
-		}
+    public void initialize(final IPath path, final IJavaProject project) throws CoreException
+    {
+        // Get the project and the required libs, find the Mule distro, add the libs
+        IMuleRuntime runtime = null;
 
-		/*
-		List bundles = new LinkedList();
-		bundles.add(distrib.getCoreModule());
-		IMuleBundle modules[] = distrib.getMuleModules();
-		for (int i=0; i < modules.length; ++i) {
-			if (included == null || included.contains(modules[i].getName())) bundles.add(modules[i]);
-		}
-		IMuleBundle transports[] = distrib.getMuleTransports();
-		for (int i=0; i < transports.length; ++i) {
-			if (included == null || included.contains(transports[i].getName())) bundles.add(transports[i]);
-		}
-		IMuleBundle[] allRequiredBundles = distrib.getTransitiveMuleDependencies((IMuleBundle[])bundles.toArray(new IMuleBundle[bundles.size()]));
-		*/
-		
-		IClasspathEntry muleEntries[] = getMuleClasspathEntries(runtime, included);	                                       
-		IClasspathContainer container = new MuleClasspathContainer(path, runtime, muleEntries);
-		JavaCore.setClasspathContainer(path, new IJavaProject[] { project }, new IClasspathContainer[] { container }, null);
-	}
+        // Now, see if the supplied classpath has specified the distribution (as
+        // "pathified" hint)
+        if (path.segmentCount() > 2)
+        {
+            String hint = path.segment(2);
+            if (hint != null)
+            {
+                hint = pathify(hint);
+                runtime = MulePreferences.getMuleRuntime(hint);
+            }
+            // Should we error if there is an invalid hint?
+        }
 
-	private IClasspathEntry[] getMuleClasspathEntries(IMuleRuntime runtime, Set<String> selectedBundles) {
-		if (selectedBundles == null) {
-			return new IClasspathEntry[] {};
-		}
-		
-		ArrayList<IClasspathEntry> entries = new ArrayList<IClasspathEntry>(selectedBundles.size());
-		for (String name : selectedBundles) {
-			IMuleBundle bundle = runtime.getLibrary(name);
-			if (bundle != null) {
-			    IPath libraryPath = new Path(bundle.getFile().getAbsolutePath());
-				IPath sourcePath = bundle.getSourcePath();
-				entries.add(JavaCore.newLibraryEntry(libraryPath, sourcePath, null));				
-			}
-		}
-		return entries.toArray(new IClasspathEntry[entries.size()]);	
-	}
+        if (runtime == null)
+        {
+            runtime = MulePreferences.getDefaultMuleRuntime();
+        }
 
-	private static Set<String> commaStringToSet(String bundleSelectString2) {
-		Set<String> selection = new HashSet<String>();
-		StringTokenizer st = new StringTokenizer(bundleSelectString2, ",");
-		while (st.hasMoreTokens()) {
-			selection.add(st.nextToken());
-		}
-		return selection;
-	}
+        // We should have a candidate either way.
+        if (runtime == null)
+        {
+            return; // Silently fail as expected
+        }
+
+        Set<String> included = null;
+        if (path != null && path.segmentCount() > 1)
+        {
+            included = commaStringToSet(path.segment(1));
+        }
+
+        /*
+         * List bundles = new LinkedList(); bundles.add(distrib.getCoreModule());
+         * IMuleBundle modules[] = distrib.getMuleModules(); for (int i=0; i <
+         * modules.length; ++i) { if (included == null ||
+         * included.contains(modules[i].getName())) bundles.add(modules[i]); }
+         * IMuleBundle transports[] = distrib.getMuleTransports(); for (int i=0; i <
+         * transports.length; ++i) { if (included == null ||
+         * included.contains(transports[i].getName())) bundles.add(transports[i]); }
+         * IMuleBundle[] allRequiredBundles =
+         * distrib.getTransitiveMuleDependencies((IMuleBundle[])bundles.toArray(new
+         * IMuleBundle[bundles.size()]));
+         */
+
+        IClasspathEntry muleEntries[] = getMuleClasspathEntries(runtime, included);
+        IClasspathContainer container = new MuleClasspathContainer(path, runtime, muleEntries);
+        JavaCore.setClasspathContainer(path, new IJavaProject[]{project},
+            new IClasspathContainer[]{container}, null);
+    }
+
+    private IClasspathEntry[] getMuleClasspathEntries(IMuleRuntime runtime, Set<String> selectedBundles)
+    {
+        if (selectedBundles == null)
+        {
+            return new IClasspathEntry[]{};
+        }
+
+        ArrayList<IClasspathEntry> entries = new ArrayList<IClasspathEntry>(selectedBundles.size());
+        for (String name : selectedBundles)
+        {
+            IMuleBundle bundle = runtime.getLibrary(name);
+            if (bundle != null)
+            {
+                IPath libraryPath = new Path(bundle.getFile().getAbsolutePath());
+                IPath sourcePath = bundle.getSourcePath();
+                entries.add(JavaCore.newLibraryEntry(libraryPath, sourcePath, null));
+            }
+        }
+        return entries.toArray(new IClasspathEntry[entries.size()]);
+    }
+
+    private static Set<String> commaStringToSet(String bundleSelectString2)
+    {
+        Set<String> selection = new HashSet<String>();
+        StringTokenizer st = new StringTokenizer(bundleSelectString2, ",");
+        while (st.hasMoreTokens())
+        {
+            selection.add(st.nextToken());
+        }
+        return selection;
+    }
 }

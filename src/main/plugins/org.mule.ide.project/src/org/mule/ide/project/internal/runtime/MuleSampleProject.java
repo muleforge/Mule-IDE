@@ -36,188 +36,227 @@ import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 import org.mule.ide.project.runtime.IMuleSampleProject;
 
-public class MuleSampleProject implements IMuleSampleProject {
-	
-	protected IMuleRuntime runtime;
-	private String name;
-	private String description;
-	protected File root;
+public class MuleSampleProject implements IMuleSampleProject
+{
+    protected IMuleRuntime runtime;
+    private String name;
+    private String description;
+    protected File root;
 
-	public static final Comparator<IMuleSampleProject> CompareByName = new Comparator<IMuleSampleProject>() {
-		public int compare(IMuleSampleProject p1, IMuleSampleProject p2) {
-			return p1.getName().compareTo(p2.getName());
-		}
-	};
+    public static final Comparator<IMuleSampleProject> CompareByName = new Comparator<IMuleSampleProject>()
+    {
+        public int compare(IMuleSampleProject p1, IMuleSampleProject p2)
+        {
+            return p1.getName().compareTo(p2.getName());
+        }
+    };
 
-	protected static void addSourceFolder(IJavaProject project, File sourceFolder) {
-		IPath projectPath = project.getProject().getFullPath();
-		IPath confPath = new Path(sourceFolder.getName());
-		IClasspathEntry confEntry = JavaCore.newSourceEntry(projectPath.append(confPath));
-		
-		try {
-			IClasspathEntry[] entries = project.getRawClasspath();
-			IClasspathEntry[] newEntries = new IClasspathEntry[entries.length+1];
-			System.arraycopy(entries, 0, newEntries, 0, entries.length);
-			newEntries[entries.length] = confEntry;
-			project.setRawClasspath(newEntries, null);
-		} catch (JavaModelException e) {
-			MuleProjectPlugin.getInstance().logError("Error making " + sourceFolder.getName() + " a Source Folder.", e);
-		}
-	}
+    protected static void addSourceFolder(IJavaProject project, File sourceFolder)
+    {
+        IPath projectPath = project.getProject().getFullPath();
+        IPath confPath = new Path(sourceFolder.getName());
+        IClasspathEntry confEntry = JavaCore.newSourceEntry(projectPath.append(confPath));
 
-	public MuleSampleProject(IMuleRuntime runtime, String name, String description, File root) {
-		this.runtime = runtime;
-		this.name = name;
-		this.description = description;
-		this.root = root;
-	}
-	
-	public String getDescription() {
-		return description;
-	}
+        try
+        {
+            IClasspathEntry[] entries = project.getRawClasspath();
+            IClasspathEntry[] newEntries = new IClasspathEntry[entries.length + 1];
+            System.arraycopy(entries, 0, newEntries, 0, entries.length);
+            newEntries[entries.length] = confEntry;
+            project.setRawClasspath(newEntries, null);
+        }
+        catch (JavaModelException e)
+        {
+            MuleProjectPlugin.getInstance().logError(
+                "Error making " + sourceFolder.getName() + " a Source Folder.", e);
+        }
+    }
 
-	public String getName() {
-		return name;
-	}
+    public MuleSampleProject(IMuleRuntime runtime, String name, String description, File root)
+    {
+        this.runtime = runtime;
+        this.name = name;
+        this.description = description;
+        this.root = root;
+    }
 
-	public File getDirectory() {
-		return root;
-	}
+    public String getDescription()
+    {
+        return description;
+    }
 
-	protected List<File> getSourceDirectories() {
-		ArrayList<File> results = new ArrayList<File>();
-		File srcJava = new File(root, "src/main/java");
-		if (srcJava.exists()) {
-			results.add(srcJava);
-		}
-		return results;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-	private List<File> getConfDirectories() {
-		ArrayList<File> results = new ArrayList<File>();
-		File srcResources = new File(root, "conf");
-		if (srcResources.exists()) {
-			results.add(srcResources);
-		}
-		return results;
-	}
-	
-	private List<File> getResourceDirectories() {
-		ArrayList<File> results = new ArrayList<File>();
-		File srcResources = new File(root, "src/main/resources");
-		if (srcResources.exists()) {
-			results.add(srcResources);
-		}
-		return results;
-	}
-	
-	public void copyIntoProject(IJavaProject project) throws CoreException {
-		List<File> dirs;
-		// Copy source files.
+    public File getDirectory()
+    {
+        return root;
+    }
 
-		// TODO Should create a separate source folders if
-		// there are multiple source folders in the project.
-		IContainer sourceContainer = getSourceContainer(project);
-		dirs = getSourceDirectories();
-		for (File dir : dirs) {
-			File[] subs = dir.listFiles();
-			for (int j = 0; j < subs.length; ++j) {
-				copyIntoProject(subs[j], sourceContainer);
-			}
-		}
-		
-		// Copy configuration files
-		dirs = getConfDirectories();
-		for (File dir : dirs) {
-			copyIntoProject(dir, project.getProject());
-			addSourceFolder(project, dir);
-		}
+    protected List<File> getSourceDirectories()
+    {
+        ArrayList<File> results = new ArrayList<File>();
+        File srcJava = new File(root, "src/main/java");
+        if (srcJava.exists())
+        {
+            results.add(srcJava);
+        }
+        return results;
+    }
 
-		// Copy resource files
-		dirs = getResourceDirectories();
-		for (File dir : dirs) {
-			copyIntoProject(dir, project.getProject());
-			addSourceFolder(project, dir);
-		}
+    private List<File> getConfDirectories()
+    {
+        ArrayList<File> results = new ArrayList<File>();
+        File srcResources = new File(root, "conf");
+        if (srcResources.exists())
+        {
+            results.add(srcResources);
+        }
+        return results;
+    }
 
-		finishCopying();
-	}
-	
-	/**
-	 * Copy a file or directory from a URL into a file on the project.
-	 * 
-	 * @param input
-	 * @param project
-	 */
-	protected void copyIntoProject(File input, IContainer parent) throws CoreException {
-		try {
-			IPath relative = new Path(input.getName());
+    private List<File> getResourceDirectories()
+    {
+        ArrayList<File> results = new ArrayList<File>();
+        File srcResources = new File(root, "src/main/resources");
+        if (srcResources.exists())
+        {
+            results.add(srcResources);
+        }
+        return results;
+    }
 
-			// Do not copy CVS entries.
-			if (relative.toString().indexOf("CVS") != -1 || relative.toString().equals(".svn")) {
-				return;
-			}
+    public void copyIntoProject(IJavaProject project) throws CoreException
+    {
+        List<File> dirs;
+        // Copy source files.
 
-			// Copy directories.
-			if (input.isDirectory()) {
-				IFolder folder = parent.getFolder(relative);
-				if (! folder.exists()) {
-					folder.create(true, true, new NullProgressMonitor());
-				}
-				
-				File[] children = input.listFiles();
-				for (int i=0; i < children.length; ++i) {
-					copyIntoProject(children[i], folder);
-				}
-			} else if (input.isFile()) {
-				// Copy files.
-				IFile file = parent.getFile(relative);
-				if (! file.exists()) {
-					file.create(new FileInputStream(input), true, new NullProgressMonitor());
-				}
-			}
-		} catch (IOException e) {
-			MuleProjectPlugin.getInstance().logError("Unable to copy sample resource.", e);
-		}
-	}
+        // TODO Should create a separate source folders if
+        // there are multiple source folders in the project.
+        IContainer sourceContainer = getSourceContainer(project);
+        dirs = getSourceDirectories();
+        for (File dir : dirs)
+        {
+            File[] subs = dir.listFiles();
+            for (int j = 0; j < subs.length; ++j)
+            {
+                copyIntoProject(subs[j], sourceContainer);
+            }
+        }
 
-	/**
-	 * Subclasses may override this method to perform custom steps to finish copying the project
-	 * into the workspace
-	 */
-	protected void finishCopying() throws CoreException {
-		// do nothing
-	}
+        // Copy configuration files
+        dirs = getConfDirectories();
+        for (File dir : dirs)
+        {
+            copyIntoProject(dir, project.getProject());
+            addSourceFolder(project, dir);
+        }
 
-	/**
-	 * Get the first source folder from the project.
-	 * 
-	 * @param project the Java project
-	 * @return the folder
-	 * @throws JavaModelException
-	 */
-	private IContainer getSourceContainer(IJavaProject project) throws JavaModelException {
-		IPackageFragmentRoot[] roots = project.getPackageFragmentRoots();
-		for (int i = 0; i < roots.length; i++) {
-			if (roots[i].getKind() == IPackageFragmentRoot.K_SOURCE) {
-				return (IContainer) roots[i].getResource();
-			}
-		}
-		return null;
-	}
+        // Copy resource files
+        dirs = getResourceDirectories();
+        for (File dir : dirs)
+        {
+            copyIntoProject(dir, project.getProject());
+            addSourceFolder(project, dir);
+        }
 
-	@Override
-	public String toString() {
-		StringBuilder buf = new StringBuilder(64);
-		buf.append("<MuleSampleProject@");
-		buf.append(System.identityHashCode(this));
-		buf.append(" ");
-		buf.append(this.getName());
-		buf.append(">");
-		return buf.toString();
-	}
+        finishCopying();
+    }
 
-	public Collection<IMuleBundle> getAdditionalLibraries() {
-		return Collections.emptyList();
-	}
+    /**
+     * Copy a file or directory from a URL into a file on the project.
+     * 
+     * @param input
+     * @param project
+     */
+    protected void copyIntoProject(File input, IContainer parent) throws CoreException
+    {
+        try
+        {
+            IPath relative = new Path(input.getName());
+
+            // Do not copy CVS entries.
+            if (relative.toString().indexOf("CVS") != -1 || relative.toString().equals(".svn"))
+            {
+                return;
+            }
+
+            // Copy directories.
+            if (input.isDirectory())
+            {
+                IFolder folder = parent.getFolder(relative);
+                if (!folder.exists())
+                {
+                    folder.create(true, true, new NullProgressMonitor());
+                }
+
+                File[] children = input.listFiles();
+                for (int i = 0; i < children.length; ++i)
+                {
+                    copyIntoProject(children[i], folder);
+                }
+            }
+            else if (input.isFile())
+            {
+                // Copy files.
+                IFile file = parent.getFile(relative);
+                if (!file.exists())
+                {
+                    file.create(new FileInputStream(input), true, new NullProgressMonitor());
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            MuleProjectPlugin.getInstance().logError("Unable to copy sample resource.", e);
+        }
+    }
+
+    /**
+     * Subclasses may override this method to perform custom steps to finish copying
+     * the project into the workspace
+     */
+    protected void finishCopying() throws CoreException
+    {
+        // do nothing
+    }
+
+    /**
+     * Get the first source folder from the project.
+     * 
+     * @param project the Java project
+     * @return the folder
+     * @throws JavaModelException
+     */
+    private IContainer getSourceContainer(IJavaProject project) throws JavaModelException
+    {
+        IPackageFragmentRoot[] roots = project.getPackageFragmentRoots();
+        for (int i = 0; i < roots.length; i++)
+        {
+            if (roots[i].getKind() == IPackageFragmentRoot.K_SOURCE)
+            {
+                return (IContainer) roots[i].getResource();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder buf = new StringBuilder(64);
+        buf.append("<MuleSampleProject@");
+        buf.append(System.identityHashCode(this));
+        buf.append(" ");
+        buf.append(this.getName());
+        buf.append(">");
+        return buf.toString();
+    }
+
+    public Collection<IMuleBundle> getAdditionalLibraries()
+    {
+        return Collections.emptyList();
+    }
 }

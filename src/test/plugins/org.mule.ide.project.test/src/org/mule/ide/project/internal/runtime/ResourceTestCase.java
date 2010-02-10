@@ -14,10 +14,12 @@ import static org.mule.ide.project.util.Assert.assertExists;
 
 import java.io.File;
 
-public class ResourceTestCase {
-    protected static File getTestResource(String filename) {
-    	File testResource = new File("test-resources", filename);
-    	assertExists(filename, testResource);
-    	return testResource;
+public class ResourceTestCase
+{
+    protected static File getTestResource(String filename)
+    {
+        File testResource = new File("test-resources", filename);
+        assertExists(filename, testResource);
+        return testResource;
     }
 }

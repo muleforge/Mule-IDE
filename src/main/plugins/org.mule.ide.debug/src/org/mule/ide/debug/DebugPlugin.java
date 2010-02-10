@@ -16,29 +16,33 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class DebugPlugin extends Plugin {
+public class DebugPlugin extends Plugin
+{
+    public static final String PLUGIN_ID = "org.mule.ide.debug";
 
-	public static final String PLUGIN_ID = "org.mule.ide.debug";
+    private static DebugPlugin plugin;
 
-	private static DebugPlugin plugin;
-	
-	public DebugPlugin() {
-		super();
-	}
+    public DebugPlugin()
+    {
+        super();
+    }
 
-	@Override
-	public void start(BundleContext context) throws Exception {
-		super.start(context);
-		plugin = this;
-	}
+    @Override
+    public void start(BundleContext context) throws Exception
+    {
+        super.start(context);
+        plugin = this;
+    }
 
-	@Override
-	public void stop(BundleContext context) throws Exception {
-		plugin = null;
-		super.stop(context);
-	}
+    @Override
+    public void stop(BundleContext context) throws Exception
+    {
+        plugin = null;
+        super.stop(context);
+    }
 
-	public static DebugPlugin getDefault() {
-		return plugin;
-	}
+    public static DebugPlugin getDefault()
+    {
+        return plugin;
+    }
 }

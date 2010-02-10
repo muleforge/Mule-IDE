@@ -16,48 +16,52 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IPath;
 
-public interface IMuleBundle {
-	String MULE_MODULE_PREFIX = IMuleRuntime.MULE_BUNDLE_PREFIX + "module-";
-	String MULE_TRANSPORT_PREFIX = IMuleRuntime.MULE_BUNDLE_PREFIX + "transport-";
-	
-	/**
-	 * Constants for certain prominent mule bundles
-	 */
-	String MULE_MODULE_SPRING_CONFIG = MULE_MODULE_PREFIX + "spring-config";
-	String MULE_MODULES_GROUP_ID = "org.mule.modules";
-	
-	/**
-	 * Comparator to compare IMuleBundle instances by their {@link #getDisplayName()} method.
-	 */
-	Comparator<IMuleBundle> CompareByDisplayName = new Comparator<IMuleBundle>() {
-		public int compare(IMuleBundle b1, IMuleBundle b2) {
-			return b1.getDisplayName().compareTo(b2.getDisplayName());
-		}
-	};
-	
-	File getFile();
-	
-	String getPathifiedName();
-	
-	Set<IMuleBundle> getDependencies();
-	
-	IPath getSourcePath();
-	
-	String getVersion();
-	
-	String getDisplayName();
-		
-	/**
-	 * @return XML namespaces that are provided by this transport/module or an empty array if this
-	 * bundle does not supply any namespaces.
-	 */
-    Namespace[] getNamespaces();
-	
-	boolean isSpringConfigBundle();
+public interface IMuleBundle
+{
+    String MULE_MODULE_PREFIX = IMuleRuntime.MULE_BUNDLE_PREFIX + "module-";
+    String MULE_TRANSPORT_PREFIX = IMuleRuntime.MULE_BUNDLE_PREFIX + "transport-";
 
-	/**
-	 * @return <code>true</code> if this instance is either a Mule transport or a Mule module,
-	 * otherwise return <code>false</code>.
-	 */
+    /**
+     * Constants for certain prominent mule bundles
+     */
+    String MULE_MODULE_SPRING_CONFIG = MULE_MODULE_PREFIX + "spring-config";
+    String MULE_MODULES_GROUP_ID = "org.mule.modules";
+
+    /**
+     * Comparator to compare IMuleBundle instances by their {@link #getDisplayName()}
+     * method.
+     */
+    Comparator<IMuleBundle> CompareByDisplayName = new Comparator<IMuleBundle>()
+    {
+        public int compare(IMuleBundle b1, IMuleBundle b2)
+        {
+            return b1.getDisplayName().compareTo(b2.getDisplayName());
+        }
+    };
+
+    File getFile();
+
+    String getPathifiedName();
+
+    Set<IMuleBundle> getDependencies();
+
+    IPath getSourcePath();
+
+    String getVersion();
+
+    String getDisplayName();
+
+    /**
+     * @return XML namespaces that are provided by this transport/module or an empty
+     *         array if this bundle does not supply any namespaces.
+     */
+    Namespace[] getNamespaces();
+
+    boolean isSpringConfigBundle();
+
+    /**
+     * @return <code>true</code> if this instance is either a Mule transport or a
+     *         Mule module, otherwise return <code>false</code>.
+     */
     boolean isModuleOrTransport();
 }

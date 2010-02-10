@@ -22,105 +22,122 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaModelException;
 
 /**
- * This is a wrapper to an {@link IJavaProject} that implements additional utility methods useful
- * for working with a project.
+ * This is a wrapper to an {@link IJavaProject} that implements additional utility
+ * methods useful for working with a project.
  */
-public class IdeProject {
+public class IdeProject
+{
     private IJavaProject javaProject = null;
 
-    public IdeProject(IJavaProject javaProject) {
+    public IdeProject(IJavaProject javaProject)
+    {
         super();
-        this.javaProject  = javaProject;
+        this.javaProject = javaProject;
     }
-    
+
     /**
-     * Search this project's raw classpath and return <code>true</code> if an {@link IClasspathEntry}
-     * was found that had <code>pathElement</code> as its first element.
+     * Search this project's raw classpath and return <code>true</code> if an
+     * {@link IClasspathEntry} was found that had <code>pathElement</code> as its
+     * first element.
      */
-    public boolean hasClasspathContainerWithFirstPathElement(String pathElement) throws JavaModelException {
+    public boolean hasClasspathContainerWithFirstPathElement(String pathElement) throws JavaModelException
+    {
         IClasspathEntry[] classpath = javaProject.getRawClasspath();
-        for (int i = 0; i < classpath.length; i++) {
+        for (int i = 0; i < classpath.length; i++)
+        {
             String firstSegment = classpath[i].getPath().segment(0);
-            if (firstSegment.equals(pathElement)) {
+            if (firstSegment.equals(pathElement))
+            {
                 return true;
             }
         }
         return false;
     }
-    
+
     /**
-     * Searches the raw classpath and returns the {@link IClasspathEntry} that has <code>segment</code>
-     * as first element. If <code>segment</code> was not found in any classpath entry, this method
-     * returns <code>null</code>.
+     * Searches the raw classpath and returns the {@link IClasspathEntry} that has
+     * <code>segment</code> as first element. If <code>segment</code> was not found
+     * in any classpath entry, this method returns <code>null</code>.
      */
-    public IClasspathEntry findClasspathEntryWithFirstPathSegment(String segment) throws JavaModelException {
+    public IClasspathEntry findClasspathEntryWithFirstPathSegment(String segment) throws JavaModelException
+    {
         IClasspathEntry[] classpath = javaProject.getRawClasspath();
         IPath searchPath = new Path(segment);
-        
-        for (IClasspathEntry entry : classpath) {
+
+        for (IClasspathEntry entry : classpath)
+        {
             IPath entryPath = entry.getPath();
-            if (entryPath.matchingFirstSegments(searchPath) == 1) {
+            if (entryPath.matchingFirstSegments(searchPath) == 1)
+            {
                 return entry;
             }
         }
-        
+
         return null;
     }
-    
-    public void toggleNature(String natureId) throws CoreException {
-        if (hasNature(natureId)) {
+
+    public void toggleNature(String natureId) throws CoreException
+    {
+        if (hasNature(natureId))
+        {
             removeNature(natureId);
         }
-        else {
+        else
+        {
             addNature(natureId);
         }
     }
-    
-    public boolean hasNature(String natureId) throws CoreException {
+
+    public boolean hasNature(String natureId) throws CoreException
+    {
         return javaProject.getProject().hasNature(natureId);
     }
 
-    public void removeNature(String natureId) throws CoreException {
+    public void removeNature(String natureId) throws CoreException
+    {
         IProject project = javaProject.getProject();
         IProjectDescription description = project.getDescription();
 
-        String[] newNatures = 
-            (String[])ArrayUtils.removeElement(description.getNatureIds(), natureId);
-        
-        description.setNatureIds(newNatures);
-        project.setDescription(description, new NullProgressMonitor());
-    }        
+        String[] newNatures = (String[]) ArrayUtils.removeElement(description.getNatureIds(), natureId);
 
-    private void addNature(String natureId) throws CoreException {
-        IProject project = javaProject.getProject();
-        IProjectDescription description = project.getDescription();
-        
-        String[] newNatures = 
-            (String[])ArrayUtils.add(description.getNatureIds(), natureId);
-        
         description.setNatureIds(newNatures);
         project.setDescription(description, new NullProgressMonitor());
     }
 
-    public IJavaProject getJavaProject() {
+    private void addNature(String natureId) throws CoreException
+    {
+        IProject project = javaProject.getProject();
+        IProjectDescription description = project.getDescription();
+
+        String[] newNatures = (String[]) ArrayUtils.add(description.getNatureIds(), natureId);
+
+        description.setNatureIds(newNatures);
+        project.setDescription(description, new NullProgressMonitor());
+    }
+
+    public IJavaProject getJavaProject()
+    {
         return javaProject;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return javaProject.getProject().getName();
     }
 
-    public IPath getPath() {
+    public IPath getPath()
+    {
         return javaProject.getPath();
-    }        
+    }
 
     /**
-     * A common use pattern with this class is to have a subclass that represents an invalid 
-     * project e.g. when the selection in the IDE could not be adapted to an IdeProject instance.
-     * Subclasses can override this method to flag their validity. This implementation simply
-     * returns <code>true</code>.
+     * A common use pattern with this class is to have a subclass that represents an
+     * invalid project e.g. when the selection in the IDE could not be adapted to an
+     * IdeProject instance. Subclasses can override this method to flag their
+     * validity. This implementation simply returns <code>true</code>.
      */
-    public boolean isValid() {
+    public boolean isValid()
+    {
         return true;
     }
 }

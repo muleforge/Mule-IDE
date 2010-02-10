@@ -21,53 +21,62 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
-public class PomTestCase extends ResourceTestCase {
+public class PomTestCase extends ResourceTestCase
+{
     @Test
-    public void groupIdFromParentDeclaration() throws Exception {
-    	loadPomAndAssertGroupId("pom-with-groupId-in-parent.xml");
+    public void groupIdFromParentDeclaration() throws Exception
+    {
+        loadPomAndAssertGroupId("pom-with-groupId-in-parent.xml");
     }
-    
+
     @Test
-    public void groupIdFromPomFile() throws Exception {
+    public void groupIdFromPomFile() throws Exception
+    {
         loadPomAndAssertGroupId("pom-with-groupId.xml");
     }
-    
+
     @Test
-    public void groupIdFromPomAndParentHasGroupId() throws Exception {
+    public void groupIdFromPomAndParentHasGroupId() throws Exception
+    {
         loadPomAndAssertGroupId("pom-with-parent-and-groupId.xml");
     }
-    
+
     @Test
-    public void loadFromJarWherePomIsInMetaInfDir() {
-    	File jarFile = getTestResource("jar-with-pom-in-META-INF.jar");
-    	
-    	Pom pom = Pom.loadFromJar(jarFile);
-    	assertNotNull(pom);
+    public void loadFromJarWherePomIsInMetaInfDir()
+    {
+        File jarFile = getTestResource("jar-with-pom-in-META-INF.jar");
+
+        Pom pom = Pom.loadFromJar(jarFile);
+        assertNotNull(pom);
     }
-    
+
     @Test
-    public void loadFromJarWherePomIsNotInMetaInfDir() {
-    	File jarFile = getTestResource("jar-with-pom.jar");
-    	Pom result = Pom.loadFromJar(jarFile);
-    	assertNull(result);
+    public void loadFromJarWherePomIsNotInMetaInfDir()
+    {
+        File jarFile = getTestResource("jar-with-pom.jar");
+        Pom result = Pom.loadFromJar(jarFile);
+        assertNull(result);
     }
-    
+
     @Test
-    public void parsePomWithoutNameElement() throws Exception {
+    public void parsePomWithoutNameElement() throws Exception
+    {
         Pom pom = loadPom("pom-without-name.xml");
         assertNull(pom.getName());
     }
-    
-    private void loadPomAndAssertGroupId(String fileName) throws Exception {
+
+    private void loadPomAndAssertGroupId(String fileName) throws Exception
+    {
         Pom pom = loadPom(fileName);
         String groupId = pom.getGroupId();
         assertNotNull(groupId);
         assertEquals("the.group.id", groupId);
     }
-    
-    private Pom loadPom(String filename) throws FileNotFoundException {
+
+    private Pom loadPom(String filename) throws FileNotFoundException
+    {
         File pomFile = getTestResource(filename);
-        
+
         InputStream pomInputStream = new FileInputStream(pomFile);
         return Pom.loadFromStream(pomInputStream);
     }

@@ -50,10 +50,8 @@ public class SelectionToIdeProject implements IAdapterFactory
     {
         Object firstElement = structuredSelection.getFirstElement();
 
-        // now that we have determined the first element from the selection, let
-        // other adapters
-        // handle the conversion to IJavaProject There should be some registered by
-        // this plugin.
+        // now that we have determined the first element from the selection, let other adapters
+        // handle the conversion to IJavaProject. There should be some registered by this plugin.
         IAdapterManager adapterManager = Platform.getAdapterManager();
         return adapterManager.getAdapter(firstElement, IdeProject.class);
     }

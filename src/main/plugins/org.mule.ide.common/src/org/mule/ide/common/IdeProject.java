@@ -10,9 +10,14 @@
 
 package org.mule.ide.common;
 
+import java.io.File;
+
 import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -139,5 +144,30 @@ public class IdeProject
     public boolean isValid()
     {
         return true;
+    }
+
+    /**
+     * @return The absolute path of this project in the file system.
+     */
+    public File getFilesystemPath()
+    {
+        IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+        IResource resource = root.findMember(getPath());
+        return new File(resource.getLocationURI()).getAbsoluteFile();
+    }
+
+    /**
+     * @return The {@link File} object that represents the <code>pom.xml</code> in this project
+     * or <code>null</code> if this project does not have a POM.
+     */
+    public File getPomFile()
+    {
+        File projectPath = getFilesystemPath();
+        File pomFile = new File(projectPath, "pom.xml");
+        if (pomFile.exists())
+        {
+            return pomFile;
+        }
+        return null;
     }
 }

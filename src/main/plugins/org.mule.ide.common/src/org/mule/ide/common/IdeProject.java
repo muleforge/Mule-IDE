@@ -11,6 +11,7 @@
 package org.mule.ide.common;
 
 import java.io.File;
+import java.util.List;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.core.resources.IProject;
@@ -20,6 +21,7 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IClasspathEntry;
@@ -120,21 +122,6 @@ public class IdeProject
         project.setDescription(description, new NullProgressMonitor());
     }
 
-    public IJavaProject getJavaProject()
-    {
-        return javaProject;
-    }
-
-    public String getName()
-    {
-        return javaProject.getProject().getName();
-    }
-
-    public IPath getPath()
-    {
-        return javaProject.getPath();
-    }
-
     /**
      * A common use pattern with this class is to have a subclass that represents an
      * invalid project e.g. when the selection in the IDE could not be adapted to an
@@ -169,5 +156,37 @@ public class IdeProject
             return pomFile;
         }
         return null;
+    }
+
+    public IJavaProject getJavaProject()
+    {
+        return javaProject;
+    }
+
+    public String getName()
+    {
+        return javaProject.getProject().getName();
+    }
+
+    public IPath getPath()
+    {
+        return javaProject.getPath();
+    }
+
+    public IClasspathEntry[] getRawClasspath() throws JavaModelException
+    {
+        return javaProject.getRawClasspath();
+    }
+
+    public void setRawClasspath(IClasspathEntry[] newClasspath, IProgressMonitor monitor) throws JavaModelException
+    {
+        javaProject.setRawClasspath(newClasspath, monitor);
+    }
+
+    public void setRawClasspath(List<IClasspathEntry> newClasspath, IProgressMonitor monitor) throws JavaModelException
+    {
+        IClasspathEntry[] entries = new IClasspathEntry[newClasspath.size()];
+        entries = newClasspath.toArray(entries);
+        setRawClasspath(entries, monitor);
     }
 }

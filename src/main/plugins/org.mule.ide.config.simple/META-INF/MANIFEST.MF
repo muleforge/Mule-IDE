@@ -14,3 +14,4 @@ Require-Bundle: org.eclipse.core.resources,
 Bundle-Localization: plugin
 Bundle-Vendor: %providerName
 Bundle-Activator: org.mule.ide.config.SimpleConfigPlugin
+Bundle-ActivationPolicy: lazy

@@ -40,6 +40,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
+import org.mule.ide.config.SimpleConfigPlugin;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
@@ -57,7 +58,7 @@ public class MuleConfigWizardPage extends WizardPage {
 		setTitle("Mule Configuration File");
 		setDescription("This wizard creates a new Mule configuration file with the selected namespaces.");
 		this.selection = selection;
-		project = MuleIdeProject.from(selection);
+		project = SimpleConfigPlugin.getDefault().getProjectFactory().create(selection);
 	}
 
 	public void createControl(Composite parent) {

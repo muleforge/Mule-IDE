@@ -10,10 +10,9 @@
 
 package org.mule.ide.config.simple.wizards;
 
-import org.eclipse.core.runtime.IAdapterManager;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaModelException;
 import org.mule.ide.common.IdeProject;
 import org.mule.ide.project.MulePreferences;
@@ -23,31 +22,11 @@ import org.mule.ide.project.runtime.IMuleRuntime;
 public class MuleIdeProject extends IdeProject
 {
     /**
-     * Use the adapters registered in the common code plugin to determine the project
-     * from the current selection.
+     * This constructor is used by {@link IdeProjectFactory}
      */
-    public static MuleIdeProject from(Object selection)
+    public MuleIdeProject(IJavaProject project)
     {
-        IAdapterManager adapterManager = Platform.getAdapterManager();
-        IdeProject project = (IdeProject) adapterManager.getAdapter(selection, IdeProject.class);
-        if (project != null)
-        {
-            return new MuleIdeProject(project);
-        }
-        else
-        {
-            return new InvalidMuleIdeProject();
-        }
-    }
-
-    private MuleIdeProject(IdeProject project)
-    {
-        super(project.getJavaProject());
-    }
-
-    private MuleIdeProject()
-    {
-        super(null);
+        super(project);
     }
 
     public boolean isMuleProject()
@@ -84,27 +63,6 @@ public class MuleIdeProject extends IdeProject
         {
             // TODO: better error handling in the code calling this method
             throw new IllegalStateException(jme);
-        }
-    }
-
-    private static class InvalidMuleIdeProject extends MuleIdeProject
-    {
-        @Override
-        public String getName()
-        {
-            return "Invalid project";
-        }
-
-        @Override
-        public boolean isMuleProject()
-        {
-            return false;
-        }
-
-        @Override
-        public boolean isValid()
-        {
-            return false;
         }
     }
 }

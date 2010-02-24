@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name.0
-Bundle-SymbolicName: org.mule.ide.common;singleton:=true
+Bundle-SymbolicName: org.mule.ide.common
 Bundle-Version: 1.0.1.qualifier
 Bundle-Activator: org.mule.ide.common.CommonCodePlugin
 Bundle-Vendor: %Bundle-Vendor.0
@@ -13,5 +13,6 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.4.1";visibility:=reexport,
  org.apache.commons.lang;bundle-version="2.3.0";visibility:=reexport
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
-Export-Package: org.mule.ide.common
+Export-Package: org.mule.ide.common,
+ org.mule.ide.common.projectfactory
 Bundle-Localization: plugin

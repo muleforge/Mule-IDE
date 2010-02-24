@@ -40,6 +40,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
+import org.mule.ide.config.SimpleConfigPlugin;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
@@ -59,7 +60,7 @@ public class MuleConfigWizardPage extends WizardPage
         setTitle("Mule Configuration File");
         setDescription("This wizard creates a new Mule configuration file with the selected namespaces.");
         this.selection = selection;
-        project = MuleIdeProject.from(selection);
+        project = SimpleConfigPlugin.getDefault().getProjectFactory().create(selection);
     }
 
     public void createControl(Composite parent)
@@ -131,6 +132,7 @@ public class MuleConfigWizardPage extends WizardPage
         button.setText("Browse...");
         button.addSelectionListener(new SelectionAdapter()
         {
+            @Override
             public void widgetSelected(SelectionEvent e)
             {
                 handleBrowse();
@@ -172,6 +174,7 @@ public class MuleConfigWizardPage extends WizardPage
         muleArtifactTable.setHeaderVisible(false);
         muleArtifactTable.addSelectionListener(new SelectionAdapter()
         {
+            @Override
             public void widgetSelected(SelectionEvent event)
             {
                 // when clicking a checkbox at least on linux we recevie two events
@@ -326,7 +329,7 @@ public class MuleConfigWizardPage extends WizardPage
         }
         else
         {
-            container = ((IResource) resource).getParent();
+            container = (resource).getParent();
         }
         return container.getFullPath();
     }

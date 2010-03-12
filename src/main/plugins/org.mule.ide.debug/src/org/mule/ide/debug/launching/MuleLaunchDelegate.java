@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -84,20 +85,22 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate
     @Override
     public String getVMArguments(ILaunchConfiguration configuration) throws CoreException
     {
-        IMuleRuntime runtime = getMuleRuntime(configuration);
-
+        String args = super.getVMArguments(configuration);
         StringBuffer newArgs = new StringBuffer();
 
-        String args = super.getVMArguments(configuration);
-        int muleHome = -1;
-        if (args != null && args.length() > 0)
+        if (StringUtils.isNotBlank(args))
         {
-            muleHome = args.indexOf(MULE_HOME_ARG);
-            newArgs.append(" ");
+            newArgs.append(args);
         }
 
-        if (muleHome < 0)
+        if (StringUtils.contains(args, MULE_HOME_ARG) == false)
         {
+            IMuleRuntime runtime = getMuleRuntime(configuration);
+
+            if (newArgs.length() > 0)
+            {
+                newArgs.append(" ");
+            }
             newArgs.append(MULE_HOME_ARG);
             newArgs.append("=");
             newArgs.append(runtime.getDirectory().getAbsolutePath());

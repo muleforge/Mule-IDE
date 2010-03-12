@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -72,23 +73,24 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate {
 	
 	@Override
 	public String getVMArguments(ILaunchConfiguration configuration) throws CoreException {
-		IMuleRuntime runtime = getMuleRuntime(configuration);
+        String args = super.getVMArguments(configuration);
+        StringBuffer newArgs = new StringBuffer();
+        
+	    if (StringUtils.isNotBlank(args)) {
+	        newArgs.append(args);
+	    }
 
-		StringBuffer newArgs = new StringBuffer();
-		
-		String args = super.getVMArguments(configuration);
-		int muleHome = -1;
-		if (args != null && args.length() > 0) {
-			muleHome = args.indexOf(MULE_HOME_ARG);
-			newArgs.append(" "); 
-		}
-		
-		if (muleHome < 0) {
-			newArgs.append(MULE_HOME_ARG);
-			newArgs.append("=");
-			newArgs.append(runtime.getDirectory().getAbsolutePath());
-		}
-	
+        if (StringUtils.contains(args, MULE_HOME_ARG) == false) {
+            IMuleRuntime runtime = getMuleRuntime(configuration);
+
+            if (newArgs.length() > 0) {
+                newArgs.append(" ");
+            }
+            newArgs.append(MULE_HOME_ARG);
+            newArgs.append("=");
+            newArgs.append(runtime.getDirectory().getAbsolutePath());
+        }
+	    	
 		// Allow the launched config to see where our workspace is and that we are launched from the IDE
 		newArgs.append(" -Dosgi.dev=true");
         newArgs.append(" -Dosgi.instance.area=");

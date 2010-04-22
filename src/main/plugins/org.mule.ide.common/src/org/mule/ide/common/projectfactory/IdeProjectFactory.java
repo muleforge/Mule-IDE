@@ -50,10 +50,10 @@ public class IdeProjectFactory<T extends IdeProject> {
         converters = new LinkedHashMap<Class<?>, ProjectFactoryConverter>();
         
         converters.put(ISelection.class, new SelectionConverter());
-        converters.put(IProject.class, new NonJavaProjectConverter());
         converters.put(IResource.class, new ResourceToJavaProject());
         converters.put(IJavaElement.class, new JavaElementToJavaProject());
         converters.put(ClassPathContainer.class, new ClassPathContainerToJavaProject());
+        converters.put(IProject.class, new NonJavaProjectConverter());
     }
     
     public T create(Object source) {

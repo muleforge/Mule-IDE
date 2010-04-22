@@ -60,6 +60,7 @@ public class MuleConfigWizardPage extends WizardPage
         setTitle("Mule Configuration File");
         setDescription("This wizard creates a new Mule configuration file with the selected namespaces.");
         this.selection = selection;
+
         project = SimpleConfigPlugin.getDefault().getProjectFactory().create(selection);
     }
 
@@ -75,7 +76,6 @@ public class MuleConfigWizardPage extends WizardPage
         createMuleArtifactSelector(parentContainer);
 
         initialize();
-        fileTextChanged();
         setControl(parentContainer);
     }
 
@@ -93,7 +93,7 @@ public class MuleConfigWizardPage extends WizardPage
             }
             else
             {
-                updateStatus("Could not determine project from selection");
+                updateStatus("Invalid selection");
             }
         }
     }
@@ -281,7 +281,9 @@ public class MuleConfigWizardPage extends WizardPage
     private void initialize()
     {
         selectedMuleArtifacts = new HashSet<IMuleBundle>();
+
         fileText.setText("mule-config.xml");
+        fileTextChanged();
 
         checkProjectHasMuleClasspathContainer();
 
@@ -338,12 +340,9 @@ public class MuleConfigWizardPage extends WizardPage
     {
         int type = javaElement.getElementType();
 
-        // The constants in IJavaElement are ordered ascending, more specific types
-        // have
-        // higher values. Java elements that are more specific than a package
-        // fragment
-        // (i.e. class files, classes etc.) need to determine their package's folder
-        // on disk
+        // The constants in IJavaElement are ordered ascending, more specific types have higher
+        // values. Java elements that are more specific than a package fragment (i.e. class files,
+        // classes etc.) need to determine their package's folder on disk
         while (type > IJavaElement.PACKAGE_FRAGMENT)
         {
             javaElement = javaElement.getParent();
@@ -373,10 +372,43 @@ public class MuleConfigWizardPage extends WizardPage
 
     private void folderTextChanged()
     {
+        updateProjectIfNecessary();
+
         if (project.isMuleProject())
         {
             IMuleRuntime runtime = project.getMuleRuntime();
             populateMuleArtifactTable(runtime);
+        }
+    }
+
+    /**
+     * This dialog may have been created with an invalid/empty selection. In this
+     * case, the project is invalid and there is no way of looking up the selected
+     * MuleRuntime from the it. Now that there's new input in the "folder" text
+     * field, re-create the project.
+     */
+    private void updateProjectIfNecessary()
+    {
+        if (project.isValid())
+        {
+            return;
+        }
+
+        String folder = folderText.getText();
+        IPath path = new Path(folder);
+
+        IResource resource = ResourcesPlugin.getWorkspace().getRoot().findMember(path);
+        if (resource != null)
+        {
+            project = SimpleConfigPlugin.getDefault().getProjectFactory().create(resource);
+            if (project.isValid())
+            {
+                updateStatus(null);
+            }
+        }
+        else
+        {
+            updateStatus(folder + " does not exist");
         }
     }
 

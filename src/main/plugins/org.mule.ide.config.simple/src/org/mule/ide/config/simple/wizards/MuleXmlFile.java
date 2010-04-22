@@ -44,7 +44,7 @@ public class MuleXmlFile
         // find mule-core.xsd and make it the default namespace for the document
         Namespace coreNamespace = findCoreNamespace(springConfigBundle.getNamespaces());
         buf.append("<mule xmlns=\"");
-        buf.append(coreNamespace.location);
+        buf.append(coreNamespace.uri);
         buf.append("\"");
         buf.append(LINE_SEP);
     }

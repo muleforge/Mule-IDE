@@ -160,7 +160,7 @@ public class MuleRuntime implements IMuleRuntime
             gatherSamples(allSamples[i], results);
         }
 
-        Collections.sort(results, MuleSampleProject.CompareByName);
+        Collections.sort(results, IMuleSampleProject.CompareByName);
         return results;
     }
 

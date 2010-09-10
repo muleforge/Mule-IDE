@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import org.eclipse.core.resources.IContainer;
@@ -42,14 +41,6 @@ public class MuleSampleProject implements IMuleSampleProject
     private String name;
     private String description;
     protected File root;
-
-    public static final Comparator<IMuleSampleProject> CompareByName = new Comparator<IMuleSampleProject>()
-    {
-        public int compare(IMuleSampleProject p1, IMuleSampleProject p2)
-        {
-            return p1.getName().compareTo(p2.getName());
-        }
-    };
 
     protected static void addSourceFolder(IJavaProject project, File sourceFolder)
     {

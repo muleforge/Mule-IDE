@@ -12,12 +12,21 @@ package org.mule.ide.project.runtime;
 
 import java.io.File;
 import java.util.Collection;
+import java.util.Comparator;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jdt.core.IJavaProject;
 
 public interface IMuleSampleProject
 {
+    public static final Comparator<IMuleSampleProject> CompareByName = new Comparator<IMuleSampleProject>()
+    {
+        public int compare(IMuleSampleProject p1, IMuleSampleProject p2)
+        {
+            return p1.getName().compareTo(p2.getName());
+        }
+    };
+
     String getName();
 
     String getDescription();

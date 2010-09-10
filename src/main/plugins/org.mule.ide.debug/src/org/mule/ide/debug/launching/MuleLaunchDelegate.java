@@ -143,46 +143,35 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate
     @Override
     public String[] getClasspath(ILaunchConfiguration configuration) throws CoreException
     {
-        IMuleRuntime runtime = getMuleRuntime(configuration);
-
         String[] classpath = super.getClasspath(configuration);
         if (classpath == null)
         {
             classpath = new String[0];
         }
 
+        IMuleRuntime runtime = getMuleRuntime(configuration);
         String muleHomeString = runtime.getDirectory().getAbsolutePath();
 
-        String[] newClasspath = new String[classpath.length + 2];
-        newClasspath[0] = muleHomeString + File.separatorChar + "conf"; // log4j
-                                                                        // configuration
-        newClasspath[1] = muleHomeString + File.separatorChar + "lib" + File.separatorChar + "boot"
-                          + File.separatorChar + "commons-cli-1.0.jar"; // log4j
-                                                                        // configuration
-        System.arraycopy(classpath, 0, newClasspath, 2, classpath.length);
-
+        String[] newClasspath = new String[classpath.length + 1];
+        newClasspath[0] = muleHomeString + File.separatorChar + "conf"; // log4j configuration
+        System.arraycopy(classpath, 0, newClasspath, 1, classpath.length);
         return newClasspath;
     }
 
-    /**
-     * VM Arguments : -Dmule.home=C:\dev\mule\mule-2.0.0 Classpath :
-     * MULE_HOME\lib\boot\commons-cli-1.0.jar
-     * MULE_HOME\lib\boot\mule-module-boot-2.0.0.jar ? MULE_HOME\conf
-     */
     @Override
     public String getProgramArguments(ILaunchConfiguration configuration) throws CoreException
     {
         // Build the argument string.
-        StringBuffer buffer = new StringBuffer();
-        buffer.append(super.getProgramArguments(configuration));
+        StringBuffer buffer = new StringBuffer(super.getProgramArguments(configuration));
 
         // Load the attributes from the launch configuration.
-        String projectName = configuration.getAttribute(IJavaLaunchConfigurationConstants.ATTR_PROJECT_NAME,
-            (String) null);
+        String projectName = configuration.getAttribute(
+            IJavaLaunchConfigurationConstants.ATTR_PROJECT_NAME, (String) null);
         if (projectName == null || projectName.length() == 0)
         {
             abort(DebugMessages.MuleLaunchConfig_errorNoProject, null, 0);
         }
+
         IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
         if (!project.exists())
         {

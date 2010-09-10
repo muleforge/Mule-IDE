@@ -110,8 +110,7 @@ function generateCadaverRc()
     makeBackup "$file"
     cat > "$file" <<End-of-message
 open $URL
-cd updates
-cd 3.4
+cd updates-2.1.x
 cd features
 End-of-message
 

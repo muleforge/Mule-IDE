@@ -25,6 +25,7 @@ public class ExampleFilesFilter implements IImportStructureProvider
     private static final Set<String> ExcludedFiles;
 
     private boolean didFilterToplevelChildren = false;
+    private String artifactId;
     private String exampleName;
 
     static
@@ -39,6 +40,7 @@ public class ExampleFilesFilter implements IImportStructureProvider
     public ExampleFilesFilter(String artifactId)
     {
         super();
+        this.artifactId = artifactId;
 
         this.exampleName = artifactId;
         int dashIndex = artifactId.lastIndexOf('-');
@@ -69,31 +71,44 @@ public class ExampleFilesFilter implements IImportStructureProvider
     private List<File> filter(List<File> children)
     {
         List<File> filteredFiles = new ArrayList<File>();
-
         for (File element : children)
         {
             if (shouldIncludeFile(element))
             {
-                boolean isNoLaunchScript = isLaunchScript(element) == false;
-                if (isNoLaunchScript)
-                {
-                    filteredFiles.add(element);
-                }
+                filteredFiles.add(element);
             }
         }
-
         return filteredFiles;
     }
 
     private boolean shouldIncludeFile(File file)
     {
-        return ExcludedFiles.contains(file.getName()) == false;
+        if (ExcludedFiles.contains(file.getName()))
+        {
+            return false;
+        }
+
+        if (isPrebuiltApplicationZip(file))
+        {
+            return false;
+        }
+
+        if (isLaunchScript(file))
+        {
+            return false;
+        }
+
+        return true;
     }
 
+    /**
+     *  Mule 2.x bundles launch scripts with the examples. These scripts are named exactly like
+     *  the last part of the artifactId, optionally with the '.bat' suffix.
+     */
     private boolean isLaunchScript(File file)
     {
         String filename = file.getName();
-        if (filename.equals(exampleName))
+        if (filename.equals(exampleName) && file.isFile())
         {
             // TODO check if executable, look at first two chars in file, maybe (#!)
             return true;
@@ -103,6 +118,20 @@ public class ExampleFilesFilter implements IImportStructureProvider
             return true;
         }
 
+        return false;
+    }
+
+    /**
+     * Mule 3.x bundles each example pre-built as a zip. The naming scheme used there is
+     * ${artifactId}-${version}.zip
+     */
+    private boolean isPrebuiltApplicationZip(File file)
+    {
+        String filename = file.getName();
+        if (filename.startsWith(artifactId) && filename.endsWith(".zip"))
+        {
+            return true;
+        }
         return false;
     }
 

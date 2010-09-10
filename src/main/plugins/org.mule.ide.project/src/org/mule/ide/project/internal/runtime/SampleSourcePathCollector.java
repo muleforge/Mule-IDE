@@ -33,6 +33,7 @@ public class SampleSourcePathCollector
     {
         addDirectory("src/main/java");
         addDirectory("src/main/resources");
+        addDirectory("src/main/app");
         addDirectory("src/test/java");
         addDirectory("src/test/resources");
         addDirectory("conf");

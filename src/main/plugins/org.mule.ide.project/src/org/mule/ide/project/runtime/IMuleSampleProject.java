@@ -34,7 +34,6 @@ public interface IMuleSampleProject
 
     File getDirectory();
 
-    // List<File> getSourceDirectories();
     void copyIntoProject(IJavaProject project, IProgressMonitor monitor) throws CoreException;
 
     /**

@@ -22,44 +22,37 @@ import org.mule.ide.project.runtime.IMuleSampleProject;
  */
 public class MuleSampleFactory
 {
-    private static Map<String, IMuleSampleFactory> factories;
-
-    private interface IMuleSampleFactory
-    {
-        IMuleSampleProject createSampleProject(MuleRuntime runtime, String name, String description, File dir);
-    }
+    private static Map<String, IMuleSampleFactory> Factories;
 
     static
     {
-        factories = new HashMap<String, IMuleSampleFactory>();
-        factories.put("mule-example-errorhandler", new IMuleSampleFactory()
+        Factories = new HashMap<String, IMuleSampleFactory>();
+
+        Factories.put("mule-example-errorhandler", new IMuleSampleFactory()
         {
-            public IMuleSampleProject createSampleProject(MuleRuntime runtime, String name,
-                String description, File dir)
+            public IMuleSampleProject createSampleProject(String artifactId, MuleRuntime runtime,
+                String name, String description, File dir)
             {
-                return new ErrorhandlerSampleProject(runtime, name, description, dir);
-            }
-        });
-        factories.put("mule-example-webapp", new IMuleSampleFactory()
-        {
-            public IMuleSampleProject createSampleProject(MuleRuntime runtime, String name,
-                String description, File dir)
-            {
-                return new WebappSampleProject(runtime, name, description, dir);
+                return new ErrorhandlerSampleProject(artifactId, runtime, name, description, dir);
             }
         });
     }
 
-    public static IMuleSampleProject create(String artifactid, MuleRuntime runtime, String name,
+    public static IMuleSampleProject create(String artifactId, MuleRuntime runtime, String name,
         String description, File dir)
     {
-
-        IMuleSampleFactory sampleFactory = factories.get(artifactid);
+        IMuleSampleFactory sampleFactory = Factories.get(artifactId);
         if (sampleFactory != null)
         {
-            return sampleFactory.createSampleProject(runtime, name, description, dir);
+            return sampleFactory.createSampleProject(artifactId, runtime, name, description, dir);
         }
 
-        return new MuleSampleProject(runtime, name, description, dir);
+        return new MuleSampleProject(artifactId, runtime, name, description, dir);
+    }
+
+    private interface IMuleSampleFactory
+    {
+        IMuleSampleProject createSampleProject(String artifactid, MuleRuntime runtime,
+           String name, String description, File dir);
     }
 }

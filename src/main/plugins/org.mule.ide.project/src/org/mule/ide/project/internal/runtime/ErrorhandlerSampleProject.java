@@ -29,6 +29,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
+
 public class ErrorhandlerSampleProject extends MuleSampleProject
 {
     // keep this in sync with the errorhandler's dependencies
@@ -44,9 +45,10 @@ public class ErrorhandlerSampleProject extends MuleSampleProject
 
     private Collection<IMuleBundle> additionalLibraries;
 
-    public ErrorhandlerSampleProject(IMuleRuntime runtime, String name, String description, File root)
+    public ErrorhandlerSampleProject(String artifactId, IMuleRuntime runtime, String name,
+        String description, File root)
     {
-        super(runtime, name, description, root);
+        super(artifactId, runtime, name, description, root);
         additionalLibraries = new HashSet<IMuleBundle>();
     }
 
@@ -55,15 +57,6 @@ public class ErrorhandlerSampleProject extends MuleSampleProject
         throws CoreException
     {
         super.copyIntoProject(project, progressMonitor);
-
-        // copy the test-data directory
-        File testDataDir = new File(sampleFolder, "test-data");
-        copyIntoProject(testDataDir, project.getProject());
-    }
-
-    @Override
-    protected void finishCopying() throws CoreException
-    {
         downloadDependenciesIfNecessary();
     }
 
@@ -98,15 +91,13 @@ public class ErrorhandlerSampleProject extends MuleSampleProject
         IRetrieveFileTransferContainerAdapter fileTransferContainer = (IRetrieveFileTransferContainerAdapter) container.getAdapter(IRetrieveFileTransferContainerAdapter.class);
         if (fileTransferContainer != null)
         {
-            // Create listener for receiving/responding to asynchronous file transfer
-            // events
+            // Create listener for receiving/responding to asynchronous file transfer events
             IFileTransferListener listener = new DownloadListener(destinationFile);
             // Identify file to retrieve and create ID
             IFileID remoteFileID = FileIDFactory.getDefault().createFileID(
                 fileTransferContainer.getRetrieveNamespace(), url);
             // Actually make request to start retrieval. The listener provided will
-            // then be notified asynchronously
-            // as file transfer events occur
+            // then be notified asynchronously as file transfer events occur
             fileTransferContainer.sendRetrieveRequest(remoteFileID, listener, null);
         }
     }
@@ -129,11 +120,11 @@ public class ErrorhandlerSampleProject extends MuleSampleProject
 
         public void handleTransferEvent(IFileTransferEvent event)
         {
-            // If incoming receive start event, respond by specifying local file to
-            // save to
+            // If incoming receive start event, respond by specifying local file to save to
             if (event instanceof IIncomingFileTransferReceiveStartEvent)
             {
-                IIncomingFileTransferReceiveStartEvent incomingFiletransferEvent = (IIncomingFileTransferReceiveStartEvent) event;
+                IIncomingFileTransferReceiveStartEvent incomingFiletransferEvent =
+                    (IIncomingFileTransferReceiveStartEvent) event;
                 try
                 {
                     // the file will be overwritten silently

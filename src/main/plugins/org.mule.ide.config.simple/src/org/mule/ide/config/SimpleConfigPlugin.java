@@ -13,7 +13,7 @@ package org.mule.ide.config;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.mule.ide.common.projectfactory.IdeProjectFactory;
 import org.mule.ide.config.simple.wizards.InvalidMuleIdeProject;
-import org.mule.ide.config.simple.wizards.MuleIdeProject;
+import org.mule.ide.project.MuleIdeProject;
 import org.osgi.framework.BundleContext;
 
 public class SimpleConfigPlugin extends AbstractUIPlugin

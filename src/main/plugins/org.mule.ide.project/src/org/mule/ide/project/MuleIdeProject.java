@@ -8,15 +8,14 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ide.config.simple.wizards;
+package org.mule.ide.project;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaModelException;
 import org.mule.ide.common.IdeProject;
-import org.mule.ide.project.MulePreferences;
-import org.mule.ide.project.MuleProjectPlugin;
+import org.mule.ide.common.projectfactory.IdeProjectFactory;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
 public class MuleIdeProject extends IdeProject

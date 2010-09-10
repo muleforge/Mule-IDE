@@ -10,6 +10,8 @@
 
 package org.mule.ide.config.simple.wizards;
 
+import org.mule.ide.project.MuleIdeProject;
+
 public class InvalidMuleIdeProject extends MuleIdeProject
 {
     public InvalidMuleIdeProject()

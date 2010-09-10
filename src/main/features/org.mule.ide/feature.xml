@@ -2,7 +2,7 @@
 <feature
       id="org.mule.ide"
       label="%featureName"
-      version="2.0.4.qualifier"
+      version="2.0.5.qualifier"
       provider-name="%featureProvider">
 
    <description url="http://mule.mulesoft.org">

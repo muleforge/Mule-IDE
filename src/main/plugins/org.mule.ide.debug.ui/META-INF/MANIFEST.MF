@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.mule.ide.debug.ui;singleton:=true
-Bundle-Version: 2.0.4.vqualifier
+Bundle-Version: 2.0.5.qualifier
 Bundle-Activator: org.mule.ide.debug.ui.DebugUIPlugin
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.debug.ui,

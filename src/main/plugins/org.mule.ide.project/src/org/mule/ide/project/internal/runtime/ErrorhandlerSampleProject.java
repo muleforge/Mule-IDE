@@ -16,6 +16,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.ecf.core.ContainerFactory;
 import org.eclipse.ecf.core.IContainer;
 import org.eclipse.ecf.filetransfer.IFileTransferListener;
@@ -50,12 +51,13 @@ public class ErrorhandlerSampleProject extends MuleSampleProject
     }
 
     @Override
-    public void copyIntoProject(IJavaProject project) throws CoreException
+    public void copyIntoProject(IJavaProject project, IProgressMonitor progressMonitor)
+        throws CoreException
     {
-        super.copyIntoProject(project);
+        super.copyIntoProject(project, progressMonitor);
 
         // copy the test-data directory
-        File testDataDir = new File(root, "test-data");
+        File testDataDir = new File(sampleFolder, "test-data");
         copyIntoProject(testDataDir, project.getProject());
     }
 

@@ -56,6 +56,7 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard
     /** Page for setting up java project capabilities */
     private NewJavaProjectWizardPage javaPage;
 
+    @Override
     public void addPages()
     {
         setWindowTitle("New Mule Project");
@@ -67,6 +68,7 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard
         addPage(javaPage);
     }
 
+    @Override
     public boolean performFinish()
     {
         try
@@ -105,7 +107,7 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard
                         IMuleSampleProject sample = projectPage.getSelectedSample();
                         if (sample != null)
                         {
-                            sample.copyIntoProject(javaProject);
+                            sample.copyIntoProject(javaProject, monitor);
                         }
                         monitor.worked(25);
 
@@ -166,7 +168,7 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard
 
     /**
      * Add the Mule libraries to the project classpath.
-     * 
+     *
      * @param muleProject the mule project
      * @throws JavaModelException
      */
@@ -204,7 +206,7 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard
 
     /**
      * Get the workbench that hosts the wizard.
-     * 
+     *
      * @return the workbench
      */
     protected IWorkbench getWorkbench()
@@ -214,7 +216,7 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard
 
     /**
      * Set the workbench that hosts the wizard.
-     * 
+     *
      * @param workbench the workbench
      */
     protected void setWorkbench(IWorkbench workbench)

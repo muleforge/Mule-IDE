@@ -14,6 +14,7 @@ import java.io.File;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jdt.core.IJavaProject;
 
 public class WebappSampleProject extends MuleSampleProject
@@ -24,9 +25,10 @@ public class WebappSampleProject extends MuleSampleProject
     }
 
     @Override
-    public void copyIntoProject(IJavaProject project) throws CoreException
+    public void copyIntoProject(IJavaProject project, IProgressMonitor progressMonitor)
+        throws CoreException
     {
-        super.copyIntoProject(project);
+        super.copyIntoProject(project, progressMonitor);
 
         // copy the test-data directory
         // File testDataDir = new File(root, "src/main/webapp");
@@ -38,7 +40,7 @@ public class WebappSampleProject extends MuleSampleProject
     {
         List<File> sourceDirs = super.getSourceDirectories();
 
-        File webappSource = new File(root, "src/main/webapp");
+        File webappSource = new File(sampleFolder, "src/main/webapp");
         sourceDirs.add(webappSource);
 
         return sourceDirs;

@@ -13,6 +13,7 @@ package org.mule.ide.project.internal.runtime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -23,6 +24,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IClasspathEntry;
@@ -30,6 +32,9 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.ui.wizards.datatransfer.FileSystemStructureProvider;
+import org.eclipse.ui.wizards.datatransfer.ImportOperation;
+import org.mule.ide.project.MuleIdeProject;
 import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
@@ -40,7 +45,7 @@ public class MuleSampleProject implements IMuleSampleProject
     protected IMuleRuntime runtime;
     private String name;
     private String description;
-    protected File root;
+    protected File sampleFolder;
 
     protected static void addSourceFolder(IJavaProject project, File sourceFolder)
     {
@@ -63,33 +68,19 @@ public class MuleSampleProject implements IMuleSampleProject
         }
     }
 
-    public MuleSampleProject(IMuleRuntime runtime, String name, String description, File root)
+    public MuleSampleProject(IMuleRuntime runtime, String name, String description, File sampleFolder)
     {
         this.runtime = runtime;
         this.name = name;
         this.description = description;
-        this.root = root;
+        this.sampleFolder = sampleFolder;
     }
 
-    public String getDescription()
-    {
-        return description;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public File getDirectory()
-    {
-        return root;
-    }
-
+    @Deprecated
     protected List<File> getSourceDirectories()
     {
         ArrayList<File> results = new ArrayList<File>();
-        File srcJava = new File(root, "src/main/java");
+        File srcJava = new File(sampleFolder, "src/main/java");
         if (srcJava.exists())
         {
             results.add(srcJava);
@@ -100,7 +91,7 @@ public class MuleSampleProject implements IMuleSampleProject
     private List<File> getConfDirectories()
     {
         ArrayList<File> results = new ArrayList<File>();
-        File srcResources = new File(root, "conf");
+        File srcResources = new File(sampleFolder, "conf");
         if (srcResources.exists())
         {
             results.add(srcResources);
@@ -111,7 +102,7 @@ public class MuleSampleProject implements IMuleSampleProject
     private List<File> getResourceDirectories()
     {
         ArrayList<File> results = new ArrayList<File>();
-        File srcResources = new File(root, "src/main/resources");
+        File srcResources = new File(sampleFolder, "src/main/resources");
         if (srcResources.exists())
         {
             results.add(srcResources);
@@ -119,7 +110,66 @@ public class MuleSampleProject implements IMuleSampleProject
         return results;
     }
 
-    public void copyIntoProject(IJavaProject project) throws CoreException
+    public void copyIntoProject(IJavaProject project, IProgressMonitor progressMonitor)
+        throws CoreException
+    {
+        copyFilesIntoProject(project, progressMonitor);
+        updateSourceFolders(project, progressMonitor);
+    }
+
+    private void copyFilesIntoProject(IJavaProject javaProject, IProgressMonitor progressMonitor)
+        throws CoreException
+    {
+        ImportOperation operation = createImportOperation(javaProject);
+        run(operation, progressMonitor);
+    }
+
+    private ImportOperation createImportOperation(IJavaProject javaProject) throws CoreException
+    {
+        IPath destinationPath = javaProject.getCorrespondingResource().getFullPath();
+
+        ImportOperation operation = new ImportOperation(destinationPath, sampleFolder,
+            FileSystemStructureProvider.INSTANCE, null);
+
+        operation.setCreateContainerStructure(false);
+        operation.setOverwriteResources(true);
+
+        return operation;
+    }
+
+    private void run(ImportOperation operation, IProgressMonitor progressMonitor)
+    {
+        try
+        {
+            operation.run(progressMonitor);
+        }
+        catch (InvocationTargetException ite)
+        {
+            MuleProjectPlugin.getInstance().logError("Error while copying files to new project", ite);
+        }
+        catch (InterruptedException ie)
+        {
+            MuleProjectPlugin.getInstance().logError("Interrupted while copying files to new project", ie);
+        }
+    }
+
+    protected void updateSourceFolders(IJavaProject javaProject, IProgressMonitor progressMonitor)
+    {
+        try
+        {
+            SampleSourcePathCollector collector = new SampleSourcePathCollector(sampleFolder);
+            List<IPath> sourceFolders = collector.collectValidSourceFolders();
+
+            MuleIdeProject project = new MuleIdeProject(javaProject);
+            project.setSourceFolders(sourceFolders, progressMonitor);
+        }
+        catch (JavaModelException jme)
+        {
+            MuleProjectPlugin.getInstance().logError("Error while setting new classpath", jme);
+        }
+    }
+
+    public void XXXcopyIntoProject(IJavaProject project) throws CoreException
     {
         List<File> dirs;
         // Copy source files.
@@ -158,7 +208,7 @@ public class MuleSampleProject implements IMuleSampleProject
 
     /**
      * Copy a file or directory from a URL into a file on the project.
-     * 
+     *
      * @param input
      * @param project
      */
@@ -216,7 +266,7 @@ public class MuleSampleProject implements IMuleSampleProject
 
     /**
      * Get the first source folder from the project.
-     * 
+     *
      * @param project the Java project
      * @return the folder
      * @throws JavaModelException
@@ -249,5 +299,20 @@ public class MuleSampleProject implements IMuleSampleProject
     public Collection<IMuleBundle> getAdditionalLibraries()
     {
         return Collections.emptyList();
+    }
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public File getDirectory()
+    {
+        return sampleFolder;
     }
 }

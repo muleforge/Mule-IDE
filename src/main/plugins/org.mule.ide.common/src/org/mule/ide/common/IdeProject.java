@@ -11,6 +11,7 @@
 package org.mule.ide.common;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -26,6 +27,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 
 /**
@@ -188,5 +190,55 @@ public class IdeProject
         IClasspathEntry[] entries = new IClasspathEntry[newClasspath.size()];
         entries = newClasspath.toArray(entries);
         setRawClasspath(entries, monitor);
+    }
+
+    public void setSourceFolders(List<IPath> sourcePaths, IProgressMonitor progressMonitor)
+        throws JavaModelException
+    {
+        List<IClasspathEntry> sourceFolders = createSourceFolders(sourcePaths);
+        List<IClasspathEntry> otherClasspathEntries = getClasspathEntriesWithoutSourceFolders();
+
+        IClasspathEntry[] mergedClasspath = mergeClasspathEntries(sourceFolders, otherClasspathEntries);
+
+        javaProject.setRawClasspath(mergedClasspath, null);
+    }
+
+    protected List<IClasspathEntry> createSourceFolders(List<IPath> sourcePaths)
+    {
+        List<IClasspathEntry> entries = new ArrayList<IClasspathEntry>();
+        IPath projectPath = javaProject.getProject().getFullPath();
+
+        for (IPath path : sourcePaths)
+        {
+            IClasspathEntry classpathEntry = JavaCore.newSourceEntry(projectPath.append(path));
+            entries.add(classpathEntry);
+        }
+
+        return entries;
+    }
+
+    private List<IClasspathEntry> getClasspathEntriesWithoutSourceFolders() throws JavaModelException
+    {
+        List<IClasspathEntry> filtered = new ArrayList<IClasspathEntry>();
+        IClasspathEntry[] classpath = getRawClasspath();
+
+        for (IClasspathEntry entry : classpath)
+        {
+            if (entry.getEntryKind() != IClasspathEntry.CPE_SOURCE)
+            {
+                filtered.add(entry);
+            }
+        }
+
+        return filtered;
+    }
+
+    private IClasspathEntry[] mergeClasspathEntries(List<IClasspathEntry> sourceFolders,
+        List<IClasspathEntry> otherClasspathEntries)
+    {
+        List<IClasspathEntry> merged = new ArrayList<IClasspathEntry>();
+        merged.addAll(sourceFolders);
+        merged.addAll(otherClasspathEntries);
+        return merged.toArray(new IClasspathEntry[merged.size()]);
     }
 }

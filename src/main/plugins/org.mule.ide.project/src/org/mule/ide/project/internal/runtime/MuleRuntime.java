@@ -149,7 +149,7 @@ public class MuleRuntime implements IMuleRuntime
 
     public List<IMuleSampleProject> getSampleProjects()
     {
-        List<IMuleSampleProject> results = new ArrayList<IMuleSampleProject>();
+        List<IMuleSampleProject> samples = new ArrayList<IMuleSampleProject>();
 
         File[] allSamples;
         File examplesDir = new File(getDirectory(), "examples");
@@ -157,11 +157,11 @@ public class MuleRuntime implements IMuleRuntime
 
         for (int i = 0; i < allSamples.length; ++i)
         {
-            gatherSamples(allSamples[i], results);
+            collectSample(allSamples[i], samples);
         }
 
-        Collections.sort(results, IMuleSampleProject.CompareByName);
-        return results;
+        Collections.sort(samples, IMuleSampleProject.CompareByName);
+        return samples;
     }
 
     public Collection<IMuleBundle> getSampleProjectDependencies(IMuleSampleProject project)
@@ -407,10 +407,10 @@ public class MuleRuntime implements IMuleRuntime
      * (File)stemToFileMap.get(trimVersion(name)); }
      */
 
-    private void gatherSamples(File dir, List<IMuleSampleProject> results)
+    private void collectSample(File sampleFolder, List<IMuleSampleProject> samples)
     {
-        File pomFile = new File(dir, "pom.xml");
-        if (!pomFile.exists())
+        File pomFile = new File(sampleFolder, "pom.xml");
+        if (pomFile.exists() == false)
         {
             return;
         }
@@ -422,8 +422,7 @@ public class MuleRuntime implements IMuleRuntime
         if (moduleIter.hasNext())
         {
             // do not add samples with sub-modules (e.g. the loanbroker) as we cannot
-            // make
-            // proper eclipse projects out of it
+            // make proper eclipse projects out of it
 
             // while (moduleIter.hasNext()) {
             // String subModule = moduleIter.next();
@@ -433,9 +432,9 @@ public class MuleRuntime implements IMuleRuntime
         else
         {
             String artifactId = pom.getArtifactId();
-            IMuleSampleProject sampleProject = MuleSampleFactory.create(artifactId, this, pom.getName(),
-                pom.getDescription(), dir);
-            results.add(sampleProject);
+            IMuleSampleProject sampleProject = MuleSampleFactory.create(artifactId, this,
+                pom.getName(), pom.getDescription(), sampleFolder);
+            samples.add(sampleProject);
         }
     }
 

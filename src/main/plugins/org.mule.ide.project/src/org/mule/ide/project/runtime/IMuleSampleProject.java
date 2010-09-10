@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.Comparator;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jdt.core.IJavaProject;
 
 public interface IMuleSampleProject
@@ -34,10 +35,7 @@ public interface IMuleSampleProject
     File getDirectory();
 
     // List<File> getSourceDirectories();
-    // List<File> getConfigFiles();
-    // List<IMuleBundle> getMuleLibraryDependencies();
-    // List<File> getOtherLibraryDependencies();
-    void copyIntoProject(IJavaProject project) throws CoreException;
+    void copyIntoProject(IJavaProject project, IProgressMonitor monitor) throws CoreException;
 
     /**
      * @return The additional libraries that are downloaded as part of creating this

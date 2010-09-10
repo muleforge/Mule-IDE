@@ -29,6 +29,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.jdt.launching.JavaLaunchDelegate;
 import org.mule.ide.debug.DebugMessages;
+import org.mule.ide.project.MuleIdeProject;
 import org.mule.ide.project.MulePreferences;
 import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.runtime.IMuleRuntime;
@@ -93,6 +94,16 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate
             newArgs.append(args);
         }
 
+        appendMuleHome(configuration, args, newArgs);
+        appendOsgiArgs(newArgs);
+        appendAppHome(configuration, newArgs);
+
+        return newArgs.toString();
+    }
+
+    private void appendMuleHome(ILaunchConfiguration configuration, String args, StringBuffer newArgs)
+        throws CoreException
+    {
         if (StringUtils.contains(args, MULE_HOME_ARG) == false)
         {
             IMuleRuntime runtime = getMuleRuntime(configuration);
@@ -105,14 +116,28 @@ public class MuleLaunchDelegate extends JavaLaunchDelegate
             newArgs.append("=");
             newArgs.append(runtime.getDirectory().getAbsolutePath());
         }
+    }
 
+    private void appendOsgiArgs(StringBuffer newArgs)
+    {
         // Allow the launched config to see where our workspace is and that we are
         // launched from the IDE
         newArgs.append(" -Dosgi.dev=true");
         newArgs.append(" -Dosgi.instance.area=");
         newArgs.append(ResourcesPlugin.getWorkspace().getRoot().getLocationURI().toString());
+    }
 
-        return newArgs.toString();
+    private void appendAppHome(ILaunchConfiguration configuration, StringBuffer newArgs) throws CoreException
+    {
+        IJavaProject javaProject = getJavaProject(configuration);
+        MuleIdeProject project = new MuleIdeProject(javaProject);
+        File projectPath = project.getFilesystemPath();
+        File appHome = new File(projectPath, "src/main/app");
+        if (appHome.exists())
+        {
+            newArgs.append(" -Dapp.home=");
+            newArgs.append(appHome.getAbsolutePath());
+        }
     }
 
     @Override

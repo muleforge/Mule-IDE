@@ -26,6 +26,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.mule.ide.project.MuleProjectPlugin;
+import org.mule.ide.project.internal.runtime.samples.MuleSampleFactory;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 import org.mule.ide.project.runtime.IMuleSampleProject;

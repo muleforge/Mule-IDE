@@ -8,7 +8,7 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ide.project.internal.runtime;
+package org.mule.ide.project.internal.runtime.samples;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +26,7 @@ import org.eclipse.ecf.filetransfer.events.IIncomingFileTransferReceiveStartEven
 import org.eclipse.ecf.filetransfer.identity.FileIDFactory;
 import org.eclipse.ecf.filetransfer.identity.IFileID;
 import org.eclipse.jdt.core.IJavaProject;
+import org.mule.ide.project.internal.runtime.JarBundle;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleRuntime;
 

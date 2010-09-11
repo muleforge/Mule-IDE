@@ -8,12 +8,13 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ide.project.internal.runtime;
+package org.mule.ide.project.internal.runtime.samples;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.mule.ide.project.internal.runtime.MuleRuntime;
 import org.mule.ide.project.runtime.IMuleSampleProject;
 
 /**

@@ -8,7 +8,7 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ide.project.internal.runtime;
+package org.mule.ide.project.internal.runtime.samples;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;

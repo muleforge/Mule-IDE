@@ -12,39 +12,50 @@ package org.mule.ide.project.internal.runtime.samples;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 import java.util.Collection;
-import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.ecf.core.ContainerFactory;
+import org.eclipse.ecf.core.IContainer;
+import org.eclipse.ecf.filetransfer.IFileTransferListener;
+import org.eclipse.ecf.filetransfer.IRetrieveFileTransferContainerAdapter;
+import org.eclipse.ecf.filetransfer.identity.FileIDFactory;
+import org.eclipse.ecf.filetransfer.identity.IFileID;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.ui.wizards.datatransfer.IImportStructureProvider;
 import org.eclipse.ui.wizards.datatransfer.ImportOperation;
 import org.mule.ide.project.MuleIdeProject;
 import org.mule.ide.project.MuleProjectPlugin;
+import org.mule.ide.project.internal.util.UrlUtils;
 import org.mule.ide.project.runtime.IMuleBundle;
-import org.mule.ide.project.runtime.IMuleRuntime;
 import org.mule.ide.project.runtime.IMuleSampleProject;
 
 public class MuleSampleProject implements IMuleSampleProject
 {
     private String artifactId;
-    protected IMuleRuntime runtime;
     private String name;
     private String description;
-    protected File sampleFolder;
+    private File sampleFolder;
+    private Collection<IMuleBundle> additionalLibraries;
+    private Collection<URL> urlsToDownload;
 
-    public MuleSampleProject(String artifactId, IMuleRuntime runtime, String name, String description, File sampleFolder)
+    public MuleSampleProject(String artifactId, String name, String description, File sampleFolder)
     {
         super();
         this.artifactId = artifactId;
-        this.runtime = runtime;
         this.name = name;
         this.description = description;
         this.sampleFolder = sampleFolder;
+        this.urlsToDownload = new HashSet<URL>();
+        this.additionalLibraries = new HashSet<IMuleBundle>();
     }
 
     public void copyIntoProject(IJavaProject project, IProgressMonitor progressMonitor)
@@ -52,6 +63,7 @@ public class MuleSampleProject implements IMuleSampleProject
     {
         copyFilesIntoProject(project, progressMonitor);
         updateSourceFolders(project, progressMonitor);
+        downloadAdditionalLibraries(project, progressMonitor);
     }
 
     private void copyFilesIntoProject(IJavaProject javaProject, IProgressMonitor progressMonitor)
@@ -107,6 +119,73 @@ public class MuleSampleProject implements IMuleSampleProject
         }
     }
 
+    public void addLibraryDownloadedFrom(URL downloadUrl)
+    {
+        urlsToDownload.add(downloadUrl);
+    }
+
+    private void downloadAdditionalLibraries(IJavaProject javaProject, IProgressMonitor progressMonitor)
+        throws CoreException
+    {
+        if (urlsToDownload.isEmpty() == false)
+        {
+            MuleIdeProject project = new MuleIdeProject(javaProject);
+            File libFolder = createLibrariesFolder(project);
+        
+            for (URL downloadUrl : urlsToDownload)
+            {
+                File libFile = downloadLibrary(downloadUrl, libFolder);
+                project.addToClasspath(libFile, progressMonitor);
+            }
+        }
+    }
+
+    private File createLibrariesFolder(MuleIdeProject project) throws CoreException
+    {
+        File projectPath = project.getFilesystemPath();
+        
+        File libFolder = new File(projectPath, "lib");
+        if (libFolder.exists() == false)
+        {
+            if (libFolder.mkdirs() == false)
+            {
+                Status error = new Status(IStatus.ERROR, MuleProjectPlugin.PLUGIN_ID,
+                    "Error creating lib folder in project " + projectPath.getAbsolutePath());
+                throw new CoreException(error);
+            }
+        }
+        
+        return libFolder;
+    }
+
+    private File downloadLibrary(URL libUrl, File libFolder) throws CoreException
+    {
+        String filename = UrlUtils.filename(libUrl);
+        File libFile = new File(libFolder, filename);
+        
+        downloadUrlToFile(libUrl, libFile);
+        return libFile;
+    }
+
+    private void downloadUrlToFile(URL url, File destinationFile) throws CoreException
+    {
+        // see http://www.eclipse.org/ecf/documentation.php
+        IContainer container = ContainerFactory.getDefault().createContainer("ecf.base");
+
+        IRetrieveFileTransferContainerAdapter fileTransferContainer = (IRetrieveFileTransferContainerAdapter) container.getAdapter(IRetrieveFileTransferContainerAdapter.class);
+        if (fileTransferContainer != null)
+        {
+            // Create listener for receiving/responding to asynchronous file transfer events
+            IFileTransferListener listener = new DownloadListener(destinationFile);
+            // Identify file to retrieve and create ID
+            IFileID remoteFileID = FileIDFactory.getDefault().createFileID(
+                fileTransferContainer.getRetrieveNamespace(), url);
+            // Actually make request to start retrieval. The listener provided will
+            // then be notified asynchronously as file transfer events occur
+            fileTransferContainer.sendRetrieveRequest(remoteFileID, listener, null);
+        }
+    }
+    
     @Override
     public String toString()
     {
@@ -114,14 +193,14 @@ public class MuleSampleProject implements IMuleSampleProject
         buf.append("<MuleSampleProject@");
         buf.append(System.identityHashCode(this));
         buf.append(" ");
-        buf.append(this.getName());
+        buf.append(getName());
         buf.append(">");
         return buf.toString();
     }
 
     public Collection<IMuleBundle> getAdditionalLibraries()
     {
-        return Collections.emptyList();
+        return additionalLibraries;
     }
 
     public String getDescription()

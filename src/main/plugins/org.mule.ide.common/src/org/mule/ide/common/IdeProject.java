@@ -241,4 +241,14 @@ public class IdeProject
         merged.addAll(otherClasspathEntries);
         return merged.toArray(new IClasspathEntry[merged.size()]);
     }
+    
+    public void addToClasspath(File jarFile, IProgressMonitor progressMonitor) throws JavaModelException
+    {
+        IPath path = new Path(jarFile.getAbsolutePath());
+        IClasspathEntry newLibraryEntry = JavaCore.newLibraryEntry(path, null, null);
+
+        IClasspathEntry[] oldClasspath = getRawClasspath();
+        IClasspathEntry[] newClasspath = (IClasspathEntry[])ArrayUtils.add(oldClasspath, newLibraryEntry);
+        setRawClasspath(newClasspath, progressMonitor);
+    }
 }

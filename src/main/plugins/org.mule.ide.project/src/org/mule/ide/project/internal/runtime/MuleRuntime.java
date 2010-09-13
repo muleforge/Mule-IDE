@@ -433,8 +433,8 @@ public class MuleRuntime implements IMuleRuntime
         else
         {
             String artifactId = pom.getArtifactId();
-            IMuleSampleProject sampleProject = MuleSampleFactory.create(artifactId, this,
-                pom.getName(), pom.getDescription(), sampleFolder);
+            IMuleSampleProject sampleProject = MuleSampleFactory.create(artifactId, pom.getName(),
+                pom.getDescription(), sampleFolder);
             samples.add(sampleProject);
         }
     }

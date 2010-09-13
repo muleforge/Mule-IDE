@@ -179,21 +179,16 @@ public class MuleConfigWizardPage extends WizardPage
             public void widgetSelected(SelectionEvent event)
             {
                 // when clicking a checkbox at least on linux we recevie two events
-                // here, the
-                // first one is the one we want and the other one, bearing the same
-                // timestamp,
-                // actually reverts the operation
+                // here, the first one is the one we want and the other one, bearing the same
+                // timestamp, actually reverts the operation
                 if (event.time == lastEventTime)
                 {
                     return;
                 }
 
                 // even worse than the above is the effect that the SWT.CHECK event
-                // always comes
-                // first, even when unchecking an artifact. So the state of the event
-                // is totally
-                // useless and we have to implement the trigger semantics manually
-                // :-(
+                // always comes first, even when unchecking an artifact. So the state of the event
+                // is totally useless and we have to implement the trigger semantics manually :-(
                 muleArtifactSelected((IMuleBundle) event.item.getData());
 
                 lastEventTime = event.time;
@@ -296,6 +291,7 @@ public class MuleConfigWizardPage extends WizardPage
         else
         {
             folderText.setText(folderPath.toString());
+            fileTextChanged();
         }
     }
 

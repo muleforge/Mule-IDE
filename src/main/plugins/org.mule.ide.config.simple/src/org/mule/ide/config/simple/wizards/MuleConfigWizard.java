@@ -35,6 +35,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.mule.ide.config.SimpleConfigPlugin;
 import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.runtime.IMuleBundle;
 
@@ -49,6 +50,7 @@ public class MuleConfigWizard extends Wizard implements INewWizard
         setNeedsProgressMonitor(true);
     }
 
+    @Override
     public void addPages()
     {
         page = new MuleConfigWizardPage(selection);
@@ -59,6 +61,7 @@ public class MuleConfigWizard extends Wizard implements INewWizard
      * This method is called when 'Finish' button is pressed in the wizard. We will
      * create an operation and run it using wizard as execution context.
      */
+    @Override
     public boolean performFinish()
     {
         final String containerName = page.getFolderName();
@@ -178,7 +181,8 @@ public class MuleConfigWizard extends Wizard implements INewWizard
 
     private void throwCoreException(String message) throws CoreException
     {
-        IStatus status = new Status(IStatus.ERROR, "org.mule.ide.config.simple", IStatus.OK, message, null);
+        IStatus status = new Status(IStatus.ERROR, SimpleConfigPlugin.PLUGIN_ID, IStatus.OK,
+            message, null);
         throw new CoreException(status);
     }
 

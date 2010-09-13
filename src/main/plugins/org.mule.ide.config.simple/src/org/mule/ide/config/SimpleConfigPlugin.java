@@ -18,6 +18,8 @@ import org.osgi.framework.BundleContext;
 
 public class SimpleConfigPlugin extends AbstractUIPlugin
 {
+    public static final String PLUGIN_ID = "org.mule.ide.config.simple";
+
     // The shared instance
     private static SimpleConfigPlugin plugin;
 

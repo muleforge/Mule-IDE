@@ -29,7 +29,8 @@ public class MuleSampleFactory
     static
     {
         Factories = new HashMap<String, IMuleSampleFactory>();
-        Factories.put("mule-example-errorhandler", new ErrorhandlerSampleFactory());
+        Factories.put("mule-example-errorhandler", new ErrorhandlerExampleFactory());
+        Factories.put("mule-example-scripting", new ScriptingExampleFactory());
     }
 
     public static IMuleSampleProject create(String artifactId, String name, String description,
@@ -50,7 +51,7 @@ public class MuleSampleFactory
            String description, File dir);
     }
     
-    private static class ErrorhandlerSampleFactory implements IMuleSampleFactory
+    private static class ErrorhandlerExampleFactory implements IMuleSampleFactory
     {
         private static final String AMQ_DOWNLOAD_URL = "http://people.apache.org/repo/m2-incubating-repository/org/apache/activemq/activemq-core/4.1.0-incubator/activemq-core-4.1.0-incubator.jar";
         private static final String CONCURRENT_DOWNLOAD_URL = "http://repo1.maven.org/maven2/concurrent/concurrent/1.3.4/concurrent-1.3.4.jar";
@@ -66,6 +67,26 @@ public class MuleSampleFactory
             URL concurrentUrl = UrlUtils.urlFromString(CONCURRENT_DOWNLOAD_URL);
             sample.addLibraryDownloadedFrom(concurrentUrl);
 
+            return sample;
+        }
+    }
+    
+    private static class ScriptingExampleFactory implements IMuleSampleFactory
+    {
+        private static final String JYTHON_DOWNLOAD_URL = "http://repo1.maven.org/maven2/org/python/jython/2.2.1/jython-2.2.1.jar";
+        private static final String JYTHON_SCRIPTING_DOWNLOAD_URL = "http://dist.codehaus.org/mule/dependencies/maven2/javax/script/jython-engine/1.1/jython-engine-1.1-jdk14.jar";
+        
+        public IMuleSampleProject createSampleProject(String artifactId, String name, 
+            String description, File dir)
+        {
+            MuleSampleProject sample = new MuleSampleProject(artifactId, name, description, dir);
+            
+            URL jythonUrl = UrlUtils.urlFromString(JYTHON_DOWNLOAD_URL);
+            sample.addLibraryDownloadedFrom(jythonUrl);
+            
+            URL scriptingUrl = UrlUtils.urlFromString(JYTHON_SCRIPTING_DOWNLOAD_URL);
+            sample.addLibraryDownloadedFrom(scriptingUrl);
+            
             return sample;
         }
     }

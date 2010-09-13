@@ -11,7 +11,6 @@
 package org.mule.ide.project.runtime;
 
 import java.io.File;
-import java.util.Collection;
 import java.util.Comparator;
 
 import org.eclipse.core.runtime.CoreException;
@@ -35,11 +34,4 @@ public interface IMuleSampleProject
     File getDirectory();
 
     void copyIntoProject(IJavaProject project, IProgressMonitor monitor) throws CoreException;
-
-    /**
-     * @return The additional libraries that are downloaded as part of creating this
-     *         sample project. Always returns a {@link Collection}, never
-     *         <code>null</code>.
-     */
-    Collection<IMuleBundle> getAdditionalLibraries();
 }

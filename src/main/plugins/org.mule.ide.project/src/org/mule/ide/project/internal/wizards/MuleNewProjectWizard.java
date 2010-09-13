@@ -13,14 +13,11 @@ package org.mule.ide.project.internal.wizards;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
@@ -114,23 +111,6 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard
                         // Add the Mule classpath container.
                         IMuleRuntime runtime = projectPage.getRuntime();
                         addMuleLibraries(javaProject, runtime, sample);
-
-                        // Create a conf directory in all mule projects.
-                        IPath relative = new Path("conf");
-                        IFolder folder = javaProject.getProject().getFolder(relative);
-                        if (folder.exists() == false)
-                        {
-                            try
-                            {
-                                folder.create(true, true, new NullProgressMonitor());
-                            }
-                            catch (CoreException ex)
-                            {
-                                MuleProjectPlugin.getInstance()
-                                    .logError("Error creating conf directory.", ex);
-                            }
-                        }
-                        monitor.worked(25);
                     }
                     catch (CoreException ce)
                     {
@@ -179,10 +159,6 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard
             IClasspathEntry[] initial = muleProject.getRawClasspath();
 
             Collection<IMuleBundle> selectedLibraries = runtime.getDefaultLibraries();
-            if (sample != null)
-            {
-                selectedLibraries.addAll(sample.getAdditionalLibraries());
-            }
 
             IClasspathEntry[] entries = new IClasspathEntry[]{MuleClasspathUtils.createMuleClasspathContainer(
                 projectPage.getRuntimeHint(), selectedLibraries)};

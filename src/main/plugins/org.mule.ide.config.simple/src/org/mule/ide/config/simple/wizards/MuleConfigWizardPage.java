@@ -212,7 +212,7 @@ public class MuleConfigWizardPage extends WizardPage
             return;
         }
 
-        muleArtifactTable.clearAll();
+        muleArtifactTable.removeAll();
 
         List<IMuleBundle> bundles = collectMuleBundles(runtime);
         for (IMuleBundle bundle : bundles)

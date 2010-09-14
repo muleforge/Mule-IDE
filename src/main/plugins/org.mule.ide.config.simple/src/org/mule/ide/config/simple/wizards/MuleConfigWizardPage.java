@@ -52,7 +52,6 @@ public class MuleConfigWizardPage extends WizardPage
     private IStructuredSelection selection;
     private Table muleArtifactTable;
     private Set<IMuleBundle> selectedMuleArtifacts;
-    private int lastEventTime = -1;
     private MuleIdeProject project;
 
     public MuleConfigWizardPage(IStructuredSelection selection)
@@ -178,20 +177,12 @@ public class MuleConfigWizardPage extends WizardPage
             @Override
             public void widgetSelected(SelectionEvent event)
             {
-                // when clicking a checkbox at least on linux we recevie two events
-                // here, the first one is the one we want and the other one, bearing the same
-                // timestamp, actually reverts the operation
-                if (event.time == lastEventTime)
+                // when clicking a checkbox at least on linux we more than one event here. Filter
+                // out the relevant one ...
+                if (event.detail == SWT.CHECK)
                 {
-                    return;
+                    muleArtifactSelected((IMuleBundle) event.item.getData());
                 }
-
-                // even worse than the above is the effect that the SWT.CHECK event
-                // always comes first, even when unchecking an artifact. So the state of the event
-                // is totally useless and we have to implement the trigger semantics manually :-(
-                muleArtifactSelected((IMuleBundle) event.item.getData());
-
-                lastEventTime = event.time;
             }
         });
 

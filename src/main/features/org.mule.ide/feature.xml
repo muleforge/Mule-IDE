@@ -18,7 +18,7 @@
    </license>
 
    <url>
-      <update label="Mule IDE 2.1" url="http://dist.muleforge.org/mule-ide/updates/3.4/"/>
+      <update label="Mule IDE 2.1" url="http://dist.muleforge.org/updates-2.1.x/"/>
    </url>
 
    <requires>

@@ -3,7 +3,7 @@
    <description url="http://dist.muleforge.org/updates-2.1.x/">
       Mule IDE 2.1.x update site
    </description>
-   <feature url="features/org.mule.ide_2.1.0.qualifier.jar" id="org.mule.ide" version="2.1.0.qualifier">
+   <feature url="features/org.mule.ide_2.1.1.qualifier.jar" id="org.mule.ide" version="2.1.1.qualifier">
       <category name="Mule IDE"/>
    </feature>
    <category-def name="Mule IDE" label="Mule IDE">

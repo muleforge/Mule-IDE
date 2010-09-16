@@ -1,76 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<feature
-      id="org.mule.ide"
-      label="%featureName"
-      version="2.1.0.qualifier"
-      provider-name="%featureProvider">
-
-   <description url="http://mule.mulesoft.org">
-      Eclipse feature for working with the Mule ESB.
-   </description>
-
-   <copyright url="http://www.mulesoft.com/products/licensing.php">
-      %copyright
-   </copyright>
-
-   <license url="http://www.mulesoft.com/products/licensing.php">
-      %license
-   </license>
-
-   <url>
-      <update label="Mule IDE 2.1" url="http://dist.muleforge.org/updates-2.1.x/"/>
-   </url>
-
-   <requires>
-      <import plugin="org.eclipse.jdt.ui"/>
-      <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="org.eclipse.debug.core"/>
-      <import plugin="org.eclipse.jdt.launching"/>
-      <import plugin="org.eclipse.debug.ui"/>
-      <import plugin="org.eclipse.jdt.debug.ui"/>
-      <import plugin="org.eclipse.emf.common.ui"/>
-      <import plugin="org.eclipse.ecf" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ecf.filetransfer" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ecf.provider.filetransfer" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui" version="3.4.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.runtime" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jdt.core" version="3.4.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.resources" version="3.4.1" match="greaterOrEqual"/>
-   </requires>
-
-   <plugin
-         id="org.mule.ide.project"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.debug"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.debug.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.config.simple"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.mule.ide.common"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
+<feature id="org.mule.ide" label="%featureName" version="2.1.1.qualifier" provider-name="%featureProvider">
+  <description url="http://mule.mulesoft.org">
+    Eclipse feature for working with the Mule ESB.
+  </description>
+  <copyright url="http://www.mulesoft.com/products/licensing.php">
+    %copyright
+  </copyright>
+  <license url="http://www.mulesoft.com/products/licensing.php">
+    %license
+  </license>
+  <url>
+    <update label="Mule IDE 2.1" url="http://dist.muleforge.org/updates-2.1.x/"/>
+  </url>
+  <requires>
+    <import plugin="org.eclipse.jdt.ui"/>
+    <import plugin="org.eclipse.ui.ide"/>
+    <import plugin="org.eclipse.debug.core"/>
+    <import plugin="org.eclipse.jdt.launching"/>
+    <import plugin="org.eclipse.debug.ui"/>
+    <import plugin="org.eclipse.jdt.debug.ui"/>
+    <import plugin="org.eclipse.emf.common.ui"/>
+    <import plugin="org.eclipse.ecf" version="2.0.0" match="greaterOrEqual"/>
+    <import plugin="org.eclipse.ecf.filetransfer" version="2.0.0" match="greaterOrEqual"/>
+    <import plugin="org.eclipse.ecf.provider.filetransfer" version="2.0.0" match="greaterOrEqual"/>
+    <import plugin="org.eclipse.ui" version="3.4.1" match="greaterOrEqual"/>
+    <import plugin="org.eclipse.core.runtime" version="3.4.0" match="greaterOrEqual"/>
+    <import plugin="org.eclipse.jdt.core" version="3.4.2" match="greaterOrEqual"/>
+    <import plugin="org.eclipse.core.resources" version="3.4.1" match="greaterOrEqual"/>
+  </requires>
+  <plugin id="org.mule.ide.project" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+  <plugin id="org.mule.ide.debug" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+  <plugin id="org.mule.ide.debug.ui" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+  <plugin id="org.mule.ide.config.simple" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+  <plugin id="org.mule.ide.common" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 </feature>

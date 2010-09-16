@@ -41,6 +41,7 @@ ant = new AntBuilder()
 
 switchAllManifests()
 switchAllFeatures()
+switchUpdateSite()
 
 //-----------------------------------------------------------------------------
 // functions
@@ -64,16 +65,6 @@ def switchAllManifests()
 
             // the common plugin follows its own versioning scheme as not only MuleIDE depens on it
             exclude(name: "**/org.mule.ide.common/**")
-
-            // do not consider the old config visualization plugins
-            exclude(name: "**/org.mule.ide.config.axis*/**")
-            exclude(name: "**/org.mule.ide.config.common/**")
-            exclude(name: "**/org.mule.ide.config.core/**")
-            exclude(name: "**/org.mule.ide.config.editor*/**")
-            exclude(name: "**/org.mule.ide.config.jms*/**")
-            exclude(name: "**/org.mule.ide.config.spring*/**")
-            exclude(name: "**/org.mule.ide.config.stdio*/**")
-            exclude(name: "**/org.mule.ide.config.vm*/**")
         }
     }
 
@@ -138,4 +129,37 @@ def switchFeatureVersion(File featureFile)
     updatedFeatureWriter.close()
 
     updatedFeatureFile.renameTo(featureFile)
+}
+
+def switchUpdateSite()
+{
+    FileScanner scanner = ant.fileScanner
+    {
+        fileset(dir: scanRoot)
+        {
+            include(name: "**/site.xml")
+        }
+    }
+
+    scanner.each
+    {
+        switchSiteXmlFile(it)
+    }
+}
+
+def switchSiteXmlFile(File siteXmlFile)
+{
+    def site = new XmlParser().parse(siteXmlFile)
+
+    site.feature.@url = "features/org.mule.ide_${newVersion}.jar"
+    site.feature.@version = newVersion
+
+
+    File updatedSiteXmlFile = new File(siteXmlFile.parentFile, "site.xml.new")
+
+    PrintWriter updatedSiteXmlWriter = updatedSiteXmlFile.newPrintWriter()
+    new XmlNodePrinter(updatedSiteXmlWriter).print(site)
+    updatedSiteXmlWriter.close()
+
+    updatedSiteXmlFile.renameTo(siteXmlFile)
 }

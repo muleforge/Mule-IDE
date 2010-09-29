@@ -30,6 +30,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+import org.mule.ide.project.MuleIdeProject;
+import org.mule.ide.project.MuleProjectNature;
 import org.mule.ide.project.MuleProjectPlugin;
 import org.mule.ide.project.internal.util.MuleClasspathUtils;
 import org.mule.ide.project.runtime.IMuleBundle;
@@ -91,10 +93,6 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard
                             subMonitor.done();
                         }
 
-                        // Add the Mule nature.
-                        // MuleCorePlugin.getDefault().setMuleNature(projectPage.getProjectHandle(),
-                        // true);
-
                         IProject project = projectPage.getProjectHandle();
                         IJavaProject javaProject = JavaCore.create(project);
 
@@ -111,6 +109,10 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard
                         // Add the Mule classpath container.
                         IMuleRuntime runtime = projectPage.getRuntime();
                         addMuleLibraries(javaProject, runtime, sample);
+                        
+                        // Add the Mule nature
+                        MuleIdeProject ideProject = new MuleIdeProject(javaProject);
+                        ideProject.toggleNature(MuleProjectNature.FULL_NATURE_ID, monitor);
                     }
                     catch (CoreException ce)
                     {

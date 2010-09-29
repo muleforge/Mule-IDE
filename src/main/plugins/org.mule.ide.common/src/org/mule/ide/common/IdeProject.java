@@ -23,7 +23,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
@@ -85,15 +84,15 @@ public class IdeProject
         return null;
     }
 
-    public void toggleNature(String natureId) throws CoreException
+    public void toggleNature(String natureId, IProgressMonitor progressMonitor) throws CoreException
     {
         if (hasNature(natureId))
         {
-            removeNature(natureId);
+            removeNature(natureId, progressMonitor);
         }
         else
         {
-            addNature(natureId);
+            addNature(natureId, progressMonitor);
         }
     }
 
@@ -102,7 +101,7 @@ public class IdeProject
         return javaProject.getProject().hasNature(natureId);
     }
 
-    public void removeNature(String natureId) throws CoreException
+    public void removeNature(String natureId, IProgressMonitor progressMonitor) throws CoreException
     {
         IProject project = javaProject.getProject();
         IProjectDescription description = project.getDescription();
@@ -110,10 +109,10 @@ public class IdeProject
         String[] newNatures = (String[]) ArrayUtils.removeElement(description.getNatureIds(), natureId);
 
         description.setNatureIds(newNatures);
-        project.setDescription(description, new NullProgressMonitor());
+        project.setDescription(description, progressMonitor);
     }
 
-    private void addNature(String natureId) throws CoreException
+    private void addNature(String natureId, IProgressMonitor progressMonitor) throws CoreException
     {
         IProject project = javaProject.getProject();
         IProjectDescription description = project.getDescription();
@@ -121,7 +120,7 @@ public class IdeProject
         String[] newNatures = (String[]) ArrayUtils.add(description.getNatureIds(), natureId);
 
         description.setNatureIds(newNatures);
-        project.setDescription(description, new NullProgressMonitor());
+        project.setDescription(description, progressMonitor);
     }
 
     /**

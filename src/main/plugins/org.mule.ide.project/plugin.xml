@@ -20,7 +20,7 @@
          point="org.eclipse.core.resources.builders">
       <builder
             callOnEmptyDelta="true"
-            hasNature="false"
+            hasNature="true"
             isConfigurable="false">
          <run
                class="org.mule.ide.project.MuleHotDeploymentBuilder">

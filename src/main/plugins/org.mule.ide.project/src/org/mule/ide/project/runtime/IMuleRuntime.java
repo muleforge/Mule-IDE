@@ -91,6 +91,11 @@ public interface IMuleRuntime
     IMuleBundle getLibraryByArtifactId(String artifactId);
 
     IPath getSourceZip();
+    
+    /**
+     * @return full path to the 'apps' folder inside the Mule runtime.
+     */
+    File getApplicationDirectory();
 
     /**
      * @return The bundle describing the core plugin. Is never null.

@@ -34,6 +34,7 @@ import org.mule.ide.project.runtime.IMuleSampleProject;
 public class MuleRuntime implements IMuleRuntime
 {
     private static final String JAR_SUFFIX = ".jar";
+    private static final String APPS_FOLDER = "apps";
 
     // Map of pathified bundle name to IMuleBundle
     private TreeMap<String, IMuleBundle> mapNameToBundle = null;
@@ -437,6 +438,11 @@ public class MuleRuntime implements IMuleRuntime
                 pom.getDescription(), sampleFolder);
             samples.add(sampleProject);
         }
+    }
+
+    public File getApplicationDirectory()
+    {
+        return new File(getDirectory(), APPS_FOLDER);
     }
 
     @Override

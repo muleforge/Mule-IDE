@@ -191,6 +191,29 @@ public class IdeProject
         entries = newClasspath.toArray(entries);
         setRawClasspath(entries, monitor);
     }
+    
+    public List<IPath> getBuildOutputFolders() throws JavaModelException
+    {
+        List<IPath> outputFolders = new ArrayList<IPath>();
+        
+        // add the project's output location (this one is used if no output location is configured
+        // separately for each source folder)
+        outputFolders.add(javaProject.getOutputLocation());
+        
+        for (IClasspathEntry classpathEntry : getRawClasspath())
+        {
+            if (classpathEntry.getEntryKind() == IClasspathEntry.CPE_SOURCE)
+            {
+                IPath outputLocation = classpathEntry.getOutputLocation();
+                if (outputLocation != null)
+                {
+                    outputFolders.add(outputLocation);
+                }
+            }
+        }
+        
+        return outputFolders;
+    }
 
     public void setSourceFolders(List<IPath> sourcePaths, IProgressMonitor progressMonitor)
         throws JavaModelException

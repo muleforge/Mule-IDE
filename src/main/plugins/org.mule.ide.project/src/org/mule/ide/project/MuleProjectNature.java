@@ -16,13 +16,13 @@ public class MuleProjectNature implements IProjectNature
     public void configure() throws CoreException
     {
         MuleIdeProject muleProject = getMuleIdeProject();
-        muleProject.addBuilder(MuleHotDeploymentBuilder.BUILDER_ID, null);
+        muleProject.addBuilder(MuleHotDeploymentBuilder.FULL_BUILDER_ID, null);
     }
 
     public void deconfigure() throws CoreException
     {
         MuleIdeProject muleProject = getMuleIdeProject();
-        muleProject.removeBuilder(MuleHotDeploymentBuilder.BUILDER_ID, null);
+        muleProject.removeBuilder(MuleHotDeploymentBuilder.FULL_BUILDER_ID, null);
     }
 
     public IProject getProject()

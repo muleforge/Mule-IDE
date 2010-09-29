@@ -13,6 +13,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ecf;bundle-version="2.0.0",
  org.eclipse.ecf.filetransfer;bundle-version="2.0.0",
  org.eclipse.ecf.provider.filetransfer;bundle-version="2.0.0",
+ org.eclipse.core.filesystem;bundle-version="1.2.0",
  org.mule.ide.common;bundle-version="1.0.1"
 Bundle-ActivationPolicy: lazy
 Export-Package: org.mule.ide.project,

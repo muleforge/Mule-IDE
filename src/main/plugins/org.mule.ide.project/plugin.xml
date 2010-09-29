@@ -10,6 +10,21 @@
                class="org.mule.ide.project.MuleProjectNature">
          </run>
       </runtime>
+      <builder
+            id="org.mule.ide.project.MuleHotDeploymentBuilder">
+      </builder>
+   </extension>
+   <extension
+         id="MuleHotDeploymentBuilder"
+         name="Mule 3 hot deployment builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            callOnEmptyDelta="true"
+            hasNature="false"
+            isConfigurable="false">
+         <run
+               class="org.mule.ide.project.MuleHotDeploymentBuilder">
+         </run></builder>
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">

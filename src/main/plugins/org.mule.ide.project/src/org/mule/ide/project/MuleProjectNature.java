@@ -5,7 +5,6 @@ import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
-import org.mule.ide.project.runtime.IMuleRuntime;
 
 public class MuleProjectNature implements IProjectNature
 {
@@ -17,21 +16,13 @@ public class MuleProjectNature implements IProjectNature
     public void configure() throws CoreException
     {
         MuleIdeProject muleProject = getMuleIdeProject();
-        IMuleRuntime runtime = muleProject.getMuleRuntime();
-        if (runtime.getVersion().startsWith("3"))
-        {
-            registerHotDeploymentBuilder(muleProject);
-        }
+        muleProject.addBuilder(MuleHotDeploymentBuilder.BUILDER_ID, null);
     }
 
     public void deconfigure() throws CoreException
     {
-        // TODO Auto-generated method stub
-    }
-
-    private void registerHotDeploymentBuilder(MuleIdeProject muleProject)
-    {
-        
+        MuleIdeProject muleProject = getMuleIdeProject();
+        muleProject.removeBuilder(MuleHotDeploymentBuilder.BUILDER_ID, null);
     }
 
     public IProject getProject()

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
@@ -249,5 +250,71 @@ public class IdeProject
         IClasspathEntry[] oldClasspath = getRawClasspath();
         IClasspathEntry[] newClasspath = (IClasspathEntry[])ArrayUtils.add(oldClasspath, newLibraryEntry);
         setRawClasspath(newClasspath, progressMonitor);
+    }
+    
+    public boolean hasBuilder(String builderId) throws CoreException
+    {
+        IProjectDescription projectDescription = javaProject.getProject().getDescription();
+        ICommand[] builderCommands = projectDescription.getBuildSpec();
+        for (int i = 0; i < builderCommands.length; i++)
+        {
+            if (builderCommands[i].getBuilderName().equals(builderId))
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    public void addBuilder(String builderId, IProgressMonitor progressMonitor) throws CoreException
+    {
+        IProject project = javaProject.getProject();
+        if (project.isOpen() == false)
+        {
+            return;
+        }
+        
+        if (hasBuilder(builderId))
+        {
+            return;
+        }
+        
+        IProjectDescription projectDescription = project.getDescription();
+        
+        ICommand newBuilder = projectDescription.newCommand();
+        newBuilder.setBuilderName(builderId);
+        
+        ICommand[] buildCommands = projectDescription.getBuildSpec();
+        ICommand[] newBuildCommands = (ICommand[])ArrayUtils.add(buildCommands, newBuilder);
+        projectDescription.setBuildSpec(newBuildCommands);
+        project.setDescription(projectDescription, progressMonitor);
+    }
+    
+    public void removeBuilder(String builderId, IProgressMonitor progressMonitor) throws CoreException
+    {
+        IProject project = javaProject.getProject();
+        if (project.isOpen() == false)
+        {
+            return;
+        }
+        
+        if (hasBuilder(builderId) == false)
+        {
+            return;
+        }
+        
+        IProjectDescription projectDescription = project.getDescription();
+        List<ICommand> updatedBuilders = new ArrayList<ICommand>();
+        for (ICommand builder : projectDescription.getBuildSpec())
+        {
+            if (builder.getBuilderName().equals(builderId) == false)
+            {
+                updatedBuilders.add(builder);
+            }
+        }
+
+        projectDescription.setBuildSpec((ICommand[])updatedBuilders.toArray());
+        project.setDescription(projectDescription, progressMonitor);
     }
 }

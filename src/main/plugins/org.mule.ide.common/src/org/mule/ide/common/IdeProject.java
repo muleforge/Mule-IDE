@@ -118,7 +118,12 @@ public class IdeProject
         IProject project = javaProject.getProject();
         IProjectDescription description = project.getDescription();
 
-        String[] newNatures = (String[]) ArrayUtils.add(description.getNatureIds(), natureId);
+        // make sure the new nature comes first. The image of the first nature in the list which 
+        // contributes a projectNatureImage is displayed on the project icon
+        String[] existingNatures = description.getNatureIds();
+        String[] newNatures = new String[existingNatures.length + 1];
+        newNatures[0] = natureId;
+        System.arraycopy(existingNatures, 0, newNatures, 1, existingNatures.length);
 
         description.setNatureIds(newNatures);
         project.setDescription(description, progressMonitor);

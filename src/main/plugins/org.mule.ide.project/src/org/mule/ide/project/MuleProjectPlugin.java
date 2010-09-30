@@ -13,6 +13,7 @@ package org.mule.ide.project;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.mule.ide.common.projectfactory.IdeProjectFactory;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -34,6 +35,8 @@ public class MuleProjectPlugin extends AbstractUIPlugin
     // The shared instance
     private static MuleProjectPlugin plugin;
 
+    private IdeProjectFactory<MuleIdeProject> projectFactory;
+
     public MuleProjectPlugin()
     {
         super();
@@ -44,7 +47,17 @@ public class MuleProjectPlugin extends AbstractUIPlugin
     {
         super.start(context);
         plugin = this;
+
         MulePreferences.initRuntimeCache();
+        initProjectFactory();
+    }
+
+    private void initProjectFactory()
+    {
+        // Instantiate the project factory eagerly here so that the common code plugin, which
+        // provides the factory, is initialized
+        projectFactory = new IdeProjectFactory<MuleIdeProject>(MuleIdeProject.class);
+        projectFactory.setInvalidProjectClass(InvalidMuleIdeProject.class);
     }
 
     @Override
@@ -89,5 +102,10 @@ public class MuleProjectPlugin extends AbstractUIPlugin
         {
             throwable.printStackTrace();
         }
+    }
+
+    public IdeProjectFactory<MuleIdeProject> getProjectFactory()
+    {
+        return projectFactory;
     }
 }

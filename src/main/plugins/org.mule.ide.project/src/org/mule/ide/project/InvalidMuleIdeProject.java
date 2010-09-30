@@ -8,9 +8,7 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ide.config.simple.wizards;
-
-import org.mule.ide.project.MuleIdeProject;
+package org.mule.ide.project;
 
 public class InvalidMuleIdeProject extends MuleIdeProject
 {

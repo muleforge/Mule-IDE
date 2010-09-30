@@ -26,6 +26,53 @@
                class="org.mule.ide.project.MuleHotDeploymentBuilder">
          </run></builder>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.mule.ide.project.command1"
+            name="name">
+      </command>
+      <category
+            id="org.mule.ide.project.MuleCategory"
+            name="Mule IDE">
+      </category>
+      <command
+            categoryId="org.mule.ide.project.MuleCategory"
+            id="org.mule.ide.project.commands.ToggleMuleNature"
+            name="Toggle Mule Nature">
+      </command>
+      <command
+            categoryId="org.mule.ide.project.MuleCategory"
+            id="org.mule.ide.project.commands.ToggleMuleNature"
+            name="Toggle Mule nature">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.mule.ide.project.internal.handlers.ToggleMuleNatureHandler"
+            commandId="org.mule.ide.project.commands.ToggleMuleNature">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <menu
+               id="org.mule.ide.project.popup.MuleIdeMenu"
+               label="Mule IDE">
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="popup:org.mule.ide.project.popup.MuleIdeMenu">
+         <command
+               commandId="org.mule.ide.project.commands.ToggleMuleNature"
+               icon="icons/mule-small.gif"
+               id="org.mule.ide.project.popup.ToggleMuleNature"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
 
    <extension point="org.eclipse.ui.newWizards">
   	  <wizard

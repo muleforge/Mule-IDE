@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 <plugin>
    <extension
-         id="nature"
+         id="natures.MuleProjectNature"
          name="Mule project nature"
          point="org.eclipse.core.resources.natures">
       <runtime>

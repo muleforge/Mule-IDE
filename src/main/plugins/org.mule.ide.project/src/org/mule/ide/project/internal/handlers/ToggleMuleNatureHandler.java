@@ -39,7 +39,7 @@ public class ToggleMuleNatureHandler extends AbstractHandler
     {
         try
         {
-            project.toggleNature(MuleProjectNature.FULL_NATURE_ID, null);
+            project.toggleNature(MuleProjectNature.NATURE_ID, null);
         }
         catch (CoreException ce)
         {

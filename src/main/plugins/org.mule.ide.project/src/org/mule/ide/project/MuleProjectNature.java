@@ -18,8 +18,7 @@ import org.eclipse.jdt.core.JavaCore;
 
 public class MuleProjectNature implements IProjectNature
 {
-    public static final String NATURE_ID = "nature";
-    public static final String FULL_NATURE_ID = MuleProjectPlugin.PLUGIN_ID + "." + NATURE_ID;
+    public static final String NATURE_ID = MuleProjectPlugin.PLUGIN_ID + ".natures.MuleProjectNature";
 
     private IProject project;
 

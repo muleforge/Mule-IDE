@@ -112,7 +112,7 @@ public class MuleNewProjectWizard extends Wizard implements INewWizard
                         
                         // Add the Mule nature
                         MuleIdeProject ideProject = new MuleIdeProject(javaProject);
-                        ideProject.toggleNature(MuleProjectNature.FULL_NATURE_ID, monitor);
+                        ideProject.toggleNature(MuleProjectNature.NATURE_ID, monitor);
                     }
                     catch (CoreException ce)
                     {

@@ -57,7 +57,7 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+            locationURI="popup:org.eclipse.ui.popup.any">
          <menu
                id="org.mule.ide.project.popup.MuleIdeMenu"
                label="Mule IDE">
@@ -67,7 +67,6 @@
             locationURI="popup:org.mule.ide.project.popup.MuleIdeMenu">
          <command
                commandId="org.mule.ide.project.commands.ToggleMuleNature"
-               icon="icons/mule-small.gif"
                id="org.mule.ide.project.popup.ToggleMuleNature"
                style="push">
          </command>

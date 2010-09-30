@@ -191,15 +191,15 @@ public class IdeProject
         entries = newClasspath.toArray(entries);
         setRawClasspath(entries, monitor);
     }
-    
+
     public List<IPath> getBuildOutputFolders() throws JavaModelException
     {
         List<IPath> outputFolders = new ArrayList<IPath>();
-        
+
         // add the project's output location (this one is used if no output location is configured
         // separately for each source folder)
         outputFolders.add(javaProject.getOutputLocation());
-        
+
         for (IClasspathEntry classpathEntry : getRawClasspath())
         {
             if (classpathEntry.getEntryKind() == IClasspathEntry.CPE_SOURCE)
@@ -211,7 +211,7 @@ public class IdeProject
                 }
             }
         }
-        
+
         return outputFolders;
     }
 
@@ -264,7 +264,7 @@ public class IdeProject
         merged.addAll(otherClasspathEntries);
         return merged.toArray(new IClasspathEntry[merged.size()]);
     }
-    
+
     public void addToClasspath(File jarFile, IProgressMonitor progressMonitor) throws JavaModelException
     {
         IPath path = new Path(jarFile.getAbsolutePath());
@@ -274,7 +274,7 @@ public class IdeProject
         IClasspathEntry[] newClasspath = (IClasspathEntry[])ArrayUtils.add(oldClasspath, newLibraryEntry);
         setRawClasspath(newClasspath, progressMonitor);
     }
-    
+
     public boolean hasBuilder(String builderId) throws CoreException
     {
         IProjectDescription projectDescription = javaProject.getProject().getDescription();
@@ -286,10 +286,10 @@ public class IdeProject
                 return true;
             }
         }
-        
+
         return false;
     }
-    
+
     public void addBuilder(String builderId, IProgressMonitor progressMonitor) throws CoreException
     {
         IProject project = javaProject.getProject();
@@ -297,23 +297,23 @@ public class IdeProject
         {
             return;
         }
-        
+
         if (hasBuilder(builderId))
         {
             return;
         }
-        
+
         IProjectDescription projectDescription = project.getDescription();
-        
+
         ICommand newBuilder = projectDescription.newCommand();
         newBuilder.setBuilderName(builderId);
-        
+
         ICommand[] buildCommands = projectDescription.getBuildSpec();
         ICommand[] newBuildCommands = (ICommand[])ArrayUtils.add(buildCommands, newBuilder);
         projectDescription.setBuildSpec(newBuildCommands);
         project.setDescription(projectDescription, progressMonitor);
     }
-    
+
     public void removeBuilder(String builderId, IProgressMonitor progressMonitor) throws CoreException
     {
         IProject project = javaProject.getProject();
@@ -321,12 +321,12 @@ public class IdeProject
         {
             return;
         }
-        
+
         if (hasBuilder(builderId) == false)
         {
             return;
         }
-        
+
         IProjectDescription projectDescription = project.getDescription();
         List<ICommand> updatedBuilders = new ArrayList<ICommand>();
         for (ICommand builder : projectDescription.getBuildSpec())
@@ -337,7 +337,9 @@ public class IdeProject
             }
         }
 
-        projectDescription.setBuildSpec((ICommand[])updatedBuilders.toArray());
+        ICommand[] newBuildSpec = new ICommand[updatedBuilders.size()];
+        newBuildSpec = updatedBuilders.toArray(newBuildSpec);
+        projectDescription.setBuildSpec(newBuildSpec);
         project.setDescription(projectDescription, progressMonitor);
     }
 }

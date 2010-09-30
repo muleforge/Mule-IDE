@@ -79,9 +79,11 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
     {
         File projectRoot = project.getFilesystemPath();
         File sourceFile = new File(projectRoot, "mule-config.xml");
-        File destFile = new File(app.getFolder(), "mule-config.xml");
-        
-        new Copy(sourceFile, destFile).execute(monitor);
+        if (sourceFile.exists())
+        {
+            File destFile = new File(app.getFolder(), "mule-config.xml");
+            new Copy(sourceFile, destFile).execute(monitor);
+        }
     }
 
     private File detectAbsolutePath(IPath path)

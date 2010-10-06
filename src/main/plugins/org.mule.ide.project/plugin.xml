@@ -145,4 +145,24 @@ To put a menu contribution into the menu defined above, use:
             natureId="org.mule.ide.project.natures.MuleProjectNature">
       </image>
    </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="org.mule.ide.project.runtime.ui.MuleProjectPropertiesPage"
+            id="org.mule.ide.project.MuleProjectProperties"
+            name="Mule">
+         <keywordReference
+               id="org.mule.ide.project.keyword.mule">
+         </keywordReference>
+         <filter
+               name="nature"
+               value="org.mule.ide.project.natures.MuleProjectNature">
+         </filter>
+         <enabledWhen>
+            <adapt
+                  type="org.eclipse.core.resources.IProject">
+            </adapt>
+         </enabledWhen>
+      </page>
+   </extension>
 </plugin>

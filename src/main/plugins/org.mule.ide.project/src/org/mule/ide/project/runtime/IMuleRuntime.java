@@ -90,7 +90,9 @@ public interface IMuleRuntime
      */
     IMuleBundle getLibraryByArtifactId(String artifactId);
 
-    IPath getSourceZip();
+    IPath getCommunitySourceZip();
+    
+    IPath getEnterpriseSourceZip();
     
     /**
      * @return full path to the 'apps' folder inside the Mule runtime.

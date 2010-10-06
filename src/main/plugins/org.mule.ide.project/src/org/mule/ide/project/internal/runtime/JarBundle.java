@@ -98,23 +98,26 @@ public class JarBundle implements IMuleBundle
 
     public IPath getSourcePath()
     {
-        /*
-         * if (getName().equals(CORE_BUNDLE_NAME)) { return new File(getLocation(),
-         * "src/core/target/mule-core-" + getVersion() + "-sources.jar"); } else if
-         * (getName().startsWith(MODULE_PREFIX)) { String moduleName =
-         * getName().substring(MODULE_PREFIX.length()); return new
-         * File(getLocation(), "src/modules/" + moduleName + "/target/mule-" +
-         * getName() + "-" + getVersion() + "-sources.jar"); } else if
-         * (getName().startsWith(TRANSPORT_PREFIX)) { String transportName =
-         * getName().substring(TRANSPORT_PREFIX.length()); return new
-         * File(getLocation(), "src/transports/" + transportName + "/target/mule-" +
-         * getName() + "-" + getVersion() + "-sources.jar"); }
-         */
-        if (jar.getName().startsWith(IMuleRuntime.MULE_BUNDLE_PREFIX))
+        if (jar.getName().startsWith(IMuleRuntime.MULE_BUNDLE_PREFIX) == false)
         {
-            return runtime.getSourceZip();
+            return null;
         }
-        return null;
+
+        if (isEnterpriseArtifact())
+        {
+            return runtime.getEnterpriseSourceZip();
+        }
+        else
+        {
+            return runtime.getCommunitySourceZip();
+        }
+    }
+
+    // ee transports/modules match the pattern mule-xxx-ee-0.0.0.jar 
+    private boolean isEnterpriseArtifact()
+    {
+        String filename = jar.getName();
+        return (filename.startsWith(IMuleRuntime.MULE_BUNDLE_PREFIX) && filename.contains("-ee-"));
     }
 
     public String getVersion()

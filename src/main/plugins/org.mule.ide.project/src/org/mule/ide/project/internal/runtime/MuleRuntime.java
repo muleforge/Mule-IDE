@@ -131,22 +131,61 @@ public class MuleRuntime implements IMuleRuntime
         return version;
     }
 
-    public IPath getSourceZip()
+    public IPath getCommunitySourceZip()
     {
-        File sourceDir = new File(getDirectory(), "src");
+        File sourceDir = sourceDirectory();
         if (sourceDir.exists() == false)
         {
             return null;
         }
 
-        String sourceFilename = "mule-" + getVersion() + "-src.zip";
-        File sourceFile = new File(sourceDir, sourceFilename);
+        File sourceFile = communityEditionSourceZipFile();
         if (sourceFile.exists() == false)
         {
-            return null;
+            sourceFile = enterpriseEditionCommunitySourceZipFile();
+            if (sourceFile.exists() == false)
+            {
+                return null;
+            }
         }
 
         return new Path(sourceFile.getAbsolutePath());
+    }
+    
+    private File sourceDirectory()
+    {
+        return new File(getDirectory(), "src");
+    }
+
+    // CE packages the sources as mule-0.0.0-src.zip
+    private File communityEditionSourceZipFile()
+    {
+        String filename = String.format("mule-%1s-src.zip", getVersion());
+        return new File(sourceDirectory(), filename);
+    }
+
+    // EE packages the CE sources as mule-sources-0.0.0.zip
+    private File enterpriseEditionCommunitySourceZipFile()
+    {
+        String filename = String.format("mule-sources-%1s.zip", getVersion());
+        return new File(sourceDirectory(), filename);
+    }
+    
+    public IPath getEnterpriseSourceZip()
+    {
+        File sourceDirectory = sourceDirectory();
+        if (sourceDirectory.exists() == false)
+        {
+            return null;
+        }
+        
+        String filename = String.format("mule-enterprise-sources-%1s.zip", getVersion());
+        File sourceFile = new File(sourceDirectory, filename);
+        if (sourceFile.exists())
+        {
+            return new Path(sourceFile.getAbsolutePath());
+        }
+        return null;
     }
 
     public List<IMuleSampleProject> getSampleProjects()

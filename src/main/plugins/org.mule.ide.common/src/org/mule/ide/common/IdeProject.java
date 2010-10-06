@@ -118,7 +118,7 @@ public class IdeProject
         IProject project = javaProject.getProject();
         IProjectDescription description = project.getDescription();
 
-        // make sure the new nature comes first. The image of the first nature in the list which 
+        // make sure the new nature comes first. The image of the first nature in the list which
         // contributes a projectNatureImage is displayed on the project icon
         String[] existingNatures = description.getNatureIds();
         String[] newNatures = new String[existingNatures.length + 1];
@@ -293,6 +293,18 @@ public class IdeProject
         }
 
         return false;
+    }
+
+    public void toggleBuilder(String builderId) throws CoreException
+    {
+        if (hasBuilder(builderId))
+        {
+            removeBuilder(builderId, null);
+        }
+        else
+        {
+            addBuilder(builderId, null);
+        }
     }
 
     public void addBuilder(String builderId, IProgressMonitor progressMonitor) throws CoreException

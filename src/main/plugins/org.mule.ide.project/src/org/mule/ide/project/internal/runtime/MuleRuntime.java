@@ -151,7 +151,7 @@ public class MuleRuntime implements IMuleRuntime
 
         return new Path(sourceFile.getAbsolutePath());
     }
-    
+
     private File sourceDirectory()
     {
         return new File(getDirectory(), "src");
@@ -170,7 +170,7 @@ public class MuleRuntime implements IMuleRuntime
         String filename = String.format("mule-sources-%1s.zip", getVersion());
         return new File(sourceDirectory(), filename);
     }
-    
+
     public IPath getEnterpriseSourceZip()
     {
         File sourceDirectory = sourceDirectory();
@@ -178,7 +178,7 @@ public class MuleRuntime implements IMuleRuntime
         {
             return null;
         }
-        
+
         String filename = String.format("mule-enterprise-sources-%1s.zip", getVersion());
         File sourceFile = new File(sourceDirectory, filename);
         if (sourceFile.exists())
@@ -250,13 +250,13 @@ public class MuleRuntime implements IMuleRuntime
             name = "mule_" + name;
         }
 
-        String version = getVersion();
-        if (name.endsWith(version) == false)
+        String theVersion = getVersion();
+        if (name.endsWith(theVersion) == false)
         {
-            name = name + "-" + version + ".jar";
+            name = name + "-" + theVersion + ".jar";
         }
 
-        return this.getLibrary(name);
+        return getLibrary(name);
     }
 
     public IMuleBundle getLibrary(String name)

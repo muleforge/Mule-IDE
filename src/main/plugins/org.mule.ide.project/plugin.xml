@@ -43,10 +43,6 @@
    </extension>
    <extension
          point="org.eclipse.ui.commands">
-      <command
-            id="org.mule.ide.project.command1"
-            name="name">
-      </command>
       <category
             id="org.mule.ide.project.MuleCategory"
             name="Mule IDE">
@@ -55,11 +51,6 @@
             categoryId="org.mule.ide.project.MuleCategory"
             id="org.mule.ide.project.commands.ToggleMuleNature"
             name="Toggle Mule Nature">
-      </command>
-      <command
-            categoryId="org.mule.ide.project.MuleCategory"
-            id="org.mule.ide.project.commands.ToggleMuleNature"
-            name="Toggle Mule nature">
       </command>
    </extension>
    <extension
@@ -76,6 +67,25 @@
          <menu
                id="org.mule.ide.project.popup.MuleIdeMenu"
                label="Mule IDE">
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any">
+         <command
+               commandId="org.mule.ide.project.commands.ToggleMuleNature"
+               id="org.mule.ide.project.popup.ToggleMuleNature"
+               style="push">
+         </command>
+      </menuContribution>
+<!--
+to put a contribution into the menu:
+
+      <menuContribution
+            locationURI="popup:org.mule.ide.project.popup.MuleIdeMenu">
+-->
+
+<!--
+contribution is only visible on projects having the Mule nature:
             <visibleWhen
                   checkEnabled="false">
                <iterate
@@ -86,21 +96,7 @@
                   </test>
                </iterate>
             </visibleWhen>
-         </menu>
-      </menuContribution>
-<!--
-To put a menu contribution into the menu defined above, use:
-      <menuContribution
-            locationURI="popup:org.mule.ide.project.popup.MuleIdeMenu">
 -->
-      <menuContribution
-            locationURI="popup:org.eclipse.ui.popup.any">
-         <command
-               commandId="org.mule.ide.project.commands.ToggleMuleNature"
-               id="org.mule.ide.project.popup.ToggleMuleNature"
-               style="push">
-         </command>
-      </menuContribution>
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">

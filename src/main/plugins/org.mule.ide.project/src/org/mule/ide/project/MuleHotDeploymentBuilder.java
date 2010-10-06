@@ -31,7 +31,7 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
 {
     private static final String BUILDER_ID = ".MuleHotDeploymentBuilder";
     public static final String FULL_BUILDER_ID = MuleProjectPlugin.PLUGIN_ID + BUILDER_ID;
-    
+
     @Override
     protected IProject[] build(int kind, Map args, IProgressMonitor monitor) throws CoreException
     {
@@ -41,7 +41,7 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
             // hot deployment builder is only active for Mule 3 projects
             return null;
         }
-        
+
         if ((kind == FULL_BUILD) || (kind == CLEAN_BUILD))
         {
             fullBuild(monitor);
@@ -50,22 +50,22 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
         {
             incrementalBuild(monitor);
         }
-        
+
         return null;
     }
-        
+
     private void fullBuild(IProgressMonitor monitor) throws CoreException
     {
         MuleIdeProject project = getMuleIdeProject();
         IMuleRuntime runtime = project.getMuleRuntime();
         MuleApplication app = new MuleApplication(runtime, project.getName());
-        
+
         copyOutputFolders(project, app, monitor);
         copyMuleXml(project, app, monitor);
-        
+
         app.touchConfigFile();
     }
-    
+
     private void copyOutputFolders(MuleIdeProject project, MuleApplication app, IProgressMonitor monitor) throws CoreException
     {
         for (IPath outputFolder : project.getBuildOutputFolders())
@@ -97,7 +97,7 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
     {
         fullBuild(monitor);
     }
-    
+
     private MuleIdeProject getMuleIdeProject()
     {
         IJavaProject javaProject = JavaCore.create(getProject());

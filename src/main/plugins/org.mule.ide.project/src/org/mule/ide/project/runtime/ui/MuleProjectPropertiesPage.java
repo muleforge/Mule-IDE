@@ -12,12 +12,14 @@ package org.mule.ide.project.runtime.ui;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.PropertyPage;
 
-public class MuleProjectPropertiesPage extends PropertyPage 
+public class MuleProjectPropertiesPage extends PropertyPage
 {
     public MuleProjectPropertiesPage()
     {
@@ -28,11 +30,25 @@ public class MuleProjectPropertiesPage extends PropertyPage
     protected Control createContents(Composite parent)
     {
         noDefaultAndApplyButton();
-        
-        Label label = new Label(parent, SWT.NONE);
-        label.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
-        label.setText("Not yet implemented");
-        
+//        createHotDeploymentNameWidgets(parent);
+
         return parent;
+    }
+
+    private void createHotDeploymentNameWidgets(Composite parent)
+    {
+        Composite composite = new Composite(parent, SWT.NULL);
+
+        GridLayout mainLayout = new GridLayout();
+        mainLayout.numColumns = 2;
+        composite.setLayout(mainLayout);
+        composite.setLayoutData(new GridData(GridData.FILL_BOTH));
+
+        Label label = new Label(composite, SWT.NONE);
+        label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
+        label.setText("Hot deployment name");
+
+        Text text = new Text(composite, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
+        text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
     }
 }

@@ -83,6 +83,16 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
         {
             File destFile = new File(app.getFolder(), "mule-config.xml");
             new Copy(sourceFile, destFile).execute(monitor);
+            return;
+        }
+
+        // This is a temporary workaround for the examples until we have a preferences store
+        // and GUI to actually define the Mule config to use.
+        sourceFile = new File(projectRoot, "src/main/app/mule-config.xml");
+        if (sourceFile.exists())
+        {
+            File destFile = new File(app.getFolder(), "mule-config.xml");
+            new Copy(sourceFile, destFile).execute(monitor);
         }
     }
 

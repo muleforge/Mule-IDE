@@ -23,6 +23,8 @@ import org.mule.ide.project.runtime.Namespace;
 
 public class JarBundle implements IMuleBundle
 {
+    private static final String COMMUNITY_GROUP_ID = "org.mule";
+
     private final IMuleRuntime runtime;
     private final File jar;
     private String version;
@@ -77,6 +79,7 @@ public class JarBundle implements IMuleBundle
     // return otherDependencies.toArray(new String[otherDependencies.size()]);
     // }
 
+    @Override
     public boolean equals(Object obj)
     {
         if (!(obj instanceof JarBundle))
@@ -86,11 +89,13 @@ public class JarBundle implements IMuleBundle
         return this.getFile().equals(((JarBundle) obj).getFile());
     }
 
+    @Override
     public int hashCode()
     {
         return this.getFile().hashCode();
     }
 
+    @Override
     public String toString()
     {
         return this.getFile().toString();
@@ -113,11 +118,24 @@ public class JarBundle implements IMuleBundle
         }
     }
 
-    // ee transports/modules match the pattern mule-xxx-ee-0.0.0.jar 
     private boolean isEnterpriseArtifact()
     {
         String filename = jar.getName();
-        return (filename.startsWith(IMuleRuntime.MULE_BUNDLE_PREFIX) && filename.contains("-ee-"));
+        if (filename.startsWith(IMuleRuntime.MULE_BUNDLE_PREFIX))
+        {
+            // EE transports/modules match the pattern mule-xxx-ee-0.0.0.jar
+            if (filename.contains("-ee-"))
+            {
+                return true;
+            }
+            else if (filename.startsWith(IMuleRuntime.MULE_EXAMPLE_PREFIX))
+            {
+                // EE examples have the same naming patterns as CE but they have an EE groupId
+                // as they reside inside the EE source tree
+                return (getPom().getGroupId().equals(COMMUNITY_GROUP_ID) == false);
+            }
+        }
+        return false;
     }
 
     public String getVersion()

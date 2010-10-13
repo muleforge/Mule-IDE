@@ -22,6 +22,7 @@ import org.eclipse.core.runtime.IPath;
 public interface IMuleRuntime
 {
     String MULE_BUNDLE_PREFIX = "mule-";
+    String MULE_EXAMPLE_PREFIX = MULE_BUNDLE_PREFIX + "example-";
 
     String LIB_DIRECTORY = "lib";
     String BOOT_LIB_DIRECTORY = LIB_DIRECTORY + "/boot";
@@ -31,14 +32,14 @@ public interface IMuleRuntime
 
     /**
      * Returns the location of the Mule distribution
-     * 
+     *
      * @return
      */
     File getDirectory();
 
     /**
      * Validates the Mule distribution
-     * 
+     *
      * @return Whether or not the Mule distribution is valid
      */
     // boolean isValid();
@@ -91,9 +92,9 @@ public interface IMuleRuntime
     IMuleBundle getLibraryByArtifactId(String artifactId);
 
     IPath getCommunitySourceZip();
-    
+
     IPath getEnterpriseSourceZip();
-    
+
     /**
      * @return full path to the 'apps' folder inside the Mule runtime.
      */
@@ -106,13 +107,13 @@ public interface IMuleRuntime
     /**
      * Returns all modules found in this Mule distribution. Modules may contain
      * components, routers, transformers, etc.
-     * 
+     *
      * @return Array containing all the modules. May be empty, but never null.
      */
     // IMuleBundle[] getMuleModules();
     /**
      * Returns all transports found in this Mule distribution.
-     * 
+     *
      * @return Array containing all the transports. May be empty, but never null.
      */
     // IMuleBundle[] getMuleTransports();

@@ -10,6 +10,7 @@
 
 package org.mule.ide.project.runtime.ui;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -18,9 +19,15 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.PropertyPage;
+import org.mule.ide.common.projectfactory.IdeProjectFactory;
+import org.mule.ide.project.MuleIdeProject;
+import org.mule.ide.project.MuleProjectPlugin;
 
 public class MuleProjectPropertiesPage extends PropertyPage
 {
+    private MuleIdeProject project;
+    private Text hotDeploymentName;
+
     public MuleProjectPropertiesPage()
     {
         super();
@@ -29,10 +36,18 @@ public class MuleProjectPropertiesPage extends PropertyPage
     @Override
     protected Control createContents(Composite parent)
     {
-        noDefaultAndApplyButton();
-//        createHotDeploymentNameWidgets(parent);
+        initProjectReference();
+        createHotDeploymentNameWidgets(parent);
 
         return parent;
+    }
+
+    private void initProjectReference()
+    {
+        IdeProjectFactory<MuleIdeProject> factory = MuleProjectPlugin.getInstance().getProjectFactory();
+
+        IAdaptable element = getElement();
+        project = factory.create(element);
     }
 
     private void createHotDeploymentNameWidgets(Composite parent)
@@ -48,7 +63,17 @@ public class MuleProjectPropertiesPage extends PropertyPage
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
         label.setText("Hot deployment name");
 
-        Text text = new Text(composite, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
-        text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        hotDeploymentName = new Text(composite, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
+        hotDeploymentName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        hotDeploymentName.setText(project.getPreferences().getHotDeploymentName());
+    }
+
+    @Override
+    public boolean performOk()
+    {
+        project.getPreferences().setHotDeploymentName(hotDeploymentName.getText());
+        project.storePreferences();
+
+        return super.performOk();
     }
 }

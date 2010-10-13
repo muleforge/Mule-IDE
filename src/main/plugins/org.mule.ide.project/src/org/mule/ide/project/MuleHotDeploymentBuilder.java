@@ -58,7 +58,9 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
     {
         MuleIdeProject project = getMuleIdeProject();
         IMuleRuntime runtime = project.getMuleRuntime();
-        MuleApplication app = new MuleApplication(runtime, project.getName());
+
+        String hotDeploymentName = project.getPreferences().getHotDeploymentName();
+        MuleApplication app = new MuleApplication(runtime, hotDeploymentName);
 
         copyOutputFolders(project, app, monitor);
         copyMuleXml(project, app, monitor);

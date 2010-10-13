@@ -10,16 +10,23 @@
 
 package org.mule.ide.project;
 
+import java.io.File;
+
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaModelException;
 import org.mule.ide.common.IdeProject;
 import org.mule.ide.common.projectfactory.IdeProjectFactory;
+import org.mule.ide.project.internal.runtime.ProjectPreferences;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
 public class MuleIdeProject extends IdeProject
 {
+    private static final String PREFERENCES_FILE = ".muleide";
+
+    private ProjectPreferences preferences;
+
     /**
      * This constructor is used by {@link IdeProjectFactory}
      */
@@ -63,5 +70,31 @@ public class MuleIdeProject extends IdeProject
             // TODO: better error handling in the code calling this method
             throw new IllegalStateException(jme);
         }
+    }
+
+    public ProjectPreferences getPreferences()
+    {
+        if (preferences == null)
+        {
+            loadPreferences();
+        }
+        return preferences;
+    }
+
+    private void loadPreferences()
+    {
+        preferences = new ProjectPreferences(this);
+
+        preferences.loadFromFile(preferencesFile());
+    }
+
+    private File preferencesFile()
+    {
+        return new File(getFilesystemPath(), PREFERENCES_FILE);
+    }
+
+    public void storePreferences()
+    {
+        getPreferences().storeToFile(preferencesFile());
     }
 }

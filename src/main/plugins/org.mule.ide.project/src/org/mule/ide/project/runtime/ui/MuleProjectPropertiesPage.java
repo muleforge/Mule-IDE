@@ -10,6 +10,7 @@
 
 package org.mule.ide.project.runtime.ui;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -27,6 +28,7 @@ public class MuleProjectPropertiesPage extends PropertyPage
 {
     private MuleIdeProject project;
     private Text hotDeploymentName;
+    private ConfigurationFiles configFiles;
 
     public MuleProjectPropertiesPage()
     {
@@ -38,6 +40,7 @@ public class MuleProjectPropertiesPage extends PropertyPage
     {
         initProjectReference();
         createHotDeploymentNameWidgets(parent);
+        createConfigFileWidgets(parent);
 
         return parent;
     }
@@ -57,7 +60,7 @@ public class MuleProjectPropertiesPage extends PropertyPage
         GridLayout mainLayout = new GridLayout();
         mainLayout.numColumns = 2;
         composite.setLayout(mainLayout);
-        composite.setLayoutData(new GridData(GridData.FILL_BOTH));
+        composite.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
         Label label = new Label(composite, SWT.NONE);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
@@ -66,6 +69,27 @@ public class MuleProjectPropertiesPage extends PropertyPage
         hotDeploymentName = new Text(composite, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
         hotDeploymentName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         hotDeploymentName.setText(project.getPreferences().getHotDeploymentName());
+    }
+
+    private void createConfigFileWidgets(Composite parent)
+    {
+        Composite composite = new Composite(parent, SWT.NULL);
+
+        composite.setLayout(new GridLayout());
+//        composite.setLayoutData(new GridData(GridData.FILL_BOTH));
+
+        Label label = new Label(composite, SWT.NONE);
+        label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
+        label.setText("Mule configurations");
+
+        try
+        {
+            configFiles = new ConfigurationFiles(parent, project);
+        }
+        catch (CoreException ce)
+        {
+            throw new RuntimeException(ce);
+        }
     }
 
     @Override

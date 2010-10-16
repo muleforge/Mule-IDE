@@ -57,14 +57,22 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
     private void fullBuild(IProgressMonitor monitor) throws CoreException
     {
         MuleIdeProject project = getMuleIdeProject();
-        IMuleRuntime runtime = project.getMuleRuntime();
 
+        // do not copy the project into the apps folder if it doesn't have a config file yet. Mule's
+        // hot deployment builder will only fail with exceptions
+        if (project.getPreferences().getConfigFile() == null)
+        {
+            return;
+        }
+
+        IMuleRuntime runtime = project.getMuleRuntime();
         String hotDeploymentName = project.getPreferences().getHotDeploymentName();
         MuleApplication app = new MuleApplication(runtime, hotDeploymentName);
 
         copyOutputFolders(project, app, monitor);
         copyMuleXml(project, app, monitor);
 
+        // always touch the config file to force hot deployment
         app.touchConfigFile();
     }
 
@@ -77,7 +85,26 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
         }
     }
 
+    private File detectAbsolutePath(IPath path)
+    {
+        IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+        IResource resource = root.findMember(path);
+        return resource.getRawLocation().toFile();
+    }
+
     private void copyMuleXml(MuleIdeProject project, MuleApplication app, IProgressMonitor monitor) throws CoreException
+    {
+        File configFile = project.getPreferences().getAbsolutePathToConfigFile();
+        if (configFile == null)
+        {
+            return;
+        }
+
+        File destFile = new File(app.getFolder(), "mule-config.xml");
+        new Copy(configFile, destFile).execute(monitor);
+    }
+
+    private void XXcopyMuleXml(MuleIdeProject project, MuleApplication app, IProgressMonitor monitor) throws CoreException
     {
         File projectRoot = project.getFilesystemPath();
         File sourceFile = new File(projectRoot, "mule-config.xml");
@@ -96,13 +123,6 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
             File destFile = new File(app.getFolder(), "mule-config.xml");
             new Copy(sourceFile, destFile).execute(monitor);
         }
-    }
-
-    private File detectAbsolutePath(IPath path)
-    {
-        IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-        IResource resource = root.findMember(path);
-        return resource.getRawLocation().toFile();
     }
 
     private void incrementalBuild(IProgressMonitor monitor) throws CoreException

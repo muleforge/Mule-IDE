@@ -17,27 +17,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Preferences;
 import org.mule.ide.project.MuleIdeProject;
 
 public class ProjectPreferences extends Preferences
 {
+    private static final String CONFIG_FILE = "ConfigFile";
     private static final String HOT_DEPLOYMENT_NAME = "HotDeploymentName";
+
+    private MuleIdeProject project;
 
     public ProjectPreferences(MuleIdeProject project)
     {
         super();
+        this.project = project;
         setDefault(HOT_DEPLOYMENT_NAME, project.getName());
-    }
-
-    public String getHotDeploymentName()
-    {
-        return getString(HOT_DEPLOYMENT_NAME);
-    }
-
-    public void setHotDeploymentName(String newName)
-    {
-        setValue(HOT_DEPLOYMENT_NAME, newName);
     }
 
     public void loadFromFile(File preferencesFile)
@@ -99,5 +95,47 @@ public class ProjectPreferences extends Preferences
                 }
             }
         }
+    }
+
+    public String getHotDeploymentName()
+    {
+        return getString(HOT_DEPLOYMENT_NAME);
+    }
+
+    public void setHotDeploymentName(String newName)
+    {
+        setValue(HOT_DEPLOYMENT_NAME, newName);
+    }
+
+    public IResource getConfigFile()
+    {
+        String path = getString(CONFIG_FILE);
+        if ((path != null) && (path.length() > 0))
+        {
+            return project.getJavaProject().getProject().findMember(path);
+        }
+        return null;
+    }
+
+    public File getAbsolutePathToConfigFile()
+    {
+        IResource configResource = getConfigFile();
+        if (configResource == null)
+        {
+            return null;
+        }
+
+        String configPath = configResource.getProjectRelativePath().toString();
+        File configFile = new File(project.getFilesystemPath(), configPath);
+        if (configFile.exists())
+        {
+            return configFile;
+        }
+        return null;
+    }
+
+    public void setConfigFile(IPath path)
+    {
+        setValue(CONFIG_FILE, path.toString());
     }
 }

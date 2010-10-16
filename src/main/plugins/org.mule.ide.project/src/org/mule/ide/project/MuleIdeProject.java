@@ -11,7 +11,13 @@
 package org.mule.ide.project;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
@@ -88,13 +94,50 @@ public class MuleIdeProject extends IdeProject
         preferences.loadFromFile(preferencesFile());
     }
 
+    public void storePreferences()
+    {
+        getPreferences().storeToFile(preferencesFile());
+    }
+
     private File preferencesFile()
     {
         return new File(getFilesystemPath(), PREFERENCES_FILE);
     }
 
-    public void storePreferences()
+    public List<IResource> allXmlFiles() throws CoreException
     {
-        getPreferences().storeToFile(preferencesFile());
+        List<IResource> xmlFiles = new ArrayList<IResource>();
+        addXmlFilesFrom(getJavaProject().getProject(), xmlFiles);
+        return xmlFiles;
+    }
+
+    private void addXmlFilesFrom(IContainer container, List<IResource> resourceList) throws CoreException
+    {
+        for (IResource resource : container.members())
+        {
+            if (resource.getType() == IResource.FOLDER)
+            {
+                IFolder folder = (IFolder)resource;
+                if (isBuildOutputFolder(folder))
+                {
+                    continue;
+                }
+
+                addXmlFilesFrom(folder, resourceList);
+                continue;
+            }
+
+            String fileExtension = resource.getFileExtension();
+            if ((fileExtension != null) && (fileExtension.toLowerCase().equals("xml")))
+            {
+                resourceList.add(resource);
+            }
+        }
+    }
+
+    private boolean isBuildOutputFolder(IFolder folder) throws JavaModelException
+    {
+        IPath path = folder.getFullPath();
+        return getBuildOutputFolders().contains(path);
     }
 }

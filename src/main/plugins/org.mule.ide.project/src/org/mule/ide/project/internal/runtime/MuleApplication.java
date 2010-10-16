@@ -18,27 +18,27 @@ public class MuleApplication
     public MuleApplication(IMuleRuntime runtime, String name) throws CoreException
     {
         super();
-        
+
         applicationFolder = new File(runtime.getApplicationDirectory(), name);
         assertFolderExists(applicationFolder);
     }
-    
+
     /**
-     * @return This applications's root folder which contains the mule-config.xml 
+     * @return This applications's root folder which contains the mule-config.xml
      * and the classes, lib etc. subdirectories;
      */
     public File getFolder()
     {
         return applicationFolder;
     }
-    
+
     public File getClassesFolder() throws CoreException
     {
         File classesFolder = new File(applicationFolder, "classes");
-        assertFolderExists(classesFolder);        
+        assertFolderExists(classesFolder);
         return classesFolder;
     }
-    
+
     private void assertFolderExists(File newFolder) throws CoreException
     {
         if (newFolder.exists() == false)
@@ -53,7 +53,7 @@ public class MuleApplication
         }
     }
 
-    // TODO handle cases where we have a deployment descriptor. This requires configuration for the project, though
+    // TODO handle cases where we have a deployment descriptor. Do we need to touch that one instead of the config then?
     public void touchConfigFile()
     {
         File muleConfig = new File(applicationFolder, "mule-config.xml");

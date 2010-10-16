@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -34,12 +35,15 @@ import org.eclipse.ui.wizards.datatransfer.IImportStructureProvider;
 import org.eclipse.ui.wizards.datatransfer.ImportOperation;
 import org.mule.ide.project.MuleIdeProject;
 import org.mule.ide.project.MuleProjectPlugin;
+import org.mule.ide.project.internal.runtime.ProjectPreferences;
 import org.mule.ide.project.internal.util.UrlUtils;
 import org.mule.ide.project.runtime.IMuleBundle;
 import org.mule.ide.project.runtime.IMuleSampleProject;
 
 public class MuleSampleProject implements IMuleSampleProject
 {
+    private static final String DEFAULT_MULE_CONFIG_FILE = "src/main/app/mule-config.xml";
+
     private String artifactId;
     private String name;
     private String description;
@@ -64,6 +68,7 @@ public class MuleSampleProject implements IMuleSampleProject
         copyFilesIntoProject(project, progressMonitor);
         updateSourceFolders(project, progressMonitor);
         downloadAdditionalLibraries(project, progressMonitor);
+        generateProjectPreferencesFile(project, progressMonitor);
     }
 
     private void copyFilesIntoProject(IJavaProject javaProject, IProgressMonitor progressMonitor)
@@ -131,7 +136,7 @@ public class MuleSampleProject implements IMuleSampleProject
         {
             MuleIdeProject project = new MuleIdeProject(javaProject);
             File libFolder = createLibrariesFolder(project);
-        
+
             for (URL downloadUrl : urlsToDownload)
             {
                 File libFile = downloadLibrary(downloadUrl, libFolder);
@@ -143,7 +148,7 @@ public class MuleSampleProject implements IMuleSampleProject
     private File createLibrariesFolder(MuleIdeProject project) throws CoreException
     {
         File projectPath = project.getFilesystemPath();
-        
+
         File libFolder = new File(projectPath, "lib");
         if (libFolder.exists() == false)
         {
@@ -154,7 +159,7 @@ public class MuleSampleProject implements IMuleSampleProject
                 throw new CoreException(error);
             }
         }
-        
+
         return libFolder;
     }
 
@@ -162,7 +167,7 @@ public class MuleSampleProject implements IMuleSampleProject
     {
         String filename = UrlUtils.filename(libUrl);
         File libFile = new File(libFolder, filename);
-        
+
         downloadUrlToFile(libUrl, libFile);
         return libFile;
     }
@@ -185,7 +190,23 @@ public class MuleSampleProject implements IMuleSampleProject
             fileTransferContainer.sendRetrieveRequest(remoteFileID, listener, null);
         }
     }
-    
+
+    private void generateProjectPreferencesFile(IJavaProject javaProject, IProgressMonitor progressMonitor)
+    {
+        MuleIdeProject project = new MuleIdeProject(javaProject);
+        ProjectPreferences preferences = project.getPreferences();
+        if (preferences.getConfigFile() == null)
+        {
+            IResource configResource = javaProject.getProject().findMember(DEFAULT_MULE_CONFIG_FILE);
+            if (configResource != null)
+            {
+                IPath configPath = configResource.getProjectRelativePath();
+                preferences.setConfigFile(configPath);
+                project.storePreferences();
+            }
+        }
+    }
+
     @Override
     public String toString()
     {

@@ -28,7 +28,6 @@ public class MuleProjectPropertiesPage extends PropertyPage
 {
     private MuleIdeProject project;
     private Text hotDeploymentName;
-    private ConfigurationFiles configFiles;
 
     public MuleProjectPropertiesPage()
     {
@@ -84,7 +83,7 @@ public class MuleProjectPropertiesPage extends PropertyPage
 
         try
         {
-            configFiles = new ConfigurationFiles(parent, project);
+            new ConfigurationFiles(parent, project);
         }
         catch (CoreException ce)
         {

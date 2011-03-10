@@ -142,10 +142,14 @@ public class MuleRuntime implements IMuleRuntime
         File sourceFile = communityEditionSourceZipFile();
         if (sourceFile.exists() == false)
         {
-            sourceFile = enterpriseEditionCommunitySourceZipFile();
+            sourceFile = enterpriseEditionCommunitySourceZipFileWithoutCommunitySuffix();
             if (sourceFile.exists() == false)
             {
-                return null;
+                sourceFile = enterpriseEditionCommunitySourceZipFileWithCommunitySuffix();
+                if (sourceFile.exists() == false)
+                {
+                    return null;
+                }
             }
         }
 
@@ -165,9 +169,16 @@ public class MuleRuntime implements IMuleRuntime
     }
 
     // EE packages the CE sources as mule-sources-0.0.0.zip
-    private File enterpriseEditionCommunitySourceZipFile()
+    private File enterpriseEditionCommunitySourceZipFileWithoutCommunitySuffix()
     {
         String filename = String.format("mule-sources-%1s.zip", getVersion());
+        return new File(sourceDirectory(), filename);
+    }
+
+    // as of Mule 3 the CE sources are named mule-community-sources-0.0.0.zip
+    private File enterpriseEditionCommunitySourceZipFileWithCommunitySuffix()
+    {
+        String filename = String.format("mule-community-sources-%1s.zip", getVersion());
         return new File(sourceDirectory(), filename);
     }
 

@@ -12,7 +12,9 @@ package org.mule.ide.project;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
@@ -21,6 +23,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.mule.ide.common.IdeProject;
 import org.mule.ide.common.projectfactory.IdeProjectFactory;
@@ -139,5 +142,19 @@ public class MuleIdeProject extends IdeProject
     {
         IPath path = folder.getFullPath();
         return getBuildOutputFolders().contains(path);
+    }
+
+    public Object[] getPackageFragmentRootsContainingSourceFiles() throws JavaModelException
+    {
+        Set<Object> outputFiles = new HashSet<Object>();
+        for (IPackageFragmentRoot root : getJavaProject().getPackageFragmentRoots())
+        {
+            // do not even attempt to package binary resources, i.e. other jars
+            if (root.getKind() != IPackageFragmentRoot.K_BINARY)
+            {
+                outputFiles.add(root);
+            }
+        }
+        return outputFiles.toArray();
     }
 }

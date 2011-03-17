@@ -52,12 +52,21 @@
             id="org.mule.ide.project.commands.ToggleMuleNature"
             name="Toggle Mule Nature">
       </command>
+      <command
+            categoryId="org.mule.ide.project.MuleCategory"
+            id="org.mule.ide.project.commands.PackageHotDeploymentZip"
+            name="Package for hot deployment">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
             class="org.mule.ide.project.internal.handlers.ToggleMuleNatureHandler"
             commandId="org.mule.ide.project.commands.ToggleMuleNature">
+      </handler>
+      <handler
+            class="org.mule.ide.project.internal.handlers.PackageHotDeploymentZipHandler"
+            commandId="org.mule.ide.project.commands.PackageHotDeploymentZip">
       </handler>
    </extension>
    <extension
@@ -67,6 +76,17 @@
          <menu
                id="org.mule.ide.project.popup.MuleIdeMenu"
                label="Mule IDE">
+<!--            <visibleWhen
+                  checkEnabled="false">
+               <iterate
+                     operator="and">
+                  <test
+                        property="org.eclipse.core.resources.projectNature"
+                        value="org.mule.ide.project.natures.MuleProjectNature">
+                  </test>
+               </iterate>
+            </visibleWhen>
+-->
          </menu>
       </menuContribution>
       <menuContribution
@@ -77,12 +97,14 @@
                style="push">
          </command>
       </menuContribution>
-<!--
-to put a contribution into the menu:
-
       <menuContribution
             locationURI="popup:org.mule.ide.project.popup.MuleIdeMenu">
--->
+         <command
+               commandId="org.mule.ide.project.commands.PackageHotDeploymentZip"
+               id="org.mule.ide.project.popup.PackageHotDeploymentZip"
+               style="push">
+         </command>
+      </menuContribution>
 
 <!--
 contribution is only visible on projects having the Mule nature:

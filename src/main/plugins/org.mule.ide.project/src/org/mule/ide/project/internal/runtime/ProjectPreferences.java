@@ -107,6 +107,7 @@ public class ProjectPreferences extends Preferences
         setValue(HOT_DEPLOYMENT_NAME, newName);
     }
 
+    // TODO this can be more than one config file
     public IResource getConfigFile()
     {
         String path = getString(CONFIG_FILE);

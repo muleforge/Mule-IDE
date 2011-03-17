@@ -5,9 +5,13 @@ import java.lang.reflect.InvocationTargetException;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.internal.ui.jarpackager.PlainJarBuilder;
 import org.eclipse.jdt.ui.jarpackager.IJarExportRunnable;
 import org.eclipse.jdt.ui.jarpackager.JarPackageData;
 import org.eclipse.jface.viewers.ISelection;
@@ -19,6 +23,9 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.mule.ide.project.MuleIdeProject;
 import org.mule.ide.project.MuleProjectPlugin;
 
+// TODO handle jar files that are stored in project
+// TODO handle jar files that are referenced from project
+// TODO warn if no mule config file was checked in project's properties
 public class PackageHotDeploymentZipHandler extends AbstractHandler
 {
     public Object execute(ExecutionEvent event) throws ExecutionException
@@ -93,6 +100,10 @@ public class PackageHotDeploymentZipHandler extends AbstractHandler
     private JarPackageData createJarPackageData(IPath zipFile, MuleIdeProject project) throws ExecutionException
     {
         JarPackageData data = new JarPackageData();
+        
+        data.setJarBuilder(new ClassesPrefixJarBuilder(project));
+        
+        data.setIncludeDirectoryEntries(true);
         data.setJarLocation(zipFile);
         data.setExportClassFiles(true);
         data.setExportJavaFiles(false);
@@ -117,6 +128,31 @@ public class PackageHotDeploymentZipHandler extends AbstractHandler
         catch (JavaModelException jme)
         {
             throw new ExecutionException("Exception while getting project's source paths", jme);
+        }
+    }
+    
+    private static class ClassesPrefixJarBuilder extends PlainJarBuilder
+    {
+        private IResource configFile;
+
+        public ClassesPrefixJarBuilder(MuleIdeProject project)
+        {
+            super();
+            configFile = project.getPreferences().getConfigFile();
+        }
+
+        /**
+         * Mule's deployment format mandates that all class files and resources reside in the
+         * <em>classes</em> folder. Put all files there except for the mule-config.xml.
+         */
+        @Override
+        public void writeFile(IFile resource, IPath destinationPath) throws CoreException
+        {
+            if (resource.equals(configFile) == false)
+            {
+                destinationPath = new Path("classes").append(destinationPath);
+            }
+            super.writeFile(resource, destinationPath);
         }
     }
 }

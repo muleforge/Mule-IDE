@@ -48,7 +48,8 @@ public class PackageHotDeploymentZipHandler extends AbstractHandler
 
     private String calculateDefaultZipFileName(MuleIdeProject project)
     {
-        return project.getName() + ".zip";
+        String hotDeploymentName = project.getPreferences().getHotDeploymentName();
+        return hotDeploymentName + ".zip";
     }
 
     private void exportZipFile(JarPackageData data, Shell shell) throws ExecutionException
@@ -74,18 +75,18 @@ public class PackageHotDeploymentZipHandler extends AbstractHandler
     private IPath promptForDestinationFile(String defaultFileName, Shell shell)
     {
         IPath zipFilePath = null;
-        
+
         FileDialog dialog = new FileDialog(shell, SWT.SAVE);
         dialog.setFileName(defaultFileName);
         dialog.setFilterNames(new String[] { "Zip Files (*.zip)" });
         dialog.setFilterExtensions(new String[] { "*.zip" });
         String result = dialog.open();
-        
+
         if (result != null)
         {
             zipFilePath = new Path(result);
         }
-        
+
         return zipFilePath;
     }
 
@@ -100,7 +101,7 @@ public class PackageHotDeploymentZipHandler extends AbstractHandler
         data.setExportWarnings(true);
         data.setBuildIfNeeded(true);
         data.setUsesManifest(false);
-        
+
         Object[] sourcePaths = getSourcePaths(project);
         data.setElements(sourcePaths);
 

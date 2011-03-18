@@ -55,7 +55,7 @@
       <command
             categoryId="org.mule.ide.project.MuleCategory"
             id="org.mule.ide.project.commands.PackageHotDeploymentZip"
-            name="Package for hot deployment">
+            name="Package as deployment zip">
       </command>
    </extension>
    <extension

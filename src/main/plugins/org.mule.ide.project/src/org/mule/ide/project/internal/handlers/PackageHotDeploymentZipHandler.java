@@ -14,6 +14,7 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.ui.jarpackager.PlainJarBuilder;
 import org.eclipse.jdt.ui.jarpackager.IJarExportRunnable;
 import org.eclipse.jdt.ui.jarpackager.JarPackageData;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
@@ -25,13 +26,21 @@ import org.mule.ide.project.MuleProjectPlugin;
 
 // TODO handle jar files that are stored in project
 // TODO handle jar files that are referenced from project
-// TODO warn if no mule config file was checked in project's properties
 public class PackageHotDeploymentZipHandler extends AbstractHandler
 {
+    private static final String ACTION_NAME = "Package as deployment zip";
+
     public Object execute(ExecutionEvent event) throws ExecutionException
     {
         MuleIdeProject project = findProject(event);
         Shell shell = HandlerUtil.getActiveWorkbenchWindowChecked(event).getShell();
+
+        IResource configFile = project.getPreferences().getConfigFile();
+        if (configFile == null)
+        {
+            MessageDialog.openError(shell, ACTION_NAME, "Please configure a configuration file in the project's preferences");
+            return null;
+        }
 
         String defaultFileName = calculateDefaultZipFileName(project);
         IPath zipFile = promptForDestinationFile(defaultFileName, shell);
@@ -59,6 +68,25 @@ public class PackageHotDeploymentZipHandler extends AbstractHandler
         return hotDeploymentName + ".zip";
     }
 
+    private IPath promptForDestinationFile(String defaultFileName, Shell shell)
+    {
+        IPath zipFilePath = null;
+
+        FileDialog dialog = new FileDialog(shell, SWT.SAVE);
+        dialog.setText(ACTION_NAME);
+        dialog.setFileName(defaultFileName);
+        dialog.setFilterNames(new String[] { "Zip Files (*.zip)" });
+        dialog.setFilterExtensions(new String[] { "*.zip" });
+        String result = dialog.open();
+
+        if (result != null)
+        {
+            zipFilePath = new Path(result);
+        }
+
+        return zipFilePath;
+    }
+
     private void exportZipFile(JarPackageData data, Shell shell) throws ExecutionException
     {
         IJarExportRunnable runnable = data.createJarExportRunnable(shell);
@@ -79,30 +107,12 @@ public class PackageHotDeploymentZipHandler extends AbstractHandler
         }
     }
 
-    private IPath promptForDestinationFile(String defaultFileName, Shell shell)
-    {
-        IPath zipFilePath = null;
-
-        FileDialog dialog = new FileDialog(shell, SWT.SAVE);
-        dialog.setFileName(defaultFileName);
-        dialog.setFilterNames(new String[] { "Zip Files (*.zip)" });
-        dialog.setFilterExtensions(new String[] { "*.zip" });
-        String result = dialog.open();
-
-        if (result != null)
-        {
-            zipFilePath = new Path(result);
-        }
-
-        return zipFilePath;
-    }
-
     private JarPackageData createJarPackageData(IPath zipFile, MuleIdeProject project) throws ExecutionException
     {
         JarPackageData data = new JarPackageData();
-        
+
         data.setJarBuilder(new ClassesPrefixJarBuilder(project));
-        
+
         data.setIncludeDirectoryEntries(true);
         data.setJarLocation(zipFile);
         data.setExportClassFiles(true);
@@ -130,7 +140,7 @@ public class PackageHotDeploymentZipHandler extends AbstractHandler
             throw new ExecutionException("Exception while getting project's source paths", jme);
         }
     }
-    
+
     private static class ClassesPrefixJarBuilder extends PlainJarBuilder
     {
         private IResource configFile;

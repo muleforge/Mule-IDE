@@ -8,7 +8,7 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ide.project.internal.handlers;
+package org.mule.ide.project.internal.util;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +21,9 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.core.JavaProject;
 import org.mule.ide.project.MuleIdeProject;
 
-public class ExportFilesCollector
+//TODO handle jar files that are stored in project
+//TODO handle jar files that are referenced from project
+class ExportFilesCollector
 {
     private MuleIdeProject project;
     private Set<Object> resourcesToExport;

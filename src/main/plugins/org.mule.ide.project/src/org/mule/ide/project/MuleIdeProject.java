@@ -32,7 +32,7 @@ import org.mule.ide.project.runtime.IMuleRuntime;
 
 public class MuleIdeProject extends IdeProject
 {
-    private static final String PREFERENCES_FILE = ".muleide";
+    public static final String PREFERENCES_FILENAME = ".muleide";
 
     private ProjectPreferences preferences;
 
@@ -104,7 +104,7 @@ public class MuleIdeProject extends IdeProject
 
     private File preferencesFile()
     {
-        return new File(getFilesystemPath(), PREFERENCES_FILE);
+        return new File(getFilesystemPath(), PREFERENCES_FILENAME);
     }
 
     public List<IResource> allXmlFiles() throws CoreException

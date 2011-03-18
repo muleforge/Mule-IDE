@@ -12,7 +12,9 @@ package org.mule.ide.common;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.core.resources.ICommand;
@@ -218,6 +220,21 @@ public class IdeProject
         }
 
         return outputFolders;
+    }
+
+    public Set<IPath> getSourceFolderPaths() throws JavaModelException
+    {
+        Set<IPath> sourceFolders = new HashSet<IPath>();
+
+        for (IClasspathEntry classpathEntry : getRawClasspath())
+        {
+            if (classpathEntry.getEntryKind() == IClasspathEntry.CPE_SOURCE)
+            {
+                sourceFolders.add(classpathEntry.getPath());
+            }
+        }
+
+        return sourceFolders;
     }
 
     public void setSourceFolders(List<IPath> sourcePaths, IProgressMonitor progressMonitor)

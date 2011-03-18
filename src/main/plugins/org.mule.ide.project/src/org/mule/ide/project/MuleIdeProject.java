@@ -144,17 +144,17 @@ public class MuleIdeProject extends IdeProject
         return getBuildOutputFolders().contains(path);
     }
 
-    public Object[] getPackageFragmentRootsContainingSourceFiles() throws JavaModelException
+    public Set<IPackageFragmentRoot> getPackageFragmentRootsContainingSourceFiles() throws JavaModelException
     {
-        Set<Object> outputFiles = new HashSet<Object>();
+        Set<IPackageFragmentRoot> sourceFragmentRoots = new HashSet<IPackageFragmentRoot>();
         for (IPackageFragmentRoot root : getJavaProject().getPackageFragmentRoots())
         {
             // do not even attempt to package binary resources, i.e. other jars
             if (root.getKind() != IPackageFragmentRoot.K_BINARY)
             {
-                outputFiles.add(root);
+                sourceFragmentRoots.add(root);
             }
         }
-        return outputFiles.toArray();
+        return sourceFragmentRoots;
     }
 }

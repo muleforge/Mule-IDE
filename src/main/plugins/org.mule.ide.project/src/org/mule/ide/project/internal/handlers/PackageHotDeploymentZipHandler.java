@@ -1,6 +1,7 @@
 package org.mule.ide.project.internal.handlers;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Set;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -10,7 +11,6 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.ui.jarpackager.PlainJarBuilder;
 import org.eclipse.jdt.ui.jarpackager.IJarExportRunnable;
 import org.eclipse.jdt.ui.jarpackager.JarPackageData;
@@ -123,32 +123,36 @@ public class PackageHotDeploymentZipHandler extends AbstractHandler
         data.setBuildIfNeeded(true);
         data.setUsesManifest(false);
 
-        Object[] sourcePaths = getSourcePaths(project);
-        data.setElements(sourcePaths);
+        Object[] filesToExport = getFilesToExport(project);
+        data.setElements(filesToExport);
 
         return data;
     }
 
-    private Object[] getSourcePaths(MuleIdeProject project) throws ExecutionException
+    private Object[] getFilesToExport(MuleIdeProject project) throws ExecutionException
     {
         try
         {
-            return project.getPackageFragmentRootsContainingSourceFiles();
+            ExportFilesCollector collector = new ExportFilesCollector(project);
+            Set<Object> allFilesToExport = collector.allFilesToExport();
+            return allFilesToExport.toArray();
         }
-        catch (JavaModelException jme)
+        catch (CoreException ce)
         {
-            throw new ExecutionException("Exception while getting project's source paths", jme);
+            throw new ExecutionException("Exception while getting project's source paths", ce);
         }
     }
 
     private static class ClassesPrefixJarBuilder extends PlainJarBuilder
     {
         private IResource configFile;
+        private MuleIdeProject project;
 
         public ClassesPrefixJarBuilder(MuleIdeProject project)
         {
             super();
             configFile = project.getPreferences().getConfigFile();
+            this.project = project;
         }
 
         /**
@@ -156,13 +160,60 @@ public class PackageHotDeploymentZipHandler extends AbstractHandler
          * <em>classes</em> folder. Put all files there except for the mule-config.xml.
          */
         @Override
-        public void writeFile(IFile resource, IPath destinationPath) throws CoreException
+        public void writeFile(IFile file, IPath destinationPath) throws CoreException
         {
-            if (resource.equals(configFile) == false)
+            if (shouldAddClassesPrefix(file))
             {
                 destinationPath = new Path("classes").append(destinationPath);
             }
-            super.writeFile(resource, destinationPath);
+
+            super.writeFile(file, destinationPath);
+        }
+
+        private boolean shouldAddClassesPrefix(IFile file) throws CoreException
+        {
+            if (isConfigFile(file))
+            {
+                return false;
+            }
+
+            if (isClassFile(file))
+            {
+                return true;
+            }
+
+            if (isLocatedInProjectSourceFolder(file))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private boolean isConfigFile(IFile file)
+        {
+            return file.equals(configFile);
+        }
+
+        private boolean isClassFile(IFile file)
+        {
+            return file.getName().endsWith(".class");
+        }
+
+        private boolean isLocatedInProjectSourceFolder(IFile file) throws CoreException
+        {
+            IPath resourcePath = file.getFullPath();
+
+            Set<IPath> sourceFolders = project.getSourceFolderPaths();
+            for (IPath sourceFolderPath : sourceFolders)
+            {
+                if (sourceFolderPath.isPrefixOf(resourcePath))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

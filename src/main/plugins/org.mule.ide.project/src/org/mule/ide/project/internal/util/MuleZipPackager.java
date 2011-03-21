@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jdt.ui.jarpackager.IJarExportRunnable;
@@ -29,10 +30,18 @@ public class MuleZipPackager
         this.shell = shell;
     }
 
-    public void exportTo(IPath zipFile) throws CoreException
+    public void exportToFileRunningInUiThread(IPath zipFile) throws CoreException
     {
         JarPackageData data = createJarPackageData(zipFile, project);
-        exportZipFile(data, shell);
+        IJarExportRunnable runnable = data.createJarExportRunnable(shell);
+        runOnUiThread(runnable);
+    }
+    
+    public void exportToFile(IPath zipFile, IProgressMonitor progressMonitor) throws CoreException
+    {
+        JarPackageData data = createJarPackageData(zipFile, project);
+        IJarExportRunnable runnable = data.createJarExportRunnable(shell);
+        runOnCurrentThread(progressMonitor, runnable);
     }
 
     private JarPackageData createJarPackageData(IPath zipFile, MuleIdeProject project) throws CoreException
@@ -64,15 +73,29 @@ public class MuleZipPackager
         return allFilesToExport.toArray();
     }
     
-    private void exportZipFile(JarPackageData data, Shell shell) throws CoreException
+    private void runOnUiThread(IJarExportRunnable runnable) throws CoreException
     {
-        IJarExportRunnable runnable = data.createJarExportRunnable(shell);
-
         try
         {
             boolean fork = false;
             boolean cancelable = false;
             PlatformUI.getWorkbench().getProgressService().run(fork, cancelable, runnable);
+        }
+        catch (InvocationTargetException e)
+        {
+            throwCoreException(e);
+        }
+        catch (InterruptedException e)
+        {
+            throwCoreException(e);
+        }
+    }
+
+    private void runOnCurrentThread(IProgressMonitor progressMonitor, IJarExportRunnable runnable) throws CoreException
+    {
+        try
+        {
+            runnable.run(progressMonitor);
         }
         catch (InvocationTargetException e)
         {

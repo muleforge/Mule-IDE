@@ -44,7 +44,7 @@ public class PackageHotDeploymentZipHandler extends AbstractHandler
         try
         {
             MuleZipPackager packager = new MuleZipPackager(project, shell);
-            packager.exportTo(zipFile);
+            packager.exportToFileRunningInUiThread(zipFile);
         }
         catch (CoreException ce)
         {

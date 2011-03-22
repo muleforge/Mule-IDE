@@ -157,4 +157,15 @@ public class MuleIdeProject extends IdeProject
         }
         return sourceFragmentRoots;
     }
+
+    /**
+     * The hot deployment builder is only enabled for Mule 3.x and above
+     */
+    public boolean shouldRunHotDeploymentBuilder()
+    {
+        String version = getMuleRuntime().getVersion();
+        String firstVersionCharacter = version.substring(0, 1);
+        int majorVersion = Integer.parseInt(firstVersionCharacter);
+        return majorVersion > 2;
+    }
 }

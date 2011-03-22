@@ -39,9 +39,8 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
             return null;
         }
 
-        if (project.getMuleRuntime().getVersion().startsWith("3") == false)
+        if (project.shouldRunHotDeploymentBuilder())
         {
-            // hot deployment builder is only active for Mule 3 projects
             return null;
         }
 

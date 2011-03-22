@@ -25,7 +25,6 @@ import org.mule.ide.project.internal.util.Move;
 import org.mule.ide.project.internal.util.MuleZipPackager;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
-// TODO do not run if the current project has compile errors
 public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
 {
     private static final String BUILDER_ID = ".MuleHotDeploymentBuilder";
@@ -34,10 +33,20 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
     @Override
     protected IProject[] build(int kind, Map args, IProgressMonitor monitor) throws CoreException
     {
-        MuleIdeProject muleProject = getMuleIdeProject();
-        if (muleProject.getMuleRuntime().getVersion().startsWith("3") == false)
+        MuleIdeProject project = getMuleIdeProject();
+        if (project == null)
+        {
+            return null;
+        }
+
+        if (project.getMuleRuntime().getVersion().startsWith("3") == false)
         {
             // hot deployment builder is only active for Mule 3 projects
+            return null;
+        }
+
+        if (project.hasCompileErrors())
+        {
             return null;
         }
 
@@ -63,33 +72,33 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
         {
             return;
         }
-        
+
         // export the zip using a temporary file to avoid Mule picking it up while the zip
         // is being packed
         IPath temporaryZipFile = calculateTemporaryApplicationZipName(project);
-        MuleZipPackager packager = new MuleZipPackager(project, null);        
+        MuleZipPackager packager = new MuleZipPackager(project, null);
         packager.exportToFile(temporaryZipFile, monitor);
-        
+
         // move the file onto its final name. This should be an atomic operation.
         IPath finalZipFile = calculateApplicationZipName(project);
         new Move(temporaryZipFile, finalZipFile).execute(monitor);
     }
 
     private IPath calculateTemporaryApplicationZipName(MuleIdeProject project)
-    {        
+    {
         // do not use a .zip suffix here to avoid Mule picking up the zip file as it's being
         // assembled
         String zipFileName = String.format("%1s-%2s.tmp", project.getPreferences().getHotDeploymentName(),
             UUID.randomUUID().toString());
         return fileInApplicationDirectory(zipFileName, project);
     }
-    
+
     private IPath calculateApplicationZipName(MuleIdeProject project)
     {
         String zipFileName = project.getPreferences().getHotDeploymentName() + ".zip";
         return fileInApplicationDirectory(zipFileName, project);
     }
-    
+
     private IPath fileInApplicationDirectory(String fileName, MuleIdeProject project)
     {
         IMuleRuntime runtime = project.getMuleRuntime();

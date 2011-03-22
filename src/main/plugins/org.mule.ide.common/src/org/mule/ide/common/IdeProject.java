@@ -18,6 +18,7 @@ import java.util.Set;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.core.resources.ICommand;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
@@ -375,5 +376,32 @@ public class IdeProject
         newBuildSpec = updatedBuilders.toArray(newBuildSpec);
         projectDescription.setBuildSpec(newBuildSpec);
         project.setDescription(projectDescription, progressMonitor);
+    }
+
+    public boolean hasCompileErrors() throws CoreException
+    {
+        if (javaProject.hasBuildState())
+        {
+            IMarker[] problems = getProblemMarkers();
+            for (IMarker problemMarker : problems)
+            {
+                if (isCompileError(problemMarker))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private IMarker[] getProblemMarkers() throws CoreException
+    {
+        return javaProject.getProject().findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_INFINITE);
+    }
+
+    private boolean isCompileError(IMarker problemMarker)
+    {
+        int result = problemMarker.getAttribute(IMarker.SEVERITY, IMarker.SEVERITY_INFO);
+        return result == IMarker.SEVERITY_ERROR;
     }
 }

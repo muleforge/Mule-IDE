@@ -39,7 +39,7 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
             return null;
         }
 
-        if (project.shouldRunHotDeploymentBuilder())
+        if (project.shouldRunHotDeploymentBuilder() == false)
         {
             return null;
         }

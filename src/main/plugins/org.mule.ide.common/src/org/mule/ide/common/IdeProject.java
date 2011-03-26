@@ -193,6 +193,11 @@ public class IdeProject
         return javaProject.getRawClasspath();
     }
 
+    public IClasspathEntry[] getResolvedClasspath(boolean ignoreUnresolvedEntry) throws JavaModelException
+    {
+        return javaProject.getResolvedClasspath(ignoreUnresolvedEntry);
+    }
+
     public void setRawClasspath(IClasspathEntry[] newClasspath, IProgressMonitor monitor) throws JavaModelException
     {
         javaProject.setRawClasspath(newClasspath, monitor);

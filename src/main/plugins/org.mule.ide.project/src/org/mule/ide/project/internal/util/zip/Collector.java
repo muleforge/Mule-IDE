@@ -11,6 +11,7 @@
 package org.mule.ide.project.internal.util.zip;
 
 import java.io.File;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -30,7 +31,6 @@ import org.mule.ide.project.MuleIdeProject;
 /**
  * Collects all the files for packaging a project into an {@link ApplicationBOM} instance.
  */
-//TODO handle jar files that are referenced from project
 public class Collector
 {
     private MuleIdeProject project;
@@ -205,12 +205,40 @@ public class Collector
 
     private void addJarFiles() throws JavaModelException
     {
+        Set<IClasspathEntry> unresolvedClasspathEntries = new HashSet<IClasspathEntry>();
         for (IClasspathEntry entry : project.getRawClasspath())
         {
             if (entry.getEntryKind() == IClasspathEntry.CPE_LIBRARY)
             {
                 File file = entry.getPath().toFile();
                 billOfMaterial.addToLibraries(file);
+            }
+            else if (entry.getEntryKind() == IClasspathEntry.CPE_VARIABLE)
+            {
+                unresolvedClasspathEntries.add(entry);
+            }
+        }
+
+        resolveAndAdd(unresolvedClasspathEntries);
+    }
+
+    private void resolveAndAdd(Set<IClasspathEntry> unresolvedClasspathEntries) throws JavaModelException
+    {
+        IClasspathEntry[] resolvedClasspath = project.getResolvedClasspath(false);
+
+        for (IClasspathEntry unresolvedEntry : unresolvedClasspathEntries)
+        {
+            IPath pathWithoutVariable = unresolvedEntry.getPath().removeFirstSegments(1);
+            String unresolvedOSPath = pathWithoutVariable.toOSString();
+
+            for (IClasspathEntry resolvedEntry : resolvedClasspath)
+            {
+                String resolvedOSPath = resolvedEntry.getPath().toOSString();
+                if (resolvedOSPath.contains(unresolvedOSPath))
+                {
+                    File file = resolvedEntry.getPath().toFile();
+                    billOfMaterial.addToLibraries(file);
+                }
             }
         }
     }

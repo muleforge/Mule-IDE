@@ -30,6 +30,7 @@ import org.mule.ide.project.MuleIdeProject;
 /**
  * Collects all the files for packaging a project into an {@link ApplicationBOM} instance.
  */
+//TODO handle jar files that are referenced from project
 public class Collector
 {
     private MuleIdeProject project;

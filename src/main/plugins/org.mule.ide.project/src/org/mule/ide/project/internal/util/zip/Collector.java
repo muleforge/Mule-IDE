@@ -8,7 +8,7 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ide.project.internal.util;
+package org.mule.ide.project.internal.util.zip;
 
 import java.io.File;
 import java.util.List;

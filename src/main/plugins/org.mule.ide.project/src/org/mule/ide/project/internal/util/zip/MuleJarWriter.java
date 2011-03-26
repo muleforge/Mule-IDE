@@ -8,7 +8,7 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ide.project.internal.util;
+package org.mule.ide.project.internal.util.zip;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +24,7 @@ import org.eclipse.jdt.ui.jarpackager.JarPackageData;
 import org.eclipse.jdt.ui.jarpackager.JarWriter3;
 import org.eclipse.swt.widgets.Shell;
 import org.mule.ide.project.MuleProjectPlugin;
+import org.mule.ide.project.internal.util.FileResourceInvocationHandler;
 
 /**
  * <p>

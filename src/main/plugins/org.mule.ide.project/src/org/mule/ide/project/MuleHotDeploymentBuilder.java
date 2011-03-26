@@ -83,11 +83,6 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
         IPath finalZipFile = calculateApplicationZipName(project);
         new Move(temporaryZipFile, finalZipFile).execute(monitor);
         monitor.done();
-
-        // TODO remove MuleZipPackager
-//        MuleZipPackager packager = new MuleZipPackager(project, null);
-//        packager.exportToFile(temporaryZipFile, monitor);
-//
     }
 
     private IPath calculateTemporaryApplicationZipName(MuleIdeProject project)

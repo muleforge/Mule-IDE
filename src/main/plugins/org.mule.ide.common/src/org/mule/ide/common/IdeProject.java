@@ -183,6 +183,11 @@ public class IdeProject
         return javaProject.getPath();
     }
 
+    public IResource[] members() throws CoreException
+    {
+        return javaProject.getProject().members();
+    }
+
     public IClasspathEntry[] getRawClasspath() throws JavaModelException
     {
         return javaProject.getRawClasspath();

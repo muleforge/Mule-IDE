@@ -19,10 +19,13 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
+import org.mule.ide.project.internal.util.ApplicationBOM;
+import org.mule.ide.project.internal.util.ApplicationZipper;
+import org.mule.ide.project.internal.util.Collector;
 import org.mule.ide.project.internal.util.Move;
-import org.mule.ide.project.internal.util.MuleZipPackager;
 import org.mule.ide.project.runtime.IMuleRuntime;
 
 public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
@@ -75,12 +78,44 @@ public class MuleHotDeploymentBuilder extends IncrementalProjectBuilder
         // export the zip using a temporary file to avoid Mule picking it up while the zip
         // is being packed
         IPath temporaryZipFile = calculateTemporaryApplicationZipName(project);
-        MuleZipPackager packager = new MuleZipPackager(project, null);
-        packager.exportToFile(temporaryZipFile, monitor);
+
+        ApplicationBOM bom = collectFilesToExport(project, monitor);
+        bom.setOutputPath(temporaryZipFile);
+
+        writeZipFile(monitor, bom);
 
         // move the file onto its final name. This should be an atomic operation.
+        monitor.beginTask("Activating Mule application zip", 1);
         IPath finalZipFile = calculateApplicationZipName(project);
         new Move(temporaryZipFile, finalZipFile).execute(monitor);
+        monitor.done();
+
+        // TODO remove MuleZipPackager
+//        MuleZipPackager packager = new MuleZipPackager(project, null);
+//        packager.exportToFile(temporaryZipFile, monitor);
+//
+    }
+
+    private ApplicationBOM collectFilesToExport(MuleIdeProject project, IProgressMonitor monitor) throws CoreException
+    {
+        SubProgressMonitor collectMonitor = new SubProgressMonitor(monitor, 1);
+        collectMonitor.beginTask("Collecting files for Mule application zip", 1);
+
+        ApplicationBOM appStructure = new Collector(project).collect();
+
+        collectMonitor.done();
+        return appStructure;
+    }
+
+    private void writeZipFile(IProgressMonitor monitor, ApplicationBOM bom) throws CoreException
+    {
+        int fileCount = bom.fileCount();
+        SubProgressMonitor zipMonitor = new SubProgressMonitor(monitor, fileCount);
+        zipMonitor.beginTask("Writing Mule application zip", fileCount);
+
+        new ApplicationZipper(bom, zipMonitor).writeZipFile();
+
+        zipMonitor.done();
     }
 
     private IPath calculateTemporaryApplicationZipName(MuleIdeProject project)
